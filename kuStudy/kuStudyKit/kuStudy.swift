@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import KeychainAccess
 
 public class kuStudy {
     // MARK: Initialization
@@ -15,7 +16,33 @@ public class kuStudy {
     }
     
     // MARK: Authentification
-    // TODO: Use Keychain instead of memory
-    var authId: String?
-    var authPassword: String?
+    var authId: String {
+        get {
+            let keychain = Keychain(service: kuStudyKeychainService, accessGroup: kuStudyKeychainAccessGroup)
+            if let id = keychain.getString(kuStudyKeychainIdKey) {
+                return id
+            } else {
+                return ""
+            }
+        }
+        set {
+            let keychain = Keychain(service: kuStudyKeychainService, accessGroup: kuStudyKeychainAccessGroup)
+            keychain[kuStudyKeychainIdKey] = newValue
+        }
+    }
+    
+    var authPassword: String {
+        get {
+            let keychain = Keychain(service: kuStudyKeychainService, accessGroup: kuStudyKeychainAccessGroup)
+            if let password = keychain.getString(kuStudyKeychainPasswordKey) {
+                return password
+            } else {
+                return ""
+            }
+        }
+        set {
+            let keychain = Keychain(service: kuStudyKeychainService, accessGroup: kuStudyKeychainAccessGroup)
+            keychain[kuStudyKeychainPasswordKey] = newValue
+        }
+    }
 }
