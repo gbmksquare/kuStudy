@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import kuStudyKit
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let study = kuStudy()
+        study.setAuthentification("kustudy", password: "leid*Eat.Oc:koR.I^Ho")
+        study.requestSummary { (json, error) -> Void in
+            println(json)
+        }
     }
 
     override func didReceiveMemoryWarning() {
