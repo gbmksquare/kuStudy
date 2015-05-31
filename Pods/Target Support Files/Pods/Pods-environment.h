@@ -12,6 +12,12 @@
 #define COCOAPODS_VERSION_MINOR_Alamofire 2
 #define COCOAPODS_VERSION_PATCH_Alamofire 2
 
+// KeychainAccess
+#define COCOAPODS_POD_AVAILABLE_KeychainAccess
+#define COCOAPODS_VERSION_MAJOR_KeychainAccess 1
+#define COCOAPODS_VERSION_MINOR_KeychainAccess 2
+#define COCOAPODS_VERSION_PATCH_KeychainAccess 0
+
 // Realm
 #define COCOAPODS_POD_AVAILABLE_Realm
 #define COCOAPODS_VERSION_MAJOR_Realm 0
