@@ -47,10 +47,21 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
                     let library = Library(id: id, total: total, available: available)
                     self.libraries.append(library)
                 }
-                
                 self.tableView.reloadData()
             } else {
                 // TODO: Handle error
+            }
+        }
+    }
+    
+    // MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "librarySegue":
+                let destinationViewController = segue.destinationViewController as! LibraryViewController
+                destinationViewController.libraryId = tableView.indexPathForSelectedRow()!.row + 1
+            default: break
             }
         }
     }

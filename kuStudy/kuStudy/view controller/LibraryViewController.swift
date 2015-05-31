@@ -1,0 +1,72 @@
+//
+//  LibraryViewController.swift
+//  kuStudy
+//
+//  Created by 구범모 on 2015. 5. 31..
+//  Copyright (c) 2015년 gbmKSquare. All rights reserved.
+//
+
+import UIKit
+import kuStudyKit
+import SwiftyJSON
+
+class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet var tableView: UITableView!
+    
+    // MARK: Model
+    var libraryId: Int!
+    var summary: Summary?
+    var readingRooms = [ReadingRoom]()
+    
+    // MARK: View
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        refreshData()
+    }
+    
+    // MARK: Action
+    private func refreshData() {
+        kuStudy().requestLibrary(libraryId, handler: { (json, error) -> Void in
+            if let json = json {
+                let total = json["content"]["total"].intValue
+                let available = json["content"]["available"].intValue
+                self.summary = Summary(total: total, available: available)
+                
+                let readingRooms = json["content"]["rooms"].arrayValue
+                for readingRoom in readingRooms {
+                    let id = readingRoom["id"].intValue
+                    let total = readingRoom["total"].intValue
+                    let available = readingRoom["available"].intValue
+                    let readingRoom = ReadingRoom(id: id, total: total, available: available)
+                    self.readingRooms.append(readingRoom)
+                }
+                self.tableView.reloadData()
+            } else {
+                // TODO: Handle error
+            }
+        })
+    }
+
+    // MARK: Table view
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return readingRooms.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("readingRoomCell", forIndexPath: indexPath) as! ReadingRoomTableViewCell
+        let readingRoom = readingRooms[indexPath.row]
+        
+        // !!! Use MVVM (View model)
+        cell.nameLabel.text = "\(readingRoom.id)"
+        cell.totalLabel.text = "\(readingRoom.total)"
+        cell.availableLabel.text = "\(readingRoom.available)"
+        cell.usedPercentage.progress = Float(readingRoom.total - readingRoom.available) / Float(readingRoom.total)
+        
+        return cell
+    }
+}
