@@ -7,8 +7,8 @@
 //
 
 // MARK: Keychain
-let kuStudyKeychainService = "com.gbmksquare.kuApps.kuStudy"
-let kuStudyKeychainAccessGroup = "com.gbmksquare.kuApps.kuStudy"
+let kuStudyKeychainService = "com.gbmksquare.kuapps.kuStudy"
+let kuStudyKeychainAccessGroup = "com.gbmksquare.kuapps.kuStudy"
 
 let kuStudyKeychainIdKey = "kuStudyKeychainIdKey"
 let kuStudyKeychainPasswordKey = "kuStudyKeychainPasswordKey"
