@@ -4,4 +4,7 @@
    <FileRef
       location = "group:kuStudy/kuStudy.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
 </Workspace>
