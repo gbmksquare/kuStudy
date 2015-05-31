@@ -25,6 +25,7 @@
 		1672461A1B1B13610083035F /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1672461B1B1B13610083035F /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672461E1B1B44850083035F /* SummaryViewController.swift */; };
+		167246211B1B45C40083035F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246201B1B45C40083035F /* Model.swift */; };
 		7225A4021BE49FA40A38444C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D364CC67EEFEA8FF56BF7252 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -98,6 +99,7 @@
 		167246191B1B13610083035F /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		1672461C1B1B138B0083035F /* kuStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = kuStudy.entitlements; sourceTree = "<group>"; };
 		1672461E1B1B44850083035F /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryViewController.swift; path = "view controller/SummaryViewController.swift"; sourceTree = "<group>"; };
+		167246201B1B45C40083035F /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		576C8A2E7A4B1ADEEEB82330 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF2ACCF4EB222A033994B4C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D6A1D2BE9AFB6C1F599240B7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				167246171B1AB4370083035F /* Authentication.swift */,
 				167246131B1AB1D80083035F /* Request.swift */,
 				167246151B1AB1DF0083035F /* Database.swift */,
+				167246201B1B45C40083035F /* Model.swift */,
 			);
 			path = kuStudyKit;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				167246121B1AB1C70083035F /* kuStudyAPI.swift in Sources */,
+				167246211B1B45C40083035F /* Model.swift in Sources */,
 				167246141B1AB1D80083035F /* Request.swift in Sources */,
 				167246161B1AB1DF0083035F /* Database.swift in Sources */,
 				167246181B1AB4370083035F /* Authentication.swift in Sources */,
