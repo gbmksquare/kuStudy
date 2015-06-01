@@ -19,9 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func handleFirstRun() {
         let defaults = NSUserDefaults.standardUserDefaults()
         if defaults.boolForKey("isFirstRun") == true {
-            // TODO: Should also run when database is missing, not just first run
-            fetchLibraryInfoKey()
-            
             defaults.setBool(false, forKey: "isFirstRun")
         }
     }
@@ -31,40 +28,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         studyKit.setAuthentification(kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
     }
     
-    private func fetchLibraryInfoKey() {
-        kuStudy().requestInfo { (json, error) -> Void in
-            if let json = json {
-                let libraries = json["content"]["libraries"].arrayValue
-                let readingRooms = json["content"]["readingRooms"].arrayValue
-                
-                var libraryInfoRecords = [LibraryInfoRecord]()
-                for library in libraries {
-                    let record = LibraryInfoRecord()
-                    record.id = library["id"].intValue
-                    record.key = library["key"].stringValue
-                    libraryInfoRecords.append(record)
-                }
-                for readingRoom in readingRooms {
-                    let record = LibraryInfoRecord()
-                    record.id = readingRoom["id"].intValue
-                    record.key = readingRoom["key"].stringValue
-                    libraryInfoRecords.append(record)
-                }
-                let infoRealm = kuStudy.infoRealm()
-                for record in libraryInfoRecords {
-                    infoRealm.write({ () -> Void in
-                        infoRealm.add(record, update: true)
-                    })
-                }
-            } else {
-                // TODO: Handle error
-            }
-        }
-    }
-    
     // MARK: Application
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         setupKuStudy()
+        kuStudy().requestInfoIfNeeded { (error) -> Void in
+            // TODO: Handle error
+        }
         handleFirstRun()
         return true
     }

@@ -14,6 +14,41 @@ public typealias CompletionHandler = (json: JSON?, error: NSError?) -> Void
 
 public extension kuStudy {
     // MARK: Request
+    public func requestInfoIfNeeded(errorHandler: (error: NSError?) -> Void) {
+        let infoRealm = kuStudy.infoRealm()
+        let results = infoRealm.objects(LibraryInfoRecord.self)
+        if results.count == 0 {
+            kuStudy().requestInfo { (json, error) -> Void in
+                if let json = json {
+                    let libraries = json["content"]["libraries"].arrayValue
+                    let readingRooms = json["content"]["readingRooms"].arrayValue
+                    
+                    var libraryInfoRecords = [LibraryInfoRecord]()
+                    for library in libraries {
+                        let record = LibraryInfoRecord()
+                        record.id = library["id"].intValue
+                        record.key = library["key"].stringValue
+                        libraryInfoRecords.append(record)
+                    }
+                    for readingRoom in readingRooms {
+                        let record = LibraryInfoRecord()
+                        record.id = readingRoom["id"].intValue
+                        record.key = readingRoom["key"].stringValue
+                        libraryInfoRecords.append(record)
+                    }
+                    let infoRealm = kuStudy.infoRealm()
+                    for record in libraryInfoRecords {
+                        infoRealm.write({ () -> Void in
+                            infoRealm.add(record, update: true)
+                        })
+                    }
+                } else {
+                    errorHandler(error: error)
+                }
+            }
+        }
+    }
+    
     public func requestInfo(handler: CompletionHandler) {
         Alamofire.request(.GET, kuStudyAPI.Info.url)
         .authenticate(user: authId, password: authPassword)
