@@ -35,7 +35,17 @@ class InterfaceController: WKInterfaceController {
             row.availableLabel.setText(libraryViewModel.availableString)
         }
     }
+    
+    // MARK: Segue
+    override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
+        switch segueIdentifier {
+        case "libraryDetail":
+            return [libraries[rowIndex].id]
+        default: return nil
+        }
+    }
 
+    // MARK: Watch
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         

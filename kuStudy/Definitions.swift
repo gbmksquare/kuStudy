@@ -29,3 +29,5 @@ var sharedContainerPath: String {
 // MARK: WatchKit
 let kuStudyWatchKitRequestKey = "request"
 let kuStudyWatchKitRequestSummary = "summary"
+let kuStudyWatchKitRequestLibrary = "library"
+let kuStudyWatchKitRequestLibraryKey = "libraryId"

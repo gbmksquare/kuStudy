@@ -28,6 +28,9 @@
                                                     <label alignment="left" verticalAlignment="center" text="Name" id="FLs-Gp-cEJ"/>
                                                     <label alignment="right" verticalAlignment="center" text="0" textAlignment="right" id="u50-3w-KHr"/>
                                                 </items>
+                                                <connections>
+                                                    <segue destination="WY2-1B-zUr" kind="push" identifier="libraryDetail" id="WIb-Ll-SYI"/>
+                                                </connections>
                                             </group>
                                             <connections>
                                                 <outlet property="availableLabel" destination="u50-3w-KHr" id="4jn-yU-MEe"/>
@@ -47,6 +50,35 @@
             </objects>
             <point key="canvasLocation" x="164" y="217"/>
         </scene>
+        <!--Detail Interface Controller-->
+        <scene sceneID="zlx-5G-dTu">
+            <objects>
+                <controller id="WY2-1B-zUr" customClass="DetailInterfaceController" customModule="kuStudy_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="7LR-y1-OMf">
+                            <items>
+                                <tableRow identifier="readingRoomCell" id="QIR-hO-ScT" customClass="LibraryCell" customModule="kuStudy_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="jYC-Fw-Hr9">
+                                        <items>
+                                            <label alignment="left" verticalAlignment="center" text="Name" id="n5b-nN-uYa"/>
+                                            <label alignment="right" verticalAlignment="center" text="0" textAlignment="right" id="Jno-dY-239"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="availableLabel" destination="Jno-dY-239" id="ILC-pF-efV"/>
+                                        <outlet property="nameLabel" destination="n5b-nN-uYa" id="FeM-OB-D4k"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="7LR-y1-OMf" id="pEX-Y2-6wf"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="375" y="212"/>
+        </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
             <objects>
@@ -58,7 +90,7 @@
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                 </glanceController>
             </objects>
-            <point key="canvasLocation" x="445" y="217"/>
+            <point key="canvasLocation" x="164" y="-12"/>
         </scene>
     </scenes>
 </document>

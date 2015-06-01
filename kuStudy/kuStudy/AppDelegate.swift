@@ -73,6 +73,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         // TODO: Handle error
                     }
                 }
+            case kuStudyWatchKitRequestLibrary:
+                let studyKit = kuStudy()
+                studyKit.requestLibrary(userInfo[kuStudyWatchKitRequestLibraryKey] as! Int, handler: { (json, error) -> Void in
+                    if let json = json {
+                        reply([kuStudyWatchKitRequestLibrary: json.dictionaryObject!])
+                    } else {
+                        // TODO: Handle error
+                    }
+                })
             default: break
             }
         }
