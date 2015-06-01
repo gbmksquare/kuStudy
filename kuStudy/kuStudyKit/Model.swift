@@ -18,19 +18,9 @@ public class Summary {
     }
 }
 
-public class Library {
-    public var id: Int
-    public var total: Int
-    public var available: Int
-    
-    public init(id: Int, total: Int, available: Int) {
-        self.id = id
-        self.total = total
-        self.available = available
-    }
-}
+public typealias ReadingRoom = Library
 
-public class ReadingRoom {
+public class Library {
     public var id: Int
     public var total: Int
     public var available: Int
