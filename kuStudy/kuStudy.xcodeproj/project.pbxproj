@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16136BD81B1C3F0700B3F744 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BD71B1C3F0700B3F744 /* InterfaceController.swift */; };
+		16136BDA1B1C3F0700B3F744 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BD91B1C3F0700B3F744 /* GlanceController.swift */; };
+		16136BDC1B1C3F0700B3F744 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16136BDB1B1C3F0700B3F744 /* Images.xcassets */; };
+		16136BE01B1C3F0700B3F744 /* kuStudy WatchKit App.app in Resources */ = {isa = PBXBuildFile; fileRef = 16136BDF1B1C3F0700B3F744 /* kuStudy WatchKit App.app */; };
+		16136BE81B1C3F0800B3F744 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16136BE61B1C3F0700B3F744 /* Interface.storyboard */; };
+		16136BEA1B1C3F0800B3F744 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16136BE91B1C3F0800B3F744 /* Images.xcassets */; };
+		16136BED1B1C3F0800B3F744 /* kuStudy WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		167245C51B19C0370083035F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167245C41B19C0370083035F /* AppDelegate.swift */; };
 		167245CA1B19C0370083035F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167245C81B19C0370083035F /* Main.storyboard */; };
 		167245CC1B19C0370083035F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167245CB1B19C0370083035F /* Images.xcassets */; };
@@ -35,6 +42,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		16136BE11B1C3F0700B3F744 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 167245B71B19C0370083035F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16136BDE1B1C3F0700B3F744;
+			remoteInfo = "kuStudy WatchKit App";
+		};
+		16136BEB1B1C3F0800B3F744 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 167245B71B19C0370083035F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16136BD21B1C3F0700B3F744;
+			remoteInfo = "kuStudy WatchKit Extension";
+		};
 		167245D51B19C0370083035F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 167245B71B19C0370083035F /* Project object */;
@@ -66,6 +87,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		16136BF41B1C3F0800B3F744 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				16136BED1B1C3F0800B3F744 /* kuStudy WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		167246081B19C42C0083035F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -80,6 +112,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "kuStudy WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16136BD61B1C3F0700B3F744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16136BD71B1C3F0700B3F744 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		16136BD91B1C3F0700B3F744 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		16136BDB1B1C3F0700B3F744 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		16136BDF1B1C3F0700B3F744 /* kuStudy WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kuStudy WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16136BE51B1C3F0700B3F744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16136BE71B1C3F0700B3F744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		16136BE91B1C3F0800B3F744 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		16136BF51B1C406800B3F744 /* kuStudy WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		167245BF1B19C0370083035F /* kuStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kuStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		167245C31B19C0370083035F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		167245C41B19C0370083035F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +156,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		16136BD01B1C3F0700B3F744 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		167245BC1B19C0370083035F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -149,12 +198,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16136BD41B1C3F0700B3F744 /* kuStudy WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				16136BF51B1C406800B3F744 /* kuStudy WatchKit Extension.entitlements */,
+				16136BD71B1C3F0700B3F744 /* InterfaceController.swift */,
+				16136BD91B1C3F0700B3F744 /* GlanceController.swift */,
+				16136BDB1B1C3F0700B3F744 /* Images.xcassets */,
+				16136BD51B1C3F0700B3F744 /* Supporting Files */,
+			);
+			path = "kuStudy WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		16136BD51B1C3F0700B3F744 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16136BD61B1C3F0700B3F744 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		16136BE31B1C3F0700B3F744 /* kuStudy WatchKit App */ = {
+			isa = PBXGroup;
+			children = (
+				16136BE61B1C3F0700B3F744 /* Interface.storyboard */,
+				16136BE91B1C3F0800B3F744 /* Images.xcassets */,
+				16136BE41B1C3F0700B3F744 /* Supporting Files */,
+			);
+			path = "kuStudy WatchKit App";
+			sourceTree = "<group>";
+		};
+		16136BE41B1C3F0700B3F744 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16136BE51B1C3F0700B3F744 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		167245B61B19C0370083035F = {
 			isa = PBXGroup;
 			children = (
 				167246191B1B13610083035F /* Definitions.swift */,
 				167245C11B19C0370083035F /* kuStudy */,
 				167245ED1B19C42B0083035F /* kuStudyKit */,
+				16136BD41B1C3F0700B3F744 /* kuStudy WatchKit Extension */,
+				16136BE31B1C3F0700B3F744 /* kuStudy WatchKit App */,
 				167245D71B19C0370083035F /* kuStudyTests */,
 				167245FC1B19C42B0083035F /* kuStudyKitTests */,
 				167245C01B19C0370083035F /* Products */,
@@ -170,6 +259,8 @@
 				167245D41B19C0370083035F /* kuStudyTests.xctest */,
 				167245EC1B19C42B0083035F /* kuStudyKit.framework */,
 				167245F61B19C42B0083035F /* kuStudyKitTests.xctest */,
+				16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */,
+				16136BDF1B1C3F0700B3F744 /* kuStudy WatchKit App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -328,6 +419,39 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		16136BD21B1C3F0700B3F744 /* kuStudy WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16136BF31B1C3F0800B3F744 /* Build configuration list for PBXNativeTarget "kuStudy WatchKit Extension" */;
+			buildPhases = (
+				16136BCF1B1C3F0700B3F744 /* Sources */,
+				16136BD01B1C3F0700B3F744 /* Frameworks */,
+				16136BD11B1C3F0700B3F744 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16136BE21B1C3F0700B3F744 /* PBXTargetDependency */,
+			);
+			name = "kuStudy WatchKit Extension";
+			productName = "kuStudy WatchKit Extension";
+			productReference = 16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit-extension";
+		};
+		16136BDE1B1C3F0700B3F744 /* kuStudy WatchKit App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16136BF21B1C3F0800B3F744 /* Build configuration list for PBXNativeTarget "kuStudy WatchKit App" */;
+			buildPhases = (
+				16136BDD1B1C3F0700B3F744 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "kuStudy WatchKit App";
+			productName = "kuStudy WatchKit App";
+			productReference = 16136BDF1B1C3F0700B3F744 /* kuStudy WatchKit App.app */;
+			productType = "com.apple.product-type.application.watchapp";
+		};
 		167245BE1B19C0370083035F /* kuStudy */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 167245DE1B19C0370083035F /* Build configuration list for PBXNativeTarget "kuStudy" */;
@@ -339,11 +463,13 @@
 				167246081B19C42C0083035F /* Embed Frameworks */,
 				D524F00B165DB3D3C3975AB0 /* Embed Pods Frameworks */,
 				D0FEF566EF60B5D8B079A2D1 /* Copy Pods Resources */,
+				16136BF41B1C3F0800B3F744 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				167246021B19C42B0083035F /* PBXTargetDependency */,
+				16136BEC1B1C3F0800B3F744 /* PBXTargetDependency */,
 			);
 			name = kuStudy;
 			productName = kuStudy;
@@ -416,6 +542,21 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = gbmKSquare;
 				TargetAttributes = {
+					16136BD21B1C3F0700B3F744 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 3ZTVE7CS5L;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
+					16136BDE1B1C3F0700B3F744 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
 					167245BE1B19C0370083035F = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 3ZTVE7CS5L;
@@ -457,6 +598,8 @@
 			targets = (
 				167245BE1B19C0370083035F /* kuStudy */,
 				167245EB1B19C42B0083035F /* kuStudyKit */,
+				16136BD21B1C3F0700B3F744 /* kuStudy WatchKit Extension */,
+				16136BDE1B1C3F0700B3F744 /* kuStudy WatchKit App */,
 				167245D31B19C0370083035F /* kuStudyTests */,
 				167245F51B19C42B0083035F /* kuStudyKitTests */,
 			);
@@ -464,6 +607,24 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		16136BD11B1C3F0700B3F744 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16136BE01B1C3F0700B3F744 /* kuStudy WatchKit App.app in Resources */,
+				16136BDC1B1C3F0700B3F744 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16136BDD1B1C3F0700B3F744 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16136BE81B1C3F0800B3F744 /* Interface.storyboard in Resources */,
+				16136BEA1B1C3F0800B3F744 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		167245BD1B19C0370083035F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -576,6 +737,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		16136BCF1B1C3F0700B3F744 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16136BD81B1C3F0700B3F744 /* InterfaceController.swift in Sources */,
+				16136BDA1B1C3F0700B3F744 /* GlanceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		167245BB1B19C0370083035F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -623,6 +793,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		16136BE21B1C3F0700B3F744 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16136BDE1B1C3F0700B3F744 /* kuStudy WatchKit App */;
+			targetProxy = 16136BE11B1C3F0700B3F744 /* PBXContainerItemProxy */;
+		};
+		16136BEC1B1C3F0800B3F744 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16136BD21B1C3F0700B3F744 /* kuStudy WatchKit Extension */;
+			targetProxy = 16136BEB1B1C3F0800B3F744 /* PBXContainerItemProxy */;
+		};
 		167245D61B19C0370083035F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 167245BE1B19C0370083035F /* kuStudy */;
@@ -646,6 +826,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		16136BE61B1C3F0700B3F744 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16136BE71B1C3F0700B3F744 /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		167245C81B19C0370083035F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -665,6 +853,75 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		16136BEE1B1C3F0800B3F744 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "kuStudy WatchKit Extension/kuStudy WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "kuStudy WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		16136BEF1B1C3F0800B3F744 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "kuStudy WatchKit Extension/kuStudy WatchKit Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "kuStudy WatchKit Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		16136BF01B1C3F0800B3F744 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IBSC_MODULE = kuStudy_WatchKit_Extension;
+				INFOPLIST_FILE = "kuStudy WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "4515cc29-5557-46e4-b5db-b82f28e320d0";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Debug;
+		};
+		16136BF11B1C3F0800B3F744 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
+				IBSC_MODULE = kuStudy_WatchKit_Extension;
+				INFOPLIST_FILE = "kuStudy WatchKit App/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "5b287ee0-e285-4143-ae95-e221f1d93e79";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				"TARGETED_DEVICE_FAMILY[sdk=iphonesimulator*]" = "1,4";
+			};
+			name = Release;
+		};
 		167245DC1B19C0370083035F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -752,13 +1009,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kuStudy/kuStudy.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = kuStudy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "26700617-87d6-4b76-b049-40d7d831561a";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -768,13 +1025,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kuStudy/kuStudy.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = kuStudy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a391b209-2953-45ed-bfec-6ef576e88d7f";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -896,6 +1153,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		16136BF21B1C3F0800B3F744 /* Build configuration list for PBXNativeTarget "kuStudy WatchKit App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16136BF01B1C3F0800B3F744 /* Debug */,
+				16136BF11B1C3F0800B3F744 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		16136BF31B1C3F0800B3F744 /* Build configuration list for PBXNativeTarget "kuStudy WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16136BEE1B1C3F0800B3F744 /* Debug */,
+				16136BEF1B1C3F0800B3F744 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		167245BA1B19C0370083035F /* Build configuration list for PBXProject "kuStudy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
