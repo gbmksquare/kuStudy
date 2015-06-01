@@ -16,6 +16,7 @@ enum kuStudyAPI: API {
     // TODO: Use HTTPS instead of HTTP
     var baseUrl: String { return "http://api.gbmksquare.com/kuapps/kustudy/v1" }
     
+    case Info
     case Summary
     case Library(id: Int)
     case ReadingRoom(id: Int)
@@ -24,6 +25,7 @@ enum kuStudyAPI: API {
 extension kuStudyAPI {
     var url: String {
         switch self {
+        case .Info: return baseUrl + "/info"
         case .Summary: return baseUrl + "/summary"
         case .Library(let id): return baseUrl + "/library/\(id)"
         case .ReadingRoom(let id): return baseUrl + "/readingroom/\(id)"

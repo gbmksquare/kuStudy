@@ -6,6 +6,8 @@
 //  Copyright (c) 2015년 gbmKSquare. All rights reserved.
 //
 
+import Foundation
+
 // MARK: Authentification
 let kuStudyAPIAccessId = "kustudy"
 let kuStudyAPIAccessPassword = "leid*Eat.Oc:koR.I^Ho"
@@ -16,3 +18,10 @@ let kuStudyKeychainAccessGroup = "3ZTVE7CS5L.com.gbmksquare.kuapps.kuStudy"
 
 let kuStudyKeychainIdKey = "kuStudyKeychainIdKey"
 let kuStudyKeychainPasswordKey = "kuStudyKeychainPasswordKey"
+
+// MARK: Shared container
+let kuStudySharedContainer = "group.com.gbmksquare.kuapps.kuStudy"
+
+var sharedContainerPath: String {
+    return NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(kuStudySharedContainer)!.path!
+}

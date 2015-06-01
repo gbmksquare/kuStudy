@@ -7,15 +7,59 @@
 //
 
 import UIKit
+import kuStudyKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    // MARK: Action
+    private func handleFirstRun() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.boolForKey("isFirstRun") == true {
+            // TODO: Should also run when database is missing, not just first run
+            fetchLibraryInfoKey()
+            
+            defaults.setBool(false, forKey: "isFirstRun")
+        }
+    }
+    
+    private func fetchLibraryInfoKey() {
+        kuStudy().requestInfo { (json, error) -> Void in
+            if let json = json {
+                let libraries = json["content"]["libraries"].arrayValue
+                let readingRooms = json["content"]["readingRooms"].arrayValue
+                
+                var libraryInfoRecords = [LibraryInfoRecord]()
+                for library in libraries {
+                    let record = LibraryInfoRecord()
+                    record.id = library["id"].intValue
+                    record.key = library["key"].stringValue
+                    libraryInfoRecords.append(record)
+                }
+                for readingRoom in readingRooms {
+                    let record = LibraryInfoRecord()
+                    record.id = readingRoom["id"].intValue
+                    record.key = readingRoom["key"].stringValue
+                    libraryInfoRecords.append(record)
+                }
+                let infoRealm = kuStudy.infoRealm()
+                for record in libraryInfoRecords {
+                    infoRealm.write({ () -> Void in
+                        infoRealm.add(record, update: true)
+                    })
+                }
+            } else {
+                // TODO: Handle error
+            }
+        }
+    }
+    
+    // MARK: Application
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        handleFirstRun()
         return true
     }
 

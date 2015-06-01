@@ -13,16 +13,20 @@ import SwiftyJSON
 public typealias CompletionHandler = (json: JSON?, error: NSError?) -> Void
 
 public extension kuStudy {
+    // MARK: Request
+    public func requestInfo(handler: CompletionHandler) {
+        Alamofire.request(.GET, kuStudyAPI.Info.url)
+        .authenticate(user: authId, password: authPassword)
+        .responseJSON(options: .AllowFragments) { (_, _, responseObject, error) -> Void in
+            self.handleResponseObject(responseObject, error: error, handler: handler)
+        }
+    }
+    
     public func requestSummary(handler: CompletionHandler) {
         Alamofire.request(.GET, kuStudyAPI.Summary.url)
         .authenticate(user: authId, password: authPassword)
         .responseJSON(options: .AllowFragments) { (_, _, responseObject, error) -> Void in
-            if let responseObject = responseObject as? [String: AnyObject] {
-                let json = JSON(responseObject)
-                handler(json: json, error: error)
-            } else {
-                handler(json: nil, error: error)
-            }
+            self.handleResponseObject(responseObject, error: error, handler: handler)
         }
     }
     
@@ -30,12 +34,7 @@ public extension kuStudy {
         Alamofire.request(.GET, kuStudyAPI.Library(id: id).url)
         .authenticate(user: authId, password: authPassword)
         .responseJSON(options: .AllowFragments) { (_, _, responseObject, error) -> Void in
-            if let responseObject = responseObject as? [String: AnyObject] {
-                let json = JSON(responseObject)
-                handler(json: json, error: error)
-            } else {
-                handler(json: nil, error: error)
-            }
+            self.handleResponseObject(responseObject, error: error, handler: handler)
         }
     }
     
@@ -43,12 +42,17 @@ public extension kuStudy {
         Alamofire.request(.GET, kuStudyAPI.ReadingRoom(id: id).url)
         .authenticate(user: authId, password: authPassword)
         .responseJSON(options: .AllowFragments) { (_, _, responseObject, error) -> Void in
-            if let responseObject = responseObject as? [String: AnyObject] {
-                let json = JSON(responseObject)
-                handler(json: json, error: error)
-            } else {
-                handler(json: nil, error: error)
-            }
+            self.handleResponseObject(responseObject, error: error, handler: handler)
+        }
+    }
+    
+    // MARK: Helper
+    private func handleResponseObject(responseObject: AnyObject?, error: NSError?, handler: CompletionHandler) {
+        if let responseObject = responseObject as? [String: AnyObject] {
+            let json = JSON(responseObject)
+            handler(json: json, error: error)
+        } else {
+            handler(json: nil, error: error)
         }
     }
 }
