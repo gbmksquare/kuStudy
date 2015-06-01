@@ -14,6 +14,9 @@
 		16136BE81B1C3F0800B3F744 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16136BE61B1C3F0700B3F744 /* Interface.storyboard */; };
 		16136BEA1B1C3F0800B3F744 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16136BE91B1C3F0800B3F744 /* Images.xcassets */; };
 		16136BED1B1C3F0800B3F744 /* kuStudy WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		16136BFC1B1C44BA00B3F744 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
+		16136C001B1C451100B3F744 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BFF1B1C451100B3F744 /* LibraryCell.swift */; };
+		16136C011B1C459300B3F744 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672462A1B1BEA6A0083035F /* LibraryViewModel.swift */; };
 		167245C51B19C0370083035F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167245C41B19C0370083035F /* AppDelegate.swift */; };
 		167245CA1B19C0370083035F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167245C81B19C0370083035F /* Main.storyboard */; };
 		167245CC1B19C0370083035F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167245CB1B19C0370083035F /* Images.xcassets */; };
@@ -123,6 +126,7 @@
 		16136BE71B1C3F0700B3F744 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		16136BE91B1C3F0800B3F744 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		16136BF51B1C406800B3F744 /* kuStudy WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		16136BFF1B1C451100B3F744 /* LibraryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		167245BF1B19C0370083035F /* kuStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kuStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		167245C31B19C0370083035F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		167245C41B19C0370083035F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -203,39 +207,72 @@
 		16136BD41B1C3F0700B3F744 /* kuStudy WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				16136BF51B1C406800B3F744 /* kuStudy WatchKit Extension.entitlements */,
-				16136BD71B1C3F0700B3F744 /* InterfaceController.swift */,
-				16136BD91B1C3F0700B3F744 /* GlanceController.swift */,
-				16136BDB1B1C3F0700B3F744 /* Images.xcassets */,
-				16136BD51B1C3F0700B3F744 /* Supporting Files */,
+				16136BF61B1C43DA00B3F744 /* Extension */,
+				16136BFD1B1C44EF00B3F744 /* Interface */,
+				16136BFE1B1C44F400B3F744 /* Glance */,
+				16136BF71B1C43E400B3F744 /* Resource */,
 			);
 			path = "kuStudy WatchKit Extension";
-			sourceTree = "<group>";
-		};
-		16136BD51B1C3F0700B3F744 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				16136BD61B1C3F0700B3F744 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		16136BE31B1C3F0700B3F744 /* kuStudy WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
+				16136BF91B1C43FD00B3F744 /* Application */,
 				16136BE61B1C3F0700B3F744 /* Interface.storyboard */,
-				16136BE91B1C3F0800B3F744 /* Images.xcassets */,
-				16136BE41B1C3F0700B3F744 /* Supporting Files */,
+				16136BFA1B1C440B00B3F744 /* Resource */,
 			);
 			path = "kuStudy WatchKit App";
 			sourceTree = "<group>";
 		};
-		16136BE41B1C3F0700B3F744 /* Supporting Files */ = {
+		16136BF61B1C43DA00B3F744 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				16136BD61B1C3F0700B3F744 /* Info.plist */,
+				16136BF51B1C406800B3F744 /* kuStudy WatchKit Extension.entitlements */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		16136BF71B1C43E400B3F744 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				16136BDB1B1C3F0700B3F744 /* Images.xcassets */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		16136BF91B1C43FD00B3F744 /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				16136BE51B1C3F0700B3F744 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			name = Application;
+			sourceTree = "<group>";
+		};
+		16136BFA1B1C440B00B3F744 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				16136BE91B1C3F0800B3F744 /* Images.xcassets */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		16136BFD1B1C44EF00B3F744 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				16136BD71B1C3F0700B3F744 /* InterfaceController.swift */,
+				16136BFF1B1C451100B3F744 /* LibraryCell.swift */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		16136BFE1B1C44F400B3F744 /* Glance */ = {
+			isa = PBXGroup;
+			children = (
+				16136BD91B1C3F0700B3F744 /* GlanceController.swift */,
+			);
+			name = Glance;
 			sourceTree = "<group>";
 		};
 		167245B61B19C0370083035F = {
@@ -776,6 +813,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				16136BD81B1C3F0700B3F744 /* InterfaceController.swift in Sources */,
+				16136C001B1C451100B3F744 /* LibraryCell.swift in Sources */,
+				16136BFC1B1C44BA00B3F744 /* Definitions.swift in Sources */,
+				16136C011B1C459300B3F744 /* LibraryViewModel.swift in Sources */,
 				16136BDA1B1C3F0700B3F744 /* GlanceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1109,6 +1149,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D6A1D2BE9AFB6C1F599240B7 /* Pods.debug.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1136,6 +1177,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AEF2ACCF4EB222A033994B4C /* Pods.release.xcconfig */;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;

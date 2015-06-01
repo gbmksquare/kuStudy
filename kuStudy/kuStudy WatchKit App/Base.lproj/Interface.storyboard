@@ -1,21 +1,56 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6221" systemVersion="14A389" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6213"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3734"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="kuStudy_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="1uq-Ql-NPS">
+                            <items>
+                                <group width="1" height="100" alignment="left" id="SNk-Gg-q50">
+                                    <items>
+                                        <label alignment="center" verticalAlignment="center" text="0" textAlignment="center" id="bb8-RG-Tdc"/>
+                                    </items>
+                                </group>
+                                <label alignment="center" text="Updated 00:00" textAlignment="center" id="9wC-sg-xiU">
+                                    <fontDescription key="font" type="system" pointSize="12"/>
+                                </label>
+                                <table alignment="left" id="gkt-im-oUq">
+                                    <items>
+                                        <tableRow identifier="libraryCell" id="KxB-W9-yZ7" customClass="LibraryCell" customModule="kuStudy_WatchKit_Extension">
+                                            <group key="rootItem" width="1" alignment="left" id="uLd-Wf-Pch">
+                                                <items>
+                                                    <label alignment="left" verticalAlignment="center" text="Name" id="FLs-Gp-cEJ"/>
+                                                    <label alignment="right" verticalAlignment="center" text="0" textAlignment="right" id="u50-3w-KHr"/>
+                                                </items>
+                                            </group>
+                                            <connections>
+                                                <outlet property="availableLabel" destination="u50-3w-KHr" id="4jn-yU-MEe"/>
+                                                <outlet property="nameLabel" destination="FLs-Gp-cEJ" id="9aQ-CU-wmc"/>
+                                            </connections>
+                                        </tableRow>
+                                    </items>
+                                </table>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="availableLabel" destination="bb8-RG-Tdc" id="WCf-yJ-7gn"/>
+                        <outlet property="table" destination="gkt-im-oUq" id="rMX-rv-zs6"/>
+                    </connections>
+                </controller>
             </objects>
             <point key="canvasLocation" x="164" y="217"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
             <objects>
-                <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController" customModuleProvider="target">
+                <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="kuStudy_WatchKit_App" customModuleProvider="target">
                     <items>
                         <group alignment="left" id="gv7-I2-MZq"/>
                         <group alignment="left" id="eew-Gs-W6Y"/>
@@ -23,7 +58,7 @@
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                 </glanceController>
             </objects>
-            <point key="canvasLocation" x="164" y="514"/>
+            <point key="canvasLocation" x="445" y="217"/>
         </scene>
     </scenes>
 </document>

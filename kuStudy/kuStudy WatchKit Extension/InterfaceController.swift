@@ -8,14 +8,58 @@
 
 import WatchKit
 import Foundation
-
+import kuStudyKit
+import SwiftyJSON
 
 class InterfaceController: WKInterfaceController {
+    @IBOutlet weak var table: WKInterfaceTable!
+    @IBOutlet weak var availableLabel: WKInterfaceLabel!
+    
+    // MARK: Model
+    var summary: Summary?
+    var libraries = [Library]()
+    
+    // MARK: Table
+    private func refreshData() {
+        if let summary = summary {
+            availableLabel.setText("\(summary.available) left")
+        }
+        
+        // Refresh table
+        table.setNumberOfRows(libraries.count, withRowType: "libraryCell")
+        for index in 0 ..< libraries.count {
+            let library = libraries[index]
+            let libraryViewModel = LibraryViewModel(library: library)
+            let row = table.rowControllerAtIndex(index) as! LibraryCell
+            row.nameLabel.setText(libraryViewModel.name)
+            row.availableLabel.setText(libraryViewModel.availableString)
+        }
+    }
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        // Configure interface objects here.
+        WKInterfaceController.openParentApplication([kuStudyWatchKitRequestKey: kuStudyWatchKitRequestSummary],
+            reply: { (replyInfo, error) -> Void in
+                if let summaryDict = replyInfo[kuStudyWatchKitRequestSummary] as? NSDictionary {
+                    let json = JSON(summaryDict)
+                    let total = json["content"]["total"].intValue
+                    let available = json["content"]["available"].intValue
+                    self.summary = Summary(total: total, available: available)
+
+                    let libraries = json["content"]["libraries"].arrayValue
+                    for library in libraries {
+                        let id = library["id"].intValue
+                        let total = library["total"].intValue
+                        let available = library["available"].intValue
+                        let library = Library(id: id, total: total, available: available)
+                        self.libraries.append(library)
+                    }
+                    self.refreshData()
+                } else {
+                    // TODO: Handle error
+                }
+        })
     }
 
     override func willActivate() {

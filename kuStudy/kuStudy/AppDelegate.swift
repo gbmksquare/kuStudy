@@ -60,6 +60,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    // MARK: WatchKit
+    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+        if let userInfo = userInfo, request = userInfo[kuStudyWatchKitRequestKey] as? String {
+            switch request {
+            case kuStudyWatchKitRequestSummary:
+                let studyKit = kuStudy()
+                studyKit.requestSummary { (json, error) -> Void in
+                    if let json = json {
+                        reply([kuStudyWatchKitRequestSummary: json.dictionaryObject!])
+                    } else {
+                        // TODO: Handle error
+                    }
+                }
+            default: break
+            }
+        }
+    }
 }
 

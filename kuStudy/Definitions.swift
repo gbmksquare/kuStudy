@@ -25,3 +25,7 @@ let kuStudySharedContainer = "group.com.gbmksquare.kuapps.kuStudy"
 var sharedContainerPath: String {
     return NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(kuStudySharedContainer)!.path!
 }
+
+// MARK: WatchKit
+let kuStudyWatchKitRequestKey = "request"
+let kuStudyWatchKitRequestSummary = "summary"
