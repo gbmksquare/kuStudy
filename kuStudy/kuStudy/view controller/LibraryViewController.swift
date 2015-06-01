@@ -47,6 +47,10 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
         })
     }
+    
+    @IBAction func tappedBackButton(sender: UIButton) {
+        navigationController?.popViewControllerAnimated(true)
+    }
 
     // MARK: Table view
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

@@ -21,6 +21,8 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
         refreshData()
     }
     
@@ -80,5 +82,10 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.usedPercentage.tintColor = libraryViewModel.usedPercentageColor
         
         return cell
+    }
+    
+    // MARK: Status bar
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
     }
 }
