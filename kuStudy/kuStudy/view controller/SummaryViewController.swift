@@ -21,17 +21,10 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // !!!: Move this to app delegate later
-        setupFramework()
         refreshData()
     }
     
     // MARK: Action
-    private func setupFramework() {
-        let studyKit = kuStudy()
-        studyKit.setAuthentification(kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
-    }
-    
     private func refreshData() {
         kuStudy().requestSummary { (json, error) -> Void in
             if let json = json {

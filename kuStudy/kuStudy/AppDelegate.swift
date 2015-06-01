@@ -26,6 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    private func setupKuStudy() {
+        let studyKit = kuStudy()
+        studyKit.setAuthentification(kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
+    }
+    
     private func fetchLibraryInfoKey() {
         kuStudy().requestInfo { (json, error) -> Void in
             if let json = json {
@@ -59,6 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: Application
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        setupKuStudy()
         handleFirstRun()
         return true
     }
