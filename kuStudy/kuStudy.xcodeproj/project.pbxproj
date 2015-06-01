@@ -29,6 +29,7 @@
 		167246231B1B4BEC0083035F /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246221B1B4BEC0083035F /* LibraryTableViewCell.swift */; };
 		167246251B1B4F0D0083035F /* ReadingRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246241B1B4F0D0083035F /* ReadingRoomTableViewCell.swift */; };
 		167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246261B1B4F2C0083035F /* LibraryViewController.swift */; };
+		1672462B1B1BEA6A0083035F /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672462A1B1BEA6A0083035F /* LibraryViewModel.swift */; };
 		7225A4021BE49FA40A38444C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D364CC67EEFEA8FF56BF7252 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -106,6 +107,7 @@
 		167246221B1B4BEC0083035F /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryTableViewCell.swift; path = view/LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		167246241B1B4F0D0083035F /* ReadingRoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadingRoomTableViewCell.swift; path = view/ReadingRoomTableViewCell.swift; sourceTree = "<group>"; };
 		167246261B1B4F2C0083035F /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = "view controller/LibraryViewController.swift"; sourceTree = "<group>"; };
+		1672462A1B1BEA6A0083035F /* LibraryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryViewModel.swift; path = "view model/LibraryViewModel.swift"; sourceTree = "<group>"; };
 		576C8A2E7A4B1ADEEEB82330 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF2ACCF4EB222A033994B4C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D6A1D2BE9AFB6C1F599240B7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -270,12 +272,29 @@
 		1672461D1B1B44630083035F /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				167246281B1BE9F30083035F /* Summary */,
+				167246291B1BE9FA0083035F /* Library */,
+			);
+			name = "View Controller";
+			sourceTree = "<group>";
+		};
+		167246281B1BE9F30083035F /* Summary */ = {
+			isa = PBXGroup;
+			children = (
 				1672461E1B1B44850083035F /* SummaryViewController.swift */,
+				1672462A1B1BEA6A0083035F /* LibraryViewModel.swift */,
 				167246221B1B4BEC0083035F /* LibraryTableViewCell.swift */,
+			);
+			name = Summary;
+			sourceTree = "<group>";
+		};
+		167246291B1BE9FA0083035F /* Library */ = {
+			isa = PBXGroup;
+			children = (
 				167246261B1B4F2C0083035F /* LibraryViewController.swift */,
 				167246241B1B4F0D0083035F /* ReadingRoomTableViewCell.swift */,
 			);
-			name = "View Controller";
+			name = Library;
 			sourceTree = "<group>";
 		};
 		6F6FBBD2472405AAB45773FC /* Frameworks */ = {
@@ -561,6 +580,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1672462B1B1BEA6A0083035F /* LibraryViewModel.swift in Sources */,
 				1672461A1B1B13610083035F /* Definitions.swift in Sources */,
 				167246231B1B4BEC0083035F /* LibraryTableViewCell.swift in Sources */,
 				167245C51B19C0370083035F /* AppDelegate.swift in Sources */,

@@ -60,12 +60,13 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("readingRoomCell", forIndexPath: indexPath) as! ReadingRoomTableViewCell
         let readingRoom = readingRooms[indexPath.row]
+        let readingRoomViewModel = ReadingRoomViewModel(library: readingRoom)
         
-        // !!! Use MVVM (View model)
-        cell.nameLabel.text = "\(readingRoom.id)"
-        cell.totalLabel.text = "\(readingRoom.total)"
-        cell.availableLabel.text = "\(readingRoom.available)"
-        cell.usedPercentage.progress = Float(readingRoom.total - readingRoom.available) / Float(readingRoom.total)
+        cell.nameLabel.text = readingRoomViewModel.name
+        cell.totalLabel.text = readingRoomViewModel.totalString
+        cell.availableLabel.text = readingRoomViewModel.availableString
+        cell.usedPercentage.progress = readingRoomViewModel.usedPercentage
+        cell.usedPercentage.tintColor = readingRoomViewModel.usedPercentageColor
         
         return cell
     }

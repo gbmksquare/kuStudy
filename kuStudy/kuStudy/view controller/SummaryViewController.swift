@@ -71,12 +71,13 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
         let library = libraries[indexPath.row]
+        let libraryViewModel = LibraryViewModel(library: library)
         
-        // !!!: Use MVVM (View model)
-        cell.nameLabel.text = "\(library.id)"
-        cell.totalLabel.text = "\(library.total)"
-        cell.availableLabel.text = "\(library.available)"
-        cell.usedPercentage.progress = Float(library.total - library.available) / Float(library.total)
+        cell.nameLabel.text = libraryViewModel.name
+        cell.totalLabel.text = libraryViewModel.totalString
+        cell.availableLabel.text = libraryViewModel.availableString
+        cell.usedPercentage.progress = libraryViewModel.usedPercentage
+        cell.usedPercentage.tintColor = libraryViewModel.usedPercentageColor
         
         return cell
     }
