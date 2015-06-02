@@ -49,6 +49,17 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
+    // MARK: Handoff
+    override func restoreUserActivityState(activity: NSUserActivity) {
+        switch activity.activityType {
+        case kuStudyHandoffSummary: break
+//        case kuStudyHandoffLibrary:
+            // TODO: Pass to libraryViewController
+        default: break
+        }
+        super.restoreUserActivityState(activity)
+    }
+    
     // MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
