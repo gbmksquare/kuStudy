@@ -62,6 +62,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: WatchKit
     func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+        // Setup background task
+        var backgroundTask: UIBackgroundTaskIdentifier!
+        backgroundTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+            reply(nil)
+            UIApplication.sharedApplication().endBackgroundTask(backgroundTask)
+        }
+        
+        // Request data
         if let userInfo = userInfo, request = userInfo[kuStudyWatchKitRequestKey] as? String {
             switch request {
             case kuStudyWatchKitRequestSummary:
@@ -70,8 +78,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if let json = json {
                         reply([kuStudyWatchKitRequestSummary: json.dictionaryObject!])
                     } else {
-                        // TODO: Handle error
+                        reply(nil)
                     }
+                    UIApplication.sharedApplication().endBackgroundTask(backgroundTask)
                 }
             case kuStudyWatchKitRequestLibrary:
                 let studyKit = kuStudy()
@@ -79,10 +88,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if let json = json {
                         reply([kuStudyWatchKitRequestLibrary: json.dictionaryObject!])
                     } else {
-                        // TODO: Handle error
+                        reply(nil)
                     }
+                    UIApplication.sharedApplication().endBackgroundTask(backgroundTask)
                 })
-            default: break
+            default:
+                UIApplication.sharedApplication().endBackgroundTask(backgroundTask)
             }
         }
     }
