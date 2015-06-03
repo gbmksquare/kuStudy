@@ -114,9 +114,7 @@
                                             </items>
                                             <edgeInsets key="margins" left="5" right="0.0" top="0.0" bottom="0.0"/>
                                         </group>
-                                        <group width="0.90000000000000002" height="4" alignment="center" radius="2" id="rX0-np-zQR">
-                                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        </group>
+                                        <group width="0.90000000000000002" height="4" alignment="center" backgroundImage="linear" contentMode="scaleAspectFit" radius="2" id="rX0-np-zQR"/>
                                         <group width="1" height="20" alignment="left" id="BeH-sF-fad">
                                             <items>
                                                 <group width="0.5" height="1" alignment="left" id="ul8-jW-Pbm">
@@ -185,6 +183,7 @@
                     </items>
                     <connections>
                         <outlet property="availableLabel" destination="GYg-fS-lat" id="mda-At-Hvh"/>
+                        <outlet property="percentageGroup" destination="rX0-np-zQR" id="WTY-Wl-v3c"/>
                         <outlet property="table" destination="7LR-y1-OMf" id="pEX-Y2-6wf"/>
                         <outlet property="totalLabel" destination="dHW-cp-BFm" id="rDh-U4-WXm"/>
                         <outlet property="usedLabel" destination="Odh-Gu-yRK" id="pdY-sL-mTW"/>

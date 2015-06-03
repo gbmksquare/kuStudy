@@ -16,6 +16,7 @@ class DetailInterfaceController: WKInterfaceController {
     @IBOutlet weak var totalLabel: WKInterfaceLabel!
     @IBOutlet weak var usedLabel: WKInterfaceLabel!
     @IBOutlet weak var availableLabel: WKInterfaceLabel!
+    @IBOutlet weak var percentageGroup: WKInterfaceGroup!
     
     // MARK: Model
     var libraryId: Int!
@@ -26,9 +27,11 @@ class DetailInterfaceController: WKInterfaceController {
     private func refreshData() {
         if let summary = summary {
             let used = summary.total - summary.available
+            let usedPercentage = Int(Double(used) / Double(summary.total) * 100)
             totalLabel.setText("\(summary.total)")
             usedLabel.setText("\(summary.total - summary.available)")
             availableLabel.setText("\(summary.available)")
+            percentageGroup.startAnimatingWithImagesInRange(NSRange(location: 0, length: usedPercentage), duration: 1, repeatCount: 1)
         }
         
         // Refresh table
