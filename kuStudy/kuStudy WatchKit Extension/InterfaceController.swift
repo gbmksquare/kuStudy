@@ -13,7 +13,8 @@ import SwiftyJSON
 
 class InterfaceController: WKInterfaceController {
     @IBOutlet weak var table: WKInterfaceTable!
-    @IBOutlet weak var availableLabel: WKInterfaceLabel!
+    @IBOutlet weak var percentageLabel: WKInterfaceLabel!
+    @IBOutlet weak var summaryLabel: WKInterfaceLabel!
     
     // MARK: Model
     var summary: Summary?
@@ -22,7 +23,9 @@ class InterfaceController: WKInterfaceController {
     // MARK: Table
     private func refreshData() {
         if let summary = summary {
-            availableLabel.setText("\(summary.available) left")
+            let used = summary.total - summary.available
+            summaryLabel.setText("\(used) studying")
+            percentageLabel.setText("\(Int(Double(used) / Double(summary.total) * 100))%")
         }
         
         // Refresh table
@@ -32,7 +35,10 @@ class InterfaceController: WKInterfaceController {
             let libraryViewModel = LibraryViewModel(library: library)
             let row = table.rowControllerAtIndex(index) as! LibraryCell
             row.nameLabel.setText(libraryViewModel.name)
+            row.totalLabel.setText(libraryViewModel.totalString)
             row.availableLabel.setText(libraryViewModel.availableString)
+            row.availableLabel.setTextColor(libraryViewModel.usedPercentageColor)
+            row.percentGroup.setBackgroundColor(libraryViewModel.usedPercentageColor)
         }
     }
     

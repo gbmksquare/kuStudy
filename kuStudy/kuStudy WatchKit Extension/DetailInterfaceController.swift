@@ -13,22 +13,34 @@ import SwiftyJSON
 
 class DetailInterfaceController: WKInterfaceController {
     @IBOutlet weak var table: WKInterfaceTable!
-    
+    @IBOutlet weak var totalLabel: WKInterfaceLabel!
+    @IBOutlet weak var usedLabel: WKInterfaceLabel!
+    @IBOutlet weak var availableLabel: WKInterfaceLabel!
     
     // MARK: Model
     var libraryId: Int!
+    var summary: Summary?
     var readingRooms = [ReadingRoom]()
     
     // MARK: Table
     private func refreshData() {
+        if let summary = summary {
+            let used = summary.total - summary.available
+            totalLabel.setText("\(summary.total)")
+            usedLabel.setText("\(summary.total - summary.available)")
+            availableLabel.setText("\(summary.available)")
+        }
+        
         // Refresh table
         table.setNumberOfRows(readingRooms.count, withRowType: "readingRoomCell")
         for index in 0 ..< readingRooms.count {
             let readingRoom = readingRooms[index]
             let readingRoomViewModel = LibraryViewModel(library: readingRoom)
-            let row = table.rowControllerAtIndex(index) as! LibraryCell
+            let row = table.rowControllerAtIndex(index) as! ReadingRoomCell
             row.nameLabel.setText(readingRoomViewModel.name)
             row.availableLabel.setText(readingRoomViewModel.availableString)
+            row.availableLabel.setTextColor(readingRoomViewModel.usedPercentageColor)
+            row.percentGroup.setBackgroundColor(readingRoomViewModel.usedPercentageColor)
         }
     }
     
@@ -42,6 +54,9 @@ class DetailInterfaceController: WKInterfaceController {
             reply: { (replyInfo, error) -> Void in
                 if let libraryDict = replyInfo[kuStudyWatchKitRequestLibrary] as? NSDictionary {
                     let json = JSON(libraryDict)
+                    let total = json["content"]["total"].intValue
+                    let available = json["content"]["available"].intValue
+                    self.summary = Summary(total: total, available: available)
                     
                     let readingRooms = json["content"]["rooms"].arrayValue
                     for readingRoom in readingRooms {
