@@ -14,6 +14,7 @@ import SwiftyJSON
 class InterfaceController: WKInterfaceController {
     @IBOutlet weak var table: WKInterfaceTable!
     @IBOutlet weak var percentageLabel: WKInterfaceLabel!
+    @IBOutlet weak var percentageGroup: WKInterfaceGroup!
     @IBOutlet weak var summaryLabel: WKInterfaceLabel!
     
     // MARK: Model
@@ -24,8 +25,11 @@ class InterfaceController: WKInterfaceController {
     private func refreshData() {
         if let summary = summary {
             let used = summary.total - summary.available
+            let usedPercentage = Int(Double(used) / Double(summary.total) * 100)
             summaryLabel.setText("\(used) studying")
-            percentageLabel.setText("\(Int(Double(used) / Double(summary.total) * 100))%")
+            percentageLabel.setText("\(usedPercentage)%")
+            percentageGroup.startAnimatingWithImagesInRange(NSRange(location: 0, length: usedPercentage),
+                duration: 0.5, repeatCount: 1)
         }
         
         // Refresh table

@@ -14,7 +14,7 @@
                             <items>
                                 <group width="1" height="65" alignment="center" id="SNk-Gg-q50">
                                     <items>
-                                        <group width="67" height="1" alignment="left" verticalAlignment="center" id="dHe-3g-H06">
+                                        <group width="67" height="1" alignment="left" verticalAlignment="center" backgroundImage="radial" contentMode="scaleAspectFit" initiallyAnimated="NO" id="dHe-3g-H06">
                                             <items>
                                                 <label alignment="center" verticalAlignment="center" text="0%" textAlignment="center" id="Gw2-Lr-bPf"/>
                                             </items>
@@ -85,6 +85,7 @@
                         </group>
                     </items>
                     <connections>
+                        <outlet property="percentageGroup" destination="dHe-3g-H06" id="BYX-XG-WTV"/>
                         <outlet property="percentageLabel" destination="Gw2-Lr-bPf" id="QOl-Xp-lfp"/>
                         <outlet property="summaryLabel" destination="Gpl-Gb-OFf" id="1ed-Ru-gdN"/>
                         <outlet property="table" destination="gkt-im-oUq" id="rMX-rv-zs6"/>
