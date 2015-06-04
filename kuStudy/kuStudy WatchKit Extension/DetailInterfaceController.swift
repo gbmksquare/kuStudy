@@ -20,18 +20,20 @@ class DetailInterfaceController: WKInterfaceController {
     
     // MARK: Model
     var libraryId: Int!
-    var summary: Summary?
+    var library: Library?
     var readingRooms = [ReadingRoom]()
     
     // MARK: Table
     private func refreshData() {
-        if let summary = summary {
-            let used = summary.total - summary.available
-            let usedPercentage = Int(Double(used) / Double(summary.total) * 100)
-            totalLabel.setText("\(summary.total)")
-            usedLabel.setText("\(summary.total - summary.available)")
-            availableLabel.setText("\(summary.available)")
-            percentageGroup.startAnimatingWithImagesInRange(NSRange(location: 0, length: usedPercentage), duration: 1, repeatCount: 1)
+        if let library = library {
+            let libraryViewModel = LibraryViewModel(library: library)
+            totalLabel.setText(libraryViewModel.totalString)
+            usedLabel.setText(libraryViewModel.usedString)
+            availableLabel.setText(libraryViewModel.availableString)
+            availableLabel.setTextColor(libraryViewModel.usedPercentageColor)
+            percentageGroup.startAnimatingWithImagesInRange(
+                NSRange(location: 0, length: Int(libraryViewModel.usedPercentage * 100)),
+                duration: 1, repeatCount: 1)
         }
         
         // Refresh table
@@ -57,10 +59,13 @@ class DetailInterfaceController: WKInterfaceController {
             reply: { (replyInfo, error) -> Void in
                 if let libraryDict = replyInfo[kuStudyWatchKitRequestLibrary] as? NSDictionary {
                     let json = JSON(libraryDict)
+                    
+                    // Library
                     let total = json["content"]["total"].intValue
                     let available = json["content"]["available"].intValue
-                    self.summary = Summary(total: total, available: available)
+                    self.library = Library(id: self.libraryId, total: total, available: available)
                     
+                    // Reading rooms
                     let readingRooms = json["content"]["rooms"].arrayValue
                     for readingRoom in readingRooms {
                         let id = readingRoom["id"].intValue

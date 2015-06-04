@@ -30,10 +30,12 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     private func refreshData() {
         kuStudy().requestSummary { (json, error) -> Void in
             if let json = json {
+                // Summary
                 let total = json["content"]["total"].intValue
                 let available = json["content"]["available"].intValue
                 self.summary = Summary(total: total, available: available)
                 
+                // Libraries
                 let libraries = json["content"]["libraries"].arrayValue
                 for library in libraries {
                     let id = library["id"].intValue

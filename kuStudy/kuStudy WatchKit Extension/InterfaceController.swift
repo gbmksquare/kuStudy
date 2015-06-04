@@ -25,7 +25,7 @@ class InterfaceController: WKInterfaceController {
     private func refreshData() {
         if let summary = summary {
             let summaryViewModel = SummaryViewModel(summary: summary)
-            summaryLabel.setText(summaryViewModel.usedString)
+            summaryLabel.setText(summaryViewModel.usedString + " studying.")
             percentageLabel.setText(summaryViewModel.usedPercentageString)
             percentageGroup.startAnimatingWithImagesInRange(
                 NSRange(location: 0, length: Int(summaryViewModel.usedPercentage * 100)),

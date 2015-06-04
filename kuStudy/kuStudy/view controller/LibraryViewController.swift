@@ -15,7 +15,7 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: Model
     var libraryId: Int!
-    var summary: Summary?
+    var library: Library?
     var readingRooms = [ReadingRoom]()
     
     // MARK: View
@@ -29,10 +29,12 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     private func refreshData() {
         kuStudy().requestLibrary(libraryId, handler: { (json, error) -> Void in
             if let json = json {
+                // Library
                 let total = json["content"]["total"].intValue
                 let available = json["content"]["available"].intValue
-                self.summary = Summary(total: total, available: available)
+                self.library = Library(id: self.libraryId, total: total, available: available)
                 
+                // Reading rooms
                 let readingRooms = json["content"]["rooms"].arrayValue
                 for readingRoom in readingRooms {
                     let id = readingRoom["id"].intValue
