@@ -24,12 +24,12 @@ class InterfaceController: WKInterfaceController {
     // MARK: Table
     private func refreshData() {
         if let summary = summary {
-            let used = summary.total - summary.available
-            let usedPercentage = Int(Double(used) / Double(summary.total) * 100)
-            summaryLabel.setText("\(used) studying")
-            percentageLabel.setText("\(usedPercentage)%")
-            percentageGroup.startAnimatingWithImagesInRange(NSRange(location: 0, length: usedPercentage),
-                duration: 0.5, repeatCount: 1)
+            let summaryViewModel = SummaryViewModel(summary: summary)
+            summaryLabel.setText(summaryViewModel.usedString)
+            percentageLabel.setText(summaryViewModel.usedPercentageString)
+            percentageGroup.startAnimatingWithImagesInRange(
+                NSRange(location: 0, length: Int(summaryViewModel.usedPercentage * 100)),
+                duration: 1, repeatCount: 1)
         }
         
         // Refresh table

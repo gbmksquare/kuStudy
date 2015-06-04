@@ -37,6 +37,7 @@ public class LibraryViewModel {
     public var usedString: String { return "\(used)" }
     
     public var usedPercentage: Float { return Float(used) / Float(total) }
+    public var usedPercentageString: String { return "\(Int(usedPercentage * 100))%" }
     public var usedPercentageColor: UIColor {
         switch usedPercentage {
         case let p where p > 0.9: return kuStudyColorError
