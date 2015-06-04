@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // MARK: Authentification
 let kuStudyAPIAccessId = "kustudy"
@@ -25,3 +26,21 @@ let kuStudySharedContainer = "group.com.gbmksquare.kuapps.kuStudy"
 var sharedContainerPath: String {
     return NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(kuStudySharedContainer)!.path!
 }
+
+// MARK: WatchKit
+let kuStudyWatchKitRequestKey = "request"
+let kuStudyWatchKitRequestSummary = "summary"
+let kuStudyWatchKitRequestLibrary = "library"
+let kuStudyWatchKitRequestLibraryKey = "libraryId"
+
+// MARK: Handoff
+let kuStudyHandoffSummary = "com.gbmksquare.kuapps.kuStudy.summaryView"
+let kuStudyHandoffSummaryKey = "kuStudyHandoffSummaryKey"
+let kuStudyHandoffLibrary = "com.gbmksquare.kuapps.kuStudy.libraryView"
+let kuStudyHandoffLibraryIdKey = "kuStudyHandoffLibraryIdKey"
+
+// MARK: Color
+let kuStudyColorError = UIColor(hue:0.01, saturation:0.74, brightness:0.94, alpha:1)
+let kuStudyColorWarning = UIColor(hue:0.09, saturation:0.82, brightness:0.99, alpha:1)
+let kuStudyColorLightWarning = UIColor(hue:0.12, saturation:0.79, brightness:0.99, alpha:1)
+let kuStudyColorConfirm = UIColor(hue:0.34, saturation:0.52, brightness:0.68, alpha:1)

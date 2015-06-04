@@ -60,6 +60,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
+    // MARK: WatchKit
+    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+        // Setup background task
+        var backgroundTask: UIBackgroundTaskIdentifier!
+        backgroundTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+            reply(nil)
+            UIApplication.sharedApplication().endBackgroundTask(backgroundTask)
+        }
+        
+        // Request data
+        if let userInfo = userInfo, request = userInfo[kuStudyWatchKitRequestKey] as? String {
+            switch request {
+            case kuStudyWatchKitRequestSummary:
+                let studyKit = kuStudy()
+                studyKit.requestSummary { (json, error) -> Void in
+                    if let json = json {
+                        reply([kuStudyWatchKitRequestSummary: json.dictionaryObject!])
+                    } else {
+                        reply(nil)
+                    }
+                    UIApplication.sharedApplication().endBackgroundTask(backgroundTask)
+                }
+            case kuStudyWatchKitRequestLibrary:
+                let studyKit = kuStudy()
+                studyKit.requestLibrary(userInfo[kuStudyWatchKitRequestLibraryKey] as! Int, handler: { (json, error) -> Void in
+                    if let json = json {
+                        reply([kuStudyWatchKitRequestLibrary: json.dictionaryObject!])
+                    } else {
+                        reply(nil)
+                    }
+                    UIApplication.sharedApplication().endBackgroundTask(backgroundTask)
+                })
+            default:
+                UIApplication.sharedApplication().endBackgroundTask(backgroundTask)
+            }
+        }
+    }
+    
+    // MARK: Handoff
+    func application(application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
+        println(userActivityType)
+        return false
+    }
+    
+    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]!) -> Void) -> Bool {
+        if let window = window {
+            let navigationController = window.rootViewController as! UINavigationController
+            let summaryViewController = navigationController.topViewController as! SummaryViewController
+            summaryViewController.restoreUserActivityState(userActivity)
+        }
+        return true
+    }
 }
 
