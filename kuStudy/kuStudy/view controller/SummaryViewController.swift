@@ -11,7 +11,7 @@ import kuStudyKit
 import SwiftyJSON
 
 class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: Model
     var summary: Summary?

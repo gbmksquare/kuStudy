@@ -11,7 +11,7 @@ import kuStudyKit
 import SwiftyJSON
 
 class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     // MARK: Model
     var libraryId: Int!

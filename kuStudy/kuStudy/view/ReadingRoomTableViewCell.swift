@@ -9,8 +9,8 @@
 import UIKit
 
 class ReadingRoomTableViewCell: UITableViewCell {
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var totalLabel: UILabel!
-    @IBOutlet var availableLabel: UILabel!
-    @IBOutlet var usedPercentage: UIProgressView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var availableLabel: UILabel!
+    @IBOutlet weak var usedPercentage: UIProgressView!
 }
