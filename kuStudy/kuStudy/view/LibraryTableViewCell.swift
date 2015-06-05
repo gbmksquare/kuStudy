@@ -13,4 +13,11 @@ class LibraryTableViewCell: UITableViewCell {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var usedPercentage: UIProgressView!
+    
+    @IBOutlet weak var cardView: UIView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        cardView.layer.cornerRadius = 3
+    }
 }

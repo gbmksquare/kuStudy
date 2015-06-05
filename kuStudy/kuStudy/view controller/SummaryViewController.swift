@@ -22,6 +22,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         
         navigationController?.setNavigationBarHidden(true, animated: false)
+        tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
         
         refreshData()
     }
