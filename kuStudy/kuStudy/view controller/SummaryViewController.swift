@@ -13,6 +13,9 @@ import SwiftyJSON
 class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var availableLabel: UILabel!
+    
     // MARK: Model
     var summary: Summary?
     var libraries = [Library]()
@@ -36,6 +39,18 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
     }
     
+    private func updateView() {
+        // Summary
+        if let summary = summary {
+            let summaryViewModel = SummaryViewModel(summary: summary)
+            totalLabel.text = summaryViewModel.totalString
+            availableLabel.text = summaryViewModel.availableString
+        }
+        
+        // Table
+        tableView.reloadData()
+    }
+    
     // MARK: Action
     private func refreshData() {
         kuStudy().requestSummary { (json, error) -> Void in
@@ -54,7 +69,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
                     let library = Library(id: id, total: total, available: available)
                     self.libraries.append(library)
                 }
-                self.tableView.reloadData()
+                self.updateView()
             } else {
                 // TODO: Handle error
             }

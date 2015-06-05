@@ -13,6 +13,10 @@ import SwiftyJSON
 class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var libraryNameLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var availableLabel: UILabel!
+    
     // MARK: Model
     var libraryId: Int!
     var library: Library?
@@ -27,6 +31,19 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     private func setupView() {
         tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
+    }
+    
+    private func updateView() {
+        // Summary
+        if let library = library {
+            let libraryViewModel = LibraryViewModel(library: library)
+            libraryNameLabel.text = libraryViewModel.name
+            totalLabel.text = libraryViewModel.totalString
+            availableLabel.text = libraryViewModel.availableString
+        }
+        
+        // Table
+        tableView.reloadData()
     }
     
     // MARK: Action
@@ -47,15 +64,11 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
                     let readingRoom = ReadingRoom(id: id, total: total, available: available)
                     self.readingRooms.append(readingRoom)
                 }
-                self.tableView.reloadData()
+                self.updateView()
             } else {
                 // TODO: Handle error
             }
         })
-    }
-    
-    @IBAction func tappedBackButton(sender: UIButton) {
-        navigationController?.popViewControllerAnimated(true)
     }
 
     // MARK: Table view
