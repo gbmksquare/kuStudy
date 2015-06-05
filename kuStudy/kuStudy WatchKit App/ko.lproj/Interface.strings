@@ -1,0 +1,48 @@
+
+/* Class = "WKInterfaceLabel"; text = "Total"; ObjectID = "2F0-zn-J02"; */
+"2F0-zn-J02.text" = "전체";
+
+/* Class = "WKInterfaceController"; title = "kuStudy"; ObjectID = "AgC-eL-Hgc"; */
+"AgC-eL-Hgc.title" = "kuStudy";
+
+/* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "CYB-4R-WcP"; */
+"CYB-4R-WcP.text" = "0";
+
+/* Class = "WKInterfaceLabel"; text = "Name"; ObjectID = "FLs-Gp-cEJ"; */
+"FLs-Gp-cEJ.text" = "이름";
+
+/* Class = "WKInterfaceLabel"; text = "Available"; ObjectID = "FWL-Vf-Fh0"; */
+"FWL-Vf-Fh0.text" = "잔여";
+
+/* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "GYg-fS-lat"; */
+"GYg-fS-lat.text" = "0";
+
+/* Class = "WKInterfaceLabel"; text = "0 studying"; ObjectID = "Gpl-Gb-OFf"; */
+"Gpl-Gb-OFf.text" = "0 명 공부 중.";
+
+/* Class = "WKInterfaceLabel"; text = "0%"; ObjectID = "Gw2-Lr-bPf"; */
+"Gw2-Lr-bPf.text" = "0%";
+
+/* Class = "WKInterfaceLabel"; text = "Available"; ObjectID = "HHL-q8-1ie"; */
+"HHL-q8-1ie.text" = "잔여";
+
+/* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "Jno-dY-239"; */
+"Jno-dY-239.text" = "0";
+
+/* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "Odh-Gu-yRK"; */
+"Odh-Gu-yRK.text" = "0";
+
+/* Class = "WKInterfaceLabel"; text = "Total"; ObjectID = "V5P-ey-hi8"; */
+"V5P-ey-hi8.text" = "전체";
+
+/* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "dHW-cp-BFm"; */
+"dHW-cp-BFm.text" = "0";
+
+/* Class = "WKInterfaceLabel"; text = "Name"; ObjectID = "n5b-nN-uYa"; */
+"n5b-nN-uYa.text" = "이름";
+
+/* Class = "WKInterfaceLabel"; text = "Used"; ObjectID = "nCn-mW-Zfd"; */
+"nCn-mW-Zfd.text" = "사용";
+
+/* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "u50-3w-KHr"; */
+"u50-3w-KHr.text" = "0";

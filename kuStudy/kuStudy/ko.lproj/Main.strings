@@ -1,0 +1,63 @@
+
+/* Class = "UILabel"; text = "Available"; ObjectID = "AX1-sA-eAy"; */
+"AX1-sA-eAy.text" = "잔여";
+
+/* Class = "UILabel"; text = "Total"; ObjectID = "Dnj-AQ-xsf"; */
+"Dnj-AQ-xsf.text" = "전체";
+
+/* Class = "UILabel"; text = "Total"; ObjectID = "FZh-O0-fXz"; */
+"FZh-O0-fXz.text" = "전체";
+
+/* Class = "UILabel"; text = "Available"; ObjectID = "H3E-fa-vDq"; */
+"H3E-fa-vDq.text" = "잔여";
+
+/* Class = "UILabel"; text = "Library"; ObjectID = "HX8-JC-Kkc"; */
+"HX8-JC-Kkc.text" = "열람실";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "PHD-05-7aN"; */
+"PHD-05-7aN.text" = "0";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "ROV-rd-CBu"; */
+"ROV-rd-CBu.title" = " ";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "SZH-yq-GgZ"; */
+"SZH-yq-GgZ.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "TL3-rA-NrP"; */
+"TL3-rA-NrP.text" = "0";
+
+/* Class = "UILabel"; text = "Total"; ObjectID = "TnR-85-IbF"; */
+"TnR-85-IbF.text" = "전체";
+
+/* Class = "UILabel"; text = "Available"; ObjectID = "Uc4-gz-AId"; */
+"Uc4-gz-AId.text" = "잔여";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Z2c-1M-c76"; */
+"Z2c-1M-c76.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "ZAx-XZ-HMZ"; */
+"ZAx-XZ-HMZ.text" = "0";
+
+/* Class = "UILabel"; text = "Total"; ObjectID = "btN-2I-qGT"; */
+"btN-2I-qGT.text" = "전체";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "eGq-h7-CG8"; */
+"eGq-h7-CG8.text" = "0";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "hVO-iz-7ha"; */
+"hVO-iz-7ha.text" = "0";
+
+/* Class = "UILabel"; text = "Library"; ObjectID = "jIt-Gy-zJE"; */
+"jIt-Gy-zJE.text" = "열람실";
+
+/* Class = "UILabel"; text = "Available"; ObjectID = "jlI-du-jTg"; */
+"jlI-du-jTg.text" = "잔여";
+
+/* Class = "UILabel"; text = "Usage"; ObjectID = "jqd-om-39e"; */
+"jqd-om-39e.text" = "사용량";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "n0L-bK-zmt"; */
+"n0L-bK-zmt.text" = "0";
+
+/* Class = "UILabel"; text = "Summary"; ObjectID = "sIG-DT-Hn0"; */
+"sIG-DT-Hn0.text" = "요약";

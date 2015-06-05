@@ -25,7 +25,7 @@ class InterfaceController: WKInterfaceController {
     private func refreshData() {
         if let summary = summary {
             let summaryViewModel = SummaryViewModel(summary: summary)
-            summaryLabel.setText(summaryViewModel.usedString + " studying.")
+            summaryLabel.setText(summaryViewModel.usedString + NSLocalizedString("summary_used_description", bundle: NSBundle(forClass: self.dynamicType), comment: "Describe how many people are studying."))
             percentageLabel.setText(summaryViewModel.usedPercentageString)
             percentageGroup.startAnimatingWithImagesInRange(
                 NSRange(location: 0, length: Int(summaryViewModel.usedPercentage * 100)),
