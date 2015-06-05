@@ -11,6 +11,7 @@ import kuStudyKit
 import SwiftyJSON
 
 class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var summaryView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var libraryNameLabel: UILabel!
@@ -25,12 +26,28 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         refreshData()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupView()
+    }
+    
     private func setupView() {
+        // Table view insets
         tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
+        
+        // Gradient
+        // Graident
+        var gradientLayer = CAGradientLayer()
+        gradientLayer.frame = summaryView.bounds
+        println(summaryView.bounds)
+        gradientLayer.colors = [UIColor(red: 48/255, green: 35/255, blue: 174/255, alpha: 1).CGColor,
+            UIColor(red: 109/255, green: 170/255, blue: 215/255, alpha: 1).CGColor]
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+        summaryView.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
     
     private func updateView() {
