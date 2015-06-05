@@ -21,8 +21,11 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupView()
         refreshData()
+    }
+    
+    private func setupView() {
         tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
     }
     
@@ -76,10 +79,5 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.usedPercentage.tintColor = readingRoomViewModel.usedPercentageColor
         
         return cell
-    }
-    
-    // MARK: Status bar
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
     }
 }

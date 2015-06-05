@@ -20,11 +20,20 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        setupView()
+        refreshData()
+    }
+    
+    private func setupView() {
+        // Table view inset
         tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
         
-        refreshData()
+        // Transparent navigation bar
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.translucent = true
+        navigationController?.view.backgroundColor = UIColor.clearColor()
+        navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
     }
     
     // MARK: Action
@@ -96,10 +105,5 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.usedPercentage.tintColor = libraryViewModel.usedPercentageColor
         
         return cell
-    }
-    
-    // MARK: Status bar
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
     }
 }

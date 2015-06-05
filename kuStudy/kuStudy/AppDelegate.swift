@@ -28,6 +28,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         studyKit.setAuthentification(kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
     }
     
+    private func customizeAppearance() {
+        UINavigationBar.appearance().barStyle = UIBarStyle.Black
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+    }
+    
     // MARK: Application
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         setupKuStudy()
@@ -35,6 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // TODO: Handle error
         }
         handleFirstRun()
+        customizeAppearance()
         return true
     }
 
