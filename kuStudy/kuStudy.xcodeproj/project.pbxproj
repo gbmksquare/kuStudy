@@ -18,6 +18,7 @@
 		16136BED1B1C3F0800B3F744 /* kuStudy WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		16136BFC1B1C44BA00B3F744 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		16136C001B1C451100B3F744 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BFF1B1C451100B3F744 /* LibraryCell.swift */; };
+		16251CAD1B232D650035F2D9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		167245C51B19C0370083035F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167245C41B19C0370083035F /* AppDelegate.swift */; };
 		167245CA1B19C0370083035F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167245C81B19C0370083035F /* Main.storyboard */; };
 		167245CC1B19C0370083035F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167245CB1B19C0370083035F /* Images.xcassets */; };
@@ -145,6 +146,7 @@
 		16136BE91B1C3F0800B3F744 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		16136BF51B1C406800B3F744 /* kuStudy WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		16136BFF1B1C451100B3F744 /* LibraryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
+		16251CAC1B232C8F0035F2D9 /* kuStudy Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy Today Extension.entitlements"; sourceTree = "<group>"; };
 		167245BF1B19C0370083035F /* kuStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kuStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		167245C31B19C0370083035F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		167245C41B19C0370083035F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -355,11 +357,11 @@
 				167246191B1B13610083035F /* Definitions.swift */,
 				167245C11B19C0370083035F /* kuStudy */,
 				167245ED1B19C42B0083035F /* kuStudyKit */,
+				16B453681B22A9A400A3B008 /* kuStudy Today Extension */,
 				16136BD41B1C3F0700B3F744 /* kuStudy WatchKit Extension */,
 				16136BE31B1C3F0700B3F744 /* kuStudy WatchKit App */,
 				167245D71B19C0370083035F /* kuStudyTests */,
 				167245FC1B19C42B0083035F /* kuStudyKitTests */,
-				16B453681B22A9A400A3B008 /* kuStudy Today Extension */,
 				167245C01B19C0370083035F /* Products */,
 				F99FE579F69C33314A4FC8C7 /* Pods */,
 				6F6FBBD2472405AAB45773FC /* Frameworks */,
@@ -522,19 +524,36 @@
 		16B453681B22A9A400A3B008 /* kuStudy Today Extension */ = {
 			isa = PBXGroup;
 			children = (
-				16B4536B1B22A9A400A3B008 /* TodayViewController.swift */,
-				16B4536D1B22A9A400A3B008 /* MainInterface.storyboard */,
-				16B453691B22A9A400A3B008 /* Supporting Files */,
+				16B453751B22AFE500A3B008 /* Extension */,
+				16B453761B22AFE900A3B008 /* User Interface */,
+				16B453771B22AFEB00A3B008 /* View Controller */,
 			);
 			path = "kuStudy Today Extension";
 			sourceTree = "<group>";
 		};
-		16B453691B22A9A400A3B008 /* Supporting Files */ = {
+		16B453751B22AFE500A3B008 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				16B4536A1B22A9A400A3B008 /* Info.plist */,
+				16251CAC1B232C8F0035F2D9 /* kuStudy Today Extension.entitlements */,
 			);
-			name = "Supporting Files";
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		16B453761B22AFE900A3B008 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				16B4536D1B22A9A400A3B008 /* MainInterface.storyboard */,
+			);
+			name = "User Interface";
+			sourceTree = "<group>";
+		};
+		16B453771B22AFEB00A3B008 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				16B4536B1B22A9A400A3B008 /* TodayViewController.swift */,
+			);
+			name = "View Controller";
 			sourceTree = "<group>";
 		};
 		6F6FBBD2472405AAB45773FC /* Frameworks */ = {
@@ -756,6 +775,14 @@
 					16B453641B22A9A400A3B008 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 3ZTVE7CS5L;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -1046,6 +1073,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16251CAD1B232D650035F2D9 /* Definitions.swift in Sources */,
 				16B4536C1B22A9A400A3B008 /* TodayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1445,7 +1473,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D6A1D2BE9AFB6C1F599240B7 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
+				CODE_SIGN_ENTITLEMENTS = "kuStudy Today Extension/kuStudy Today Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1463,7 +1492,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = AEF2ACCF4EB222A033994B4C /* Pods.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
+				CODE_SIGN_ENTITLEMENTS = "kuStudy Today Extension/kuStudy Today Extension.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
 				INFOPLIST_FILE = "kuStudy Today Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
