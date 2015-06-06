@@ -48,6 +48,7 @@
 		16B4536E1B22A9A400A3B008 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16B4536D1B22A9A400A3B008 /* MainInterface.storyboard */; };
 		16B453711B22A9A400A3B008 /* kuStudy Today Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16B453651B22A9A400A3B008 /* kuStudy Today Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		340E555A56FAA032F3BC8996 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3C47203636394B56E9D0E72B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7225A4021BE49FA40A38444C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D364CC67EEFEA8FF56BF7252 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
@@ -234,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16B453671B22A9A400A3B008 /* NotificationCenter.framework in Frameworks */,
+				3C47203636394B56E9D0E72B /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,9 +690,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16B453741B22A9A400A3B008 /* Build configuration list for PBXNativeTarget "kuStudy Today Extension" */;
 			buildPhases = (
+				6D17502138B1F511210637DE /* Check Pods Manifest.lock */,
 				16B453611B22A9A400A3B008 /* Sources */,
 				16B453621B22A9A400A3B008 /* Frameworks */,
 				16B453631B22A9A400A3B008 /* Resources */,
+				7DF7998DB1887B7A4DBF0ACF /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -856,6 +860,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6D17502138B1F511210637DE /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7DF7998DB1887B7A4DBF0ACF /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A697127F9C59AE4BB56A20F3 /* Check Pods Manifest.lock */ = {
@@ -1409,6 +1443,7 @@
 		};
 		16B453721B22A9A400A3B008 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6A1D2BE9AFB6C1F599240B7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
@@ -1426,6 +1461,7 @@
 		};
 		16B453731B22A9A400A3B008 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEF2ACCF4EB222A033994B4C /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
@@ -1510,6 +1546,7 @@
 				16B453731B22A9A400A3B008 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
