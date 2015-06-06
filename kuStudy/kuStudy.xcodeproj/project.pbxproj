@@ -43,6 +43,10 @@
 		168841191B1EB58700F3C818 /* ReadingRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168841181B1EB58700F3C818 /* ReadingRoomCell.swift */; };
 		16A887331B21D1FF00C49551 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A887351B21D1FF00C49551 /* Localizable.strings */; };
 		16A8873D1B21DD8A00C49551 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A8873F1B21DD8A00C49551 /* Localizable.strings */; };
+		16B453671B22A9A400A3B008 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B453661B22A9A400A3B008 /* NotificationCenter.framework */; };
+		16B4536C1B22A9A400A3B008 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B4536B1B22A9A400A3B008 /* TodayViewController.swift */; };
+		16B4536E1B22A9A400A3B008 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16B4536D1B22A9A400A3B008 /* MainInterface.storyboard */; };
+		16B453711B22A9A400A3B008 /* kuStudy Today Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16B453651B22A9A400A3B008 /* kuStudy Today Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		340E555A56FAA032F3BC8996 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		7225A4021BE49FA40A38444C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		D364CC67EEFEA8FF56BF7252 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -91,6 +95,13 @@
 			remoteGlobalIDString = 167245EB1B19C42B0083035F;
 			remoteInfo = kuStudyKit;
 		};
+		16B4536F1B22A9A400A3B008 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 167245B71B19C0370083035F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16B453641B22A9A400A3B008;
+			remoteInfo = "kuStudy Today Extension";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -100,6 +111,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				16B453711B22A9A400A3B008 /* kuStudy Today Extension.appex in Embed App Extensions */,
 				16136BED1B1C3F0800B3F744 /* kuStudy WatchKit Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
@@ -166,6 +178,11 @@
 		16A887381B21D22500C49551 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16A887401B21DD8F00C49551 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16A887411B21DD9800C49551 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		16B453651B22A9A400A3B008 /* kuStudy Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "kuStudy Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16B453661B22A9A400A3B008 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		16B4536A1B22A9A400A3B008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16B4536B1B22A9A400A3B008 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		16B4536D1B22A9A400A3B008 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		576C8A2E7A4B1ADEEEB82330 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEF2ACCF4EB222A033994B4C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		D6A1D2BE9AFB6C1F599240B7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -209,6 +226,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				167245F71B19C42B0083035F /* kuStudyKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16B453621B22A9A400A3B008 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16B453671B22A9A400A3B008 /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +357,7 @@
 				16136BE31B1C3F0700B3F744 /* kuStudy WatchKit App */,
 				167245D71B19C0370083035F /* kuStudyTests */,
 				167245FC1B19C42B0083035F /* kuStudyKitTests */,
+				16B453681B22A9A400A3B008 /* kuStudy Today Extension */,
 				167245C01B19C0370083035F /* Products */,
 				F99FE579F69C33314A4FC8C7 /* Pods */,
 				6F6FBBD2472405AAB45773FC /* Frameworks */,
@@ -347,6 +373,7 @@
 				167245F61B19C42B0083035F /* kuStudyKitTests.xctest */,
 				16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */,
 				16136BDF1B1C3F0700B3F744 /* kuStudy WatchKit App.app */,
+				16B453651B22A9A400A3B008 /* kuStudy Today Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -490,10 +517,29 @@
 			name = Detail;
 			sourceTree = "<group>";
 		};
+		16B453681B22A9A400A3B008 /* kuStudy Today Extension */ = {
+			isa = PBXGroup;
+			children = (
+				16B4536B1B22A9A400A3B008 /* TodayViewController.swift */,
+				16B4536D1B22A9A400A3B008 /* MainInterface.storyboard */,
+				16B453691B22A9A400A3B008 /* Supporting Files */,
+			);
+			path = "kuStudy Today Extension";
+			sourceTree = "<group>";
+		};
+		16B453691B22A9A400A3B008 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				16B4536A1B22A9A400A3B008 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		6F6FBBD2472405AAB45773FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				576C8A2E7A4B1ADEEEB82330 /* Pods.framework */,
+				16B453661B22A9A400A3B008 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -574,6 +620,7 @@
 			dependencies = (
 				167246021B19C42B0083035F /* PBXTargetDependency */,
 				16136BEC1B1C3F0800B3F744 /* PBXTargetDependency */,
+				16B453701B22A9A400A3B008 /* PBXTargetDependency */,
 			);
 			name = kuStudy;
 			productName = kuStudy;
@@ -637,6 +684,23 @@
 			productReference = 167245F61B19C42B0083035F /* kuStudyKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		16B453641B22A9A400A3B008 /* kuStudy Today Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16B453741B22A9A400A3B008 /* Build configuration list for PBXNativeTarget "kuStudy Today Extension" */;
+			buildPhases = (
+				16B453611B22A9A400A3B008 /* Sources */,
+				16B453621B22A9A400A3B008 /* Frameworks */,
+				16B453631B22A9A400A3B008 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "kuStudy Today Extension";
+			productName = "kuStudy Today Extension";
+			productReference = 16B453651B22A9A400A3B008 /* kuStudy Today Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -685,6 +749,10 @@
 						CreatedOnToolsVersion = 6.3.2;
 						TestTargetID = 167245BE1B19C0370083035F;
 					};
+					16B453641B22A9A400A3B008 = {
+						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 3ZTVE7CS5L;
+					};
 				};
 			};
 			buildConfigurationList = 167245BA1B19C0370083035F /* Build configuration list for PBXProject "kuStudy" */;
@@ -703,6 +771,7 @@
 			targets = (
 				167245BE1B19C0370083035F /* kuStudy */,
 				167245EB1B19C42B0083035F /* kuStudyKit */,
+				16B453641B22A9A400A3B008 /* kuStudy Today Extension */,
 				16136BD21B1C3F0700B3F744 /* kuStudy WatchKit Extension */,
 				16136BDE1B1C3F0700B3F744 /* kuStudy WatchKit App */,
 				167245D31B19C0370083035F /* kuStudyTests */,
@@ -760,6 +829,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16B453631B22A9A400A3B008 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16B4536E1B22A9A400A3B008 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -931,6 +1008,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		16B453611B22A9A400A3B008 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16B4536C1B22A9A400A3B008 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -963,6 +1048,11 @@
 			isa = PBXTargetDependency;
 			target = 167245EB1B19C42B0083035F /* kuStudyKit */;
 			targetProxy = 167246011B19C42B0083035F /* PBXContainerItemProxy */;
+		};
+		16B453701B22A9A400A3B008 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16B453641B22A9A400A3B008 /* kuStudy Today Extension */;
+			targetProxy = 16B4536F1B22A9A400A3B008 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1019,8 +1109,8 @@
 			baseConfigurationReference = D6A1D2BE9AFB6C1F599240B7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "kuStudy WatchKit Extension/kuStudy WatchKit Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1028,7 +1118,7 @@
 				INFOPLIST_FILE = "kuStudy WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3af04a56-5e96-4ad3-bc2b-c03b2defd8f0";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -1038,12 +1128,12 @@
 			baseConfigurationReference = AEF2ACCF4EB222A033994B4C /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "kuStudy WatchKit Extension/kuStudy WatchKit Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
 				INFOPLIST_FILE = "kuStudy WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "86ebfca6-7fc1-4861-b783-cde6164753ad";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -1174,13 +1264,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kuStudy/kuStudy.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
 				INFOPLIST_FILE = kuStudy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "e5c10b8f-f8f9-480a-a95d-f6d814ecf1a6";
 			};
 			name = Debug;
 		};
@@ -1190,13 +1280,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kuStudy/kuStudy.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
 				INFOPLIST_FILE = kuStudy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "02faf606-6d71-4609-b396-13481cfd86dc";
 			};
 			name = Release;
 		};
@@ -1240,7 +1330,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1268,7 +1358,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1314,6 +1404,36 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kuStudy.app/kuStudy";
+			};
+			name = Release;
+		};
+		16B453721B22A9A400A3B008 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "kuStudy Today Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "f7117daa-09f3-4b1c-b23d-696169a1441d";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		16B453731B22A9A400A3B008 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
+				INFOPLIST_FILE = "kuStudy Today Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "311a130c-e582-408a-82e7-c7bd7b36eef5";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -1382,6 +1502,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		16B453741B22A9A400A3B008 /* Build configuration list for PBXNativeTarget "kuStudy Today Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16B453721B22A9A400A3B008 /* Debug */,
+				16B453731B22A9A400A3B008 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
