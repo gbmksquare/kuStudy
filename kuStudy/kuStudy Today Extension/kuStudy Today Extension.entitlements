@@ -8,7 +8,7 @@
 	</array>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>$(AppIdentifierPrefix)com.gbmksquare.kuapps.kuStudy.kuStudy-Today-Extension</string>
+		<string>$(AppIdentifierPrefix)com.gbmksquare.kuapps.kuStudy</string>
 	</array>
 </dict>
 </plist>
