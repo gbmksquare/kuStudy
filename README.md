@@ -31,6 +31,32 @@
 
 [Realm](https://realm.io)
 
+### iOS
+
+#### Navigation bar
+
+[How do I change the title of the “back” button on a Navigation Bar](http://stackoverflow.com/questions/1449339/how-do-i-change-the-title-of-the-back-button-on-a-navigation-bar)
+
+[How to make completely transparent navigation bar in iOS 7](http://stackoverflow.com/questions/19082963/how-to-make-completely-transparent-navigation-bar-in-ios-7)
+
+#### View
+
+[wrong frame size in viewDidLoad [duplicate]](http://stackoverflow.com/questions/14060002/wrong-frame-size-in-viewdidload)
+
+#### CAGradientLayer
+
+[Programmatically create a UIView with color gradient](http://stackoverflow.com/questions/23074539/programmatically-create-a-uiview-with-color-gradient)
+
+[CAGradientLayer with Angle](http://stackoverflow.com/questions/18436999/cagradientlayer-with-angle)
+
+#### UITableView
+
+[Set UITableView content inset permanently](http://stackoverflow.com/questions/22020943/set-uitableview-content-inset-permanently)
+
+#### Bundle
+
+[swift equivalent of [NSBundle bundleForClass:[self class]]](http://stackoverflow.com/questions/25651403/swift-equivalent-of-nsbundle-bundleforclassself-class)
+
 ### Apple Watch
 
 #### Basic

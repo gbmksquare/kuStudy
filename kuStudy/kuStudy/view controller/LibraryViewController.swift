@@ -42,7 +42,6 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
         // Graident
         var gradientLayer = CAGradientLayer()
         gradientLayer.frame = summaryView.bounds
-        println(summaryView.bounds)
         gradientLayer.colors = [UIColor(red: 48/255, green: 35/255, blue: 174/255, alpha: 1).CGColor,
             UIColor(red: 109/255, green: 170/255, blue: 215/255, alpha: 1).CGColor]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
