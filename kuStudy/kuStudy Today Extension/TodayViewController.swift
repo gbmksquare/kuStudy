@@ -11,9 +11,11 @@ import NotificationCenter
 import kuStudyKit
 import SwiftyJSON
 
-class TodayViewController: UIViewController, NCWidgetProviding {
+class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
     
     // MARK: Model
     var summary: Summary?
@@ -32,6 +34,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             totalLabel.text = summaryViewModel.totalString
             availableLabel.text = summaryViewModel.availableString
         }
+        
+        // Table view
+        tableViewHeight.constant = CGFloat(libraries.count) * 55
+        tableView.reloadData()
     }
     
     // MARK: Action
@@ -45,6 +51,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 self.summary = Summary(total: total, available: available)
                 
                 // Libraries
+                self.libraries = [Library]()
                 let libraries = json["content"]["libraries"].arrayValue
                 for library in libraries {
                     let id = library["id"].intValue
@@ -58,6 +65,26 @@ class TodayViewController: UIViewController, NCWidgetProviding {
                 // TODO: Handle error
             }
         }
+    }
+    
+    // MARK: Table view
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return libraries.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
+        let library = libraries[indexPath.row]
+        let libraryViewModel = LibraryViewModel(library: library)
+        
+        cell.nameLabel.text = libraryViewModel.name
+        cell.totalLabel.text = libraryViewModel.totalString
+        cell.availableLabel.text = libraryViewModel.availableString
+        return cell
     }
     
     // MARK: Widget

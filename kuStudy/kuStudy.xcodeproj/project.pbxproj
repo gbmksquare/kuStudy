@@ -41,6 +41,7 @@
 		167246251B1B4F0D0083035F /* ReadingRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246241B1B4F0D0083035F /* ReadingRoomTableViewCell.swift */; };
 		167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246261B1B4F2C0083035F /* LibraryViewController.swift */; };
 		1673304F1B1C92BF00573FFC /* DetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673304E1B1C92BF00573FFC /* DetailInterfaceController.swift */; };
+		1676C3D21B2414A7001B3AB6 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1676C3D11B2414A7001B3AB6 /* LibraryTableViewCell.swift */; };
 		168841191B1EB58700F3C818 /* ReadingRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168841181B1EB58700F3C818 /* ReadingRoomCell.swift */; };
 		16A887331B21D1FF00C49551 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A887351B21D1FF00C49551 /* Localizable.strings */; };
 		16A8873D1B21DD8A00C49551 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A8873F1B21DD8A00C49551 /* Localizable.strings */; };
@@ -174,6 +175,7 @@
 		167246241B1B4F0D0083035F /* ReadingRoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadingRoomTableViewCell.swift; path = view/ReadingRoomTableViewCell.swift; sourceTree = "<group>"; };
 		167246261B1B4F2C0083035F /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = "view controller/LibraryViewController.swift"; sourceTree = "<group>"; };
 		1673304E1B1C92BF00573FFC /* DetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInterfaceController.swift; sourceTree = "<group>"; };
+		1676C3D11B2414A7001B3AB6 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		168841181B1EB58700F3C818 /* ReadingRoomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingRoomCell.swift; sourceTree = "<group>"; };
 		16A887311B21D14800C49551 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		16A887321B21D14800C49551 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Interface.strings; sourceTree = "<group>"; };
@@ -552,6 +554,7 @@
 			isa = PBXGroup;
 			children = (
 				16B4536B1B22A9A400A3B008 /* TodayViewController.swift */,
+				1676C3D11B2414A7001B3AB6 /* LibraryTableViewCell.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -1075,6 +1078,7 @@
 			files = (
 				16251CAD1B232D650035F2D9 /* Definitions.swift in Sources */,
 				16B4536C1B22A9A400A3B008 /* TodayViewController.swift in Sources */,
+				1676C3D21B2414A7001B3AB6 /* LibraryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
