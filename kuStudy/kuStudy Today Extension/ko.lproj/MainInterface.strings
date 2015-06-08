@@ -1,0 +1,27 @@
+
+/* Class = "UILabel"; text = "0"; ObjectID = "0wk-pN-3gz"; */
+"0wk-pN-3gz.text" = "0";
+
+/* Class = "UILabel"; text = "Total"; ObjectID = "4ZD-pM-bme"; */
+"4ZD-pM-bme.text" = "전체";
+
+/* Class = "UILabel"; text = "Total"; ObjectID = "6mB-i5-1uu"; */
+"6mB-i5-1uu.text" = "전체";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Dpe-M3-stR"; */
+"Dpe-M3-stR.text" = "0";
+
+/* Class = "UILabel"; text = "Available"; ObjectID = "F5Y-lc-iBo"; */
+"F5Y-lc-iBo.text" = "잔여";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "Nho-Kv-UzT"; */
+"Nho-Kv-UzT.text" = "0";
+
+/* Class = "UILabel"; text = "Library"; ObjectID = "Rzp-BC-eO2"; */
+"Rzp-BC-eO2.text" = "도서관";
+
+/* Class = "UILabel"; text = "Available"; ObjectID = "dsT-Bu-1zx"; */
+"dsT-Bu-1zx.text" = "잔여";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "irh-C1-3Eh"; */
+"irh-C1-3Eh.text" = "0";
