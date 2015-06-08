@@ -197,10 +197,108 @@
             <objects>
                 <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="kuStudy_WatchKit_App" customModuleProvider="target">
                     <items>
-                        <group alignment="left" id="gv7-I2-MZq"/>
-                        <group alignment="left" id="eew-Gs-W6Y"/>
+                        <group alignment="left" id="gv7-I2-MZq">
+                            <items>
+                                <group width="0.40000000000000002" height="1" alignment="left" backgroundImage="radial" contentMode="scaleAspectFit" initiallyAnimated="NO" id="9Ud-vr-adX">
+                                    <items>
+                                        <label alignment="center" verticalAlignment="center" text="0%" textAlignment="center" id="Ihz-xR-fxT">
+                                            <fontDescription key="font" type="system" pointSize="12"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="0.75" alignment="left" layout="vertical" id="p6K-3H-Zgd">
+                                    <items>
+                                        <label alignment="left" text="Available" id="M16-VE-8UX">
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" type="system" weight="medium" pointSize="12"/>
+                                        </label>
+                                        <label alignment="left" text="0" id="oqE-g4-SuH">
+                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                        </label>
+                                    </items>
+                                    <edgeInsets key="margins" left="10" right="0.0" top="0.0" bottom="0.0"/>
+                                </group>
+                            </items>
+                            <edgeInsets key="margins" left="5" right="0.0" top="5" bottom="0.0"/>
+                        </group>
+                        <group alignment="left" layout="vertical" id="eew-Gs-W6Y">
+                            <items>
+                                <group width="1" height="0.16" alignment="left" id="db6-Rg-fRe">
+                                    <items>
+                                        <label alignment="left" verticalAlignment="center" text="Library" id="ylm-hB-ekB">
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" type="system" pointSize="12"/>
+                                        </label>
+                                        <label alignment="right" verticalAlignment="center" text="0" id="Ljn-IO-4sR"/>
+                                    </items>
+                                </group>
+                                <group width="1" height="0.16" alignment="left" id="Mhe-zZ-PXb">
+                                    <items>
+                                        <label alignment="left" verticalAlignment="center" text="Library" id="YKt-ky-GkI">
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" type="system" pointSize="12"/>
+                                        </label>
+                                        <label alignment="right" verticalAlignment="center" text="0" id="L3P-dC-0H0"/>
+                                    </items>
+                                </group>
+                                <group width="1" height="0.16" alignment="left" id="2U4-hn-I9X">
+                                    <items>
+                                        <label alignment="left" verticalAlignment="center" text="Library" id="vy8-v4-5BL">
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" type="system" pointSize="12"/>
+                                        </label>
+                                        <label alignment="right" verticalAlignment="center" text="0" id="RfH-mO-SH8"/>
+                                    </items>
+                                </group>
+                                <group width="1" height="0.16" alignment="left" id="aPm-z8-0ac">
+                                    <items>
+                                        <label alignment="left" verticalAlignment="center" text="Library" id="f1H-BZ-Qbr">
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" type="system" pointSize="12"/>
+                                        </label>
+                                        <label alignment="right" verticalAlignment="center" text="0" id="VoQ-uj-UZM"/>
+                                    </items>
+                                </group>
+                                <group width="1" height="0.16" alignment="left" id="xmj-Zb-6Xt">
+                                    <items>
+                                        <label alignment="left" verticalAlignment="center" text="Library" id="f5d-d2-G6B">
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" type="system" pointSize="12"/>
+                                        </label>
+                                        <label alignment="right" verticalAlignment="center" text="0" id="xDc-ld-onY"/>
+                                    </items>
+                                </group>
+                                <group width="1" height="0.16" alignment="left" id="8jA-lI-5bu">
+                                    <items>
+                                        <label alignment="left" verticalAlignment="center" text="Library" id="zz4-HP-Zdv">
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="font" type="system" pointSize="12"/>
+                                        </label>
+                                        <label alignment="right" verticalAlignment="center" text="0" id="pEh-RS-Y16"/>
+                                    </items>
+                                </group>
+                            </items>
+                            <edgeInsets key="margins" left="5" right="5" top="0.0" bottom="0.0"/>
+                        </group>
                     </items>
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
+                    <connections>
+                        <outlet property="availableLabel" destination="oqE-g4-SuH" id="W8i-YN-fBL"/>
+                        <outlet property="cdlAvailableLabel" destination="xDc-ld-onY" id="RQN-Mh-QIY"/>
+                        <outlet property="cdlNameLabel" destination="f5d-d2-G6B" id="Ori-j2-cw7"/>
+                        <outlet property="centralLibraryAvailableLabel" destination="Ljn-IO-4sR" id="cnX-9U-grb"/>
+                        <outlet property="centralLibraryNameLabel" destination="ylm-hB-ekB" id="veh-nE-k3l"/>
+                        <outlet property="centralSquareAvailableLabel" destination="L3P-dC-0H0" id="UmG-bJ-Kzi"/>
+                        <outlet property="centralSquareNameLabel" destination="YKt-ky-GkI" id="dWs-om-Fmz"/>
+                        <outlet property="hanaSquareAvailableLabel" destination="RfH-mO-SH8" id="3xH-Py-08S"/>
+                        <outlet property="hanaSquareNameLabel" destination="vy8-v4-5BL" id="cSj-Uy-SJp"/>
+                        <outlet property="percentageGroup" destination="9Ud-vr-adX" id="kAD-C7-Xsp"/>
+                        <outlet property="percentageLabel" destination="Ihz-xR-fxT" id="ngl-BS-DtP"/>
+                        <outlet property="scienceLibraryAvailableLabel" destination="VoQ-uj-UZM" id="2Zb-rU-bDZ"/>
+                        <outlet property="scienceLibraryNameLabel" destination="f1H-BZ-Qbr" id="7ht-YU-VGK"/>
+                        <outlet property="sejongAvailableLabel" destination="pEh-RS-Y16" id="OCz-F5-hYK"/>
+                        <outlet property="sejongNameLabel" destination="zz4-HP-Zdv" id="W2q-X2-0M4"/>
+                    </connections>
                 </glanceController>
             </objects>
             <point key="canvasLocation" x="164" y="-12"/>
