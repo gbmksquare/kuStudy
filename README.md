@@ -59,6 +59,10 @@
 
 [swift equivalent of [NSBundle bundleForClass:[self class]]](http://stackoverflow.com/questions/25651403/swift-equivalent-of-nsbundle-bundleforclassself-class)
 
+#### Keychain
+
+[iOS Keychain SecItemAdd returns -25243](http://stackoverflow.com/questions/7989258/ios-keychain-secitemadd-returns-25243)
+
 ### Today Extension
 
 [Today Extensions Tutorial: Getting Started](http://www.raywenderlich.com/83809/ios-8-today-extension-tutorial)
