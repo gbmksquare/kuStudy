@@ -20,8 +20,27 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>368b3fbe6cc8c500211cc2a4d998565f8db0fc45</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+		</array>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>com.gbmksquare.kuapps.kuStudy.summaryView</string>
+		<string>com.gbmksquare.kuapps.kuStudy.libraryView</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -35,11 +54,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>NSUserActivityTypes</key>
-	<array>
-		<string>com.gbmksquare.kuapps.kuStudy.summaryView</string>
-		<string>com.gbmksquare.kuapps.kuStudy.libraryView</string>
 	</array>
 </dict>
 </plist>

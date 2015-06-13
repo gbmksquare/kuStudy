@@ -9,6 +9,8 @@
 import UIKit
 import kuStudyKit
 import RealmSwift
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +23,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if defaults.boolForKey("isFirstRun") == true {
             defaults.setBool(false, forKey: "isFirstRun")
         }
+    }
+    
+    private func setupFabric() {
+        #if DEBUG
+        #else
+            Fabric.with([Crashlytics()])
+        #endif
     }
     
     private func setupKuStudy() {
@@ -36,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Application
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         setupKuStudy()
+        setupFabric()
         kuStudy().requestInfoIfNeeded { (error) -> Void in
             // TODO: Handle error
         }
