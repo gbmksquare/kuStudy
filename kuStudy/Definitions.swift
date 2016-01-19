@@ -23,8 +23,8 @@ let kuStudyKeychainPasswordKey = "kuStudyKeychainPasswordKey"
 // MARK: Shared container
 let kuStudySharedContainer = "group.com.gbmksquare.kuapps.kuStudy"
 
-var sharedContainerPath: String {
-    return NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(kuStudySharedContainer)!.path!
+var sharedContainerPath: NSURL? {
+    return NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(kuStudySharedContainer)
 }
 
 // MARK: WatchKit

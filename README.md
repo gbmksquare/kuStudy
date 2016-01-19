@@ -29,11 +29,19 @@
 
 [Swift Singleton](https://github.com/hpique/SwiftSingleton)
 
+[#ifdef replacement in swift language](http://stackoverflow.com/questions/24003291/ifdef-replacement-in-swift-language)
+
 ### Realm
 
 [Realm](https://realm.io)
 
 ### iOS
+
+#### Storyboard
+
+[How to sync localized storyboards' strings after modifying storyboard in Xcode 5](http://stackoverflow.com/questions/20893800/how-to-sync-localized-storyboards-strings-after-modifying-storyboard-in-xcode-5)
+
+[Is it possible to update a localized storyboard's strings?](http://stackoverflow.com/questions/15094259/is-it-possible-to-update-a-localized-storyboards-strings)
 
 #### Navigation bar
 
@@ -101,6 +109,10 @@
 [How to use Handoff in your WatchKit app](http://www.fiveminutewatchkit.com/blog/2015/3/23/how-to-use-handoff-in-your-watchkit-app)
 
 [Working with Handoff in iOS 8](http://www.appcoda.com/handoff/)
+
+### Build
+
+[Xcode won't archive Swift iOS app with a Swift framework as a separate target. How can this be fixed?](http://stackoverflow.com/questions/29731659/xcode-wont-archive-swift-ios-app-with-a-swift-framework-as-a-separate-target-h)
 
 # Credit
 

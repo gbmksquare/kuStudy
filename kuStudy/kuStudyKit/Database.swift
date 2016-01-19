@@ -10,9 +10,20 @@ import Foundation
 import RealmSwift
 
 public extension kuStudy {
-    public class func infoRealm() -> Realm {
-        let path = sharedContainerPath.stringByAppendingPathComponent("info.realm")
-        return Realm(path: path)
+    public class func infoRealm() -> Realm? {
+        let realmUrl = sharedContainerPath?.URLByAppendingPathComponent("info.realm")
+        
+        if let realmPath = realmUrl?.path {
+            var configuration = Realm.Configuration()
+            configuration.path = realmPath
+            Realm.Configuration.defaultConfiguration = configuration
+        }
+        
+        do {
+            return try Realm()
+        } catch {
+            return nil
+        }
     }
 }
 

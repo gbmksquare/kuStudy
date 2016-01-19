@@ -19,7 +19,7 @@ public class kuStudy {
     var authId: String {
         get {
             let keychain = Keychain(service: kuStudyKeychainService, accessGroup: kuStudyKeychainAccessGroup)
-            if let id = keychain.getString(kuStudyKeychainIdKey) {
+            if let id = keychain[kuStudyKeychainIdKey] {
                 return id
             } else {
                 return ""
@@ -34,7 +34,7 @@ public class kuStudy {
     var authPassword: String {
         get {
             let keychain = Keychain(service: kuStudyKeychainService, accessGroup: kuStudyKeychainAccessGroup)
-            if let password = keychain.getString(kuStudyKeychainPasswordKey) {
+            if let password = keychain[kuStudyKeychainPasswordKey] {
                 return password
             } else {
                 return ""

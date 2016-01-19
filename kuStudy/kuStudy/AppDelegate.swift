@@ -77,7 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: WatchKit
-    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: (([NSObject : AnyObject]!) -> Void)!) {
+    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: ([NSObject : AnyObject]?) -> Void) {
         // Setup background task
         var backgroundTask: UIBackgroundTaskIdentifier!
         backgroundTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
@@ -116,11 +116,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: Handoff
     func application(application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
-        println(userActivityType)
+        print(userActivityType)
         return false
     }
     
-    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]!) -> Void) -> Bool {
+    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         if let window = window {
             let navigationController = window.rootViewController as! UINavigationController
             let summaryViewController = navigationController.topViewController as! SummaryViewController

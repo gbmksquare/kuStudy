@@ -107,7 +107,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
             switch identifier {
             case "librarySegue":
                 let destinationViewController = segue.destinationViewController as! LibraryViewController
-                destinationViewController.libraryId = tableView.indexPathForSelectedRow()!.row + 1
+                destinationViewController.libraryId = tableView.indexPathForSelectedRow!.row + 1
             default: break
             }
         }

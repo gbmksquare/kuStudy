@@ -14,7 +14,7 @@ protocol API {
 
 enum kuStudyAPI: API {
     // TODO: Use HTTPS instead of HTTP
-    var baseUrl: String { return "http://api.gbmksquare.com/kuapps/kustudy/v1" }
+    var baseUrl: String { return "https://api.gbmksquare.com/kuapps/kustudy/v1" }
     
     case Info
     case Summary

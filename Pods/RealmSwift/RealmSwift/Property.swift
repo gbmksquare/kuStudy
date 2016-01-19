@@ -20,14 +20,14 @@ import Foundation
 import Realm
 
 /**
-This class represents properties persisted to Realm in an ObjectSchema.
+This class represents properties persisted to Realm in an `ObjectSchema`.
 
-When using Realm, Property objects allow performing migrations and
+When using Realm, `Property` objects allow performing migrations and
 introspecting the database's schema.
 
 These properties map to columns in the core database.
 */
-public final class Property: Printable {
+public final class Property: CustomStringConvertible {
 
     // MARK: Properties
 
@@ -41,6 +41,9 @@ public final class Property: Printable {
 
     /// Whether this property is indexed.
     public var indexed: Bool { return rlmProperty.indexed }
+
+    /// Whether this property is optional (can contain `nil` values).
+    public var optional: Bool { return rlmProperty.optional }
 
     /// Object class name - specify object types for `Object` and `List` properties.
     public var objectClassName: String? { return rlmProperty.objectClassName }
@@ -60,6 +63,6 @@ public final class Property: Printable {
 extension Property: Equatable {}
 
 /// Returns whether the two properties are equal.
-public func ==(lhs: Property, rhs: Property) -> Bool {
+public func == (lhs: Property, rhs: Property) -> Bool {
     return lhs.rlmProperty.isEqualToProperty(rhs.rlmProperty)
 }

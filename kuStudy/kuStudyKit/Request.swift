@@ -16,7 +16,7 @@ public extension kuStudy {
     // MARK: Request
     public func requestInfoIfNeeded(errorHandler: (error: NSError?) -> Void) {
         let infoRealm = kuStudy.infoRealm()
-        let results = infoRealm.objects(LibraryInfoRecord.self)
+        let results = infoRealm!.objects(LibraryInfoRecord.self)
         if results.count == 0 {
             kuStudy().requestInfo { (json, error) -> Void in
                 if let json = json {
@@ -38,8 +38,8 @@ public extension kuStudy {
                     }
                     let infoRealm = kuStudy.infoRealm()
                     for record in libraryInfoRecords {
-                        infoRealm.write({ () -> Void in
-                            infoRealm.add(record, update: true)
+                        try! infoRealm!.write({ () -> Void in
+                            infoRealm!.add(record, update: true)
                         })
                     }
                 } else {
@@ -52,33 +52,53 @@ public extension kuStudy {
     public func requestInfo(handler: CompletionHandler) {
         Alamofire.request(.GET, kuStudyAPI.Info.url)
         .authenticate(user: authId, password: authPassword)
-        .responseJSON(options: .AllowFragments) { (_, _, responseObject, error) -> Void in
-            self.handleResponseObject(responseObject, error: error, handler: handler)
-        }
+        .responseJSON(completionHandler: { (response) -> Void in
+            switch response.result {
+            case .Success(let value):
+                self.handleResponseObject(value, error: nil, handler: handler)
+            case .Failure(_):
+                break
+            }
+        })
     }
     
     public func requestSummary(handler: CompletionHandler) {
         Alamofire.request(.GET, kuStudyAPI.Summary.url)
         .authenticate(user: authId, password: authPassword)
-        .responseJSON(options: .AllowFragments) { (_, _, responseObject, error) -> Void in
-            self.handleResponseObject(responseObject, error: error, handler: handler)
-        }
+            .responseJSON(completionHandler: { (response) -> Void in
+                switch response.result {
+                case .Success(let value):
+                    self.handleResponseObject(value, error: nil, handler: handler)
+                case .Failure(_):
+                    break
+                }
+            })
     }
     
     public func requestLibrary(id: Int, handler: CompletionHandler) {
         Alamofire.request(.GET, kuStudyAPI.Library(id: id).url)
         .authenticate(user: authId, password: authPassword)
-        .responseJSON(options: .AllowFragments) { (_, _, responseObject, error) -> Void in
-            self.handleResponseObject(responseObject, error: error, handler: handler)
-        }
+            .responseJSON(completionHandler: { (response) -> Void in
+                switch response.result {
+                case .Success(let value):
+                    self.handleResponseObject(value, error: nil, handler: handler)
+                case .Failure(_):
+                    break
+                }
+            })
     }
     
     public func requestReadingRoom(id: Int, handler: CompletionHandler) {
         Alamofire.request(.GET, kuStudyAPI.ReadingRoom(id: id).url)
         .authenticate(user: authId, password: authPassword)
-        .responseJSON(options: .AllowFragments) { (_, _, responseObject, error) -> Void in
-            self.handleResponseObject(responseObject, error: error, handler: handler)
-        }
+            .responseJSON(completionHandler: { (response) -> Void in
+                switch response.result {
+                case .Success(let value):
+                    self.handleResponseObject(value, error: nil, handler: handler)
+                case .Failure(_):
+                    break
+                }
+            })
     }
     
     // MARK: Helper

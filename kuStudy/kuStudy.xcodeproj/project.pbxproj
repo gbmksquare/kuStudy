@@ -53,10 +53,10 @@
 		16BB42EF1B2C225900201DE2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BB42ED1B2C225900201DE2 /* Crashlytics.framework */; };
 		16BB431E1B2C277400201DE2 /* kuStudyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167245EC1B19C42B0083035F /* kuStudyKit.framework */; };
 		16BB431F1B2C277900201DE2 /* kuStudyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167245EC1B19C42B0083035F /* kuStudyKit.framework */; };
-		340E555A56FAA032F3BC8996 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		3C47203636394B56E9D0E72B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		7225A4021BE49FA40A38444C /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		D364CC67EEFEA8FF56BF7252 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576C8A2E7A4B1ADEEEB82330 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		57B6AB52F11E012B259738F8 /* Pods_kuStudyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B1D3158BD4EDE912894B738 /* Pods_kuStudyKit.framework */; };
+		61B198099587BECAF4631677 /* Pods_kuStudy_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C15C03556E87BE8959154A8 /* Pods_kuStudy_WatchKit_Extension.framework */; };
+		D59A183B760E13BEAF93EF38 /* Pods_kuStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5636F1CE74420A78DEF1033 /* Pods_kuStudy.framework */; };
+		FC6A6219AE91B5143D308570 /* Pods_kuStudy_Today_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4323E631FAAB0D21B01905E0 /* Pods_kuStudy_Today_Extension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +138,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		05F59D6C25CCB0C12A92AAA2 /* Pods-kuStudyKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudyKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudyKit/Pods-kuStudyKit.debug.xcconfig"; sourceTree = "<group>"; };
 		1600D6341B20408F008000B8 /* Summary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
 		1600D6361B2040A5008000B8 /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "kuStudy WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,9 +196,17 @@
 		16B4536B1B22A9A400A3B008 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		16BB42EC1B2C225900201DE2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		16BB42ED1B2C225900201DE2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
-		576C8A2E7A4B1ADEEEB82330 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AEF2ACCF4EB222A033994B4C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		D6A1D2BE9AFB6C1F599240B7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		1E7C7A7E12210C2E3AA60B3F /* Pods-kuStudyKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudyKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudyKit/Pods-kuStudyKit.release.xcconfig"; sourceTree = "<group>"; };
+		2BA7B6F39DFA23C1AE37BB78 /* Pods-kuStudy WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy WatchKit Extension.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		4323E631FAAB0D21B01905E0 /* Pods_kuStudy_Today_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kuStudy_Today_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B1D3158BD4EDE912894B738 /* Pods_kuStudyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kuStudyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		51583B738A7AFC6D255BD49B /* Pods-kuStudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy.debug.xcconfig"; sourceTree = "<group>"; };
+		9C15C03556E87BE8959154A8 /* Pods_kuStudy_WatchKit_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kuStudy_WatchKit_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A2AFB674CFE3CBFEAA956083 /* Pods-kuStudy WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy WatchKit Extension.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
+		A5636F1CE74420A78DEF1033 /* Pods_kuStudy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kuStudy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFB315B817CFDD163D1B378E /* Pods-kuStudy Today Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy Today Extension.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy Today Extension/Pods-kuStudy Today Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		B81839A657755FF0C493DD87 /* Pods-kuStudy Today Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy Today Extension.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy Today Extension/Pods-kuStudy Today Extension.release.xcconfig"; sourceTree = "<group>"; };
+		C02880E3AA3216F55D18B942 /* Pods-kuStudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16BB431F1B2C277900201DE2 /* kuStudyKit.framework in Frameworks */,
-				340E555A56FAA032F3BC8996 /* Pods.framework in Frameworks */,
+				61B198099587BECAF4631677 /* Pods_kuStudy_WatchKit_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,9 +224,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				167246031B19C42B0083035F /* kuStudyKit.framework in Frameworks */,
-				D364CC67EEFEA8FF56BF7252 /* Pods.framework in Frameworks */,
 				16BB42EF1B2C225900201DE2 /* Crashlytics.framework in Frameworks */,
 				16BB42EE1B2C225900201DE2 /* Fabric.framework in Frameworks */,
+				D59A183B760E13BEAF93EF38 /* Pods_kuStudy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,7 +241,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7225A4021BE49FA40A38444C /* Pods.framework in Frameworks */,
+				57B6AB52F11E012B259738F8 /* Pods_kuStudyKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,7 +259,7 @@
 			files = (
 				16BB431E1B2C277400201DE2 /* kuStudyKit.framework in Frameworks */,
 				16B453671B22A9A400A3B008 /* NotificationCenter.framework in Frameworks */,
-				3C47203636394B56E9D0E72B /* Pods.framework in Frameworks */,
+				FC6A6219AE91B5143D308570 /* Pods_kuStudy_Today_Extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,8 +385,8 @@
 				167245D71B19C0370083035F /* kuStudyTests */,
 				167245FC1B19C42B0083035F /* kuStudyKitTests */,
 				167245C01B19C0370083035F /* Products */,
-				F99FE579F69C33314A4FC8C7 /* Pods */,
 				6F6FBBD2472405AAB45773FC /* Frameworks */,
+				61EFD3792A0D8981161011BD /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -580,22 +589,31 @@
 			name = Vendor;
 			sourceTree = "<group>";
 		};
+		61EFD3792A0D8981161011BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				51583B738A7AFC6D255BD49B /* Pods-kuStudy.debug.xcconfig */,
+				C02880E3AA3216F55D18B942 /* Pods-kuStudy.release.xcconfig */,
+				AFB315B817CFDD163D1B378E /* Pods-kuStudy Today Extension.debug.xcconfig */,
+				B81839A657755FF0C493DD87 /* Pods-kuStudy Today Extension.release.xcconfig */,
+				2BA7B6F39DFA23C1AE37BB78 /* Pods-kuStudy WatchKit Extension.debug.xcconfig */,
+				A2AFB674CFE3CBFEAA956083 /* Pods-kuStudy WatchKit Extension.release.xcconfig */,
+				05F59D6C25CCB0C12A92AAA2 /* Pods-kuStudyKit.debug.xcconfig */,
+				1E7C7A7E12210C2E3AA60B3F /* Pods-kuStudyKit.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6F6FBBD2472405AAB45773FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				576C8A2E7A4B1ADEEEB82330 /* Pods.framework */,
 				16B453661B22A9A400A3B008 /* NotificationCenter.framework */,
+				A5636F1CE74420A78DEF1033 /* Pods_kuStudy.framework */,
+				4323E631FAAB0D21B01905E0 /* Pods_kuStudy_Today_Extension.framework */,
+				9C15C03556E87BE8959154A8 /* Pods_kuStudy_WatchKit_Extension.framework */,
+				4B1D3158BD4EDE912894B738 /* Pods_kuStudyKit.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		F99FE579F69C33314A4FC8C7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D6A1D2BE9AFB6C1F599240B7 /* Pods.debug.xcconfig */,
-				AEF2ACCF4EB222A033994B4C /* Pods.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -616,11 +634,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16136BF31B1C3F0800B3F744 /* Build configuration list for PBXNativeTarget "kuStudy WatchKit Extension" */;
 			buildPhases = (
-				66E713612BD803EF751066DA /* Check Pods Manifest.lock */,
+				B5F725410D9A09885DD6E274 /* Check Pods Manifest.lock */,
 				16136BCF1B1C3F0700B3F744 /* Sources */,
 				16136BD01B1C3F0700B3F744 /* Frameworks */,
 				16136BD11B1C3F0700B3F744 /* Resources */,
-				FB0AA9B83D019B404CB02657 /* Copy Pods Resources */,
+				318934E135E7CD91B1A33BB1 /* Embed Pods Frameworks */,
+				C933A526B3E79288B470DD3E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -651,15 +670,15 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 167245DE1B19C0370083035F /* Build configuration list for PBXNativeTarget "kuStudy" */;
 			buildPhases = (
-				C7FD3EAB018BED9536A87925 /* Check Pods Manifest.lock */,
+				B0DD247ADB823B63CEBF95B7 /* Check Pods Manifest.lock */,
 				167245BB1B19C0370083035F /* Sources */,
 				167245BC1B19C0370083035F /* Frameworks */,
 				167245BD1B19C0370083035F /* Resources */,
 				167246081B19C42C0083035F /* Embed Frameworks */,
-				D524F00B165DB3D3C3975AB0 /* Embed Pods Frameworks */,
-				D0FEF566EF60B5D8B079A2D1 /* Copy Pods Resources */,
 				16136BF41B1C3F0800B3F744 /* Embed App Extensions */,
 				16BB42EA1B2C221A00201DE2 /* Crashlytics Run Script */,
+				F828EF85523AC71D43FB1D13 /* Embed Pods Frameworks */,
+				BE4289F6E3EAE3FDDEB12315 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -695,12 +714,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 167246051B19C42C0083035F /* Build configuration list for PBXNativeTarget "kuStudyKit" */;
 			buildPhases = (
-				A697127F9C59AE4BB56A20F3 /* Check Pods Manifest.lock */,
+				BAAAB984CF1E99EDEF81E87A /* Check Pods Manifest.lock */,
 				167245E71B19C42B0083035F /* Sources */,
 				167245E81B19C42B0083035F /* Frameworks */,
 				167245E91B19C42B0083035F /* Headers */,
 				167245EA1B19C42B0083035F /* Resources */,
-				EB9AA8650B5C701546E1F888 /* Copy Pods Resources */,
+				1F01FDB0931CAB18CB41D25F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -734,11 +753,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16B453741B22A9A400A3B008 /* Build configuration list for PBXNativeTarget "kuStudy Today Extension" */;
 			buildPhases = (
-				6D17502138B1F511210637DE /* Check Pods Manifest.lock */,
+				5A5A8A77A6C5B995829D9CE9 /* Check Pods Manifest.lock */,
 				16B453611B22A9A400A3B008 /* Sources */,
 				16B453621B22A9A400A3B008 /* Frameworks */,
 				16B453631B22A9A400A3B008 /* Resources */,
-				7DF7998DB1887B7A4DBF0ACF /* Copy Pods Resources */,
+				6BF3CBD1D23A0C70DEBEADED /* Embed Pods Frameworks */,
+				0E152D5E01D1A99C043AF266 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -755,7 +775,8 @@
 		167245B71B19C0370083035F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = gbmKSquare;
 				TargetAttributes = {
 					16136BD21B1C3F0700B3F744 = {
@@ -899,6 +920,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E152D5E01D1A99C043AF266 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy Today Extension/Pods-kuStudy Today Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		16BB42EA1B2C221A00201DE2 /* Crashlytics Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -913,37 +949,7 @@
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 368b3fbe6cc8c500211cc2a4d998565f8db0fc45 0eb40729d4a93dfda5830f6c0f43ab99b62ab764b97601ca7dd9f36c9bb528a7";
 		};
-		66E713612BD803EF751066DA /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6D17502138B1F511210637DE /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		7DF7998DB1887B7A4DBF0ACF /* Copy Pods Resources */ = {
+		1F01FDB0931CAB18CB41D25F /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -955,55 +961,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudyKit/Pods-kuStudyKit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A697127F9C59AE4BB56A20F3 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		C7FD3EAB018BED9536A87925 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D0FEF566EF60B5D8B079A2D1 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D524F00B165DB3D3C3975AB0 /* Embed Pods Frameworks */ = {
+		318934E135E7CD91B1A33BB1 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1015,10 +976,85 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EB9AA8650B5C701546E1F888 /* Copy Pods Resources */ = {
+		5A5A8A77A6C5B995829D9CE9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6BF3CBD1D23A0C70DEBEADED /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy Today Extension/Pods-kuStudy Today Extension-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B0DD247ADB823B63CEBF95B7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B5F725410D9A09885DD6E274 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BAAAB984CF1E99EDEF81E87A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BE4289F6E3EAE3FDDEB12315 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1030,10 +1066,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FB0AA9B83D019B404CB02657 /* Copy Pods Resources */ = {
+		C933A526B3E79288B470DD3E /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1045,7 +1081,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F828EF85523AC71D43FB1D13 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1217,17 +1268,22 @@
 /* Begin XCBuildConfiguration section */
 		16136BEE1B1C3F0800B3F744 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6A1D2BE9AFB6C1F599240B7 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 2BA7B6F39DFA23C1AE37BB78 /* Pods-kuStudy WatchKit Extension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "kuStudy WatchKit Extension/kuStudy WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "kuStudy WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "3af04a56-5e96-4ad3-bc2b-c03b2defd8f0";
 				SKIP_INSTALL = YES;
@@ -1236,13 +1292,18 @@
 		};
 		16136BEF1B1C3F0800B3F744 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEF2ACCF4EB222A033994B4C /* Pods.release.xcconfig */;
+			baseConfigurationReference = A2AFB674CFE3CBFEAA956083 /* Pods-kuStudy WatchKit Extension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "kuStudy WatchKit Extension/kuStudy WatchKit Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "kuStudy WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				PROVISIONING_PROFILE = "86ebfca6-7fc1-4861-b783-cde6164753ad";
 				SKIP_INSTALL = YES;
@@ -1261,6 +1322,7 @@
 				IBSC_MODULE = kuStudy_WatchKit_Extension;
 				INFOPLIST_FILE = "kuStudy WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4515cc29-5557-46e4-b5db-b82f28e320d0";
 				SKIP_INSTALL = YES;
@@ -1278,6 +1340,7 @@
 				IBSC_MODULE = kuStudy_WatchKit_Extension;
 				INFOPLIST_FILE = "kuStudy WatchKit App/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "5b287ee0-e285-4143-ae95-e221f1d93e79";
 				SKIP_INSTALL = YES;
@@ -1308,6 +1371,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1371,7 +1435,7 @@
 		};
 		167245DF1B19C0370083035F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6A1D2BE9AFB6C1F599240B7 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 51583B738A7AFC6D255BD49B /* Pods-kuStudy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kuStudy/kuStudy.entitlements;
@@ -1385,6 +1449,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -D DEBUG";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "e5c10b8f-f8f9-480a-a95d-f6d814ecf1a6";
 			};
@@ -1392,7 +1457,7 @@
 		};
 		167245E01B19C0370083035F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEF2ACCF4EB222A033994B4C /* Pods.release.xcconfig */;
+			baseConfigurationReference = C02880E3AA3216F55D18B942 /* Pods-kuStudy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kuStudy/kuStudy.entitlements;
@@ -1405,6 +1470,7 @@
 				INFOPLIST_FILE = kuStudy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "02faf606-6d71-4609-b396-13481cfd86dc";
 			};
@@ -1424,6 +1490,7 @@
 				);
 				INFOPLIST_FILE = kuStudyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kuStudy.app/kuStudy";
 			};
@@ -1439,6 +1506,7 @@
 				);
 				INFOPLIST_FILE = kuStudyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kuStudy.app/kuStudy";
 			};
@@ -1446,7 +1514,7 @@
 		};
 		167246061B19C42C0083035F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6A1D2BE9AFB6C1F599240B7 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 05F59D6C25CCB0C12A92AAA2 /* Pods-kuStudyKit.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -1456,6 +1524,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1463,6 +1535,7 @@
 				INFOPLIST_FILE = kuStudyKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuApps.kuStudyKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1474,7 +1547,7 @@
 		};
 		167246071B19C42C0083035F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEF2ACCF4EB222A033994B4C /* Pods.release.xcconfig */;
+			baseConfigurationReference = 1E7C7A7E12210C2E3AA60B3F /* Pods-kuStudyKit.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
@@ -1484,9 +1557,14 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = kuStudyKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuApps.kuStudyKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1508,6 +1586,7 @@
 				);
 				INFOPLIST_FILE = kuStudyKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kuStudy.app/kuStudy";
 			};
@@ -1522,6 +1601,7 @@
 				);
 				INFOPLIST_FILE = kuStudyKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kuStudy.app/kuStudy";
 			};
@@ -1529,17 +1609,22 @@
 		};
 		16B453721B22A9A400A3B008 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D6A1D2BE9AFB6C1F599240B7 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = AFB315B817CFDD163D1B378E /* Pods-kuStudy Today Extension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "kuStudy Today Extension/kuStudy Today Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "kuStudy Today Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.kuapps.kuStudy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "f7117daa-09f3-4b1c-b23d-696169a1441d";
 				SKIP_INSTALL = YES;
@@ -1548,13 +1633,18 @@
 		};
 		16B453731B22A9A400A3B008 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEF2ACCF4EB222A033994B4C /* Pods.release.xcconfig */;
+			baseConfigurationReference = B81839A657755FF0C493DD87 /* Pods-kuStudy Today Extension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "kuStudy Today Extension/kuStudy Today Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
+					"$(inherited)",
+				);
 				INFOPLIST_FILE = "kuStudy Today Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.kuapps.kuStudy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "311a130c-e582-408a-82e7-c7bd7b36eef5";
 				SKIP_INSTALL = YES;

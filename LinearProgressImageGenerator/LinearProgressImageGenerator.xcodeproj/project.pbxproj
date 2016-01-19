@@ -104,6 +104,7 @@
 		16C93D401B1F2E37006BC511 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = gbmKSquare;
 				TargetAttributes = {
@@ -297,6 +298,7 @@
 				16C93D691B1F2E38006BC511 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
