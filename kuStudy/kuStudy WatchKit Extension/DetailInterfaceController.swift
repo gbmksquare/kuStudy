@@ -8,7 +8,7 @@
 
 import Foundation
 import WatchKit
-import kuStudyKit
+import kuStudyWatchKit
 import SwiftyJSON
 
 class DetailInterfaceController: WKInterfaceController {
@@ -22,6 +22,7 @@ class DetailInterfaceController: WKInterfaceController {
     var libraryId: Int!
     var library: Library?
     var readingRooms = [ReadingRoom]()
+    var studyKit = kuStudy()
     
     // MARK: Table
     private func refreshData() {
@@ -55,6 +56,27 @@ class DetailInterfaceController: WKInterfaceController {
         
         libraryId = (context as! [Int]).first!
         
+        studyKit.requestLibrary(libraryId) { (json, error) -> Void in
+            if let json = json {
+                // Library
+                let total = json["content"]["total"].intValue
+                let available = json["content"]["available"].intValue
+                self.library = Library(id: self.libraryId, total: total, available: available)
+                
+                // Reading rooms
+                let readingRooms = json["content"]["rooms"].arrayValue
+                for readingRoom in readingRooms {
+                    let id = readingRoom["id"].intValue
+                    let total = readingRoom["total"].intValue
+                    let available = readingRoom["available"].intValue
+                    let readingRoom = ReadingRoom(id: id, total: total, available: available)
+                    self.readingRooms.append(readingRoom)
+                }
+                self.refreshData()
+            }
+        }
+        
+        /*
         WKInterfaceController.openParentApplication([kuStudyWatchKitRequestKey: kuStudyWatchKitRequestLibrary, kuStudyWatchKitRequestLibraryKey: libraryId],
             reply: { (replyInfo, error) -> Void in
                 if let libraryDict = replyInfo[kuStudyWatchKitRequestLibrary] as? NSDictionary {
@@ -79,6 +101,7 @@ class DetailInterfaceController: WKInterfaceController {
                     // TODO: Handle error
                 }
         })
+        */
     }
     
     override func willActivate() {

@@ -1,0 +1,6 @@
+framework module KeychainAccess {
+  umbrella header "Pods-kuStudyWatchKit-KeychainAccess-umbrella.h"
+
+  export *
+  module * { export * }
+}

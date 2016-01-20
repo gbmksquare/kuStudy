@@ -1,4 +1,4 @@
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 
 FOUNDATION_EXPORT double Pods_kuStudy_WatchKit_ExtensionVersionNumber;

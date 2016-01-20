@@ -8,7 +8,7 @@
 
 import WatchKit
 import Foundation
-import kuStudyKit
+import kuStudyWatchKit
 import SwiftyJSON
 
 class GlanceController: WKInterfaceController {
@@ -33,6 +33,7 @@ class GlanceController: WKInterfaceController {
     // MARK: Model
     var summary: Summary?
     var libraries = [Library]()
+    var studyKit = kuStudy()
     
     // MARK: Data
     private func refreshData() {
@@ -64,6 +65,25 @@ class GlanceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
+        studyKit.requestSummary { (json, error) -> Void in
+            if let json = json {
+                let total = json["content"]["total"].intValue
+                let available = json["content"]["available"].intValue
+                self.summary = Summary(total: total, available: available)
+                
+                let libraries = json["content"]["libraries"].arrayValue
+                for library in libraries {
+                    let id = library["id"].intValue
+                    let total = library["total"].intValue
+                    let available = library["available"].intValue
+                    let library = Library(id: id, total: total, available: available)
+                    self.libraries.append(library)
+                }
+                self.refreshData()
+            }
+        }
+        
+        /*
         WKInterfaceController.openParentApplication([kuStudyWatchKitRequestKey: kuStudyWatchKitRequestSummary],
             reply: { (replyInfo, error) -> Void in
                 if let summaryDict = replyInfo[kuStudyWatchKitRequestSummary] as? NSDictionary {
@@ -85,6 +105,7 @@ class GlanceController: WKInterfaceController {
                     // TODO: Handle error
                 }
         })
+*/
     }
 
     override func willActivate() {

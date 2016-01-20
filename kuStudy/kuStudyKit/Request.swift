@@ -51,7 +51,7 @@ public extension kuStudy {
     
     public func requestInfo(handler: CompletionHandler) {
         Alamofire.request(.GET, kuStudyAPI.Info.url)
-        .authenticate(user: authId, password: authPassword)
+        .authenticate(user: kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
         .responseJSON(completionHandler: { (response) -> Void in
             switch response.result {
             case .Success(let value):
@@ -64,7 +64,7 @@ public extension kuStudy {
     
     public func requestSummary(handler: CompletionHandler) {
         Alamofire.request(.GET, kuStudyAPI.Summary.url)
-        .authenticate(user: authId, password: authPassword)
+        .authenticate(user: kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
             .responseJSON(completionHandler: { (response) -> Void in
                 switch response.result {
                 case .Success(let value):
@@ -77,7 +77,7 @@ public extension kuStudy {
     
     public func requestLibrary(id: Int, handler: CompletionHandler) {
         Alamofire.request(.GET, kuStudyAPI.Library(id: id).url)
-        .authenticate(user: authId, password: authPassword)
+        .authenticate(user: kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
             .responseJSON(completionHandler: { (response) -> Void in
                 switch response.result {
                 case .Success(let value):
@@ -90,7 +90,7 @@ public extension kuStudy {
     
     public func requestReadingRoom(id: Int, handler: CompletionHandler) {
         Alamofire.request(.GET, kuStudyAPI.ReadingRoom(id: id).url)
-        .authenticate(user: authId, password: authPassword)
+        .authenticate(user: kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
             .responseJSON(completionHandler: { (response) -> Void in
                 switch response.result {
                 case .Success(let value):
