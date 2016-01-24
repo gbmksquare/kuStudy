@@ -49,6 +49,9 @@
 "reading_room_5f_a" = "5층 일반 열람실 A";
 "reading_room_5f_b" = "5층 일반 열람실 B";
 "reading_room_5f_notebook" = "5층 노트북 열람구역";
+"reading_room_1f_general" = "1층 일반열람실";
+"reading_room_1f_notebook" = "1층 노트북열람실";
+"reading_room_1f_info" = "1층 정보검색코너";
 "reading_room_a" = "대열람실 A";
 "reading_room_b" = "대열람실 B";
 "reading_room_c" = "대열람실 C";
