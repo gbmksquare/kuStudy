@@ -64,47 +64,13 @@ class GlanceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        kuStudy.requestSeatSummary({ (json) -> Void in
-                let total = json["content"]["total"].intValue
-                let available = json["content"]["available"].intValue
-                self.summary = Summary(total: total, available: available)
-                
-                let libraries = json["content"]["libraries"].arrayValue
-                for library in libraries {
-                    let id = library["id"].intValue
-                    let total = library["total"].intValue
-                    let available = library["available"].intValue
-                    let library = Library(id: id, total: total, available: available)
-                    self.libraries.append(library)
-                }
-                self.refreshData()
+        kuStudy.requestSeatSummary({ (summary, libraries) -> Void in
+            self.summary = summary
+            self.libraries = libraries
+            self.refreshData()
             }) { (error) -> Void in
                 
         }
-        
-        /*
-        WKInterfaceController.openParentApplication([kuStudyWatchKitRequestKey: kuStudyWatchKitRequestSummary],
-            reply: { (replyInfo, error) -> Void in
-                if let summaryDict = replyInfo[kuStudyWatchKitRequestSummary] as? NSDictionary {
-                    let json = JSON(summaryDict)
-                    let total = json["content"]["total"].intValue
-                    let available = json["content"]["available"].intValue
-                    self.summary = Summary(total: total, available: available)
-                    
-                    let libraries = json["content"]["libraries"].arrayValue
-                    for library in libraries {
-                        let id = library["id"].intValue
-                        let total = library["total"].intValue
-                        let available = library["available"].intValue
-                        let library = Library(id: id, total: total, available: available)
-                        self.libraries.append(library)
-                    }
-                    self.refreshData()
-                } else {
-                    // TODO: Handle error
-                }
-        })
-*/
     }
 
     override func willActivate() {

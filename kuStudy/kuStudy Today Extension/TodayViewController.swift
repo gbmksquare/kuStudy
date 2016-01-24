@@ -42,23 +42,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     // MARK: Action
     private func refreshData() {
-        kuStudy.requestSeatSummary({ (json) -> Void in
-                // Summary
-                let total = json["content"]["total"].intValue
-                let available = json["content"]["available"].intValue
-                self.summary = Summary(total: total, available: available)
-                
-                // Libraries
-                self.libraries = [Library]()
-                let libraries = json["content"]["libraries"].arrayValue
-                for library in libraries {
-                    let id = library["id"].intValue
-                    let total = library["total"].intValue
-                    let available = library["available"].intValue
-                    let library = Library(id: id, total: total, available: available)
-                    self.libraries.append(library)
-                }
-                self.updateView()
+        kuStudy.requestSeatSummary({ (summary, libraries) -> Void in
+                self.summary = summary
+                self.libraries = libraries
+            self.updateView()
             }) { (error) -> Void in
                 
         }

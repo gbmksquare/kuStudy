@@ -40,9 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Application
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         setupFabric()
-        kuStudy().requestInfoIfNeeded { (error) -> Void in
-            // TODO: Handle error
-        }
         handleFirstRun()
         customizeAppearance()
         return true

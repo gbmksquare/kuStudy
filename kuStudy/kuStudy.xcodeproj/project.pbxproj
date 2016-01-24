@@ -23,7 +23,6 @@
 		16538EAE1C4F16830097A4F4 /* kuStudyWatchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		16538EB21C4F16DC0097A4F4 /* Summary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600D6341B20408F008000B8 /* Summary.swift */; };
 		16538EB31C4F16DC0097A4F4 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600D6361B2040A5008000B8 /* Library.swift */; };
-		16538EB41C4F16DE0097A4F4 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246151B1AB1DF0083035F /* Database.swift */; };
 		16538EB51C4F16E20097A4F4 /* kuStudyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246111B1AB1C70083035F /* kuStudyAPI.swift */; };
 		16538EB71C4F16E20097A4F4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246131B1AB1D80083035F /* Request.swift */; };
 		16538EB81C4F16E40097A4F4 /* kuStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672460F1B1AB1AD0083035F /* kuStudy.swift */; };
@@ -41,7 +40,6 @@
 		167246101B1AB1AD0083035F /* kuStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672460F1B1AB1AD0083035F /* kuStudy.swift */; };
 		167246121B1AB1C70083035F /* kuStudyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246111B1AB1C70083035F /* kuStudyAPI.swift */; };
 		167246141B1AB1D80083035F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246131B1AB1D80083035F /* Request.swift */; };
-		167246161B1AB1DF0083035F /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246151B1AB1DF0083035F /* Database.swift */; };
 		1672461A1B1B13610083035F /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1672461B1B1B13610083035F /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672461E1B1B44850083035F /* SummaryViewController.swift */; };
@@ -224,7 +222,6 @@
 		1672460F1B1AB1AD0083035F /* kuStudy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kuStudy.swift; sourceTree = "<group>"; };
 		167246111B1AB1C70083035F /* kuStudyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kuStudyAPI.swift; sourceTree = "<group>"; };
 		167246131B1AB1D80083035F /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		167246151B1AB1DF0083035F /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		167246191B1B13610083035F /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		1672461C1B1B138B0083035F /* kuStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = kuStudy.entitlements; sourceTree = "<group>"; };
 		1672461E1B1B44850083035F /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryViewController.swift; path = "view controller/SummaryViewController.swift"; sourceTree = "<group>"; };
@@ -335,14 +332,6 @@
 				167246131B1AB1D80083035F /* Request.swift */,
 			);
 			name = Request;
-			sourceTree = "<group>";
-		};
-		1600D6321B20406A008000B8 /* Database */ = {
-			isa = PBXGroup;
-			children = (
-				167246151B1AB1DF0083035F /* Database.swift */,
-			);
-			name = Database;
 			sourceTree = "<group>";
 		};
 		1600D6331B204072008000B8 /* Model */ = {
@@ -538,7 +527,6 @@
 				1672460F1B1AB1AD0083035F /* kuStudy.swift */,
 				1672460C1B19C43C0083035F /* Framework */,
 				1600D6311B204044008000B8 /* Request */,
-				1600D6321B20406A008000B8 /* Database */,
 				1600D6331B204072008000B8 /* Model */,
 				165F9C921B2199D400101EBE /* Resource */,
 			);
@@ -1270,7 +1258,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				16538EB91C4F17630097A4F4 /* Definitions.swift in Sources */,
-				16538EB41C4F16DE0097A4F4 /* Database.swift in Sources */,
 				16538EB71C4F16E20097A4F4 /* Request.swift in Sources */,
 				16538EB21C4F16DC0097A4F4 /* Summary.swift in Sources */,
 				16538EB51C4F16E20097A4F4 /* kuStudyAPI.swift in Sources */,
@@ -1306,7 +1293,6 @@
 			files = (
 				167246121B1AB1C70083035F /* kuStudyAPI.swift in Sources */,
 				167246141B1AB1D80083035F /* Request.swift in Sources */,
-				167246161B1AB1DF0083035F /* Database.swift in Sources */,
 				1672461B1B1B13610083035F /* Definitions.swift in Sources */,
 				1600D6351B20408F008000B8 /* Summary.swift in Sources */,
 				167246101B1AB1AD0083035F /* kuStudy.swift in Sources */,

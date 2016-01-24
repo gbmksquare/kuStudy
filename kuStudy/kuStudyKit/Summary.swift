@@ -21,6 +21,7 @@ public class Summary {
 public class SummaryViewModel {
     public let total: Int
     public let available: Int
+    
     public var used: Int { return total - available }
     public var totalString: String { return "\(total)" }
     public var availableString: String { return "\(available)" }

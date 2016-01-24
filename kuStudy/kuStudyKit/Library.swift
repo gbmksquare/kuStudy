@@ -14,11 +14,13 @@ public typealias ReadingRoomViewModel = LibraryViewModel
 
 public class Library {
     public var id: Int
+    public var key: String
     public var total: Int
     public var available: Int
     
-    public init(id: Int, total: Int, available: Int) {
+    public init(id: Int, key: String, total: Int, available: Int) {
         self.id = id
+        self.key = key
         self.total = total
         self.available = available
     }
@@ -27,10 +29,11 @@ public class Library {
 public class LibraryViewModel {
     public let id: Int
     public let key: String
-    public let name: String
-    
     public let total: Int
     public let available: Int
+    
+    public var name: String { return NSLocalizedString(key, bundle: NSBundle(forClass: self.dynamicType), comment: "Library key") }
+    
     public var used: Int { return total - available }
     public var totalString: String { return "\(total)" }
     public var availableString: String { return "\(available)" }
@@ -49,12 +52,13 @@ public class LibraryViewModel {
     
     public init(library: Library) {
         id = library.id
+        key = library.key
         total = library.total
         available = library.available
         
-        let infoRealm = kuStudy.infoRealm()
-        let record = infoRealm?.objectForPrimaryKey(LibraryInfoRecord.self, key: library.id)
-        key = record?.key != nil ? record!.key : "unknown_id"
-        name = NSLocalizedString(key, bundle: NSBundle(forClass: self.dynamicType), comment: "Library key") // TODO: Use localized string
+//        let infoRealm = kuStudy.infoRealm()
+//        let record = infoRealm?.objectForPrimaryKey(LibraryInfoRecord.self, key: library.id)
+//        key = record?.key != nil ? record!.key : "unknown_id"
+//        name = NSLocalizedString(key, bundle: NSBundle(forClass: self.dynamicType), comment: "Library key") // TODO: Use localized string
     }
 }
