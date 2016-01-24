@@ -32,11 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
     }
     
-    private func setupKuStudy() {
-        let studyKit = kuStudy()
-        studyKit.setAuthentification(kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
-    }
-    
     private func customizeAppearance() {
         UINavigationBar.appearance().barStyle = UIBarStyle.Black
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
@@ -44,7 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: Application
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        setupKuStudy()
         setupFabric()
         kuStudy().requestInfoIfNeeded { (error) -> Void in
             // TODO: Handle error
@@ -74,44 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-    // MARK: WatchKit
-    func application(application: UIApplication, handleWatchKitExtensionRequest userInfo: [NSObject : AnyObject]?, reply: ([NSObject : AnyObject]?) -> Void) {
-        // Setup background task
-        var backgroundTask: UIBackgroundTaskIdentifier!
-        backgroundTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
-            reply(nil)
-            UIApplication.sharedApplication().endBackgroundTask(backgroundTask)
-        }
-        
-        // Request data
-        if let userInfo = userInfo, request = userInfo[kuStudyWatchKitRequestKey] as? String {
-            switch request {
-            case kuStudyWatchKitRequestSummary:
-                let studyKit = kuStudy()
-                studyKit.requestSummary { (json, error) -> Void in
-                    if let json = json {
-                        reply([kuStudyWatchKitRequestSummary: json.dictionaryObject!])
-                    } else {
-                        reply(nil)
-                    }
-                    UIApplication.sharedApplication().endBackgroundTask(backgroundTask)
-                }
-            case kuStudyWatchKitRequestLibrary:
-                let studyKit = kuStudy()
-                studyKit.requestLibrary(userInfo[kuStudyWatchKitRequestLibraryKey] as! Int, handler: { (json, error) -> Void in
-                    if let json = json {
-                        reply([kuStudyWatchKitRequestLibrary: json.dictionaryObject!])
-                    } else {
-                        reply(nil)
-                    }
-                    UIApplication.sharedApplication().endBackgroundTask(backgroundTask)
-                })
-            default:
-                UIApplication.sharedApplication().endBackgroundTask(backgroundTask)
-            }
-        }
     }
     
     // MARK: Handoff

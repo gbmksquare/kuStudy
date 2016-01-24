@@ -33,7 +33,6 @@ class GlanceController: WKInterfaceController {
     // MARK: Model
     var summary: Summary?
     var libraries = [Library]()
-    var studyKit = kuStudy()
     
     // MARK: Data
     private func refreshData() {
@@ -65,8 +64,7 @@ class GlanceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        studyKit.requestSummary { (json, error) -> Void in
-            if let json = json {
+        kuStudy.requestSeatSummary({ (json) -> Void in
                 let total = json["content"]["total"].intValue
                 let available = json["content"]["available"].intValue
                 self.summary = Summary(total: total, available: available)
@@ -80,7 +78,8 @@ class GlanceController: WKInterfaceController {
                     self.libraries.append(library)
                 }
                 self.refreshData()
-            }
+            }) { (error) -> Void in
+                
         }
         
         /*

@@ -25,7 +25,6 @@
 		16538EB31C4F16DC0097A4F4 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1600D6361B2040A5008000B8 /* Library.swift */; };
 		16538EB41C4F16DE0097A4F4 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246151B1AB1DF0083035F /* Database.swift */; };
 		16538EB51C4F16E20097A4F4 /* kuStudyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246111B1AB1C70083035F /* kuStudyAPI.swift */; };
-		16538EB61C4F16E20097A4F4 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246171B1AB4370083035F /* Authentication.swift */; };
 		16538EB71C4F16E20097A4F4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246131B1AB1D80083035F /* Request.swift */; };
 		16538EB81C4F16E40097A4F4 /* kuStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672460F1B1AB1AD0083035F /* kuStudy.swift */; };
 		16538EB91C4F17630097A4F4 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
@@ -43,7 +42,6 @@
 		167246121B1AB1C70083035F /* kuStudyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246111B1AB1C70083035F /* kuStudyAPI.swift */; };
 		167246141B1AB1D80083035F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246131B1AB1D80083035F /* Request.swift */; };
 		167246161B1AB1DF0083035F /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246151B1AB1DF0083035F /* Database.swift */; };
-		167246181B1AB4370083035F /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246171B1AB4370083035F /* Authentication.swift */; };
 		1672461A1B1B13610083035F /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1672461B1B1B13610083035F /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672461E1B1B44850083035F /* SummaryViewController.swift */; };
@@ -54,6 +52,7 @@
 		1676C3D21B2414A7001B3AB6 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1676C3D11B2414A7001B3AB6 /* LibraryTableViewCell.swift */; };
 		1676C3D31B2418B8001B3AB6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1676C3D51B2418B8001B3AB6 /* MainInterface.storyboard */; };
 		168841191B1EB58700F3C818 /* ReadingRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168841181B1EB58700F3C818 /* ReadingRoomCell.swift */; };
+		1688C4171C4F6B790044D1EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A887351B21D1FF00C49551 /* Localizable.strings */; };
 		16A887331B21D1FF00C49551 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A887351B21D1FF00C49551 /* Localizable.strings */; };
 		16A8873D1B21DD8A00C49551 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A8873F1B21DD8A00C49551 /* Localizable.strings */; };
 		16AD8F9B1C4E2BB9000D387F /* kuStudy WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -226,7 +225,6 @@
 		167246111B1AB1C70083035F /* kuStudyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kuStudyAPI.swift; sourceTree = "<group>"; };
 		167246131B1AB1D80083035F /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		167246151B1AB1DF0083035F /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
-		167246171B1AB4370083035F /* Authentication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		167246191B1B13610083035F /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		1672461C1B1B138B0083035F /* kuStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = kuStudy.entitlements; sourceTree = "<group>"; };
 		1672461E1B1B44850083035F /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryViewController.swift; path = "view controller/SummaryViewController.swift"; sourceTree = "<group>"; };
@@ -334,7 +332,6 @@
 			isa = PBXGroup;
 			children = (
 				167246111B1AB1C70083035F /* kuStudyAPI.swift */,
-				167246171B1AB4370083035F /* Authentication.swift */,
 				167246131B1AB1D80083035F /* Request.swift */,
 			);
 			name = Request;
@@ -538,8 +535,8 @@
 		167245ED1B19C42B0083035F /* kuStudyKit */ = {
 			isa = PBXGroup;
 			children = (
-				1672460C1B19C43C0083035F /* Framework */,
 				1672460F1B1AB1AD0083035F /* kuStudy.swift */,
+				1672460C1B19C43C0083035F /* Framework */,
 				1600D6311B204044008000B8 /* Request */,
 				1600D6321B20406A008000B8 /* Database */,
 				1600D6331B204072008000B8 /* Model */,
@@ -996,6 +993,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1688C4171C4F6B790044D1EE /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1276,7 +1274,6 @@
 				16538EB71C4F16E20097A4F4 /* Request.swift in Sources */,
 				16538EB21C4F16DC0097A4F4 /* Summary.swift in Sources */,
 				16538EB51C4F16E20097A4F4 /* kuStudyAPI.swift in Sources */,
-				16538EB61C4F16E20097A4F4 /* Authentication.swift in Sources */,
 				16538EB31C4F16DC0097A4F4 /* Library.swift in Sources */,
 				16538EB81C4F16E40097A4F4 /* kuStudy.swift in Sources */,
 			);
@@ -1310,7 +1307,6 @@
 				167246121B1AB1C70083035F /* kuStudyAPI.swift in Sources */,
 				167246141B1AB1D80083035F /* Request.swift in Sources */,
 				167246161B1AB1DF0083035F /* Database.swift in Sources */,
-				167246181B1AB4370083035F /* Authentication.swift in Sources */,
 				1672461B1B1B13610083035F /* Definitions.swift in Sources */,
 				1600D6351B20408F008000B8 /* Summary.swift in Sources */,
 				167246101B1AB1AD0083035F /* kuStudy.swift in Sources */,

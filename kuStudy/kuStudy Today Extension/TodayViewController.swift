@@ -42,9 +42,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     // MARK: Action
     private func refreshData() {
-        kuStudy().setAuthentification(kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
-        kuStudy().requestSummary { (json, error) -> Void in
-            if let json = json {
+        kuStudy.requestSeatSummary({ (json) -> Void in
                 // Summary
                 let total = json["content"]["total"].intValue
                 let available = json["content"]["available"].intValue
@@ -61,9 +59,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
                     self.libraries.append(library)
                 }
                 self.updateView()
-            } else {
-                // TODO: Handle error
-            }
+            }) { (error) -> Void in
+                
         }
     }
     

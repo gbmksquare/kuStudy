@@ -21,7 +21,6 @@ class InterfaceController: WKInterfaceController {
     // MARK: Model
     var summary: Summary?
     var libraries = [Library]()
-    var studyKit = kuStudy()
     
     // MARK: Table
     private func refreshData() {
@@ -61,8 +60,11 @@ class InterfaceController: WKInterfaceController {
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
         
-        studyKit.requestSummary { (json, error) -> Void in
-            if let json = json {
+        kuStudy().requestInfoIfNeeded { (error) -> Void in
+            // TODO
+        }
+        
+        kuStudy.requestSeatSummary({ (json) -> Void in
                 let total = json["content"]["total"].intValue
                 let available = json["content"]["available"].intValue
                 self.summary = Summary(total: total, available: available)
@@ -76,9 +78,8 @@ class InterfaceController: WKInterfaceController {
                     self.libraries.append(library)
                 }
                 self.refreshData()
-            } else {
-                print(error)
-            }
+            }) { (error) -> Void in
+                
         }
         
         /*

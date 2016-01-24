@@ -22,7 +22,6 @@ class DetailInterfaceController: WKInterfaceController {
     var libraryId: Int!
     var library: Library?
     var readingRooms = [ReadingRoom]()
-    var studyKit = kuStudy()
     
     // MARK: Table
     private func refreshData() {
@@ -56,8 +55,8 @@ class DetailInterfaceController: WKInterfaceController {
         
         libraryId = (context as! [Int]).first!
         
-        studyKit.requestLibrary(libraryId) { (json, error) -> Void in
-            if let json = json {
+        kuStudy.requestLibrarySeatSummary(libraryId,
+            success: { (json) -> Void in
                 // Library
                 let total = json["content"]["total"].intValue
                 let available = json["content"]["available"].intValue
@@ -73,7 +72,8 @@ class DetailInterfaceController: WKInterfaceController {
                     self.readingRooms.append(readingRoom)
                 }
                 self.refreshData()
-            }
+            }) { (error) -> Void in
+                
         }
         
         /*

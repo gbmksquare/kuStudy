@@ -11,7 +11,7 @@ import RealmSwift
 
 public extension kuStudy {
     public class func infoRealm() -> Realm? {
-        let realmUrl = sharedContainerPath?.URLByAppendingPathComponent("info.realm")
+        let realmUrl = sharedContainerUrl?.URLByAppendingPathComponent("info.realm")
         
         if let realmPath = realmUrl?.path {
             var configuration = Realm.Configuration()

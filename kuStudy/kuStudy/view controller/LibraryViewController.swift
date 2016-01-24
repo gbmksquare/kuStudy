@@ -40,7 +40,7 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         // Gradient
         // Graident
-        var gradientLayer = CAGradientLayer()
+        let gradientLayer = CAGradientLayer()
         gradientLayer.frame = summaryView.bounds
         gradientLayer.colors = [UIColor(red: 48/255, green: 35/255, blue: 174/255, alpha: 1).CGColor,
             UIColor(red: 109/255, green: 170/255, blue: 215/255, alpha: 1).CGColor]
@@ -64,8 +64,8 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: Action
     private func refreshData() {
-        kuStudy().requestLibrary(libraryId, handler: { (json, error) -> Void in
-            if let json = json {
+        kuStudy.requestLibrarySeatSummary(libraryId,
+            success: { (json) -> Void in
                 // Library
                 let total = json["content"]["total"].intValue
                 let available = json["content"]["available"].intValue
@@ -81,10 +81,9 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
                     self.readingRooms.append(readingRoom)
                 }
                 self.updateView()
-            } else {
-                // TODO: Handle error
-            }
-        })
+            }) { (error) -> Void in
+                
+        }
     }
 
     // MARK: Table view
