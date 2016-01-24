@@ -9,7 +9,6 @@
 import UIKit
 import NotificationCenter
 import kuStudyKit
-import SwiftyJSON
 
 class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var totalLabel: UILabel!

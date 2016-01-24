@@ -8,7 +8,6 @@
 
 import UIKit
 import kuStudyKit
-import SwiftyJSON
 
 class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var summaryView: UIView!

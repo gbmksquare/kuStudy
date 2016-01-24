@@ -85,15 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-kuStudyKit/Alamofire.framework"
-  install_framework "Pods-kuStudyKit/KeychainAccess.framework"
-  install_framework "Pods-kuStudyKit/Realm.framework"
-  install_framework "Pods-kuStudyKit/RealmSwift.framework"
   install_framework "Pods-kuStudyKit/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-kuStudyKit/Alamofire.framework"
-  install_framework "Pods-kuStudyKit/KeychainAccess.framework"
-  install_framework "Pods-kuStudyKit/Realm.framework"
-  install_framework "Pods-kuStudyKit/RealmSwift.framework"
   install_framework "Pods-kuStudyKit/SwiftyJSON.framework"
 fi

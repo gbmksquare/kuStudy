@@ -9,7 +9,6 @@
 import Foundation
 import WatchKit
 import kuStudyWatchKit
-import SwiftyJSON
 
 class DetailInterfaceController: WKInterfaceController {
     @IBOutlet weak var table: WKInterfaceTable!

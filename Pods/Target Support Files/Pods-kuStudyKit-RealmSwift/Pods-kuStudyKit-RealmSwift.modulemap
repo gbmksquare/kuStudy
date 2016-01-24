@@ -1,6 +1,0 @@
-framework module RealmSwift {
-  umbrella header "Pods-kuStudyKit-RealmSwift-umbrella.h"
-
-  export *
-  module * { export * }
-}

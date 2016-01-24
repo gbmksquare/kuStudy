@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import KeychainAccess
 
 public class kuStudy {
     public init() {

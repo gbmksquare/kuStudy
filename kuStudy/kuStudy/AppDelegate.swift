@@ -8,7 +8,6 @@
 
 import UIKit
 import kuStudyKit
-import RealmSwift
 import Fabric
 import Crashlytics
 

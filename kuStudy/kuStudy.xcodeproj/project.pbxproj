@@ -705,13 +705,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16136BF31B1C3F0800B3F744 /* Build configuration list for PBXNativeTarget "kuStudy WatchKit Extension" */;
 			buildPhases = (
-				00FDA298B5BC62B2D1F29985 /* Check Pods Manifest.lock */,
 				16136BCF1B1C3F0700B3F744 /* Sources */,
 				16136BD01B1C3F0700B3F744 /* Frameworks */,
 				16136BD11B1C3F0700B3F744 /* Resources */,
 				16AD8FB21C4E2C02000D387F /* Embed Frameworks */,
-				136DC915C86013DC19F6E5E1 /* Embed Pods Frameworks */,
-				05E6DD801CCD0ED46FFED6C1 /* Copy Pods Resources */,
+				45AB5BA9258D82A73EB7A19C /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -764,7 +762,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 167245DE1B19C0370083035F /* Build configuration list for PBXNativeTarget "kuStudy" */;
 			buildPhases = (
-				DF69B2AF63AC4AF284AF539F /* Check Pods Manifest.lock */,
 				167245BB1B19C0370083035F /* Sources */,
 				167245BC1B19C0370083035F /* Frameworks */,
 				167245BD1B19C0370083035F /* Resources */,
@@ -772,8 +769,7 @@
 				16136BF41B1C3F0800B3F744 /* Embed App Extensions */,
 				16BB42EA1B2C221A00201DE2 /* Crashlytics Run Script */,
 				16AD8FA01C4E2BB9000D387F /* Embed Watch Content */,
-				CEA3A862CFDD3C0AA8C0079B /* Embed Pods Frameworks */,
-				BC5CCB90348510FB7E6029F3 /* Copy Pods Resources */,
+				DDD66D67E9D914BABA3BA0B7 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -848,12 +844,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16B453741B22A9A400A3B008 /* Build configuration list for PBXNativeTarget "kuStudy Today Extension" */;
 			buildPhases = (
-				ED764F205F7FF25D589C7611 /* Check Pods Manifest.lock */,
 				16B453611B22A9A400A3B008 /* Sources */,
 				16B453621B22A9A400A3B008 /* Frameworks */,
 				16B453631B22A9A400A3B008 /* Resources */,
-				1BCF71FFF8574D798C273EB2 /* Embed Pods Frameworks */,
-				3B86289F3867860570DE25A2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1028,36 +1021,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		00FDA298B5BC62B2D1F29985 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		05E6DD801CCD0ED46FFED6C1 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		08AFA26994E1095357CD4A3E /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1071,21 +1034,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		136DC915C86013DC19F6E5E1 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		16BB42EA1B2C221A00201DE2 /* Crashlytics Run Script */ = {
@@ -1102,7 +1050,7 @@
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 368b3fbe6cc8c500211cc2a4d998565f8db0fc45 0eb40729d4a93dfda5830f6c0f43ab99b62ab764b97601ca7dd9f36c9bb528a7";
 		};
-		1BCF71FFF8574D798C273EB2 /* Embed Pods Frameworks */ = {
+		45AB5BA9258D82A73EB7A19C /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1114,22 +1062,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy Today Extension/Pods-kuStudy Today Extension-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3B86289F3867860570DE25A2 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy Today Extension/Pods-kuStudy Today Extension-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		57976B54892CEE5DDE90262E /* Check Pods Manifest.lock */ = {
@@ -1147,22 +1080,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		BC5CCB90348510FB7E6029F3 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CEA3A862CFDD3C0AA8C0079B /* Embed Pods Frameworks */ = {
+		DDD66D67E9D914BABA3BA0B7 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1190,36 +1108,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudyKit/Pods-kuStudyKit-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DF69B2AF63AC4AF284AF539F /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		ED764F205F7FF25D589C7611 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FADD380A74661D0D488E807A /* Copy Pods Resources */ = {
@@ -1828,7 +1716,6 @@
 		};
 		16B453721B22A9A400A3B008 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9990588EBB40EE8A25BB832 /* Pods-kuStudy Today Extension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "kuStudy Today Extension/kuStudy Today Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
@@ -1852,7 +1739,6 @@
 		};
 		16B453731B22A9A400A3B008 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6852E9C45BAB10E72A3AE3AD /* Pods-kuStudy Today Extension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "kuStudy Today Extension/kuStudy Today Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";

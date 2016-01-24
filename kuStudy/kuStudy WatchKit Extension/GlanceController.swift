@@ -9,7 +9,6 @@
 import WatchKit
 import Foundation
 import kuStudyWatchKit
-import SwiftyJSON
 
 class GlanceController: WKInterfaceController {
     @IBOutlet weak var availableLabel: WKInterfaceLabel!

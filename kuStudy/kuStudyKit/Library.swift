@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RealmSwift
 
 public typealias ReadingRoom = Library
 public typealias ReadingRoomViewModel = LibraryViewModel

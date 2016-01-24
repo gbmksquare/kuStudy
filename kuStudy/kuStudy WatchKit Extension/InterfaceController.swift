@@ -9,8 +9,6 @@
 import WatchKit
 import Foundation
 import kuStudyWatchKit
-import Alamofire
-import SwiftyJSON
 
 class InterfaceController: WKInterfaceController {
     @IBOutlet weak var table: WKInterfaceTable!

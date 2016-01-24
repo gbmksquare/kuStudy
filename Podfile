@@ -7,9 +7,7 @@ use_frameworks!
 
 def shared_pods
 	pod 'Alamofire'
-	pod 'RealmSwift'
 	pod 'SwiftyJSON'
-	pod 'KeychainAccess'
 end
 
 target 'kuStudy' do
@@ -29,7 +27,6 @@ end
 
 target 'kuStudy Today Extension' do
 	platform :ios, '9.0'
-	shared_pods
 end
 
 target 'kuStudy WatchKit Extension' do

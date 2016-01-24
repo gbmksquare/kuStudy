@@ -85,15 +85,9 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-kuStudyWatchKit/Alamofire.framework"
-  install_framework "Pods-kuStudyWatchKit/KeychainAccess.framework"
-  install_framework "Pods-kuStudyWatchKit/Realm.framework"
-  install_framework "Pods-kuStudyWatchKit/RealmSwift.framework"
   install_framework "Pods-kuStudyWatchKit/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-kuStudyWatchKit/Alamofire.framework"
-  install_framework "Pods-kuStudyWatchKit/KeychainAccess.framework"
-  install_framework "Pods-kuStudyWatchKit/Realm.framework"
-  install_framework "Pods-kuStudyWatchKit/RealmSwift.framework"
   install_framework "Pods-kuStudyWatchKit/SwiftyJSON.framework"
 fi
