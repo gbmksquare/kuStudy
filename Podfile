@@ -27,6 +27,7 @@ end
 
 target 'kuStudy Today Extension' do
 	platform :ios, '9.0'
+	shared_pods
 end
 
 target 'kuStudy WatchKit Extension' do
