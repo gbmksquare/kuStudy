@@ -13,77 +13,45 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var summaryView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
+    @IBOutlet weak var usedLabel: UILabel!
     
     // MARK: Model
     var summary: Summary?
     var libraries = [Library]()
+    lazy var orderedLibraryIds = NSUserDefaults.standardUserDefaults().arrayForKey("libraryOrder") as! [Int]
     
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        refreshData()
+        setupView()
+        fetchData()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupView()
+        setupGradient()
     }
     
+    // MARK: Setup
     private func setupView() {
-        // Table view insets
-        tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
-        
-        // Transparent navigation bar
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.translucent = true
-        navigationController?.view.backgroundColor = UIColor.clearColor()
-        navigationController?.navigationBar.backgroundColor = UIColor.clearColor()
-        
-        // Graident
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = summaryView.bounds
-        gradientLayer.colors = [UIColor(red: 48/255, green: 35/255, blue: 174/255, alpha: 1).CGColor,
-            UIColor(red: 109/255, green: 170/255, blue: 215/255, alpha: 1).CGColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-        summaryView.layer.insertSublayer(gradientLayer, atIndex: 0)
+        tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0) // Table view insets
+        navigationController?.setTransparentNavigationBar() // Transparent navigation bar
     }
     
-    private func updateView() {
-        // Summary
-        if let summary = summary {
-            let summaryViewModel = SummaryViewModel(summary: summary)
-            totalLabel.text = summaryViewModel.totalString
-            availableLabel.text = summaryViewModel.availableString
-        }
+    private var gradient: CAGradientLayer?
+    
+    private func setupGradient() {
+        self.gradient?.removeFromSuperlayer()
         
-        // Table
-        tableView.reloadData()
-    }
-    
-    // MARK: Action
-    private func refreshData() {
-        kuStudy.requestSeatSummary({ (summary, libraries) -> Void in
-                self.summary = summary
-                self.libraries = libraries
-                self.updateView()
-            }) { (error) -> Void in
-                
-        }
-    }
-    
-    // MARK: Handoff
-    override func restoreUserActivityState(activity: NSUserActivity) {
-        switch activity.activityType {
-        case kuStudyHandoffSummary: break
-//        case kuStudyHandoffLibrary:
-            // TODO: Pass to libraryViewController
-        default: break
-        }
-        super.restoreUserActivityState(activity)
+        let gradient = CAGradientLayer()
+        self.gradient = gradient
+        
+        gradient.frame = summaryView.bounds
+        gradient.colors = kuStudyGradientColor
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 1, y: 1)
+        summaryView.layer.insertSublayer(gradient, atIndex: 0)
     }
     
     // MARK: Navigation
@@ -92,10 +60,51 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
             switch identifier {
             case "librarySegue":
                 let destinationViewController = segue.destinationViewController as! LibraryViewController
-                destinationViewController.libraryId = tableView.indexPathForSelectedRow!.row + 1
+                let selectedRow = tableView.indexPathForSelectedRow!.row
+                destinationViewController.libraryId = orderedLibraryIds[selectedRow]
             default: break
             }
         }
+    }
+    
+    // MARK: Handoff
+    override func restoreUserActivityState(activity: NSUserActivity) {
+        switch activity.activityType {
+        case kuStudyHandoffSummary: break
+            //        case kuStudyHandoffLibrary:
+            // TODO: Pass to libraryViewController
+        default: break
+        }
+        super.restoreUserActivityState(activity)
+    }
+    
+    // MARK: Action
+    @IBAction func tappedEditButton(sender: UIButton) {
+        tableView.setEditing(!tableView.editing, animated: true)
+        if sender.currentTitle == "edit" {
+            sender.setTitle("save", forState: .Normal)
+        } else {
+            sender.setTitle("edit", forState: .Normal)
+        }
+    }
+    
+    private func fetchData() {
+        kuStudy.requestSeatSummary({ [unowned self] (summary, libraries) -> Void in
+            self.summary = summary
+            self.libraries = libraries
+            self.updateDataInView()
+            }) { (error) -> Void in
+                
+        }
+    }
+    
+    private func updateDataInView() {
+        if let summary = summary {
+            let summaryViewModel = SummaryViewModel(summary: summary)
+            availableLabel.text = summaryViewModel.availableString
+            usedLabel.text = summaryViewModel.usedString
+        }
+        tableView.reloadData()
     }
     
     // MARK: Table view
@@ -104,20 +113,40 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return libraries.count
+        guard libraries.count > 0 else { return 0 }
+        return orderedLibraryIds.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
-        let library = libraries[indexPath.row]
+        let libraryId = orderedLibraryIds[indexPath.row]
+        let library = libraries[libraryId - 1]
         let libraryViewModel = LibraryViewModel(library: library)
-        
-        cell.nameLabel.text = libraryViewModel.name
-        cell.totalLabel.text = libraryViewModel.totalString
-        cell.availableLabel.text = libraryViewModel.availableString
-        cell.usedPercentage.progress = libraryViewModel.usedPercentage
-        cell.usedPercentage.tintColor = libraryViewModel.usedPercentageColor
-        
+        cell.populate(libraryViewModel)
         return cell
+    }
+    
+    // MARK: Table view reorder
+    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return .None
+    }
+    
+    func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return false
+    }
+    
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let fromRow = sourceIndexPath.row
+        let toRow = destinationIndexPath.row
+        let moveLibraryId = orderedLibraryIds[fromRow]
+        orderedLibraryIds.removeAtIndex(fromRow)
+        orderedLibraryIds.insert(moveLibraryId, atIndex: toRow)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setValue(orderedLibraryIds, forKey: "libraryOrder")
+        defaults.synchronize()
     }
 }

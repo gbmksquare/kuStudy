@@ -7,17 +7,20 @@
 //
 
 import UIKit
+import kuStudyKit
 
 class LibraryTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
-    @IBOutlet weak var usedPercentage: UIProgressView!
+    @IBOutlet weak var usedLabel: UILabel!
+    @IBOutlet weak var usedPercentageView: UIProgressView!
     
-    @IBOutlet weak var cardView: UIView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        cardView.layer.cornerRadius = 3
+    // MARK: Populate
+    func populate(library: LibraryViewModel) {
+        nameLabel.text = library.name
+        availableLabel.text = library.availableString
+        usedLabel.text = library.usedString
+        usedPercentageView.progress = library.usedPercentage
+        usedPercentageView.tintColor = library.usedPercentageColor
     }
 }

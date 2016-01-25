@@ -44,3 +44,4 @@ let kuStudyColorError = UIColor(hue:0.01, saturation:0.74, brightness:0.94, alph
 let kuStudyColorWarning = UIColor(hue:0.09, saturation:0.82, brightness:0.99, alpha:1)
 let kuStudyColorLightWarning = UIColor(hue:0.12, saturation:0.79, brightness:0.99, alpha:1)
 let kuStudyColorConfirm = UIColor(hue:0.34, saturation:0.52, brightness:0.68, alpha:1)
+let kuStudyGradientColor = [UIColor(red: 48/255, green: 35/255, blue: 174/255, alpha: 1).CGColor, UIColor(red: 109/255, green: 170/255, blue: 215/255, alpha: 1).CGColor]

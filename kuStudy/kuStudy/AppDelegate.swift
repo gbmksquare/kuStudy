@@ -31,6 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #endif
     }
     
+    private func registerDefaultPreferences() {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.registerDefaults(["libraryOrder": [1, 2, 3, 4, 5]])
+        defaults.synchronize()
+    }
+    
     private func customizeAppearance() {
         UINavigationBar.appearance().barStyle = UIBarStyle.Black
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
@@ -40,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         setupFabric()
         handleFirstRun()
+        registerDefaultPreferences()
         customizeAppearance()
         return true
     }

@@ -54,10 +54,5 @@ public class LibraryViewModel {
         key = library.key
         total = library.total
         available = library.available
-        
-//        let infoRealm = kuStudy.infoRealm()
-//        let record = infoRealm?.objectForPrimaryKey(LibraryInfoRecord.self, key: library.id)
-//        key = record?.key != nil ? record!.key : "unknown_id"
-//        name = NSLocalizedString(key, bundle: NSBundle(forClass: self.dynamicType), comment: "Library key") // TODO: Use localized string
     }
 }

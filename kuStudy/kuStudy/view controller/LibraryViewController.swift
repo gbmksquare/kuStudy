@@ -25,52 +25,55 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        refreshData()
+        setupView()
+        fetchData()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupView()
+        setupGradient()
     }
     
+    // MARK: Setup
     private func setupView() {
-        // Table view insets
         tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
-        
-        // Gradient
-        // Graident
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = summaryView.bounds
-        gradientLayer.colors = [UIColor(red: 48/255, green: 35/255, blue: 174/255, alpha: 1).CGColor,
-            UIColor(red: 109/255, green: 170/255, blue: 215/255, alpha: 1).CGColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-        summaryView.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
     
-    private func updateView() {
-        // Summary
+    private var gradient: CAGradientLayer?
+    
+    private func setupGradient() {
+        self.gradient?.removeFromSuperlayer()
+        
+        let gradient = CAGradientLayer()
+        self.gradient = gradient
+        
+        gradient.frame = summaryView.bounds
+        gradient.colors = kuStudyGradientColor
+        gradient.startPoint = CGPoint(x: 0, y: 0)
+        gradient.endPoint = CGPoint(x: 1, y: 1)
+        summaryView.layer.insertSublayer(gradient, atIndex: 0)
+    }
+    
+    // MARK: Action
+    private func fetchData() {
+        kuStudy.requestLibrarySeatSummary(libraryId,
+            success: { [unowned self] (library, readingRooms) -> Void in
+                self.library = library
+                self.readingRooms = readingRooms
+                self.updateDataInView()
+            }) { (error) -> Void in
+                
+        }
+    }
+    
+    private func updateDataInView() {
         if let library = library {
             let libraryViewModel = LibraryViewModel(library: library)
             libraryNameLabel.text = libraryViewModel.name
             totalLabel.text = libraryViewModel.totalString
             availableLabel.text = libraryViewModel.availableString
         }
-        
-        // Table
         tableView.reloadData()
-    }
-    
-    // MARK: Action
-    private func refreshData() {
-        kuStudy.requestLibrarySeatSummary(libraryId,
-            success: { (library, readingRooms) -> Void in
-                self.library = library
-                self.readingRooms = readingRooms
-                self.updateView()
-            }) { (error) -> Void in
-                
-        }
     }
 
     // MARK: Table view
@@ -86,13 +89,7 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cell = tableView.dequeueReusableCellWithIdentifier("readingRoomCell", forIndexPath: indexPath) as! ReadingRoomTableViewCell
         let readingRoom = readingRooms[indexPath.row]
         let readingRoomViewModel = ReadingRoomViewModel(library: readingRoom)
-        
-        cell.nameLabel.text = readingRoomViewModel.name
-        cell.totalLabel.text = readingRoomViewModel.totalString
-        cell.availableLabel.text = readingRoomViewModel.availableString
-        cell.usedPercentage.progress = readingRoomViewModel.usedPercentage
-        cell.usedPercentage.tintColor = readingRoomViewModel.usedPercentageColor
-        
+        cell.populate(readingRoomViewModel)
         return cell
     }
 }
