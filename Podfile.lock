@@ -1,13 +1,16 @@
 PODS:
   - Alamofire (3.1.5)
+  - CTFeedback (1.0.21)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire
+  - CTFeedback
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
+  CTFeedback: 30a7d644dc113f524f7969149dc9b6c11dc5ab6d
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0

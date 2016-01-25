@@ -85,9 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-kuStudy/Alamofire.framework"
+  install_framework "Pods-kuStudy/CTFeedback.framework"
   install_framework "Pods-kuStudy/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-kuStudy/Alamofire.framework"
+  install_framework "Pods-kuStudy/CTFeedback.framework"
   install_framework "Pods-kuStudy/SwiftyJSON.framework"
 fi
