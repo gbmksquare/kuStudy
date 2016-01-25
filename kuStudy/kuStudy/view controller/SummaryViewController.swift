@@ -35,7 +35,6 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: Setup
     private func setupView() {
-        tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0) // Table view insets
         navigationController?.setTransparentNavigationBar() // Transparent navigation bar
     }
     

@@ -11,23 +11,16 @@ import kuStudyKit
 
 class ReadingRoomTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
-    @IBOutlet weak var usedPercentage: UIProgressView!
-    
-    @IBOutlet weak var cardView: UIView!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        cardView.layer.cornerRadius = 3
-    }
+    @IBOutlet weak var usedLabel: UILabel!
+    @IBOutlet weak var usedPercentageView: UIProgressView!
     
     // MARK: Populate
     func populate(readingRoom: ReadingRoomViewModel) {
         nameLabel.text = readingRoom.name
-        totalLabel.text = readingRoom.totalString
         availableLabel.text = readingRoom.availableString
-        usedPercentage.progress = readingRoom.usedPercentage
-        usedPercentage.tintColor = readingRoom.usedPercentageColor
+        usedLabel.text = readingRoom.totalString
+        usedPercentageView.progress = readingRoom.usedPercentage
+        usedPercentageView.tintColor = readingRoom.usedPercentageColor
     }
 }

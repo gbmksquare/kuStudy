@@ -14,8 +14,8 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var libraryNameLabel: UILabel!
-    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
+    @IBOutlet weak var usedLabel: UILabel!
     
     // MARK: Model
     var libraryId: Int!
@@ -25,7 +25,6 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         fetchData()
     }
     
@@ -35,10 +34,6 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // MARK: Setup
-    private func setupView() {
-        tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
-    }
-    
     private var gradient: CAGradientLayer?
     
     private func setupGradient() {
@@ -70,8 +65,8 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let library = library {
             let libraryViewModel = LibraryViewModel(library: library)
             libraryNameLabel.text = libraryViewModel.name
-            totalLabel.text = libraryViewModel.totalString
             availableLabel.text = libraryViewModel.availableString
+            usedLabel.text = libraryViewModel.usedString
         }
         tableView.reloadData()
     }
