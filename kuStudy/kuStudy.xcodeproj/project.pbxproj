@@ -18,6 +18,9 @@
 		16136BFC1B1C44BA00B3F744 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		16136C001B1C451100B3F744 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BFF1B1C451100B3F744 /* LibraryCell.swift */; };
 		16251CAD1B232D650035F2D9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
+		164C0E901C560522004C6663 /* NetworkActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E8F1C560522004C6663 /* NetworkActivityManager.swift */; };
+		164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E921C5608E0004C6663 /* MainTabBarController.swift */; };
+		164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */; };
 		16538EA91C4F16820097A4F4 /* kuStudyWatchKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 16538EA81C4F16820097A4F4 /* kuStudyWatchKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		16538EAD1C4F16820097A4F4 /* kuStudyWatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */; };
 		16538EAE1C4F16830097A4F4 /* kuStudyWatchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -202,6 +205,9 @@
 		16136BFF1B1C451100B3F744 /* LibraryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		16215F241B25CB33008075D8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Interface.strings; sourceTree = "<group>"; };
 		16251CAC1B232C8F0035F2D9 /* kuStudy Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy Today Extension.entitlements"; sourceTree = "<group>"; };
+		164C0E8F1C560522004C6663 /* NetworkActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkActivityManager.swift; path = Base.lproj/controller/NetworkActivityManager.swift; sourceTree = "<group>"; };
+		164C0E921C5608E0004C6663 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = "view controller/MainTabBarController.swift"; sourceTree = "<group>"; };
+		164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = "view controller/SettingsTableViewController.swift"; sourceTree = "<group>"; };
 		16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kuStudyWatchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16538EA81C4F16820097A4F4 /* kuStudyWatchKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kuStudyWatchKit.h; sourceTree = "<group>"; };
 		16538EAA1C4F16820097A4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -417,6 +423,30 @@
 			name = Glance;
 			sourceTree = "<group>";
 		};
+		164C0E8E1C560510004C6663 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				164C0E8F1C560522004C6663 /* NetworkActivityManager.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		164C0E911C5608D1004C6663 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				164C0E921C5608E0004C6663 /* MainTabBarController.swift */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		164C0E941C5609C4004C6663 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		16538EA71C4F16820097A4F4 /* kuStudyWatchKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,6 +503,7 @@
 				167245E41B19C07B0083035F /* Application */,
 				167245E61B19C0890083035F /* User Interface */,
 				1672461D1B1B44630083035F /* View Controller */,
+				164C0E8E1C560510004C6663 /* Controller */,
 				16DB2DAC1C55D55D0096AFB9 /* Extension */,
 				167245E51B19C0850083035F /* Resource */,
 				16BB42EB1B2C224200201DE2 /* Vendor */,
@@ -565,8 +596,10 @@
 		1672461D1B1B44630083035F /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				164C0E911C5608D1004C6663 /* Main */,
 				167246281B1BE9F30083035F /* Summary */,
 				167246291B1BE9FA0083035F /* Library */,
+				164C0E941C5609C4004C6663 /* Settings */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -1186,9 +1219,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1672461A1B1B13610083035F /* Definitions.swift in Sources */,
+				164C0E901C560522004C6663 /* NetworkActivityManager.swift in Sources */,
+				164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */,
 				167246231B1B4BEC0083035F /* LibraryTableViewCell.swift in Sources */,
 				167245C51B19C0370083035F /* AppDelegate.swift in Sources */,
 				167246251B1B4F0D0083035F /* ReadingRoomTableViewCell.swift in Sources */,
+				164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */,
 				167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */,
 				1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */,
 				16DB2DAE1C55D5770096AFB9 /* Extensions.swift in Sources */,

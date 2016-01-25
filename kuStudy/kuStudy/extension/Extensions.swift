@@ -17,3 +17,9 @@ extension UINavigationController {
         view.backgroundColor = UIColor.clearColor()
     }
 }
+
+extension UIColor {
+    class func navigationColor() -> UIColor {
+        return UIColor(hue: 359/359, saturation: 0.78, brightness: 0.83, alpha: 1)
+    }
+}

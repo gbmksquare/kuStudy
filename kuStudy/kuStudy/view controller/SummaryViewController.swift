@@ -88,12 +88,14 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     private func fetchData() {
+        NetworkActivityManager.increaseActivityCount()
         kuStudy.requestSeatSummary({ [unowned self] (summary, libraries) -> Void in
-            self.summary = summary
-            self.libraries = libraries
-            self.updateDataInView()
+                self.summary = summary
+                self.libraries = libraries
+                self.updateDataInView()
+            NetworkActivityManager.decreaseActivityCount()
             }) { (error) -> Void in
-                
+                NetworkActivityManager.decreaseActivityCount()
         }
     }
     

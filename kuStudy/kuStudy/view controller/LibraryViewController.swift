@@ -51,13 +51,15 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: Action
     private func fetchData() {
+        NetworkActivityManager.increaseActivityCount()
         kuStudy.requestLibrarySeatSummary(libraryId,
             success: { [unowned self] (library, readingRooms) -> Void in
                 self.library = library
                 self.readingRooms = readingRooms
                 self.updateDataInView()
+                NetworkActivityManager.decreaseActivityCount()
             }) { (error) -> Void in
-                
+                NetworkActivityManager.decreaseActivityCount()
         }
     }
     

@@ -39,6 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func customizeAppearance() {
         UINavigationBar.appearance().barStyle = UIBarStyle.Black
+        UINavigationBar.appearance().barTintColor = UIColor.navigationColor()
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
     }
     
