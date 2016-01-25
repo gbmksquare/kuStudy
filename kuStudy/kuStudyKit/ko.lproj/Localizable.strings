@@ -39,6 +39,8 @@
 "reading_room_c" = "열람실 C";
 "reading_room_d" = "열람실 D";
 "reading_room_e" = "열람실 E";
+"group_study_room" = "그룹스터디룸";
+"dvd_room" = "DVD룸";
 "reading_room_4f_a" = "4층 일반 열람실 A";
 "reading_room_4f_b" = "4층 일반 열람실 B";
 "reading_room_4f_c" = "4층 일반 열람실 C";
