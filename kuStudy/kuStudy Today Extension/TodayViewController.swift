@@ -11,42 +11,72 @@ import NotificationCenter
 import kuStudyKit
 
 class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var availableLabel: UILabel!
+    @IBOutlet weak var liberalArtCampusLabel: UILabel!
+    @IBOutlet weak var scienceCampusLabel: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    private var isExtended = false
     
     // MARK: Model
     var summary: Summary?
     var libraries = [Library]()
     
+    private let liberalArtCampusIds = [1, 2, 5]
+    private let scienceCampusIds = [3, 4]
+    
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        refreshData()
+        setupTableView()
+        fetchData()
     }
     
-    private func updateView() {
-        // Summary
-        if let summary = summary {
-            let summaryViewModel = SummaryViewModel(summary: summary)
-            totalLabel.text = summaryViewModel.totalString
-            availableLabel.text = summaryViewModel.availableString
-        }
-        
-        // Table view
-        tableViewHeight.constant = CGFloat(libraries.count) * 55
-        tableView.reloadData()
+    // MARK: Setup
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        updateTableViewHeight()
     }
     
     // MARK: Action
-    private func refreshData() {
-        kuStudy.requestSeatSummary({ (summary, libraries) -> Void in
-                self.summary = summary
-                self.libraries = libraries
-            self.updateView()
+    @IBAction func tappedExtendButton(sender: UIButton) {
+        isExtended = !isExtended
+        updateTableViewHeight()
+    }
+    
+    private func fetchData() {
+        kuStudy.requestSeatSummary({ [weak self] (summary, libraries) -> Void in
+                self?.summary = summary
+                self?.libraries = libraries
+                self?.updateDataInView()
             }) { (error) -> Void in
                 
+        }
+    }
+    
+    private func updateDataInView() {
+        // Summary
+        var liberalArtsCampusAvailable = 0
+        var scienceCampusAvailable = 0
+        for library in libraries {
+            if liberalArtCampusIds.contains(library.id) {
+                liberalArtsCampusAvailable += library.available
+            } else if scienceCampusIds.contains(library.id) {
+                scienceCampusAvailable += library.available
+            }
+        }
+        liberalArtCampusLabel.text = String(liberalArtsCampusAvailable)
+        scienceCampusLabel.text = String(scienceCampusAvailable)
+        
+        tableView.reloadData()
+    }
+    
+    private func updateTableViewHeight() {
+        if isExtended == true {
+            tableViewHeightConstraint.constant = CGFloat(libraries.count * 44)
+        } else {
+            tableViewHeightConstraint.constant = 0
         }
     }
     
@@ -60,25 +90,22 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryCell
         let library = libraries[indexPath.row]
         let libraryViewModel = LibraryViewModel(library: library)
-        
-        cell.nameLabel.text = libraryViewModel.name
-        cell.totalLabel.text = libraryViewModel.totalString
-        cell.availableLabel.text = libraryViewModel.availableString
+        cell.populate(libraryViewModel)
         return cell
     }
     
     // MARK: Widget
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
+    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
 
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
         
-        refreshData()
+        fetchData()
         completionHandler(NCUpdateResult.NewData)
     }
     
