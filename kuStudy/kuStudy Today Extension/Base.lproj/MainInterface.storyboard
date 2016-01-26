@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="bottom" id="FKl-LY-JtV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" simulatedAppContext="notificationCenter" id="S3S-Oj-5AN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="210"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="213"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLs-4H-2jb">
@@ -171,7 +171,7 @@
                             <constraint firstItem="iiR-jb-pml" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="dhf-aH-6cV"/>
                             <constraint firstItem="PLs-4H-2jb" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leading" id="htb-Zn-J49"/>
                             <constraint firstAttribute="trailing" secondItem="iiR-jb-pml" secondAttribute="trailing" id="wHo-yR-zG0"/>
-                            <constraint firstAttribute="bottom" secondItem="iiR-jb-pml" secondAttribute="bottom" id="yBc-vY-Qd7"/>
+                            <constraint firstAttribute="bottom" secondItem="iiR-jb-pml" secondAttribute="bottom" constant="3" id="yBc-vY-Qd7"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -179,7 +179,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="210"/>
+                    <size key="freeformSize" width="320" height="213"/>
                     <connections>
                         <outlet property="liberalArtCampusLabel" destination="irh-C1-3Eh" id="4n2-7n-tie"/>
                         <outlet property="scienceCampusLabel" destination="Nho-Kv-UzT" id="MJw-Yz-pfT"/>
