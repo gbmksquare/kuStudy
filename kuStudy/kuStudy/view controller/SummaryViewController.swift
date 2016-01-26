@@ -17,9 +17,9 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var usedLabel: UILabel!
     
     // MARK: Model
-    var summary: Summary?
-    var libraries = [Library]()
-    lazy var orderedLibraryIds = NSUserDefaults.standardUserDefaults().arrayForKey("libraryOrder") as! [Int]
+    private var summary: Summary?
+    private var libraries = [Library]()
+    private lazy var orderedLibraryIds = NSUserDefaults(suiteName: kuStudySharedContainer)?.arrayForKey("libraryOrder") as? [Int] ?? NSUserDefaults.standardUserDefaults().arrayForKey("libraryOrder") as! [Int]
     
     // MARK: View
     override func viewDidLoad() {
@@ -81,7 +81,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBAction func tappedEditButton(sender: UIButton) {
         tableView.setEditing(!tableView.editing, animated: true)
         if sender.currentTitle == "edit" {
-            sender.setTitle("save", forState: .Normal)
+            sender.setTitle("done", forState: .Normal)
         } else {
             sender.setTitle("edit", forState: .Normal)
         }
@@ -146,7 +146,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let moveLibraryId = orderedLibraryIds[fromRow]
         orderedLibraryIds.removeAtIndex(fromRow)
         orderedLibraryIds.insert(moveLibraryId, atIndex: toRow)
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
         defaults.setValue(orderedLibraryIds, forKey: "libraryOrder")
         defaults.synchronize()
     }

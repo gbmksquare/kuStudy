@@ -19,8 +19,8 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     // MARK: Model
     var libraryId: Int!
-    var library: Library?
-    var readingRooms = [ReadingRoom]()
+    private var library: Library?
+    private var readingRooms = [ReadingRoom]()
     
     // MARK: View
     override func viewDidLoad() {

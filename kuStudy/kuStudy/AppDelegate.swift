@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func registerDefaultPreferences() {
-        let defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
         defaults.registerDefaults(["libraryOrder": [1, 2, 3, 4, 5]])
         defaults.synchronize()
     }

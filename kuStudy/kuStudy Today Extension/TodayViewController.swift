@@ -19,15 +19,17 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     private var isExtended = false
     
     // MARK: Model
-    var summary: Summary?
-    var libraries = [Library]()
+    private var summary: Summary?
+    private var libraries = [Library]()
     
     private let liberalArtCampusIds = [1, 2, 5]
     private let scienceCampusIds = [3, 4]
+    private var orderedLibraryIds: [Int]? = NSUserDefaults(suiteName: kuStudySharedContainer)?.arrayForKey("libraryOrder") as? [Int]
     
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
+        addObserver()
         setupTableView()
         fetchData()
     }
@@ -37,6 +39,15 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         tableView.delegate = self
         tableView.dataSource = self
         updateTableViewHeight()
+    }
+    
+    // MARK: Observer
+    private func addObserver() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "handleUserDefaultsDidChange:", name: NSUserDefaultsDidChangeNotification, object: nil)
+    }
+    
+    @objc func handleUserDefaultsDidChange(notification: NSNotification) {
+        updateDataInView()
     }
     
     // MARK: Action
@@ -86,12 +97,20 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return libraries.count
+        guard libraries.count > 0 else { return 0 }
+        guard let orderedLibraryIds = orderedLibraryIds else { return libraries.count }
+        return orderedLibraryIds.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryCell
-        let library = libraries[indexPath.row]
+        let library: Library
+        if let orderedLibraryIds = orderedLibraryIds {
+            let libraryId = orderedLibraryIds[indexPath.row]
+            library = libraries[libraryId - 1]
+        } else {
+            library = libraries[indexPath.row]
+        }
         let libraryViewModel = LibraryViewModel(library: library)
         cell.populate(libraryViewModel)
         return cell
