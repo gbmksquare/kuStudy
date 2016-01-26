@@ -8,10 +8,19 @@
 
 import Foundation
 import WatchKit
+import kuStudyWatchKit
 
 class LibraryCell: NSObject {
     @IBOutlet weak var nameLabel: WKInterfaceLabel!
-    @IBOutlet weak var totalLabel: WKInterfaceLabel!
     @IBOutlet weak var availableLabel: WKInterfaceLabel!
+    @IBOutlet weak var usedLabel: WKInterfaceLabel!
     @IBOutlet weak var percentGroup: WKInterfaceGroup!
+    
+    func populate(library: LibraryViewModel) {
+        nameLabel.setText(library.name)
+        availableLabel.setText(library.availableString)
+        availableLabel.setTextColor(library.usedPercentageColor)
+        usedLabel.setText(library.usedString)
+        percentGroup.setBackgroundColor(library.usedPercentageColor)
+    }
 }

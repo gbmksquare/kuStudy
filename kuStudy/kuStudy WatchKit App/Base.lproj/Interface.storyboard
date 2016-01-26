@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
     </dependencies>
     <scenes>
         <!--kuStudy-->
@@ -12,9 +12,9 @@
                     <items>
                         <group width="1" alignment="center" layout="vertical" id="1uq-Ql-NPS">
                             <items>
-                                <group width="1" height="65" alignment="center" id="SNk-Gg-q50">
+                                <group width="1" height="50" alignment="center" id="SNk-Gg-q50">
                                     <items>
-                                        <group width="67" height="1" alignment="left" verticalAlignment="center" backgroundImage="radial" contentMode="scaleAspectFit" initiallyAnimated="NO" id="dHe-3g-H06">
+                                        <group width="50" height="1" alignment="left" verticalAlignment="center" backgroundImage="radial" contentMode="scaleAspectFit" initiallyAnimated="NO" id="dHe-3g-H06">
                                             <items>
                                                 <label alignment="center" verticalAlignment="center" text="0%" textAlignment="center" id="Gw2-Lr-bPf"/>
                                             </items>
@@ -30,19 +30,19 @@
                                 <table alignment="center" id="gkt-im-oUq">
                                     <items>
                                         <tableRow identifier="libraryCell" id="KxB-W9-yZ7" customClass="LibraryCell" customModule="kuStudy_WatchKit_Extension">
-                                            <group key="rootItem" width="1" height="65" alignment="left" id="uLd-Wf-Pch">
+                                            <group key="rootItem" width="1" height="0.0" alignment="left" id="uLd-Wf-Pch">
                                                 <items>
                                                     <group width="4" height="0.80000000000000004" alignment="left" verticalAlignment="center" radius="2" id="0eA-XK-oam">
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </group>
-                                                    <group width="0.97499999999999998" height="1" alignment="right" verticalAlignment="center" layout="vertical" id="SHD-yl-Wb9">
+                                                    <group width="0.97499999999999998" alignment="left" verticalAlignment="center" layout="vertical" id="SHD-yl-Wb9">
                                                         <items>
-                                                            <label alignment="left" text="Name" id="FLs-Gp-cEJ"/>
-                                                            <group width="1" height="40" alignment="left" id="vuO-PH-CAg">
+                                                            <label alignment="left" text="Name" numberOfLines="2" id="FLs-Gp-cEJ"/>
+                                                            <group width="1" alignment="left" id="vuO-PH-CAg">
                                                                 <items>
-                                                                    <group width="55.5" height="1" alignment="left" layout="vertical" spacing="3" id="WBL-S3-hwi">
+                                                                    <group width="0.5" alignment="left" layout="vertical" spacing="3" id="WBL-S3-hwi">
                                                                         <items>
-                                                                            <label alignment="left" text="Total" id="V5P-ey-hi8">
+                                                                            <label alignment="left" text="Studying" id="V5P-ey-hi8">
                                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                                                 <fontDescription key="font" type="system" weight="medium" pointSize="10"/>
                                                                             </label>
@@ -51,7 +51,7 @@
                                                                             </label>
                                                                         </items>
                                                                     </group>
-                                                                    <group width="0.5" height="1" alignment="left" layout="vertical" spacing="3" id="KMz-kT-36G">
+                                                                    <group width="0.5" alignment="left" layout="vertical" spacing="3" id="KMz-kT-36G">
                                                                         <items>
                                                                             <label alignment="left" text="Available" id="FWL-Vf-Fh0">
                                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -76,7 +76,7 @@
                                                 <outlet property="availableLabel" destination="CYB-4R-WcP" id="b7u-KW-prt"/>
                                                 <outlet property="nameLabel" destination="FLs-Gp-cEJ" id="9aQ-CU-wmc"/>
                                                 <outlet property="percentGroup" destination="0eA-XK-oam" id="rMI-sN-MTV"/>
-                                                <outlet property="totalLabel" destination="u50-3w-KHr" id="jde-2n-gRQ"/>
+                                                <outlet property="usedLabel" destination="u50-3w-KHr" id="xOB-KE-hhy"/>
                                             </connections>
                                         </tableRow>
                                     </items>
@@ -103,39 +103,39 @@
                             <items>
                                 <group width="1" height="74" alignment="center" layout="vertical" id="9Mi-pp-NoM">
                                     <items>
-                                        <group width="1" alignment="left" id="DQl-pY-GWS">
+                                        <group width="1" alignment="left" spacing="5" id="DQl-pY-GWS">
                                             <items>
-                                                <label alignment="left" verticalAlignment="bottom" text="0" textAlignment="left" id="GYg-fS-lat">
+                                                <label alignment="left" verticalAlignment="center" text="0" textAlignment="left" id="GYg-fS-lat">
                                                     <fontDescription key="font" type="system" pointSize="30"/>
                                                 </label>
-                                                <label alignment="left" verticalAlignment="bottom" text="Available" textAlignment="left" id="HHL-q8-1ie">
+                                                <label alignment="left" verticalAlignment="center" text="Available" textAlignment="left" id="HHL-q8-1ie">
                                                     <fontDescription key="font" type="system" pointSize="12"/>
                                                 </label>
                                             </items>
                                             <edgeInsets key="margins" left="5" right="0.0" top="0.0" bottom="0.0"/>
                                         </group>
                                         <group width="0.90000000000000002" height="4" alignment="center" backgroundImage="linear" contentMode="scaleAspectFit" initiallyAnimated="NO" radius="2" id="rX0-np-zQR"/>
-                                        <group width="1" height="20" alignment="left" id="BeH-sF-fad">
+                                        <group width="1" alignment="left" id="BeH-sF-fad">
                                             <items>
-                                                <group width="0.5" height="1" alignment="left" id="ul8-jW-Pbm">
+                                                <group width="0.5" alignment="left" spacing="3" id="CQo-k5-1aq">
                                                     <items>
-                                                        <label alignment="left" verticalAlignment="bottom" text="Total" textAlignment="left" id="2F0-zn-J02">
+                                                        <label alignment="left" verticalAlignment="center" text="Used" textAlignment="left" id="nCn-mW-Zfd">
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="font" type="system" pointSize="11"/>
                                                         </label>
-                                                        <label alignment="left" verticalAlignment="bottom" text="0" id="dHW-cp-BFm">
+                                                        <label alignment="left" verticalAlignment="center" text="0" id="Odh-Gu-yRK">
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="font" type="system" pointSize="16"/>
                                                         </label>
                                                     </items>
                                                 </group>
-                                                <group width="0.5" height="1" alignment="left" id="CQo-k5-1aq">
+                                                <group width="0.5" alignment="left" spacing="3" id="ul8-jW-Pbm">
                                                     <items>
-                                                        <label alignment="left" verticalAlignment="bottom" text="Used" textAlignment="left" id="nCn-mW-Zfd">
+                                                        <label alignment="left" verticalAlignment="center" text="Total" textAlignment="left" id="2F0-zn-J02">
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="font" type="system" pointSize="11"/>
                                                         </label>
-                                                        <label alignment="left" verticalAlignment="bottom" text="0" id="Odh-Gu-yRK">
+                                                        <label alignment="left" verticalAlignment="center" text="0" id="dHW-cp-BFm">
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="font" type="system" pointSize="16"/>
                                                         </label>
@@ -151,22 +151,22 @@
                                 </separator>
                                 <table alignment="left" id="7LR-y1-OMf">
                                     <items>
-                                        <tableRow identifier="readingRoomCell" id="QIR-hO-ScT" customClass="ReadingRoomCell" customModule="kuStudy_WatchKit_Extension">
-                                            <group key="rootItem" width="1" alignment="left" id="jYC-Fw-Hr9">
+                                        <tableRow identifier="readingRoomCell" selectable="NO" id="QIR-hO-ScT" customClass="ReadingRoomCell" customModule="kuStudy_WatchKit_Extension">
+                                            <group key="rootItem" width="1" height="0.0" alignment="left" id="jYC-Fw-Hr9">
                                                 <items>
                                                     <group width="4" height="0.80000000000000004" alignment="left" verticalAlignment="center" radius="2" id="qAD-Fs-j7W">
                                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     </group>
-                                                    <group width="0.97499999999999998" height="1" alignment="left" verticalAlignment="center" id="rHv-1K-R9m">
+                                                    <group width="0.94999999999999996" alignment="left" verticalAlignment="center" layout="vertical" spacing="1" id="rHv-1K-R9m">
                                                         <items>
-                                                            <label width="0.75" alignment="left" verticalAlignment="center" text="Name" textAlignment="left" numberOfLines="0" id="n5b-nN-uYa">
+                                                            <label alignment="left" verticalAlignment="center" text="Name" textAlignment="left" numberOfLines="3" minimumScaleFactor="0.59999999999999998" id="n5b-nN-uYa">
                                                                 <fontDescription key="font" type="system" pointSize="13"/>
                                                             </label>
-                                                            <label alignment="right" verticalAlignment="center" text="0" textAlignment="right" id="Jno-dY-239">
+                                                            <label alignment="left" verticalAlignment="center" text="0" textAlignment="left" id="Jno-dY-239">
                                                                 <fontDescription key="font" type="system" weight="medium" pointSize="18"/>
                                                             </label>
                                                         </items>
-                                                        <edgeInsets key="margins" left="5" right="0.0" top="0.0" bottom="0.0"/>
+                                                        <edgeInsets key="margins" left="5" right="0.0" top="3" bottom="3"/>
                                                     </group>
                                                 </items>
                                             </group>
@@ -190,7 +190,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="375" y="212"/>
+            <point key="canvasLocation" x="367" y="221"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
@@ -206,75 +206,44 @@
                                         </label>
                                     </items>
                                 </group>
-                                <group width="0.75" alignment="left" layout="vertical" id="p6K-3H-Zgd">
+                                <group width="0.75" alignment="left" layout="vertical" spacing="1" id="p6K-3H-Zgd">
                                     <items>
                                         <label alignment="left" text="Available" id="M16-VE-8UX">
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <fontDescription key="font" type="system" weight="medium" pointSize="12"/>
                                         </label>
                                         <label alignment="left" text="0" id="oqE-g4-SuH">
-                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                            <fontDescription key="font" type="system" weight="medium" pointSize="18"/>
                                         </label>
                                     </items>
                                     <edgeInsets key="margins" left="10" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
                             </items>
-                            <edgeInsets key="margins" left="5" right="0.0" top="5" bottom="0.0"/>
+                            <edgeInsets key="margins" left="5" right="0.0" top="8" bottom="0.0"/>
                         </group>
-                        <group alignment="left" layout="vertical" id="eew-Gs-W6Y">
+                        <group alignment="left" layout="vertical" spacing="8" id="eew-Gs-W6Y">
                             <items>
-                                <group width="1" height="0.16" alignment="left" id="db6-Rg-fRe">
+                                <group width="1" alignment="left" verticalAlignment="bottom" layout="vertical" id="i1Z-Lz-4Hs">
                                     <items>
-                                        <label alignment="left" verticalAlignment="center" text="Library" id="ylm-hB-ekB">
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" type="system" pointSize="12"/>
+                                        <label alignment="left" text="Liberal Arts Campus" id="Soq-8l-6x4">
+                                            <fontDescription key="font" type="system" weight="semibold" pointSize="12"/>
                                         </label>
-                                        <label alignment="right" verticalAlignment="center" text="0" id="Ljn-IO-4sR"/>
+                                        <label alignment="left" text="0" id="JE4-sC-5YV">
+                                            <fontDescription key="font" type="system" weight="light" pointSize="21"/>
+                                        </label>
                                     </items>
                                 </group>
-                                <group width="1" height="0.16" alignment="left" id="Mhe-zZ-PXb">
+                                <separator alignment="left" verticalAlignment="bottom" id="FHu-Nc-zLw">
+                                    <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                </separator>
+                                <group width="1" alignment="left" verticalAlignment="bottom" layout="vertical" id="hIr-wa-sua">
                                     <items>
-                                        <label alignment="left" verticalAlignment="center" text="Library" id="YKt-ky-GkI">
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" type="system" pointSize="12"/>
+                                        <label alignment="left" text="Science Campus" id="fa7-n6-Nig">
+                                            <fontDescription key="font" type="system" weight="semibold" pointSize="12"/>
                                         </label>
-                                        <label alignment="right" verticalAlignment="center" text="0" id="L3P-dC-0H0"/>
-                                    </items>
-                                </group>
-                                <group width="1" height="0.16" alignment="left" id="2U4-hn-I9X">
-                                    <items>
-                                        <label alignment="left" verticalAlignment="center" text="Library" id="vy8-v4-5BL">
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" type="system" pointSize="12"/>
+                                        <label alignment="left" text="0" id="Pbh-Zh-dWZ">
+                                            <fontDescription key="font" type="system" weight="light" pointSize="21"/>
                                         </label>
-                                        <label alignment="right" verticalAlignment="center" text="0" id="RfH-mO-SH8"/>
-                                    </items>
-                                </group>
-                                <group width="1" height="0.16" alignment="left" id="aPm-z8-0ac">
-                                    <items>
-                                        <label alignment="left" verticalAlignment="center" text="Library" id="f1H-BZ-Qbr">
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" type="system" pointSize="12"/>
-                                        </label>
-                                        <label alignment="right" verticalAlignment="center" text="0" id="VoQ-uj-UZM"/>
-                                    </items>
-                                </group>
-                                <group width="1" height="0.16" alignment="left" id="xmj-Zb-6Xt">
-                                    <items>
-                                        <label alignment="left" verticalAlignment="center" text="Library" id="f5d-d2-G6B">
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" type="system" pointSize="12"/>
-                                        </label>
-                                        <label alignment="right" verticalAlignment="center" text="0" id="xDc-ld-onY"/>
-                                    </items>
-                                </group>
-                                <group width="1" height="0.16" alignment="left" id="8jA-lI-5bu">
-                                    <items>
-                                        <label alignment="left" verticalAlignment="center" text="Library" id="zz4-HP-Zdv">
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="font" type="system" pointSize="12"/>
-                                        </label>
-                                        <label alignment="right" verticalAlignment="center" text="0" id="pEh-RS-Y16"/>
                                     </items>
                                 </group>
                             </items>
@@ -284,25 +253,15 @@
                     <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
                     <connections>
                         <outlet property="availableLabel" destination="oqE-g4-SuH" id="W8i-YN-fBL"/>
-                        <outlet property="cdlAvailableLabel" destination="xDc-ld-onY" id="RQN-Mh-QIY"/>
-                        <outlet property="cdlNameLabel" destination="f5d-d2-G6B" id="Ori-j2-cw7"/>
-                        <outlet property="centralLibraryAvailableLabel" destination="Ljn-IO-4sR" id="cnX-9U-grb"/>
-                        <outlet property="centralLibraryNameLabel" destination="ylm-hB-ekB" id="veh-nE-k3l"/>
-                        <outlet property="centralSquareAvailableLabel" destination="L3P-dC-0H0" id="UmG-bJ-Kzi"/>
-                        <outlet property="centralSquareNameLabel" destination="YKt-ky-GkI" id="dWs-om-Fmz"/>
-                        <outlet property="hanaSquareAvailableLabel" destination="RfH-mO-SH8" id="3xH-Py-08S"/>
-                        <outlet property="hanaSquareNameLabel" destination="vy8-v4-5BL" id="cSj-Uy-SJp"/>
+                        <outlet property="liberalArtCampusLabel" destination="JE4-sC-5YV" id="GKO-jd-fXq"/>
                         <outlet property="percentageGroup" destination="9Ud-vr-adX" id="kAD-C7-Xsp"/>
                         <outlet property="percentageLabel" destination="Ihz-xR-fxT" id="ngl-BS-DtP"/>
-                        <outlet property="scienceLibraryAvailableLabel" destination="VoQ-uj-UZM" id="2Zb-rU-bDZ"/>
-                        <outlet property="scienceLibraryNameLabel" destination="f1H-BZ-Qbr" id="7ht-YU-VGK"/>
-                        <outlet property="sejongAvailableLabel" destination="pEh-RS-Y16" id="OCz-F5-hYK"/>
-                        <outlet property="sejongNameLabel" destination="zz4-HP-Zdv" id="W2q-X2-0M4"/>
+                        <outlet property="scienceCampusLabel" destination="Pbh-Zh-dWZ" id="dYW-v0-l6h"/>
                     </connections>
                 </glanceController>
             </objects>
-            <point key="canvasLocation" x="164" y="-12"/>
+            <point key="canvasLocation" x="164" y="451"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.78049671649932861" green="0.097925871610641479" blue="0.14808227121829987" alpha="1" colorSpace="calibratedRGB"/>
 </document>

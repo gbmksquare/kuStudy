@@ -19,11 +19,44 @@ class DetailInterfaceController: WKInterfaceController {
     
     // MARK: Model
     var libraryId: Int!
-    var library: Library?
-    var readingRooms = [ReadingRoom]()
+    private var library: Library?
+    private var readingRooms = [ReadingRoom]()
     
-    // MARK: Table
-    private func refreshData() {
+    // MARK: Watch
+    override func awakeWithContext(context: AnyObject?) {
+        super.awakeWithContext(context)
+        
+        libraryId = (context as! [Int]).first!
+    }
+    
+    override func willActivate() {
+        // This method is called when watch view controller is about to be visible to user
+        super.willActivate()
+        
+        fetchData()
+        
+        // Handoff
+        updateUserActivity(kuStudyHandoffLibrary, userInfo: [kuStudyHandoffLibraryIdKey: libraryId], webpageURL: nil)
+    }
+    
+    override func didDeactivate() {
+        // This method is called when watch view controller is no longer visible
+        super.didDeactivate()
+    }
+    
+    // MARK: Action
+    private func fetchData() {
+        kuStudy.requestLibrarySeatSummary(libraryId,
+            success: { [weak self] (library, readingRooms) -> Void in
+                self?.library = library
+                self?.readingRooms = readingRooms
+                self?.updateDataInView()
+            }) { (error) -> Void in
+                
+        }
+    }
+    
+    private func updateDataInView() {
         if let library = library {
             let libraryViewModel = LibraryViewModel(library: library)
             totalLabel.setText(libraryViewModel.totalString)
@@ -41,39 +74,7 @@ class DetailInterfaceController: WKInterfaceController {
             let readingRoom = readingRooms[index]
             let readingRoomViewModel = LibraryViewModel(library: readingRoom)
             let row = table.rowControllerAtIndex(index) as! ReadingRoomCell
-            row.nameLabel.setText(readingRoomViewModel.name)
-            row.availableLabel.setText(readingRoomViewModel.availableString)
-            row.availableLabel.setTextColor(readingRoomViewModel.usedPercentageColor)
-            row.percentGroup.setBackgroundColor(readingRoomViewModel.usedPercentageColor)
+            row.populate(readingRoomViewModel)
         }
-    }
-    
-    // MARK: Watch
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
-        
-        libraryId = (context as! [Int]).first!
-        
-        kuStudy.requestLibrarySeatSummary(libraryId,
-            success: { (library, readingRooms) -> Void in
-                self.library = library
-                self.readingRooms = readingRooms
-                self.refreshData()
-            }) { (error) -> Void in
-                
-        }
-    }
-    
-    override func willActivate() {
-        // This method is called when watch view controller is about to be visible to user
-        super.willActivate()
-        
-        // Handoff
-        updateUserActivity(kuStudyHandoffLibrary, userInfo: [kuStudyHandoffLibraryIdKey: libraryId], webpageURL: nil)
-    }
-    
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
     }
 }
