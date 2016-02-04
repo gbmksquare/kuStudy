@@ -13,6 +13,8 @@ end
 target 'kuStudy' do
 	platform :ios, '9.0'
 	pod 'CTFeedback'
+	pod 'Localize-Swift'
+	pod 'DZNEmptyDataSet'
 	shared_pods
 end
 
