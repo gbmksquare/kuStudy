@@ -18,7 +18,7 @@ public class Summary {
         self.available = available
         
         let formatter = NSDateFormatter()
-        formatter.dateFormat = "YYYY-MM-DD hh:mm"
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
         self.updateTime = formatter.dateFromString(time)!
     }
 }

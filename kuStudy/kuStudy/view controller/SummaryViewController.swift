@@ -9,7 +9,7 @@
 import UIKit
 import kuStudyKit
 
-class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SummaryViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var summaryView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,16 +17,14 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var usedLabel: UILabel!
     @IBOutlet weak var updateTimeLabel: UILabel!
     
-    // MARK: Model
-    private var summary: Summary?
-    private var libraries = [Library]()
-    private lazy var orderedLibraryIds = NSUserDefaults(suiteName: kuStudySharedContainer)?.arrayForKey("libraryOrder") as? [Int] ?? NSUserDefaults.standardUserDefaults().arrayForKey("libraryOrder") as! [Int]
+    lazy var dataSource = SummaryDataSource()
     
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        fetchData()
+        setupTableView()
+        fetchSummary()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -49,6 +47,11 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         navigationController?.setTransparentNavigationBar() // Transparent navigation bar
     }
     
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = dataSource
+    }
+    
     private var gradient: CAGradientLayer?
     
     private func setupGradient() {
@@ -69,14 +72,15 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let identifier = segue.identifier {
             switch identifier {
             case "librarySegue":
-                if sender is Int {
-                    let destinationViewController = segue.destinationViewController as! LibraryViewController
-                    destinationViewController.libraryId = sender as! Int
+                let destinationViewController = segue.destinationViewController as! LibraryViewController
+                let libraryId: Int
+                if sender is Int { // Handoff
+                    libraryId = sender as! Int
                 } else {
-                    let destinationViewController = segue.destinationViewController as! LibraryViewController
                     let selectedRow = tableView.indexPathForSelectedRow!.row
-                    destinationViewController.libraryId = orderedLibraryIds[selectedRow]
+                    libraryId = dataSource.orderedLibraryIds[selectedRow]
                 }
+                destinationViewController.libraryId = libraryId
             default: break
             }
         }
@@ -85,7 +89,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: Handoff
     private func startHandoff() {
         let activity = NSUserActivity(activityType: kuStudyHandoffSummary)
-        activity.title = "Handoff title"
+        activity.title = "Summary"
         activity.becomeCurrent()
         userActivity = activity
     }
@@ -93,8 +97,6 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func restoreUserActivityState(activity: NSUserActivity) {
         switch activity.activityType {
         case kuStudyHandoffSummary: break
-            //        case kuStudyHandoffLibrary:
-            // TODO: Pass to libraryViewController
         case kuStudyHandoffLibrary:
             let libraryId = activity.userInfo!["libraryId"]
             performSegueWithIdentifier("librarySegue", sender: libraryId)
@@ -113,20 +115,18 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    private func fetchData() {
+    private func fetchSummary() {
         NetworkActivityManager.increaseActivityCount()
-        kuStudy.requestSeatSummary({ [unowned self] (summary, libraries) -> Void in
-                self.summary = summary
-                self.libraries = libraries
+        dataSource.fetchData({ [unowned self] () -> Void in
                 self.updateDataInView()
-            NetworkActivityManager.decreaseActivityCount()
+                NetworkActivityManager.decreaseActivityCount()
             }) { (error) -> Void in
                 NetworkActivityManager.decreaseActivityCount()
         }
     }
     
     private func updateDataInView() {
-        if let summary = summary {
+        if let summary = dataSource.summary {
             let summaryViewModel = SummaryViewModel(summary: summary)
             availableLabel.text = summaryViewModel.availableString
             usedLabel.text = summaryViewModel.usedString
@@ -135,46 +135,12 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.reloadData()
     }
     
-    // MARK: Table view
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard libraries.count > 0 else { return 0 }
-        return orderedLibraryIds.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
-        let libraryId = orderedLibraryIds[indexPath.row]
-        let library = libraries[libraryId - 1]
-        let libraryViewModel = LibraryViewModel(library: library)
-        cell.populate(libraryViewModel)
-        return cell
-    }
-    
-    // MARK: Table view reorder
-    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
+    // MARK: Table view delegate
     func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
         return .None
     }
     
     func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
-    }
-    
-    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        let fromRow = sourceIndexPath.row
-        let toRow = destinationIndexPath.row
-        let moveLibraryId = orderedLibraryIds[fromRow]
-        orderedLibraryIds.removeAtIndex(fromRow)
-        orderedLibraryIds.insert(moveLibraryId, atIndex: toRow)
-        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        defaults.setValue(orderedLibraryIds, forKey: "libraryOrder")
-        defaults.synchronize()
     }
 }

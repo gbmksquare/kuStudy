@@ -9,7 +9,7 @@
 import UIKit
 import kuStudyKit
 
-class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LibraryViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var summaryView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,15 +17,16 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var usedLabel: UILabel!
     
+    lazy var dataSource = LibraryDataSource()
+    
     // MARK: Model
     var libraryId: Int!
-    private var library: Library?
-    private var readingRooms = [ReadingRoom]()
     
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchData()
+        setupTableView()
+        fetchLibrary()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -44,6 +45,11 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     // MARK: Setup
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = dataSource
+    }
+    
     private var gradient: CAGradientLayer?
     
     private func setupGradient() {
@@ -62,19 +68,17 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     // MARK: Handoff
     private func startHandoff() {
         let activity = NSUserActivity(activityType: kuStudyHandoffLibrary)
-        activity.title = "Handoff title"
+        activity.title = dataSource.library?.key
         activity.addUserInfoEntriesFromDictionary(["libraryId": libraryId])
         activity.becomeCurrent()
         userActivity = activity
     }
     
     // MARK: Action
-    private func fetchData() {
+    private func fetchLibrary() {
         NetworkActivityManager.increaseActivityCount()
-        kuStudy.requestLibrarySeatSummary(libraryId,
-            success: { [unowned self] (library, readingRooms) -> Void in
-                self.library = library
-                self.readingRooms = readingRooms
+        dataSource.fetchData(libraryId,
+            success: { [unowned self] () -> Void in
                 self.updateDataInView()
                 NetworkActivityManager.decreaseActivityCount()
             }) { (error) -> Void in
@@ -83,29 +87,12 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     private func updateDataInView() {
-        if let library = library {
+        if let library = dataSource.library {
             let libraryViewModel = LibraryViewModel(library: library)
             libraryNameLabel.text = libraryViewModel.name
             availableLabel.text = libraryViewModel.availableString
             usedLabel.text = libraryViewModel.usedString
         }
         tableView.reloadData()
-    }
-
-    // MARK: Table view
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return readingRooms.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("readingRoomCell", forIndexPath: indexPath) as! ReadingRoomTableViewCell
-        let readingRoom = readingRooms[indexPath.row]
-        let readingRoomViewModel = ReadingRoomViewModel(library: readingRoom)
-        cell.populate(readingRoomViewModel)
-        return cell
     }
 }
