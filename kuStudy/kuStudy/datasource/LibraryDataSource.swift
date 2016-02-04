@@ -9,6 +9,7 @@
 import Foundation
 import kuStudyKit
 import DZNEmptyDataSet
+import Localize_Swift
 
 class LibraryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource {
     var library: Library?
@@ -28,7 +29,7 @@ class LibraryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource 
     
     // MARK: Empty state
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = "No Data"
+        let text = "No Data".localized()
         let attribute = [NSFontAttributeName: UIFont.boldSystemFontOfSize(17)]
         return NSAttributedString(string: text, attributes: attribute)
     }

@@ -9,6 +9,7 @@
 import UIKit
 import kuStudyKit
 import DZNEmptyDataSet
+import Localize_Swift
 
 class SummaryViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var summaryView: UIView!
@@ -111,10 +112,10 @@ class SummaryViewController: UIViewController, UITableViewDelegate {
     // MARK: Action
     @IBAction func tappedEditButton(sender: UIButton) {
         tableView.setEditing(!tableView.editing, animated: true)
-        if sender.currentTitle == "edit" {
-            sender.setTitle("done", forState: .Normal)
+        if sender.currentTitle == "edit".localized() {
+            sender.setTitle("done".localized(), forState: .Normal)
         } else {
-            sender.setTitle("edit", forState: .Normal)
+            sender.setTitle("edit".localized(), forState: .Normal)
         }
     }
     
@@ -133,7 +134,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate {
             let summaryViewModel = SummaryViewModel(summary: summary)
             availableLabel.text = summaryViewModel.availableString
             usedLabel.text = summaryViewModel.usedString
-            updateTimeLabel.text = "Updated: " + summaryViewModel.updateTimeString
+            updateTimeLabel.text = "Updated: ".localized() + summaryViewModel.updateTimeString
         }
         tableView.reloadData()
     }

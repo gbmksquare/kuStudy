@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  kuStudy
+
+  Created by 구범모 on 2016. 2. 4..
+  Copyright © 2016년 gbmKSquare. All rights reserved.
+*/
+
+/*
+ * ./kuStudy/kuStudy/view controller/SummaryViewController.swift
+ */
+
+"edit" = "edit";
+
+"done" = "done";
+
+"Updated: " = "Updated: ";
+
+
+/*
+ * ./kuStudy/kuStudy/Base.lproj/LaunchScreen.xib
+ */
+
+"kuStudy" = "kuStudy";
+
+
+/*
+ * SHARED STRINGS
+ */
+
+"No Data" = "No Data";
