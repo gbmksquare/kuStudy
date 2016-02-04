@@ -8,8 +8,9 @@
 
 import UIKit
 import kuStudyKit
+import DZNEmptyDataSet
 
-class SummaryDataSource: NSObject, UITableViewDataSource {
+class SummaryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource {
     var summary: Summary?
     var libraries = [Library]()
     lazy var orderedLibraryIds = NSUserDefaults(suiteName: kuStudySharedContainer)?.arrayForKey("libraryOrder") as? [Int] ?? NSUserDefaults.standardUserDefaults().arrayForKey("libraryOrder") as! [Int]
@@ -23,6 +24,13 @@ class SummaryDataSource: NSObject, UITableViewDataSource {
             }) { (error) -> Void in
                 failure(error: error)
         }
+    }
+    
+    // MARK: Empty state
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "No Data"
+        let attribute = [NSFontAttributeName: UIFont.boldSystemFontOfSize(17)]
+        return NSAttributedString(string: text, attributes: attribute)
     }
     
     // MARK: Data source

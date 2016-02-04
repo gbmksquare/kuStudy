@@ -8,6 +8,7 @@
 
 import UIKit
 import kuStudyKit
+import DZNEmptyDataSet
 
 class LibraryViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var summaryView: UIView!
@@ -48,6 +49,8 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = dataSource
+        tableView.emptyDataSetSource = dataSource
+        tableView.tableFooterView = UIView()
     }
     
     private var gradient: CAGradientLayer?

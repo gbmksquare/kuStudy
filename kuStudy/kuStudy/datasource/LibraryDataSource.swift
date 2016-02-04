@@ -8,8 +8,9 @@
 
 import Foundation
 import kuStudyKit
+import DZNEmptyDataSet
 
-class LibraryDataSource: NSObject, UITableViewDataSource {
+class LibraryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource {
     var library: Library?
     var readingRooms = [ReadingRoom]()
     
@@ -23,6 +24,13 @@ class LibraryDataSource: NSObject, UITableViewDataSource {
             }) { (error) -> Void in
                 failure(error: error)
         }
+    }
+    
+    // MARK: Empty state
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = "No Data"
+        let attribute = [NSFontAttributeName: UIFont.boldSystemFontOfSize(17)]
+        return NSAttributedString(string: text, attributes: attribute)
     }
     
     // MARK: Data source
