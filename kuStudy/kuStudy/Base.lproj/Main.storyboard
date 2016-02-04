@@ -195,6 +195,7 @@
                         <outlet property="availableLabel" destination="6OQ-rl-E0a" id="e1n-eN-1Ub"/>
                         <outlet property="summaryView" destination="ZdR-I4-Cp8" id="N9h-6a-Lli"/>
                         <outlet property="tableView" destination="9bP-Ci-C99" id="BcT-Y8-5YZ"/>
+                        <outlet property="updateTimeLabel" destination="TUi-m0-lWn" id="y96-8w-g2t"/>
                         <outlet property="usedLabel" destination="hXt-bn-0hL" id="JC4-1G-uGK"/>
                     </connections>
                 </viewController>

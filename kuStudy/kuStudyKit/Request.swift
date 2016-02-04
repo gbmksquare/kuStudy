@@ -25,7 +25,8 @@ public extension kuStudy {
                     // Summary
                     let total = content["total"].intValue
                     let available = content["available"].intValue
-                    let summary = Summary(total: total, available: available)
+                    let updateTime = content["time"].stringValue
+                    let summary = Summary(total: total, available: available, time: updateTime)
                     // Library
                     let librariesJson = content["libraries"].arrayValue
                     var libraries = [Library]()

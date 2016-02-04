@@ -15,6 +15,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var usedLabel: UILabel!
+    @IBOutlet weak var updateTimeLabel: UILabel!
     
     // MARK: Model
     private var summary: Summary?
@@ -129,6 +130,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
             let summaryViewModel = SummaryViewModel(summary: summary)
             availableLabel.text = summaryViewModel.availableString
             usedLabel.text = summaryViewModel.usedString
+            updateTimeLabel.text = "Updated: " + summaryViewModel.updateTimeString
         }
         tableView.reloadData()
     }

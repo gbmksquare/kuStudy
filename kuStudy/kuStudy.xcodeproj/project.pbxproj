@@ -1643,6 +1643,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "cca6e766-b085-4032-967d-c2b04a809755";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1664,6 +1665,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "02faf606-6d71-4609-b396-13481cfd86dc";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
