@@ -28,6 +28,16 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
         fetchData()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        startHandoff()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        userActivity?.invalidate()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupGradient()
@@ -47,6 +57,15 @@ class LibraryViewController: UIViewController, UITableViewDelegate, UITableViewD
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
         summaryView.layer.insertSublayer(gradient, atIndex: 0)
+    }
+    
+    // MARK: Handoff
+    private func startHandoff() {
+        let activity = NSUserActivity(activityType: kuStudyHandoffLibrary)
+        activity.title = "Handoff title"
+        activity.addUserInfoEntriesFromDictionary(["libraryId": libraryId])
+        activity.becomeCurrent()
+        userActivity = activity
     }
     
     // MARK: Action

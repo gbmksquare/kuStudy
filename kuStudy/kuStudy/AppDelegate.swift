@@ -78,16 +78,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // MARK: Handoff
     func application(application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
-        print(userActivityType)
-        return false
+        return true
     }
     
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
-        if let window = window {
-            let navigationController = window.rootViewController as! UINavigationController
-            let summaryViewController = navigationController.topViewController as! SummaryViewController
-            summaryViewController.restoreUserActivityState(userActivity)
-        }
+        guard let window = window else { return false }
+        
+        let tabBarController = window.rootViewController as! MainTabBarController
+        tabBarController.selectedIndex = 0
+        
+        let navigationController = tabBarController.viewControllers![0] as! UINavigationController
+        navigationController.popToRootViewControllerAnimated(false)
+        let summaryViewController = navigationController.topViewController as! SummaryViewController
+        summaryViewController.restoreUserActivityState(userActivity)
+        
         return true
     }
 }

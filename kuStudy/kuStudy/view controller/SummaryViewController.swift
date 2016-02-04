@@ -28,6 +28,16 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         fetchData()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        startHandoff()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        userActivity?.invalidate()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupGradient()
@@ -58,20 +68,35 @@ class SummaryViewController: UIViewController, UITableViewDelegate, UITableViewD
         if let identifier = segue.identifier {
             switch identifier {
             case "librarySegue":
-                let destinationViewController = segue.destinationViewController as! LibraryViewController
-                let selectedRow = tableView.indexPathForSelectedRow!.row
-                destinationViewController.libraryId = orderedLibraryIds[selectedRow]
+                if sender is Int {
+                    let destinationViewController = segue.destinationViewController as! LibraryViewController
+                    destinationViewController.libraryId = sender as! Int
+                } else {
+                    let destinationViewController = segue.destinationViewController as! LibraryViewController
+                    let selectedRow = tableView.indexPathForSelectedRow!.row
+                    destinationViewController.libraryId = orderedLibraryIds[selectedRow]
+                }
             default: break
             }
         }
     }
     
     // MARK: Handoff
+    private func startHandoff() {
+        let activity = NSUserActivity(activityType: kuStudyHandoffSummary)
+        activity.title = "Handoff title"
+        activity.becomeCurrent()
+        userActivity = activity
+    }
+    
     override func restoreUserActivityState(activity: NSUserActivity) {
         switch activity.activityType {
         case kuStudyHandoffSummary: break
             //        case kuStudyHandoffLibrary:
             // TODO: Pass to libraryViewController
+        case kuStudyHandoffLibrary:
+            let libraryId = activity.userInfo!["libraryId"]
+            performSegueWithIdentifier("librarySegue", sender: libraryId)
         default: break
         }
         super.restoreUserActivityState(activity)
