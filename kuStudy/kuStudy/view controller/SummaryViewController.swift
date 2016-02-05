@@ -55,6 +55,8 @@ class SummaryViewController: UIViewController, UITableViewDelegate {
         tableView.dataSource = dataSource
         tableView.emptyDataSetSource = dataSource
         tableView.tableFooterView = UIView()
+        tableView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
+        tableView.scrollIndicatorInsets = tableView.contentInset
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: "fetchSummary:", forControlEvents: .ValueChanged)
     }
