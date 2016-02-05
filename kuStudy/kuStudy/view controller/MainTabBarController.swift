@@ -17,8 +17,6 @@ class MainTabBarController: UITabBarController {
     
     private func customizeTabBarAppearance() {
         // Bar
-        tabBar.barStyle = .Black
-        tabBar.barTintColor = UIColor.blackColor()
         tabBar.tintColor = UIColor.navigationColor()
     }
 }
