@@ -27,11 +27,16 @@ public class SummaryViewModel {
     public let total: Int
     public let available: Int
     public let updateTime: NSDate
-    
     public var used: Int { return total - available }
-    public var totalString: String { return "\(total)" }
-    public var availableString: String { return "\(available)" }
-    public var usedString: String { return "\(used)" }
+    
+    private var numberFormatter: NSNumberFormatter {
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = .DecimalStyle
+        return formatter
+    }
+    public var totalString: String { return numberFormatter.stringFromNumber(total)! }
+    public var availableString: String { return numberFormatter.stringFromNumber(available)! }
+    public var usedString: String { return numberFormatter.stringFromNumber(used)! }
     
     public var updateTimeString: String {
         let formatter = NSDateFormatter()
