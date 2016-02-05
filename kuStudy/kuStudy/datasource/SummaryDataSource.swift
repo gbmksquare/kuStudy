@@ -26,10 +26,18 @@ class SummaryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource 
     // MARK: Action
     func fetchData(success: () -> Void, failure: (error: NSError) -> Void) {
         dataState = .Fetching
-        kuStudy.requestSeatSummary({ [unowned self] (summary, libraries) -> Void in
+        kuStudy.requestSeatSummary(
+            { [unowned self] (summary, libraries) -> Void in
                 self.summary = summary
                 self.libraries = libraries
                 success()
+            
+                let defaults = NSUserDefaults.standardUserDefaults()
+                if defaults.boolForKey("isFirstRun") == false {
+                    self.notifyUpdateQuickActions()
+                    defaults.setBool(true, forKey: "isFirstRun")
+                    defaults.synchronize()
+                }
             }) { [unowned self] (error) -> Void in
                 self.dataState = .Error
                 self.error = error
@@ -77,5 +85,11 @@ class SummaryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource 
         let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
         defaults.setValue(orderedLibraryIds, forKey: "libraryOrder")
         defaults.synchronize()
+        
+        notifyUpdateQuickActions()
+    }
+    
+    private func notifyUpdateQuickActions() {
+        NSNotificationCenter.defaultCenter().postNotificationName("kUpdateQuickActionsNotification", object: self, userInfo: ["libraries": libraries])
     }
 }

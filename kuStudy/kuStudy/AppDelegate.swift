@@ -50,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupFabric()
         handleFirstRun()
         registerDefaultPreferences()
+        listenForUpdateQuickActionItems()
         customizeAppearance()
         return true
     }
@@ -93,6 +94,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         summaryViewController.restoreUserActivityState(userActivity)
         
         return true
+    }
+    
+    // MARK: Quick action
+    private func listenForUpdateQuickActionItems() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateQuickActionItems:", name: "kUpdateQuickActionsNotification", object: nil)
+    }
+    
+    @objc private func updateQuickActionItems(notification: NSNotification) {
+        let orderedLibraryIds = NSUserDefaults(suiteName: kuStudySharedContainer)?.arrayForKey("libraryOrder") as? [Int] ?? NSUserDefaults.standardUserDefaults().arrayForKey("libraryOrder") as! [Int]
+        
+        let actionType = "com.gbmksquare.kuapps.kucourse.LibraryAction"
+        let icon = UIApplicationShortcutIcon(templateImageName: "glyphicons-236-pen")
+        
+        let libraries = notification.userInfo!["libraries"] as! [Library]
+        var quickActionItems = [UIMutableApplicationShortcutItem]()
+        for libraryId in orderedLibraryIds {
+            let library = libraries[libraryId - 1]
+            let libraryViewModel = LibraryViewModel(library: library)
+            let item = UIMutableApplicationShortcutItem(type: actionType, localizedTitle: libraryViewModel.name, localizedSubtitle: nil, icon: icon, userInfo: ["libraryId": libraryId])
+            quickActionItems.append(item)
+        }
+        
+        UIApplication.sharedApplication().shortcutItems = quickActionItems
+    }
+    
+    func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
+        guard let window = window else { return }
+        
+        let tabBarController = window.rootViewController as! MainTabBarController
+        tabBarController.selectedIndex = 0
+        
+        let navigationController = tabBarController.viewControllers![0] as! UINavigationController
+        navigationController.popToRootViewControllerAnimated(false)
+        let summaryViewController = navigationController.topViewController as! SummaryViewController
+        
+        switch shortcutItem.type {
+        case "com.gbmksquare.kuapps.kucourse.LibraryAction":
+            let userActivity = NSUserActivity(activityType: kuStudyHandoffLibrary)
+            let libraryId = shortcutItem.userInfo!["libraryId"] as! Int
+            userActivity.addUserInfoEntriesFromDictionary(["libraryId": libraryId])
+            summaryViewController.restoreUserActivityState(userActivity)
+        default: break
+        }
     }
 }
 
