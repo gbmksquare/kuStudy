@@ -19,7 +19,7 @@ public class Summary {
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        self.updateTime = formatter.dateFromString(time)!
+        self.updateTime = formatter.dateFromString(time) ?? NSDate()
     }
 }
 
@@ -34,9 +34,9 @@ public class SummaryViewModel {
         formatter.numberStyle = .DecimalStyle
         return formatter
     }
-    public var totalString: String { return numberFormatter.stringFromNumber(total)! }
-    public var availableString: String { return numberFormatter.stringFromNumber(available)! }
-    public var usedString: String { return numberFormatter.stringFromNumber(used)! }
+    public var totalString: String { return numberFormatter.stringFromNumber(total) ?? "" }
+    public var availableString: String { return numberFormatter.stringFromNumber(available) ?? "" }
+    public var usedString: String { return numberFormatter.stringFromNumber(used) ?? "" }
     
     public var updateTimeString: String {
         let formatter = NSDateFormatter()

@@ -39,9 +39,9 @@ public class LibraryViewModel {
         formatter.numberStyle = .DecimalStyle
         return formatter
     }
-    public var totalString: String { return numberFormatter.stringFromNumber(total)! }
-    public var availableString: String { return numberFormatter.stringFromNumber(available)! }
-    public var usedString: String { return numberFormatter.stringFromNumber(used)! }
+    public var totalString: String { return numberFormatter.stringFromNumber(total) ?? "" }
+    public var availableString: String { return numberFormatter.stringFromNumber(available) ?? "" }
+    public var usedString: String { return numberFormatter.stringFromNumber(used) ?? "" }
     
     public var usedPercentage: Float { return Float(used) / Float(total) }
     public var usedPercentageString: String { return "\(Int(usedPercentage * 100))%" }
