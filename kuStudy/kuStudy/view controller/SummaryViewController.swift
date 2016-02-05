@@ -20,6 +20,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var updateTimeLabel: UILabel!
     
     lazy var dataSource = SummaryDataSource()
+    private  var refreshControl = UIRefreshControl()
     
     // MARK: View
     override func viewDidLoad() {
@@ -54,6 +55,8 @@ class SummaryViewController: UIViewController, UITableViewDelegate {
         tableView.dataSource = dataSource
         tableView.emptyDataSetSource = dataSource
         tableView.tableFooterView = UIView()
+        tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: "fetchSummary:", forControlEvents: .ValueChanged)
     }
     
     private var gradient: CAGradientLayer?
@@ -119,13 +122,15 @@ class SummaryViewController: UIViewController, UITableViewDelegate {
         }
     }
     
-    private func fetchSummary() {
+    @objc private func fetchSummary(sender: UIRefreshControl? = nil) {
         NetworkActivityManager.increaseActivityCount()
         dataSource.fetchData({ [unowned self] () -> Void in
                 self.updateDataInView()
                 NetworkActivityManager.decreaseActivityCount()
+                sender?.endRefreshing()
             }) { (error) -> Void in
                 NetworkActivityManager.decreaseActivityCount()
+                sender?.endRefreshing()
         }
     }
     
@@ -139,7 +144,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate {
         tableView.reloadData()
     }
     
-    // MARK: Table view delegate
+    // MARK: Table view
     func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
         return .None
     }

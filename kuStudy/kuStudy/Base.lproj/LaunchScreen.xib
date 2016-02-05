@@ -19,8 +19,9 @@
                     <rect key="frame" x="0.0" y="0.0" width="480" height="180"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="180" id="8Y3-xh-UeF"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="KY6-k7-oUy"/>
+                        <constraint firstAttribute="height" constant="180" id="8Y3-xh-UeF">
+                            <variation key="heightClass=compact" constant="150"/>
+                        </constraint>
                     </constraints>
                 </view>
             </subviews>

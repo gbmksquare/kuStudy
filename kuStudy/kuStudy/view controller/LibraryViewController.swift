@@ -19,6 +19,7 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var usedLabel: UILabel!
     
     lazy var dataSource = LibraryDataSource()
+    private var refreshControl = UIRefreshControl()
     
     // MARK: Model
     var libraryId: Int!
@@ -51,6 +52,8 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
         tableView.dataSource = dataSource
         tableView.emptyDataSetSource = dataSource
         tableView.tableFooterView = UIView()
+        tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: "fetchLibrary:", forControlEvents: .ValueChanged)
     }
     
     private var gradient: CAGradientLayer?
@@ -78,14 +81,16 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
     }
     
     // MARK: Action
-    private func fetchLibrary() {
+    @objc private func fetchLibrary(sender: UIRefreshControl? = nil) {
         NetworkActivityManager.increaseActivityCount()
         dataSource.fetchData(libraryId,
             success: { [unowned self] () -> Void in
                 self.updateDataInView()
                 NetworkActivityManager.decreaseActivityCount()
+                sender?.endRefreshing()
             }) { (error) -> Void in
                 NetworkActivityManager.decreaseActivityCount()
+                sender?.endRefreshing()
         }
     }
     
