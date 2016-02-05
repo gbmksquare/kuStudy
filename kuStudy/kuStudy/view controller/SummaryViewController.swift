@@ -11,7 +11,7 @@ import kuStudyKit
 import DZNEmptyDataSet
 import Localize_Swift
 
-class SummaryViewController: UIViewController, UITableViewDelegate {
+class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyDataSetDelegate {
     @IBOutlet weak var summaryView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -53,6 +53,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate {
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = dataSource
+        tableView.emptyDataSetDelegate = self
         tableView.emptyDataSetSource = dataSource
         tableView.tableFooterView = UIView()
         tableView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
@@ -130,7 +131,8 @@ class SummaryViewController: UIViewController, UITableViewDelegate {
                 self.updateDataInView()
                 NetworkActivityManager.decreaseActivityCount()
                 sender?.endRefreshing()
-            }) { (error) -> Void in
+            }) { [unowned self] (error) -> Void in
+                self.tableView.reloadData()
                 NetworkActivityManager.decreaseActivityCount()
                 sender?.endRefreshing()
         }
@@ -147,6 +149,11 @@ class SummaryViewController: UIViewController, UITableViewDelegate {
     }
     
     // MARK: Table view
+    func emptyDataSetDidTapView(scrollView: UIScrollView!) {
+        fetchSummary()
+        tableView.reloadData()
+    }
+    
     func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
         return .None
     }

@@ -11,25 +11,35 @@ import kuStudyKit
 import DZNEmptyDataSet
 import Localize_Swift
 
+enum DataSourceState {
+    case Fetching, Error
+}
+
 class SummaryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource {
     var summary: Summary?
     var libraries = [Library]()
     lazy var orderedLibraryIds = NSUserDefaults(suiteName: kuStudySharedContainer)?.arrayForKey("libraryOrder") as? [Int] ?? NSUserDefaults.standardUserDefaults().arrayForKey("libraryOrder") as! [Int]
     
+    private var dataState: DataSourceState = .Fetching
+    private var error: NSError?
+    
     // MARK: Action
     func fetchData(success: () -> Void, failure: (error: NSError) -> Void) {
+        dataState = .Fetching
         kuStudy.requestSeatSummary({ [unowned self] (summary, libraries) -> Void in
                 self.summary = summary
                 self.libraries = libraries
                 success()
-            }) { (error) -> Void in
+            }) { [unowned self] (error) -> Void in
+                self.dataState = .Error
+                self.error = error
                 failure(error: error)
         }
     }
     
     // MARK: Empty state
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = "No Data".localized()
+        let text = dataState == .Fetching ? "Fetching data...".localized() : (error?.localizedDescription ?? "An error occurred.".localized())
         let attribute = [NSFontAttributeName: UIFont.boldSystemFontOfSize(17)]
         return NSAttributedString(string: text, attributes: attribute)
     }

@@ -90,7 +90,8 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
                 self.updateDataInView()
                 NetworkActivityManager.decreaseActivityCount()
                 sender?.endRefreshing()
-            }) { (error) -> Void in
+            }) { [unowned self] (error) -> Void in
+                self.tableView.reloadData()
                 NetworkActivityManager.decreaseActivityCount()
                 sender?.endRefreshing()
         }

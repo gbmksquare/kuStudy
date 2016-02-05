@@ -28,4 +28,6 @@
  * SHARED STRINGS
  */
 
-"No Data" = "No Data";
+"Fetching data..." = "Fetching data...";
+
+"An error occurred." = "An error occurred.";

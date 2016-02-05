@@ -15,21 +15,27 @@ class LibraryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource 
     var library: Library?
     var readingRooms = [ReadingRoom]()
     
+    private var dataState: DataSourceState = .Fetching
+    private var error: NSError?
+    
     // MARK: Action
     func fetchData(id: Int, success: () -> Void, failure: (error: NSError) -> Void) {
+        dataState = .Fetching
         kuStudy.requestLibrarySeatSummary(id,
             success: { [unowned self] (library, readingRooms) -> Void in
                 self.library = library
                 self.readingRooms = readingRooms
                 success()
-            }) { (error) -> Void in
+            }) { [unowned self] (error) -> Void in
+                self.dataState = .Error
+                self.error = error
                 failure(error: error)
         }
     }
     
     // MARK: Empty state
     func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = "No Data".localized()
+        let text = dataState == .Fetching ? "Fetching data...".localized() : (error?.localizedDescription ?? "An error occurred.".localized())
         let attribute = [NSFontAttributeName: UIFont.boldSystemFontOfSize(17)]
         return NSAttributedString(string: text, attributes: attribute)
     }
