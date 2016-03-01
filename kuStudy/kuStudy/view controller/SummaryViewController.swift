@@ -11,7 +11,7 @@ import kuStudyKit
 import DZNEmptyDataSet
 import Localize_Swift
 
-class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyDataSetDelegate {
+class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyDataSetDelegate, UIViewControllerPreviewingDelegate {
     @IBOutlet weak var summaryView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,6 +25,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyData
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerPeekAndPop()
         setupView()
         setupTableView()
         fetchSummary()
@@ -135,13 +136,8 @@ extension SummaryViewController {
             switch identifier {
             case "librarySegue":
                 let destinationViewController = segue.destinationViewController as! LibraryViewController
-                let libraryId: Int
-                if sender is Int { // Handoff
-                    libraryId = sender as! Int
-                } else {
-                    let selectedRow = tableView.indexPathForSelectedRow!.row
-                    libraryId = dataSource.orderedLibraryIds[selectedRow]
-                }
+                let selectedRow = tableView.indexPathForSelectedRow!.row
+                let libraryId = dataSource.orderedLibraryIds[selectedRow]
                 destinationViewController.libraryId = libraryId
             default: break
             }
@@ -167,5 +163,26 @@ extension SummaryViewController {
         default: break
         }
         super.restoreUserActivityState(activity)
+    }
+}
+
+// MARK: Peek & Pop
+extension SummaryViewController {
+    private func registerPeekAndPop() {
+        if traitCollection.forceTouchCapability == .Available {
+            registerForPreviewingWithDelegate(self, sourceView: view)
+        }
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        let locationInTableView = tableView.convertPoint(location, fromView: view)
+        guard let indexPath = tableView.indexPathForRowAtPoint(locationInTableView) else { return nil }
+        let libraryViewController = self.storyboard?.instantiateViewControllerWithIdentifier("libraryViewController") as! LibraryViewController
+        libraryViewController.libraryId = dataSource.orderedLibraryIds[indexPath.row]
+        return libraryViewController
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        showViewController(viewControllerToCommit, sender: self)
     }
 }

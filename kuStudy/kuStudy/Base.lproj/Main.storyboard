@@ -219,7 +219,7 @@
         <!--Library View Controller-->
         <scene sceneID="xZE-K0-3Zm">
             <objects>
-                <viewController id="4PY-Tz-wT9" customClass="LibraryViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="libraryViewController" id="4PY-Tz-wT9" customClass="LibraryViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="aUq-gP-Iqt"/>
                         <viewControllerLayoutGuide type="bottom" id="mUZ-Si-QnI"/>
