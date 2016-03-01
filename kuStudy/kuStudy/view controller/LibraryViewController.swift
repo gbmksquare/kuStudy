@@ -27,7 +27,7 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
+        initialSetup()
         fetchLibrary()
     }
     
@@ -47,6 +47,13 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
     }
     
     // MARK: Setup
+    private func initialSetup() {
+        libraryNameLabel.text = ""
+        availableLabel.text = ""
+        usedLabel.text = ""
+        setupTableView()
+    }
+    
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = dataSource

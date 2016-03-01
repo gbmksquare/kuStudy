@@ -56,8 +56,10 @@ class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyData
         tableView.emptyDataSetDelegate = self
         tableView.emptyDataSetSource = dataSource
         tableView.tableFooterView = UIView()
-        tableView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
+//        tableView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
         tableView.scrollIndicatorInsets = tableView.contentInset
+//        tableView.estimatedRowHeight = 60
+//        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: "fetchSummary:", forControlEvents: .ValueChanged)
     }
@@ -77,43 +79,6 @@ class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyData
         summaryView.layer.insertSublayer(gradient, atIndex: 0)
     }
     
-    // MARK: Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let identifier = segue.identifier {
-            switch identifier {
-            case "librarySegue":
-                let destinationViewController = segue.destinationViewController as! LibraryViewController
-                let libraryId: Int
-                if sender is Int { // Handoff
-                    libraryId = sender as! Int
-                } else {
-                    let selectedRow = tableView.indexPathForSelectedRow!.row
-                    libraryId = dataSource.orderedLibraryIds[selectedRow]
-                }
-                destinationViewController.libraryId = libraryId
-            default: break
-            }
-        }
-    }
-    
-    // MARK: Handoff
-    private func startHandoff() {
-        let activity = NSUserActivity(activityType: kuStudyHandoffSummary)
-        activity.title = "Summary"
-        activity.becomeCurrent()
-        userActivity = activity
-    }
-    
-    override func restoreUserActivityState(activity: NSUserActivity) {
-        switch activity.activityType {
-        case kuStudyHandoffSummary: break
-        case kuStudyHandoffLibrary:
-            let libraryId = activity.userInfo!["libraryId"]
-            performSegueWithIdentifier("librarySegue", sender: libraryId)
-        default: break
-        }
-        super.restoreUserActivityState(activity)
-    }
     
     // MARK: Action
     @IBAction func tappedEditButton(sender: UIButton) {
@@ -160,5 +125,47 @@ class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyData
     
     func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
+    }
+}
+
+// MARK: Navigation
+extension SummaryViewController {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "librarySegue":
+                let destinationViewController = segue.destinationViewController as! LibraryViewController
+                let libraryId: Int
+                if sender is Int { // Handoff
+                    libraryId = sender as! Int
+                } else {
+                    let selectedRow = tableView.indexPathForSelectedRow!.row
+                    libraryId = dataSource.orderedLibraryIds[selectedRow]
+                }
+                destinationViewController.libraryId = libraryId
+            default: break
+            }
+        }
+    }
+}
+
+// MARK: Handoff
+extension SummaryViewController {
+    private func startHandoff() {
+        let activity = NSUserActivity(activityType: kuStudyHandoffSummary)
+        activity.title = "Summary"
+        activity.becomeCurrent()
+        userActivity = activity
+    }
+    
+    override func restoreUserActivityState(activity: NSUserActivity) {
+        switch activity.activityType {
+        case kuStudyHandoffSummary: break
+        case kuStudyHandoffLibrary:
+            let libraryId = activity.userInfo!["libraryId"]
+            performSegueWithIdentifier("librarySegue", sender: libraryId)
+        default: break
+        }
+        super.restoreUserActivityState(activity)
     }
 }

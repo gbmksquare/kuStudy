@@ -10,17 +10,21 @@ import UIKit
 import kuStudyKit
 
 class LibraryTableViewCell: UITableViewCell {
+    @IBOutlet weak var libraryImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var usedLabel: UILabel!
-    @IBOutlet weak var usedPercentageView: UIProgressView!
+    
+    // MARK: Setup
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        libraryImageView.layer.cornerRadius = libraryImageView.bounds.width / 2
+    }
     
     // MARK: Populate
     func populate(library: LibraryViewModel) {
         nameLabel.text = library.name
         availableLabel.text = library.availableString
         usedLabel.text = library.usedString
-        usedPercentageView.progress = library.usedPercentage
-        usedPercentageView.tintColor = library.usedPercentageColor
     }
 }
