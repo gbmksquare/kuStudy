@@ -110,10 +110,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let libraries = notification.userInfo!["libraries"] as! [Library]
         var quickActionItems = [UIMutableApplicationShortcutItem]()
         for libraryId in orderedLibraryIds {
-            let library = libraries[libraryId - 1]
-            let libraryViewModel = LibraryViewModel(library: library)
-            let item = UIMutableApplicationShortcutItem(type: actionType, localizedTitle: libraryViewModel.name, localizedSubtitle: nil, icon: icon, userInfo: ["libraryId": libraryId])
-            quickActionItems.append(item)
+            for library in libraries {
+                if library.id == libraryId {
+                    let libraryViewModel = LibraryViewModel(library: library)
+                    let item = UIMutableApplicationShortcutItem(type: actionType, localizedTitle: libraryViewModel.name, localizedSubtitle: nil, icon: icon, userInfo: ["libraryId": libraryId])
+                    quickActionItems.append(item)
+                }
+            }
         }
         
         UIApplication.sharedApplication().shortcutItems = quickActionItems
