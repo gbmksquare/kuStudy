@@ -17,7 +17,7 @@ class RingImageView: UIView {
     var image: UIImage?
     private var imageLayer: CALayer!
     
-    @IBInspectable var rating: Float = 0.6 {
+    @IBInspectable var rating: Float = 0.0 {
         didSet { updateLayerProperties() }
     }
     
@@ -58,6 +58,7 @@ class RingImageView: UIView {
             ringLayer.path = innerPath.CGPath
             ringLayer.fillColor = nil
             ringLayer.lineWidth = lineWidth
+            ringLayer.strokeEnd = 0.0
             ringLayer.strokeColor = UIColor.darkGrayColor().CGColor
             ringLayer.lineCap = kCALineCapRound
             ringLayer.anchorPoint = CGPointMake(0.5, 0.5)

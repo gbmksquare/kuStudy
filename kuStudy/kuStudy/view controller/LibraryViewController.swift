@@ -88,9 +88,8 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
             libraryNameLabel.text = libraryViewModel.name
             availableLabel.text = libraryViewModel.availableString
             usedLabel.text = libraryViewModel.usedString
-            if let imageName = libraryViewModel.imageName {
-                libraryImageView.image = UIImage(named: imageName)
-            }
+            let photo = ImageProvider.sharedProvider.imageForLibrary(library.id)
+            libraryImageView.image = photo?.image
         }
         tableView.reloadData()
     }
