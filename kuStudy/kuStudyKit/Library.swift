@@ -60,4 +60,20 @@ public class LibraryViewModel {
         total = library.total
         available = library.available
     }
+    
+    public var imageName: String? {
+        guard let path = NSBundle.mainBundle().pathForResource("LibraryPhoto", ofType: "plist"),
+            photosInfoArray = NSArray(contentsOfFile: path) else {
+                return nil
+        }
+        
+        for photosInfo in photosInfoArray {
+            if let key = photosInfo["library"] as? String where key == self.key {
+                if let photoInfo = (photosInfo["photos"] as! NSArray).firstObject {
+                    return photoInfo["name"] as? String
+                }
+            }
+        }
+        return nil
+    }
 }

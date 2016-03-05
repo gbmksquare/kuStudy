@@ -14,9 +14,13 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var summaryView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var libraryImageView: UIImageView!
     @IBOutlet weak var libraryNameLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var usedLabel: UILabel!
+    
+    private var gradient: CAGradientLayer?
+    private var shadowGradient: CAGradientLayer?
     
     lazy var dataSource = LibraryDataSource()
     private var refreshControl = UIRefreshControl()
@@ -65,9 +69,9 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
         refreshControl.addTarget(self, action: "fetchLibrary:", forControlEvents: .ValueChanged)
     }
     
-    private var gradient: CAGradientLayer?
-    
     private func setupGradient() {
+        // Background
+        // TODO: Remove background gradient later
         self.gradient?.removeFromSuperlayer()
         
         let gradient = CAGradientLayer()
@@ -78,15 +82,18 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
         gradient.startPoint = CGPoint(x: 0, y: 0)
         gradient.endPoint = CGPoint(x: 1, y: 1)
         summaryView.layer.insertSublayer(gradient, atIndex: 0)
-    }
-    
-    // MARK: Handoff
-    private func startHandoff() {
-        let activity = NSUserActivity(activityType: kuStudyHandoffLibrary)
-        activity.title = dataSource.library?.key
-        activity.addUserInfoEntriesFromDictionary(["libraryId": libraryId])
-        activity.becomeCurrent()
-        userActivity = activity
+        
+        // Shadow
+        self.shadowGradient?.removeFromSuperlayer()
+        
+        let shadowGradient = CAGradientLayer()
+        self.shadowGradient = shadowGradient
+        
+        shadowGradient.frame = libraryImageView.bounds
+        shadowGradient.colors = [UIColor(white: 0, alpha: 0).CGColor, UIColor(white: 0.1, alpha: 0.55).CGColor, UIColor(white: 0.1, alpha: 0.75).CGColor]
+        shadowGradient.startPoint = CGPoint(x: 0, y: 0)
+        shadowGradient.endPoint = CGPoint(x: 0, y: 1)
+        libraryImageView.layer.addSublayer(shadowGradient)
     }
     
     // MARK: Action
@@ -110,7 +117,22 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
             libraryNameLabel.text = libraryViewModel.name
             availableLabel.text = libraryViewModel.availableString
             usedLabel.text = libraryViewModel.usedString
+            if let imageName = libraryViewModel.imageName {
+                libraryImageView.image = UIImage(named: imageName)
+            }
         }
         tableView.reloadData()
+    }
+}
+
+// MARK: Handoff
+extension LibraryViewController {
+    // MARK: Handoff
+    private func startHandoff() {
+        let activity = NSUserActivity(activityType: kuStudyHandoffLibrary)
+        activity.title = dataSource.library?.key
+        activity.addUserInfoEntriesFromDictionary(["libraryId": libraryId])
+        activity.becomeCurrent()
+        userActivity = activity
     }
 }
