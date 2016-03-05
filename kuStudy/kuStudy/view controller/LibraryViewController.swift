@@ -12,18 +12,18 @@ import DZNEmptyDataSet
 
 class LibraryViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var summaryView: UIView!
-    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var libraryImageView: UIImageView!
+    @IBOutlet weak var shadowView: ShadowGradientView!
+    
     @IBOutlet weak var libraryNameLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var usedLabel: UILabel!
     
-    private var gradient: CAGradientLayer?
-    private var shadowGradient: CAGradientLayer?
+    private var refreshControl = UIRefreshControl()
+    @IBOutlet weak var tableView: UITableView!
     
     lazy var dataSource = LibraryDataSource()
-    private var refreshControl = UIRefreshControl()
     
     // MARK: Model
     var libraryId: Int!
@@ -47,7 +47,7 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupGradient()
+        shadowView.refreshGradientLayout()
     }
     
     // MARK: Setup
@@ -63,37 +63,8 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
         tableView.dataSource = dataSource
         tableView.emptyDataSetSource = dataSource
         tableView.tableFooterView = UIView()
-        tableView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
-        tableView.scrollIndicatorInsets = tableView.contentInset
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: "fetchLibrary:", forControlEvents: .ValueChanged)
-    }
-    
-    private func setupGradient() {
-        // Background
-        // TODO: Remove background gradient later
-        self.gradient?.removeFromSuperlayer()
-        
-        let gradient = CAGradientLayer()
-        self.gradient = gradient
-        
-        gradient.frame = summaryView.bounds
-        gradient.colors = kuStudyGradientColor
-        gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 1, y: 1)
-        summaryView.layer.insertSublayer(gradient, atIndex: 0)
-        
-        // Shadow
-        self.shadowGradient?.removeFromSuperlayer()
-        
-        let shadowGradient = CAGradientLayer()
-        self.shadowGradient = shadowGradient
-        
-        shadowGradient.frame = libraryImageView.bounds
-        shadowGradient.colors = [UIColor(white: 0, alpha: 0).CGColor, UIColor(white: 0.1, alpha: 0.55).CGColor, UIColor(white: 0.1, alpha: 0.75).CGColor]
-        shadowGradient.startPoint = CGPoint(x: 0, y: 0)
-        shadowGradient.endPoint = CGPoint(x: 0, y: 1)
-        libraryImageView.layer.addSublayer(shadowGradient)
     }
     
     // MARK: Action
