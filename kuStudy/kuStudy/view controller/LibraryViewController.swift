@@ -12,9 +12,9 @@ import DZNEmptyDataSet
 
 class LibraryViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var summaryView: UIView!
-    
-    @IBOutlet weak var libraryImageView: UIImageView!
     @IBOutlet weak var shadowView: ShadowGradientView!
+    @IBOutlet weak var libraryImageView: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var libraryNameLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
@@ -22,8 +22,6 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var photographerLabel: UILabel!
     
     private var refreshControl = UIRefreshControl()
-    @IBOutlet weak var tableView: UITableView!
-    
     lazy var dataSource = LibraryDataSource()
     var passedLibrary: Library!
     
@@ -31,7 +29,6 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
-        configureHeader()
         fetchLibrary()
     }
     
@@ -47,7 +44,7 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        shadowView.refreshGradientLayout()
+        shadowView.updateGradientLayout()
     }
     
     // MARK: Action
@@ -73,6 +70,7 @@ extension LibraryViewController {
         availableLabel.text = "- seats are available."
         usedLabel.text = "- people are studying."
         setupTableView()
+        configureHeader()
     }
     
     private func setupTableView() {

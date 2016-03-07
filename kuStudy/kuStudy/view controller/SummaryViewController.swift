@@ -13,21 +13,21 @@ import Localize_Swift
 
 class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyDataSetDelegate, UIViewControllerPreviewingDelegate {
     @IBOutlet weak var summaryView: UIView!
+    @IBOutlet weak var shadowView: ShadowGradientView!
+    @IBOutlet weak var libraryImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var usedLabel: UILabel!
     @IBOutlet weak var updateTimeLabel: UILabel!
     
-    lazy var dataSource = SummaryDataSource()
     private  var refreshControl = UIRefreshControl()
+    lazy var dataSource = SummaryDataSource()
     
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerPeekAndPop()
-        setupView()
-        setupTableView()
+        initialSetup()
         fetchSummary()
     }
     
@@ -43,43 +43,8 @@ class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyData
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setupGradient()
+        shadowView.updateGradientLayout()
     }
-    
-    // MARK: Setup
-    private func setupView() {
-        navigationController?.setTransparentNavigationBar() // Transparent navigation bar
-    }
-    
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = dataSource
-        tableView.emptyDataSetDelegate = self
-        tableView.emptyDataSetSource = dataSource
-        tableView.tableFooterView = UIView()
-//        tableView.contentInset = UIEdgeInsets(top: -64, left: 0, bottom: 0, right: 0)
-        tableView.scrollIndicatorInsets = tableView.contentInset
-//        tableView.estimatedRowHeight = 60
-//        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: "fetchSummary:", forControlEvents: .ValueChanged)
-    }
-    
-    private var gradient: CAGradientLayer?
-    
-    private func setupGradient() {
-        self.gradient?.removeFromSuperlayer()
-        
-        let gradient = CAGradientLayer()
-        self.gradient = gradient
-        
-        gradient.frame = summaryView.bounds
-        gradient.colors = kuStudyGradientColor
-        gradient.startPoint = CGPoint(x: 0, y: 0)
-        gradient.endPoint = CGPoint(x: 1, y: 1)
-        summaryView.layer.insertSublayer(gradient, atIndex: 0)
-    }
-    
     
     // MARK: Action
     @IBAction func tappedEditButton(sender: UIButton) {
@@ -94,23 +59,14 @@ class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyData
     @objc private func fetchSummary(sender: UIRefreshControl? = nil) {
         NetworkActivityManager.increaseActivityCount()
         dataSource.fetchData({ [unowned self] () -> Void in
-                self.updateDataInView()
+                self.reloadData()
+            sender?.endRefreshing()
                 NetworkActivityManager.decreaseActivityCount()
-                sender?.endRefreshing()
             }) { [unowned self] (error) -> Void in
                 self.tableView.reloadData()
-                NetworkActivityManager.decreaseActivityCount()
                 sender?.endRefreshing()
+                NetworkActivityManager.decreaseActivityCount()
         }
-    }
-    
-    private func updateDataInView() {
-        if let summary = dataSource.summary {
-            availableLabel.text = summary.availableString
-            usedLabel.text = summary.usedString
-            updateTimeLabel.text = "Updated: ".localized() + summary.updatedTimeString
-        }
-        tableView.reloadData()
     }
     
     // MARK: Table view
@@ -125,6 +81,44 @@ class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyData
     
     func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
+    }
+}
+
+// MARK: Setup
+extension SummaryViewController {
+    // MARK: Setup
+    private func initialSetup() {
+        navigationController?.setTransparentNavigationBar() // Transparent navigation bar
+        setupTableView()
+        registerPeekAndPop()
+        populateHeader()
+    }
+    
+    private func populateHeader() {
+        let photo = ImageProvider.sharedProvider.imageForLibrary(2)
+        libraryImageView.image = photo?.image
+    }
+    
+    private func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = dataSource
+        tableView.emptyDataSetDelegate = self
+        tableView.emptyDataSetSource = dataSource
+        tableView.tableFooterView = UIView()
+        tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: "fetchSummary:", forControlEvents: .ValueChanged)
+    }
+}
+
+// MARK: Data
+extension SummaryViewController {
+    private func reloadData() {
+        if let summary = dataSource.summary {
+            availableLabel.text = summary.availableString
+            usedLabel.text = summary.usedString
+            updateTimeLabel.text = "Updated: ".localized() + summary.updatedTimeString
+        }
+        tableView.reloadData()
     }
 }
 
