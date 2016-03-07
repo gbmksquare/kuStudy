@@ -137,7 +137,8 @@ extension SummaryViewController {
                 let destinationViewController = segue.destinationViewController as! LibraryViewController
                 let selectedRow = tableView.indexPathForSelectedRow!.row
                 let libraryId = dataSource.orderedLibraryIds[selectedRow]
-                destinationViewController.libraryId = libraryId
+                let library = dataSource.libraries[libraryId - 1]
+                destinationViewController.passedLibrary = library
             default: break
             }
         }
@@ -177,7 +178,9 @@ extension SummaryViewController {
         let locationInTableView = tableView.convertPoint(location, fromView: view)
         guard let indexPath = tableView.indexPathForRowAtPoint(locationInTableView) else { return nil }
         let libraryViewController = self.storyboard?.instantiateViewControllerWithIdentifier("libraryViewController") as! LibraryViewController
-        libraryViewController.libraryId = dataSource.orderedLibraryIds[indexPath.row]
+        let libraryId = dataSource.orderedLibraryIds[indexPath.row]
+        let library = dataSource.libraries[libraryId - 1]
+        libraryViewController.passedLibrary = library
         return libraryViewController
     }
     

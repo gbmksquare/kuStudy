@@ -19,19 +19,19 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var libraryNameLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var usedLabel: UILabel!
+    @IBOutlet weak var photographerLabel: UILabel!
     
     private var refreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
     
     lazy var dataSource = LibraryDataSource()
-    
-    // MARK: Model
-    var libraryId: Int!
+    var passedLibrary: Library!
     
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        configureHeader()
         fetchLibrary()
     }
     
@@ -50,11 +50,28 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
         shadowView.refreshGradientLayout()
     }
     
-    // MARK: Setup
+    // MARK: Action
+    @objc private func fetchLibrary(sender: UIRefreshControl? = nil) {
+        NetworkActivityManager.increaseActivityCount()
+        dataSource.fetchData(passedLibrary.id,
+            success: { [unowned self] () -> Void in
+                self.reloadData()
+                sender?.endRefreshing()
+                NetworkActivityManager.decreaseActivityCount()
+            }) { [unowned self] (error) -> Void in
+                self.reloadData()
+                sender?.endRefreshing()
+                NetworkActivityManager.decreaseActivityCount()
+        }
+    }
+}
+
+// MARK: Setup
+extension LibraryViewController {
     private func initialSetup() {
         libraryNameLabel.text = ""
-        availableLabel.text = ""
-        usedLabel.text = ""
+        availableLabel.text = "- seats are available."
+        usedLabel.text = "- people are studying."
         setupTableView()
     }
     
@@ -66,29 +83,22 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: "fetchLibrary:", forControlEvents: .ValueChanged)
     }
-    
-    // MARK: Action
-    @objc private func fetchLibrary(sender: UIRefreshControl? = nil) {
-        NetworkActivityManager.increaseActivityCount()
-        dataSource.fetchData(libraryId,
-            success: { [unowned self] () -> Void in
-                self.updateDataInView()
-                NetworkActivityManager.decreaseActivityCount()
-                sender?.endRefreshing()
-            }) { [unowned self] (error) -> Void in
-                self.tableView.reloadData()
-                NetworkActivityManager.decreaseActivityCount()
-                sender?.endRefreshing()
-        }
+}
+
+// MARK: Data
+extension LibraryViewController {
+    private func configureHeader() {
+        libraryNameLabel.text = passedLibrary.name
+        
+        let photo = ImageProvider.sharedProvider.imageForLibrary(passedLibrary.id)
+        photographerLabel.text = photo != nil ? "Photography by " + photo!.photographer.name : ""
+        libraryImageView.image = photo?.image
     }
     
-    private func updateDataInView() {
+    private func reloadData() {
         if let library = dataSource.library {
-            libraryNameLabel.text = library.name
-            availableLabel.text = library.availableString
-            usedLabel.text = library.usedString
-            let photo = ImageProvider.sharedProvider.imageForLibrary(library.id)
-            libraryImageView.image = photo?.image
+            availableLabel.text = library.availableString + " seats are available."
+            usedLabel.text = library.usedString + " people are studying."
         }
         tableView.reloadData()
     }
@@ -100,7 +110,7 @@ extension LibraryViewController {
     private func startHandoff() {
         let activity = NSUserActivity(activityType: kuStudyHandoffLibrary)
         activity.title = dataSource.library?.key
-        activity.addUserInfoEntriesFromDictionary(["libraryId": libraryId])
+        activity.addUserInfoEntriesFromDictionary(["libraryId": passedLibrary.id])
         activity.becomeCurrent()
         userActivity = activity
     }

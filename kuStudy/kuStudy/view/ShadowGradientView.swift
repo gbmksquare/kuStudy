@@ -23,7 +23,16 @@ class ShadowGradientView: UIView {
         
         // Gradient
         let shadowGradient = CAGradientLayer()
-        shadowGradient.colors = [UIColor(white: 0, alpha: 0).CGColor, UIColor(white: 0.1, alpha: 0.55).CGColor, UIColor(white: 0.1, alpha: 0.75).CGColor]
+        shadowGradient.colors = [
+            UIColor(white: 0, alpha: 0).CGColor,
+            UIColor(white: 0, alpha: 0.45).CGColor,
+//            UIColor(white: 0, alpha: 0.55).CGColor,
+            UIColor(white: 0, alpha: 0.75).CGColor]
+        shadowGradient.locations = [
+            NSNumber(float: 0.0),
+            NSNumber(float: 0.3),
+//            NSNumber(float: 0.5),
+            NSNumber(float: 1.0)]
         shadowGradient.startPoint = CGPoint(x: 0, y: 0)
         shadowGradient.endPoint = CGPoint(x: 0, y: 1)
         layer.addSublayer(shadowGradient)
