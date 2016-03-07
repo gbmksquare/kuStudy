@@ -14,7 +14,7 @@ class LibraryCell: UITableViewCell {
     @IBOutlet weak var availableLabel: UILabel!
     @IBOutlet weak var usedPercentageView: UIProgressView!
     
-    func populate(library: LibraryViewModel) {
+    func populate(library: Library) {
         nameLabel.text = library.name
         availableLabel.text = library.availableString
         usedPercentageView.progress = library.usedPercentage

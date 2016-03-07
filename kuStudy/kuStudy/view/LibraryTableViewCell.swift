@@ -22,7 +22,7 @@ class LibraryTableViewCell: UITableViewCell {
     }
     
     // MARK: Populate
-    func populate(library: LibraryViewModel) {
+    func populate(library: Library) {
         nameLabel.text = library.name
         availableLabel.text = library.availableString
         usedLabel.text = library.usedString

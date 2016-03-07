@@ -113,8 +113,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         for libraryId in orderedLibraryIds {
             for library in libraries {
                 if library.id == libraryId {
-                    let libraryViewModel = LibraryViewModel(library: library)
-                    let item = UIMutableApplicationShortcutItem(type: actionType, localizedTitle: libraryViewModel.name, localizedSubtitle: nil, icon: icon, userInfo: ["libraryId": libraryId])
+                    let item = UIMutableApplicationShortcutItem(type: actionType, localizedTitle: library.name, localizedSubtitle: nil, icon: icon, userInfo: ["libraryId": libraryId])
                     quickActionItems.append(item)
                 }
             }

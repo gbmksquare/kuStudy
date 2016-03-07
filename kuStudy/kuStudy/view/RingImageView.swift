@@ -58,8 +58,8 @@ class RingImageView: UIView {
             ringLayer.path = innerPath.CGPath
             ringLayer.fillColor = nil
             ringLayer.lineWidth = lineWidth
-            ringLayer.strokeEnd = 0.0
             ringLayer.strokeColor = UIColor.darkGrayColor().CGColor
+            ringLayer.strokeEnd = 0.0
             ringLayer.lineCap = kCALineCapRound
             ringLayer.anchorPoint = CGPointMake(0.5, 0.5)
             ringLayer.transform = CATransform3DRotate(ringLayer.transform, -CGFloat(M_PI)/CGFloat(2), 0, 0, 1)
@@ -71,7 +71,7 @@ class RingImageView: UIView {
         if imageLayer == nil {
             let imageMaskLayer = CAShapeLayer()
             
-            let insetBounds = CGRectInset(bounds, lineWidth + 1.0, lineWidth + 1.0)
+            let insetBounds = CGRectInset(bounds, lineWidth, lineWidth)
             let innerPath = UIBezierPath(ovalInRect: insetBounds)
             
             imageMaskLayer.path = innerPath.CGPath

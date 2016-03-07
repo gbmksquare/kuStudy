@@ -106,10 +106,9 @@ class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyData
     
     private func updateDataInView() {
         if let summary = dataSource.summary {
-            let summaryViewModel = SummaryViewModel(summary: summary)
-            availableLabel.text = summaryViewModel.availableString
-            usedLabel.text = summaryViewModel.usedString
-            updateTimeLabel.text = "Updated: ".localized() + summaryViewModel.updateTimeString
+            availableLabel.text = summary.availableString
+            usedLabel.text = summary.usedString
+            updateTimeLabel.text = "Updated: ".localized() + summary.updatedTimeString
         }
         tableView.reloadData()
     }

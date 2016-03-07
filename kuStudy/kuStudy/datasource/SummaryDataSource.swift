@@ -66,8 +66,7 @@ class SummaryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource 
         let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
         let libraryId = orderedLibraryIds[indexPath.row]
         let library = libraries[libraryId - 1]
-        let libraryViewModel = LibraryViewModel(library: library)
-        cell.populate(libraryViewModel)
+        cell.populate(library)
         return cell
     }
     
@@ -90,6 +89,7 @@ class SummaryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource 
     }
     
     private func notifyUpdateQuickActions() {
-        NSNotificationCenter.defaultCenter().postNotificationName("kUpdateQuickActionsNotification", object: self, userInfo: ["libraries": libraries])
+        // TODO: Re-enable quick action
+//        NSNotificationCenter.defaultCenter().postNotificationName("kUpdateQuickActionsNotification", object: self, userInfo: ["libraries": libraries])
     }
 }

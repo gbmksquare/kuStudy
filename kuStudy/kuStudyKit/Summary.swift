@@ -8,56 +8,16 @@
 
 import Foundation
 
-public class Summary {
-    public var total: Int
-    public var available: Int
-    public var updateTime: NSDate
+public struct Summary: Seatable, DatePresentable {
+    public var total = 0
+    public var available = 0
+    public var updatedTime = NSDate()
     
-    public init(total: Int, available: Int, time: String) {
+    init(total: Int, available:Int, time: String) {
         self.total = total
         self.available = available
-        
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm"
-        self.updateTime = formatter.dateFromString(time) ?? NSDate()
-    }
-}
-
-public class SummaryViewModel {
-    public let total: Int
-    public let available: Int
-    public let updateTime: NSDate
-    public var used: Int { return total - available }
-    
-    private var numberFormatter: NSNumberFormatter {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .DecimalStyle
-        return formatter
-    }
-    public var totalString: String { return numberFormatter.stringFromNumber(total) ?? "" }
-    public var availableString: String { return numberFormatter.stringFromNumber(available) ?? "" }
-    public var usedString: String { return numberFormatter.stringFromNumber(used) ?? "" }
-    
-    public var updateTimeString: String {
-        let formatter = NSDateFormatter()
-        formatter.timeStyle = .ShortStyle
-        return formatter.stringFromDate(updateTime)
-    }
-    
-    public var usedPercentage: Float { return Float(used) / Float(total) }
-    public var usedPercentageString: String { return "\(Int(usedPercentage * 100))%" }
-    public var usedPercentageColor: UIColor {
-        switch usedPercentage {
-        case let p where p > 0.9: return kuStudyColorError
-        case let p where p > 0.8: return kuStudyColorWarning
-        case let p where p > 0.7: return kuStudyColorLightWarning
-        default: return kuStudyColorConfirm
-        }
-    }
-    
-    public init(summary: Summary) {
-        total = summary.total
-        available = summary.available
-        updateTime = summary.updateTime
+        updatedTime = formatter.dateFromString(time) ?? NSDate()
     }
 }

@@ -52,8 +52,7 @@ class LibraryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("readingRoomCell", forIndexPath: indexPath) as! ReadingRoomTableViewCell
         let readingRoom = readingRooms[indexPath.row]
-        let readingRoomViewModel = ReadingRoomViewModel(library: readingRoom)
-        cell.populate(readingRoomViewModel)
+        cell.populate(readingRoom)
         return cell
     }
 }

@@ -28,6 +28,7 @@ private struct Library {
 }
 
 // MARK: Image provider
+// TODO: Change to protocol oriented
 class ImageProvider {
     static let sharedProvider = ImageProvider()
     

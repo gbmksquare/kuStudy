@@ -16,7 +16,7 @@ class ReadingRoomTableViewCell: UITableViewCell {
     @IBOutlet weak var usedPercentageView: UIProgressView!
     
     // MARK: Populate
-    func populate(readingRoom: ReadingRoomViewModel) {
+    func populate(readingRoom: ReadingRoom) {
         nameLabel.text = readingRoom.name
         availableLabel.text = readingRoom.availableString
         usedLabel.text = readingRoom.totalString

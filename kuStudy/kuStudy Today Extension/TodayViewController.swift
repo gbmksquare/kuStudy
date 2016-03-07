@@ -111,8 +111,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         } else {
             library = libraries[indexPath.row]
         }
-        let libraryViewModel = LibraryViewModel(library: library)
-        cell.populate(libraryViewModel)
+        cell.populate(library)
         return cell
     }
     

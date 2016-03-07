@@ -58,13 +58,12 @@ class DetailInterfaceController: WKInterfaceController {
     
     private func updateDataInView() {
         if let library = library {
-            let libraryViewModel = LibraryViewModel(library: library)
-            totalLabel.setText(libraryViewModel.totalString)
-            usedLabel.setText(libraryViewModel.usedString)
-            availableLabel.setText(libraryViewModel.availableString)
-            availableLabel.setTextColor(libraryViewModel.usedPercentageColor)
+            totalLabel.setText(library.totalString)
+            usedLabel.setText(library.usedString)
+            availableLabel.setText(library.availableString)
+            availableLabel.setTextColor(library.usedPercentageColor)
             percentageGroup.startAnimatingWithImagesInRange(
-                NSRange(location: 0, length: Int(libraryViewModel.usedPercentage * 100)),
+                NSRange(location: 0, length: Int(library.usedPercentage * 100)),
                 duration: 1, repeatCount: 1)
         }
         
@@ -72,9 +71,8 @@ class DetailInterfaceController: WKInterfaceController {
         table.setNumberOfRows(readingRooms.count, withRowType: "readingRoomCell")
         for index in 0 ..< readingRooms.count {
             let readingRoom = readingRooms[index]
-            let readingRoomViewModel = LibraryViewModel(library: readingRoom)
             let row = table.rowControllerAtIndex(index) as! ReadingRoomCell
-            row.populate(readingRoomViewModel)
+            row.populate(readingRoom)
         }
     }
 }

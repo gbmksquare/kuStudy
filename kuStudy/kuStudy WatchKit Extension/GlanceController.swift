@@ -56,11 +56,10 @@ class GlanceController: WKInterfaceController {
     private func updateDataInView() {
         // Summary
         if let summary = summary {
-            let summaryViewModel = SummaryViewModel(summary: summary)
-            availableLabel.setText(summaryViewModel.availableString)
-            percentageLabel.setText(summaryViewModel.usedPercentageString)
+            availableLabel.setText(summary.availableString)
+            percentageLabel.setText(summary.usedPercentageString)
             percentageGroup.startAnimatingWithImagesInRange(
-                NSRange(location: 0, length: Int(summaryViewModel.usedPercentage * 100)),
+                NSRange(location: 0, length: Int(summary.usedPercentage * 100)),
                 duration: 1, repeatCount: 1)
         }
         

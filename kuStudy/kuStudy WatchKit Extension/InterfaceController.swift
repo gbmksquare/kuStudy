@@ -62,11 +62,10 @@ class InterfaceController: WKInterfaceController {
     private func updateDataInView() {
         // Summary
         if let summary = summary {
-            let summaryViewModel = SummaryViewModel(summary: summary)
-            summaryLabel.setText(summaryViewModel.usedString + NSLocalizedString("summary_used_description", bundle: NSBundle(forClass: self.dynamicType), comment: "Describe how many people are studying."))
-            percentageLabel.setText(summaryViewModel.usedPercentageString)
+            summaryLabel.setText(summary.usedString + NSLocalizedString("summary_used_description", bundle: NSBundle(forClass: self.dynamicType), comment: "Describe how many people are studying."))
+            percentageLabel.setText(summary.usedPercentageString)
             percentageGroup.startAnimatingWithImagesInRange(
-                NSRange(location: 0, length: Int(summaryViewModel.usedPercentage * 100)),
+                NSRange(location: 0, length: Int(summary.usedPercentage * 100)),
                 duration: 1, repeatCount: 1)
         }
         
@@ -74,9 +73,8 @@ class InterfaceController: WKInterfaceController {
         table.setNumberOfRows(libraries.count, withRowType: "libraryCell")
         for index in 0 ..< libraries.count {
             let library = libraries[index]
-            let libraryViewModel = LibraryViewModel(library: library)
             let row = table.rowControllerAtIndex(index) as! LibraryCell
-            row.populate(libraryViewModel)
+            row.populate(library)
         }
     }
 }

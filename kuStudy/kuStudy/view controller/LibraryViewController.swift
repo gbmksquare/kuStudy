@@ -84,10 +84,9 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
     
     private func updateDataInView() {
         if let library = dataSource.library {
-            let libraryViewModel = LibraryViewModel(library: library)
-            libraryNameLabel.text = libraryViewModel.name
-            availableLabel.text = libraryViewModel.availableString
-            usedLabel.text = libraryViewModel.usedString
+            libraryNameLabel.text = library.name
+            availableLabel.text = library.availableString
+            usedLabel.text = library.usedString
             let photo = ImageProvider.sharedProvider.imageForLibrary(library.id)
             libraryImageView.image = photo?.image
         }
