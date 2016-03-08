@@ -18,26 +18,28 @@ enum DataSourceState {
 class SummaryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource {
     var summary: Summary?
     var libraries = [Library]()
-    lazy var orderedLibraryIds = NSUserDefaults(suiteName: kuStudySharedContainer)?.arrayForKey("libraryOrder") as? [Int] ?? NSUserDefaults.standardUserDefaults().arrayForKey("libraryOrder") as! [Int]
+    var orderedLibraryIds: [Int]!
     
     private var dataState: DataSourceState = .Fetching
     private var error: NSError?
     
+    // MARK: Initialization
+    override init() {
+        super.init()
+        updateLibraryOrder()
+    }
+    
     // MARK: Action
+    func updateLibraryOrder() {
+        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+        orderedLibraryIds = defaults.arrayForKey("libraryOrder") as! [Int]
+    }
+    
     func fetchData(success: () -> Void, failure: (error: NSError) -> Void) {
         dataState = .Fetching
         kuStudy.requestSeatSummary(
             { [unowned self] (summary, libraries) -> Void in
-                self.summary = summary
-                self.libraries = libraries
-                success()
-            
-                let defaults = NSUserDefaults.standardUserDefaults()
-                if defaults.boolForKey("isFirstRun") == false {
-                    self.notifyUpdateQuickActions()
-                    defaults.setBool(true, forKey: "isFirstRun")
-                    defaults.synchronize()
-                }
+                self.handleFetchedData(summary, libraries: libraries, success: success)
             }) { [unowned self] (error) -> Void in
                 self.dataState = .Error
                 self.error = error
@@ -45,14 +47,15 @@ class SummaryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource 
         }
     }
     
-    // MARK: Empty state
-    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = dataState == .Fetching ? "Fetching data...".localized() : (error?.localizedDescription ?? "An error occurred.".localized())
-        let attribute = [NSFontAttributeName: UIFont.boldSystemFontOfSize(17)]
-        return NSAttributedString(string: text, attributes: attribute)
+    private func handleFetchedData(summary: Summary, libraries: [Library], success: () -> Void) {
+        self.summary = summary
+        self.libraries = libraries
+        success()
     }
-    
-    // MARK: Data source
+}
+
+// MARK: Data source
+extension SummaryDataSource {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -70,7 +73,16 @@ class SummaryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource 
         return cell
     }
     
-    // MARK: Move
+    // MARK: Empty state
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = dataState == .Fetching ? "Fetching data...".localized() : (error?.localizedDescription ?? "An error occurred.".localized())
+        let attribute = [NSFontAttributeName: UIFont.boldSystemFontOfSize(17)]
+        return NSAttributedString(string: text, attributes: attribute)
+    }
+}
+
+// MARK: Move
+extension SummaryDataSource {
     func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
@@ -84,12 +96,5 @@ class SummaryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource 
         let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
         defaults.setValue(orderedLibraryIds, forKey: "libraryOrder")
         defaults.synchronize()
-        
-        notifyUpdateQuickActions()
-    }
-    
-    private func notifyUpdateQuickActions() {
-        // TODO: Re-enable quick action
-//        NSNotificationCenter.defaultCenter().postNotificationName("kUpdateQuickActionsNotification", object: self, userInfo: ["libraries": libraries])
     }
 }

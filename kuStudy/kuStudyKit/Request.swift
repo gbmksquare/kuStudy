@@ -14,6 +14,30 @@ public typealias FailureHandler = (error: NSError) -> Void
 
 public extension kuStudy {
     // MARK: Request
+    public class func requestLibraryInfo(success: (libraries: [Library]) -> Void, failure: FailureHandler) {
+        Alamofire.request(.GET, kuStudyAPI.Info.url)
+            .authenticate(user: kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
+            .responseJSON { (response) -> Void in
+                switch response.result {
+                case .Success(let value):
+                    let json = JSON(value)
+                    let content = json["content"]
+                    // Libraries
+                    var libraries = [Library]()
+                    let librariesJson = content["libraries"].arrayValue
+                    for libraryJson in librariesJson {
+                        let id = libraryJson["id"].intValue
+                        let key = libraryJson["key"].stringValue
+                        let library = Library(id: id, key: key, total: 0, available: 0)
+                        libraries.append(library)
+                    }
+                    success(libraries: libraries)
+                case .Failure(let error):
+                    failure(error: error)
+                }
+        }
+    }
+    
     public class func requestSeatSummary(success: (summary: Summary, libraries: [Library]) -> Void, failure: FailureHandler) {
         Alamofire.request(.GET, kuStudyAPI.Summary.url)
         .authenticate(user: kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)

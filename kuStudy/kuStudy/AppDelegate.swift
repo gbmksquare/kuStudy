@@ -17,42 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    // MARK: Action
-    private func handleFirstRun() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if defaults.boolForKey("isFirstRun") == true {
-            defaults.setBool(false, forKey: "isFirstRun")
-        }
-    }
-    
-    private func setupFabric() {
-        #if DEBUG
-        #else
-            Fabric.with([Crashlytics()])
-        #endif
-    }
-    
-    private func registerDefaultPreferences() {
-        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        defaults.registerDefaults(["libraryOrder": [1, 2, 3, 4, 5]])
-        defaults.synchronize()
-    }
-    
-    private func customizeAppearance() {
-        UINavigationBar.appearance().barStyle = UIBarStyle.Black
-        UINavigationBar.appearance().barTintColor = UIColor.navigationColor()
-        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
-    }
-    
-    // MARK: Application
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         setupFabric()
-        handleFirstRun()
         registerDefaultPreferences()
-        listenForUpdateQuickActionItems()
         customizeAppearance()
+        getLibraryInformation()
+        listenForUserDefaultsDidChange()
         return true
     }
 
@@ -77,7 +47,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
+
+// MARK: Setup
+extension AppDelegate {
+    private func setupFabric() {
+        #if DEBUG
+        #else
+            Fabric.with([Crashlytics()])
+        #endif
+    }
     
+    private func registerDefaultPreferences() {
+        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+        defaults.registerDefaults(["libraryOrder": [1, 2, 3, 4, 5]])
+        defaults.synchronize()
+    }
+    
+    private func customizeAppearance() {
+        UINavigationBar.appearance().barStyle = UIBarStyle.Black
+        UINavigationBar.appearance().barTintColor = UIColor.navigationColor()
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
+    }
+    
+    private func getLibraryInformation() {
+        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+        
+        if defaults.arrayForKey("libraryInformation") != nil {
+            return
+        }
+        
+        kuStudy.requestLibraryInfo(
+            { (libraries) -> Void in
+                let libraryDicts = libraries.map({ $0.dictionaryValue() })
+                defaults.setObject(libraryDicts, forKey: "libraryInformation")
+                defaults.synchronize()
+            }) { (error) -> Void in
+                // ???: Handle failure
+        }
+    }
+}
+
+// MARK: Handoff
+extension AppDelegate {
     // MARK: Handoff
     func application(application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
         return true
@@ -96,19 +110,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
-    // MARK: Quick action
-    private func listenForUpdateQuickActionItems() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateQuickActionItems:", name: "kUpdateQuickActionsNotification", object: nil)
+}
+
+// MARK: Quick action
+extension AppDelegate {
+    private func listenForUserDefaultsDidChange() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("handleUserDefaultsDidChange:"), name: NSUserDefaultsDidChangeNotification, object: nil)
     }
     
-    @objc private func updateQuickActionItems(notification: NSNotification) {
-        let orderedLibraryIds = NSUserDefaults(suiteName: kuStudySharedContainer)?.arrayForKey("libraryOrder") as? [Int] ?? NSUserDefaults.standardUserDefaults().arrayForKey("libraryOrder") as! [Int]
+    @objc private func handleUserDefaultsDidChange(notification: NSNotification) {
+        updateQuickActionItems()
+    }
+    
+    private func updateQuickActionItems() {
+        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+        let orderedLibraryIds = defaults.arrayForKey("libraryOrder") as! [Int]
         
         let actionType = "com.gbmksquare.kuapps.kucourse.LibraryAction"
         let icon = UIApplicationShortcutIcon(templateImageName: "glyphicons-236-pen")
         
-        let libraries = notification.userInfo!["libraries"] as! [Library]
+        let libraryDicts = defaults.arrayForKey("libraryInformation") as! [NSDictionary]
+        let libraries = libraryDicts.map({ Library(dictionary: $0)! })
+        
         var quickActionItems = [UIMutableApplicationShortcutItem]()
         for libraryId in orderedLibraryIds {
             for library in libraries {
@@ -142,4 +165,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 }
-

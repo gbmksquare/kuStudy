@@ -19,7 +19,7 @@ class ReadingRoomTableViewCell: UITableViewCell {
     func populate(readingRoom: ReadingRoom) {
         nameLabel.text = readingRoom.name
         availableLabel.text = readingRoom.availableString
-        usedLabel.text = readingRoom.totalString
+        usedLabel.text = readingRoom.usedString
         usedPercentageView.progress = readingRoom.usedPercentage
         usedPercentageView.tintColor = readingRoom.usedPercentageColor
     }

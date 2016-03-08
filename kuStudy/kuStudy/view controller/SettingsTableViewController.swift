@@ -35,9 +35,20 @@ class SettingsTableViewController: UITableViewController {
     }
     
     // MARK: Table view
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        switch cell.tag {
+        case 900:
+            let version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+            let build = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as! String
+            cell.detailTextLabel?.text = "\(version) (\(build))"
+        default: break
+        }
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch (indexPath.section, indexPath.row) {
-        case (0, 0): handleSendFeedback()
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        switch cell?.tag {
+        case 901?: handleSendFeedback()
         default: break
         }
     }

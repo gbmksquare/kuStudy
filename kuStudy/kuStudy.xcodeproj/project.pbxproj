@@ -72,6 +72,7 @@
 		16BB431E1B2C277400201DE2 /* kuStudyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167245EC1B19C42B0083035F /* kuStudyKit.framework */; };
 		16D28D951C89130300D7EE3B /* LibraryPhoto.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16D28D941C89130300D7EE3B /* LibraryPhoto.plist */; };
 		16D28D971C89471A00D7EE3B /* RingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D28D961C89471A00D7EE3B /* RingImageView.swift */; };
+		16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */; };
 		16DB2DAE1C55D5770096AFB9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DB2DAD1C55D5770096AFB9 /* Extensions.swift */; };
 		16E945971C8D1E510084A245 /* Seatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E945961C8D1E510084A245 /* Seatable.swift */; };
 		16E945991C8D1E8D0084A245 /* Seatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E945961C8D1E510084A245 /* Seatable.swift */; };
@@ -212,6 +213,7 @@
 		110ECDEBC2E5D3458B9FF8D9 /* Pods-kuStudyWatchKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudyWatchKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudyWatchKit/Pods-kuStudyWatchKit.release.xcconfig"; sourceTree = "<group>"; };
 		1600D6341B20408F008000B8 /* Summary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Summary.swift; sourceTree = "<group>"; };
 		1600D6361B2040A5008000B8 /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
+		160792B01C8F24D8005C14EF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "kuStudy WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16136BD61B1C3F0700B3F744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16136BD71B1C3F0700B3F744 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 		16BB42ED1B2C225900201DE2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		16D28D941C89130300D7EE3B /* LibraryPhoto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LibraryPhoto.plist; sourceTree = "<group>"; };
 		16D28D961C89471A00D7EE3B /* RingImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RingImageView.swift; path = view/RingImageView.swift; sourceTree = "<group>"; };
+		16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryOrderTableViewController.swift; path = "view controller/LibraryOrderTableViewController.swift"; sourceTree = "<group>"; };
 		16DB2DAD1C55D5770096AFB9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = extension/Extensions.swift; sourceTree = "<group>"; };
 		16E945961C8D1E510084A245 /* Seatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Seatable.swift; path = protocol/Seatable.swift; sourceTree = "<group>"; };
 		16E9459A1C8D1EA70084A245 /* DatePresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DatePresentable.swift; path = protocol/DatePresentable.swift; sourceTree = "<group>"; };
@@ -287,7 +290,6 @@
 		16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Photographers.plist; sourceTree = "<group>"; };
 		16EE13B01C8AECB2002D4F12 /* Photos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Photos.plist; sourceTree = "<group>"; };
 		16EE13B21C8AED5B002D4F12 /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageProvider.swift; path = Base.lproj/controller/ImageProvider.swift; sourceTree = "<group>"; };
-		16F272B31C855A64008E636A /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		362BA89676AE1513B4F75865 /* Pods-kuStudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy.debug.xcconfig"; sourceTree = "<group>"; };
 		3D107D24B903859715ECBF2D /* Pods_kuStudyWatchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kuStudyWatchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64BB015E67428F23112BF503 /* Pods_kuStudyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kuStudyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -481,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */,
+				16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1303,6 +1306,7 @@
 				16EE13B31C8AED5B002D4F12 /* ImageProvider.swift in Sources */,
 				167246251B1B4F0D0083035F /* ReadingRoomTableViewCell.swift in Sources */,
 				1694D4741C6309FB00A9914C /* LibraryDataSource.swift in Sources */,
+				16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */,
 				164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */,
 				16EE13AD1C8AE2F2002D4F12 /* ShadowGradientView.swift in Sources */,
 				167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */,
@@ -1416,7 +1420,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				167245C91B19C0370083035F /* Base */,
-				16F272B31C855A64008E636A /* ko */,
+				160792B01C8F24D8005C14EF /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -60,7 +60,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyData
         NetworkActivityManager.increaseActivityCount()
         dataSource.fetchData({ [unowned self] () -> Void in
                 self.reloadData()
-            sender?.endRefreshing()
+                sender?.endRefreshing()
                 NetworkActivityManager.decreaseActivityCount()
             }) { [unowned self] (error) -> Void in
                 self.tableView.reloadData()
@@ -92,6 +92,7 @@ extension SummaryViewController {
         setupTableView()
         registerPeekAndPop()
         populateHeader()
+        listenForUserDefaultsDidChange()
     }
     
     private func populateHeader() {
@@ -107,6 +108,15 @@ extension SummaryViewController {
         tableView.tableFooterView = UIView()
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: "fetchSummary:", forControlEvents: .ValueChanged)
+    }
+    
+    private func listenForUserDefaultsDidChange() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("handleUserDefaultsDidChange:"), name: NSUserDefaultsDidChangeNotification, object: nil)
+    }
+    
+    @objc private func handleUserDefaultsDidChange(notification: NSNotification) {
+        dataSource.updateLibraryOrder()
+        tableView.reloadData()
     }
 }
 
