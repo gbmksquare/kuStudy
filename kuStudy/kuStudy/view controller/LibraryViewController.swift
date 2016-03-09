@@ -88,7 +88,7 @@ extension LibraryViewController {
     private func configureHeader() {
         libraryNameLabel.text = passedLibrary.name
         
-        let photo = ImageProvider.sharedProvider.imageForLibrary(passedLibrary.id)
+        let photo = passedLibrary.photo
         photographerLabel.text = photo != nil ? "Photography by " + photo!.photographer.name : ""
         libraryImageView.image = photo?.image
     }

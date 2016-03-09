@@ -9,10 +9,10 @@
 import UIKit
 
 // MARK: Model
-struct Photographer {
-    let id: Int
-    let name: String
-    let association: String
+public struct Photographer {
+    public let id: Int
+    public let name: String
+    public let association: String
 }
 
 private struct Photo {
@@ -21,18 +21,17 @@ private struct Photo {
     let description: String
 }
 
-private struct Library {
+private struct LibraryPhotos {
     let key: String
     let id: Int
     let photos: [Photo]
 }
 
 // MARK: Image provider
-// TODO: Change to protocol oriented
 class ImageProvider {
     static let sharedProvider = ImageProvider()
     
-    private var libraries: [Library]!
+    private var libraries: [LibraryPhotos]!
     private var photographers: [Photographer]!
     
     private var loadedPhotos = [Int: Photo]()
@@ -44,7 +43,7 @@ class ImageProvider {
     }
     
     private func loadPhotographers() {
-        guard let path = NSBundle.mainBundle().pathForResource("Photographers", ofType: "plist"),
+        guard let path = NSBundle(forClass: kuStudy.self).pathForResource("Photographers", ofType: "plist"),
             photographerInfos = NSArray(contentsOfFile: path) else {
                 return
         }
@@ -64,12 +63,12 @@ class ImageProvider {
     }
     
     private func loadPhotos() {
-        guard let path = NSBundle.mainBundle().pathForResource("Photos", ofType: "plist"),
+        guard let path = NSBundle(forClass: kuStudy.self).pathForResource("Photos", ofType: "plist"),
             libraryInfos = NSArray(contentsOfFile: path) else {
                 return
         }
         
-        var libraries = [Library]()
+        var libraries = [LibraryPhotos]()
         for libraryInfo in libraryInfos {
             guard let key = libraryInfo["libraryKey"] as? String,
                 id = libraryInfo["libraryId"] as? Int,
@@ -89,7 +88,7 @@ class ImageProvider {
                 photos.append(photo)
             }
             
-            let library = Library(key: key, id: id, photos: photos)
+            let library = LibraryPhotos(key: key, id: id, photos: photos)
             libraries.append(library)
         }
         self.libraries = libraries
@@ -105,7 +104,7 @@ class ImageProvider {
         return nil
     }
     
-    private func libraryForId(id: Int) -> Library? {
+    private func libraryForId(id: Int) -> LibraryPhotos? {
         for library in libraries {
             if library.id == id {
                 return library
@@ -133,7 +132,7 @@ class ImageProvider {
         guard photosCount > 0 else {
             return nil
         }
-        let randomIndex = Int(arc4random_uniform(UInt32(photosCount - 1)))
+        let randomIndex = Int(arc4random_uniform(UInt32(photosCount)))
         let photo = library.photos[randomIndex]
         loadedPhotos[libraryId] = photo
         

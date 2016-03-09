@@ -30,6 +30,14 @@
 		16538EB71C4F16E20097A4F4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246131B1AB1D80083035F /* Request.swift */; };
 		16538EB81C4F16E40097A4F4 /* kuStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672460F1B1AB1AD0083035F /* kuStudy.swift */; };
 		16538EB91C4F17630097A4F4 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
+		1660A4AC1C8FA2CA003D5460 /* ImagePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660A4AB1C8FA2CA003D5460 /* ImagePresentable.swift */; };
+		1660A4AD1C8FA2CA003D5460 /* ImagePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660A4AB1C8FA2CA003D5460 /* ImagePresentable.swift */; };
+		1660A4AE1C8FA31F003D5460 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE13B21C8AED5B002D4F12 /* ImageProvider.swift */; };
+		1660A4AF1C8FA320003D5460 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE13B21C8AED5B002D4F12 /* ImageProvider.swift */; };
+		1660A4B11C8FA470003D5460 /* Photos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16EE13B01C8AECB2002D4F12 /* Photos.plist */; };
+		1660A4B21C8FA470003D5460 /* Photographers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */; };
+		1660A4B31C8FA471003D5460 /* Photos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16EE13B01C8AECB2002D4F12 /* Photos.plist */; };
+		1660A4B41C8FA471003D5460 /* Photographers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */; };
 		167245C51B19C0370083035F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167245C41B19C0370083035F /* AppDelegate.swift */; };
 		167245CA1B19C0370083035F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167245C81B19C0370083035F /* Main.storyboard */; };
 		167245CC1B19C0370083035F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167245CB1B19C0370083035F /* Images.xcassets */; };
@@ -70,7 +78,6 @@
 		16BB42EE1B2C225900201DE2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BB42EC1B2C225900201DE2 /* Fabric.framework */; };
 		16BB42EF1B2C225900201DE2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BB42ED1B2C225900201DE2 /* Crashlytics.framework */; };
 		16BB431E1B2C277400201DE2 /* kuStudyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167245EC1B19C42B0083035F /* kuStudyKit.framework */; };
-		16D28D951C89130300D7EE3B /* LibraryPhoto.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16D28D941C89130300D7EE3B /* LibraryPhoto.plist */; };
 		16D28D971C89471A00D7EE3B /* RingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D28D961C89471A00D7EE3B /* RingImageView.swift */; };
 		16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */; };
 		16DB2DAE1C55D5770096AFB9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DB2DAD1C55D5770096AFB9 /* Extensions.swift */; };
@@ -83,9 +90,6 @@
 		16E945A11C8D3A290084A245 /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E9459F1C8D37DE0084A245 /* Identifiable.swift */; };
 		16E945A21C8D3A2D0084A245 /* ReadingRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E9459D1C8D36C50084A245 /* ReadingRoom.swift */; };
 		16EE13AD1C8AE2F2002D4F12 /* ShadowGradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE13AC1C8AE2F2002D4F12 /* ShadowGradientView.swift */; };
-		16EE13AF1C8AEBF2002D4F12 /* Photographers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */; };
-		16EE13B11C8AECB2002D4F12 /* Photos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16EE13B01C8AECB2002D4F12 /* Photos.plist */; };
-		16EE13B31C8AED5B002D4F12 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE13B21C8AED5B002D4F12 /* ImageProvider.swift */; };
 		261F1EC8E533E04EA8AA4B47 /* Pods_kuStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CCFF1E38394AEE6CAECBA40 /* Pods_kuStudy.framework */; };
 		2DC7EC7FF3A11B2F0AC61727 /* Pods_kuStudy_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D25617AC94B0BD7864F0AC /* Pods_kuStudy_WatchKit_Extension.framework */; };
 		AB1915D8A92517636A8F21D4 /* Pods_kuStudy_Today_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7602CD2DFE062E7DEF6D3C42 /* Pods_kuStudy_Today_Extension.framework */; };
@@ -232,6 +236,7 @@
 		16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kuStudyWatchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16538EA81C4F16820097A4F4 /* kuStudyWatchKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kuStudyWatchKit.h; sourceTree = "<group>"; };
 		16538EAA1C4F16820097A4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1660A4AB1C8FA2CA003D5460 /* ImagePresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePresentable.swift; path = protocol/ImagePresentable.swift; sourceTree = "<group>"; };
 		167245BF1B19C0370083035F /* kuStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kuStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		167245C31B19C0370083035F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		167245C41B19C0370083035F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -278,7 +283,6 @@
 		16B684A61C5734A300C8C2CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Base; path = Base.lproj/Assets.xcassets; sourceTree = "<group>"; };
 		16BB42EC1B2C225900201DE2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		16BB42ED1B2C225900201DE2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
-		16D28D941C89130300D7EE3B /* LibraryPhoto.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LibraryPhoto.plist; sourceTree = "<group>"; };
 		16D28D961C89471A00D7EE3B /* RingImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RingImageView.swift; path = view/RingImageView.swift; sourceTree = "<group>"; };
 		16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryOrderTableViewController.swift; path = "view controller/LibraryOrderTableViewController.swift"; sourceTree = "<group>"; };
 		16DB2DAD1C55D5770096AFB9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = extension/Extensions.swift; sourceTree = "<group>"; };
@@ -287,9 +291,9 @@
 		16E9459D1C8D36C50084A245 /* ReadingRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingRoom.swift; sourceTree = "<group>"; };
 		16E9459F1C8D37DE0084A245 /* Identifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Identifiable.swift; path = protocol/Identifiable.swift; sourceTree = "<group>"; };
 		16EE13AC1C8AE2F2002D4F12 /* ShadowGradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShadowGradientView.swift; path = view/ShadowGradientView.swift; sourceTree = "<group>"; };
-		16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Photographers.plist; sourceTree = "<group>"; };
-		16EE13B01C8AECB2002D4F12 /* Photos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Photos.plist; sourceTree = "<group>"; };
-		16EE13B21C8AED5B002D4F12 /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageProvider.swift; path = Base.lproj/controller/ImageProvider.swift; sourceTree = "<group>"; };
+		16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Photographers.plist; path = ../kuStudy/Photographers.plist; sourceTree = "<group>"; };
+		16EE13B01C8AECB2002D4F12 /* Photos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Photos.plist; path = ../kuStudy/Photos.plist; sourceTree = "<group>"; };
+		16EE13B21C8AED5B002D4F12 /* ImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageProvider.swift; path = ../kuStudy/Base.lproj/controller/ImageProvider.swift; sourceTree = "<group>"; };
 		362BA89676AE1513B4F75865 /* Pods-kuStudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy.debug.xcconfig"; sourceTree = "<group>"; };
 		3D107D24B903859715ECBF2D /* Pods_kuStudyWatchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kuStudyWatchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64BB015E67428F23112BF503 /* Pods_kuStudyKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kuStudyKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -465,7 +469,6 @@
 		164C0E8E1C560510004C6663 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				16EE13B21C8AED5B002D4F12 /* ImageProvider.swift */,
 				164C0E8F1C560522004C6663 /* NetworkActivityManager.swift */,
 			);
 			name = Controller;
@@ -500,9 +503,19 @@
 		165F9C921B2199D400101EBE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				16EE13B01C8AECB2002D4F12 /* Photos.plist */,
+				16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */,
 				16A887351B21D1FF00C49551 /* Localizable.strings */,
 			);
 			name = Resource;
+			sourceTree = "<group>";
+		};
+		1660A4B01C8FA34B003D5460 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				16EE13B21C8AED5B002D4F12 /* ImageProvider.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		167245B61B19C0370083035F = {
@@ -583,9 +596,6 @@
 			isa = PBXGroup;
 			children = (
 				167245CB1B19C0370083035F /* Images.xcassets */,
-				16D28D941C89130300D7EE3B /* LibraryPhoto.plist */,
-				16EE13B01C8AECB2002D4F12 /* Photos.plist */,
-				16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */,
 				16A5807D1C63298000E7EDC5 /* Localizable.strings */,
 			);
 			name = Resource;
@@ -609,6 +619,7 @@
 				1672460C1B19C43C0083035F /* Framework */,
 				1600D6311B204044008000B8 /* Request */,
 				16E945981C8D1E5D0084A245 /* Protocol */,
+				1660A4B01C8FA34B003D5460 /* Controller */,
 				1600D6331B204072008000B8 /* Model */,
 				165F9C921B2199D400101EBE /* Resource */,
 			);
@@ -759,6 +770,7 @@
 				16E945961C8D1E510084A245 /* Seatable.swift */,
 				16A30A6F1C8D3DAC00CC73F8 /* PecentageColorPresentable.swift */,
 				16E9459A1C8D1EA70084A245 /* DatePresentable.swift */,
+				1660A4AB1C8FA2CA003D5460 /* ImagePresentable.swift */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -1089,7 +1101,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1660A4B41C8FA471003D5460 /* Photographers.plist in Resources */,
 				1688C4171C4F6B790044D1EE /* Localizable.strings in Resources */,
+				1660A4B31C8FA471003D5460 /* Photos.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1099,11 +1113,8 @@
 			files = (
 				167245CA1B19C0370083035F /* Main.storyboard in Resources */,
 				16A5807B1C63298000E7EDC5 /* Localizable.strings in Resources */,
-				16EE13B11C8AECB2002D4F12 /* Photos.plist in Resources */,
 				167245CF1B19C0370083035F /* LaunchScreen.xib in Resources */,
-				16EE13AF1C8AEBF2002D4F12 /* Photographers.plist in Resources */,
 				167245CC1B19C0370083035F /* Images.xcassets in Resources */,
-				16D28D951C89130300D7EE3B /* LibraryPhoto.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1118,7 +1129,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1660A4B21C8FA470003D5460 /* Photographers.plist in Resources */,
 				16A887331B21D1FF00C49551 /* Localizable.strings in Resources */,
+				1660A4B11C8FA470003D5460 /* Photos.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1289,7 +1302,9 @@
 				16538EB21C4F16DC0097A4F4 /* Summary.swift in Sources */,
 				16538EB51C4F16E20097A4F4 /* kuStudyAPI.swift in Sources */,
 				16538EB31C4F16DC0097A4F4 /* Library.swift in Sources */,
+				1660A4AD1C8FA2CA003D5460 /* ImagePresentable.swift in Sources */,
 				16A30A711C8D3DB300CC73F8 /* PecentageColorPresentable.swift in Sources */,
+				1660A4AF1C8FA320003D5460 /* ImageProvider.swift in Sources */,
 				16538EB81C4F16E40097A4F4 /* kuStudy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1303,7 +1318,6 @@
 				164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */,
 				167246231B1B4BEC0083035F /* LibraryTableViewCell.swift in Sources */,
 				167245C51B19C0370083035F /* AppDelegate.swift in Sources */,
-				16EE13B31C8AED5B002D4F12 /* ImageProvider.swift in Sources */,
 				167246251B1B4F0D0083035F /* ReadingRoomTableViewCell.swift in Sources */,
 				1694D4741C6309FB00A9914C /* LibraryDataSource.swift in Sources */,
 				16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */,
@@ -1338,7 +1352,9 @@
 				1672461B1B1B13610083035F /* Definitions.swift in Sources */,
 				1600D6351B20408F008000B8 /* Summary.swift in Sources */,
 				167246101B1AB1AD0083035F /* kuStudy.swift in Sources */,
+				1660A4AC1C8FA2CA003D5460 /* ImagePresentable.swift in Sources */,
 				16A30A701C8D3DAC00CC73F8 /* PecentageColorPresentable.swift in Sources */,
+				1660A4AE1C8FA31F003D5460 /* ImageProvider.swift in Sources */,
 				1600D6371B2040A5008000B8 /* Library.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

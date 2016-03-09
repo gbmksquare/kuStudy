@@ -60,6 +60,7 @@ class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyData
         NetworkActivityManager.increaseActivityCount()
         dataSource.fetchData({ [unowned self] () -> Void in
                 self.reloadData()
+                self.populateHeader()
                 sender?.endRefreshing()
                 NetworkActivityManager.decreaseActivityCount()
             }) { [unowned self] (error) -> Void in
@@ -91,13 +92,11 @@ extension SummaryViewController {
         navigationController?.setTransparentNavigationBar() // Transparent navigation bar
         setupTableView()
         registerPeekAndPop()
-        populateHeader()
         listenForUserDefaultsDidChange()
     }
     
     private func populateHeader() {
-        let photo = ImageProvider.sharedProvider.imageForLibrary(2)
-        libraryImageView.image = photo?.image
+        libraryImageView.image = dataSource.summary?.photo?.image
     }
     
     private func setupTableView() {

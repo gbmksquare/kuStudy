@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Library: Identifiable, Seatable, PercentageColorPresentable {
+public struct Library: Identifiable, Seatable, PercentageColorPresentable, ImagePresentable {
     public var id = 0
     public var key = ""
     public var total = 0

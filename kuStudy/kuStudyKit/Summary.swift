@@ -8,10 +8,15 @@
 
 import Foundation
 
-public struct Summary: Seatable, DatePresentable {
+public struct Summary: Seatable, DatePresentable, ImagePresentable {
     public var total = 0
     public var available = 0
     public var updatedTime = NSDate()
+    
+    public var photo: (image: UIImage, photographer: Photographer)? {
+        let imageProvider = ImageProvider.sharedProvider
+        return imageProvider.imageForLibrary(2)
+    }
     
     init(total: Int, available:Int, time: String) {
         self.total = total
