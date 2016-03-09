@@ -138,8 +138,13 @@ extension SummaryViewController {
             switch identifier {
             case "librarySegue":
                 let destinationViewController = segue.destinationViewController as! LibraryViewController
-                let selectedRow = tableView.indexPathForSelectedRow!.row
-                let libraryId = dataSource.orderedLibraryIds[selectedRow]
+                let libraryId: Int
+                if sender is Int { // Handoff
+                    libraryId = sender as! Int
+                } else {
+                    let selectedRow = tableView.indexPathForSelectedRow!.row
+                    libraryId = dataSource.orderedLibraryIds[selectedRow]
+                }
                 let library = dataSource.libraries[libraryId - 1]
                 destinationViewController.passedLibrary = library
             default: break
