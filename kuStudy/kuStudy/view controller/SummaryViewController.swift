@@ -141,12 +141,17 @@ extension SummaryViewController {
                 let libraryId: Int
                 if sender is Int { // Handoff
                     libraryId = sender as! Int
+                    let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+                    let libraryDicts = defaults.arrayForKey("libraryInformation") as! [NSDictionary]
+                    let libraries = libraryDicts.map({ Library(dictionary: $0)! })
+                    let library = libraries.filter({ $0.id == libraryId }).first
+                    destinationViewController.passedLibrary = library
                 } else {
                     let selectedRow = tableView.indexPathForSelectedRow!.row
                     libraryId = dataSource.orderedLibraryIds[selectedRow]
+                    let library = dataSource.libraries[libraryId - 1]
+                    destinationViewController.passedLibrary = library
                 }
-                let library = dataSource.libraries[libraryId - 1]
-                destinationViewController.passedLibrary = library
             default: break
             }
         }
