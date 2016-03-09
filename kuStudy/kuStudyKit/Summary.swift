@@ -13,9 +13,14 @@ public struct Summary: Seatable, DatePresentable, ImagePresentable {
     public var available = 0
     public var updatedTime = NSDate()
     
+    public var thumbnail: UIImage? {
+        let imageProvider = ImageProvider.sharedProvider
+        return imageProvider.thumbnailForLibrary(2)
+    }
+    
     public var photo: (image: UIImage, photographer: Photographer)? {
         let imageProvider = ImageProvider.sharedProvider
-        return imageProvider.imageForLibrary(2)
+        return imageProvider.photoForLibrary(2)
     }
     
     init(total: Int, available:Int, time: String) {

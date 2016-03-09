@@ -19,6 +19,10 @@ private struct Photo {
     let name: String
     let photographerId: Int
     let description: String
+    
+    var thumbnailName: String {
+        return name + "_thumbnail"
+    }
 }
 
 private struct LibraryPhotos {
@@ -113,7 +117,35 @@ class ImageProvider {
         return nil
     }
     
-    func imageForLibrary(libraryId: Int) -> (image: UIImage, photographer: Photographer)? {
+    func thumbnailForLibrary(libraryId: Int) -> UIImage? {
+        // Loaded image
+        if let loadedPhoto = loadedPhotos[libraryId] {
+            guard let image = UIImage(named: loadedPhoto.thumbnailName) else {
+                    return nil
+            }
+            return image
+        }
+        
+        // New image
+        guard let library = libraryForId(libraryId) else {
+            return nil
+        }
+        
+        let photosCount = library.photos.count
+        guard photosCount > 0 else {
+            return nil
+        }
+        let randomIndex = Int(arc4random_uniform(UInt32(photosCount)))
+        let photo = library.photos[randomIndex]
+        loadedPhotos[libraryId] = photo
+        
+        guard let image = UIImage(named: photo.thumbnailName) else {
+                return nil
+        }
+        return image
+    }
+    
+    func photoForLibrary(libraryId: Int) -> (image: UIImage, photographer: Photographer)? {
         // Loaded image
         if let loadedPhoto = loadedPhotos[libraryId] {
             guard let photographer = photographerForId(loadedPhoto.photographerId),

@@ -29,6 +29,6 @@ class LibraryTableViewCell: UITableViewCell {
         
         libraryImageView.ringColor = library.usedPercentageColor
         libraryImageView.rating = library.usedPercentage
-        libraryImageView.image = library.photo?.image
+        libraryImageView.image = library.thumbnail
     }
 }

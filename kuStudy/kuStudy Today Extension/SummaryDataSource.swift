@@ -10,14 +10,14 @@ import UIKit
 import kuStudyKit
 
 enum DataSourceState {
-    case Fetching, Error
+    case Fetching, Loaded, Error
 }
 
 class SummaryDataSource: NSObject, UITableViewDataSource {
     var summary: Summary?
     var libraries = [Library]()
     
-    private var dataState: DataSourceState = .Fetching
+    var dataState: DataSourceState = .Fetching
     private var error: NSError?
 }
 
@@ -27,6 +27,7 @@ extension SummaryDataSource {
         dataState = .Fetching
         kuStudy.requestSeatSummary(
             { [unowned self] (summary, libraries) -> Void in
+                self.dataState = .Loaded
                 self.handleFetchedData(summary, libraries: libraries, success: success)
             }) { [unowned self] (error) -> Void in
                 self.dataState = .Error
