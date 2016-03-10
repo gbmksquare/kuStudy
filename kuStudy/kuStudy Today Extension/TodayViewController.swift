@@ -35,7 +35,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
     
     private func onFetchDataSuccess() {
-        tableViewHeightConstraint.constant = CGFloat(dataSource.libraries.count) * tableView.rowHeight
+        tableViewHeightConstraint.constant = CGFloat(dataSource.orderedLibraryIds.count) * tableView.rowHeight
         footerHeightConstraint.constant = 50
         emptyDataViewConstraint.constant = 0
         tableView.reloadData()
@@ -76,6 +76,7 @@ extension TodayViewController {
     }
     
     @objc func handleUserDefaultsDidChange(notification: NSNotification) {
+        dataSource.updateLibraryOrder()
         tableView.reloadData()
     }
 }

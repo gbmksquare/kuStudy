@@ -17,8 +17,22 @@ class SummaryDataSource: NSObject, UITableViewDataSource {
     var summary: Summary?
     var libraries = [Library]()
     
+    var orderedLibraryIds: [Int]!
+    
     var dataState: DataSourceState = .Fetching
     private var error: NSError?
+    
+    // MARK: Initialization
+    override init() {
+        super.init()
+        updateLibraryOrder()
+    }
+    
+    // MARK: Action
+    func updateLibraryOrder() {
+        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+        orderedLibraryIds = defaults.arrayForKey("todayExtensionOrder") as! [Int]
+    }
 }
 
 // MARK: Action
@@ -51,13 +65,16 @@ extension SummaryDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard libraries.count > 0 else { return 0 }
-        return libraries.count
+        return orderedLibraryIds.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let library = libraries[indexPath.row]
+        let libraryId = orderedLibraryIds[indexPath.row]
+        let library = libraries.filter({ $0.id == libraryId }).first
         let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
-        cell.populate(library)
+        if let library = library {
+            cell.populate(library)
+        }
         return cell
     }
 }

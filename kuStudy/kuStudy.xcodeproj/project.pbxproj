@@ -30,6 +30,7 @@
 		16538EB71C4F16E20097A4F4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246131B1AB1D80083035F /* Request.swift */; };
 		16538EB81C4F16E40097A4F4 /* kuStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672460F1B1AB1AD0083035F /* kuStudy.swift */; };
 		16538EB91C4F17630097A4F4 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
+		1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift */; };
 		1660A4AC1C8FA2CA003D5460 /* ImagePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660A4AB1C8FA2CA003D5460 /* ImagePresentable.swift */; };
 		1660A4AD1C8FA2CA003D5460 /* ImagePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660A4AB1C8FA2CA003D5460 /* ImagePresentable.swift */; };
 		1660A4AE1C8FA31F003D5460 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE13B21C8AED5B002D4F12 /* ImageProvider.swift */; };
@@ -240,6 +241,7 @@
 		16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kuStudyWatchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16538EA81C4F16820097A4F4 /* kuStudyWatchKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kuStudyWatchKit.h; sourceTree = "<group>"; };
 		16538EAA1C4F16820097A4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodayExtensionOrderTableViewController.swift; path = "view controller/TodayExtensionOrderTableViewController.swift"; sourceTree = "<group>"; };
 		1660A4AB1C8FA2CA003D5460 /* ImagePresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImagePresentable.swift; path = protocol/ImagePresentable.swift; sourceTree = "<group>"; };
 		1660A4B51C8FAC4B003D5460 /* SummaryDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryDataSource.swift; sourceTree = "<group>"; };
 		1660A4B71C8FB4EE003D5460 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 			children = (
 				164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */,
 				16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */,
+				1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1331,6 +1334,7 @@
 				167246251B1B4F0D0083035F /* ReadingRoomTableViewCell.swift in Sources */,
 				1694D4741C6309FB00A9914C /* LibraryDataSource.swift in Sources */,
 				16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */,
+				1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift in Sources */,
 				164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */,
 				16EE13AD1C8AE2F2002D4F12 /* ShadowGradientView.swift in Sources */,
 				167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */,
