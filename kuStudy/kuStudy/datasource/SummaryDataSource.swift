@@ -38,11 +38,11 @@ class SummaryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource 
     func fetchData(success: () -> Void, failure: (error: NSError) -> Void) {
         dataState = .Fetching
         kuStudy.requestSeatSummary(
-            { [unowned self] (summary, libraries) -> Void in
-                self.handleFetchedData(summary, libraries: libraries, success: success)
-            }) { [unowned self] (error) -> Void in
-                self.dataState = .Error
-                self.error = error
+            { [weak self] (summary, libraries) -> Void in
+                self?.handleFetchedData(summary, libraries: libraries, success: success)
+            }) { [weak self] (error) -> Void in
+                self?.dataState = .Error
+                self?.error = error
                 failure(error: error)
         }
     }
@@ -66,10 +66,12 @@ extension SummaryDataSource {
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
         let libraryId = orderedLibraryIds[indexPath.row]
-        let library = libraries[libraryId - 1]
-        cell.populate(library)
+        let library = libraries.filter({ $0.id == libraryId }).first
+        let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
+        if let library = library {
+            cell.populate(library)
+        }
         return cell
     }
     

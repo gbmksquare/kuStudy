@@ -51,12 +51,12 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
     @objc private func fetchLibrary(sender: UIRefreshControl? = nil) {
         NetworkActivityManager.increaseActivityCount()
         dataSource.fetchData(passedLibrary.id,
-            success: { [unowned self] () -> Void in
-                self.reloadData()
+            success: { [weak self] () -> Void in
+                self?.reloadData()
                 sender?.endRefreshing()
                 NetworkActivityManager.decreaseActivityCount()
-            }) { [unowned self] (error) -> Void in
-                self.reloadData()
+            }) { [weak self] (error) -> Void in
+                self?.reloadData()
                 sender?.endRefreshing()
                 NetworkActivityManager.decreaseActivityCount()
         }

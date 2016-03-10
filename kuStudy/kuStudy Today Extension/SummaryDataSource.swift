@@ -40,12 +40,12 @@ extension SummaryDataSource {
     func fetchData(success: () -> Void, failure: (error: NSError) -> Void) {
         dataState = .Fetching
         kuStudy.requestSeatSummary(
-            { [unowned self] (summary, libraries) -> Void in
-                self.dataState = .Loaded
-                self.handleFetchedData(summary, libraries: libraries, success: success)
-            }) { [unowned self] (error) -> Void in
-                self.dataState = .Error
-                self.error = error
+            { [weak self] (summary, libraries) -> Void in
+                self?.dataState = .Loaded
+                self?.handleFetchedData(summary, libraries: libraries, success: success)
+            }) { [weak self] (error) -> Void in
+                self?.dataState = .Error
+                self?.error = error
                 failure(error: error)
         }
     }

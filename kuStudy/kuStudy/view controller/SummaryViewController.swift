@@ -58,13 +58,13 @@ class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyData
     
     @objc private func fetchSummary(sender: UIRefreshControl? = nil) {
         NetworkActivityManager.increaseActivityCount()
-        dataSource.fetchData({ [unowned self] () -> Void in
-                self.reloadData()
-                self.populateHeader()
+        dataSource.fetchData({ [weak self] () -> Void in
+                self?.reloadData()
+                self?.populateHeader()
                 sender?.endRefreshing()
                 NetworkActivityManager.decreaseActivityCount()
-            }) { [unowned self] (error) -> Void in
-                self.tableView.reloadData()
+            }) { [weak self] (error) -> Void in
+                self?.tableView.reloadData()
                 sender?.endRefreshing()
                 NetworkActivityManager.decreaseActivityCount()
         }
@@ -138,9 +138,8 @@ extension SummaryViewController {
             switch identifier {
             case "librarySegue":
                 let destinationViewController = segue.destinationViewController as! LibraryViewController
-                let libraryId: Int
                 if sender is Int { // Handoff
-                    libraryId = sender as! Int
+                    let libraryId = sender as! Int
                     let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
                     let libraryDicts = defaults.arrayForKey("libraryInformation") as! [NSDictionary]
                     let libraries = libraryDicts.map({ Library(dictionary: $0)! })
@@ -148,9 +147,10 @@ extension SummaryViewController {
                     destinationViewController.passedLibrary = library
                 } else {
                     let selectedRow = tableView.indexPathForSelectedRow!.row
-                    libraryId = dataSource.orderedLibraryIds[selectedRow]
-                    let library = dataSource.libraries[libraryId - 1]
-                    destinationViewController.passedLibrary = library
+                    let libraryId = dataSource.orderedLibraryIds[selectedRow]
+                    if let library = dataSource.libraries.filter({ $0.id == libraryId }).first {
+                        destinationViewController.passedLibrary = library
+                    }
                 }
             default: break
             }
@@ -192,8 +192,9 @@ extension SummaryViewController {
         guard let indexPath = tableView.indexPathForRowAtPoint(locationInTableView) else { return nil }
         let libraryViewController = self.storyboard?.instantiateViewControllerWithIdentifier("libraryViewController") as! LibraryViewController
         let libraryId = dataSource.orderedLibraryIds[indexPath.row]
-        let library = dataSource.libraries[libraryId - 1]
-        libraryViewController.passedLibrary = library
+        if let library = dataSource.libraries.filter({ $0.id == libraryId }).first {
+            libraryViewController.passedLibrary = library
+        }
         return libraryViewController
     }
     

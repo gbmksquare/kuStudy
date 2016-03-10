@@ -22,13 +22,13 @@ class LibraryDataSource: NSObject, UITableViewDataSource, DZNEmptyDataSetSource 
     func fetchData(id: Int, success: () -> Void, failure: (error: NSError) -> Void) {
         dataState = .Fetching
         kuStudy.requestLibrarySeatSummary(id,
-            success: { [unowned self] (library, readingRooms) -> Void in
-                self.library = library
-                self.readingRooms = readingRooms
+            success: { [weak self] (library, readingRooms) -> Void in
+                self?.library = library
+                self?.readingRooms = readingRooms
                 success()
-            }) { [unowned self] (error) -> Void in
-                self.dataState = .Error
-                self.error = error
+            }) { [weak self] (error) -> Void in
+                self?.dataState = .Error
+                self?.error = error
                 failure(error: error)
         }
     }
