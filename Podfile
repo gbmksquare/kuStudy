@@ -1,5 +1,5 @@
 workspace 'kuStudy'
-xcodeproj 'kuStudy/kuStudy.xcodeproj/'
+project 'kuStudy/kuStudy.xcodeproj/'
 
 inhibit_all_warnings!
 

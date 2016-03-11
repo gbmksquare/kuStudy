@@ -84,10 +84,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-kuStudy Today Extension/Alamofire.framework"
-  install_framework "Pods-kuStudy Today Extension/SwiftyJSON.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Alamofire-iOS/Alamofire.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON-iOS/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-kuStudy Today Extension/Alamofire.framework"
-  install_framework "Pods-kuStudy Today Extension/SwiftyJSON.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Alamofire-iOS/Alamofire.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON-iOS/SwiftyJSON.framework"
 fi

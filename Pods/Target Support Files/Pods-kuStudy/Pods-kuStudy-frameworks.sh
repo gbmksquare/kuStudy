@@ -84,16 +84,16 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-kuStudy/Alamofire.framework"
-  install_framework "Pods-kuStudy/CTFeedback.framework"
-  install_framework "Pods-kuStudy/DZNEmptyDataSet.framework"
-  install_framework "Pods-kuStudy/Localize_Swift.framework"
-  install_framework "Pods-kuStudy/SwiftyJSON.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Alamofire-iOS/Alamofire.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/CTFeedback/CTFeedback.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/DZNEmptyDataSet/DZNEmptyDataSet.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Localize-Swift/Localize_Swift.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON-iOS/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-kuStudy/Alamofire.framework"
-  install_framework "Pods-kuStudy/CTFeedback.framework"
-  install_framework "Pods-kuStudy/DZNEmptyDataSet.framework"
-  install_framework "Pods-kuStudy/Localize_Swift.framework"
-  install_framework "Pods-kuStudy/SwiftyJSON.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Alamofire-iOS/Alamofire.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/CTFeedback/CTFeedback.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/DZNEmptyDataSet/DZNEmptyDataSet.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Localize-Swift/Localize_Swift.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON-iOS/SwiftyJSON.framework"
 fi

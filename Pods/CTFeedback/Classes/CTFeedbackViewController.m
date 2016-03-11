@@ -223,6 +223,10 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
 	self.additionCellItem = [CTFeedbackAdditionInfoCellItem new];
     self.additionCellItem.value = CTFBLocalizedString(@"Additional detail");
     self.additionCellItem.action = ^(CTFeedbackViewController *sender){
+        if( [weakSelf.contentCellItem.textView isFirstResponder] ) {
+            [weakSelf.contentCellItem.textView resignFirstResponder];
+        }
+        
 		UIActionSheet *choiceSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                                  delegate:weakSelf
                                                         cancelButtonTitle:CTFBLocalizedString(@"Cancel")
@@ -309,7 +313,7 @@ typedef NS_ENUM(NSInteger, CTFeedbackSection){
     NSDictionary *platformNamesDic = [NSDictionary dictionaryWithContentsOfFile:filePath];
     
     // Changing a platform name to a human readable version
-    platform = platformNamesDic[platform];
+    platform = platformNamesDic[platform] ?: platform;
 
     return platform;
 }
@@ -604,7 +608,7 @@ static NSString * const ATTACHMENT_FILENAME = @"screenshot.jpg";
 	
 	if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
 		if ([UIPopoverPresentationController class]) {
-			controller.modalPresentationStyle = UIModalPresentationPopover;
+			controller.modalPresentationStyle = UIModalPresentationFormSheet;
 			
 			UIPopoverPresentationController *presentationController = [controller popoverPresentationController];
 			presentationController.permittedArrowDirections = UIPopoverArrowDirectionAny;
