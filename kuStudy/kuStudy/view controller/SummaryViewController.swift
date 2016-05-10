@@ -83,6 +83,14 @@ class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyData
     func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return false
     }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let libraryId = dataSource.orderedLibraryIds[indexPath.row]
+        guard dataSource.libraries.filter({ $0.id == libraryId }).first != nil else {
+            return 0
+        }
+        return tableView.rowHeight
+    }
 }
 
 // MARK: Setup

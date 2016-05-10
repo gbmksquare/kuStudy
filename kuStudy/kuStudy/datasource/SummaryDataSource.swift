@@ -71,6 +71,10 @@ extension SummaryDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
         if let library = library {
             cell.populate(library)
+        } else {
+            for subview in cell.contentView.subviews {
+                subview.removeFromSuperview()
+            }
         }
         return cell
     }
