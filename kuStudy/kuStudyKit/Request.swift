@@ -10,9 +10,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-public typealias FailureHandler = (error: NSError) -> Void
-
-public extension kuStudy {
+@available(*, deprecated=1) public extension kuStudy {
     // MARK: Request
     @available(*, deprecated=1) public class func requestLibraryInfo(success: (libraries: [Library]) -> Void, failure: FailureHandler) {
         Alamofire.request(.GET, kuStudyAPI.Info.url)

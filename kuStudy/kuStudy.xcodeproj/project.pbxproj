@@ -17,6 +17,14 @@
 		16136BFC1B1C44BA00B3F744 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		16136C001B1C451100B3F744 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BFF1B1C451100B3F744 /* LibraryCell.swift */; };
 		16251CAD1B232D650035F2D9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
+		1631A2CE1CEF4EA60078381F /* SectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2CD1CEF4EA60078381F /* SectorData.swift */; };
+		1631A2CF1CEF4EA60078381F /* SectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2CD1CEF4EA60078381F /* SectorData.swift */; };
+		1631A2D11CEF4EEC0078381F /* LibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2D01CEF4EEC0078381F /* LibraryData.swift */; };
+		1631A2D21CEF4EEC0078381F /* LibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2D01CEF4EEC0078381F /* LibraryData.swift */; };
+		1631A2D41CEF4F240078381F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2D31CEF4F240078381F /* API.swift */; };
+		1631A2D51CEF4F240078381F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2D31CEF4F240078381F /* API.swift */; };
+		1631A2D71CEF51480078381F /* LibraryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2D61CEF51480078381F /* LibraryType.swift */; };
+		1631A2D81CEF51480078381F /* LibraryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2D61CEF51480078381F /* LibraryType.swift */; };
 		164C0E901C560522004C6663 /* NetworkActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E8F1C560522004C6663 /* NetworkActivityManager.swift */; };
 		164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E921C5608E0004C6663 /* MainTabBarController.swift */; };
 		164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */; };
@@ -237,6 +245,10 @@
 		16136BF51B1C406800B3F744 /* kuStudy WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		16136BFF1B1C451100B3F744 /* LibraryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		16251CAC1B232C8F0035F2D9 /* kuStudy Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy Today Extension.entitlements"; sourceTree = "<group>"; };
+		1631A2CD1CEF4EA60078381F /* SectorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectorData.swift; path = model/SectorData.swift; sourceTree = "<group>"; };
+		1631A2D01CEF4EEC0078381F /* LibraryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryData.swift; path = model/LibraryData.swift; sourceTree = "<group>"; };
+		1631A2D31CEF4F240078381F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = controller/API.swift; sourceTree = "<group>"; };
+		1631A2D61CEF51480078381F /* LibraryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryType.swift; path = model/LibraryType.swift; sourceTree = "<group>"; };
 		164C0E8F1C560522004C6663 /* NetworkActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkActivityManager.swift; path = Base.lproj/controller/NetworkActivityManager.swift; sourceTree = "<group>"; };
 		164C0E921C5608E0004C6663 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = "view controller/MainTabBarController.swift"; sourceTree = "<group>"; };
 		164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = "view controller/SettingsTableViewController.swift"; sourceTree = "<group>"; };
@@ -405,13 +417,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1600D6311B204044008000B8 /* Request */ = {
+		1600D6311B204044008000B8 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				1631A2D31CEF4F240078381F /* API.swift */,
 				167246111B1AB1C70083035F /* kuStudyAPI.swift */,
 				167246131B1AB1D80083035F /* Request.swift */,
 			);
-			name = Request;
+			name = API;
 			sourceTree = "<group>";
 		};
 		1600D6331B204072008000B8 /* Model */ = {
@@ -494,6 +507,16 @@
 				16136BD91B1C3F0700B3F744 /* GlanceController.swift */,
 			);
 			name = Glance;
+			sourceTree = "<group>";
+		};
+		1631A2CC1CEF4E6E0078381F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1631A2D61CEF51480078381F /* LibraryType.swift */,
+				1631A2D01CEF4EEC0078381F /* LibraryData.swift */,
+				1631A2CD1CEF4EA60078381F /* SectorData.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		164C0E8E1C560510004C6663 /* Controller */ = {
@@ -649,7 +672,8 @@
 			children = (
 				1672460F1B1AB1AD0083035F /* kuStudy.swift */,
 				1672460C1B19C43C0083035F /* Framework */,
-				1600D6311B204044008000B8 /* Request */,
+				1631A2CC1CEF4E6E0078381F /* Model */,
+				1600D6311B204044008000B8 /* API */,
 				16E945981C8D1E5D0084A245 /* Protocol */,
 				1660A4B01C8FA34B003D5460 /* Controller */,
 				1600D6331B204072008000B8 /* Model */,
@@ -1564,6 +1588,7 @@
 			files = (
 				16E945991C8D1E8D0084A245 /* Seatable.swift in Sources */,
 				16538EB91C4F17630097A4F4 /* Definitions.swift in Sources */,
+				1631A2D81CEF51480078381F /* LibraryType.swift in Sources */,
 				16538EB71C4F16E20097A4F4 /* Request.swift in Sources */,
 				16E945A21C8D3A2D0084A245 /* ReadingRoom.swift in Sources */,
 				16E9459C1C8D1EB20084A245 /* DatePresentable.swift in Sources */,
@@ -1572,8 +1597,11 @@
 				16538EB51C4F16E20097A4F4 /* kuStudyAPI.swift in Sources */,
 				16538EB31C4F16DC0097A4F4 /* Library.swift in Sources */,
 				1660A4AD1C8FA2CA003D5460 /* ImagePresentable.swift in Sources */,
+				1631A2D21CEF4EEC0078381F /* LibraryData.swift in Sources */,
+				1631A2CF1CEF4EA60078381F /* SectorData.swift in Sources */,
 				16A30A711C8D3DB300CC73F8 /* PecentageColorPresentable.swift in Sources */,
 				1660A4AF1C8FA320003D5460 /* ImageProvider.swift in Sources */,
+				1631A2D51CEF4F240078381F /* API.swift in Sources */,
 				16538EB81C4F16E40097A4F4 /* kuStudy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1615,6 +1643,7 @@
 			files = (
 				16E9459E1C8D36C50084A245 /* ReadingRoom.swift in Sources */,
 				16E945971C8D1E510084A245 /* Seatable.swift in Sources */,
+				1631A2D71CEF51480078381F /* LibraryType.swift in Sources */,
 				167246121B1AB1C70083035F /* kuStudyAPI.swift in Sources */,
 				16E945A01C8D37DE0084A245 /* Identifiable.swift in Sources */,
 				167246141B1AB1D80083035F /* Request.swift in Sources */,
@@ -1623,8 +1652,11 @@
 				1600D6351B20408F008000B8 /* Summary.swift in Sources */,
 				167246101B1AB1AD0083035F /* kuStudy.swift in Sources */,
 				1660A4AC1C8FA2CA003D5460 /* ImagePresentable.swift in Sources */,
+				1631A2D11CEF4EEC0078381F /* LibraryData.swift in Sources */,
+				1631A2CE1CEF4EA60078381F /* SectorData.swift in Sources */,
 				16A30A701C8D3DAC00CC73F8 /* PecentageColorPresentable.swift in Sources */,
 				1660A4AE1C8FA31F003D5460 /* ImageProvider.swift in Sources */,
+				1631A2D41CEF4F240078381F /* API.swift in Sources */,
 				1600D6371B2040A5008000B8 /* Library.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

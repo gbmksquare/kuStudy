@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol API {
+@available(*, deprecated=1.0) protocol API {
     var baseUrl: String { get }
 }
 
-enum kuStudyAPI: API {
+@available(*, deprecated=1.0) enum kuStudyAPI: API {
     var baseUrl: String { return "https://api.gbmksquare.com/kuapps/kustudy/v1" }
     
     case Info
@@ -21,7 +21,7 @@ enum kuStudyAPI: API {
     case ReadingRoom(id: Int)
 }
 
-extension kuStudyAPI {
+@available(*, deprecated=1.0) extension kuStudyAPI {
     var url: String {
         switch self {
         case .Info: return baseUrl + "/info"
