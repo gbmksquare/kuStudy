@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ReadingRoom: Identifiable, Seatable, PercentageColorPresentable {
+@available(*, deprecated=1) public struct ReadingRoom: Identifiable, Seatable, PercentageColorPresentable {
     public var id = 0
     public var key = ""
     public var total = 0

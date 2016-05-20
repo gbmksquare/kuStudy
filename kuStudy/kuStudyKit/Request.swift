@@ -14,7 +14,7 @@ public typealias FailureHandler = (error: NSError) -> Void
 
 public extension kuStudy {
     // MARK: Request
-    public class func requestLibraryInfo(success: (libraries: [Library]) -> Void, failure: FailureHandler) {
+    @available(*, deprecated=1) public class func requestLibraryInfo(success: (libraries: [Library]) -> Void, failure: FailureHandler) {
         Alamofire.request(.GET, kuStudyAPI.Info.url)
             .authenticate(user: kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
             .responseJSON { (response) -> Void in
@@ -38,7 +38,7 @@ public extension kuStudy {
         }
     }
     
-    public class func requestSeatSummary(success: (summary: Summary, libraries: [Library]) -> Void, failure: FailureHandler) {
+    @available(*, deprecated=1) public class func requestSeatSummary(success: (summary: Summary, libraries: [Library]) -> Void, failure: FailureHandler) {
         Alamofire.request(.GET, kuStudyAPI.Summary.url)
         .authenticate(user: kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
             .responseJSON(completionHandler: { (response) -> Void in
@@ -69,7 +69,7 @@ public extension kuStudy {
             })
     }
     
-    public class func requestLibrarySeatSummary(id: Int, success: (library: Library, readingRooms: [ReadingRoom]) -> Void, failure: FailureHandler) {
+    @available(*, deprecated=1) public class func requestLibrarySeatSummary(id: Int, success: (library: Library, readingRooms: [ReadingRoom]) -> Void, failure: FailureHandler) {
         Alamofire.request(.GET, kuStudyAPI.Library(id: id).url)
         .authenticate(user: kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
             .responseJSON(completionHandler: { (response) -> Void in
@@ -101,7 +101,7 @@ public extension kuStudy {
             })
     }
     
-    public class func requestReadingRoomSeatSummary(id: Int, success: (readingRoom: ReadingRoom) -> Void, failure: FailureHandler) {
+    @available(*, deprecated=1) public class func requestReadingRoomSeatSummary(id: Int, success: (readingRoom: ReadingRoom) -> Void, failure: FailureHandler) {
         Alamofire.request(.GET, kuStudyAPI.ReadingRoom(id: id).url)
         .authenticate(user: kuStudyAPIAccessId, password: kuStudyAPIAccessPassword)
             .responseJSON(completionHandler: { (response) -> Void in

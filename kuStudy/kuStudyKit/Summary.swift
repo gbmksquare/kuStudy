@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Summary: Seatable, DatePresentable, ImagePresentable {
+@available(*, deprecated=1) public struct Summary: Seatable, DatePresentable, ImagePresentable {
     public var total = 0
     public var available = 0
     public var updatedTime = NSDate()
