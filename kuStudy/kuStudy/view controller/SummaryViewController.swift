@@ -11,24 +11,35 @@ import kuStudyKit
 import DZNEmptyDataSet
 import Localize_Swift
 
-class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyDataSetDelegate, UIViewControllerPreviewingDelegate {
-    @IBOutlet weak var summaryView: UIView!
-    @IBOutlet weak var shadowView: ShadowGradientView!
-    @IBOutlet weak var libraryImageView: UIImageView!
+enum DataSourceState {
+    case Fetching, Error
+}
+
+class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegate {
+    @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var availableLabel: UILabel!
-    @IBOutlet weak var usedLabel: UILabel!
-    @IBOutlet weak var updateTimeLabel: UILabel!
-    
     private  var refreshControl = UIRefreshControl()
-    lazy var dataSource = SummaryDataSource()
+    
+    private var libraryDataArray = [LibraryData]()
+    private var dataState: DataSourceState = .Fetching
+    private var error: NSError?
+    
+    private var orderedLibraryIds: [String]!
     
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialSetup()
-        fetchSummary()
+        navigationController?.setTransparentNavigationBar() // Transparent navigation bar
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.emptyDataSetSource = self
+        tableView.tableFooterView = UIView()
+        tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(updateData(_:)), forControlEvents: .ValueChanged)
+        registerPeekAndPop()
+        listenForUserDefaultsDidChange()
+        updateData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -41,131 +52,110 @@ class SummaryViewController: UIViewController, UITableViewDelegate, DZNEmptyData
         userActivity?.invalidate()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        shadowView.updateGradientLayout()
-    }
-    
     // MARK: Action
-    @IBAction func tappedEditButton(sender: UIButton) {
-        tableView.setEditing(!tableView.editing, animated: true)
-        if sender.currentTitle == "edit".localized() {
-            sender.setTitle("done".localized(), forState: .Normal)
-        } else {
-            sender.setTitle("edit".localized(), forState: .Normal)
-        }
-    }
-    
-    @objc private func fetchSummary(sender: UIRefreshControl? = nil) {
+    @objc private func updateData(sender: UIRefreshControl? = nil) {
+        dataState = .Fetching
         NetworkActivityManager.increaseActivityCount()
-        dataSource.fetchData({ [weak self] () -> Void in
-                self?.reloadData()
-                self?.populateHeader()
-                sender?.endRefreshing()
-                NetworkActivityManager.decreaseActivityCount()
-            }) { [weak self] (error) -> Void in
-                self?.tableView.reloadData()
-                sender?.endRefreshing()
-                NetworkActivityManager.decreaseActivityCount()
+        libraryDataArray.removeAll(keepCapacity: true)
+        kuStudy.requestAllLibraryData(onLibrarySuccess: { [weak self] (libraryData) in
+            self?.libraryDataArray.append(libraryData)
+        }, onFailure: { [weak self] (error) in
+            self?.error = error
+            self?.dataState = .Error
+        }) { [weak self] in
+            sender?.endRefreshing()
+            self?.reorderLibraryData()
+            self?.updateView()
+            NetworkActivityManager.decreaseActivityCount()
         }
     }
     
-    // MARK: Table view
-    func emptyDataSetDidTapView(scrollView: UIScrollView!) {
-        fetchSummary()
-        tableView.reloadData()
-    }
-    
-    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return .None
-    }
-    
-    func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let libraryId = dataSource.orderedLibraryIds[indexPath.row]
-        guard dataSource.libraries.filter({ $0.id == libraryId }).first != nil else {
-            return 0
-        }
-        return tableView.rowHeight
-    }
-}
-
-// MARK: Setup
-extension SummaryViewController {
-    // MARK: Setup
-    private func initialSetup() {
-        navigationController?.setTransparentNavigationBar() // Transparent navigation bar
-        setupTableView()
-        registerPeekAndPop()
-        listenForUserDefaultsDidChange()
-    }
-    
-    private func populateHeader() {
-        libraryImageView.image = dataSource.summary?.photo?.image
-    }
-    
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = dataSource
-        tableView.emptyDataSetDelegate = self
-        tableView.emptyDataSetSource = dataSource
-        tableView.tableFooterView = UIView()
-        tableView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: "fetchSummary:", forControlEvents: .ValueChanged)
-    }
-    
-    private func listenForUserDefaultsDidChange() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("handleUserDefaultsDidChange:"), name: NSUserDefaultsDidChangeNotification, object: nil)
-    }
-    
-    @objc private func handleUserDefaultsDidChange(notification: NSNotification) {
-        dataSource.updateLibraryOrder()
-        tableView.reloadData()
-    }
-}
-
-// MARK: Data
-extension SummaryViewController {
-    private func reloadData() {
-        if let summary = dataSource.summary {
-            availableLabel.text = summary.availableString
-            usedLabel.text = summary.usedString
-            updateTimeLabel.text = "Updated: ".localized() + summary.updatedTimeString
+    private func updateView() {
+        if let libraryData = libraryDataArray.filter({ $0.libraryId == LibraryType.CentralSquare.rawValue }).first {
+            headerImageView.image = libraryData.photo?.image
         }
         tableView.reloadData()
+    }
+    
+    private func reorderLibraryData() {
+        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+        orderedLibraryIds = defaults.arrayForKey("libraryOrder") as! [String]
+        
+        var orderedLibraryData = [LibraryData]()
+        for libraryId in orderedLibraryIds {
+            guard let libraryData = self.libraryDataArray.filter({ $0.libraryId! == libraryId }).first else { continue }
+            orderedLibraryData.append(libraryData)
+        }
+        libraryDataArray = orderedLibraryData
     }
 }
 
 // MARK: Navigation
 extension SummaryViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let identifier = segue.identifier {
-            switch identifier {
-            case "librarySegue":
-                let destinationViewController = segue.destinationViewController as! LibraryViewController
-                if sender is Int { // Handoff
-                    let libraryId = sender as! Int
-                    let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-                    let libraryDicts = defaults.arrayForKey("libraryInformation") as! [NSDictionary]
-                    let libraries = libraryDicts.map({ Library(dictionary: $0)! })
-                    let library = libraries.filter({ $0.id == libraryId }).first
-                    destinationViewController.passedLibrary = library
-                } else {
-                    let selectedRow = tableView.indexPathForSelectedRow!.row
-                    let libraryId = dataSource.orderedLibraryIds[selectedRow]
-                    if let library = dataSource.libraries.filter({ $0.id == libraryId }).first {
-                        destinationViewController.passedLibrary = library
-                    }
-                }
-            default: break
+        guard let identifier = segue.identifier else { return }
+        switch identifier {
+        case "librarySegue":
+            let destinationViewController = segue.destinationViewController as! LibraryViewController
+            if sender is String { // Handoff
+                let libraryId = sender as! String
+                destinationViewController.libraryId = libraryId
+            } else {
+                guard let selectedRow = tableView.indexPathForSelectedRow?.row else { return }
+                let libraryData = libraryDataArray[selectedRow]
+                destinationViewController.libraryId = libraryData.libraryId
             }
+        default: break
         }
     }
 }
 
+// MARK:
+// MARK: Table view
+extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+    // Data source
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return libraryDataArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let libraryData = libraryDataArray[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
+        cell.populate(libraryData)
+        return cell
+    }
+    
+    // MARK: Empty state
+    func emptyDataSetDidTapView(scrollView: UIScrollView!) {
+        updateData()
+        updateView()
+    }
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = dataState == .Fetching ? "Fetching data...".localized() : (error?.localizedDescription ?? "An error occurred.".localized())
+        let attribute = [NSFontAttributeName: UIFont.boldSystemFontOfSize(17)]
+        return NSAttributedString(string: text, attributes: attribute)
+    }
+}
+
+// MARK:
+// MARK: Notification
+extension SummaryViewController {
+    private func listenForUserDefaultsDidChange() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleUserDefaultsDidChange(_: )), name: NSUserDefaultsDidChangeNotification, object: nil)
+    }
+    
+    @objc private func handleUserDefaultsDidChange(notification: NSNotification) {
+        reorderLibraryData()
+        updateView()
+    }
+}
+
+// MARK:
 // MARK: Handoff
 extension SummaryViewController {
     private func startHandoff() {
@@ -199,10 +189,8 @@ extension SummaryViewController {
         let locationInTableView = tableView.convertPoint(location, fromView: view)
         guard let indexPath = tableView.indexPathForRowAtPoint(locationInTableView) else { return nil }
         let libraryViewController = self.storyboard?.instantiateViewControllerWithIdentifier("libraryViewController") as! LibraryViewController
-        let libraryId = dataSource.orderedLibraryIds[indexPath.row]
-        if let library = dataSource.libraries.filter({ $0.id == libraryId }).first {
-            libraryViewController.passedLibrary = library
-        }
+        let libraryData = libraryDataArray[indexPath.row]
+        libraryViewController.libraryId = libraryData.libraryId
         return libraryViewController
     }
     

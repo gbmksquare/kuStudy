@@ -10,27 +10,19 @@ import UIKit
 import kuStudyKit
 
 class LibraryOrderTableViewController: UITableViewController {
-    var orderedLibraryIds: [Int]!
-    var libraryInformation: [Library]!
-    
-    // MARK: Setup
-    private func initialSetup() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.editing = true
-        
-        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        let libraryDicts = defaults.arrayForKey("libraryInformation") as! [NSDictionary]
-        let libraries = libraryDicts.map({ Library(dictionary: $0)! })
-        
-        orderedLibraryIds = defaults.arrayForKey("libraryOrder") as! [Int]
-        libraryInformation = libraries
-    }
+    private var defaults: NSUserDefaults!
+    private var libraryTypes: [LibraryType]!
+    private var orderedLibraryIds: [String]!
     
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialSetup()
+        defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+        orderedLibraryIds = defaults.arrayForKey("libraryOrder") as! [String]
+        libraryTypes = LibraryType.allTypes()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.editing = true
     }
 }
 
@@ -41,14 +33,14 @@ extension LibraryOrderTableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderedLibraryIds?.count ?? 0
+        return orderedLibraryIds.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         let libraryId = orderedLibraryIds[indexPath.row]
-        let library = libraryInformation.filter({ $0.id == libraryId }).first
-        cell.textLabel?.text = library?.name
+        let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!
+        cell.textLabel?.text = libraryType.name
         return cell
     }
 }
@@ -74,7 +66,6 @@ extension LibraryOrderTableViewController {
         orderedLibraryIds.removeAtIndex(fromRow)
         orderedLibraryIds.insert(moveLibraryId, atIndex: toRow)
         
-        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
         defaults.setValue(orderedLibraryIds, forKey: "libraryOrder")
         defaults.synchronize()
     }

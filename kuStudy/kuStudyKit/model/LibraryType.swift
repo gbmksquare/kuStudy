@@ -8,15 +8,15 @@
 
 import Foundation
 
-public enum LibraryType: Int {
-    case CentralSquare = 1
-    case CentralLibrary = 3
-    case HanaSquare = 5
-    case ScienceLibrary = 26
-    case CDL = 4
+public enum LibraryType: String {
+    case CentralLibrary = "3"
+    case CentralSquare = "1"
+    case HanaSquare = "5"
+    case ScienceLibrary = "26"
+    case CDL = "4"
     
     public static func allTypes() -> [LibraryType] {
-        return [.CentralSquare, .CentralLibrary, .HanaSquare, .ScienceLibrary, .CDL]
+        return [.CentralLibrary, .CentralSquare, .HanaSquare, .ScienceLibrary, .CDL]
     }
     
     public var name: String {

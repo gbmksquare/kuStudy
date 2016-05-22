@@ -38,7 +38,7 @@ public extension kuStudy {
         }
     }
     
-    public class func requestLibraryData(libraryId libraryId: Int, onSuccess: (libraryData: LibraryData) -> (), onFailure: FailureHandler?) {
+    public class func requestLibraryData(libraryId libraryId: String, onSuccess: (libraryData: LibraryData) -> (), onFailure: FailureHandler?) {
         let headers = ["Accept": "application/javascript"]
         let body = ["libNo": libraryId]
         Alamofire.request(.POST, apiUrl, parameters: body, encoding: .URL, headers: headers)

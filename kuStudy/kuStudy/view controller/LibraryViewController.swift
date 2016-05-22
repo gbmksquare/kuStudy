@@ -10,26 +10,32 @@ import UIKit
 import kuStudyKit
 import DZNEmptyDataSet
 
-class LibraryViewController: UIViewController, UITableViewDelegate {
+class LibraryViewController: UIViewController {
     @IBOutlet weak var summaryView: UIView!
-    @IBOutlet weak var shadowView: ShadowGradientView!
-    @IBOutlet weak var libraryImageView: UIImageView!
+    @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    private var refreshControl = UIRefreshControl()
     
     @IBOutlet weak var libraryNameLabel: UILabel!
-    @IBOutlet weak var availableLabel: UILabel!
-    @IBOutlet weak var usedLabel: UILabel!
-    @IBOutlet weak var photographerLabel: UILabel!
     
-    private var refreshControl = UIRefreshControl()
-    lazy var dataSource = LibraryDataSource()
-    var passedLibrary: Library!
+    var libraryId: String!
+    private var libraryData: LibraryData?
+    
+    private var dataState: DataSourceState = .Fetching
+    private var error: NSError?
     
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialSetup()
-        fetchLibrary()
+        libraryNameLabel.text = ""
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.emptyDataSetSource = self
+        tableView.tableFooterView = UIView()
+        tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(updateData(_:)), forControlEvents: .ValueChanged)
+        updateData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -42,63 +48,62 @@ class LibraryViewController: UIViewController, UITableViewDelegate {
         userActivity?.invalidate()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        shadowView.updateGradientLayout()
-    }
-    
     // MARK: Action
-    @objc private func fetchLibrary(sender: UIRefreshControl? = nil) {
+    @objc private func updateData(sender: UIRefreshControl? = nil) {
+        guard let libraryId = self.libraryId else { return }
         NetworkActivityManager.increaseActivityCount()
-        dataSource.fetchData(passedLibrary.id,
-            success: { [weak self] () -> Void in
-                self?.reloadData()
-                sender?.endRefreshing()
-                NetworkActivityManager.decreaseActivityCount()
-            }) { [weak self] (error) -> Void in
-                self?.reloadData()
-                sender?.endRefreshing()
-                NetworkActivityManager.decreaseActivityCount()
+        kuStudy.requestLibraryData(libraryId: libraryId,
+           onSuccess: { [weak self] (libraryData) in
+            self?.libraryData = libraryData
+            sender?.endRefreshing()
+            NetworkActivityManager.decreaseActivityCount()
+            self?.updateView()
+        }) { [weak self] (error) in
+            self?.dataState = .Error
+            self?.error = error
+            self?.updateView()
+            sender?.endRefreshing()
+            NetworkActivityManager.decreaseActivityCount()
         }
     }
-}
-
-// MARK: Setup
-extension LibraryViewController {
-    private func initialSetup() {
-        libraryNameLabel.text = ""
-        availableLabel.text = "- seats are available."
-        usedLabel.text = "- people are studying."
-        setupTableView()
-        configureHeader()
-    }
     
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = dataSource
-        tableView.emptyDataSetSource = dataSource
-        tableView.tableFooterView = UIView()
-        tableView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: "fetchLibrary:", forControlEvents: .ValueChanged)
-    }
-}
-
-// MARK: Data
-extension LibraryViewController {
-    private func configureHeader() {
-        libraryNameLabel.text = passedLibrary.name
-        
-        let photo = passedLibrary.photo
-        photographerLabel.text = photo != nil ? "Photography by " + photo!.photographer.name : ""
-        libraryImageView.image = photo?.image
-    }
-    
-    private func reloadData() {
-        if let library = dataSource.library {
-            availableLabel.text = library.availableString + " seats are available."
-            usedLabel.text = library.usedString + " people are studying."
-        }
+    private func updateView() {
+        headerImageView.image = libraryData?.photo?.image
         tableView.reloadData()
+    }
+}
+
+// MARK:
+// MARK: Table view
+extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+    // Data source
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return libraryData?.sectorCount ?? 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let sector = libraryData?.sectors?[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("readingRoomCell", forIndexPath: indexPath) as! ReadingRoomTableViewCell
+        if let sector = sector {
+            cell.populate(sector)
+        }
+        return cell
+    }
+    
+    // Empty state
+    func emptyDataSetDidTapView(scrollView: UIScrollView!) {
+        updateData()
+        updateView()
+    }
+    
+    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = dataState == .Fetching ? "Fetching data...".localized() : (error?.localizedDescription ?? "An error occurred.".localized())
+        let attribute = [NSFontAttributeName: UIFont.boldSystemFontOfSize(17)]
+        return NSAttributedString(string: text, attributes: attribute)
     }
 }
 
@@ -106,9 +111,10 @@ extension LibraryViewController {
 extension LibraryViewController {
     // MARK: Handoff
     private func startHandoff() {
+        guard let libraryId = self.libraryId, name = LibraryType(rawValue: libraryId)?.name else { return }
         let activity = NSUserActivity(activityType: kuStudyHandoffLibrary)
-        activity.title = dataSource.library?.key
-        activity.addUserInfoEntriesFromDictionary(["libraryId": passedLibrary.id])
+        activity.title = name
+        activity.addUserInfoEntriesFromDictionary(["libraryId": libraryId])
         activity.becomeCurrent()
         userActivity = activity
     }

@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupFabric()
         registerDefaultPreferences()
         customizeAppearance()
-        getLibraryInformation()
         listenForUserDefaultsDidChange()
         return true
     }
@@ -60,8 +59,9 @@ extension AppDelegate {
     
     private func registerDefaultPreferences() {
         let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        defaults.registerDefaults(["libraryOrder": [1, 2, 3, 4, 5],
-            "todayExtensionOrder": [1, 2, 3, 4, 5],
+        let libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
+        defaults.registerDefaults(["libraryOrder": libraryOrder,
+            "todayExtensionOrder": libraryOrder,
             "todayExtensionHidden": []])
         defaults.synchronize()
     }
@@ -72,23 +72,6 @@ extension AppDelegate {
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
-    }
-    
-    private func getLibraryInformation() {
-        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        
-        if defaults.arrayForKey("libraryInformation") != nil {
-            return
-        }
-        
-        kuStudy.requestLibraryInfo(
-            { (libraries) -> Void in
-                let libraryDicts = libraries.map({ $0.dictionaryValue() })
-                defaults.setObject(libraryDicts, forKey: "libraryInformation")
-                defaults.synchronize()
-            }) { (error) -> Void in
-                // ???: Handle failure
-        }
     }
 }
 
@@ -116,7 +99,7 @@ extension AppDelegate {
 // MARK: Quick action
 extension AppDelegate {
     private func listenForUserDefaultsDidChange() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("handleUserDefaultsDidChange:"), name: NSUserDefaultsDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleUserDefaultsDidChange(_:)), name: NSUserDefaultsDidChangeNotification, object: nil)
     }
     
     @objc private func handleUserDefaultsDidChange(notification: NSNotification) {
@@ -125,22 +108,17 @@ extension AppDelegate {
     
     private func updateQuickActionItems() {
         let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        let orderedLibraryIds = defaults.arrayForKey("libraryOrder") as! [Int]
+        let orderedLibraryIds = defaults.arrayForKey("libraryOrder") as! [String]
+        let libraryTypes = LibraryType.allTypes()
         
         let actionType = "com.gbmksquare.kuapps.kucourse.LibraryAction"
         let icon = UIApplicationShortcutIcon(templateImageName: "glyphicons-236-pen")
-        
-        let libraryDicts = defaults.arrayForKey("libraryInformation") as! [NSDictionary]
-        let libraries = libraryDicts.map({ Library(dictionary: $0)! })
-        
+
         var quickActionItems = [UIMutableApplicationShortcutItem]()
         for libraryId in orderedLibraryIds {
-            for library in libraries {
-                if library.id == libraryId {
-                    let item = UIMutableApplicationShortcutItem(type: actionType, localizedTitle: library.name, localizedSubtitle: nil, icon: icon, userInfo: ["libraryId": libraryId])
-                    quickActionItems.append(item)
-                }
-            }
+            let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!
+            let item = UIMutableApplicationShortcutItem(type: actionType, localizedTitle: libraryType.name, localizedSubtitle: nil, icon: icon, userInfo: ["libraryId": libraryId])
+            quickActionItems.append(item)
         }
         
         UIApplication.sharedApplication().shortcutItems = quickActionItems
@@ -159,7 +137,7 @@ extension AppDelegate {
         switch shortcutItem.type {
         case "com.gbmksquare.kuapps.kucourse.LibraryAction":
             let userActivity = NSUserActivity(activityType: kuStudyHandoffLibrary)
-            let libraryId = shortcutItem.userInfo!["libraryId"] as! Int
+            let libraryId = shortcutItem.userInfo!["libraryId"] as! String
             userActivity.addUserInfoEntriesFromDictionary(["libraryId": libraryId])
             summaryViewController.restoreUserActivityState(userActivity)
         default: break

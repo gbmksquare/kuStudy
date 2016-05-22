@@ -10,29 +10,21 @@ import UIKit
 import kuStudyKit
 
 class TodayExtensionOrderTableViewController: UITableViewController {
-    var orderedLibraryIds: [Int]!
-    var hiddenLibraryIds: [Int]!
-    var libraryInformation: [Library]!
-    
-    // MARK: Setup
-    private func initialSetup() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.editing = true
-        
-        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        let libraryDicts = defaults.arrayForKey("libraryInformation") as! [NSDictionary]
-        let libraries = libraryDicts.map({ Library(dictionary: $0)! })
-        
-        orderedLibraryIds = defaults.arrayForKey("todayExtensionOrder") as! [Int]
-        hiddenLibraryIds = defaults.arrayForKey("todayExtensionHidden") as! [Int]
-        libraryInformation = libraries
-    }
+    private var defaults: NSUserDefaults!
+    private var libraryTypes: [LibraryType]!
+    private var orderedLibraryIds: [String]!
+    private var hiddenLibraryIds: [String]!
     
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        initialSetup()
+        defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+        orderedLibraryIds = defaults.arrayForKey("todayExtensionOrder") as! [String]
+        hiddenLibraryIds = defaults.arrayForKey("todayExtensionHidden") as! [String]
+        libraryTypes = LibraryType.allTypes()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.editing = true
     }
 }
 
@@ -42,7 +34,7 @@ extension TodayExtensionOrderTableViewController {
         switch section {
         case 0: return "Show"
         case 1: return "Hide"
-        default: return ""
+        default: return nil
         }
     }
     
@@ -67,14 +59,14 @@ extension TodayExtensionOrderTableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        let libraryId: Int
+        let libraryId: String
         switch indexPath.section {
         case 0: libraryId = orderedLibraryIds[indexPath.row]
         case 1: libraryId = hiddenLibraryIds[indexPath.row]
         default: return cell
         }
-        let library = libraryInformation.filter({ $0.id == libraryId }).first
-        cell.textLabel?.text = library?.name
+        let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!
+        cell.textLabel?.text = libraryType.name
         return cell
     }
 }
@@ -99,7 +91,7 @@ extension TodayExtensionOrderTableViewController {
         let toSection = destinationIndexPath.section
         let toRow = destinationIndexPath.row
         
-        let movingLibraryId: Int
+        let movingLibraryId: String
         if fromSection == 0 {
             movingLibraryId = orderedLibraryIds[fromRow]
             orderedLibraryIds.removeAtIndex(fromRow)
@@ -114,7 +106,7 @@ extension TodayExtensionOrderTableViewController {
             hiddenLibraryIds.insert(movingLibraryId, atIndex: toRow)
         }
         
-        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+        defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
         defaults.setValue(orderedLibraryIds, forKey: "todayExtensionOrder")
         defaults.setValue(hiddenLibraryIds, forKey: "todayExtensionHidden")
         defaults.synchronize()

@@ -25,6 +25,9 @@
 		1631A2D51CEF4F240078381F /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2D31CEF4F240078381F /* API.swift */; };
 		1631A2D71CEF51480078381F /* LibraryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2D61CEF51480078381F /* LibraryType.swift */; };
 		1631A2D81CEF51480078381F /* LibraryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2D61CEF51480078381F /* LibraryType.swift */; };
+		1631A2DB1CF025060078381F /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2DA1CF025060078381F /* Int.swift */; };
+		1631A2DC1CF025060078381F /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2DA1CF025060078381F /* Int.swift */; };
+		1631A2DF1CF17EF30078381F /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2DE1CF17EF30078381F /* CircularProgressView.swift */; };
 		164C0E901C560522004C6663 /* NetworkActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E8F1C560522004C6663 /* NetworkActivityManager.swift */; };
 		164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E921C5608E0004C6663 /* MainTabBarController.swift */; };
 		164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */; };
@@ -73,8 +76,6 @@
 		1676C3D31B2418B8001B3AB6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1676C3D51B2418B8001B3AB6 /* MainInterface.storyboard */; };
 		168841191B1EB58700F3C818 /* ReadingRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168841181B1EB58700F3C818 /* ReadingRoomCell.swift */; };
 		1688C4171C4F6B790044D1EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A887351B21D1FF00C49551 /* Localizable.strings */; };
-		1694D4721C63024A00A9914C /* SummaryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1694D4711C63024A00A9914C /* SummaryDataSource.swift */; };
-		1694D4741C6309FB00A9914C /* LibraryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1694D4731C6309FB00A9914C /* LibraryDataSource.swift */; };
 		16A30A701C8D3DAC00CC73F8 /* PecentageColorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A30A6F1C8D3DAC00CC73F8 /* PecentageColorPresentable.swift */; };
 		16A30A711C8D3DB300CC73F8 /* PecentageColorPresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16A30A6F1C8D3DAC00CC73F8 /* PecentageColorPresentable.swift */; };
 		16A5807B1C63298000E7EDC5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A5807D1C63298000E7EDC5 /* Localizable.strings */; };
@@ -249,6 +250,8 @@
 		1631A2D01CEF4EEC0078381F /* LibraryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryData.swift; path = model/LibraryData.swift; sourceTree = "<group>"; };
 		1631A2D31CEF4F240078381F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = controller/API.swift; sourceTree = "<group>"; };
 		1631A2D61CEF51480078381F /* LibraryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryType.swift; path = model/LibraryType.swift; sourceTree = "<group>"; };
+		1631A2DA1CF025060078381F /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Int.swift; path = extension/Int.swift; sourceTree = "<group>"; };
+		1631A2DE1CF17EF30078381F /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularProgressView.swift; path = view/CircularProgressView.swift; sourceTree = "<group>"; };
 		164C0E8F1C560522004C6663 /* NetworkActivityManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkActivityManager.swift; path = Base.lproj/controller/NetworkActivityManager.swift; sourceTree = "<group>"; };
 		164C0E921C5608E0004C6663 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = "view controller/MainTabBarController.swift"; sourceTree = "<group>"; };
 		164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = "view controller/SettingsTableViewController.swift"; sourceTree = "<group>"; };
@@ -288,8 +291,6 @@
 		1676C3D41B2418B8001B3AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		1676C3D71B2418BC001B3AB6 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		168841181B1EB58700F3C818 /* ReadingRoomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingRoomCell.swift; sourceTree = "<group>"; };
-		1694D4711C63024A00A9914C /* SummaryDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryDataSource.swift; path = datasource/SummaryDataSource.swift; sourceTree = "<group>"; };
-		1694D4731C6309FB00A9914C /* LibraryDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryDataSource.swift; path = datasource/LibraryDataSource.swift; sourceTree = "<group>"; };
 		169C06FB1C8825A100A8FF05 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Interface.strings; sourceTree = "<group>"; };
 		16A30A6F1C8D3DAC00CC73F8 /* PecentageColorPresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PecentageColorPresentable.swift; path = protocol/PecentageColorPresentable.swift; sourceTree = "<group>"; };
 		16A5807E1C63298300E7EDC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -519,6 +520,21 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		1631A2D91CF023FF0078381F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		1631A2DD1CF17ECD0078381F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1631A2DE1CF17EF30078381F /* CircularProgressView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		164C0E8E1C560510004C6663 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +584,7 @@
 			isa = PBXGroup;
 			children = (
 				16EE13B21C8AED5B002D4F12 /* ImageProvider.swift */,
+				1631A2DA1CF025060078381F /* Int.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -676,6 +693,8 @@
 				1600D6311B204044008000B8 /* API */,
 				16E945981C8D1E5D0084A245 /* Protocol */,
 				1660A4B01C8FA34B003D5460 /* Controller */,
+				1631A2DD1CF17ECD0078381F /* View */,
+				1631A2D91CF023FF0078381F /* Extension */,
 				1600D6331B204072008000B8 /* Model */,
 				165F9C921B2199D400101EBE /* Resource */,
 			);
@@ -723,7 +742,6 @@
 			isa = PBXGroup;
 			children = (
 				1672461E1B1B44850083035F /* SummaryViewController.swift */,
-				1694D4711C63024A00A9914C /* SummaryDataSource.swift */,
 				167246221B1B4BEC0083035F /* LibraryTableViewCell.swift */,
 			);
 			name = Summary;
@@ -733,7 +751,6 @@
 			isa = PBXGroup;
 			children = (
 				167246261B1B4F2C0083035F /* LibraryViewController.swift */,
-				1694D4731C6309FB00A9914C /* LibraryDataSource.swift */,
 				167246241B1B4F0D0083035F /* ReadingRoomTableViewCell.swift */,
 			);
 			name = Library;
@@ -1601,6 +1618,7 @@
 				1631A2CF1CEF4EA60078381F /* SectorData.swift in Sources */,
 				16A30A711C8D3DB300CC73F8 /* PecentageColorPresentable.swift in Sources */,
 				1660A4AF1C8FA320003D5460 /* ImageProvider.swift in Sources */,
+				1631A2DC1CF025060078381F /* Int.swift in Sources */,
 				1631A2D51CEF4F240078381F /* API.swift in Sources */,
 				16538EB81C4F16E40097A4F4 /* kuStudy.swift in Sources */,
 			);
@@ -1616,13 +1634,11 @@
 				167246231B1B4BEC0083035F /* LibraryTableViewCell.swift in Sources */,
 				167245C51B19C0370083035F /* AppDelegate.swift in Sources */,
 				167246251B1B4F0D0083035F /* ReadingRoomTableViewCell.swift in Sources */,
-				1694D4741C6309FB00A9914C /* LibraryDataSource.swift in Sources */,
 				16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */,
 				1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift in Sources */,
 				164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */,
 				16EE13AD1C8AE2F2002D4F12 /* ShadowGradientView.swift in Sources */,
 				167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */,
-				1694D4721C63024A00A9914C /* SummaryDataSource.swift in Sources */,
 				1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */,
 				16D28D971C89471A00D7EE3B /* RingImageView.swift in Sources */,
 				16DB2DAE1C55D5770096AFB9 /* Extensions.swift in Sources */,
@@ -1643,6 +1659,7 @@
 			files = (
 				16E9459E1C8D36C50084A245 /* ReadingRoom.swift in Sources */,
 				16E945971C8D1E510084A245 /* Seatable.swift in Sources */,
+				1631A2DF1CF17EF30078381F /* CircularProgressView.swift in Sources */,
 				1631A2D71CEF51480078381F /* LibraryType.swift in Sources */,
 				167246121B1AB1C70083035F /* kuStudyAPI.swift in Sources */,
 				16E945A01C8D37DE0084A245 /* Identifiable.swift in Sources */,
@@ -1656,6 +1673,7 @@
 				1631A2CE1CEF4EA60078381F /* SectorData.swift in Sources */,
 				16A30A701C8D3DAC00CC73F8 /* PecentageColorPresentable.swift in Sources */,
 				1660A4AE1C8FA31F003D5460 /* ImageProvider.swift in Sources */,
+				1631A2DB1CF025060078381F /* Int.swift in Sources */,
 				1631A2D41CEF4F240078381F /* API.swift in Sources */,
 				1600D6371B2040A5008000B8 /* Library.swift in Sources */,
 			);

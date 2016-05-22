@@ -10,25 +10,30 @@ import UIKit
 import kuStudyKit
 
 class LibraryTableViewCell: UITableViewCell {
-    @IBOutlet weak var libraryImageView: RingImageView!
+    @IBOutlet weak var thumbnailImageView: UIImageView!
+    @IBOutlet weak var percentageView: CircularProgressView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
-    @IBOutlet weak var usedLabel: UILabel!
-    
+
     // MARK: Setup
     override func awakeFromNib() {
         super.awakeFromNib()
-        libraryImageView.layer.cornerRadius = libraryImageView.bounds.width / 2
+        thumbnailImageView.layer.cornerRadius = thumbnailImageView.bounds.width / 2
+        percentageView.progressBackgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.95, alpha: 1)
     }
     
     // MARK: Populate
-    func populate(library: Library) {
-        nameLabel.text = library.name
-        availableLabel.text = library.availableString
-        usedLabel.text = library.usedString
+    func populate(libraryData: LibraryData) {
+        guard let libraryId = libraryData.libraryId,
+            availableSeats = libraryData.availableSeats
+            else { return }
         
-        libraryImageView.ringColor = library.usedPercentageColor
-        libraryImageView.rating = library.usedPercentage
-        libraryImageView.image = library.thumbnail
+        let libraryType = LibraryType(rawValue: libraryId)
+        nameLabel.text = libraryType?.name
+        availableLabel.text = availableSeats.readableFormat
+        
+        thumbnailImageView.image = libraryData.thumbnail
+        percentageView.progress = libraryData.usedPercentage
+        percentageView.progressColor = libraryData.usedPercentageColor
     }
 }
