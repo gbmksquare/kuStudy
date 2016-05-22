@@ -15,10 +15,10 @@ class ReadingRoomCell: NSObject {
     @IBOutlet weak var availableLabel: WKInterfaceLabel!
     @IBOutlet weak var percentGroup: WKInterfaceGroup!
     
-    func populate(readingRoom: ReadingRoom) {
-        nameLabel.setText(readingRoom.name)
-        availableLabel.setText(readingRoom.availableString)
-        availableLabel.setTextColor(readingRoom.usedPercentageColor)
-        percentGroup.setBackgroundColor(readingRoom.usedPercentageColor)
+    func populate(sectorData: SectorData) {
+        nameLabel.setText(sectorData.sectorName)
+        availableLabel.setText(sectorData.availableSeats?.readableFormat)
+        availableLabel.setTextColor(sectorData.usedPercentageColor)
+        percentGroup.setBackgroundColor(sectorData.usedPercentageColor)
     }
 }

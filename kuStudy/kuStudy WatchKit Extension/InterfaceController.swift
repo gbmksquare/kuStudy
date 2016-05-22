@@ -17,64 +17,82 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var summaryLabel: WKInterfaceLabel!
     
     // MARK: Model
-    private var summary: Summary?
-    private var libraries = [Library]()
+    private var summaryData = SummaryData()
+    private var orderedLibraryIds: [String]!
     
     // MARK: Watch
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        updateData()
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        
-        fetchData()
-        
-        // Handoff
-        updateUserActivity(kuStudyHandoffSummary, userInfo: [kuStudyHandoffSummaryKey: kuStudyHandoffSummaryKey], webpageURL: nil)
+        startHandOff()
     }
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+        invalidateUserActivity()
     }
     
     // MARK: Segue
     override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
         switch segueIdentifier {
-        case "libraryDetail": return [libraries[rowIndex].id]
+        case "libraryDetail": return summaryData.libraries[rowIndex]
         default: return nil
         }
     }
     
     // MARK: Action
-    private func fetchData() {
-        kuStudy.requestSeatSummary({ [weak self] (summary, libraries) -> Void in
-                self?.summary = summary
-                self?.libraries = libraries
-                self?.updateDataInView()
-            }) { (error) -> Void in
+    private func updateData() {
+        summaryData.libraries.removeAll(keepCapacity: true)
+        kuStudy.requestAllLibraryData(onLibrarySuccess: { (libraryData) in
+            
+            }, onFailure: { (error) in
                 
+            }) { [weak self] (summaryData) in
+                self?.summaryData = summaryData
+                self?.updateView()
         }
     }
     
-    private func updateDataInView() {
+    private func updateView() {
         // Summary
-        if let summary = summary {
-            summaryLabel.setText(summary.usedString + NSLocalizedString("summary_used_description", bundle: NSBundle(forClass: self.dynamicType), comment: "Describe how many people are studying."))
-            percentageLabel.setText(summary.usedPercentageString)
-            percentageGroup.startAnimatingWithImagesInRange(
-                NSRange(location: 0, length: Int(summary.usedPercentage * 100)),
-                duration: 1, repeatCount: 1)
-        }
+        summaryLabel.setText(summaryData.usedSeats!.readableFormat + NSLocalizedString("summary_used_description", bundle: NSBundle(forClass: self.dynamicType), comment: "Describe how many people are studying."))
+        percentageLabel.setText(summaryData.usedPercentage.readablePercentageFormat)
+        percentageGroup.startAnimatingWithImagesInRange(
+            NSRange(location: 0, length: Int(summaryData.usedPercentage * 100)),
+            duration: 1, repeatCount: 1)
         
         // Table
-        table.setNumberOfRows(libraries.count, withRowType: "libraryCell")
-        for index in 0 ..< libraries.count {
-            let library = libraries[index]
+        table.setNumberOfRows(summaryData.libraries.count, withRowType: "libraryCell")
+        for (index, libraryData) in summaryData.libraries.enumerate() {
             let row = table.rowControllerAtIndex(index) as! LibraryCell
-            row.populate(library)
+            row.populate(libraryData)
         }
+    }
+    
+    private func reorderLibraryData() {
+        // TODO: Enable reordering
+        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+        orderedLibraryIds = defaults.arrayForKey("libraryOrder") as! [String]
+        
+        var orderedLibraries = [LibraryData]()
+        for libraryId in orderedLibraryIds {
+            guard let libraryData = summaryData.libraries.filter({ $0.libraryId! == libraryId }).first else { continue }
+            orderedLibraries.append(libraryData)
+        }
+        summaryData.libraries = orderedLibraries
+    }
+}
+
+// MARK:
+// MARK: Handoff
+extension InterfaceController {
+    private func startHandOff() {
+        updateUserActivity(kuStudyHandoffSummary, userInfo: [kuStudyHandoffSummaryKey: kuStudyHandoffSummaryKey], webpageURL: nil)
     }
 }

@@ -16,11 +16,13 @@ class LibraryCell: NSObject {
     @IBOutlet weak var usedLabel: WKInterfaceLabel!
     @IBOutlet weak var percentGroup: WKInterfaceGroup!
     
-    func populate(library: Library) {
-        nameLabel.setText(library.name)
-        availableLabel.setText(library.availableString)
-        availableLabel.setTextColor(library.usedPercentageColor)
-        usedLabel.setText(library.usedString)
-        percentGroup.setBackgroundColor(library.usedPercentageColor)
+    func populate(libraryData: LibraryData) {
+        guard let libraryId = libraryData.libraryId else { return }
+        guard let libraryType = LibraryType(rawValue: libraryId) else { return }
+        nameLabel.setText(libraryType.name)
+        availableLabel.setText(libraryData.availableSeats?.readableFormat)
+        usedLabel.setText(libraryData.usedSeats?.readableFormat)
+        availableLabel.setTextColor(libraryData.usedPercentageColor)
+        percentGroup.setBackgroundColor(libraryData.usedPercentageColor)
     }
 }

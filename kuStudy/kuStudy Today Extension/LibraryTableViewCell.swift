@@ -21,12 +21,14 @@ class LibraryTableViewCell: UITableViewCell {
     }
     
     // MARK: Populate
-    func populate(library: Library) {
-        nameLabel.text = library.name
-        availableLabel.text = library.availableString
+    func populate(libraryData: LibraryData) {
+        guard let libraryId = libraryData.libraryId else { return }
+        let libraryType = LibraryType(rawValue: libraryId)
+        nameLabel.text = libraryType?.name
+        availableLabel.text = libraryData.availableSeats?.readableFormat
         
-        libraryImageView.ringColor = library.usedPercentageColor
-        libraryImageView.rating = library.usedPercentage
-        libraryImageView.image = library.thumbnail
+        libraryImageView.ringColor = libraryData.usedPercentageColor
+        libraryImageView.rating = libraryData.usedPercentage
+        libraryImageView.image = libraryData.thumbnail
     }
 }

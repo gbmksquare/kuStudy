@@ -15,24 +15,26 @@ public typealias FailureHandler = (error: NSError) -> Void
 private let apiUrl = "http://cdl.korea.ac.kr/DLMS_KOU_INTRO/api/seatStatusList.do"
 
 public extension kuStudy {
-    public class func requestAllLibraryData(onLibrarySuccess onLibrarySuccess: ((libraryData: LibraryData) -> ())?, onFailure: FailureHandler?, onCompletion: (() -> ())?) {
+    public class func requestAllLibraryData(onLibrarySuccess onLibrarySuccess: ((libraryData: LibraryData) -> ())?, onFailure: FailureHandler?, onCompletion: ((summaryData: SummaryData) -> ())?) {
         let libraryTypes = LibraryType.allTypes()
         var completeCount = 0
+        let summaryData = SummaryData()
         for type in libraryTypes {
             let libraryId = type.rawValue
             requestLibraryData(libraryId: libraryId,
                onSuccess: { (libraryData) in
                     onLibrarySuccess?(libraryData: libraryData)
+                    summaryData.libraries.append(libraryData)
                     completeCount += 1
                     if completeCount == libraryTypes.count {
-                        onCompletion?()
+                        onCompletion?(summaryData: summaryData)
                     }
                 },
                onFailure: { (error) in
                     onFailure?(error: error)
                     completeCount += 1
                     if completeCount == libraryTypes.count {
-                        onCompletion?()
+                        onCompletion?(summaryData: summaryData)
                     }
             })
         }

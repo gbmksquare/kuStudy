@@ -18,61 +18,66 @@ class DetailInterfaceController: WKInterfaceController {
     @IBOutlet weak var percentageGroup: WKInterfaceGroup!
     
     // MARK: Model
-    var libraryId: Int!
-    private var library: Library?
-    private var readingRooms = [ReadingRoom]()
+    var libraryData: LibraryData!
     
     // MARK: Watch
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
-        
-        libraryId = (context as! [Int]).first!
+        libraryData = context as! LibraryData
+        updateView()
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        
-        fetchData()
-        
-        // Handoff
-        updateUserActivity(kuStudyHandoffLibrary, userInfo: [kuStudyHandoffLibraryIdKey: libraryId], webpageURL: nil)
+        updateData()
+        startHandoff()
     }
     
     override func didDeactivate() {
         // This method is called when watch view controller is no longer visible
         super.didDeactivate()
+        invalidateUserActivity()
     }
     
     // MARK: Action
-    private func fetchData() {
-        kuStudy.requestLibrarySeatSummary(libraryId,
-            success: { [weak self] (library, readingRooms) -> Void in
-                self?.library = library
-                self?.readingRooms = readingRooms
-                self?.updateDataInView()
-            }) { (error) -> Void in
-                
+    private func updateData() {
+        guard let libraryId = libraryData.libraryId else { return }
+        kuStudy.requestLibraryData(libraryId: libraryId,
+           onSuccess: { [weak self](libraryData) in
+            self?.updateView()
+        }) { [weak self] (error) in
+            self?.updateView()
         }
     }
     
-    private func updateDataInView() {
-        if let library = library {
-            totalLabel.setText(library.totalString)
-            usedLabel.setText(library.usedString)
-            availableLabel.setText(library.availableString)
-            availableLabel.setTextColor(library.usedPercentageColor)
-            percentageGroup.startAnimatingWithImagesInRange(
-                NSRange(location: 0, length: Int(library.usedPercentage * 100)),
-                duration: 1, repeatCount: 1)
-        }
+    private func updateView() {
+        guard let libraryId = libraryData.libraryId else { return }
+        let libraryType = LibraryType(rawValue: libraryId)
+        setTitle(libraryType?.name)
+        totalLabel.setText(libraryData.totalSeats?.readableFormat)
+        usedLabel.setText(libraryData.usedSeats?.readableFormat)
+        availableLabel.setText(libraryData.availableSeats?.readableFormat)
+        availableLabel.setTextColor(libraryData.usedPercentageColor)
+        percentageGroup.startAnimatingWithImagesInRange(
+            NSRange(location: 0, length: Int(libraryData.usedPercentage * 100)),
+            duration: 1, repeatCount: 1)
         
         // Refresh table
-        table.setNumberOfRows(readingRooms.count, withRowType: "readingRoomCell")
-        for index in 0 ..< readingRooms.count {
-            let readingRoom = readingRooms[index]
+        guard let sectors = libraryData.sectors else { return }
+        table.setNumberOfRows(sectors.count, withRowType: "readingRoomCell")
+        for (index, sectorData) in sectors.enumerate() {
             let row = table.rowControllerAtIndex(index) as! ReadingRoomCell
-            row.populate(readingRoom)
+            row.populate(sectorData)
         }
+    }
+}
+
+// MARK:
+// MARK: Handoff
+extension DetailInterfaceController {
+    private func startHandoff() {
+        guard let libraryId = libraryData.libraryId else { return }
+        updateUserActivity(kuStudyHandoffLibrary, userInfo: [kuStudyHandoffLibraryIdKey: libraryId], webpageURL: nil)
     }
 }

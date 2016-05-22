@@ -62,7 +62,7 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         }, onFailure: { [weak self] (error) in
             self?.error = error
             self?.dataState = .Error
-        }) { [weak self] in
+        }) { [weak self] (summaryData: SummaryData) in
             sender?.endRefreshing()
             self?.reorderLibraryData()
             self?.updateView()
