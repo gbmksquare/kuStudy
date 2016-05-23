@@ -19,21 +19,22 @@ class GlanceController: WKInterfaceController {
     @IBOutlet weak var scienceCampusLabel: WKInterfaceLabel!
     
     // MARK: Model
-    private var summary: Summary?
-    private var libraries = [Library]()
+    private var summaryData = SummaryData()
     
-    private let liberalArtCampusIds = [1, 2, 5]
-    private let scienceCampusIds = [3, 4]
+    private var liberalArtCampusIds = [String]()
+    private var scienceCampusIds = [String]()
     
     // MARK: Watch
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        liberalArtCampusIds = [LibraryType.CentralLibrary, LibraryType.CentralSquare, LibraryType.CDL].map({ "\($0.rawValue)" })
+        scienceCampusIds = [LibraryType.ScienceLibrary, LibraryType.HanaSquare].map({ "\($0.rawValue)" })
     }
     
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
-        fetchData()
+        updateData()
     }
     
     override func didDeactivate() {
@@ -42,38 +43,38 @@ class GlanceController: WKInterfaceController {
     }
     
     // MARK: Action
-    private func fetchData() {
-        kuStudy.requestSeatSummary({ [weak self] (summary, libraries) -> Void in
-                self?.summary = summary
-                self?.libraries = libraries
-                self?.updateDataInView()
-            }) { (error) -> Void in
+    private func updateData() {
+        kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
+            
+            }, onFailure: { (error) in
                 
+            }) { [weak self] (summaryData) in
+                self?.summaryData = summaryData
+                self?.updateView()
         }
     }
     
-    // MARK: Data
-    private func updateDataInView() {
+    private func updateView() {
         // Summary
-        if let summary = summary {
-            availableLabel.setText(summary.availableString)
-            percentageLabel.setText(summary.usedPercentageString)
-            percentageGroup.startAnimatingWithImagesInRange(
-                NSRange(location: 0, length: Int(summary.usedPercentage * 100)),
-                duration: 1, repeatCount: 1)
-        }
+        availableLabel.setText(summaryData.availableSeats?.readableFormat)
+        percentageLabel.setText(summaryData.usedPercentage.readablePercentageFormat)
+        percentageGroup.startAnimatingWithImagesInRange(
+            NSRange(location: 0, length: Int(summaryData.usedPercentage * 100)),
+            duration: 1, repeatCount: 1)
         
         // Campus
         var liberalArtsCampusAvailable = 0
         var scienceCampusAvailable = 0
-        for library in libraries {
-            if liberalArtCampusIds.contains(library.id) {
-                liberalArtsCampusAvailable += library.available
-            } else if scienceCampusIds.contains(library.id) {
-                scienceCampusAvailable += library.available
+        for libraryData in summaryData.libraries {
+            if let libraryId = libraryData.libraryId, availableSeats = libraryData.availableSeats {
+                if liberalArtCampusIds.contains(libraryId) {
+                    liberalArtsCampusAvailable += availableSeats
+                } else if scienceCampusIds.contains(libraryId) {
+                    scienceCampusAvailable += availableSeats
+                }
             }
         }
-        liberalArtCampusLabel.setText(String(liberalArtsCampusAvailable))
-        scienceCampusLabel.setText(String(scienceCampusAvailable))
+        liberalArtCampusLabel.setText(String(liberalArtsCampusAvailable.readableFormat))
+        scienceCampusLabel.setText(String(scienceCampusAvailable.readableFormat))
     }
 }
