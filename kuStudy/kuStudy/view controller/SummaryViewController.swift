@@ -20,7 +20,7 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     @IBOutlet weak var tableView: UITableView!
     private  var refreshControl = UIRefreshControl()
     
-    private var libraryDataArray = [LibraryData]()
+    private var summaryData = SummaryData()
     private var dataState: DataSourceState = .Fetching
     private var error: NSError?
     
@@ -56,14 +56,14 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     @objc private func updateData(sender: UIRefreshControl? = nil) {
         dataState = .Fetching
         NetworkActivityManager.increaseActivityCount()
-        libraryDataArray.removeAll(keepCapacity: true)
-        kuStudy.requestAllLibraryData(onLibrarySuccess: { [weak self] (libraryData) in
-            self?.libraryDataArray.append(libraryData)
+        kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
+            
         }, onFailure: { [weak self] (error) in
             self?.error = error
             self?.dataState = .Error
         }) { [weak self] (summaryData: SummaryData) in
             sender?.endRefreshing()
+            self?.summaryData = summaryData
             self?.reorderLibraryData()
             self?.updateView()
             NetworkActivityManager.decreaseActivityCount()
@@ -71,7 +71,7 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     }
     
     private func updateView() {
-        if let libraryData = libraryDataArray.filter({ $0.libraryId == LibraryType.CentralSquare.rawValue }).first {
+        if let libraryData = summaryData.libraries.filter({ $0.libraryId == LibraryType.CentralSquare.rawValue }).first {
             headerImageView.image = libraryData.photo?.image
         }
         tableView.reloadData()
@@ -83,10 +83,10 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         
         var orderedLibraryData = [LibraryData]()
         for libraryId in orderedLibraryIds {
-            guard let libraryData = self.libraryDataArray.filter({ $0.libraryId! == libraryId }).first else { continue }
+            guard let libraryData = summaryData.libraries.filter({ $0.libraryId! == libraryId }).first else { continue }
             orderedLibraryData.append(libraryData)
         }
-        libraryDataArray = orderedLibraryData
+        summaryData.libraries = orderedLibraryData
     }
 }
 
@@ -102,7 +102,7 @@ extension SummaryViewController {
                 destinationViewController.libraryId = libraryId
             } else {
                 guard let selectedRow = tableView.indexPathForSelectedRow?.row else { return }
-                let libraryData = libraryDataArray[selectedRow]
+                let libraryData = summaryData.libraries[selectedRow]
                 destinationViewController.libraryId = libraryData.libraryId
             }
         default: break
@@ -119,11 +119,11 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return libraryDataArray.count
+        return summaryData.libraries.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let libraryData = libraryDataArray[indexPath.row]
+        let libraryData = summaryData.libraries[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
         cell.populate(libraryData)
         return cell
@@ -189,7 +189,7 @@ extension SummaryViewController {
         let locationInTableView = tableView.convertPoint(location, fromView: view)
         guard let indexPath = tableView.indexPathForRowAtPoint(locationInTableView) else { return nil }
         let libraryViewController = self.storyboard?.instantiateViewControllerWithIdentifier("libraryViewController") as! LibraryViewController
-        let libraryData = libraryDataArray[indexPath.row]
+        let libraryData = summaryData.libraries[indexPath.row]
         libraryViewController.libraryId = libraryData.libraryId
         return libraryViewController
     }

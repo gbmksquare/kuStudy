@@ -22,7 +22,17 @@ class InterfaceController: WKInterfaceController {
     
     // MARK: Watch
     override func awakeWithContext(context: AnyObject?) {
+        func registerDefaultPreferences() {
+            let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+            let libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
+            defaults.registerDefaults(["libraryOrder": libraryOrder,
+                "todayExtensionOrder": libraryOrder,
+                "todayExtensionHidden": []])
+            defaults.synchronize()
+        }
+        
         super.awakeWithContext(context)
+        registerDefaultPreferences()
         updateData()
     }
     
@@ -49,12 +59,13 @@ class InterfaceController: WKInterfaceController {
     // MARK: Action
     private func updateData() {
         summaryData.libraries.removeAll(keepCapacity: true)
-        kuStudy.requestAllLibraryData(onLibrarySuccess: { (libraryData) in
+        kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
             
             }, onFailure: { (error) in
                 
             }) { [weak self] (summaryData) in
                 self?.summaryData = summaryData
+                self?.reorderLibraryData()
                 self?.updateView()
         }
     }
@@ -76,7 +87,6 @@ class InterfaceController: WKInterfaceController {
     }
     
     private func reorderLibraryData() {
-        // TODO: Enable reordering
         let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
         orderedLibraryIds = defaults.arrayForKey("libraryOrder") as! [String]
         

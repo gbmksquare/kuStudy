@@ -15,7 +15,7 @@ public typealias FailureHandler = (error: NSError) -> Void
 private let apiUrl = "http://cdl.korea.ac.kr/DLMS_KOU_INTRO/api/seatStatusList.do"
 
 public extension kuStudy {
-    public class func requestAllLibraryData(onLibrarySuccess onLibrarySuccess: ((libraryData: LibraryData) -> ())?, onFailure: FailureHandler?, onCompletion: ((summaryData: SummaryData) -> ())?) {
+    public class func requestSummaryData(onLibrarySuccess onLibrarySuccess: ((libraryData: LibraryData) -> ())?, onFailure: FailureHandler?, onCompletion: ((summaryData: SummaryData) -> ())?) {
         let libraryTypes = LibraryType.allTypes()
         var completeCount = 0
         let summaryData = SummaryData()

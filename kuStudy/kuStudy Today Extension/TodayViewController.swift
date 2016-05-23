@@ -11,7 +11,7 @@ import NotificationCenter
 import kuStudyKit
 
 enum DataSourceState {
-    case Fetching, Error
+    case Loaded, Fetching, Error
 }
 
 class TodayViewController: UIViewController {
@@ -25,7 +25,7 @@ class TodayViewController: UIViewController {
     @IBOutlet weak var emptyDataLabel: UILabel!
     @IBOutlet weak var emptyDataViewConstraint: NSLayoutConstraint!
     
-    private var libraryDataArray = [LibraryData]()
+    private var summaryData = SummaryData()
     private var dataState: DataSourceState = .Fetching
     private var error: NSError?
     
@@ -33,49 +33,58 @@ class TodayViewController: UIViewController {
     
     // MARK: View
     override func viewDidLoad() {
+        func registerDefaultPreferences() {
+            let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+            let libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
+            defaults.registerDefaults(["libraryOrder": libraryOrder,
+                "todayExtensionOrder": libraryOrder,
+                "todayExtensionHidden": []])
+            defaults.synchronize()
+        }
+        
         super.viewDidLoad()
         addObserver()
+        registerDefaultPreferences()
         tableView.delegate = self
         tableView.dataSource = self
         tableViewHeightConstraint.constant = 0
         footerHeightConstraint.constant = 0
         emptyDataViewConstraint.constant = 50
         emptyDataLabel.text = "Loading data..."
+        updateData()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        updateData()
+        
     }
     
     // MARK: Action
     private func updateData() {
         dataState = .Fetching
         error = nil
-        libraryDataArray.removeAll(keepCapacity: true)
-        kuStudy.requestAllLibraryData(onLibrarySuccess: { [weak self] (libraryData) in
-                self?.libraryDataArray.append(libraryData)
+        kuStudy.requestSummaryData(onLibrarySuccess: { [weak self] (libraryData) in
+                self?.dataState = .Loaded
             }, onFailure: { [weak self] (error) in
                 self?.error = error
                 self?.dataState = .Error
             }) { [weak self] (summaryData) in
-//                self?.reorderLibraryData()
+                self?.summaryData = summaryData
+                self?.reorderLibraryData()
                 self?.updateView()
         }
     }
     
     private func updateView() {
-        if libraryDataArray.count > 0 {
-            tableViewHeightConstraint.constant = CGFloat(libraryDataArray.count) * tableView.rowHeight
+        if summaryData.libraries.count > 0 {
+            tableViewHeightConstraint.constant = CGFloat(summaryData.libraries.count) * tableView.rowHeight
             footerHeightConstraint.constant = 50
             emptyDataViewConstraint.constant = 0
             tableView.reloadData()
-        //
-        //        guard let summary = dataSource.summary else { return }
-        //
-        //        totalUsedLabel.text = summary.usedString + " people are studying."
-        //        updatedTimeLabel.text = "Updated: " + summary.updatedTimeString
-        //        emptyDataLabel.text = dataSource.dataState == .Loaded ? "" : "Error occurred."
+        
+            totalUsedLabel.text = summaryData.totalSeats!.readableFormat + " people are studying."
+            updatedTimeLabel.text = "Updated: " + NSDate().description
+            emptyDataLabel.text = dataState == .Loaded ? "" : "Error occurrred."
         } else {
             tableViewHeightConstraint.constant = 0
             footerHeightConstraint.constant = 0
@@ -90,10 +99,10 @@ class TodayViewController: UIViewController {
         
         var orderedLibraryData = [LibraryData]()
         for libraryId in orderedLibraryIds {
-            guard let libraryData = self.libraryDataArray.filter({ $0.libraryId! == libraryId }).first else { continue }
+            guard let libraryData = summaryData.libraries.filter({ $0.libraryId! == libraryId }).first else { continue }
             orderedLibraryData.append(libraryData)
         }
-        libraryDataArray = orderedLibraryData
+        summaryData.libraries = orderedLibraryData
     }
 }
 
@@ -105,22 +114,14 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return libraryDataArray.count
+        return summaryData.libraries.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let libraryData = libraryDataArray[indexPath.row]
+        let libraryData = summaryData.libraries[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
         cell.populate(libraryData)
         return cell
-//        
-//        let libraryId = orderedLibraryIds[indexPath.row]
-//        let library = libraries.filter({ $0.id == Int(libraryId)! }).first
-//        let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
-//        if let library = library {
-//            cell.populate(library)
-//        }
-//        return cell
     }
 }
 
