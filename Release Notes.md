@@ -1,6 +1,13 @@
 # Release Notes
 
-## 0.3.0 (3)
+## 0.3.0 (4)
+
+* Now using official API to get data.
+* 
+
+## 0.2.0 (3)
+
+* TestFlight beta refresh.
 
 ## 0.2.0 (2)
 
