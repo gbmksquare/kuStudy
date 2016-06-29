@@ -127,6 +127,20 @@ public extension LibraryData {
         default: return kuStudyColorConfirm
         }
     }
+    
+    public var availablePercentage: Float {
+        guard let availableSeats = availableSeats, totalSeats = totalSeats else { return 0 }
+        return Float(availableSeats) / Float(totalSeats)
+    }
+    
+    public var availablePercentageColor: UIColor {
+        switch availablePercentage {
+        case let p where p < 0.1: return kuStudyColorError
+        case let p where p < 0.25: return kuStudyColorWarning
+        case let p where p < 0.4: return kuStudyColorLightWarning
+        default: return kuStudyColorConfirm
+        }
+    }
 }
 
 // MARK:

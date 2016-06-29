@@ -27,8 +27,8 @@ class LibraryTableViewCell: UITableViewCell {
         nameLabel.text = libraryType?.name
         availableLabel.text = libraryData.availableSeats?.readableFormat
         
-        libraryImageView.ringColor = libraryData.usedPercentageColor
-        libraryImageView.rating = libraryData.usedPercentage
+        libraryImageView.ringColor = libraryData.availablePercentageColor
+        libraryImageView.rating = libraryData.availablePercentage
         libraryImageView.image = libraryData.thumbnail
     }
 }

@@ -33,7 +33,7 @@ class LibraryTableViewCell: UITableViewCell {
         availableLabel.text = availableSeats.readableFormat
         
         thumbnailImageView.image = libraryData.thumbnail
-        percentageView.progress = libraryData.usedPercentage
-        percentageView.progressColor = libraryData.usedPercentageColor
+        percentageView.progress = libraryData.availablePercentage
+        percentageView.progressColor = libraryData.availablePercentageColor
     }
 }
