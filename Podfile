@@ -27,7 +27,7 @@ target 'kuStudy Today Extension' do
   use_frameworks!
   platform :ios, '9.0'
 
-  shared_pods
+  # shared_pods
 end
 
 target 'kuStudy WatchKit App' do
