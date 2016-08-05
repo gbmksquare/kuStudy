@@ -18,7 +18,7 @@ class LibraryViewController: UIViewController {
     
     @IBOutlet weak var libraryNameLabel: UILabel!
     
-    var libraryId: String!
+    var libraryId: String! = "0"
     private var libraryData: LibraryData?
     
     private var dataState: DataSourceState = .Fetching
@@ -27,6 +27,9 @@ class LibraryViewController: UIViewController {
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.setTransparentNavigationBar()
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
+        navigationItem.leftItemsSupplementBackButton = true
         libraryNameLabel.text = ""
         tableView.delegate = self
         tableView.dataSource = self

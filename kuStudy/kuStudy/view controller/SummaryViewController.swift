@@ -96,7 +96,7 @@ extension SummaryViewController {
         guard let identifier = segue.identifier else { return }
         switch identifier {
         case "librarySegue":
-            let destinationViewController = segue.destinationViewController as! LibraryViewController
+            let destinationViewController = (segue.destinationViewController as! UINavigationController).childViewControllers.first as! LibraryViewController
             if sender is String { // Handoff
                 let libraryId = sender as! String
                 destinationViewController.libraryId = libraryId

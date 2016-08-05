@@ -34,6 +34,7 @@
 		16538EAE1C4F16830097A4F4 /* kuStudyWatchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		16538EB81C4F16E40097A4F4 /* kuStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672460F1B1AB1AD0083035F /* kuStudy.swift */; };
 		1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift */; };
+		165E54A31D51CD7800D7B95E /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165E54A21D51CD7800D7B95E /* MainSplitViewController.swift */; };
 		1660A4AE1C8FA31F003D5460 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE13B21C8AED5B002D4F12 /* ImageProvider.swift */; };
 		1660A4AF1C8FA320003D5460 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE13B21C8AED5B002D4F12 /* ImageProvider.swift */; };
 		1660A4B11C8FA470003D5460 /* Photos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16EE13B01C8AECB2002D4F12 /* Photos.plist */; };
@@ -240,6 +241,7 @@
 		16538EA81C4F16820097A4F4 /* kuStudyWatchKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kuStudyWatchKit.h; sourceTree = "<group>"; };
 		16538EAA1C4F16820097A4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodayExtensionOrderTableViewController.swift; path = "view controller/TodayExtensionOrderTableViewController.swift"; sourceTree = "<group>"; };
+		165E54A21D51CD7800D7B95E /* MainSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainSplitViewController.swift; path = "view controller/MainSplitViewController.swift"; sourceTree = "<group>"; };
 		1660A4B71C8FB4EE003D5460 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = LibraryPhotos.xcassets; path = kuStudyKit/LibraryPhotos.xcassets; sourceTree = SOURCE_ROOT; };
 		167245BF1B19C0370083035F /* kuStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kuStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -511,6 +513,7 @@
 		164C0E911C5608D1004C6663 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				165E54A21D51CD7800D7B95E /* MainSplitViewController.swift */,
 				164C0E921C5608E0004C6663 /* MainTabBarController.swift */,
 			);
 			name = Main;
@@ -693,9 +696,9 @@
 			isa = PBXGroup;
 			children = (
 				164C0E911C5608D1004C6663 /* Main */,
+				164C0E941C5609C4004C6663 /* Settings */,
 				167246281B1BE9F30083035F /* Summary */,
 				167246291B1BE9FA0083035F /* Library */,
-				164C0E941C5609C4004C6663 /* Settings */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -1574,6 +1577,7 @@
 				164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */,
 				167246231B1B4BEC0083035F /* LibraryTableViewCell.swift in Sources */,
 				167245C51B19C0370083035F /* AppDelegate.swift in Sources */,
+				165E54A31D51CD7800D7B95E /* MainSplitViewController.swift in Sources */,
 				167246251B1B4F0D0083035F /* ReadingRoomTableViewCell.swift in Sources */,
 				16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */,
 				1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift in Sources */,
