@@ -1,5 +1,7 @@
 # Release Notes
 
+## 0.3.0 (9)
+
 ## 0.3.0 (8)
 
 ### New features
