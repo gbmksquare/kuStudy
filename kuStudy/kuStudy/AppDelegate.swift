@@ -11,6 +11,7 @@ import UIKit
 import kuStudyKit
 import Fabric
 import Crashlytics
+import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         registerDefaultPreferences()
         customizeAppearance()
         listenForUserDefaultsDidChange()
+        NetworkActivityIndicatorManager.sharedManager.isEnabled = true
         return true
     }
 
@@ -67,8 +69,8 @@ extension AppDelegate {
     }
     
     private func customizeAppearance() {
-        UINavigationBar.appearance().barStyle = UIBarStyle.Black
-        UINavigationBar.appearance().barTintColor = UIColor.navigationColor()
+        UINavigationBar.appearance().barStyle = .Black
+        UINavigationBar.appearance().barTintColor = UIColor.themeColor
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()

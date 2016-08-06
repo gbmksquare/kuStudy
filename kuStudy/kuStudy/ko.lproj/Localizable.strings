@@ -6,22 +6,15 @@
   Copyright © 2016년 gbmKSquare. All rights reserved.
 */
 
+"kuStudy.Total" = "전체";
+"kuStudy.Available" = "잔여";
+"kuStudy.Used" = "사용 중";
+
 /*
  * ./kuStudy/kuStudy/view controller/SummaryViewController.swift
  */
 
-"edit" = "수정";
-
-"done" = "완료";
-
 "Updated: " = "업데이트: ";
-
-
-/*
- * ./kuStudy/kuStudy/Base.lproj/LaunchScreen.xib
- */
-
-"kuStudy" = "kuStudy";
 
 
 /*

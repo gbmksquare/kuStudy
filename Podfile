@@ -1,7 +1,7 @@
 workspace 'kuStudy'
 project './kuStudy/kuStudy.xcodeproj'
 
-# inhibit_all_warnings!
+inhibit_all_warnings!
 
 def shared_pods
   pod 'Alamofire'
@@ -13,7 +13,7 @@ target 'kuStudy' do
   use_frameworks!
   platform :ios, '9.0'
 
-  pod 'CTFeedback'
+  pod 'AlamofireNetworkActivityIndicator'
   pod 'Localize-Swift'
   pod 'DZNEmptyDataSet'
   shared_pods

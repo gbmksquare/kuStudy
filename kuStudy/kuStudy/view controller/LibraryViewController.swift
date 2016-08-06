@@ -13,10 +13,14 @@ import DZNEmptyDataSet
 class LibraryViewController: UIViewController {
     @IBOutlet weak var summaryView: UIView!
     @IBOutlet weak var headerImageView: UIImageView!
-    @IBOutlet weak var tableView: UITableView!
-    private var refreshControl = UIRefreshControl()
+    @IBOutlet weak var headerBlurImageView: UIImageView!
     
     @IBOutlet weak var libraryNameLabel: UILabel!
+    @IBOutlet weak var libraryAvailableLabel: UILabel!
+    @IBOutlet weak var photographerLabel: UILabel!
+    
+    @IBOutlet weak var tableView: UITableView!
+    private var refreshControl = UIRefreshControl()
     
     var libraryId: String!
     private var libraryData: LibraryData?
@@ -51,24 +55,33 @@ class LibraryViewController: UIViewController {
     // MARK: Action
     @objc private func updateData(sender: UIRefreshControl? = nil) {
         guard let libraryId = self.libraryId else { return }
-        NetworkActivityManager.increaseActivityCount()
         kuStudy.requestLibraryData(libraryId: libraryId,
            onSuccess: { [weak self] (libraryData) in
             self?.libraryData = libraryData
             sender?.endRefreshing()
-            NetworkActivityManager.decreaseActivityCount()
             self?.updateView()
         }) { [weak self] (error) in
             self?.dataState = .Error
             self?.error = error
             self?.updateView()
             sender?.endRefreshing()
-            NetworkActivityManager.decreaseActivityCount()
         }
     }
     
     private func updateView() {
+        if let libraryId = libraryData?.libraryId {
+            let libraryType = LibraryType(rawValue: libraryId)
+            libraryNameLabel.text = libraryType?.name
+        }
+        if let availableSeats = libraryData?.availableSeats {
+            libraryAvailableLabel.text = availableSeats.readableFormat + " " + "kuStudy.Available".localized()
+        }
         headerImageView.image = libraryData?.photo?.image
+        headerBlurImageView.image = libraryData?.photo?.image
+        headerBlurImageView.transform = CGAffineTransformMakeScale(1, -1)
+        if let photographer = libraryData?.photo?.photographer {
+            photographerLabel.text = "Photography by " + photographer.name
+        }
         tableView.reloadData()
     }
 }

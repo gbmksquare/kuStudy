@@ -23,6 +23,12 @@
 
 # Future implementation
 
+# Troubleshoot
+
+Q. Error "Today extension contains disallowed file 'Frameworks'." when uploading to iTunes Connect.
+
+A. Remove [CP]Embed Pods Frameworks build phase from Today Extension target.
+
 # Reference
 
 ### Swift

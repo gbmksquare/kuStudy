@@ -55,7 +55,6 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     // MARK: Action
     @objc private func updateData(sender: UIRefreshControl? = nil) {
         dataState = .Fetching
-        NetworkActivityManager.increaseActivityCount()
         kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
             
         }, onFailure: { [weak self] (error) in
@@ -66,7 +65,6 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
             self?.summaryData = summaryData
             self?.reorderLibraryData()
             self?.updateView()
-            NetworkActivityManager.decreaseActivityCount()
         }
     }
     

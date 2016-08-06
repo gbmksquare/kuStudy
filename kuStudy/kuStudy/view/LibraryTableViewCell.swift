@@ -30,7 +30,7 @@ class LibraryTableViewCell: UITableViewCell {
         
         let libraryType = LibraryType(rawValue: libraryId)
         nameLabel.text = libraryType?.name
-        availableLabel.text = availableSeats.readableFormat
+        availableLabel.text = availableSeats.readableFormat + " " + "kuStudy.Available".localized()
         
         thumbnailImageView.image = libraryData.thumbnail
         percentageView.progress = libraryData.availablePercentage

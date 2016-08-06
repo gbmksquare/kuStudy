@@ -1,9 +1,44 @@
 # Release Notes
 
+## 0.3.0 (8)
+
+### New features
+
+* Library view controller shows library name, available seats, and photography information.
+
+### Improvements
+
+* Improved cell interface.
+
+* Today extension uses new percentage style.
+
+* App icon and version in settings show in footer in a smaller scale.
+
+### Removed
+
+* Removed version cell in settings.
+
+* Removed send feedback feature.
+
+
+### Code improvements
+
+* Cleaned code and removed unused class.
+
+* Organized project hierarchy.
+
+* Added AlamofireNetworkActivityIndicatorManager library.
+
+* Updated Localize-Swift library.
+
+* Removed CTFeedback library.
+
+* Cleaned and rebuilt pods libraries.
+
+
 ## 0.3.0 (4)
 
 * Now using official API to get data.
-* 
 
 ## 0.2.0 (3)
 

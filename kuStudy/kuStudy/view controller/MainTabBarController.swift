@@ -9,14 +9,9 @@
 import UIKit
 
 class MainTabBarController: UITabBarController {
-    // MARK: View life cycle
+    // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        customizeTabBarAppearance()
-    }
-    
-    private func customizeTabBarAppearance() {
-        // Bar
-        tabBar.tintColor = UIColor.navigationColor()
+        tabBar.tintColor = UIColor.themeColor
     }
 }

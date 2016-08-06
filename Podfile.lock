@@ -1,31 +1,32 @@
 PODS:
   - Alamofire (3.2.1)
+  - AlamofireNetworkActivityIndicator (1.0.0):
+    - Alamofire (~> 3.2)
   - AlamofireObjectMapper (3.0.0):
     - Alamofire (~> 3.2)
     - ObjectMapper (~> 1.0)
-  - CTFeedback (1.0.23)
   - DZNEmptyDataSet (1.7.3)
-  - Localize-Swift (1.1)
+  - Localize-Swift (1.5)
   - ObjectMapper (1.2.0)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire
+  - AlamofireNetworkActivityIndicator
   - AlamofireObjectMapper
-  - CTFeedback
   - DZNEmptyDataSet
   - Localize-Swift
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
+  AlamofireNetworkActivityIndicator: 34e6fe7ebb5d8df76cc55fbf83a6087ae6457344
   AlamofireObjectMapper: 2d16585d06177be0116d76de73497e77437798af
-  CTFeedback: 145ffb449fea2e5076f57056e3dee2999349ed98
   DZNEmptyDataSet: dd7cca17c1d07dfa78956859b1e70a52505678ef
-  Localize-Swift: 72fab22c9c271a1041082fa3b53ca64e527ccf4a
+  Localize-Swift: 288aa763db72b0628d2cb111fbf5babc90529d0c
   ObjectMapper: b1e9c7c8a9f6400b72690c80072c131504caa66f
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 1b0c1c7cc25e57eb27c8f0ad0d88b955948b75fb
+PODFILE CHECKSUM: b87c2cf5157412e9cef6c5c2519f7f492f4aa115
 
 COCOAPODS: 1.0.1
