@@ -26,5 +26,13 @@
 		<key>association</key>
 		<string>Ilsang</string>
 	</dict>
+	<dict>
+		<key>id</key>
+		<integer>3</integer>
+		<key>name</key>
+		<string>이영준</string>
+		<key>association</key>
+		<string>Ilsang</string>
+	</dict>
 </array>
 </plist>

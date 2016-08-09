@@ -527,6 +527,7 @@
 		165F9C921B2199D400101EBE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */,
 				16EE13B01C8AECB2002D4F12 /* Photos.plist */,
 				16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */,
 				16A887351B21D1FF00C49551 /* Localizable.strings */,
@@ -651,7 +652,6 @@
 			isa = PBXGroup;
 			children = (
 				167245CB1B19C0370083035F /* Images.xcassets */,
-				1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */,
 				16A5807D1C63298000E7EDC5 /* Localizable.strings */,
 			);
 			name = Resource;

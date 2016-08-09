@@ -243,7 +243,7 @@
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="90" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fEo-2s-A6Q">
-                                <rect key="frame" x="0.0" y="220" width="320" height="299"/>
+                                <rect key="frame" x="0.0" y="220" width="320" height="348"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="readingRoomCell" id="ID4-Tw-5l0" customClass="ReadingRoomTableViewCell" customModule="kuStudy" customModuleProvider="target">
@@ -324,9 +324,9 @@
                             <constraint firstAttribute="trailing" secondItem="fEo-2s-A6Q" secondAttribute="trailing" id="DM5-Ff-arN"/>
                             <constraint firstAttribute="trailing" secondItem="NLj-Jj-mfe" secondAttribute="trailing" id="FRp-0U-GlI"/>
                             <constraint firstItem="NLj-Jj-mfe" firstAttribute="top" secondItem="CHN-vV-xkS" secondAttribute="top" id="Jf8-5m-LY6"/>
-                            <constraint firstItem="mUZ-Si-QnI" firstAttribute="top" secondItem="fEo-2s-A6Q" secondAttribute="bottom" id="Jv3-qB-1pf"/>
                             <constraint firstItem="NLj-Jj-mfe" firstAttribute="leading" secondItem="CHN-vV-xkS" secondAttribute="leading" id="bOK-la-Oer"/>
                             <constraint firstAttribute="trailing" secondItem="3nW-7a-meb" secondAttribute="trailing" id="gN6-Wt-XOl"/>
+                            <constraint firstAttribute="bottom" secondItem="fEo-2s-A6Q" secondAttribute="bottom" id="tWR-Lh-XOa"/>
                             <constraint firstItem="fEo-2s-A6Q" firstAttribute="leading" secondItem="CHN-vV-xkS" secondAttribute="leading" id="vEc-8k-G7u"/>
                             <constraint firstItem="3nW-7a-meb" firstAttribute="top" secondItem="CHN-vV-xkS" secondAttribute="top" id="xYr-rr-t4d"/>
                         </constraints>

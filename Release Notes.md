@@ -12,6 +12,7 @@
 
 ### Bug fixes
 
+* Fixed table view bottom inset.
 
 ### Code improvements
 
