@@ -32,6 +32,8 @@ class LibraryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         libraryNameLabel.text = ""
+        libraryAvailableLabel.text = ""
+        photographerLabel.text = ""
         tableView.delegate = self
         tableView.dataSource = self
         tableView.emptyDataSetDelegate = self

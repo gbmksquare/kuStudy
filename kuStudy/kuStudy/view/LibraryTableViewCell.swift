@@ -23,17 +23,29 @@ class LibraryTableViewCell: UITableViewCell {
     }
     
     // MARK: Populate
-    func populate(libraryData: LibraryData) {
-        guard let libraryId = libraryData.libraryId,
-            availableSeats = libraryData.availableSeats
-            else { return }
+    private func updateEmptyView() {
+        thumbnailImageView.image = nil
+        percentageView.progress = 0
+        nameLabel.text = "--"
+        availableLabel.text = "--"
+    }
+    
+    func populate(libraryData: LibraryData?) {
+        guard let libraryData = libraryData else {
+            updateEmptyView()
+            return
+        }
+        guard let libraryId = libraryData.libraryId, availableSeats = libraryData.availableSeats else {
+            updateEmptyView()
+            return
+        }
         
         let libraryType = LibraryType(rawValue: libraryId)
         nameLabel.text = libraryType?.name
         availableLabel.text = availableSeats.readableFormat + " " + "kuStudy.Available".localized()
         
         thumbnailImageView.image = libraryData.thumbnail
-        percentageView.progress = libraryData.availablePercentage
-        percentageView.progressColor = libraryData.availablePercentageColor
+        percentageView.progress = libraryData.usedPercentage
+        percentageView.progressColor = libraryData.usedPercentageColor
     }
 }

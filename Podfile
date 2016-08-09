@@ -6,7 +6,6 @@ inhibit_all_warnings!
 def shared_pods
   pod 'Alamofire'
   pod 'AlamofireObjectMapper'
-  pod 'SwiftyJSON'
 end
 
 target 'kuStudy' do

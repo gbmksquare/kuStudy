@@ -2,6 +2,25 @@
 
 ## 0.3.0 (9)
 
+### New features
+
+### Improvements
+
+* Switched back to showing used percentage on library cell.
+
+* Minor UI improvements.
+
+### Bug fixes
+
+
+### Code improvements
+
+* Updated Fabric.
+
+* Updated pod libraries.
+
+* Removed SwiftyJSON library.
+
 ## 0.3.0 (8)
 
 ### New features

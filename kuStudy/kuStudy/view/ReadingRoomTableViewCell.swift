@@ -17,18 +17,30 @@ class ReadingRoomTableViewCell: UITableViewCell {
     @IBOutlet weak var usedPercentageView: UIProgressView!
     
     // MARK: Populate
-    func populate(sectorData: SectorData) {
-        guard let name = sectorData.sectorName,
-            totalSeats = sectorData.totalSeats,
-            availableSeats = sectorData.availableSeats,
-            usedSeats = sectorData.usedSeats
-            else { return }
+    private func updateEmptyView() {
+        nameLabel.text = "--"
+        availableLabel.text = "--"
+        totalLabel.text = "--"
+        usedLabel.text = "--"
+        usedPercentageView.progress = 0
+    }
+    
+    func populate(sectorData: SectorData?) {
+        guard let sectorData = sectorData else {
+            updateEmptyView()
+            return
+        }
+        guard let name = sectorData.sectorName, totalSeats = sectorData.totalSeats,
+            availableSeats = sectorData.availableSeats, usedSeats = sectorData.usedSeats else {
+                updateEmptyView()
+                return
+        }
         
         nameLabel.text = name
         availableLabel.text = availableSeats.readableFormat + " " + "kuStudy.Available".localized()
-        
         usedLabel.text = usedSeats.readableFormat + " " + "kuStudy.Used".localized()
         totalLabel.text = totalSeats.readableFormat + " " + "kuStudy.Total".localized()
+        
         usedPercentageView.progress = sectorData.usedPercentage
         usedPercentageView.tintColor = sectorData.usedPercentageColor
     }
