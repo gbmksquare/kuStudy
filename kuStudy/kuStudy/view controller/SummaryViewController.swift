@@ -190,6 +190,7 @@ extension SummaryViewController {
         let libraryViewController = self.storyboard?.instantiateViewControllerWithIdentifier("libraryViewController") as! LibraryViewController
         let libraryData = summaryData.libraries[indexPath.row]
         libraryViewController.libraryId = libraryData.libraryId
+        previewingContext.sourceRect = view.convertRect(tableView.rectForRowAtIndexPath(indexPath), fromView: tableView)
         return libraryViewController
     }
     

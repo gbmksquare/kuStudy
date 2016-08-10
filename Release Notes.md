@@ -1,8 +1,22 @@
 # Release Notes
 
-## 0.3.0 (9)
+## 0.3.0 (10)
 
 ### New features
+
+* Added localized app and today widget name.
+
+### Improvements
+
+* Removed redundant information from today widget.
+
+### Bug fixes
+
+* Fixed incorrect Peek & Pop highlight.
+
+### Code improvements
+
+## 0.3.0 (9)
 
 ### Improvements
 

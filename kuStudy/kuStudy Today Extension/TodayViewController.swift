@@ -10,24 +10,11 @@ import UIKit
 import NotificationCenter
 import kuStudyKit
 
-enum DataSourceState {
-    case Loaded, Fetching, Error
-}
-
 class TodayViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var totalUsedLabel: UILabel!
-    @IBOutlet weak var updatedTimeLabel: UILabel!
-    @IBOutlet weak var footerHeightConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var emptyDataLabel: UILabel!
-    @IBOutlet weak var emptyDataViewConstraint: NSLayoutConstraint!
-    
     private var summaryData = SummaryData()
-    private var dataState: DataSourceState = .Fetching
-    private var error: NSError?
     
     private var orderedLibraryIds: [String]!
     
@@ -47,10 +34,7 @@ class TodayViewController: UIViewController {
         registerDefaultPreferences()
         tableView.delegate = self
         tableView.dataSource = self
-        tableViewHeightConstraint.constant = 0
-        footerHeightConstraint.constant = 0
-        emptyDataViewConstraint.constant = 50
-        emptyDataLabel.text = "Loading data..."
+//        tableViewHeightConstraint.constant = 0
         updateData()
     }
     
@@ -61,13 +45,10 @@ class TodayViewController: UIViewController {
     
     // MARK: Action
     private func updateData() {
-        dataState = .Fetching
-        error = nil
         kuStudy.requestSummaryData(onLibrarySuccess: { [weak self] (libraryData) in
-                self?.dataState = .Loaded
+            
             }, onFailure: { [weak self] (error) in
-                self?.error = error
-                self?.dataState = .Error
+                
             }) { [weak self] (summaryData) in
                 self?.summaryData = summaryData
                 self?.reorderLibraryData()
@@ -78,18 +59,9 @@ class TodayViewController: UIViewController {
     private func updateView() {
         if summaryData.libraries.count > 0 {
             tableViewHeightConstraint.constant = CGFloat(summaryData.libraries.count) * tableView.rowHeight
-            footerHeightConstraint.constant = 50
-            emptyDataViewConstraint.constant = 0
             tableView.reloadData()
-        
-            totalUsedLabel.text = summaryData.totalSeats!.readableFormat + " people are studying."
-            updatedTimeLabel.text = "Updated: " + NSDate().description
-            emptyDataLabel.text = dataState == .Loaded ? "" : "Error occurrred."
         } else {
             tableViewHeightConstraint.constant = 0
-            footerHeightConstraint.constant = 0
-            emptyDataViewConstraint.constant = 50
-            emptyDataLabel.text = self.error?.localizedDescription
         }
     }
     
@@ -106,8 +78,7 @@ class TodayViewController: UIViewController {
     }
 }
 
-// MARK:
-// MARK: Table view
+// MARK: - Table view
 extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -125,8 +96,7 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-// MARK:
-// MARK: Widget
+// MARK: - Widget
 extension TodayViewController: NCWidgetProviding {
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         print("Widget update")
@@ -136,12 +106,11 @@ extension TodayViewController: NCWidgetProviding {
     }
     
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15)
+        return UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 0)
     }
 }
 
-// MARK:
-// MARK: Notification
+// MARK: - Notification
 extension TodayViewController {
     private func addObserver() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleUserDefaultsDidChange(_:)), name: NSUserDefaultsDidChangeNotification, object: nil)
