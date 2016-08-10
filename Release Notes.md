@@ -6,6 +6,8 @@
 
 * Added localized app and today widget name.
 
+* Localized today widget.
+
 ### Improvements
 
 * Removed redundant information from today widget.

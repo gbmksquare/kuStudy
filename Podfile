@@ -26,6 +26,7 @@ target 'kuStudy Today Extension' do
   use_frameworks!
   platform :ios, '9.0'
 
+  pod 'Localize-Swift'
   # shared_pods
 end
 

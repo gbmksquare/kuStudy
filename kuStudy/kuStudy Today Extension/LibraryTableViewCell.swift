@@ -8,6 +8,7 @@
 
 import UIKit
 import kuStudyKit
+import Localize_Swift
 
 class LibraryTableViewCell: UITableViewCell {
     @IBOutlet weak var thumbnailImageView: UIImageView!
@@ -28,7 +29,7 @@ class LibraryTableViewCell: UITableViewCell {
         
         let libraryType = LibraryType(rawValue: libraryId)
         nameLabel.text = libraryType?.name
-        availableLabel.text = libraryData.availableSeats.readableFormat + " " + "Available"
+        availableLabel.text = libraryData.availableSeats.readableFormat + " " + "kuStudy.Available".localized()
         
         thumbnailImageView.image = libraryData.thumbnail
         percentageView.progress = libraryData.availablePercentage
