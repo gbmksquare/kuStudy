@@ -6,6 +6,8 @@
 
 ### Improvements
 
+* Switched back to showing available percentage on library cell.
+
 ### Bug fixes
 
 ### Code improvements

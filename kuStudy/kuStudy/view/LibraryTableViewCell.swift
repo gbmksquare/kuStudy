@@ -45,7 +45,7 @@ class LibraryTableViewCell: UITableViewCell {
         availableLabel.text = libraryData.availableSeats.readableFormat + " " + "kuStudy.Available".localized()
         
         thumbnailImageView.image = libraryData.thumbnail
-        percentageView.progress = libraryData.usedPercentage
-        percentageView.progressColor = libraryData.usedPercentageColor
+        percentageView.progress = libraryData.availablePercentage
+        percentageView.progressColor = libraryData.availablePercentageColor
     }
 }
