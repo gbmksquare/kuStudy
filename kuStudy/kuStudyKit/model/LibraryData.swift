@@ -14,9 +14,7 @@ public class LibraryData: Mappable {
     public var sectorCount: Int?
     public var sectors: [SectorData]?
     
-    required public  init?(_ map: Map) {
-        
-    }
+    required public  init?(_ map: Map) { }
     
     public func mapping(map: Map) {
         libraryId <- map["pLibNo"]
@@ -27,119 +25,72 @@ public class LibraryData: Mappable {
 
 // MARK: Computed data
 public extension LibraryData {
-    public var totalSeats: Int? {
-        guard let sectors = self.sectors else { return nil }
-        var totalSeats = 0
-        for sector in sectors {
-            if let seats = sector.totalSeats {
-                totalSeats += seats
-            }
-        }
-        return totalSeats
+    public var totalSeats: Int {
+        guard let sectors = sectors else { return 0 }
+        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+            return initial + (sector.totalSeats ?? 0)
+        })
     }
     
-    public var usedSeats: Int? {
-        guard let sectors = self.sectors else { return nil }
-        var usedSeats = 0
-        for sector in sectors {
-            if let seats = sector.usedSeats {
-                usedSeats += seats
-            }
-        }
-        return usedSeats
+    public var usedSeats: Int {
+        guard let sectors = sectors else { return 0 }
+        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+            return initial + (sector.usedSeats ?? 0)
+        })
     }
     
-    public var availableSeats: Int? {
-        guard let sectors = self.sectors else { return nil }
-        var availableSeats = 0
-        for sector in sectors {
-            if let seats = sector.availableSeats {
-                availableSeats += seats
-            }
-        }
-        return availableSeats
+    public var availableSeats: Int {
+        guard let sectors = sectors else { return 0 }
+        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+            return initial + (sector.availableSeats ?? 0)
+        })
     }
     
-    public var ineligibleSeats: Int? {
-        guard let sectors = self.sectors else { return nil }
-        var ineligibleSeats = 0
-        for sector in sectors {
-            if let seats = sector.ineligibleSeats {
-                ineligibleSeats += seats
-            }
-        }
-        return ineligibleSeats    }
-    
-    public var outOfOrderSeats: Int? {
-        guard let sectors = self.sectors else { return nil }
-        var outOfOrderSeats = 0
-        for sector in sectors {
-            if let seats = sector.outOfOrderSeats {
-                outOfOrderSeats += seats
-            }
-        }
-        return outOfOrderSeats
+    public var ineligibleSeats: Int {
+        guard let sectors = sectors else { return 0 }
+        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+            return initial + (sector.ineligibleSeats ?? 0)
+        })
     }
     
-    public var disabledOnlySeats: Int? {
-        guard let sectors = self.sectors else { return nil }
-        var disabledOnlySeats = 0
-        for sector in sectors {
-            if let seats = sector.disabledOnlySeats {
-                disabledOnlySeats += seats
-            }
-        }
-        return disabledOnlySeats
+    public var outOfOrderSeats: Int {
+        guard let sectors = sectors else { return 0 }
+        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+            return initial + (sector.outOfOrderSeats ?? 0)
+        })
     }
     
-    public var printerCount: Int? {
-        guard let sectors = self.sectors else { return nil }
-        var printerCount = 0
-        for sector in sectors {
-            if let seats = sector.printerCount {
-                printerCount += seats
-            }
-        }
-        return printerCount
+    public var disabledOnlySeats: Int {
+        guard let sectors = sectors else { return 0 }
+        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+            return initial + (sector.disabledOnlySeats ?? 0)
+        })
     }
     
-    public var scannerCount: Int? {
-        guard let sectors = self.sectors else { return nil }
-        var scannerCount = 0
-        for sector in sectors {
-            if let seats = sector.scannerCount {
-                scannerCount += seats
-            }
-        }
-        return scannerCount
+    public var printerCount: Int {
+        guard let sectors = sectors else { return 0 }
+        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+            return initial + (sector.printerCount ?? 0)
+        })
     }
     
-    public var usedPercentage: Float {
-        guard let usedSeats = usedSeats, totalSeats = totalSeats else { return 0 }
-        return Float(usedSeats) / Float(totalSeats)
+    public var scannerCount: Int {
+        guard let sectors = sectors else { return 0 }
+        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+            return initial + (sector.scannerCount ?? 0)
+        })
     }
-    
-    public var usedPercentageColor: UIColor {
-        switch usedPercentage {
-        case let p where p > 0.9: return kuStudyColorError
-        case let p where p > 0.75: return kuStudyColorWarning
-        case let p where p > 0.6: return kuStudyColorLightWarning
-        default: return kuStudyColorConfirm
-        }
-    }
-    
+}
+
+extension LibraryData: PercentagePresentable {
     public var availablePercentage: Float {
-        guard let availableSeats = availableSeats, totalSeats = totalSeats else { return 0 }
+        guard totalSeats != 0 else { return 0 }
         return Float(availableSeats) / Float(totalSeats)
     }
     
-    public var availablePercentageColor: UIColor {
-        switch availablePercentage {
-        case let p where p < 0.1: return kuStudyColorError
-        case let p where p < 0.25: return kuStudyColorWarning
-        case let p where p < 0.4: return kuStudyColorLightWarning
-        default: return kuStudyColorConfirm
-        }
+    public var usedPercentage: Float {
+        guard totalSeats != 0 else { return 0 }
+        return Float(usedSeats) / Float(totalSeats)
     }
 }
 

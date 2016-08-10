@@ -47,6 +47,10 @@
 		1664D5561D55E24B000BAF56 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664D5551D55E24B000BAF56 /* UIApplication.swift */; };
 		1664D55C1D5AC1DD000BAF56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1664D55E1D5AC1DD000BAF56 /* InfoPlist.strings */; };
 		1664D5621D5AC241000BAF56 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1664D5641D5AC241000BAF56 /* InfoPlist.strings */; };
+		1664D5671D5AC637000BAF56 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664D5661D5AC637000BAF56 /* UIColor.swift */; };
+		1664D5681D5AC637000BAF56 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664D5661D5AC637000BAF56 /* UIColor.swift */; };
+		1664D56B1D5AC7E0000BAF56 /* PercentagePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664D56A1D5AC7E0000BAF56 /* PercentagePresentable.swift */; };
+		1664D56C1D5AC7E0000BAF56 /* PercentagePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664D56A1D5AC7E0000BAF56 /* PercentagePresentable.swift */; };
 		167245C51B19C0370083035F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167245C41B19C0370083035F /* AppDelegate.swift */; };
 		167245CA1B19C0370083035F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167245C81B19C0370083035F /* Main.storyboard */; };
 		167245CC1B19C0370083035F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167245CB1B19C0370083035F /* Images.xcassets */; };
@@ -252,6 +256,8 @@
 		1664D55F1D5AC1E0000BAF56 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1664D5631D5AC241000BAF56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1664D5651D5AC244000BAF56 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1664D5661D5AC637000BAF56 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = extension/UIColor.swift; sourceTree = "<group>"; };
+		1664D56A1D5AC7E0000BAF56 /* PercentagePresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PercentagePresentable.swift; path = protocol/PercentagePresentable.swift; sourceTree = "<group>"; };
 		167245BF1B19C0370083035F /* kuStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kuStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		167245C31B19C0370083035F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		167245C41B19C0370083035F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -491,6 +497,7 @@
 			children = (
 				1631A2DA1CF025060078381F /* Int.swift */,
 				16940EF21CF1D564005965A2 /* Float.swift */,
+				1664D5661D5AC637000BAF56 /* UIColor.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -584,6 +591,14 @@
 				16538EA71C4F16820097A4F4 /* kuStudyWatchKit */,
 			);
 			name = Framework;
+			sourceTree = "<group>";
+		};
+		1664D5691D5AC7C4000BAF56 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				1664D56A1D5AC7E0000BAF56 /* PercentagePresentable.swift */,
+			);
+			name = Protocol;
 			sourceTree = "<group>";
 		};
 		167245B61B19C0370083035F = {
@@ -682,6 +697,7 @@
 				1600D6311B204044008000B8 /* API */,
 				1660A4B01C8FA34B003D5460 /* Controller */,
 				1631A2DD1CF17ECD0078381F /* View */,
+				1664D5691D5AC7C4000BAF56 /* Protocol */,
 				1631A2D91CF023FF0078381F /* Extension */,
 				165F9C921B2199D400101EBE /* Resource */,
 			);
@@ -1076,7 +1092,7 @@
 								enabled = 1;
 							};
 							com.apple.Keychain = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1096,7 +1112,7 @@
 								enabled = 1;
 							};
 							com.apple.Keychain = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1120,7 +1136,7 @@
 								enabled = 1;
 							};
 							com.apple.Keychain = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1573,7 +1589,9 @@
 				1631A2CF1CEF4EA60078381F /* SectorData.swift in Sources */,
 				1660A4AF1C8FA320003D5460 /* ImageProvider.swift in Sources */,
 				16940EF41CF1D564005965A2 /* Float.swift in Sources */,
+				1664D5681D5AC637000BAF56 /* UIColor.swift in Sources */,
 				1631A2DC1CF025060078381F /* Int.swift in Sources */,
+				1664D56C1D5AC7E0000BAF56 /* PercentagePresentable.swift in Sources */,
 				1631A2D51CEF4F240078381F /* API.swift in Sources */,
 				16538EB81C4F16E40097A4F4 /* kuStudy.swift in Sources */,
 			);
@@ -1612,6 +1630,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1631A2DF1CF17EF30078381F /* CircularProgressView.swift in Sources */,
+				1664D5671D5AC637000BAF56 /* UIColor.swift in Sources */,
+				1664D56B1D5AC7E0000BAF56 /* PercentagePresentable.swift in Sources */,
 				1631A2D71CEF51480078381F /* LibraryType.swift in Sources */,
 				16940EF61CF1D86E005965A2 /* Definitions.swift in Sources */,
 				167246101B1AB1AD0083035F /* kuStudy.swift in Sources */,

@@ -11,103 +11,68 @@ import Foundation
 public class SummaryData {
     public var libraries = [LibraryData]()
     
-    public init() {
-        
-    }
+    public init() { }
 }
 
 // MARK: Computed data
 extension SummaryData {
     public var totalSeats: Int? {
-        var totalSeats = 0
-        for sector in libraries {
-            if let seats = sector.totalSeats {
-                totalSeats += seats
-            }
-        }
-        return totalSeats
+        return libraries.reduce(0, combine: { (initial, library) -> Int in
+            return initial + library.totalSeats
+        })
     }
     
     public var usedSeats: Int? {
-        var usedSeats = 0
-        for sector in libraries {
-            if let seats = sector.usedSeats {
-                usedSeats += seats
-            }
-        }
-        return usedSeats
+        return libraries.reduce(0, combine: { (initial, library) -> Int in
+            return initial + library.usedSeats
+        })
     }
     
     public var availableSeats: Int? {
-        var availableSeats = 0
-        for sector in libraries {
-            if let seats = sector.availableSeats {
-                availableSeats += seats
-            }
-        }
-        return availableSeats
+        return libraries.reduce(0, combine: { (initial, library) -> Int in
+            return initial + library.availableSeats
+        })
     }
     
     public var ineligibleSeats: Int? {
-        var ineligibleSeats = 0
-        for sector in libraries {
-            if let seats = sector.ineligibleSeats {
-                ineligibleSeats += seats
-            }
-        }
-        return ineligibleSeats    }
+        return libraries.reduce(0, combine: { (initial, library) -> Int in
+            return initial + library.ineligibleSeats
+        })
+    }
     
     public var outOfOrderSeats: Int? {
-        var outOfOrderSeats = 0
-        for sector in libraries {
-            if let seats = sector.outOfOrderSeats {
-                outOfOrderSeats += seats
-            }
-        }
-        return outOfOrderSeats
+        return libraries.reduce(0, combine: { (initial, library) -> Int in
+            return initial + library.outOfOrderSeats
+        })
     }
     
     public var disabledOnlySeats: Int? {
-        var disabledOnlySeats = 0
-        for sector in libraries {
-            if let seats = sector.disabledOnlySeats {
-                disabledOnlySeats += seats
-            }
-        }
-        return disabledOnlySeats
+        return libraries.reduce(0, combine: { (initial, library) -> Int in
+            return initial + library.disabledOnlySeats
+        })
     }
     
     public var printerCount: Int? {
-        var printerCount = 0
-        for sector in libraries {
-            if let seats = sector.printerCount {
-                printerCount += seats
-            }
-        }
-        return printerCount
+        return libraries.reduce(0, combine: { (initial, library) -> Int in
+            return initial + library.printerCount
+        })
     }
     
     public var scannerCount: Int? {
-        var scannerCount = 0
-        for sector in libraries {
-            if let seats = sector.scannerCount {
-                scannerCount += seats
-            }
-        }
-        return scannerCount
+        return libraries.reduce(0, combine: { (initial, library) -> Int in
+            return initial + library.scannerCount
+        })
+    }
+}
+
+extension SummaryData: PercentagePresentable {
+    public var availablePercentage: Float {
+        guard let availableSeats = availableSeats, totalSeats = totalSeats else { return 0 }
+        return Float(availableSeats) / Float(totalSeats)
     }
     
     public var usedPercentage: Float {
         guard let usedSeats = usedSeats, totalSeats = totalSeats else { return 0 }
         return Float(usedSeats) / Float(totalSeats)
-    }
-    
-    public var usedPercentageColor: UIColor {
-        switch usedPercentage {
-        case let p where p > 0.9: return kuStudyColorError
-        case let p where p > 0.75: return kuStudyColorWarning
-        case let p where p > 0.6: return kuStudyColorLightWarning
-        default: return kuStudyColorConfirm
-        }
     }
 }

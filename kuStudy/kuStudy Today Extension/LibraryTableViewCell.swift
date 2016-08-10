@@ -24,13 +24,11 @@ class LibraryTableViewCell: UITableViewCell {
     
     // MARK: Populate
     func populate(libraryData: LibraryData) {
-        guard let libraryId = libraryData.libraryId,
-            availableSeats = libraryData.availableSeats
-            else { return }
+        guard let libraryId = libraryData.libraryId else { return }
         
         let libraryType = LibraryType(rawValue: libraryId)
         nameLabel.text = libraryType?.name
-        availableLabel.text = availableSeats.readableFormat + " " + "Available"
+        availableLabel.text = libraryData.availableSeats.readableFormat + " " + "Available"
         
         thumbnailImageView.image = libraryData.thumbnail
         percentageView.progress = libraryData.availablePercentage

@@ -45,9 +45,7 @@ public class SectorData: Mappable {
     }
 }
 
-// MARK:
-// MARK: Computed data
-public extension SectorData {
+extension SectorData: PercentagePresentable {
     public var availableSeats: Int? {
         guard let totalSeats = totalSeats,
             usedSeats = usedSeats,
@@ -58,17 +56,13 @@ public extension SectorData {
         return totalSeats - usedSeats - ineligibleSeats - outOfOrderSeats - disabledOnlySeats
     }
     
+    public var availablePercentage: Float {
+        guard let availableSeats = availableSeats, totalSeats = totalSeats else { return 0 }
+        return Float(availableSeats) / Float(totalSeats)
+    }
+    
     public var usedPercentage: Float {
         guard let usedSeats = usedSeats, totalSeats = totalSeats else { return 0 }
         return Float(usedSeats) / Float(totalSeats)
-    }
-    
-    public var usedPercentageColor: UIColor {
-        switch usedPercentage {
-        case let p where p > 0.9: return kuStudyColorError
-        case let p where p > 0.75: return kuStudyColorWarning
-        case let p where p > 0.6: return kuStudyColorLightWarning
-        default: return kuStudyColorConfirm
-        }
     }
 }

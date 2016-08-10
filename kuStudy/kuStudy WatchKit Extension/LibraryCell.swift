@@ -20,8 +20,8 @@ class LibraryCell: NSObject {
         guard let libraryId = libraryData.libraryId else { return }
         guard let libraryType = LibraryType(rawValue: libraryId) else { return }
         nameLabel.setText(libraryType.name)
-        availableLabel.setText(libraryData.availableSeats?.readableFormat)
-        usedLabel.setText(libraryData.usedSeats?.readableFormat)
+        availableLabel.setText(libraryData.availableSeats.readableFormat)
+        usedLabel.setText(libraryData.usedSeats.readableFormat)
         availableLabel.setTextColor(libraryData.usedPercentageColor)
         percentGroup.setBackgroundColor(libraryData.usedPercentageColor)
     }

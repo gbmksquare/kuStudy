@@ -66,11 +66,11 @@ class GlanceController: WKInterfaceController {
         var liberalArtsCampusAvailable = 0
         var scienceCampusAvailable = 0
         for libraryData in summaryData.libraries {
-            if let libraryId = libraryData.libraryId, availableSeats = libraryData.availableSeats {
+            if let libraryId = libraryData.libraryId {
                 if liberalArtCampusIds.contains(libraryId) {
-                    liberalArtsCampusAvailable += availableSeats
+                    liberalArtsCampusAvailable += libraryData.availableSeats
                 } else if scienceCampusIds.contains(libraryId) {
-                    scienceCampusAvailable += availableSeats
+                    scienceCampusAvailable += libraryData.availableSeats
                 }
             }
         }

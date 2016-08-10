@@ -35,14 +35,14 @@ class LibraryTableViewCell: UITableViewCell {
             updateEmptyView()
             return
         }
-        guard let libraryId = libraryData.libraryId, availableSeats = libraryData.availableSeats else {
+        guard let libraryId = libraryData.libraryId else {
             updateEmptyView()
             return
         }
         
         let libraryType = LibraryType(rawValue: libraryId)
         nameLabel.text = libraryType?.name
-        availableLabel.text = availableSeats.readableFormat + " " + "kuStudy.Available".localized()
+        availableLabel.text = libraryData.availableSeats.readableFormat + " " + "kuStudy.Available".localized()
         
         thumbnailImageView.image = libraryData.thumbnail
         percentageView.progress = libraryData.usedPercentage

@@ -16,6 +16,12 @@
 
 ### Code improvements
 
+* Improved framework optionals safety.
+
+* Removed unusing keychain entitlements.
+
+* Removed unused constants.
+
 ## 0.3.0 (9)
 
 ### Improvements

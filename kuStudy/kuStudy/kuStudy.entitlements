@@ -6,9 +6,5 @@
 	<array>
 		<string>group.com.gbmksquare.kuapps.kuStudy</string>
 	</array>
-	<key>keychain-access-groups</key>
-	<array>
-		<string>$(AppIdentifierPrefix)com.gbmksquare.kuapps.kuStudy</string>
-	</array>
 </dict>
 </plist>
