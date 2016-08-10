@@ -1,5 +1,19 @@
 # Release Notes
 
+## 0.3.0 (11)
+
+### New features
+
+### Improvements
+
+### Bug fixes
+
+### Code improvements
+
+* Rewrote photo provider code.
+
+* Moved photo resource to framework.
+
 ## 0.3.0 (10)
 
 ### New features

@@ -83,7 +83,7 @@ class LibraryViewController: UIViewController {
         headerBlurImageView.image = libraryData?.photo?.image
         headerBlurImageView.transform = CGAffineTransformMakeScale(1, -1)
         if let photographer = libraryData?.photo?.photographer {
-            photographerLabel.text = "Photography by " + photographer.name
+            photographerLabel.text = photographer.attributionString
         }
         tableView.reloadData()
     }

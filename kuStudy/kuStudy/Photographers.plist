@@ -7,32 +7,48 @@
 		<integer>0</integer>
 		<key>name</key>
 		<string>배경동</string>
+		<key>name_en</key>
+		<string>Bae GyeongDong</string>
 		<key>association</key>
-		<string>Ilsang</string>
+		<string>일상다반사</string>
+		<key>association_en</key>
+		<string>IlSang</string>
 	</dict>
 	<dict>
 		<key>id</key>
 		<integer>1</integer>
 		<key>name</key>
 		<string>이준영</string>
+		<key>name_en</key>
+		<string>Lee JunYoung</string>
 		<key>association</key>
-		<string>Ilsang</string>
+		<string>일상다반사</string>
+		<key>association_en</key>
+		<string>IlSang</string>
 	</dict>
 	<dict>
 		<key>id</key>
 		<integer>2</integer>
 		<key>name</key>
 		<string>전사랑</string>
+		<key>name_en</key>
+		<string>Jeon SaRang</string>
 		<key>association</key>
-		<string>Ilsang</string>
+		<string>일상다반사</string>
+		<key>association_en</key>
+		<string>IlSang</string>
 	</dict>
 	<dict>
 		<key>id</key>
 		<integer>3</integer>
 		<key>name</key>
 		<string>이영준</string>
+		<key>name_en</key>
+		<string>Lee YoungJun</string>
 		<key>association</key>
-		<string>Ilsang</string>
+		<string>일상다반사</string>
+		<key>association_en</key>
+		<string>IlSang</string>
 	</dict>
 </array>
 </plist>
