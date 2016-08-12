@@ -10,6 +10,8 @@
 "kuStudy.Available" = "잔여";
 "kuStudy.Used" = "사용 중";
 
+"kuStudy.Main.Studying" = " 명이 공부 중입니다.";
+
 /*
  * ./kuStudy/kuStudy/view controller/SummaryViewController.swift
  */

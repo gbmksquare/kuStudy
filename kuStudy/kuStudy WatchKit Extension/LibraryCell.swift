@@ -17,9 +17,7 @@ class LibraryCell: NSObject {
     @IBOutlet weak var percentGroup: WKInterfaceGroup!
     
     func populate(libraryData: LibraryData) {
-        guard let libraryId = libraryData.libraryId else { return }
-        guard let libraryType = LibraryType(rawValue: libraryId) else { return }
-        nameLabel.setText(libraryType.name)
+        nameLabel.setText(libraryData.libraryName)
         availableLabel.setText(libraryData.availableSeats.readableFormat)
         usedLabel.setText(libraryData.usedSeats.readableFormat)
         availableLabel.setTextColor(libraryData.usedPercentageColor)

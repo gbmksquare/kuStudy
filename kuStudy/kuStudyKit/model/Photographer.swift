@@ -17,9 +17,9 @@ public struct Photographer {
     
     public var attributionString: String {
         if NSLocale.preferredLanguages().first?.hasPrefix("ko") == true {
-            return "\(association) \(name)"
+            return "사진: \(association) \(name)"
         } else {
-            return "Photography by \(association_en) \(name_en)"
+            return "Photography by \(name_en), \(association_en)"
         }
     }
 }

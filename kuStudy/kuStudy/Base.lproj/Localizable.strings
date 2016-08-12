@@ -10,6 +10,8 @@
 "kuStudy.Available" = "Available";
 "kuStudy.Used" = "Occupied";
 
+"kuStudy.Main.Studying" = " people are now studying.";
+
 /*
  * ./kuStudy/kuStudy/view controller/SummaryViewController.swift
  */

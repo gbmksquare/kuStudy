@@ -17,6 +17,8 @@ enum DataSourceState {
 
 class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegate {
     @IBOutlet weak var headerImageView: UIImageView!
+    @IBOutlet weak var headerBlurImageView: UIImageView!
+    @IBOutlet weak var studyingLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     private  var refreshControl = UIRefreshControl()
     
@@ -30,6 +32,7 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setTransparentNavigationBar() // Transparent navigation bar
+        studyingLabel.text = ""
         tableView.delegate = self
         tableView.dataSource = self
         tableView.emptyDataSetDelegate = self
@@ -72,6 +75,11 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     private func updateView() {
         if let libraryData = summaryData.libraries.filter({ $0.libraryId == LibraryType.CentralSquare.rawValue }).first {
             headerImageView.image = libraryData.photo?.image
+            headerBlurImageView.image = libraryData.photo?.image
+            headerBlurImageView.transform = CGAffineTransformMakeScale(1, -1)
+        }
+        if let usedSeats = summaryData.usedSeats {
+            studyingLabel.text = usedSeats.readableFormat + "kuStudy.Main.Studying".localized()
         }
         tableView.reloadData()
     }

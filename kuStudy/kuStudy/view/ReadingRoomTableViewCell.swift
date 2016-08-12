@@ -37,9 +37,9 @@ class ReadingRoomTableViewCell: UITableViewCell {
         }
         
         nameLabel.text = name
-        availableLabel.text = availableSeats.readableFormat + " " + "kuStudy.Available".localized()
-        usedLabel.text = usedSeats.readableFormat + " " + "kuStudy.Used".localized()
-        totalLabel.text = totalSeats.readableFormat + " " + "kuStudy.Total".localized()
+        availableLabel.text =  availableSeats.readableFormat + "  " + "kuStudy.Available".localized()
+        usedLabel.text = "kuStudy.Used".localized() + ": " + usedSeats.readableFormat
+        totalLabel.text = "kuStudy.Total".localized() + ": " + totalSeats.readableFormat
         
         usedPercentageView.progress = sectorData.usedPercentage
         usedPercentageView.tintColor = sectorData.usedPercentageColor

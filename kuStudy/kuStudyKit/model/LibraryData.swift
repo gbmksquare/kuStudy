@@ -25,6 +25,12 @@ public class LibraryData: Mappable {
 
 // MARK: Computed data
 public extension LibraryData {
+    public var libraryName: String {
+        guard let libraryId = libraryId else { return "" }
+        let libraryType = LibraryType(rawValue: libraryId)
+        return libraryType?.name ?? ""
+    }
+    
     public var totalSeats: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, combine: { (initial, sector) -> Int in

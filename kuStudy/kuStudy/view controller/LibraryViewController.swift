@@ -17,6 +17,8 @@ class LibraryViewController: UIViewController {
     
     @IBOutlet weak var libraryNameLabel: UILabel!
     @IBOutlet weak var libraryAvailableLabel: UILabel!
+    @IBOutlet weak var libraryTotalLabel: UILabel!
+    @IBOutlet weak var libraryUsedLabel: UILabel!
     @IBOutlet weak var photographerLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
@@ -32,7 +34,9 @@ class LibraryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         libraryNameLabel.text = ""
+        libraryTotalLabel.text = ""
         libraryAvailableLabel.text = ""
+        libraryUsedLabel.text = ""
         photographerLabel.text = ""
         tableView.delegate = self
         tableView.dataSource = self
@@ -72,12 +76,11 @@ class LibraryViewController: UIViewController {
     }
     
     private func updateView() {
-        if let libraryId = libraryData?.libraryId {
-            let libraryType = LibraryType(rawValue: libraryId)
-            libraryNameLabel.text = libraryType?.name
-        }
-        if let availableSeats = libraryData?.availableSeats {
-            libraryAvailableLabel.text = availableSeats.readableFormat + " " + "kuStudy.Available".localized()
+        if let libraryData = libraryData {
+            libraryNameLabel.text = libraryData.libraryName
+            libraryTotalLabel.text = "kuStudy.Total".localized() + ": " + libraryData.totalSeats.readableFormat
+            libraryAvailableLabel.text = libraryData.availableSeats.readableFormat + " " + "kuStudy.Available".localized()
+            libraryUsedLabel.text = "kuStudy.Used".localized() + ": " + libraryData.usedSeats.readableFormat
         }
         headerImageView.image = libraryData?.photo?.image
         headerBlurImageView.image = libraryData?.photo?.image
