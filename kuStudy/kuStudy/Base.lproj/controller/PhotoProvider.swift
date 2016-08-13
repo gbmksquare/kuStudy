@@ -8,8 +8,8 @@
 
 import UIKit
 
-class PhotoProvider {
-    static let sharedProvider = PhotoProvider()
+public class PhotoProvider {
+    public static let sharedProvider = PhotoProvider()
     
     let photographers: [Photographer]
     let photoLocations: [PhotoLocation]
@@ -57,7 +57,11 @@ class PhotoProvider {
     }
     
     // MARK: Photo
-    func photo(libraryId: Int) -> Photo {
+    public func photo(libraryId: String) -> Photo {
+        return photo(Int(libraryId)!)
+    }
+    
+    public func photo(libraryId: Int) -> Photo {
         let photos = self.photos.filter({ $0.locationId == libraryId })
         
         // Get new index if needed

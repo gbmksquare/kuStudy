@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Photo {
+public struct Photo {
     let imageName: String
     let locationId: Int
     let photographerId: Int
@@ -18,7 +18,7 @@ struct Photo {
         return imageName + "_thumbnail"
     }
     
-    var photographer: Photographer {
+    public var photographer: Photographer {
         return PhotoProvider.sharedProvider.photographers.filter({ $0.id == photographerId }).first!
     }
     
@@ -28,7 +28,7 @@ struct Photo {
 }
 
 extension Photo {
-    var thumbnail: UIImage? {
+    public var thumbnail: UIImage? {
         #if os(watchOS)
             return nil
         #else
@@ -36,7 +36,7 @@ extension Photo {
         #endif
     }
     
-    var image: UIImage? {
+    public var image: UIImage? {
         #if os(watchOS)
             return nil
         #else

@@ -33,11 +33,7 @@ class LibraryViewController: UIViewController {
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        libraryNameLabel.text = ""
-        libraryTotalLabel.text = ""
-        libraryAvailableLabel.text = ""
-        libraryUsedLabel.text = ""
-        photographerLabel.text = ""
+        updateInitialView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.emptyDataSetDelegate = self
@@ -75,18 +71,25 @@ class LibraryViewController: UIViewController {
         }
     }
     
+    private func updateInitialView() {
+        libraryNameLabel.text = ""
+        libraryTotalLabel.text = ""
+        libraryAvailableLabel.text = ""
+        libraryUsedLabel.text = ""
+        photographerLabel.text = ""
+        let photo = PhotoProvider.sharedProvider.photo(libraryId)
+        headerImageView.image = photo.image
+        headerBlurImageView.image = photo.image
+        headerBlurImageView.transform = CGAffineTransformMakeScale(1, -1)
+        photographerLabel.text = photo.photographer.attributionString
+    }
+    
     private func updateView() {
         if let libraryData = libraryData {
             libraryNameLabel.text = libraryData.libraryName
             libraryTotalLabel.text = "kuStudy.Total".localized() + ": " + libraryData.totalSeats.readableFormat
             libraryAvailableLabel.text = libraryData.availableSeats.readableFormat + " " + "kuStudy.Available".localized()
             libraryUsedLabel.text = "kuStudy.Used".localized() + ": " + libraryData.usedSeats.readableFormat
-        }
-        headerImageView.image = libraryData?.photo?.image
-        headerBlurImageView.image = libraryData?.photo?.image
-        headerBlurImageView.transform = CGAffineTransformMakeScale(1, -1)
-        if let photographer = libraryData?.photo?.photographer {
-            photographerLabel.text = photographer.attributionString
         }
         tableView.reloadData()
     }

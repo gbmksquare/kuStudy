@@ -1,14 +1,28 @@
 # Release Notes
 
+## 0.3.0 (12)
+
+### New Features
+
+### Improvements
+
+* Image in detail view shows immediately instead of waiting for data to be fetched.
+
+### Bug fixes
+
+### Code improvements
+
 ## 0.3.0 (11)
 
 ### New features
+
+* Adds now studying label on main screen.
 
 ### Improvements
 
 * Switched back to showing available percentage on library cell.
 
-### Bug fixes
+* Improves app user interface.
 
 ### Code improvements
 
