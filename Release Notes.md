@@ -18,7 +18,9 @@
 
 * Updated Fabric.
 
-* Fixes Korean localization.
+* Fixed Korean localization.
+
+* Updated launch screen to fit new interface.
 
 ### Bug fixes
 
