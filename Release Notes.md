@@ -6,7 +6,7 @@
 
 ### Improvements
 
-* Image in detail view shows immediately instead of waiting for data to be fetched.
+* Header images and library title show immediately without downloading data.
 
 ### Bug fixes
 

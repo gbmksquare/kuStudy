@@ -31,8 +31,8 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
+        setInitialView()
         navigationController?.setTransparentNavigationBar() // Transparent navigation bar
-        studyingLabel.text = ""
         tableView.delegate = self
         tableView.dataSource = self
         tableView.emptyDataSetDelegate = self
@@ -72,12 +72,15 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         }
     }
     
+    private func setInitialView() {
+        studyingLabel.text = ""
+        let photo = PhotoProvider.sharedProvider.photo(LibraryType.CentralSquare.rawValue)
+        headerImageView.image = photo.image
+        headerBlurImageView.image = photo.image
+        headerBlurImageView.transform = CGAffineTransformMakeScale(1, -1)
+    }
+    
     private func updateView() {
-        if let libraryData = summaryData.libraries.filter({ $0.libraryId == LibraryType.CentralSquare.rawValue }).first {
-            headerImageView.image = libraryData.photo?.image
-            headerBlurImageView.image = libraryData.photo?.image
-            headerBlurImageView.transform = CGAffineTransformMakeScale(1, -1)
-        }
         if let usedSeats = summaryData.usedSeats {
             studyingLabel.text = usedSeats.readableFormat + "kuStudy.Main.Studying".localized()
         }

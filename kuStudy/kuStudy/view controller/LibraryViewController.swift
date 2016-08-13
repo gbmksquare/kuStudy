@@ -33,7 +33,7 @@ class LibraryViewController: UIViewController {
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateInitialView()
+        setInitialView()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.emptyDataSetDelegate = self
@@ -71,8 +71,8 @@ class LibraryViewController: UIViewController {
         }
     }
     
-    private func updateInitialView() {
-        libraryNameLabel.text = ""
+    private func setInitialView() {
+        libraryNameLabel.text = LibraryType(rawValue: libraryId)?.name
         libraryTotalLabel.text = ""
         libraryAvailableLabel.text = ""
         libraryUsedLabel.text = ""
@@ -86,7 +86,6 @@ class LibraryViewController: UIViewController {
     
     private func updateView() {
         if let libraryData = libraryData {
-            libraryNameLabel.text = libraryData.libraryName
             libraryTotalLabel.text = "kuStudy.Total".localized() + ": " + libraryData.totalSeats.readableFormat
             libraryAvailableLabel.text = libraryData.availableSeats.readableFormat + " " + "kuStudy.Available".localized()
             libraryUsedLabel.text = "kuStudy.Used".localized() + ": " + libraryData.usedSeats.readableFormat
