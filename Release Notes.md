@@ -14,6 +14,8 @@
 
 * Updated Fabric.
 
+* Fixes Korean localization.
+
 ### Bug fixes
 
 ### Code improvements
