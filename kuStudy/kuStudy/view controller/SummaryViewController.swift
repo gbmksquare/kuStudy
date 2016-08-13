@@ -31,6 +31,7 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.delegate = self
         navigationController?.setTransparentNavigationBar() // Transparent navigation bar
         studyingLabel.text = ""
         tableView.delegate = self
@@ -94,6 +95,78 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
             orderedLibraryData.append(libraryData)
         }
         summaryData.libraries = orderedLibraryData
+    }
+}
+
+extension SummaryViewController: UINavigationControllerDelegate {
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        if operation == .Push {
+            return self
+        }
+        return nil
+    }
+}
+
+extension SummaryViewController: UIViewControllerAnimatedTransitioning {
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+        return 0.5
+    }
+    
+    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as! SummaryViewController
+        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as! LibraryViewController
+        
+        let containerView = transitionContext.containerView()
+        containerView?.addSubview(toViewController.view)
+        
+//        toViewController.view.transform = CGAffineTransformMakeScale(0.1, 0.1)
+//        toViewController.view.alpha = 0
+//        
+//        UIView.animateWithDuration(transitionDuration(transitionContext), animations: { 
+//                toViewController.view.transform = CGAffineTransformIdentity
+//                toViewController.view.alpha = 1
+//                fromViewController.view.alpha = 0.75
+//                fromViewController.view.transform = CGAffineTransformMakeScale(0.75, 0.75)
+//            }) { (completed) in
+//                fromViewController.view.alpha = 1
+//                fromViewController.view.transform = CGAffineTransformIdentity
+//                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+//        }
+        
+        let indexPath = tableView.indexPathForSelectedRow!
+        let cell = fromViewController.tableView.cellForRowAtIndexPath(indexPath) as! LibraryTableViewCell
+        let originalImageView = cell.thumbnailImageView
+        
+        originalImageView.hidden = true
+        
+        let tempImageView = UIImageView(image: originalImageView.image)
+        tempImageView.contentMode = .ScaleAspectFill
+        tempImageView.clipsToBounds = true
+        tempImageView.layer.cornerRadius = tempImageView.bounds.width / 2
+        
+        containerView?.addSubview(tempImageView)
+        tempImageView.frame = fromViewController.view.convertRect(originalImageView.frame, fromView: cell)
+        toViewController.view.layoutIfNeeded()
+        toViewController.headerImageView.hidden = true
+        toViewController.view.transform = CGAffineTransformMakeScale(0.75, 0.75)
+
+        UIView.animateWithDuration(transitionDuration(transitionContext), animations: {
+            tempImageView.frame = toViewController.headerImageView.frame
+            toViewController.view.transform = CGAffineTransformIdentity
+            
+            let animation = CABasicAnimation(keyPath: "cornerRadius")
+            animation.duration = self.transitionDuration(transitionContext)
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+            animation.toValue = 0
+            animation.fillMode = kCAFillModeForwards
+            animation.removedOnCompletion = false
+            tempImageView.layer.addAnimation(animation, forKey: "setCornerRadius:")
+        }) { (completed) in
+            toViewController.headerImageView.hidden = false
+            originalImageView.hidden = false
+            tempImageView.removeFromSuperview()
+            transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+        }
     }
 }
 
