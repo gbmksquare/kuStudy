@@ -10,6 +10,8 @@
 
 * Header images and library title show immediately without downloading data.
 
+* Improved main user interface.
+
 * Removed 3D Touch quick action icon.
 
 * Updated Fabric.
