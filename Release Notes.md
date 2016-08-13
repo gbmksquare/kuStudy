@@ -4,6 +4,8 @@
 
 ### New Features
 
+* Random image is show in main view header image view.
+
 * Added Open Source library list in settings.
 
 ### Improvements

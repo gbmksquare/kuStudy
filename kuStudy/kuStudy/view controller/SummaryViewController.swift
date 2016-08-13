@@ -49,6 +49,7 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         startHandoff()
+        updateHeaderImage()
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -74,10 +75,6 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     
     private func setInitialView() {
         studyingLabel.text = ""
-        let photo = PhotoProvider.sharedProvider.photo(LibraryType.CentralSquare.rawValue)
-        headerImageView.image = photo.image
-        headerBlurImageView.image = photo.image
-        headerBlurImageView.transform = CGAffineTransformMakeScale(1, -1)
     }
     
     private func updateView() {
@@ -85,6 +82,18 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
             studyingLabel.text = usedSeats.readableFormat + "kuStudy.Main.Studying".localized()
         }
         tableView.reloadData()
+    }
+    
+    private func updateHeaderImage() {
+        let libraryTypes = LibraryType.allTypes()
+        let randomIndex = Int(arc4random_uniform(UInt32(libraryTypes.count)))
+        let libraryId = libraryTypes[randomIndex].rawValue
+        if let libraryType = LibraryType(rawValue: libraryId) {
+            let photo = PhotoProvider.sharedProvider.photo(libraryType.rawValue)
+            headerImageView.image = photo.image
+            headerBlurImageView.image = photo.image
+            headerBlurImageView.transform = CGAffineTransformMakeScale(1, -1)
+        }
     }
     
     private func reorderLibraryData() {
