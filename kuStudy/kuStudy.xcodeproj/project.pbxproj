@@ -231,7 +231,6 @@
 		0E12927D8EC4D7BFAB562778 /* Pods_kuStudyWatchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kuStudyWatchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		149FE82FDD18DF856A9DE998 /* Pods-kuStudyKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudyKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudyKit/Pods-kuStudyKit.debug.xcconfig"; sourceTree = "<group>"; };
 		15927B011AC433CE2175A7B9 /* Pods-kuStudyWatchKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudyWatchKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudyWatchKit/Pods-kuStudyWatchKit.release.xcconfig"; sourceTree = "<group>"; };
-		160792B01C8F24D8005C14EF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "kuStudy WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16136BD61B1C3F0700B3F744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16136BD71B1C3F0700B3F744 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
@@ -245,6 +244,7 @@
 		16136BFF1B1C451100B3F744 /* LibraryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		16251CAC1B232C8F0035F2D9 /* kuStudy Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy Today Extension.entitlements"; sourceTree = "<group>"; };
 		162F120C1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-kuStudy-acknowledgements.plist"; path = "../../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy-acknowledgements.plist"; sourceTree = "<group>"; };
+		162F12111D5F1AD000A401D8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		1631A2CD1CEF4EA60078381F /* SectorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectorData.swift; path = model/SectorData.swift; sourceTree = "<group>"; };
 		1631A2D01CEF4EEC0078381F /* LibraryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryData.swift; path = model/LibraryData.swift; sourceTree = "<group>"; };
 		1631A2D31CEF4F240078381F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = controller/API.swift; sourceTree = "<group>"; };
@@ -1773,7 +1773,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				167245C91B19C0370083035F /* Base */,
-				160792B01C8F24D8005C14EF /* ko */,
+				162F12111D5F1AD000A401D8 /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

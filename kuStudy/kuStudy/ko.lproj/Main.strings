@@ -1,95 +1,68 @@
 
-/* Class = "UILabel"; text = "0"; ObjectID = "5cm-G7-uZ6"; */
-"5cm-G7-uZ6.text" = "0";
-
-/* Class = "UILabel"; text = "0"; ObjectID = "6OQ-rl-E0a"; */
-"6OQ-rl-E0a.text" = "0";
-
 /* Class = "UILabel"; text = "0"; ObjectID = "95t-0d-L6S"; */
 "95t-0d-L6S.text" = "0";
 
-/* Class = "UILabel"; text = "공부 중"; ObjectID = "Aa0-lB-9cw"; */
-"Aa0-lB-9cw.text" = "공부 중";
+/* Class = "UILabel"; text = "Today Extension"; ObjectID = "9G6-bV-8tU"; */
+"9G6-bV-8tU.text" = "오늘 위젯";
 
-/* Class = "UILabel"; text = "0"; ObjectID = "BvI-eV-rMo"; */
-"BvI-eV-rMo.text" = "0";
+/* Class = "UILabel"; text = "0"; ObjectID = "DZQ-sq-912"; */
+"DZQ-sq-912.text" = "0";
 
-/* Class = "UILabel"; text = "Available"; ObjectID = "HGx-qn-EeJ"; */
-"HGx-qn-EeJ.text" = "잔여";
+/* Class = "UILabel"; text = "0"; ObjectID = "GdJ-94-Jfh"; */
+"GdJ-94-Jfh.text" = "0";
 
-/* Class = "UILabel"; text = "0"; ObjectID = "L9l-ws-Uz5"; */
-"L9l-ws-Uz5.text" = "0";
-
-/* Class = "UILabel"; text = "공부 중"; ObjectID = "Mp6-eJ-HaT"; */
-"Mp6-eJ-HaT.text" = "공부 중";
-
-/* Class = "UILabel"; text = "Photography by"; ObjectID = "Pjr-ku-nke"; */
-"Pjr-ku-nke.text" = "Photography by";
+/* Class = "UILabel"; text = "0"; ObjectID = "OCZ-zH-oDh"; */
+"OCZ-zH-oDh.text" = "0";
 
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "ROV-rd-CBu"; */
 "ROV-rd-CBu.title" = " ";
 
-/* Class = "UILabel"; text = "업데이트"; ObjectID = "TUi-m0-lWn"; */
-"TUi-m0-lWn.text" = "업데이트";
-
 /* Class = "UILabel"; text = "0"; ObjectID = "V5G-zC-35z"; */
 "V5G-zC-35z.text" = "0";
+
+/* Class = "UILabel"; text = "Open Source"; ObjectID = "YKA-2Z-11F"; */
+"YKA-2Z-11F.text" = "오픈 소스";
 
 /* Class = "UILabel"; text = "Apple Watch"; ObjectID = "ZHW-hD-ygN"; */
 "ZHW-hD-ygN.text" = "Apple Watch";
 
+/* Class = "UILabel"; text = "0"; ObjectID = "cL8-gm-ATc"; */
+"cL8-gm-ATc.text" = "0";
+
 /* Class = "UILabel"; text = "Title"; ObjectID = "d06-nS-dWs"; */
 "d06-nS-dWs.text" = "Title";
 
-/* Class = "UILabel"; text = "Design & Development\nby BumMo Koo"; ObjectID = "dx1-79-gnq"; */
-"dx1-79-gnq.text" = "디자인 및 개발\n구범모";
-
-/* Class = "UILabel"; text = "Version"; ObjectID = "e1P-u0-0t1"; */
-"e1P-u0-0t1.text" = "버전";
-
-/* Class = "UIButton"; normalTitle = "edit"; ObjectID = "eOu-Ls-MKZ"; */
-"eOu-Ls-MKZ.normalTitle" = "수정";
+/* Class = "UILabel"; text = "0"; ObjectID = "eFo-nE-Der"; */
+"eFo-nE-Der.text" = "0";
 
 /* Class = "UILabel"; text = "kuStudy"; ObjectID = "enX-X7-aXx"; */
 "enX-X7-aXx.text" = "kuStudy";
 
-/* Class = "UILabel"; text = "잔여"; ObjectID = "fH2-gv-Wr8"; */
-"fH2-gv-Wr8.text" = "잔여";
-
 /* Class = "UINavigationItem"; title = "Order"; ObjectID = "hJW-zu-PMx"; */
 "hJW-zu-PMx.title" = "순서";
 
-/* Class = "UILabel"; text = "0"; ObjectID = "hXt-bn-0hL"; */
-"hXt-bn-0hL.text" = "0";
-
-/* Class = "UILabel"; text = "Send feedback"; ObjectID = "ioY-Id-XAw"; */
-"ioY-Id-XAw.text" = "피드백 보내기";
+/* Class = "UILabel"; text = "Photography by"; ObjectID = "j0O-z7-wAJ"; */
+"j0O-z7-wAJ.text" = "Photography by";
 
 /* Class = "UILabel"; text = "Order"; ObjectID = "jhN-SJ-xk9"; */
 "jhN-SJ-xk9.text" = "순서";
 
-/* Class = "UILabel"; text = "도서관"; ObjectID = "jqd-om-39e"; */
+/* Class = "UILabel"; text = "Library"; ObjectID = "jqd-om-39e"; */
 "jqd-om-39e.text" = "도서관";
 
 /* Class = "UINavigationItem"; title = "Preferences"; ObjectID = "lgZ-TA-sm2"; */
 "lgZ-TA-sm2.title" = "설정";
 
-/* Class = "UILabel"; text = "0 people are studying."; ObjectID = "mpD-rg-Fcl"; */
-"mpD-rg-Fcl.text" = "0명 공부 중.";
-
-/* Class = "UILabel"; text = "Studying"; ObjectID = "mqd-0G-Min"; */
-"mqd-0G-Min.text" = "공부 중";
+/* Class = "UINavigationItem"; title = "Today Extension"; ObjectID = "m0q-wL-iJY"; */
+"m0q-wL-iJY.title" = "오늘 위젯";
 
 /* Class = "UILabel"; text = "Library"; ObjectID = "nPn-P4-HVv"; */
 "nPn-P4-HVv.text" = "도서관";
 
-/* Class = "UILabel"; text = "Library"; ObjectID = "o7e-9Y-FyQ"; */
+/* Class = "UILabel"; text = "도서관"; ObjectID = "o7e-9Y-FyQ"; */
 "o7e-9Y-FyQ.text" = "도서관";
 
-/* Class = "UILabel"; text = "잔여"; ObjectID = "qUP-fW-GgC"; */
-"qUP-fW-GgC.text" = "잔여";
-
-/* Class = "UITabBarItem"; title = "설정"; ObjectID = "rDo-EP-1do"; */
+/* Class = "UITabBarItem"; title = "Preferences"; ObjectID = "rDo-EP-1do"; */
 "rDo-EP-1do.title" = "설정";
 
 /* Class = "UITabBarItem"; title = "도서관"; ObjectID = "vqK-jg-LRr"; */
@@ -97,3 +70,6 @@
 
 /* Class = "UILabel"; text = "0"; ObjectID = "wdj-6m-bGs"; */
 "wdj-6m-bGs.text" = "0";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "x1Z-wL-ekG"; */
+"x1Z-wL-ekG.text" = "Title";
