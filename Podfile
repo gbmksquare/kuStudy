@@ -15,6 +15,7 @@ target 'kuStudy' do
   pod 'AlamofireNetworkActivityIndicator'
   pod 'Localize-Swift'
   pod 'DZNEmptyDataSet'
+  pod 'AcknowList'
   shared_pods
 
   target 'kuStudyTests' do

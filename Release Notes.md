@@ -4,11 +4,15 @@
 
 ### New Features
 
+* Added Open Source library list in settings.
+
 ### Improvements
 
 * Header images and library title show immediately without downloading data.
 
 * Removed 3D Touch quick action icon.
+
+* Updated Fabric.
 
 ### Bug fixes
 
