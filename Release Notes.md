@@ -8,6 +8,8 @@
 
 * Header images and library title show immediately without downloading data.
 
+* Removed 3D Touch quick action icon.
+
 ### Bug fixes
 
 ### Code improvements
