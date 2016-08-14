@@ -8,6 +8,10 @@
 
 * Added Open Source library list in settings.
 
+* Added photo courtesy view in settings.
+
+* Added a new photographer.
+
 ### Improvements
 
 * Header images and library title show immediately without downloading data.
@@ -21,6 +25,8 @@
 * Fixed Korean localization.
 
 * Updated launch screen to fit new interface.
+
+* Added developer name under app version in settings view.
 
 ### Bug fixes
 
