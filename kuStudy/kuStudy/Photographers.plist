@@ -8,11 +8,13 @@
 		<key>name</key>
 		<string>배경동</string>
 		<key>name_en</key>
-		<string>Bae GyeongDong</string>
+		<string>Bae KyungDong</string>
 		<key>association</key>
 		<string>일상다반사</string>
 		<key>association_en</key>
 		<string>IlSang</string>
+		<key>instagram</key>
+		<string>kyungdong.bae</string>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -25,6 +27,8 @@
 		<string>일상다반사</string>
 		<key>association_en</key>
 		<string>IlSang</string>
+		<key>instagram</key>
+		<string></string>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -32,11 +36,13 @@
 		<key>name</key>
 		<string>전사랑</string>
 		<key>name_en</key>
-		<string>Jeon SaRang</string>
+		<string>Jun SaRang</string>
 		<key>association</key>
 		<string>일상다반사</string>
 		<key>association_en</key>
 		<string>IlSang</string>
+		<key>instagram</key>
+		<string>j_lovely</string>
 	</dict>
 	<dict>
 		<key>id</key>
@@ -46,9 +52,25 @@
 		<key>name_en</key>
 		<string>Lee YoungJun</string>
 		<key>association</key>
+		<string></string>
+		<key>association_en</key>
+		<string></string>
+		<key>instagram</key>
+		<string>rastignac9</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>4</integer>
+		<key>name</key>
+		<string>전소미</string>
+		<key>name_en</key>
+		<string>Jun SoMi</string>
+		<key>association</key>
 		<string>일상다반사</string>
 		<key>association_en</key>
 		<string>IlSang</string>
+		<key>instagram</key>
+		<string>som_gallery</string>
 	</dict>
 </array>
 </plist>

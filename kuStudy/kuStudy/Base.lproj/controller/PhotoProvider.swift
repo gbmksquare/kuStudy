@@ -11,9 +11,9 @@ import UIKit
 public class PhotoProvider {
     public static let sharedProvider = PhotoProvider()
     
-    let photographers: [Photographer]
+    public let photographers: [Photographer]
     let photoLocations: [PhotoLocation]
-    let photos: [Photo]
+    public let photos: [Photo]
     
     /// [Library ID: Photo Index]
     private var loadedPhotos = [Int: Int]()
@@ -30,7 +30,8 @@ public class PhotoProvider {
             let name_en = item["name_en"] as! String
             let association = item["association"] as! String
             let association_en = item["association_en"] as! String
-            return Photographer(id: id, name: name, name_en: name_en, association: association, association_en: association_en)
+            let instagramId = item["instagram"] as! String
+            return Photographer(id: id, name: name, name_en: name_en, association: association, association_en: association_en, instagramId: instagramId)
         }
         
         // Photo locations
