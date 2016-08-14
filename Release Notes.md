@@ -1,5 +1,19 @@
 # Release Notes
 
+## 0.3.0 (13)
+
+### New Features
+
+### Improvements
+
+* New photos!
+
+* Removed some photos.
+
+### Bug fixes
+
+### Code improvements
+
 ## 0.3.0 (12)
 
 ### New Features
@@ -27,10 +41,6 @@
 * Updated launch screen to fit new interface.
 
 * Added developer name under app version in settings view.
-
-### Bug fixes
-
-### Code improvements
 
 ## 0.3.0 (11)
 
