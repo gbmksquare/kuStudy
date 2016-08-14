@@ -2,8 +2,11 @@
 /* Class = "UILabel"; text = "0"; ObjectID = "95t-0d-L6S"; */
 "95t-0d-L6S.text" = "0";
 
-/* Class = "UILabel"; text = "Today Extension"; ObjectID = "9G6-bV-8tU"; */
+/* Class = "UILabel"; text = "오늘 위젯"; ObjectID = "9G6-bV-8tU"; */
 "9G6-bV-8tU.text" = "오늘 위젯";
+
+/* Class = "UINavigationItem"; title = "Photos"; ObjectID = "D4Y-in-rYe"; */
+"D4Y-in-rYe.title" = "사진 제공";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "DZQ-sq-912"; */
 "DZQ-sq-912.text" = "0";
@@ -20,7 +23,7 @@
 /* Class = "UILabel"; text = "0"; ObjectID = "V5G-zC-35z"; */
 "V5G-zC-35z.text" = "0";
 
-/* Class = "UILabel"; text = "Open Source"; ObjectID = "YKA-2Z-11F"; */
+/* Class = "UILabel"; text = "오픈 소스"; ObjectID = "YKA-2Z-11F"; */
 "YKA-2Z-11F.text" = "오픈 소스";
 
 /* Class = "UILabel"; text = "Apple Watch"; ObjectID = "ZHW-hD-ygN"; */
@@ -38,31 +41,34 @@
 /* Class = "UILabel"; text = "kuStudy"; ObjectID = "enX-X7-aXx"; */
 "enX-X7-aXx.text" = "kuStudy";
 
-/* Class = "UINavigationItem"; title = "Order"; ObjectID = "hJW-zu-PMx"; */
+/* Class = "UINavigationItem"; title = "순서"; ObjectID = "hJW-zu-PMx"; */
 "hJW-zu-PMx.title" = "순서";
 
 /* Class = "UILabel"; text = "Photography by"; ObjectID = "j0O-z7-wAJ"; */
 "j0O-z7-wAJ.text" = "Photography by";
 
-/* Class = "UILabel"; text = "Order"; ObjectID = "jhN-SJ-xk9"; */
+/* Class = "UILabel"; text = "순서"; ObjectID = "jhN-SJ-xk9"; */
 "jhN-SJ-xk9.text" = "순서";
 
-/* Class = "UILabel"; text = "Library"; ObjectID = "jqd-om-39e"; */
+/* Class = "UILabel"; text = "도서관"; ObjectID = "jqd-om-39e"; */
 "jqd-om-39e.text" = "도서관";
 
-/* Class = "UINavigationItem"; title = "Preferences"; ObjectID = "lgZ-TA-sm2"; */
+/* Class = "UILabel"; text = "Photos"; ObjectID = "lPr-9Z-t5V"; */
+"lPr-9Z-t5V.text" = "사진 제공";
+
+/* Class = "UINavigationItem"; title = "설정"; ObjectID = "lgZ-TA-sm2"; */
 "lgZ-TA-sm2.title" = "설정";
 
-/* Class = "UINavigationItem"; title = "Today Extension"; ObjectID = "m0q-wL-iJY"; */
+/* Class = "UINavigationItem"; title = "오늘 위젯"; ObjectID = "m0q-wL-iJY"; */
 "m0q-wL-iJY.title" = "오늘 위젯";
 
-/* Class = "UILabel"; text = "Library"; ObjectID = "nPn-P4-HVv"; */
+/* Class = "UILabel"; text = "도서관"; ObjectID = "nPn-P4-HVv"; */
 "nPn-P4-HVv.text" = "도서관";
 
 /* Class = "UILabel"; text = "도서관"; ObjectID = "o7e-9Y-FyQ"; */
 "o7e-9Y-FyQ.text" = "도서관";
 
-/* Class = "UITabBarItem"; title = "Preferences"; ObjectID = "rDo-EP-1do"; */
+/* Class = "UITabBarItem"; title = "설정"; ObjectID = "rDo-EP-1do"; */
 "rDo-EP-1do.title" = "설정";
 
 /* Class = "UITabBarItem"; title = "도서관"; ObjectID = "vqK-jg-LRr"; */

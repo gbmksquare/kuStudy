@@ -17,6 +17,8 @@
 		16136C001B1C451100B3F744 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BFF1B1C451100B3F744 /* LibraryCell.swift */; };
 		16251CAD1B232D650035F2D9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		162F120D1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 162F120C1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist */; };
+		162F12131D5F845800A401D8 /* AcknowledgementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F12121D5F845800A401D8 /* AcknowledgementViewController.swift */; };
+		162F12151D5F86B000A401D8 /* PhotographerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F12141D5F86B000A401D8 /* PhotographerCell.swift */; };
 		1631A2CE1CEF4EA60078381F /* SectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2CD1CEF4EA60078381F /* SectorData.swift */; };
 		1631A2CF1CEF4EA60078381F /* SectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2CD1CEF4EA60078381F /* SectorData.swift */; };
 		1631A2D11CEF4EEC0078381F /* LibraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2D01CEF4EEC0078381F /* LibraryData.swift */; };
@@ -244,7 +246,9 @@
 		16136BFF1B1C451100B3F744 /* LibraryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		16251CAC1B232C8F0035F2D9 /* kuStudy Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy Today Extension.entitlements"; sourceTree = "<group>"; };
 		162F120C1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-kuStudy-acknowledgements.plist"; path = "../../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy-acknowledgements.plist"; sourceTree = "<group>"; };
-		162F12111D5F1AD000A401D8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
+		162F12121D5F845800A401D8 /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AcknowledgementViewController.swift; path = "view controller/AcknowledgementViewController.swift"; sourceTree = "<group>"; };
+		162F12141D5F86B000A401D8 /* PhotographerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotographerCell.swift; path = view/PhotographerCell.swift; sourceTree = "<group>"; };
+		162F12171D60113C00A401D8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		1631A2CD1CEF4EA60078381F /* SectorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectorData.swift; path = model/SectorData.swift; sourceTree = "<group>"; };
 		1631A2D01CEF4EEC0078381F /* LibraryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryData.swift; path = model/LibraryData.swift; sourceTree = "<group>"; };
 		1631A2D31CEF4F240078381F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = controller/API.swift; sourceTree = "<group>"; };
@@ -533,6 +537,8 @@
 				164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */,
 				16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */,
 				1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift */,
+				162F12121D5F845800A401D8 /* AcknowledgementViewController.swift */,
+				162F12141D5F86B000A401D8 /* PhotographerCell.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -1625,6 +1631,7 @@
 				1664D5541D55E1E2000BAF56 /* UIColor.swift in Sources */,
 				164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */,
 				167246231B1B4BEC0083035F /* LibraryTableViewCell.swift in Sources */,
+				162F12151D5F86B000A401D8 /* PhotographerCell.swift in Sources */,
 				167245C51B19C0370083035F /* AppDelegate.swift in Sources */,
 				167246251B1B4F0D0083035F /* ReadingRoomTableViewCell.swift in Sources */,
 				1664D5521D55E1C6000BAF56 /* UINavigationController.swift in Sources */,
@@ -1634,6 +1641,7 @@
 				164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */,
 				167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */,
 				1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */,
+				162F12131D5F845800A401D8 /* AcknowledgementViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1773,7 +1781,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				167245C91B19C0370083035F /* Base */,
-				162F12111D5F1AD000A401D8 /* ko */,
+				162F12171D60113C00A401D8 /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
