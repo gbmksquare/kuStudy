@@ -20,7 +20,11 @@ public struct Photographer {
         if NSLocale.preferredLanguages().first?.hasPrefix("ko") == true {
             return "사진: \(association) \(name)"
         } else {
-            return "Photography by \(name_en), \(association_en)"
+            if association_en.characters.count > 0 {
+                return "Photography by \(name_en), \(association_en)"
+            } else {
+                return "Photography by \(name_en)"
+            }
         }
     }
     

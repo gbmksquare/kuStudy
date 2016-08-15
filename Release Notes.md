@@ -6,11 +6,15 @@
 
 ### Improvements
 
-* New photos!
+* New photos! A lot of new photos!
 
 * Removed some photos.
 
+* Changed English association name to Korean. (no fitting English name)
+
 ### Bug fixes
+
+* Fixed comma appearing on photography attribution string even when there is no association.
 
 ### Code improvements
 
