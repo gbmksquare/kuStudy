@@ -12,6 +12,8 @@
 
 * Changed English association name to Korean. (no fitting English name)
 
+* Updated photographer information.
+
 ### Bug fixes
 
 * Fixed comma appearing on photography attribution string even when there is no association.
