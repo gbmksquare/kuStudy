@@ -30,33 +30,31 @@ class TodayViewController: UIViewController {
         }
         
         super.viewDidLoad()
-        addObserver()
         registerDefaultPreferences()
+        listenToPreferenceChange()
         tableView.delegate = self
         tableView.dataSource = self
-//        tableViewHeightConstraint.constant = 0
-        updateData()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        updateData()
     }
     
     // MARK: Action
     private func updateData() {
-        kuStudy.requestSummaryData(onLibrarySuccess: { [weak self] (libraryData) in
+        kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
             
-            }, onFailure: { [weak self] (error) in
+            }, onFailure: { (error) in
                 
             }) { [weak self] (summaryData) in
                 self?.summaryData = summaryData
-                self?.reorderLibraryData()
                 self?.updateView()
         }
     }
     
     private func updateView() {
+        reorderLibraryData()
         if summaryData.libraries.count > 0 {
             tableViewHeightConstraint.constant = CGFloat(summaryData.libraries.count) * tableView.rowHeight
             tableView.reloadData()
@@ -67,7 +65,7 @@ class TodayViewController: UIViewController {
     
     private func reorderLibraryData() {
         let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        orderedLibraryIds = defaults.arrayForKey("libraryOrder") as! [String]
+        orderedLibraryIds = defaults.arrayForKey("todayExtensionOrder") as! [String]
         
         var orderedLibraryData = [LibraryData]()
         for libraryId in orderedLibraryIds {
@@ -112,12 +110,11 @@ extension TodayViewController: NCWidgetProviding {
 
 // MARK: - Notification
 extension TodayViewController {
-    private func addObserver() {
+    private func listenToPreferenceChange() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleUserDefaultsDidChange(_:)), name: NSUserDefaultsDidChangeNotification, object: nil)
     }
     
     @objc func handleUserDefaultsDidChange(notification: NSNotification) {
-        reorderLibraryData()
-        tableView.reloadData()
+        updateView()
     }
 }

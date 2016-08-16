@@ -24,6 +24,8 @@
 
 * Fixed table view cell may not be deselected occasionally on settings view.
 
+* Fixed today extension order settings are not applied.
+
 ### Code improvements
 
 ## 0.3.0 (12)
