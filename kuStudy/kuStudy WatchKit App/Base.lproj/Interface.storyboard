@@ -84,6 +84,15 @@
                             </items>
                         </group>
                     </items>
+                    <menu key="menu" id="yfa-rf-qQF">
+                        <items>
+                            <menuItem title="Refresh" icon="accept" id="xSk-I9-tfa">
+                                <connections>
+                                    <action selector="tappedRefreshMenu" destination="AgC-eL-Hgc" id="Yxb-AJ-8iu"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="percentageGroup" destination="dHe-3g-H06" id="BYX-XG-WTV"/>
                         <outlet property="percentageLabel" destination="Gw2-Lr-bPf" id="QOl-Xp-lfp"/>
@@ -181,6 +190,15 @@
                             </items>
                         </group>
                     </items>
+                    <menu key="menu" id="JC8-en-JRS">
+                        <items>
+                            <menuItem title="Refresh" icon="accept" id="jvq-f8-zvp">
+                                <connections>
+                                    <action selector="tappedRefreshMenu" destination="WY2-1B-zUr" id="Nyt-Au-ujl"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
                     <connections>
                         <outlet property="availableLabel" destination="GYg-fS-lat" id="mda-At-Hvh"/>
                         <outlet property="percentageGroup" destination="rX0-np-zQR" id="WTY-Wl-v3c"/>

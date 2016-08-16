@@ -10,6 +10,8 @@
 
 * Today extension remembers last hight and is less likely  change height on each load.
 
+* Added refresh menu on watch app.
+
 ### Improvements
 
 * Removed some photos.

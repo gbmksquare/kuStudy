@@ -57,6 +57,10 @@ class InterfaceController: WKInterfaceController {
     }
     
     // MARK: Action
+    @IBAction func tappedRefreshMenu() {
+        updateData()
+    }
+    
     private func updateData() {
         summaryData.libraries.removeAll(keepCapacity: true)
         kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in

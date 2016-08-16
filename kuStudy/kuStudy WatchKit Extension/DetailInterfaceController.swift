@@ -41,6 +41,10 @@ class DetailInterfaceController: WKInterfaceController {
     }
     
     // MARK: Action
+    @IBAction func tappedRefreshMenu() {
+        updateData()
+    }
+    
     private func updateData() {
         guard let libraryId = libraryData.libraryId else { return }
         kuStudy.requestLibraryData(libraryId: libraryId,
