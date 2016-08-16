@@ -26,6 +26,8 @@
 
 * Updates Apple Watch app user interface.
 
+* Removed Apple Watch menu from settings.
+
 ### Bug fixes
 
 * Fixed comma appearing on photography attribution string even when there is no association.
