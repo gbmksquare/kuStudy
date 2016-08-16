@@ -4,6 +4,8 @@
 
 ### New Features
 
+* Tapping a cell in today extension open corresponding library in app.
+
 ### Improvements
 
 * New photos! A lot of new photos!

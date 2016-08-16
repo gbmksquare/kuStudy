@@ -77,9 +77,28 @@ extension AppDelegate {
     }
 }
 
+// MARK: Url
+extension AppDelegate {
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        guard let window = window else { return false }
+        
+        let tabBarController = window.rootViewController as! MainTabBarController
+        tabBarController.selectedIndex = 0
+        
+        let navigationController = tabBarController.viewControllers![0] as! UINavigationController
+        navigationController.popToRootViewControllerAnimated(false)
+        let summaryViewController = navigationController.topViewController as! SummaryViewController
+        
+        let userActivity = NSUserActivity(activityType: kuStudyHandoffLibrary)
+        guard let libraryId = url.query?.characters.split("=").last.map(String.init) else { return false }
+        userActivity.addUserInfoEntriesFromDictionary(["libraryId": libraryId])
+        summaryViewController.restoreUserActivityState(userActivity)
+        return true
+    }
+}
+
 // MARK: Handoff
 extension AppDelegate {
-    // MARK: Handoff
     func application(application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
         return true
     }

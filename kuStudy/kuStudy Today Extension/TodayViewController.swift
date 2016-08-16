@@ -78,6 +78,16 @@ class TodayViewController: UIViewController {
 
 // MARK: - Table view
 extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
+    // Delegate
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        guard let libraryId = summaryData.libraries[indexPath.row].libraryId else { return }
+        guard let url = NSURL(string: "kustudy://?libraryId=\(libraryId)") else { return }
+        extensionContext?.openURL(url, completionHandler: { (completed) in
+            
+        })
+    }
+    
+    // Data source
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
