@@ -34,6 +34,7 @@ class TodayViewController: UIViewController {
         listenToPreferenceChange()
         tableView.delegate = self
         tableView.dataSource = self
+        updateView()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -54,6 +55,10 @@ class TodayViewController: UIViewController {
     }
     
     private func updateView() {
+        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+        orderedLibraryIds = defaults.arrayForKey("todayExtensionOrder") as! [String]
+        tableViewHeightConstraint.constant = CGFloat(orderedLibraryIds.count) * tableView.rowHeight
+        
         reorderLibraryData()
         if summaryData.libraries.count > 0 {
             tableViewHeightConstraint.constant = CGFloat(summaryData.libraries.count) * tableView.rowHeight

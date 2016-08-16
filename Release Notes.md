@@ -4,11 +4,13 @@
 
 ### New Features
 
-* Tapping a cell in today extension open corresponding library in app.
+* New photos! A lot of new photos!
+
+* Tapping a cell in today extension opens corresponding library in app.
+
+* Today extension remembers last hight and is less likely  change height on each load.
 
 ### Improvements
-
-* New photos! A lot of new photos!
 
 * Removed some photos.
 
