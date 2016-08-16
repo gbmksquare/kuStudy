@@ -67,11 +67,13 @@ extension SummaryData {
 
 extension SummaryData: PercentagePresentable {
     public var availablePercentage: Float {
+        guard totalSeats != 0 else { return 0 }
         guard let availableSeats = availableSeats, totalSeats = totalSeats else { return 0 }
         return Float(availableSeats) / Float(totalSeats)
     }
     
     public var usedPercentage: Float {
+        guard totalSeats != 0 else { return 0 }
         guard let usedSeats = usedSeats, totalSeats = totalSeats else { return 0 }
         return Float(usedSeats) / Float(totalSeats)
     }

@@ -8,11 +8,14 @@
 
 import UIKit
 import kuStudyKit
+import WatchConnectivity
 
-class LibraryOrderTableViewController: UITableViewController {
+class LibraryOrderTableViewController: UITableViewController, WCSessionDelegate {
     private var defaults: NSUserDefaults!
     private var libraryTypes: [LibraryType]!
     private var orderedLibraryIds: [String]!
+    
+    private var session: WCSession?
     
     // MARK: View
     override func viewDidLoad() {
@@ -23,6 +26,12 @@ class LibraryOrderTableViewController: UITableViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.editing = true
+        
+        if WCSession.isSupported() == true {
+            session = WCSession.defaultSession()
+            session?.delegate = self
+            session?.activateSession()
+        }
     }
 }
 
@@ -68,5 +77,10 @@ extension LibraryOrderTableViewController {
         
         defaults.setValue(orderedLibraryIds, forKey: "libraryOrder")
         defaults.synchronize()
+        
+        // Send settings to watch
+        do {
+            try session?.updateApplicationContext(["libraryOrder": orderedLibraryIds])
+        } catch { }
     }
 }

@@ -12,6 +12,8 @@
 
 * Added refresh menu on watch app.
 
+* Library order in watch app will respect order set in settings.
+
 ### Improvements
 
 * Removed some photos.

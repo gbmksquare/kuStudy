@@ -9,12 +9,15 @@
 import WatchKit
 import Foundation
 import kuStudyWatchKit
+import WatchConnectivity
 
 class InterfaceController: WKInterfaceController {
     @IBOutlet weak var table: WKInterfaceTable!
     @IBOutlet weak var percentageLabel: WKInterfaceLabel!
     @IBOutlet weak var percentageGroup: WKInterfaceGroup!
     @IBOutlet weak var summaryLabel: WKInterfaceLabel!
+    
+    private var session: WCSession?
     
     // MARK: Model
     private var summaryData = SummaryData()
@@ -23,17 +26,21 @@ class InterfaceController: WKInterfaceController {
     // MARK: Watch
     override func awakeWithContext(context: AnyObject?) {
         func registerDefaultPreferences() {
-            let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+            let defaults = NSUserDefaults.standardUserDefaults()
             let libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
-            defaults.registerDefaults(["libraryOrder": libraryOrder,
-                "todayExtensionOrder": libraryOrder,
-                "todayExtensionHidden": []])
+            defaults.registerDefaults(["libraryOrder": libraryOrder])
             defaults.synchronize()
         }
         
         super.awakeWithContext(context)
         registerDefaultPreferences()
         updateData()
+        
+        if WCSession.isSupported() == true {
+            session = WCSession.defaultSession()
+            session?.delegate = self
+            session?.activateSession()
+        }
     }
     
     override func willActivate() {
@@ -69,12 +76,13 @@ class InterfaceController: WKInterfaceController {
                 
             }) { [weak self] (summaryData) in
                 self?.summaryData = summaryData
-                self?.reorderLibraryData()
                 self?.updateView()
         }
     }
     
     private func updateView() {
+        reorderLibraryData()
+        
         // Summary
         summaryLabel.setText(summaryData.usedSeats!.readableFormat + NSLocalizedString("kuStudy.Watch.StudyingDescription", bundle: NSBundle(forClass: self.dynamicType), comment: "Describe how many people are studying."))
         percentageLabel.setText(summaryData.usedPercentage.readablePercentageFormat)
@@ -103,10 +111,20 @@ class InterfaceController: WKInterfaceController {
     }
 }
 
-// MARK:
-// MARK: Handoff
+// MARK: - Handoff
 extension InterfaceController {
     private func startHandOff() {
         updateUserActivity(kuStudyHandoffSummary, userInfo: [kuStudyHandoffSummaryKey: kuStudyHandoffSummaryKey], webpageURL: nil)
+    }
+}
+
+// MARK: - Watch connectivity
+extension InterfaceController: WCSessionDelegate {
+    func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
+        guard let libraryOrder = applicationContext["libraryOrder"] as? [String] else { return }
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.registerDefaults(["libraryOrder": libraryOrder])
+        defaults.synchronize()
+        updateView()
     }
 }
