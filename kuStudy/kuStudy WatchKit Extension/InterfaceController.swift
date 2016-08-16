@@ -72,7 +72,7 @@ class InterfaceController: WKInterfaceController {
     
     private func updateView() {
         // Summary
-        summaryLabel.setText(summaryData.usedSeats!.readableFormat + NSLocalizedString("summary_used_description", bundle: NSBundle(forClass: self.dynamicType), comment: "Describe how many people are studying."))
+        summaryLabel.setText(summaryData.usedSeats!.readableFormat + NSLocalizedString("kuStudy.Watch.StudyingDescription", bundle: NSBundle(forClass: self.dynamicType), comment: "Describe how many people are studying."))
         percentageLabel.setText(summaryData.usedPercentage.readablePercentageFormat)
         percentageGroup.startAnimatingWithImagesInRange(
             NSRange(location: 0, length: Int(summaryData.usedPercentage * 100)),

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
     </dependencies>
     <scenes>
         <!--kuStudy-->
@@ -101,7 +101,7 @@
                     <items>
                         <group width="1" alignment="center" layout="vertical" id="hgQ-Lm-Uat">
                             <items>
-                                <group width="1" height="74" alignment="center" layout="vertical" id="9Mi-pp-NoM">
+                                <group width="1" alignment="center" layout="vertical" id="9Mi-pp-NoM">
                                     <items>
                                         <group width="1" alignment="left" spacing="5" id="DQl-pY-GWS">
                                             <items>
@@ -115,27 +115,27 @@
                                             <edgeInsets key="margins" left="5" right="0.0" top="0.0" bottom="0.0"/>
                                         </group>
                                         <group width="0.90000000000000002" height="4" alignment="center" backgroundImage="linear" contentMode="scaleAspectFit" initiallyAnimated="NO" radius="2" id="rX0-np-zQR"/>
-                                        <group width="1" alignment="left" id="BeH-sF-fad">
+                                        <group width="1" alignment="left" layout="vertical" id="BeH-sF-fad">
                                             <items>
-                                                <group width="0.5" alignment="left" spacing="3" id="CQo-k5-1aq">
-                                                    <items>
-                                                        <label alignment="left" verticalAlignment="center" text="Studying" textAlignment="left" id="nCn-mW-Zfd">
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <fontDescription key="font" type="system" pointSize="11"/>
-                                                        </label>
-                                                        <label alignment="left" verticalAlignment="center" text="0" id="Odh-Gu-yRK">
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <fontDescription key="font" type="system" pointSize="16"/>
-                                                        </label>
-                                                    </items>
-                                                </group>
-                                                <group width="0.5" alignment="left" spacing="3" id="ul8-jW-Pbm">
+                                                <group width="1" alignment="left" spacing="3" id="ul8-jW-Pbm">
                                                     <items>
                                                         <label alignment="left" verticalAlignment="center" text="Total" textAlignment="left" id="2F0-zn-J02">
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="font" type="system" pointSize="11"/>
                                                         </label>
                                                         <label alignment="left" verticalAlignment="center" text="0" id="dHW-cp-BFm">
+                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <fontDescription key="font" type="system" pointSize="16"/>
+                                                        </label>
+                                                    </items>
+                                                </group>
+                                                <group width="1" alignment="left" spacing="3" id="CQo-k5-1aq">
+                                                    <items>
+                                                        <label alignment="left" verticalAlignment="center" text="Studying" textAlignment="left" id="nCn-mW-Zfd">
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <fontDescription key="font" type="system" pointSize="11"/>
+                                                        </label>
+                                                        <label alignment="left" verticalAlignment="center" text="0" id="Odh-Gu-yRK">
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="font" type="system" pointSize="16"/>
                                                         </label>

@@ -101,6 +101,7 @@
 		16BB42EE1B2C225900201DE2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BB42EC1B2C225900201DE2 /* Fabric.framework */; };
 		16BB42EF1B2C225900201DE2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BB42ED1B2C225900201DE2 /* Crashlytics.framework */; };
 		16BB431E1B2C277400201DE2 /* kuStudyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167245EC1B19C42B0083035F /* kuStudyKit.framework */; };
+		16D392B41D62C5310078223E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16D392B61D62C5310078223E /* InfoPlist.strings */; };
 		16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */; };
 		1A6ADFECC0BE4686683FEB7A /* Pods_kuStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9CA6B659DC9080D5A97D52 /* Pods_kuStudy.framework */; };
 		1CA21C0B1A9AA61CE621D2AB /* Pods_kuStudyKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936F5DC271654941D5D5F120 /* Pods_kuStudyKitTests.framework */; };
@@ -320,6 +321,8 @@
 		16B684A61C5734A300C8C2CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Base; path = Base.lproj/Assets.xcassets; sourceTree = "<group>"; };
 		16BB42EC1B2C225900201DE2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		16BB42ED1B2C225900201DE2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		16D392B51D62C5310078223E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		16D392B71D62C5330078223E /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryOrderTableViewController.swift; path = "view controller/LibraryOrderTableViewController.swift"; sourceTree = "<group>"; };
 		16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Photographers.plist; path = ../kuStudy/Photographers.plist; sourceTree = "<group>"; };
 		16EE13B01C8AECB2002D4F12 /* Photos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Photos.plist; path = ../kuStudy/Photos.plist; sourceTree = "<group>"; };
@@ -467,6 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				16136BDB1B1C3F0700B3F744 /* Images.xcassets */,
+				16D392B61D62C5310078223E /* InfoPlist.strings */,
 				16A8873F1B21DD8A00C49551 /* Localizable.strings */,
 			);
 			name = Resource;
@@ -1194,6 +1198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				16A8873D1B21DD8A00C49551 /* Localizable.strings in Resources */,
+				16D392B41D62C5310078223E /* InfoPlist.strings in Resources */,
 				16136BDC1B1C3F0700B3F744 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1836,6 +1841,15 @@
 				16B684A61C5734A300C8C2CE /* Base */,
 			);
 			name = Assets.xcassets;
+			sourceTree = "<group>";
+		};
+		16D392B61D62C5310078223E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				16D392B51D62C5310078223E /* Base */,
+				16D392B71D62C5330078223E /* ko */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

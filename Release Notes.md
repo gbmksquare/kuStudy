@@ -14,6 +14,10 @@
 
 * Updated photographer information.
 
+* Localized Apple Watch app.
+
+* Updates Apple Watch app user interface.
+
 ### Bug fixes
 
 * Fixed comma appearing on photography attribution string even when there is no association.
