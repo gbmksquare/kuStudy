@@ -17,6 +17,15 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         appIconImageView.layer.cornerRadius = 8
         versionLabel.text = "kuStudy " + UIApplication.versionString
+        clearsSelectionOnViewWillAppear = false
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        // iOS Bug: http://stackoverflow.com/questions/19379510/uitableviewcell-doesnt-get-deselected-when-swiping-back-quickly
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
     }
 }
 

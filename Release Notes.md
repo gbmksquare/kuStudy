@@ -18,6 +18,8 @@
 
 * Fixed comma appearing on photography attribution string even when there is no association.
 
+* Fixed table view cell may not be deselected occasionally on settings view.
+
 ### Code improvements
 
 ## 0.3.0 (12)
