@@ -1,0 +1,15 @@
+kuStudy provides live reading room seats information of Korea University.
+
+Features:
+• Total seats in a library
+• Used & available seats in a library
+• Total seats in a reading room
+• Used & available seats in a reading room
+
+Supports:
+• iOS app
+• Today widget
+• Apple Watch app
+• Apple Watch Glance
+
+Note: Depending on University's server status, information cant' be shown.
