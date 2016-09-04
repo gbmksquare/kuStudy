@@ -34,6 +34,7 @@ class TodayViewController: UIViewController {
         listenToPreferenceChange()
         tableView.delegate = self
         tableView.dataSource = self
+        view.backgroundColor = UIColor(white: 1, alpha: 0.01) // Workaround: http://stackoverflow.com/questions/26309364/uitableview-in-a-today-extension-not-receiving-row-taps
         updateView()
     }
     
