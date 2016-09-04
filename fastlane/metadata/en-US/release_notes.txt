@@ -1,0 +1,13 @@
+New Features
+• Added "Recommend to a friend".
+• Added "Rate on App Store".
+
+Improvements
+• Added instructions to add Today widget to Notification Center.
+• Removed some photos.
+
+Bug Fixes
+• Fixed tapping empty area of Today widget not opening iOS app.
+• Fixed Today widget settings not localized.
+
+Happy studying! :)
