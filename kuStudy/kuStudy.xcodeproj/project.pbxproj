@@ -2417,6 +2417,7 @@
 				160505F31D6EDC1D0033B123 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		16136BF21B1C3F0800B3F744 /* Build configuration list for PBXNativeTarget "kuStudy WatchKit App" */ = {
 			isa = XCConfigurationList;
