@@ -5,14 +5,20 @@
 /* Class = "UILabel"; text = "오늘 위젯"; ObjectID = "9G6-bV-8tU"; */
 "9G6-bV-8tU.text" = "오늘 위젯";
 
-/* Class = "UINavigationItem"; title = "Photos"; ObjectID = "D4Y-in-rYe"; */
+/* Class = "UINavigationItem"; title = "사진 제공"; ObjectID = "D4Y-in-rYe"; */
 "D4Y-in-rYe.title" = "사진 제공";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "DZQ-sq-912"; */
 "DZQ-sq-912.text" = "0";
 
+/* Class = "UILabel"; text = "Recommend to a friend"; ObjectID = "EEC-53-FRh"; */
+"EEC-53-FRh.text" = "친구에게 추천하기";
+
 /* Class = "UILabel"; text = "0"; ObjectID = "GdJ-94-Jfh"; */
 "GdJ-94-Jfh.text" = "0";
+
+/* Class = "UILabel"; text = "BumMo Koo"; ObjectID = "MWm-mN-eda"; */
+"MWm-mN-eda.text" = "BumMo Koo";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "OCZ-zH-oDh"; */
 "OCZ-zH-oDh.text" = "0";
@@ -26,8 +32,8 @@
 /* Class = "UILabel"; text = "오픈 소스"; ObjectID = "YKA-2Z-11F"; */
 "YKA-2Z-11F.text" = "오픈 소스";
 
-/* Class = "UILabel"; text = "Apple Watch"; ObjectID = "ZHW-hD-ygN"; */
-"ZHW-hD-ygN.text" = "Apple Watch";
+/* Class = "UIButton"; normalTitle = "Instagram"; ObjectID = "bNn-Z8-pMD"; */
+"bNn-Z8-pMD.normalTitle" = "Instagram";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "cL8-gm-ATc"; */
 "cL8-gm-ATc.text" = "0";
@@ -35,11 +41,17 @@
 /* Class = "UILabel"; text = "Title"; ObjectID = "d06-nS-dWs"; */
 "d06-nS-dWs.text" = "Title";
 
+/* Class = "UILabel"; text = "Rate on App Store"; ObjectID = "dws-O7-gEw"; */
+"dws-O7-gEw.text" = "App Store에서 평가하기";
+
 /* Class = "UILabel"; text = "0"; ObjectID = "eFo-nE-Der"; */
 "eFo-nE-Der.text" = "0";
 
 /* Class = "UILabel"; text = "kuStudy"; ObjectID = "enX-X7-aXx"; */
 "enX-X7-aXx.text" = "kuStudy";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "esP-sP-H3n"; */
+"esP-sP-H3n.text" = "Name";
 
 /* Class = "UINavigationItem"; title = "순서"; ObjectID = "hJW-zu-PMx"; */
 "hJW-zu-PMx.title" = "순서";
@@ -53,7 +65,7 @@
 /* Class = "UILabel"; text = "도서관"; ObjectID = "jqd-om-39e"; */
 "jqd-om-39e.text" = "도서관";
 
-/* Class = "UILabel"; text = "Photos"; ObjectID = "lPr-9Z-t5V"; */
+/* Class = "UILabel"; text = "사진 제공"; ObjectID = "lPr-9Z-t5V"; */
 "lPr-9Z-t5V.text" = "사진 제공";
 
 /* Class = "UINavigationItem"; title = "설정"; ObjectID = "lgZ-TA-sm2"; */
@@ -62,8 +74,11 @@
 /* Class = "UINavigationItem"; title = "오늘 위젯"; ObjectID = "m0q-wL-iJY"; */
 "m0q-wL-iJY.title" = "오늘 위젯";
 
-/* Class = "UILabel"; text = "도서관"; ObjectID = "nPn-P4-HVv"; */
-"nPn-P4-HVv.text" = "도서관";
+/* Class = "UILabel"; text = "Association"; ObjectID = "nHP-Uk-eiX"; */
+"nHP-Uk-eiX.text" = "Association";
+
+/* Class = "UILabel"; text = "Library"; ObjectID = "nPn-P4-HVv"; */
+"nPn-P4-HVv.text" = "Library";
 
 /* Class = "UILabel"; text = "도서관"; ObjectID = "o7e-9Y-FyQ"; */
 "o7e-9Y-FyQ.text" = "도서관";

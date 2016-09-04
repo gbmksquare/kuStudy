@@ -262,7 +262,6 @@
 		162F120C1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-kuStudy-acknowledgements.plist"; path = "../../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy-acknowledgements.plist"; sourceTree = "<group>"; };
 		162F12121D5F845800A401D8 /* AcknowledgementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AcknowledgementViewController.swift; path = "view controller/AcknowledgementViewController.swift"; sourceTree = "<group>"; };
 		162F12141D5F86B000A401D8 /* PhotographerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotographerCell.swift; path = view/PhotographerCell.swift; sourceTree = "<group>"; };
-		162F12171D60113C00A401D8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		1631A2CD1CEF4EA60078381F /* SectorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectorData.swift; path = model/SectorData.swift; sourceTree = "<group>"; };
 		1631A2D01CEF4EEC0078381F /* LibraryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryData.swift; path = model/LibraryData.swift; sourceTree = "<group>"; };
 		1631A2D31CEF4F240078381F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = controller/API.swift; sourceTree = "<group>"; };
@@ -275,6 +274,7 @@
 		16538EA81C4F16820097A4F4 /* kuStudyWatchKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kuStudyWatchKit.h; sourceTree = "<group>"; };
 		16538EAA1C4F16820097A4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodayExtensionOrderTableViewController.swift; path = "view controller/TodayExtensionOrderTableViewController.swift"; sourceTree = "<group>"; };
+		1658FF091D7BB80D00D35A90 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		1660A4B71C8FB4EE003D5460 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = LibraryPhotos.xcassets; path = kuStudyKit/LibraryPhotos.xcassets; sourceTree = SOURCE_ROOT; };
 		1664D5511D55E1C6000BAF56 /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINavigationController.swift; path = extension/UINavigationController.swift; sourceTree = "<group>"; };
@@ -1862,7 +1862,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				167245C91B19C0370083035F /* Base */,
-				162F12171D60113C00A401D8 /* ko */,
+				1658FF091D7BB80D00D35A90 /* ko */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
