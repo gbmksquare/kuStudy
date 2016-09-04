@@ -2,7 +2,7 @@
 
 -----
 
-![Mock Up](MockUp.jpg =800x)
+<img src="./MockUp.jpg" width="800">
 
 ## Installation
 
