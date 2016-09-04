@@ -30,10 +30,19 @@ class kuStudy_Snapshot: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        snapshot("0_Test")
+    func testSnapshot() {
+        snapshot("0_Main")
+        
+        let app = XCUIApplication()
+        let tablesQuery = app.tables
+        tablesQuery.cells.elementBoundByIndex(0).tap()
+        snapshot("1_First")
+        
+        let button = app.navigationBars["kuStudy.LibraryView"].buttons[" "]
+        button.tap()
+        tablesQuery.cells.elementBoundByIndex(3).tap()
+        snapshot("2_Second")
+        button.tap()
     }
     
 }
