@@ -1,5 +1,31 @@
 # Release Notes
 
+## 1.0.1 (15)
+
+### New Features
+
+* Added rate on App Store.
+
+* Added recommend to a friend.
+
+### Improvements
+
+* Added instructions to add Today widget.
+
+* Removed some photos.
+
+### Bug fixes
+
+* Fixed tapping empty area of Today widget won't open iOS app.
+
+* Localized Today widget settings.
+
+## 1.0 (14)
+
+### Code Improvments
+
+* Integrated Fastlane. (Deliver, Snapshot)
+
 ## 0.3.0 (13)
 
 ### New Features
