@@ -8,6 +8,7 @@
 
 import UIKit
 import kuStudyKit
+import Localize_Swift
 
 class TodayExtensionOrderTableViewController: UITableViewController {
     private var defaults: NSUserDefaults!
@@ -32,15 +33,16 @@ class TodayExtensionOrderTableViewController: UITableViewController {
 extension TodayExtensionOrderTableViewController {
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 0: return "Show"
-        case 1: return "Hide"
+        case 0: return "kuStudy.Settings.Today.Header.Show".localized()
+        case 1: return "kuStudy.Settings.Today.Header.Hide".localized()
         default: return nil
         }
     }
     
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
-        case 1: return "View dragged here will be hidden in notificaiton center."
+        case 0: return "kuStudy.Settings.Today.Footer.Instruction".localized()
+        case 1: return "kuStudy.Settings.Today.Footer.Hidden".localized()
         default: return ""
         }
     }

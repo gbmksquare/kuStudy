@@ -12,6 +12,11 @@
 
 "kuStudy.Main.Studying" = " 명이 공부 중입니다.";
 
+"kuStudy.Settings.Today.Header.Show" = "보기";
+"kuStudy.Settings.Today.Header.Hide" = "숨기기";
+"kuStudy.Settings.Today.Footer.Hidden" = "이 곳에 옮겨진 항목은 알림 센터에서 보이지 않습니다.";
+"kuStudy.Settings.Today.Footer.Instruction" = "오늘 위젯 추가하기:\n\n1. 화면 상단에서 스와이프해 알림 센터를 여세요.\n2. 오늘 탭으로 변경하세요.\n3. 최하단으로 내려가 편집 버튼을 누르세요.\n4. 고려대학교 열람실을 찾아 왼쪽의 + 아이콘을 누르세요.\n5. 완료를 누르세요.";
+
 /*
  * ./kuStudy/kuStudy/view controller/SummaryViewController.swift
  */

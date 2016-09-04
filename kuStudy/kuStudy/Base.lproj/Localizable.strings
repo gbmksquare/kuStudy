@@ -12,6 +12,11 @@
 
 "kuStudy.Main.Studying" = " people are now studying.";
 
+"kuStudy.Settings.Today.Header.Show" = "Show";
+"kuStudy.Settings.Today.Header.Hide" = "Hide";
+"kuStudy.Settings.Today.Footer.Hidden" = "Items dragged here are hidden in Notificaiton Center.";
+"kuStudy.Settings.Today.Footer.Instruction" = "How to add Today widget:\n\n1. Swipe down from the top of the screen to open Notification Center.\n2.Switch to Today tab.\n3.Scroll to the bottom and tap Edit.\n4.Find Korea University Reading Room and tap + icon.\n5. Tap Done.";
+
 /*
  * ./kuStudy/kuStudy/view controller/SummaryViewController.swift
  */
