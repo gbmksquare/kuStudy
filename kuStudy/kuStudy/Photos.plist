@@ -94,36 +94,6 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>ljy_6</string>
-		<key>libraryId</key>
-		<integer>26</integer>
-		<key>photographerId</key>
-		<integer>1</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>ljy_7</string>
-		<key>libraryId</key>
-		<integer>26</integer>
-		<key>photographerId</key>
-		<integer>1</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>bgd_1</string>
-		<key>libraryId</key>
-		<integer>4</integer>
-		<key>photographerId</key>
-		<integer>0</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
 		<string>love_1</string>
 		<key>libraryId</key>
 		<integer>4</integer>
@@ -174,26 +144,6 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>somi_4</string>
-		<key>libraryId</key>
-		<integer>1</integer>
-		<key>photographerId</key>
-		<integer>4</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>lyj_cdl_1</string>
-		<key>libraryId</key>
-		<integer>4</integer>
-		<key>photographerId</key>
-		<integer>3</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
 		<string>lyj_cdl_2</string>
 		<key>libraryId</key>
 		<integer>4</integer>
@@ -224,16 +174,6 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>lyj_cdl_5</string>
-		<key>libraryId</key>
-		<integer>4</integer>
-		<key>photographerId</key>
-		<integer>3</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
 		<string>lyj_cl_1</string>
 		<key>libraryId</key>
 		<integer>3</integer>
@@ -254,16 +194,6 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>lyj_cs_1</string>
-		<key>libraryId</key>
-		<integer>1</integer>
-		<key>photographerId</key>
-		<integer>3</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
 		<string>lyj_cs_2</string>
 		<key>libraryId</key>
 		<integer>1</integer>
@@ -275,36 +205,6 @@
 	<dict>
 		<key>name</key>
 		<string>lyj_cs_3</string>
-		<key>libraryId</key>
-		<integer>1</integer>
-		<key>photographerId</key>
-		<integer>3</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>lyj_cs_4</string>
-		<key>libraryId</key>
-		<integer>1</integer>
-		<key>photographerId</key>
-		<integer>3</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>lyj_cs_5</string>
-		<key>libraryId</key>
-		<integer>1</integer>
-		<key>photographerId</key>
-		<integer>3</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>lyj_cs_6</string>
 		<key>libraryId</key>
 		<integer>1</integer>
 		<key>photographerId</key>
@@ -344,16 +244,6 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>lyj_cs_10</string>
-		<key>libraryId</key>
-		<integer>1</integer>
-		<key>photographerId</key>
-		<integer>3</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
 		<string>lyj_cs_11</string>
 		<key>libraryId</key>
 		<integer>1</integer>
@@ -367,46 +257,6 @@
 		<string>lyj_cs_12</string>
 		<key>libraryId</key>
 		<integer>1</integer>
-		<key>photographerId</key>
-		<integer>3</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>lyj_cs_13</string>
-		<key>libraryId</key>
-		<integer>1</integer>
-		<key>photographerId</key>
-		<integer>3</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>lyj_cs_14</string>
-		<key>libraryId</key>
-		<integer>1</integer>
-		<key>photographerId</key>
-		<integer>3</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>lyj_hs_1</string>
-		<key>libraryId</key>
-		<integer>5</integer>
-		<key>photographerId</key>
-		<integer>3</integer>
-		<key>description</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>lyj_hs_2</string>
-		<key>libraryId</key>
-		<integer>5</integer>
 		<key>photographerId</key>
 		<integer>3</integer>
 		<key>description</key>
