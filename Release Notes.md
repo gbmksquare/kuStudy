@@ -1,5 +1,11 @@
 # Release Notes
 
+## 1.0.2 (16)
+
+### Fixed bugs
+
+* Fixed app crashing when tapped "Recommend to a friend" on iPad.
+
 ## 1.0.1 (15)
 
 ### New Features

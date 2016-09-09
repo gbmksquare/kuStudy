@@ -42,6 +42,9 @@ extension SettingsTableViewController {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             let message = "kuStudy.Settings.Recommend".localized() + "\n\nhttps://geo.itunes.apple.com/kr/app/kustudy-golyeodaehaggyo-yeollamsil/id925255895?mt=8&ign-mpt=uo%3D4"
             let activityVC = UIActivityViewController(activityItems: [message], applicationActivities: nil)
+            activityVC.popoverPresentationController?.permittedArrowDirections = .Any
+            activityVC.popoverPresentationController?.sourceView = cell
+            activityVC.popoverPresentationController?.sourceRect = cell.bounds
             presentViewController(activityVC, animated: true, completion: nil)
         case 999: // App Store review
             // TODO: On iOS 9, this doesn't allow directly showing review page.
