@@ -8,7 +8,8 @@
 
 import UIKit
 import AcknowList
-import StoreKit
+//import StoreKit
+import Crashlytics
 
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var appIconImageView: UIImageView!
@@ -45,7 +46,9 @@ extension SettingsTableViewController {
             activityVC.popoverPresentationController?.permittedArrowDirections = .Any
             activityVC.popoverPresentationController?.sourceView = cell
             activityVC.popoverPresentationController?.sourceRect = cell.bounds
-            presentViewController(activityVC, animated: true, completion: nil)
+            presentViewController(activityVC, animated: true, completion: { 
+                Answers.logInviteWithMethod("iOS", customAttributes: ["Device": UIDevice.currentDevice().model, "Version": UIDevice.currentDevice().systemVersion])
+            })
         case 999: // App Store review
             // TODO: On iOS 9, this doesn't allow directly showing review page.
 //            let storeVC = SKStoreProductViewController()
@@ -59,17 +62,18 @@ extension SettingsTableViewController {
             let application = UIApplication.sharedApplication()
             if application.canOpenURL(appUrl) {
                 application.openURL(appUrl)
+                Answers.logCustomEventWithName("Rate on App Store", customAttributes: ["Device": UIDevice.currentDevice().model, "Version": UIDevice.currentDevice().systemVersion])
             }
         default: break
         }
     }
 }
 
-extension SettingsTableViewController: SKStoreProductViewControllerDelegate {
-    func productViewControllerDidFinish(viewController: SKStoreProductViewController) {
-        if let indexPath = tableView.indexPathForSelectedRow {
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        }
-        viewController.dismissViewControllerAnimated(true, completion: nil)
-    }
-}
+//extension SettingsTableViewController: SKStoreProductViewControllerDelegate {
+//    func productViewControllerDidFinish(viewController: SKStoreProductViewController) {
+//        if let indexPath = tableView.indexPathForSelectedRow {
+//            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+//        }
+//        viewController.dismissViewControllerAnimated(true, completion: nil)
+//    }
+//}

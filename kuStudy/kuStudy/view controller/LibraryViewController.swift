@@ -9,6 +9,7 @@
 import UIKit
 import kuStudyKit
 import DZNEmptyDataSet
+import Crashlytics
 
 class LibraryViewController: UIViewController {
     @IBOutlet weak var summaryView: UIView!
@@ -43,6 +44,10 @@ class LibraryViewController: UIViewController {
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(updateData(_:)), forControlEvents: .ValueChanged)
         updateData()
+        
+        if let libraryType = LibraryType(rawValue: libraryId) {
+            Answers.logContentViewWithName(libraryType.name, contentType: "Library", contentId: libraryId, customAttributes: ["Device": UIDevice.currentDevice().model, "Version": UIDevice.currentDevice().systemVersion])
+        }
     }
     
     override func viewWillAppear(animated: Bool) {

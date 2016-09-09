@@ -2,6 +2,10 @@
 
 ## 1.0.2 (16)
 
+### Improvements
+
+* Added Answers events for "Rate on App Store", "Recommend to a friend", and library views.
+
 ### Fixed bugs
 
 * Fixed app crashing when tapped "Recommend to a friend" on iPad.
