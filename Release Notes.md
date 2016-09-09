@@ -6,6 +6,8 @@
 
 * Added Answers events for "Rate on App Store", "Recommend to a friend", and library views.
 
+* Changed some localizations on iOS and watchOS.
+
 ### Fixed bugs
 
 * Fixed app crashing when tapped "Recommend to a friend" on iPad.

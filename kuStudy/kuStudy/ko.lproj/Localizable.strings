@@ -30,6 +30,5 @@
  * SHARED STRINGS
  */
 
-"Fetching data..." = "데이터 받아오는 중...";
-
-"An error occurred." = "오류가 발생했습니다.";
+"kuStudy.Status.Downloading" = "사람 세는 중...";
+"kuStudy.Status.Error" = "이런! 오류가 발생했습니다.";

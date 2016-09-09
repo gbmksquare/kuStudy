@@ -2,13 +2,13 @@
 /* Class = "WKInterfaceLabel"; text = "전체"; ObjectID = "2F0-zn-J02"; */
 "2F0-zn-J02.text" = "전체";
 
-/* Class = "WKInterfaceController"; title = "kuStudy"; ObjectID = "AgC-eL-Hgc"; */
-"AgC-eL-Hgc.title" = "kuStudy";
+/* Class = "WKInterfaceController"; title = "열람실"; ObjectID = "AgC-eL-Hgc"; */
+"AgC-eL-Hgc.title" = "열람실";
 
 /* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "CYB-4R-WcP"; */
 "CYB-4R-WcP.text" = "0";
 
-/* Class = "WKInterfaceLabel"; text = "Library"; ObjectID = "FLs-Gp-cEJ"; */
+/* Class = "WKInterfaceLabel"; text = "도서관"; ObjectID = "FLs-Gp-cEJ"; */
 "FLs-Gp-cEJ.text" = "도서관";
 
 /* Class = "WKInterfaceLabel"; text = "잔여"; ObjectID = "FWL-Vf-Fh0"; */
@@ -23,7 +23,7 @@
 /* Class = "WKInterfaceLabel"; text = "0%"; ObjectID = "Gw2-Lr-bPf"; */
 "Gw2-Lr-bPf.text" = "0%";
 
-/* Class = "WKInterfaceLabel"; text = "Available"; ObjectID = "HHL-q8-1ie"; */
+/* Class = "WKInterfaceLabel"; text = "잔여"; ObjectID = "HHL-q8-1ie"; */
 "HHL-q8-1ie.text" = "잔여";
 
 /* Class = "WKInterfaceLabel"; text = "0%"; ObjectID = "Ihz-xR-fxT"; */
@@ -35,7 +35,7 @@
 /* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "Jno-dY-239"; */
 "Jno-dY-239.text" = "0";
 
-/* Class = "WKInterfaceLabel"; text = "Available"; ObjectID = "M16-VE-8UX"; */
+/* Class = "WKInterfaceLabel"; text = "잔여"; ObjectID = "M16-VE-8UX"; */
 "M16-VE-8UX.text" = "잔여";
 
 /* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "Odh-Gu-yRK"; */
@@ -44,22 +44,25 @@
 /* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "Pbh-Zh-dWZ"; */
 "Pbh-Zh-dWZ.text" = "0";
 
-/* Class = "WKInterfaceLabel"; text = "Liberal Arts Campus"; ObjectID = "Soq-8l-6x4"; */
+/* Class = "WKInterfaceLabel"; text = "문과캠퍼스"; ObjectID = "Soq-8l-6x4"; */
 "Soq-8l-6x4.text" = "문과캠퍼스";
 
-/* Class = "WKInterfaceLabel"; text = "Studying"; ObjectID = "V5P-ey-hi8"; */
+/* Class = "WKInterfaceLabel"; text = "공부 중"; ObjectID = "V5P-ey-hi8"; */
 "V5P-ey-hi8.text" = "공부 중";
 
 /* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "dHW-cp-BFm"; */
 "dHW-cp-BFm.text" = "0";
 
-/* Class = "WKInterfaceLabel"; text = "Science Campus"; ObjectID = "fa7-n6-Nig"; */
+/* Class = "WKInterfaceLabel"; text = "자연계캠퍼스"; ObjectID = "fa7-n6-Nig"; */
 "fa7-n6-Nig.text" = "자연계캠퍼스";
 
-/* Class = "WKInterfaceLabel"; text = "Name"; ObjectID = "n5b-nN-uYa"; */
-"n5b-nN-uYa.text" = "Name";
+/* Class = "WKInterfaceMenuItem"; title = "Refresh"; ObjectID = "jvq-f8-zvp"; */
+"jvq-f8-zvp.title" = "새로 고침";
 
-/* Class = "WKInterfaceLabel"; text = "Studying"; ObjectID = "nCn-mW-Zfd"; */
+/* Class = "WKInterfaceLabel"; text = "Name"; ObjectID = "n5b-nN-uYa"; */
+"n5b-nN-uYa.text" = "이름";
+
+/* Class = "WKInterfaceLabel"; text = "공부 중"; ObjectID = "nCn-mW-Zfd"; */
 "nCn-mW-Zfd.text" = "공부 중";
 
 /* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "oqE-g4-SuH"; */
@@ -67,3 +70,6 @@
 
 /* Class = "WKInterfaceLabel"; text = "0"; ObjectID = "u50-3w-KHr"; */
 "u50-3w-KHr.text" = "0";
+
+/* Class = "WKInterfaceMenuItem"; title = "Refresh"; ObjectID = "xSk-I9-tfa"; */
+"xSk-I9-tfa.title" = "새로 고침";

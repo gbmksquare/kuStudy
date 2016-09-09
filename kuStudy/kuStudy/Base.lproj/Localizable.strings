@@ -29,6 +29,5 @@
  * SHARED STRINGS
  */
 
-"Fetching data..." = "Fetching data...";
-
-"An error occurred." = "An error occurred.";
+"kuStudy.Status.Downloading" = "Counting people...";
+"kuStudy.Status.Error" = "Oops! An error occurred.";
