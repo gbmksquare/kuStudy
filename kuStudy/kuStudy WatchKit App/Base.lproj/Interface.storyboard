@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11201" systemVersion="16A320" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="10032"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11077"/>
     </dependencies>
     <scenes>
         <!--kuStudy-->
@@ -25,7 +26,7 @@
                                     <fontDescription key="font" type="system" pointSize="14"/>
                                 </label>
                                 <separator width="0.90000000000000002" alignment="center" id="9cY-bh-TY0">
-                                    <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="color" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </separator>
                                 <table alignment="center" id="gkt-im-oUq">
                                     <items>
@@ -33,7 +34,7 @@
                                             <group key="rootItem" width="1" height="0.0" alignment="left" id="uLd-Wf-Pch">
                                                 <items>
                                                     <group width="4" height="0.80000000000000004" alignment="left" verticalAlignment="center" radius="2" id="0eA-XK-oam">
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </group>
                                                     <group width="0.97499999999999998" alignment="left" verticalAlignment="center" layout="vertical" id="SHD-yl-Wb9">
                                                         <items>
@@ -43,7 +44,7 @@
                                                                     <group width="0.5" alignment="left" layout="vertical" spacing="3" id="WBL-S3-hwi">
                                                                         <items>
                                                                             <label alignment="left" text="Studying" id="V5P-ey-hi8">
-                                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <fontDescription key="font" type="system" weight="medium" pointSize="10"/>
                                                                             </label>
                                                                             <label alignment="left" text="0" textAlignment="left" id="u50-3w-KHr">
@@ -54,7 +55,7 @@
                                                                     <group width="0.5" alignment="left" layout="vertical" spacing="3" id="KMz-kT-36G">
                                                                         <items>
                                                                             <label alignment="left" text="Available" id="FWL-Vf-Fh0">
-                                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                                                <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <fontDescription key="font" type="system" weight="medium" pointSize="10"/>
                                                                             </label>
                                                                             <label alignment="left" text="0" textAlignment="left" id="CYB-4R-WcP">
@@ -86,7 +87,7 @@
                     </items>
                     <menu key="menu" id="yfa-rf-qQF">
                         <items>
-                            <menuItem title="Refresh" icon="accept" id="xSk-I9-tfa">
+                            <menuItem title="Refresh" image="glyphicons-82-refresh" id="xSk-I9-tfa">
                                 <connections>
                                     <action selector="tappedRefreshMenu" destination="AgC-eL-Hgc" id="Yxb-AJ-8iu"/>
                                 </connections>
@@ -129,11 +130,11 @@
                                                 <group width="1" alignment="left" spacing="3" id="ul8-jW-Pbm">
                                                     <items>
                                                         <label alignment="left" verticalAlignment="center" text="Total" textAlignment="left" id="2F0-zn-J02">
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="font" type="system" pointSize="11"/>
                                                         </label>
                                                         <label alignment="left" verticalAlignment="center" text="0" id="dHW-cp-BFm">
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="font" type="system" pointSize="16"/>
                                                         </label>
                                                     </items>
@@ -141,11 +142,11 @@
                                                 <group width="1" alignment="left" spacing="3" id="CQo-k5-1aq">
                                                     <items>
                                                         <label alignment="left" verticalAlignment="center" text="Studying" textAlignment="left" id="nCn-mW-Zfd">
-                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="font" type="system" pointSize="11"/>
                                                         </label>
                                                         <label alignment="left" verticalAlignment="center" text="0" id="Odh-Gu-yRK">
-                                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="font" type="system" pointSize="16"/>
                                                         </label>
                                                     </items>
@@ -156,7 +157,7 @@
                                     </items>
                                 </group>
                                 <separator width="0.90000000000000002" alignment="center" id="KfM-xT-S96">
-                                    <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="color" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </separator>
                                 <table alignment="left" id="7LR-y1-OMf">
                                     <items>
@@ -164,7 +165,7 @@
                                             <group key="rootItem" width="1" height="0.0" alignment="left" id="jYC-Fw-Hr9">
                                                 <items>
                                                     <group width="4" height="0.80000000000000004" alignment="left" verticalAlignment="center" radius="2" id="qAD-Fs-j7W">
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </group>
                                                     <group width="0.94999999999999996" alignment="left" verticalAlignment="center" layout="vertical" spacing="1" id="rHv-1K-R9m">
                                                         <items>
@@ -192,7 +193,7 @@
                     </items>
                     <menu key="menu" id="JC8-en-JRS">
                         <items>
-                            <menuItem title="Refresh" icon="accept" id="jvq-f8-zvp">
+                            <menuItem title="Refresh" image="glyphicons-82-refresh" id="jvq-f8-zvp">
                                 <connections>
                                     <action selector="tappedRefreshMenu" destination="WY2-1B-zUr" id="Nyt-Au-ujl"/>
                                 </connections>
@@ -227,7 +228,7 @@
                                 <group width="0.75" alignment="left" layout="vertical" spacing="1" id="p6K-3H-Zgd">
                                     <items>
                                         <label alignment="left" text="Available" id="M16-VE-8UX">
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="font" type="system" weight="medium" pointSize="12"/>
                                         </label>
                                         <label alignment="left" text="0" id="oqE-g4-SuH">
@@ -252,7 +253,7 @@
                                     </items>
                                 </group>
                                 <separator alignment="left" verticalAlignment="bottom" id="FHu-Nc-zLw">
-                                    <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="color" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </separator>
                                 <group width="1" alignment="left" verticalAlignment="bottom" layout="vertical" id="hIr-wa-sua">
                                     <items>
@@ -281,5 +282,5 @@
             <point key="canvasLocation" x="164" y="451"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="0.78049671649932861" green="0.097925871610641479" blue="0.14808227121829987" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.78049671649932861" green="0.097925871610641479" blue="0.14808227121829987" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

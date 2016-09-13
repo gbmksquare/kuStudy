@@ -66,6 +66,7 @@ class InterfaceController: WKInterfaceController {
     // MARK: Action
     @IBAction func tappedRefreshMenu() {
         updateData()
+        updateView()
     }
     
     private func updateData() {

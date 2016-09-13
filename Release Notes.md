@@ -10,9 +10,13 @@
 
 * Quick Actions now have icons.
 
+* Apple Watch app now has a new menu icon.
+
 ### Bug fixes
 
 * Fixed Quick Action not showing on install until library order is changed.
+
+* Fixed watch app crashing on tapping cell while refreshing is on progress.
 
 ### Code improvements
 
