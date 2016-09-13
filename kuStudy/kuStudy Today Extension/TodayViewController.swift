@@ -15,12 +15,11 @@ class TodayViewController: UIViewController {
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
     private var summaryData = SummaryData()
-    
     private var orderedLibraryIds: [String]!
     
     // MARK: View
     override func viewDidLoad() {
-        func registerDefaultPreferences() {
+        func registerPreference() {
             let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
             let libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
             defaults.registerDefaults(["libraryOrder": libraryOrder,
@@ -30,12 +29,18 @@ class TodayViewController: UIViewController {
         }
         
         super.viewDidLoad()
-        registerDefaultPreferences()
+        registerPreference()
         listenToPreferenceChange()
         tableView.delegate = self
         tableView.dataSource = self
-        view.backgroundColor = UIColor(white: 1, alpha: 0.01) // Workaround: http://stackoverflow.com/questions/26309364/uitableview-in-a-today-extension-not-receiving-row-taps
         updateView()
+        
+        if #available(iOSApplicationExtension 10.0, *) {
+            extensionContext?.widgetLargestAvailableDisplayMode = .Expanded
+        } else {
+            // iOS 9 workaround: http://stackoverflow.com/questions/26309364/uitableview-in-a-today-extension-not-receiving-row-taps
+            view.backgroundColor = UIColor(white: 1, alpha: 0.01)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -122,15 +127,25 @@ extension TodayViewController: NCWidgetProviding {
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 0)
     }
+    
+    @available(iOSApplicationExtension 10.0, *)
+    func widgetActiveDisplayModeDidChange(activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        switch activeDisplayMode {
+        case .Compact:
+            preferredContentSize = maxSize
+        case .Expanded:
+            preferredContentSize = CGSize(width: maxSize.width, height: CGFloat(summaryData.libraries.count) * tableView.rowHeight)
+        }
+    }
 }
 
 // MARK: - Notification
 extension TodayViewController {
     private func listenToPreferenceChange() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleUserDefaultsDidChange(_:)), name: NSUserDefaultsDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handle(preferenceChanged:)), name: NSUserDefaultsDidChangeNotification, object: nil)
     }
     
-    @objc func handleUserDefaultsDidChange(notification: NSNotification) {
+    @objc func handle(preferenceChanged notification: NSNotification) {
         updateView()
     }
 }

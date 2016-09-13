@@ -1,5 +1,17 @@
 # Release Notes
 
+## 1.1 (17)
+
+### Improvements
+
+* Today extension now supports iOS 10 widget display mode.
+
+* Today extension uses black text color to match iOS 10 widget background color.
+
+### Code improvements
+
+* Migrated to Swift 2.3.
+
 ## 1.0.2 (16)
 
 ### Improvements

@@ -19,6 +19,12 @@ class LibraryTableViewCell: UITableViewCell {
     // MARK: Setup
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        if #available(iOSApplicationExtension 10.0, *) {
+            nameLabel.textColor = UIColor.blackColor()
+            availableLabel.textColor = UIColor.blackColor()
+        }
+        
         thumbnailImageView.layer.cornerRadius = thumbnailImageView.bounds.width / 2
         percentageView.progressBackgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.95, alpha: 1)
     }

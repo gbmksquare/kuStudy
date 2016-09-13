@@ -6,8 +6,8 @@
 
 ## Installation
 
-* Xcode 7 and above
-* Swift 2.2
+* Xcode 8 and above
+* Swift 2.3
 * CocoaPods
 
 ## Architecture
