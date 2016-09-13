@@ -8,6 +8,12 @@
 
 * Today extension uses black text color to match iOS 10 widget background color.
 
+* Quick Actions now have icons.
+
+### Bug fixes
+
+* Fixed Quick Action not showing on install until library order is changed.
+
 ### Code improvements
 
 * Migrated to Swift 2.3.

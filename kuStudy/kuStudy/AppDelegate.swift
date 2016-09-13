@@ -66,6 +66,7 @@ extension AppDelegate {
             "todayExtensionOrder": libraryOrder,
             "todayExtensionHidden": []])
         defaults.synchronize()
+        updateQuickActionItems()
     }
     
     private func customizeAppearance() {
@@ -134,10 +135,11 @@ extension AppDelegate {
         
         let actionType = "com.gbmksquare.kuapps.kucourse.LibraryAction"
 
+        let icon = UIApplicationShortcutIcon(templateImageName: "glyphicons-352-book-open")
         var quickActionItems = [UIMutableApplicationShortcutItem]()
         for libraryId in orderedLibraryIds {
             let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!
-            let item = UIMutableApplicationShortcutItem(type: actionType, localizedTitle: libraryType.name, localizedSubtitle: nil, icon: nil, userInfo: ["libraryId": libraryId])
+            let item = UIMutableApplicationShortcutItem(type: actionType, localizedTitle: libraryType.name, localizedSubtitle: nil, icon: icon, userInfo: ["libraryId": libraryId])
             quickActionItems.append(item)
         }
         
