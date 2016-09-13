@@ -120,6 +120,10 @@ extension InterfaceController {
 
 // MARK: - Watch connectivity
 extension InterfaceController: WCSessionDelegate {
+    func session(session: WCSession, activationDidCompleteWithState activationState: WCSessionActivationState, error: NSError?) {
+        
+    }
+    
     func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
         guard let libraryOrder = applicationContext["libraryOrder"] as? [String] else { return }
         let defaults = NSUserDefaults.standardUserDefaults()

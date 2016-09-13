@@ -84,3 +84,18 @@ extension LibraryOrderTableViewController {
         } catch { }
     }
 }
+
+// MARK: Watch
+extension LibraryOrderTableViewController {
+    func session(session: WCSession, activationDidCompleteWithState activationState: WCSessionActivationState, error: NSError?) {
+        
+    }
+    
+    func sessionDidBecomeInactive(session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(session: WCSession) {
+        
+    }
+}
