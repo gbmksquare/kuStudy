@@ -54,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     private func setupFabric() {
         #if DEBUG
+//            Fabric.with([Crashlytics()])
         #else
             Fabric.with([Crashlytics()])
         #endif

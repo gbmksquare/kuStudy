@@ -10,6 +10,7 @@ import UIKit
 import kuStudyKit
 import DZNEmptyDataSet
 import Localize_Swift
+import Crashlytics
 
 enum DataSourceState {
     case Fetching, Error
@@ -44,6 +45,8 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         registerPeekAndPop()
         listenForUserDefaultsDidChange()
         updateData()
+        
+        Answers.logContentViewWithName("Summary", contentType: "Summary", contentId: "0", customAttributes: ["Device": UIDevice.currentDevice().model, "Version": UIDevice.currentDevice().systemVersion])
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -21,6 +21,7 @@
 ### Code improvements
 
 * Migrated to Swift 2.3.
+* Added summary view Answers Event.
 
 ## 1.0.2 (16)
 
