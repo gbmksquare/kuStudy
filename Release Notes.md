@@ -5,6 +5,7 @@
 ### New Features
 
 * Added support for iPad split view.
+* Added support for iPad hardware keyboard shortcuts.
 
 ### Improvements
 

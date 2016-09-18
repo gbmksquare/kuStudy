@@ -6,6 +6,9 @@
   Copyright © 2016년 gbmKSquare. All rights reserved.
 */
 
+"kuStudy.KeyCommand.Libraries" = "도서관";
+"kuStudy.KeyCommand.Preferences" = "설정";
+
 "kuStudy.Total" = "전체";
 "kuStudy.Available" = "잔여";
 "kuStudy.Used" = "사용 중";

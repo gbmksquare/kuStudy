@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import kuStudyKit
+import Localize_Swift
 
 class MainSplitViewController: UISplitViewController {
     // MARK: View
@@ -18,6 +20,48 @@ class MainSplitViewController: UISplitViewController {
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
+    }
+    
+    // MARK: Key command
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override var keyCommands: [UIKeyCommand]? {
+        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+        let libraryIds = defaults.arrayForKey("libraryOrder") as! [String]
+        var commands = [UIKeyCommand]()
+        for (index, libraryId) in libraryIds.enumerate() {
+            let libraryType = LibraryType(rawValue: libraryId)!
+            let command = UIKeyCommand(input: "\(index + 1)", modifierFlags: .Command, action: #selector(gotoLibraries(_:)), discoverabilityTitle: libraryType.name)
+            commands.append(command)
+        }
+        let libraries = UIKeyCommand(input: ".", modifierFlags: .Command, action: #selector(gotoLibrary(_:)), discoverabilityTitle: "kuStudy.KeyCommand.Libraries".localized())
+        let settings = UIKeyCommand(input: ",", modifierFlags: .Command, action: #selector(gotoPreferences(_:)), discoverabilityTitle: "kuStudy.KeyCommand.Preferences".localized())
+        return commands + [libraries, settings]
+    }
+    
+    // MARK: Action
+    @objc private func gotoLibraries(sender: UIKeyCommand) {
+        let tabBarController = childViewControllers.first as! MainTabBarController
+        tabBarController.selectedIndex = 0
+        
+        let summaryViewController = (tabBarController.childViewControllers.first as! UINavigationController).childViewControllers.first as! SummaryViewController
+        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+        let libraryIds = defaults.arrayForKey("libraryOrder") as! [String]
+        let index = Int(sender.input)! - 1
+        let libraryId = libraryIds[index]
+        summaryViewController.performSegueWithIdentifier("librarySegue", sender: libraryId)
+    }
+    
+    @objc private func gotoLibrary(sender: UIKeyCommand) {
+        let tabBarController = childViewControllers.first as! MainTabBarController
+        tabBarController.selectedIndex = 0
+    }
+    
+    @objc private func gotoPreferences(sender: UIKeyCommand) {
+        let tabBarController = childViewControllers.first as! MainTabBarController
+        tabBarController.selectedIndex = 1
     }
 }
 
