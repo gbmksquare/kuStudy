@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+// @IBDesignable // UIStoryboard can't render IBDesignable in dynamic framework bug
 public class CircularProgressView: UIView {
     private var arcLayer: CAShapeLayer!
     private var backgroundLayer: CAShapeLayer!
@@ -67,6 +67,9 @@ public class CircularProgressView: UIView {
     
     private func updateLayerProperties() {
         createViewIfNeccessary()
+        let rect = CGRectInset(bounds, 0, 0)
+        let path = UIBezierPath(ovalInRect: rect)
+        backgroundLayer.path = path.CGPath
         backgroundLayer.fillColor = progressBackgroundColor.CGColor
         arcLayer.fillColor = progressColor.CGColor
         repositionArcLayer()
