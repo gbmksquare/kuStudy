@@ -25,7 +25,7 @@ class LibraryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var refreshControl = UIRefreshControl()
     
-    var libraryId: String!
+    var libraryId: String! = "1"
     private var libraryData: LibraryData?
     
     private var dataState: DataSourceState = .Fetching
@@ -35,6 +35,9 @@ class LibraryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setInitialView()
+        navigationController?.setTransparentNavigationBar()
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
+        navigationItem.leftItemsSupplementBackButton = true
         tableView.delegate = self
         tableView.dataSource = self
         tableView.emptyDataSetDelegate = self

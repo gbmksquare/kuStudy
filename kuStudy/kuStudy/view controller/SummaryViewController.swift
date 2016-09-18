@@ -112,13 +112,13 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     }
 }
 
-// MARK: Navigation
+// MARK: - Navigation
 extension SummaryViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard let identifier = segue.identifier else { return }
         switch identifier {
         case "librarySegue":
-            let destinationViewController = segue.destinationViewController as! LibraryViewController
+            let destinationViewController = (segue.destinationViewController as! UINavigationController).childViewControllers.first as! LibraryViewController
             if sender is String { // Handoff
                 let libraryId = sender as! String
                 destinationViewController.libraryId = libraryId
@@ -132,8 +132,7 @@ extension SummaryViewController {
     }
 }
 
-// MARK:
-// MARK: Table view
+// MARK: - Table view
 extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     // Data source
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -164,8 +163,7 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
 }
 
-// MARK:
-// MARK: Notification
+// MARK: - Notification
 extension SummaryViewController {
     private func listenForUserDefaultsDidChange() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleUserDefaultsDidChange(_: )), name: NSUserDefaultsDidChangeNotification, object: nil)
@@ -177,8 +175,7 @@ extension SummaryViewController {
     }
 }
 
-// MARK:
-// MARK: Handoff
+// MARK: - Handoff
 extension SummaryViewController {
     private func startHandoff() {
         let activity = NSUserActivity(activityType: kuStudyHandoffSummary)
@@ -199,7 +196,7 @@ extension SummaryViewController {
     }
 }
 
-// MARK: Peek & Pop
+// MARK: - Peek & Pop
 extension SummaryViewController {
     private func registerPeekAndPop() {
         if traitCollection.forceTouchCapability == .Available {

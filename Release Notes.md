@@ -2,6 +2,10 @@
 
 ## 1.1 (17)
 
+### New Features
+
+* Added support for iPad split view.
+
 ### Improvements
 
 * Today extension now supports iOS 10 widget display mode.

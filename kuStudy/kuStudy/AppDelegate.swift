@@ -150,7 +150,8 @@ extension AppDelegate {
     func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: (Bool) -> Void) {
         guard let window = window else { return }
         
-        let tabBarController = window.rootViewController as! MainTabBarController
+        let splitViewController = window.rootViewController as! MainSplitViewController
+        let tabBarController = splitViewController.childViewControllers.first as! MainTabBarController
         tabBarController.selectedIndex = 0
         
         let navigationController = tabBarController.viewControllers![0] as! UINavigationController

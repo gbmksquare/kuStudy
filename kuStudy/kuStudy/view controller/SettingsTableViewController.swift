@@ -38,7 +38,14 @@ extension SettingsTableViewController {
         case 900: // Open source
             let path = NSBundle.mainBundle().pathForResource("Pods-kuStudy-acknowledgements", ofType: "plist")
             let acknowledgementViewController = AcknowListViewController(acknowledgementsPlistPath: path)
-            navigationController?.pushViewController(acknowledgementViewController, animated: true)
+            let detailNavigationController = UINavigationController(rootViewController: acknowledgementViewController)
+            navigationController?.showDetailViewController(detailNavigationController, sender: true)
+//            if splitViewController?.collapsed == true {
+//                navigationController?.showDetailViewController(acknowledgementViewController, sender: self)
+//            } else {
+//                let detailNavigationController = UINavigationController(rootViewController: acknowledgementViewController)
+//                navigationController?.showDetailViewController(detailNavigationController, sender: true)
+//            }
         case 998: // Recommend to a friend
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
             let message = "kuStudy.Settings.Recommend".localized() + "\n\nhttps://geo.itunes.apple.com/kr/app/kustudy-golyeodaehaggyo-yeollamsil/id925255895?mt=8&ign-mpt=uo%3D4"
