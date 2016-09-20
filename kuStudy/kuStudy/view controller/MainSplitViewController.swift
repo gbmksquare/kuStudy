@@ -68,46 +68,57 @@ class MainSplitViewController: UISplitViewController {
 // MARK: - Split view
 extension MainSplitViewController: UISplitViewControllerDelegate {
     func splitViewController(splitViewController: UISplitViewController, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController) -> UIViewController? {
-        let tabBarController = splitViewController.childViewControllers.first as! MainTabBarController
-        let masterNavigationController = tabBarController.childViewControllers.first as! UINavigationController
-        let secondaryNavigationController = tabBarController.childViewControllers.last as! UINavigationController
-        if masterNavigationController.childViewControllers.count >= 1 {
-            masterNavigationController.popViewControllerAnimated(false)
+        guard let tab = splitViewController.childViewControllers.first as? MainTabBarController else { return nil }
+        guard let navigations = tab.childViewControllers as? [UINavigationController] else { return nil }
+        if let navigation = navigations.first where navigation.childViewControllers.count > 1 {
+            return navigation.popViewControllerAnimated(false)
         }
-        if secondaryNavigationController.childViewControllers.count >= 1 {
-            secondaryNavigationController.popViewControllerAnimated(false)
+        if let navigation = navigations.last where navigation.childViewControllers.count > 1 {
+            if let vc = navigation.popViewControllerAnimated(false) {
+                let navigation = UINavigationController(rootViewController: vc)
+                return navigation
+            } else {
+                return nil
+            }
         }
         return nil
     }
     
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
-        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsDetailController = secondaryAsNavController.topViewController as? LibraryViewController else { return false }
-        if topAsDetailController.libraryId == nil {
-            // Return true to indicate that we have handled the collpase by doing nothing; the secondary controller will be discarded
+        guard let tab = primaryViewController as? MainTabBarController else { return false }
+        guard let detailNavigation = secondaryViewController as? UINavigationController else { return false }
+        
+        if detailNavigation.childViewControllers.first is LibraryViewController {
+            guard let navigation = tab.childViewControllers.first as? UINavigationController else { return false }
+            navigation.pushViewController(navigation, animated: false)
+            return true
+        } else if let vc = detailNavigation.childViewControllers.first {
+            guard let navigation = tab.selectedViewController as? UINavigationController else { return false }
+            navigation.pushViewController(vc, animated: false)
             return true
         }
         return false
     }
 
     func splitViewController(splitViewController: UISplitViewController, showDetailViewController vc: UIViewController, sender: AnyObject?) -> Bool {
-        if splitViewController.collapsed == true {
-            let tabBarController = splitViewController.childViewControllers.first as! MainTabBarController
-            let masterNavigationController = tabBarController.childViewControllers.first as? UINavigationController
-            let secondNavigationController = tabBarController.childViewControllers.last as? UINavigationController
-            if let detailViewController = vc.childViewControllers.first as? LibraryViewController {
-                masterNavigationController?.pushViewController(detailViewController, animated: true)
+        guard let tab = splitViewController.childViewControllers.first as? MainTabBarController else { return false }
+        guard let navigations = tab.childViewControllers as? [UINavigationController] else { return false }
+        guard let detailNavigation = vc as? UINavigationController else { return false }
+        
+        if let vc = detailNavigation.childViewControllers.first as? LibraryViewController {
+            if splitViewController.collapsed == true {
+                navigations.first?.pushViewController(vc, animated: true)
             } else {
-                if splitViewController.collapsed == true {
-                    let navigationController = vc as! UINavigationController
-                    let vc = navigationController.childViewControllers.first!
-                    secondNavigationController?.pushViewController(vc, animated: true)
-                } else {
-                    secondNavigationController?.pushViewController(vc, animated: true)
-                }
+                return false
             }
-            return true
+        } else {
+            if splitViewController.collapsed == true {
+                guard let vc = detailNavigation.childViewControllers.first else { return true }
+                navigations.last?.pushViewController(vc, animated: true)
+            } else {
+                navigations.last?.pushViewController(vc, animated: true)
+            }
         }
-        return false
+        return true
     }
 }
