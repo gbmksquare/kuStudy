@@ -84,7 +84,8 @@ extension AppDelegate {
     func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
         guard let window = window else { return false }
         
-        let tabBarController = window.rootViewController as! MainTabBarController
+        let splitViewController = window.rootViewController as! MainSplitViewController
+        let tabBarController = splitViewController.childViewControllers.first as! MainTabBarController
         tabBarController.selectedIndex = 0
         
         let navigationController = tabBarController.viewControllers![0] as! UINavigationController
@@ -107,7 +108,8 @@ extension AppDelegate {
     
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         guard let window = window else { return false }
-        guard let tabBarController = window.rootViewController as? MainTabBarController else { return false }
+        let splitViewController = window.rootViewController as! MainSplitViewController
+        let tabBarController = splitViewController.childViewControllers.first as! MainTabBarController
         tabBarController.selectedIndex = 0
         
         let navigationController = tabBarController.viewControllers![0] as! UINavigationController
