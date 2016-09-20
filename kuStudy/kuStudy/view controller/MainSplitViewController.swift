@@ -89,9 +89,7 @@ extension MainSplitViewController: UISplitViewControllerDelegate {
         guard let detailNavigation = secondaryViewController as? UINavigationController else { return false }
         
         if detailNavigation.childViewControllers.first is LibraryViewController {
-            guard let navigation = tab.childViewControllers.first as? UINavigationController else { return false }
-            navigation.pushViewController(navigation, animated: false)
-            return true
+            return false
         } else if let vc = detailNavigation.childViewControllers.first {
             guard let navigation = tab.selectedViewController as? UINavigationController else { return false }
             navigation.pushViewController(vc, animated: false)
