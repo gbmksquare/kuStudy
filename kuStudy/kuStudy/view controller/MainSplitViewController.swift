@@ -70,6 +70,7 @@ extension MainSplitViewController: UISplitViewControllerDelegate {
     func splitViewController(splitViewController: UISplitViewController, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController) -> UIViewController? {
         guard let tab = splitViewController.childViewControllers.first as? MainTabBarController else { return nil }
         guard let navigations = tab.childViewControllers as? [UINavigationController] else { return nil }
+        
         if let navigation = navigations.first where navigation.childViewControllers.count > 1 {
             return navigation.popViewControllerAnimated(false)
         }
@@ -107,6 +108,11 @@ extension MainSplitViewController: UISplitViewControllerDelegate {
             if splitViewController.collapsed == true {
                 navigations.first?.pushViewController(vc, animated: true)
             } else {
+                // !!!: When launching from Today or Handoff, split view controller is not collapsed and will show detail view controller as modal
+                if traitCollection.userInterfaceIdiom == .Phone && traitCollection.horizontalSizeClass == .Compact {
+                    navigations.first?.pushViewController(vc, animated: true)
+                    return true
+                }
                 return false
             }
         } else {
@@ -114,7 +120,7 @@ extension MainSplitViewController: UISplitViewControllerDelegate {
                 guard let vc = detailNavigation.childViewControllers.first else { return true }
                 navigations.last?.pushViewController(vc, animated: true)
             } else {
-                navigations.last?.pushViewController(vc, animated: true)
+                return false
             }
         }
         return true
