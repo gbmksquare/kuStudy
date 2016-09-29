@@ -28,6 +28,7 @@
 * Migrated to Swift 2.3.
 * Added summary view Answers Event.
 * Fixed corner radius not setting correctly on load on Xcode 8.
+* Updated Fabric.
 
 ## 1.0.2 (16)
 
