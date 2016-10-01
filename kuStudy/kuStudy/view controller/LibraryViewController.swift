@@ -25,7 +25,7 @@ class LibraryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var refreshControl = UIRefreshControl()
     
-    var libraryId: String! = "1"
+    var libraryId: String! = NSUserDefaults(suiteName: kuStudySharedContainer)?.arrayForKey("libraryOrder")?.first as? String ?? NSUserDefaults.standardUserDefaults().arrayForKey("libraryOrder")?.first as? String ?? "1";
     private var libraryData: LibraryData?
     
     private var dataState: DataSourceState = .Fetching
