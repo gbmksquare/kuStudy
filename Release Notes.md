@@ -13,15 +13,15 @@
 
 * Today extension uses black text color to match iOS 10 widget background color.
 
-* Quick Actions now have icons.
+* 3D touch quick action now have icons.
 
 * Apple Watch app now has a new menu icon.
 
 ### Bug fixes
 
-* Fixed Quick Action not showing on install until library order is changed.
+* Fixed 3D touch quick action not showing on install until library order is changed.
 
-* Fixed watch app crashing on tapping cell while refreshing is on progress.
+* Fixed watch app crashing when tapping cell while refreshing is on progress.
 
 ### Code improvements
 

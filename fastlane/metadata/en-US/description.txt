@@ -1,6 +1,6 @@
 Looking for a place to go between classes? Searching for empty seats in libraries?
 
-kuStudy provides realm time reading room seats information of Korea University. Have a quick glance from iOS app, Today widget or Apple Watch, and you can easily decide where to go.
+kuStudy provides real time reading room seats information of Korea University. Have a quick glance from iOS app, Today widget or Apple Watch, and you can easily decide where to go.
 
 Features:
 • Big and clean seats information shows total, used, available seats.
@@ -12,6 +12,7 @@ Features:
 Supports:
 • iOS
 • watchOS
+• iPad split view, hardware keyboard shorcuts.
 • Today widget
 
 Note: Information may fail to show depending on university's server status.
