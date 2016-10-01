@@ -35,6 +35,7 @@
 		1631A2DF1CF17EF30078381F /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2DE1CF17EF30078381F /* CircularProgressView.swift */; };
 		164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E921C5608E0004C6663 /* MainTabBarController.swift */; };
 		164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */; };
+		164DD35B1D9FB30F001236F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164DD3591D9FB30F001236F8 /* LaunchScreen.storyboard */; };
 		16538EA91C4F16820097A4F4 /* kuStudyWatchKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 16538EA81C4F16820097A4F4 /* kuStudyWatchKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		16538EAD1C4F16820097A4F4 /* kuStudyWatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */; };
 		16538EAE1C4F16830097A4F4 /* kuStudyWatchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -69,7 +70,6 @@
 		167245C51B19C0370083035F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167245C41B19C0370083035F /* AppDelegate.swift */; };
 		167245CA1B19C0370083035F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167245C81B19C0370083035F /* Main.storyboard */; };
 		167245CC1B19C0370083035F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167245CB1B19C0370083035F /* Images.xcassets */; };
-		167245CF1B19C0370083035F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 167245CD1B19C0370083035F /* LaunchScreen.xib */; };
 		167245DB1B19C0370083035F /* kuStudyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167245DA1B19C0370083035F /* kuStudyTests.swift */; };
 		167245F11B19C42B0083035F /* kuStudyKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 167245F01B19C42B0083035F /* kuStudyKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		167245F71B19C42B0083035F /* kuStudyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167245EC1B19C42B0083035F /* kuStudyKit.framework */; };
@@ -273,6 +273,7 @@
 		1642B8B41D8274AC00C151DC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Interface.strings; sourceTree = "<group>"; };
 		164C0E921C5608E0004C6663 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = "view controller/MainTabBarController.swift"; sourceTree = "<group>"; };
 		164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = "view controller/SettingsTableViewController.swift"; sourceTree = "<group>"; };
+		164DD35A1D9FB30F001236F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kuStudyWatchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16538EA81C4F16820097A4F4 /* kuStudyWatchKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kuStudyWatchKit.h; sourceTree = "<group>"; };
 		16538EAA1C4F16820097A4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -300,7 +301,6 @@
 		167245C41B19C0370083035F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		167245C91B19C0370083035F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		167245CB1B19C0370083035F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		167245CE1B19C0370083035F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		167245D41B19C0370083035F /* kuStudyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kuStudyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		167245D91B19C0370083035F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		167245DA1B19C0370083035F /* kuStudyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kuStudyTests.swift; sourceTree = "<group>"; };
@@ -742,7 +742,7 @@
 			isa = PBXGroup;
 			children = (
 				167245C81B19C0370083035F /* Main.storyboard */,
-				167245CD1B19C0370083035F /* LaunchScreen.xib */,
+				164DD3591D9FB30F001236F8 /* LaunchScreen.storyboard */,
 			);
 			name = "User Interface";
 			sourceTree = "<group>";
@@ -1304,7 +1304,7 @@
 				1664D5621D5AC241000BAF56 /* InfoPlist.strings in Resources */,
 				16A5807B1C63298000E7EDC5 /* Localizable.strings in Resources */,
 				162F120D1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist in Resources */,
-				167245CF1B19C0370083035F /* LaunchScreen.xib in Resources */,
+				164DD35B1D9FB30F001236F8 /* LaunchScreen.storyboard in Resources */,
 				167245CC1B19C0370083035F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1842,6 +1842,14 @@
 			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
+		164DD3591D9FB30F001236F8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				164DD35A1D9FB30F001236F8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		1664D55E1D5AC1DD000BAF56 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1877,14 +1885,6 @@
 				1658FF091D7BB80D00D35A90 /* ko */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		167245CD1B19C0370083035F /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				167245CE1B19C0370083035F /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 		1676C3D51B2418B8001B3AB6 /* MainInterface.storyboard */ = {
