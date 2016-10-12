@@ -4,6 +4,10 @@
 
 ## 1.1 (18)
 
+### New features
+
+* Added support for Apple Watch complications.
+
 ### Code improvements
 
 * Library names are localized.

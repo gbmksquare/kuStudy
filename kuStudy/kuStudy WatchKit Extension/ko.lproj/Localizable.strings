@@ -7,3 +7,6 @@
 */
 
 "kuStudy.Watch.StudyingDescription" = " 명 공부 중.";
+
+"kuStudy.Watch.Complication.Total" = "전체: ";
+"kuStudy.Watch.Complication.Available" = "잔여: ";

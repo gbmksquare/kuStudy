@@ -7,3 +7,6 @@
 */
 
 "kuStudy.Watch.StudyingDescription" = " studying.";
+
+"kuStudy.Watch.Complication.Total" = "Total: ";
+"kuStudy.Watch.Complication.Available" = "Available: ";
