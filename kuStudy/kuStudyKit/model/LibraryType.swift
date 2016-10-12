@@ -19,13 +19,23 @@ public enum LibraryType: String {
         return [.CentralLibrary, .CentralSquare, .HanaSquare, .ScienceLibrary, .CDL]
     }
     
-    public var name: String {
+    private var localizedKey: String {
         switch self {
-        case .CentralSquare: return "중앙광장"
-        case .CentralLibrary: return "중앙도서관"
-        case .HanaSquare: return "하나스퀘어"
-        case .ScienceLibrary: return "과학도서관"
-        case .CDL: return "백주년기념관"
+        case .CentralSquare: return "kuStudy.Library.Name.CentralSquare"
+        case .CentralLibrary: return "kuStudy.Library.Name.CentralLibrary"
+        case .HanaSquare: return "kuStudy.Library.Name.HanaSquare"
+        case .ScienceLibrary: return "kuStudy.Library.Name.ScienceLibrary"
+        case .CDL: return "kuStudy.Library.Name.Cdl"
         }
+    }
+    
+    public var name: String {
+        let framework = NSBundle(forClass: kuStudy.self)
+        return NSLocalizedString(localizedKey, bundle: framework, comment: "")
+    }
+    
+    public var shortName: String {
+        let framework = NSBundle(forClass: kuStudy.self)
+        return NSLocalizedString(localizedKey + ".Short", bundle: framework, comment: "")
     }
 }

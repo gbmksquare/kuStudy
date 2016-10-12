@@ -7,12 +7,19 @@
 */
 
 // MARK: Libraries
-"central_library" = "Central Library";
-"central_square" = "Central Square";
-"hana_square" = "Hana Square";
-"science_library" = "Science Library";
-"cdl" = "Centennial Digital Library";
-"sejong_campus" = "Sejong Campus";
+"kuStudy.Library.Name.CentralLibrary" = "Central Library";
+"kuStudy.Library.Name.CentralSquare" = "Central Square";
+"kuStudy.Library.Name.HanaSquare" = "Hana Square";
+"kuStudy.Library.Name.ScienceLibrary" = "Science Library";
+"kuStudy.Library.Name.Cdl" = "Centennial Digital Library";
+"kuStudy.Library.Name.Sejong" = "Sejong Campus";
+
+"kuStudy.Library.Name.CentralLibrary.Short" = "CL";
+"kuStudy.Library.Name.CentralSquare.Short" = "CS";
+"kuStudy.Library.Name.HanaSquare.Short" = "HS";
+"kuStudy.Library.Name.ScienceLibrary.Short" = "SL";
+"kuStudy.Library.Name.Cdl.Short" = "CDL";
+"kuStudy.Library.Name.Sejong.Short" = "SJ";
 
 // MARK: Reading rooms
 "reading_room_1" = "Reading Room 1";

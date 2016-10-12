@@ -1,8 +1,17 @@
 # Release Notes
 
+
+
+## 1.1 (18)
+
+### Code improvements
+
+* Library names are localized.
+* Added shortened version of library names.
+
 ## 1.1 (17)
 
-### New Features
+### New features
 
 * Added support for iPad split view.
 * Added support for iPad hardware keyboard shortcuts.
