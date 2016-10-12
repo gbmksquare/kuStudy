@@ -30,12 +30,12 @@ public enum LibraryType: String {
     }
     
     public var name: String {
-        let framework = NSBundle(forClass: kuStudy.self)
+        let framework = Bundle(for: kuStudy.self)
         return NSLocalizedString(localizedKey, bundle: framework, comment: "")
     }
     
     public var shortName: String {
-        let framework = NSBundle(forClass: kuStudy.self)
+        let framework = Bundle(for: kuStudy.self)
         return NSLocalizedString(localizedKey + ".Short", bundle: framework, comment: "")
     }
 }

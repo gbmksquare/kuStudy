@@ -10,10 +10,10 @@ import UIKit
 
 // @IBDesignable // UIStoryboard can't render IBDesignable in dynamic framework bug
 public class CircularProgressView: UIView {
-    private var arcLayer: CAShapeLayer!
-    private var backgroundLayer: CAShapeLayer!
+    fileprivate var arcLayer: CAShapeLayer!
+    fileprivate var backgroundLayer: CAShapeLayer!
     
-    @IBInspectable public var progressColor = UIColor.orangeColor() {
+    @IBInspectable public var progressColor = UIColor.orange {
         didSet { updateLayerProperties() }
     }
     
@@ -25,14 +25,14 @@ public class CircularProgressView: UIView {
         didSet { updateLayerProperties() }
     }
     
-    @IBInspectable public var progressBackgroundColor = UIColor.whiteColor() {
+    @IBInspectable public var progressBackgroundColor = UIColor.white {
         didSet { updateLayerProperties() }
     }
     
     // MARK: Initialization
     override public func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = UIColor.clearColor()
+        backgroundColor = UIColor.clear
         createViewIfNeccessary()
     }
     
@@ -44,15 +44,15 @@ public class CircularProgressView: UIView {
         updateLayerProperties()
     }
     
-    private func createViewIfNeccessary() {
+    fileprivate func createViewIfNeccessary() {
         if backgroundLayer == nil {
             backgroundLayer = CAShapeLayer()
             layer.addSublayer(backgroundLayer)
             
-            let rect = CGRectInset(bounds, 0, 0)
-            let path = UIBezierPath(ovalInRect: rect)
-            backgroundLayer.path = path.CGPath
-            backgroundLayer.fillColor = progressBackgroundColor.CGColor
+            let rect = bounds.insetBy(dx: 0, dy: 0)
+            let path = UIBezierPath(ovalIn: rect)
+            backgroundLayer.path = path.cgPath
+            backgroundLayer.fillColor = progressBackgroundColor.cgColor
         }
         
         if arcLayer == nil {
@@ -60,34 +60,34 @@ public class CircularProgressView: UIView {
             layer.addSublayer(arcLayer)
             
             let arcPath = createArc()
-            arcLayer.path = arcPath.CGPath
-            arcLayer.fillColor = progressColor.CGColor
+            arcLayer.path = arcPath.cgPath
+            arcLayer.fillColor = progressColor.cgColor
         }
     }
     
-    private func updateLayerProperties() {
+    fileprivate func updateLayerProperties() {
         createViewIfNeccessary()
-        let rect = CGRectInset(bounds, 0, 0)
-        let path = UIBezierPath(ovalInRect: rect)
-        backgroundLayer.path = path.CGPath
-        backgroundLayer.fillColor = progressBackgroundColor.CGColor
-        arcLayer.fillColor = progressColor.CGColor
+        let rect = bounds.insetBy(dx: 0, dy: 0)
+        let path = UIBezierPath(ovalIn: rect)
+        backgroundLayer.path = path.cgPath
+        backgroundLayer.fillColor = progressBackgroundColor.cgColor
+        arcLayer.fillColor = progressColor.cgColor
         repositionArcLayer()
     }
     
     // Helper
-    private func createArc() -> UIBezierPath {
+    fileprivate func createArc() -> UIBezierPath {
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let radius = bounds.width / 2 - progressInset
         let startAngle = CGFloat(M_PI + M_PI_2)
         let endAngle = startAngle + CGFloat(M_PI) * 2 * CGFloat(progress)
         let arcPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
-        arcPath.addLineToPoint(center)
+        arcPath.addLine(to: center)
         return arcPath
     }
     
-    private func repositionArcLayer() {
+    fileprivate func repositionArcLayer() {
         let arcPath = createArc()
-        arcLayer.path = arcPath.CGPath
+        arcLayer.path = arcPath.cgPath
     }
 }

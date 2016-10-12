@@ -17,49 +17,49 @@ public class SummaryData {
 // MARK: Computed data
 extension SummaryData {
     public var totalSeats: Int? {
-        return libraries.reduce(0, combine: { (initial, library) -> Int in
+        return libraries.reduce(0, { (initial, library) -> Int in
             return initial + library.totalSeats
         })
     }
     
     public var usedSeats: Int? {
-        return libraries.reduce(0, combine: { (initial, library) -> Int in
+        return libraries.reduce(0, { (initial, library) -> Int in
             return initial + library.usedSeats
         })
     }
     
     public var availableSeats: Int? {
-        return libraries.reduce(0, combine: { (initial, library) -> Int in
+        return libraries.reduce(0, { (initial, library) -> Int in
             return initial + library.availableSeats
         })
     }
     
     public var ineligibleSeats: Int? {
-        return libraries.reduce(0, combine: { (initial, library) -> Int in
+        return libraries.reduce(0, { (initial, library) -> Int in
             return initial + library.ineligibleSeats
         })
     }
     
     public var outOfOrderSeats: Int? {
-        return libraries.reduce(0, combine: { (initial, library) -> Int in
+        return libraries.reduce(0, { (initial, library) -> Int in
             return initial + library.outOfOrderSeats
         })
     }
     
     public var disabledOnlySeats: Int? {
-        return libraries.reduce(0, combine: { (initial, library) -> Int in
+        return libraries.reduce(0, { (initial, library) -> Int in
             return initial + library.disabledOnlySeats
         })
     }
     
     public var printerCount: Int? {
-        return libraries.reduce(0, combine: { (initial, library) -> Int in
+        return libraries.reduce(0, { (initial, library) -> Int in
             return initial + library.printerCount
         })
     }
     
     public var scannerCount: Int? {
-        return libraries.reduce(0, combine: { (initial, library) -> Int in
+        return libraries.reduce(0, { (initial, library) -> Int in
             return initial + library.scannerCount
         })
     }
@@ -68,13 +68,13 @@ extension SummaryData {
 extension SummaryData: PercentagePresentable {
     public var availablePercentage: Float {
         guard totalSeats != 0 else { return 0 }
-        guard let availableSeats = availableSeats, totalSeats = totalSeats else { return 0 }
+        guard let availableSeats = availableSeats, let totalSeats = totalSeats else { return 0 }
         return Float(availableSeats) / Float(totalSeats)
     }
     
     public var usedPercentage: Float {
         guard totalSeats != 0 else { return 0 }
-        guard let usedSeats = usedSeats, totalSeats = totalSeats else { return 0 }
+        guard let usedSeats = usedSeats, let totalSeats = totalSeats else { return 0 }
         return Float(usedSeats) / Float(totalSeats)
     }
 }

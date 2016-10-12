@@ -24,14 +24,14 @@ class LibraryTableViewCell: UITableViewCell {
     }
     
     // MARK: Populate
-    private func updateEmptyView() {
+    fileprivate func updateEmptyView() {
         thumbnailImageView.image = nil
         percentageView.progress = 0
         nameLabel.text = "--"
         availableLabel.text = "--"
     }
     
-    func populate(libraryData: LibraryData?) {
+    func populate(_ libraryData: LibraryData?) {
         guard let libraryData = libraryData else {
             updateEmptyView()
             return
@@ -43,7 +43,7 @@ class LibraryTableViewCell: UITableViewCell {
         
         let libraryType = LibraryType(rawValue: libraryId)
         nameLabel.text = libraryType?.name
-        availableLabel.text = libraryData.availableSeats.readableFormat + " " + "kuStudy.Available".localized()
+        availableLabel.text = libraryData.availableSeats.readable + " " + "kuStudy.Available".localized()
         
         thumbnailImageView.image = libraryData.thumbnail
         percentageView.progress = libraryData.availablePercentage

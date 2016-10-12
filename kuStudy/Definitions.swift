@@ -11,8 +11,8 @@ import Foundation
 // MARK: Shared container
 let kuStudySharedContainer = "group.com.gbmksquare.kuapps.kuStudy"
 
-var sharedContainerUrl: NSURL? {
-    return NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier(kuStudySharedContainer)
+var sharedContainerUrl: URL? {
+    return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: kuStudySharedContainer)
 }
 
 // MARK: WatchKit

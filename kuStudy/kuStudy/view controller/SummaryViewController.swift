@@ -13,7 +13,7 @@ import Localize_Swift
 import Crashlytics
 
 enum DataSourceState {
-    case Fetching, Error
+    case fetching, error
 }
 
 class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegate {
@@ -21,13 +21,13 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     @IBOutlet weak var headerBlurImageView: UIImageView!
     @IBOutlet weak var studyingLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    private  var refreshControl = UIRefreshControl()
+    fileprivate  var refreshControl = UIRefreshControl()
     
-    private var summaryData = SummaryData()
-    private var dataState: DataSourceState = .Fetching
-    private var error: NSError?
+    fileprivate var summaryData = SummaryData()
+    fileprivate var dataState: DataSourceState = .fetching
+    fileprivate var error: Error?
     
-    private var orderedLibraryIds: [String]!
+    fileprivate var orderedLibraryIds: [String]!
     
     // MARK: View
     override func viewDidLoad() {
@@ -41,33 +41,33 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
         tableView.tableFooterView = UIView()
         tableView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: #selector(updateData(_:)), forControlEvents: .ValueChanged)
+        refreshControl.addTarget(self, action: #selector(updateData(_:)), for: .valueChanged)
         registerPeekAndPop()
         listenForUserDefaultsDidChange()
         updateData()
         
-        Answers.logContentViewWithName("Summary", contentType: "Summary", contentId: "0", customAttributes: ["Device": UIDevice.currentDevice().model, "Version": UIDevice.currentDevice().systemVersion])
+        Answers.logContentView(withName: "Summary", contentType: "Summary", contentId: "0", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startHandoff()
         updateHeaderImage()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         userActivity?.invalidate()
     }
     
     // MARK: Action
-    @objc private func updateData(sender: UIRefreshControl? = nil) {
-        dataState = .Fetching
+    @objc fileprivate func updateData(_ sender: UIRefreshControl? = nil) {
+        dataState = .fetching
         kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
             
         }, onFailure: { [weak self] (error) in
             self?.error = error
-            self?.dataState = .Error
+            self?.dataState = .error
         }) { [weak self] (summaryData: SummaryData) in
             sender?.endRefreshing()
             self?.summaryData = summaryData
@@ -76,18 +76,18 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         }
     }
     
-    private func setInitialView() {
+    fileprivate func setInitialView() {
         studyingLabel.text = ""
     }
     
-    private func updateView() {
+    fileprivate func updateView() {
         if let usedSeats = summaryData.usedSeats {
-            studyingLabel.text = usedSeats.readableFormat + "kuStudy.Main.Studying".localized()
+            studyingLabel.text = usedSeats.readable + "kuStudy.Main.Studying".localized()
         }
         tableView.reloadData()
     }
     
-    private func updateHeaderImage() {
+    fileprivate func updateHeaderImage() {
         let libraryTypes = LibraryType.allTypes()
         let randomIndex = Int(arc4random_uniform(UInt32(libraryTypes.count)))
         let libraryId = libraryTypes[randomIndex].rawValue
@@ -95,13 +95,13 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
             let photo = PhotoProvider.sharedProvider.photo(libraryType.rawValue)
             headerImageView.image = photo.image
             headerBlurImageView.image = photo.image
-            headerBlurImageView.transform = CGAffineTransformMakeScale(1, -1)
+            headerBlurImageView.transform = CGAffineTransform(scaleX: 1, y: -1)
         }
     }
     
-    private func reorderLibraryData() {
-        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        orderedLibraryIds = defaults.arrayForKey("libraryOrder") as! [String]
+    fileprivate func reorderLibraryData() {
+        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
+        orderedLibraryIds = defaults.array(forKey: "libraryOrder") as! [String]
         
         var orderedLibraryData = [LibraryData]()
         for libraryId in orderedLibraryIds {
@@ -110,20 +110,41 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         }
         summaryData.libraries = orderedLibraryData
     }
+    
+    // MARK: Peek & Pop
+    fileprivate func registerPeekAndPop() {
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: view)
+        }
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        let locationInTableView = tableView.convert(location, from: view)
+        guard let indexPath = tableView.indexPathForRow(at: locationInTableView) else { return nil }
+        let libraryViewController = self.storyboard?.instantiateViewController(withIdentifier: "libraryViewController") as! LibraryViewController
+        let libraryData = summaryData.libraries[indexPath.row]
+        libraryViewController.libraryId = libraryData.libraryId
+        previewingContext.sourceRect = view.convert(tableView.rectForRow(at: indexPath), from: tableView)
+        return libraryViewController
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
+    }
 }
 
 // MARK: - Navigation
 extension SummaryViewController {
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifier = segue.identifier else { return }
         switch identifier {
         case "librarySegue":
-            let destinationViewController = (segue.destinationViewController as! UINavigationController).childViewControllers.first as! LibraryViewController
+            let destinationViewController = (segue.destination as! UINavigationController).childViewControllers.first as! LibraryViewController
             if sender is String { // Handoff
                 let libraryId = sender as! String
                 destinationViewController.libraryId = libraryId
             } else {
-                guard let selectedRow = tableView.indexPathForSelectedRow?.row else { return }
+                guard let selectedRow = (tableView.indexPathForSelectedRow as IndexPath?)?.row else { return }
                 let libraryData = summaryData.libraries[selectedRow]
                 destinationViewController.libraryId = libraryData.libraryId
             }
@@ -135,41 +156,41 @@ extension SummaryViewController {
 // MARK: - Table view
 extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     // Data source
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return summaryData.libraries.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let libraryData = summaryData.libraries[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath) as! LibraryTableViewCell
         cell.populate(libraryData)
         return cell
     }
     
     // MARK: Empty state
-    func emptyDataSetDidTapView(scrollView: UIScrollView!) {
+    func emptyDataSetDidTap(_ scrollView: UIScrollView!) {
         updateData()
         updateView()
     }
     
-    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = dataState == .Fetching ? "kuStudy.Status.Downloading".localized() : (error?.localizedDescription ?? "kuStudy.Status.Error".localized())
-        let attribute = [NSFontAttributeName: UIFont.boldSystemFontOfSize(17)]
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = dataState == .fetching ? "kuStudy.Status.Downloading".localized() : (error?.localizedDescription ?? "kuStudy.Status.Error".localized())
+        let attribute = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 17)]
         return NSAttributedString(string: text, attributes: attribute)
     }
 }
 
 // MARK: - Notification
 extension SummaryViewController {
-    private func listenForUserDefaultsDidChange() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handleUserDefaultsDidChange(_: )), name: NSUserDefaultsDidChangeNotification, object: nil)
+    fileprivate func listenForUserDefaultsDidChange() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsDidChange(_: )), name: UserDefaults.didChangeNotification, object: nil)
     }
     
-    @objc private func handleUserDefaultsDidChange(notification: NSNotification) {
+    @objc fileprivate func handleUserDefaultsDidChange(_ notification: Notification) {
         reorderLibraryData()
         updateView()
     }
@@ -177,44 +198,21 @@ extension SummaryViewController {
 
 // MARK: - Handoff
 extension SummaryViewController {
-    private func startHandoff() {
+    fileprivate func startHandoff() {
         let activity = NSUserActivity(activityType: kuStudyHandoffSummary)
         activity.title = "Summary"
         activity.becomeCurrent()
         userActivity = activity
     }
     
-    override func restoreUserActivityState(activity: NSUserActivity) {
+    override func restoreUserActivityState(_ activity: NSUserActivity) {
         switch activity.activityType {
         case kuStudyHandoffSummary: break
         case kuStudyHandoffLibrary:
             let libraryId = activity.userInfo!["libraryId"]
-            performSegueWithIdentifier("librarySegue", sender: libraryId)
+            performSegue(withIdentifier: "librarySegue", sender: libraryId)
         default: break
         }
         super.restoreUserActivityState(activity)
-    }
-}
-
-// MARK: - Peek & Pop
-extension SummaryViewController {
-    private func registerPeekAndPop() {
-        if traitCollection.forceTouchCapability == .Available {
-            registerForPreviewingWithDelegate(self, sourceView: view)
-        }
-    }
-    
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        let locationInTableView = tableView.convertPoint(location, fromView: view)
-        guard let indexPath = tableView.indexPathForRowAtPoint(locationInTableView) else { return nil }
-        let libraryViewController = self.storyboard?.instantiateViewControllerWithIdentifier("libraryViewController") as! LibraryViewController
-        let libraryData = summaryData.libraries[indexPath.row]
-        libraryViewController.libraryId = libraryData.libraryId
-        previewingContext.sourceRect = view.convertRect(tableView.rectForRowAtIndexPath(indexPath), fromView: tableView)
-        return libraryViewController
-    }
-    
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
-        showViewController(viewControllerToCommit, sender: self)
     }
 }

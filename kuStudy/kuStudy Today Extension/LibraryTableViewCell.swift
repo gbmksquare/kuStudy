@@ -21,8 +21,8 @@ class LibraryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         if #available(iOSApplicationExtension 10.0, *) {
-            nameLabel.textColor = UIColor.blackColor()
-            availableLabel.textColor = UIColor.blackColor()
+            nameLabel.textColor = UIColor.black
+            availableLabel.textColor = UIColor.black
         }
         
         thumbnailImageView.layer.cornerRadius = thumbnailImageView.bounds.width / 2
@@ -30,12 +30,12 @@ class LibraryTableViewCell: UITableViewCell {
     }
     
     // MARK: Populate
-    func populate(libraryData: LibraryData) {
+    func populate(_ libraryData: LibraryData) {
         guard let libraryId = libraryData.libraryId else { return }
         
         let libraryType = LibraryType(rawValue: libraryId)
         nameLabel.text = libraryType?.name
-        availableLabel.text = libraryData.availableSeats.readableFormat + " " + "kuStudy.Available".localized()
+        availableLabel.text = libraryData.availableSeats.readable + " " + "kuStudy.Available".localized()
         
         thumbnailImageView.image = libraryData.thumbnail
         percentageView.progress = libraryData.availablePercentage

@@ -12,7 +12,7 @@ import kuStudyKit
 class AcknowledgementViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    private var photographers: [Photographer] {
+    fileprivate var photographers: [Photographer] {
         return PhotoProvider.sharedProvider.photographers
     }
     
@@ -26,17 +26,17 @@ class AcknowledgementViewController: UIViewController {
 }
 
 extension AcknowledgementViewController: UITableViewDelegate, UITableViewDataSource {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return photographers.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let photographer = photographers[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("photographerCell", forIndexPath: indexPath) as! PhotographerCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "photographerCell", for: indexPath) as! PhotographerCell
         cell.populate(photographer)
         return cell
     }

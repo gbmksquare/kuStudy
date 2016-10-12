@@ -32,7 +32,7 @@ extension Photo {
         #if os(watchOS)
             return nil
         #else
-            return UIImage(named: thumbnailName, inBundle: NSBundle(forClass: kuStudy.self), compatibleWithTraitCollection: nil)
+            return UIImage(named: thumbnailName, in: Bundle(for: kuStudy.self), compatibleWith: nil)
         #endif
     }
     
@@ -40,7 +40,7 @@ extension Photo {
         #if os(watchOS)
             return nil
         #else
-            return UIImage(named: imageName, inBundle: NSBundle(forClass: kuStudy.self), compatibleWithTraitCollection: nil)
+            return UIImage(named: imageName, in: Bundle(for: kuStudy.self), compatibleWith: nil)
         #endif
     }
 }

@@ -15,18 +15,18 @@ class PhotographerCell: UITableViewCell {
     @IBOutlet weak var associationLabel: UILabel!
     @IBOutlet weak var instagramButton: UIButton!
     
-    private var photographer: Photographer?
-    private var currentPhotoIndex = 0
-    private var timer: NSTimer?
+    fileprivate var photographer: Photographer?
+    fileprivate var currentPhotoIndex = 0
+    fileprivate var timer: Timer?
     
     // MARK: Action
-    @IBAction func tappedInstagramButton(sender: UIButton) {
+    @IBAction func tappedInstagramButton(_ sender: UIButton) {
         guard let instagramId = photographer?.instagramId else { return }
         
-        let instagramAppUrl = NSURL(string: "instagram://user?username=\(instagramId)")!
-        let instagramUrl = NSURL(string: "https://instagram.com/\(instagramId)")!
+        let instagramAppUrl = URL(string: "instagram://user?username=\(instagramId)")!
+        let instagramUrl = URL(string: "https://instagram.com/\(instagramId)")!
         
-        let application = UIApplication.sharedApplication()
+        let application = UIApplication.shared
         if application.canOpenURL(instagramAppUrl) {
             application.openURL(instagramAppUrl)
         } else {
@@ -43,19 +43,19 @@ class PhotographerCell: UITableViewCell {
         photoImageView.image = nil
         nameLabel.text = nil
         associationLabel.text = nil
-        instagramButton.setTitle("", forState: .Normal)
+        instagramButton.setTitle("", for: UIControlState())
     }
     
-    func populate(photographer: Photographer) {
+    func populate(_ photographer: Photographer) {
         self.photographer = photographer
         
         if let photo = photographer.photos.first {
             photoImageView.image = photo.image
             
-            timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(updateImage(_:)), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateImage(_:)), userInfo: nil, repeats: true)
         }
         
-        if NSLocale.preferredLanguages().first?.hasPrefix("ko") == true {
+        if Locale.preferredLanguages.first?.hasPrefix("ko") == true {
             nameLabel.text = photographer.name
             associationLabel.text = photographer.association
         } else {
@@ -63,20 +63,20 @@ class PhotographerCell: UITableViewCell {
             associationLabel.text = photographer.association_en
         }
         if photographer.instagramId.characters.count > 0 {
-            instagramButton.setTitle("@" + photographer.instagramId, forState: .Normal)
+            instagramButton.setTitle("@" + photographer.instagramId, for: .normal)
         } else {
-            instagramButton.setTitle("", forState: .Normal)
+            instagramButton.setTitle("", for: UIControlState())
         }
     }
     
-    @objc private func updateImage(sender: NSTimer) {
+    @objc fileprivate func updateImage(_ sender: Timer) {
         guard let photos = photographer?.photos else { return }
         currentPhotoIndex += 1
         if currentPhotoIndex >= photos.count {
             currentPhotoIndex = 0
         }
         let photo = photos[currentPhotoIndex]
-        UIView.transitionWithView(photoImageView, duration: 0.75, options: .TransitionCrossDissolve,
+        UIView.transition(with: photoImageView, duration: 0.75, options: .transitionCrossDissolve,
           animations: { [weak self] in
             self?.photoImageView.image = photo.image
         }, completion: nil)

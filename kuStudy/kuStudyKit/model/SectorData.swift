@@ -24,7 +24,7 @@ public class SectorData: Mappable {
     public var printerCount: Int?
     public var scannerCount: Int?
     
-    required public init?(_ map: Map) {
+    required public init?(map: Map) {
         
     }
     
@@ -48,21 +48,21 @@ public class SectorData: Mappable {
 extension SectorData: PercentagePresentable {
     public var availableSeats: Int? {
         guard let totalSeats = totalSeats,
-            usedSeats = usedSeats,
-            ineligibleSeats = ineligibleSeats,
-            outOfOrderSeats = outOfOrderSeats,
-            disabledOnlySeats = disabledOnlySeats
+            let usedSeats = usedSeats,
+            let ineligibleSeats = ineligibleSeats,
+            let outOfOrderSeats = outOfOrderSeats,
+            let disabledOnlySeats = disabledOnlySeats
             else { return nil }
         return totalSeats - usedSeats - ineligibleSeats - outOfOrderSeats - disabledOnlySeats
     }
     
     public var availablePercentage: Float {
-        guard let availableSeats = availableSeats, totalSeats = totalSeats else { return 0 }
+        guard let availableSeats = availableSeats, let totalSeats = totalSeats else { return 0 }
         return Float(availableSeats) / Float(totalSeats)
     }
     
     public var usedPercentage: Float {
-        guard let usedSeats = usedSeats, totalSeats = totalSeats else { return 0 }
+        guard let usedSeats = usedSeats, let totalSeats = totalSeats else { return 0 }
         return Float(usedSeats) / Float(totalSeats)
     }
 }

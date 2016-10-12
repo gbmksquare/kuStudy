@@ -11,27 +11,27 @@ import kuStudyKit
 import Localize_Swift
 
 class TodayExtensionOrderTableViewController: UITableViewController {
-    private var defaults: NSUserDefaults!
-    private var libraryTypes: [LibraryType]!
-    private var orderedLibraryIds: [String]!
-    private var hiddenLibraryIds: [String]!
+    fileprivate var defaults: UserDefaults!
+    fileprivate var libraryTypes: [LibraryType]!
+    fileprivate var orderedLibraryIds: [String]!
+    fileprivate var hiddenLibraryIds: [String]!
     
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        orderedLibraryIds = defaults.arrayForKey("todayExtensionOrder") as! [String]
-        hiddenLibraryIds = defaults.arrayForKey("todayExtensionHidden") as! [String]
+        defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
+        orderedLibraryIds = defaults.array(forKey: "todayExtensionOrder") as! [String]
+        hiddenLibraryIds = defaults.array(forKey: "todayExtensionHidden") as! [String]
         libraryTypes = LibraryType.allTypes()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.editing = true
+        tableView.isEditing = true
     }
 }
 
 // MARK: Data source
 extension TodayExtensionOrderTableViewController {
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0: return "kuStudy.Settings.Today.Header.Show".localized()
         case 1: return "kuStudy.Settings.Today.Header.Hide".localized()
@@ -39,7 +39,7 @@ extension TodayExtensionOrderTableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
         case 0: return "kuStudy.Settings.Today.Footer.Instruction".localized()
         case 1: return "kuStudy.Settings.Today.Footer.Hidden".localized()
@@ -47,11 +47,11 @@ extension TodayExtensionOrderTableViewController {
         }
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return orderedLibraryIds?.count ?? 0
         case 1: return hiddenLibraryIds?.count ?? 0
@@ -59,12 +59,12 @@ extension TodayExtensionOrderTableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let libraryId: String
-        switch indexPath.section {
-        case 0: libraryId = orderedLibraryIds[indexPath.row]
-        case 1: libraryId = hiddenLibraryIds[indexPath.row]
+        switch (indexPath as NSIndexPath).section {
+        case 0: libraryId = orderedLibraryIds[(indexPath as NSIndexPath).row]
+        case 1: libraryId = hiddenLibraryIds[(indexPath as NSIndexPath).row]
         default: return cell
         }
         let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!
@@ -75,19 +75,19 @@ extension TodayExtensionOrderTableViewController {
 
 // MARK: Move
 extension TodayExtensionOrderTableViewController {
-    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
-        return .None
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .none
     }
     
-    override func tableView(tableView: UITableView, shouldIndentWhileEditingRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let fromSection = sourceIndexPath.section
         let fromRow = sourceIndexPath.row
         let toSection = destinationIndexPath.section
@@ -96,19 +96,19 @@ extension TodayExtensionOrderTableViewController {
         let movingLibraryId: String
         if fromSection == 0 {
             movingLibraryId = orderedLibraryIds[fromRow]
-            orderedLibraryIds.removeAtIndex(fromRow)
+            orderedLibraryIds.remove(at: fromRow)
         } else {
             movingLibraryId = hiddenLibraryIds[fromRow]
-            hiddenLibraryIds.removeAtIndex(fromRow)
+            hiddenLibraryIds.remove(at: fromRow)
         }
         
         if toSection == 0 {
-            orderedLibraryIds.insert(movingLibraryId, atIndex: toRow)
+            orderedLibraryIds.insert(movingLibraryId, at: toRow)
         } else {
-            hiddenLibraryIds.insert(movingLibraryId, atIndex: toRow)
+            hiddenLibraryIds.insert(movingLibraryId, at: toRow)
         }
         
-        defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+        defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
         defaults.setValue(orderedLibraryIds, forKey: "todayExtensionOrder")
         defaults.setValue(hiddenLibraryIds, forKey: "todayExtensionHidden")
         defaults.synchronize()

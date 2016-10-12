@@ -23,20 +23,20 @@ class LibraryViewController: UIViewController {
     @IBOutlet weak var photographerLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
-    private var refreshControl = UIRefreshControl()
+    fileprivate var refreshControl = UIRefreshControl()
     
-    var libraryId: String! = NSUserDefaults(suiteName: kuStudySharedContainer)?.arrayForKey("libraryOrder")?.first as? String ?? NSUserDefaults.standardUserDefaults().arrayForKey("libraryOrder")?.first as? String ?? "1";
-    private var libraryData: LibraryData?
+    var libraryId: String! = UserDefaults(suiteName: kuStudySharedContainer)?.array(forKey: "libraryOrder")?.first as? String ?? UserDefaults.standard.array(forKey: "libraryOrder")?.first as? String ?? "1";
+    fileprivate var libraryData: LibraryData?
     
-    private var dataState: DataSourceState = .Fetching
-    private var error: NSError?
+    fileprivate var dataState: DataSourceState = .fetching
+    fileprivate var error: Error?
     
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
         setInitialView()
         navigationController?.setTransparentNavigationBar()
-        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
         tableView.delegate = self
         tableView.dataSource = self
@@ -45,26 +45,26 @@ class LibraryViewController: UIViewController {
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
         tableView.tableFooterView = UIView()
         tableView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: #selector(updateData(_:)), forControlEvents: .ValueChanged)
+        refreshControl.addTarget(self, action: #selector(updateData(_:)), for: .valueChanged)
         updateData()
         
         if let libraryType = LibraryType(rawValue: libraryId) {
-            Answers.logContentViewWithName(libraryType.name, contentType: "Library", contentId: libraryId, customAttributes: ["Device": UIDevice.currentDevice().model, "Version": UIDevice.currentDevice().systemVersion])
+            Answers.logContentView(withName: libraryType.name, contentType: "Library", contentId: libraryId, customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startHandoff()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         userActivity?.invalidate()
     }
     
     // MARK: Action
-    @objc private func updateData(sender: UIRefreshControl? = nil) {
+    @objc fileprivate func updateData(_ sender: UIRefreshControl? = nil) {
         guard let libraryId = self.libraryId else { return }
         kuStudy.requestLibraryData(libraryId: libraryId,
            onSuccess: { [weak self] (libraryData) in
@@ -72,14 +72,14 @@ class LibraryViewController: UIViewController {
             sender?.endRefreshing()
             self?.updateView()
         }) { [weak self] (error) in
-            self?.dataState = .Error
+            self?.dataState = .error
             self?.error = error
             self?.updateView()
             sender?.endRefreshing()
         }
     }
     
-    private func setInitialView() {
+    fileprivate func setInitialView() {
         libraryNameLabel.text = LibraryType(rawValue: libraryId)?.name
         libraryTotalLabel.text = ""
         libraryAvailableLabel.text = ""
@@ -88,15 +88,15 @@ class LibraryViewController: UIViewController {
         let photo = PhotoProvider.sharedProvider.photo(libraryId)
         headerImageView.image = photo.image
         headerBlurImageView.image = photo.image
-        headerBlurImageView.transform = CGAffineTransformMakeScale(1, -1)
+        headerBlurImageView.transform = CGAffineTransform(scaleX: 1, y: -1)
         photographerLabel.text = photo.photographer.attributionString
     }
     
-    private func updateView() {
+    fileprivate func updateView() {
         if let libraryData = libraryData {
-            libraryTotalLabel.text = "kuStudy.Total".localized() + ": " + libraryData.totalSeats.readableFormat
-            libraryAvailableLabel.text = libraryData.availableSeats.readableFormat + " " + "kuStudy.Available".localized()
-            libraryUsedLabel.text = "kuStudy.Used".localized() + ": " + libraryData.usedSeats.readableFormat
+            libraryTotalLabel.text = "kuStudy.Total".localized() + ": " + libraryData.totalSeats.readable
+            libraryAvailableLabel.text = libraryData.availableSeats.readable + " " + "kuStudy.Available".localized()
+            libraryUsedLabel.text = "kuStudy.Used".localized() + ": " + libraryData.usedSeats.readable
         }
         tableView.reloadData()
     }
@@ -106,17 +106,17 @@ class LibraryViewController: UIViewController {
 // MARK: Table view
 extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     // Data source
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return libraryData?.sectorCount ?? 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let sector = libraryData?.sectors?[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("readingRoomCell", forIndexPath: indexPath) as! ReadingRoomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "readingRoomCell", for: indexPath) as! ReadingRoomTableViewCell
         if let sector = sector {
             cell.populate(sector)
         }
@@ -124,14 +124,14 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
     
     // Empty state
-    func emptyDataSetDidTapView(scrollView: UIScrollView!) {
+    func emptyDataSetDidTap(_ scrollView: UIScrollView!) {
         updateData()
         updateView()
     }
     
-    func titleForEmptyDataSet(scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = dataState == .Fetching ? "kuStudy.Status.Downloading".localized() : (error?.localizedDescription ?? "kuStudy.Status.Error".localized())
-        let attribute = [NSFontAttributeName: UIFont.boldSystemFontOfSize(17)]
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = dataState == .fetching ? "kuStudy.Status.Downloading".localized() : (error?.localizedDescription ?? "kuStudy.Status.Error".localized())
+        let attribute = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 17)]
         return NSAttributedString(string: text, attributes: attribute)
     }
 }
@@ -139,11 +139,11 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
 // MARK: Handoff
 extension LibraryViewController {
     // MARK: Handoff
-    private func startHandoff() {
-        guard let libraryId = self.libraryId, name = LibraryType(rawValue: libraryId)?.name else { return }
+    fileprivate func startHandoff() {
+        guard let libraryId = self.libraryId, let name = LibraryType(rawValue: libraryId)?.name else { return }
         let activity = NSUserActivity(activityType: kuStudyHandoffLibrary)
         activity.title = name
-        activity.addUserInfoEntriesFromDictionary(["libraryId": libraryId])
+        activity.addUserInfoEntries(from: ["libraryId": libraryId])
         activity.becomeCurrent()
         userActivity = activity
     }

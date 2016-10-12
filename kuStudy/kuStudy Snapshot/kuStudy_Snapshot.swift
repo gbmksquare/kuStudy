@@ -35,12 +35,12 @@ class kuStudy_Snapshot: XCTestCase {
         
         let app = XCUIApplication()
         let tablesQuery = app.tables
-        tablesQuery.cells.elementBoundByIndex(0).tap()
+        tablesQuery.cells.element(boundBy: 0).tap()
         snapshot("1_First")
         
         let button = app.navigationBars["kuStudy.LibraryView"].buttons[" "]
         button.tap()
-        tablesQuery.cells.elementBoundByIndex(3).tap()
+        tablesQuery.cells.element(boundBy: 3).tap()
         snapshot("2_Second")
         button.tap()
     }

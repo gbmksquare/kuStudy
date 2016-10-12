@@ -17,7 +17,7 @@ public struct Photographer {
     public let instagramId: String
     
     public var attributionString: String {
-        if NSLocale.preferredLanguages().first?.hasPrefix("ko") == true {
+        if Locale.preferredLanguages.first?.hasPrefix("ko") == true {
             return "사진: \(association) \(name)"
         } else {
             if association_en.characters.count > 0 {

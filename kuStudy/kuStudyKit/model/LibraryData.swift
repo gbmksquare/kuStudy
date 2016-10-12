@@ -14,7 +14,7 @@ public class LibraryData: Mappable {
     public var sectorCount: Int?
     public var sectors: [SectorData]?
     
-    required public  init?(_ map: Map) { }
+    required public  init?(map: Map) { }
     
     public func mapping(map: Map) {
         libraryId <- map["pLibNo"]
@@ -33,56 +33,56 @@ public extension LibraryData {
     
     public var totalSeats: Int {
         guard let sectors = sectors else { return 0 }
-        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+        return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.totalSeats ?? 0)
         })
     }
     
     public var usedSeats: Int {
         guard let sectors = sectors else { return 0 }
-        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+        return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.usedSeats ?? 0)
         })
     }
     
     public var availableSeats: Int {
         guard let sectors = sectors else { return 0 }
-        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+        return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.availableSeats ?? 0)
         })
     }
     
     public var ineligibleSeats: Int {
         guard let sectors = sectors else { return 0 }
-        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+        return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.ineligibleSeats ?? 0)
         })
     }
     
     public var outOfOrderSeats: Int {
         guard let sectors = sectors else { return 0 }
-        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+        return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.outOfOrderSeats ?? 0)
         })
     }
     
     public var disabledOnlySeats: Int {
         guard let sectors = sectors else { return 0 }
-        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+        return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.disabledOnlySeats ?? 0)
         })
     }
     
     public var printerCount: Int {
         guard let sectors = sectors else { return 0 }
-        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+        return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.printerCount ?? 0)
         })
     }
     
     public var scannerCount: Int {
         guard let sectors = sectors else { return 0 }
-        return sectors.reduce(0, combine: { (initial, sector) -> Int in
+        return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.scannerCount ?? 0)
         })
     }

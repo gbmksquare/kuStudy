@@ -21,8 +21,8 @@ class DetailInterfaceController: WKInterfaceController {
     var libraryData: LibraryData!
     
     // MARK: Watch
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         libraryData = context as! LibraryData
         updateView()
     }
@@ -46,7 +46,7 @@ class DetailInterfaceController: WKInterfaceController {
         updateView()
     }
     
-    private func updateData() {
+    fileprivate func updateData() {
         guard let libraryId = libraryData.libraryId else { return }
         kuStudy.requestLibraryData(libraryId: libraryId,
            onSuccess: { [weak self](libraryData) in
@@ -56,23 +56,23 @@ class DetailInterfaceController: WKInterfaceController {
         }
     }
     
-    private func updateView() {
+    fileprivate func updateView() {
         guard let libraryId = libraryData.libraryId else { return }
         let libraryType = LibraryType(rawValue: libraryId)
         setTitle(libraryType?.name)
-        totalLabel.setText(libraryData.totalSeats.readableFormat)
-        usedLabel.setText(libraryData.usedSeats.readableFormat)
-        availableLabel.setText(libraryData.availableSeats.readableFormat)
+        totalLabel.setText(libraryData.totalSeats.readable)
+        usedLabel.setText(libraryData.usedSeats.readable)
+        availableLabel.setText(libraryData.availableSeats.readable)
         availableLabel.setTextColor(libraryData.usedPercentageColor)
-        percentageGroup.startAnimatingWithImagesInRange(
+        percentageGroup.startAnimatingWithImages(in:
             NSRange(location: 0, length: Int(libraryData.usedPercentage * 100)),
             duration: 1, repeatCount: 1)
         
         // Refresh table
         guard let sectors = libraryData.sectors else { return }
         table.setNumberOfRows(sectors.count, withRowType: "readingRoomCell")
-        for (index, sectorData) in sectors.enumerate() {
-            let row = table.rowControllerAtIndex(index) as! ReadingRoomCell
+        for (index, sectorData) in sectors.enumerated() {
+            let row = table.rowController(at: index) as! ReadingRoomCell
             row.populate(sectorData)
         }
     }
@@ -81,7 +81,7 @@ class DetailInterfaceController: WKInterfaceController {
 // MARK:
 // MARK: Handoff
 extension DetailInterfaceController {
-    private func startHandoff() {
+    fileprivate func startHandoff() {
         guard let libraryId = libraryData.libraryId else { return }
         updateUserActivity(kuStudyHandoffLibrary, userInfo: [kuStudyHandoffLibraryIdKey: libraryId], webpageURL: nil)
     }

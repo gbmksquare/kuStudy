@@ -16,15 +16,16 @@ public class PhotoProvider {
     public let photos: [Photo]
     
     /// [Library ID: Photo Index]
-    private var loadedPhotos = [Int: Int]()
+    fileprivate var loadedPhotos = [Int: Int]()
     
     // MARK: Initialization
     init() {
         // Photographers
-        let photographersUrl = NSBundle(forClass: kuStudy.self).URLForResource("Photographers", withExtension: "plist")!
-        let photographersContent = NSArray(contentsOfURL: photographersUrl)!
+        let photographersUrl = Bundle(for: kuStudy.self).url(forResource: "Photographers", withExtension: "plist")!
+        let photographersContent = NSArray(contentsOf: photographersUrl)!
         
         photographers = photographersContent.map { (item) -> Photographer in
+            let item = item as! [String: Any]
             let id = item["id"] as! Int
             let name = item["name"] as! String
             let name_en = item["name_en"] as! String
@@ -35,20 +36,22 @@ public class PhotoProvider {
         }
         
         // Photo locations
-        let photoLocationsUrl = NSBundle(forClass: kuStudy.self).URLForResource("PhotoLocations", withExtension: "plist")!
-        let photoLocationsContent = NSArray(contentsOfURL: photoLocationsUrl)!
+        let photoLocationsUrl = Bundle(for: kuStudy.self).url(forResource: "PhotoLocations", withExtension: "plist")!
+        let photoLocationsContent = NSArray(contentsOf: photoLocationsUrl)!
         
         photoLocations = photoLocationsContent.map({ (item) -> PhotoLocation in
+            let item = item as! [String: Any]
             let key = item["key"] as! String
             let id = item["id"] as! Int
             return PhotoLocation(id: id, key: key)
         })
         
         // Photos
-        let photosUrl = NSBundle(forClass: kuStudy.self).URLForResource("Photos", withExtension: "plist")!
-        let photosContent = NSArray(contentsOfURL: photosUrl)!
+        let photosUrl = Bundle(for: kuStudy.self).url(forResource: "Photos", withExtension: "plist")!
+        let photosContent = NSArray(contentsOf: photosUrl)!
         
         photos = photosContent.map({ (item) -> Photo in
+            let item = item as! [String: Any]
             let imageName = item["name"] as! String
             let locationId = item["libraryId"] as! Int
             let photographerId = item["photographerId"] as! Int
@@ -58,11 +61,11 @@ public class PhotoProvider {
     }
     
     // MARK: Photo
-    public func photo(libraryId: String) -> Photo {
+    public func photo(_ libraryId: String) -> Photo {
         return photo(Int(libraryId)!)
     }
     
-    public func photo(libraryId: Int) -> Photo {
+    public func photo(_ libraryId: Int) -> Photo {
         let photos = self.photos.filter({ $0.locationId == libraryId })
         
         // Get new index if needed

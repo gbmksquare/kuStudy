@@ -14,15 +14,15 @@ class TodayViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     
-    private var summaryData = SummaryData()
-    private var orderedLibraryIds: [String]!
+    fileprivate var summaryData = SummaryData()
+    fileprivate var orderedLibraryIds: [String]!
     
     // MARK: View
     override func viewDidLoad() {
         func registerPreference() {
-            let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
+            let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
             let libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
-            defaults.registerDefaults(["libraryOrder": libraryOrder,
+            defaults.register(defaults: ["libraryOrder": libraryOrder,
                 "todayExtensionOrder": libraryOrder,
                 "todayExtensionHidden": []])
             defaults.synchronize()
@@ -36,20 +36,20 @@ class TodayViewController: UIViewController {
         updateView()
         
         if #available(iOSApplicationExtension 10.0, *) {
-            extensionContext?.widgetLargestAvailableDisplayMode = .Expanded
+            extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         } else {
             // iOS 9 workaround: http://stackoverflow.com/questions/26309364/uitableview-in-a-today-extension-not-receiving-row-taps
             view.backgroundColor = UIColor(white: 1, alpha: 0.01)
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateData()
     }
     
     // MARK: Action
-    private func updateData() {
+    fileprivate func updateData() {
         kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
             
             }, onFailure: { (error) in
@@ -60,9 +60,9 @@ class TodayViewController: UIViewController {
         }
     }
     
-    private func updateView() {
-        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        orderedLibraryIds = defaults.arrayForKey("todayExtensionOrder") as! [String]
+    fileprivate func updateView() {
+        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
+        orderedLibraryIds = defaults.array(forKey: "todayExtensionOrder") as! [String]
         tableViewHeightConstraint.constant = CGFloat(orderedLibraryIds.count) * tableView.rowHeight
         
         reorderLibraryData()
@@ -74,9 +74,9 @@ class TodayViewController: UIViewController {
         }
     }
     
-    private func reorderLibraryData() {
-        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        orderedLibraryIds = defaults.arrayForKey("todayExtensionOrder") as! [String]
+    fileprivate func reorderLibraryData() {
+        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
+        orderedLibraryIds = defaults.array(forKey: "todayExtensionOrder") as! [String]
         
         var orderedLibraryData = [LibraryData]()
         for libraryId in orderedLibraryIds {
@@ -90,26 +90,26 @@ class TodayViewController: UIViewController {
 // MARK: - Table view
 extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
     // Delegate
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let libraryId = summaryData.libraries[indexPath.row].libraryId else { return }
-        guard let url = NSURL(string: "kustudy://?libraryId=\(libraryId)") else { return }
-        extensionContext?.openURL(url, completionHandler: { (completed) in
+        guard let url = URL(string: "kustudy://?libraryId=\(libraryId)") else { return }
+        extensionContext?.open(url, completionHandler: { (completed) in
             
         })
     }
     
     // Data source
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return summaryData.libraries.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let libraryData = summaryData.libraries[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("libraryCell", forIndexPath: indexPath) as! LibraryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath) as! LibraryTableViewCell
         cell.populate(libraryData)
         return cell
     }
@@ -117,23 +117,23 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
 
 // MARK: - Widget
 extension TodayViewController: NCWidgetProviding {
-    func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
+    func widgetPerformUpdate(_ completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         print("Widget update")
 //        updateData()
 //        completionHandler(.NewData)
-        completionHandler(.NoData)
+        completionHandler(.noData)
     }
     
-    func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
+    func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
         return UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 0)
     }
     
     @available(iOSApplicationExtension 10.0, *)
-    func widgetActiveDisplayModeDidChange(activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         switch activeDisplayMode {
-        case .Compact:
+        case .compact:
             preferredContentSize = maxSize
-        case .Expanded:
+        case .expanded:
             preferredContentSize = CGSize(width: maxSize.width, height: CGFloat(summaryData.libraries.count) * tableView.rowHeight)
         }
     }
@@ -141,11 +141,11 @@ extension TodayViewController: NCWidgetProviding {
 
 // MARK: - Notification
 extension TodayViewController {
-    private func listenToPreferenceChange() {
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(handle(preferenceChanged:)), name: NSUserDefaultsDidChangeNotification, object: nil)
+    fileprivate func listenToPreferenceChange() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handle(preferenceChanged:)), name: UserDefaults.didChangeNotification, object: nil)
     }
     
-    @objc func handle(preferenceChanged notification: NSNotification) {
+    @objc func handle(preferenceChanged notification: Notification) {
         updateView()
     }
 }

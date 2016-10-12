@@ -17,29 +17,29 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var percentageGroup: WKInterfaceGroup!
     @IBOutlet weak var summaryLabel: WKInterfaceLabel!
     
-    private var session: WCSession?
+    fileprivate var session: WCSession?
     
     // MARK: Model
-    private var summaryData = SummaryData()
-    private var orderedLibraryIds: [String]!
+    fileprivate var summaryData = SummaryData()
+    fileprivate var orderedLibraryIds: [String]!
     
     // MARK: Watch
-    override func awakeWithContext(context: AnyObject?) {
+    override func awake(withContext context: Any?) {
         func registerDefaultPreferences() {
-            let defaults = NSUserDefaults.standardUserDefaults()
+            let defaults = UserDefaults.standard
             let libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
-            defaults.registerDefaults(["libraryOrder": libraryOrder])
+            defaults.register(defaults: ["libraryOrder": libraryOrder])
             defaults.synchronize()
         }
         
-        super.awakeWithContext(context)
+        super.awake(withContext: context)
         registerDefaultPreferences()
         updateData()
         
         if WCSession.isSupported() == true {
-            session = WCSession.defaultSession()
+            session = WCSession.default()
             session?.delegate = self
-            session?.activateSession()
+            session?.activate()
         }
     }
     
@@ -56,7 +56,7 @@ class InterfaceController: WKInterfaceController {
     }
     
     // MARK: Segue
-    override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
+    override func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> Any? {
         switch segueIdentifier {
         case "libraryDetail": return summaryData.libraries[rowIndex]
         default: return nil
@@ -69,8 +69,8 @@ class InterfaceController: WKInterfaceController {
         updateView()
     }
     
-    private func updateData() {
-        summaryData.libraries.removeAll(keepCapacity: true)
+    fileprivate func updateData() {
+        summaryData.libraries.removeAll(keepingCapacity: true)
         kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
             
             }, onFailure: { (error) in
@@ -81,27 +81,27 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
-    private func updateView() {
+    fileprivate func updateView() {
         reorderLibraryData()
         
         // Summary
-        summaryLabel.setText(summaryData.usedSeats!.readableFormat + NSLocalizedString("kuStudy.Watch.StudyingDescription", bundle: NSBundle(forClass: self.dynamicType), comment: "Describe how many people are studying."))
-        percentageLabel.setText(summaryData.usedPercentage.readablePercentageFormat)
-        percentageGroup.startAnimatingWithImagesInRange(
+        summaryLabel.setText(summaryData.usedSeats!.readable + NSLocalizedString("kuStudy.Watch.StudyingDescription", bundle: Bundle(for: type(of: self)), comment: "Describe how many people are studying."))
+        percentageLabel.setText(summaryData.usedPercentage.percentageReadable)
+        percentageGroup.startAnimatingWithImages(in:
             NSRange(location: 0, length: Int(summaryData.usedPercentage * 100)),
             duration: 1, repeatCount: 1)
         
         // Table
         table.setNumberOfRows(summaryData.libraries.count, withRowType: "libraryCell")
-        for (index, libraryData) in summaryData.libraries.enumerate() {
-            let row = table.rowControllerAtIndex(index) as! LibraryCell
+        for (index, libraryData) in summaryData.libraries.enumerated() {
+            let row = table.rowController(at: index) as! LibraryCell
             row.populate(libraryData)
         }
     }
     
-    private func reorderLibraryData() {
-        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        orderedLibraryIds = defaults.arrayForKey("libraryOrder") as! [String]
+    fileprivate func reorderLibraryData() {
+        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
+        orderedLibraryIds = defaults.array(forKey: "libraryOrder") as! [String]
         
         var orderedLibraries = [LibraryData]()
         for libraryId in orderedLibraryIds {
@@ -114,21 +114,21 @@ class InterfaceController: WKInterfaceController {
 
 // MARK: - Handoff
 extension InterfaceController {
-    private func startHandOff() {
+    fileprivate func startHandOff() {
         updateUserActivity(kuStudyHandoffSummary, userInfo: [kuStudyHandoffSummaryKey: kuStudyHandoffSummaryKey], webpageURL: nil)
     }
 }
 
 // MARK: - Watch connectivity
 extension InterfaceController: WCSessionDelegate {
-    func session(session: WCSession, activationDidCompleteWithState activationState: WCSessionActivationState, error: NSError?) {
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         
     }
     
-    func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
+    func session(_ session: WCSession, didReceiveApplicationContext applicationContext: [String : Any]) {
         guard let libraryOrder = applicationContext["libraryOrder"] as? [String] else { return }
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.registerDefaults(["libraryOrder": libraryOrder])
+        let defaults = UserDefaults.standard
+        defaults.register(defaults: ["libraryOrder": libraryOrder])
         defaults.synchronize()
         updateView()
     }

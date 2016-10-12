@@ -19,14 +19,14 @@ class GlanceController: WKInterfaceController {
     @IBOutlet weak var scienceCampusLabel: WKInterfaceLabel!
     
     // MARK: Model
-    private var summaryData = SummaryData()
+    fileprivate var summaryData = SummaryData()
     
-    private var liberalArtCampusIds = [String]()
-    private var scienceCampusIds = [String]()
+    fileprivate var liberalArtCampusIds = [String]()
+    fileprivate var scienceCampusIds = [String]()
     
     // MARK: Watch
-    override func awakeWithContext(context: AnyObject?) {
-        super.awakeWithContext(context)
+    override func awake(withContext context: Any?) {
+        super.awake(withContext: context)
         liberalArtCampusIds = [LibraryType.CentralLibrary, LibraryType.CentralSquare, LibraryType.CDL].map({ "\($0.rawValue)" })
         scienceCampusIds = [LibraryType.ScienceLibrary, LibraryType.HanaSquare].map({ "\($0.rawValue)" })
     }
@@ -43,7 +43,7 @@ class GlanceController: WKInterfaceController {
     }
     
     // MARK: Action
-    private func updateData() {
+    fileprivate func updateData() {
         kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
             
             }, onFailure: { (error) in
@@ -54,11 +54,11 @@ class GlanceController: WKInterfaceController {
         }
     }
     
-    private func updateView() {
+    fileprivate func updateView() {
         // Summary
-        availableLabel.setText(summaryData.availableSeats?.readableFormat)
-        percentageLabel.setText(summaryData.usedPercentage.readablePercentageFormat)
-        percentageGroup.startAnimatingWithImagesInRange(
+        availableLabel.setText(summaryData.availableSeats?.readable)
+        percentageLabel.setText(summaryData.usedPercentage.percentageReadable)
+        percentageGroup.startAnimatingWithImages(in:
             NSRange(location: 0, length: Int(summaryData.usedPercentage * 100)),
             duration: 1, repeatCount: 1)
         
@@ -74,7 +74,7 @@ class GlanceController: WKInterfaceController {
                 }
             }
         }
-        liberalArtCampusLabel.setText(String(liberalArtsCampusAvailable.readableFormat))
-        scienceCampusLabel.setText(String(scienceCampusAvailable.readableFormat))
+        liberalArtCampusLabel.setText(String(liberalArtsCampusAvailable.readable))
+        scienceCampusLabel.setText(String(scienceCampusAvailable.readable))
     }
 }

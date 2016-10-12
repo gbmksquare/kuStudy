@@ -10,12 +10,12 @@ import Foundation
 import Alamofire
 import AlamofireObjectMapper
 
-public typealias FailureHandler = (error: NSError) -> Void
+public typealias FailureHandler = (_ error: Error) -> Void
 
 private let apiUrl = "http://cdl.korea.ac.kr/DLMS_KOU_INTRO/api/seatStatusList.do"
 
 public extension kuStudy {
-    public class func requestSummaryData(onLibrarySuccess onLibrarySuccess: ((libraryData: LibraryData) -> ())?, onFailure: FailureHandler?, onCompletion: ((summaryData: SummaryData) -> ())?) {
+    public class func requestSummaryData(onLibrarySuccess: ((_ libraryData: LibraryData) -> ())?, onFailure: FailureHandler?, onCompletion: ((_ summaryData: SummaryData) -> ())?) {
         let libraryTypes = LibraryType.allTypes()
         var completeCount = 0
         let summaryData = SummaryData()
@@ -23,33 +23,33 @@ public extension kuStudy {
             let libraryId = type.rawValue
             requestLibraryData(libraryId: libraryId,
                onSuccess: { (libraryData) in
-                    onLibrarySuccess?(libraryData: libraryData)
+                    onLibrarySuccess?(libraryData)
                     summaryData.libraries.append(libraryData)
                     completeCount += 1
                     if completeCount == libraryTypes.count {
-                        onCompletion?(summaryData: summaryData)
+                        onCompletion?(summaryData)
                     }
                 },
                onFailure: { (error) in
-                    onFailure?(error: error)
+                    onFailure?(error)
                     completeCount += 1
                     if completeCount == libraryTypes.count {
-                        onCompletion?(summaryData: summaryData)
+                        onCompletion?(summaryData)
                     }
             })
         }
     }
     
-    public class func requestLibraryData(libraryId libraryId: String, onSuccess: (libraryData: LibraryData) -> (), onFailure: FailureHandler?) {
+    public class func requestLibraryData(libraryId: String, onSuccess: @escaping (_ libraryData: LibraryData) -> (), onFailure: FailureHandler?) {
         let headers = ["Accept": "application/javascript"]
         let body = ["libNo": libraryId]
-        Alamofire.request(.POST, apiUrl, parameters: body, encoding: .URL, headers: headers)
-            .responseObject { (response: Response<LibraryData, NSError>) in
+        Alamofire.request(apiUrl, method: .post, parameters: body, encoding: URLEncoding.default, headers: headers)
+            .responseObject { (response: DataResponse<LibraryData>) in
                 switch response.result {
-                case .Success(let libraryData):
-                    onSuccess(libraryData: libraryData)
-                case .Failure(let error):
-                    onFailure?(error: error)
+                case .success(let libraryData):
+                    onSuccess(libraryData)
+                case .failure(let error):
+                    onFailure?(error)
                 }
         }
     }

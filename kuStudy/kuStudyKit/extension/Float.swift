@@ -9,10 +9,11 @@
 import Foundation
 
 public extension Float {
-    public var readablePercentageFormat: String {
-        let numberFormmater = NSNumberFormatter()
-        numberFormmater.numberStyle = .PercentStyle
-        let string = numberFormmater.stringFromNumber(self)
+    public var percentageReadable: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        let number = NSNumber(floatLiteral: Double(self))
+        let string = formatter.string(from: number)
         return string ?? ""
     }
 }

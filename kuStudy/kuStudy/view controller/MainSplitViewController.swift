@@ -14,52 +14,52 @@ class MainSplitViewController: UISplitViewController {
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        preferredDisplayMode = .AllVisible
+        preferredDisplayMode = .allVisible
         delegate = self
     }
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return .LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
     
     // MARK: Key command
-    override func canBecomeFirstResponder() -> Bool {
+    override var canBecomeFirstResponder : Bool {
         return true
     }
     
     override var keyCommands: [UIKeyCommand]? {
-        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        let libraryIds = defaults.arrayForKey("libraryOrder") as! [String]
+        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
+        let libraryIds = defaults.array(forKey: "libraryOrder") as! [String]
         var commands = [UIKeyCommand]()
-        for (index, libraryId) in libraryIds.enumerate() {
+        for (index, libraryId) in libraryIds.enumerated() {
             let libraryType = LibraryType(rawValue: libraryId)!
-            let command = UIKeyCommand(input: "\(index + 1)", modifierFlags: .Command, action: #selector(gotoLibraries(_:)), discoverabilityTitle: libraryType.name)
+            let command = UIKeyCommand(input: "\(index + 1)", modifierFlags: .command, action: #selector(gotoLibraries(_:)), discoverabilityTitle: libraryType.name)
             commands.append(command)
         }
-        let libraries = UIKeyCommand(input: ".", modifierFlags: .Command, action: #selector(gotoLibrary(_:)), discoverabilityTitle: "kuStudy.KeyCommand.Libraries".localized())
-        let settings = UIKeyCommand(input: ",", modifierFlags: .Command, action: #selector(gotoPreferences(_:)), discoverabilityTitle: "kuStudy.KeyCommand.Preferences".localized())
+        let libraries = UIKeyCommand(input: ".", modifierFlags: .command, action: #selector(gotoLibrary(_:)), discoverabilityTitle: "kuStudy.KeyCommand.Libraries".localized())
+        let settings = UIKeyCommand(input: ",", modifierFlags: .command, action: #selector(gotoPreferences(_:)), discoverabilityTitle: "kuStudy.KeyCommand.Preferences".localized())
         return commands + [libraries, settings]
     }
     
     // MARK: Action
-    @objc private func gotoLibraries(sender: UIKeyCommand) {
+    @objc fileprivate func gotoLibraries(_ sender: UIKeyCommand) {
         let tabBarController = childViewControllers.first as! MainTabBarController
         tabBarController.selectedIndex = 0
         
         let summaryViewController = (tabBarController.childViewControllers.first as! UINavigationController).childViewControllers.first as! SummaryViewController
-        let defaults = NSUserDefaults(suiteName: kuStudySharedContainer) ?? NSUserDefaults.standardUserDefaults()
-        let libraryIds = defaults.arrayForKey("libraryOrder") as! [String]
+        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
+        let libraryIds = defaults.array(forKey: "libraryOrder") as! [String]
         let index = Int(sender.input)! - 1
         let libraryId = libraryIds[index]
-        summaryViewController.performSegueWithIdentifier("librarySegue", sender: libraryId)
+        summaryViewController.performSegue(withIdentifier: "librarySegue", sender: libraryId)
     }
     
-    @objc private func gotoLibrary(sender: UIKeyCommand) {
+    @objc fileprivate func gotoLibrary(_ sender: UIKeyCommand) {
         let tabBarController = childViewControllers.first as! MainTabBarController
         tabBarController.selectedIndex = 0
     }
     
-    @objc private func gotoPreferences(sender: UIKeyCommand) {
+    @objc fileprivate func gotoPreferences(_ sender: UIKeyCommand) {
         let tabBarController = childViewControllers.first as! MainTabBarController
         tabBarController.selectedIndex = 1
     }
@@ -67,15 +67,15 @@ class MainSplitViewController: UISplitViewController {
 
 // MARK: - Split view
 extension MainSplitViewController: UISplitViewControllerDelegate {
-    func splitViewController(splitViewController: UISplitViewController, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController) -> UIViewController? {
+    func splitViewController(_ splitViewController: UISplitViewController, separateSecondaryFrom primaryViewController: UIViewController) -> UIViewController? {
         guard let tab = splitViewController.childViewControllers.first as? MainTabBarController else { return nil }
         guard let navigations = tab.childViewControllers as? [UINavigationController] else { return nil }
         
-        if let navigation = navigations.first where navigation.childViewControllers.count > 1 {
-            return navigation.popViewControllerAnimated(false)
+        if let navigation = navigations.first , navigation.childViewControllers.count > 1 {
+            return navigation.popViewController(animated: false)
         }
-        if let navigation = navigations.last where navigation.childViewControllers.count > 1 {
-            if let vc = navigation.popViewControllerAnimated(false) {
+        if let navigation = navigations.last , navigation.childViewControllers.count > 1 {
+            if let vc = navigation.popViewController(animated: false) {
                 let navigation = UINavigationController(rootViewController: vc)
                 return navigation
             } else {
@@ -85,7 +85,7 @@ extension MainSplitViewController: UISplitViewControllerDelegate {
         return nil
     }
     
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
         guard let tab = primaryViewController as? MainTabBarController else { return false }
         guard let detailNavigation = secondaryViewController as? UINavigationController else { return false }
         
@@ -99,24 +99,24 @@ extension MainSplitViewController: UISplitViewControllerDelegate {
         return false
     }
 
-    func splitViewController(splitViewController: UISplitViewController, showDetailViewController vc: UIViewController, sender: AnyObject?) -> Bool {
+    func splitViewController(_ splitViewController: UISplitViewController, showDetail vc: UIViewController, sender: Any?) -> Bool {
         guard let tab = splitViewController.childViewControllers.first as? MainTabBarController else { return false }
         guard let navigations = tab.childViewControllers as? [UINavigationController] else { return false }
         guard let detailNavigation = vc as? UINavigationController else { return false }
         
         if let vc = detailNavigation.childViewControllers.first as? LibraryViewController {
-            if splitViewController.collapsed == true {
+            if splitViewController.isCollapsed == true {
                 navigations.first?.pushViewController(vc, animated: true)
             } else {
                 // !!!: When launching from Today or Handoff, split view controller is not collapsed and will show detail view controller as modal
-                if traitCollection.userInterfaceIdiom == .Phone && traitCollection.horizontalSizeClass == .Compact {
+                if traitCollection.userInterfaceIdiom == .phone && traitCollection.horizontalSizeClass == .compact {
                     navigations.first?.pushViewController(vc, animated: true)
                     return true
                 }
                 return false
             }
         } else {
-            if splitViewController.collapsed == true {
+            if splitViewController.isCollapsed == true {
                 guard let vc = detailNavigation.childViewControllers.first else { return true }
                 navigations.last?.pushViewController(vc, animated: true)
             } else {

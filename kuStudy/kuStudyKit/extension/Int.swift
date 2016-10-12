@@ -9,10 +9,11 @@
 import Foundation
 
 public extension Int {
-    public var readableFormat: String {
-        let numberFormmater = NSNumberFormatter()
-        numberFormmater.numberStyle = .DecimalStyle
-        let string = numberFormmater.stringFromNumber(self)
+    public var readable: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        let number = NSNumber(integerLiteral: self)
+        let string = formatter.string(from: number)
         return string ?? ""
     }
 }
