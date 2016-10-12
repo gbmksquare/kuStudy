@@ -11,7 +11,7 @@ import kuStudyKit
 import Localize_Swift
 
 class MainSplitViewController: UISplitViewController {
-    // MARK: View
+    // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
         preferredDisplayMode = .allVisible
@@ -22,7 +22,7 @@ class MainSplitViewController: UISplitViewController {
         return .lightContent
     }
     
-    // MARK: Key command
+    // MARK: - Key command
     override var canBecomeFirstResponder : Bool {
         return true
     }
@@ -41,7 +41,7 @@ class MainSplitViewController: UISplitViewController {
         return commands + [libraries, settings]
     }
     
-    // MARK: Action
+    // MARK: - Action
     @objc fileprivate func gotoLibraries(_ sender: UIKeyCommand) {
         let tabBarController = childViewControllers.first as! MainTabBarController
         tabBarController.selectedIndex = 0

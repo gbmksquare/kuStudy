@@ -24,29 +24,29 @@ class LibraryTableViewCell: UITableViewCell {
     }
     
     // MARK: Populate
-    fileprivate func updateEmptyView() {
+    private func setEmpty() {
         thumbnailImageView.image = nil
         percentageView.progress = 0
         nameLabel.text = "--"
         availableLabel.text = "--"
     }
     
-    func populate(_ libraryData: LibraryData?) {
-        guard let libraryData = libraryData else {
-            updateEmptyView()
+    func populate(library: LibraryData?) {
+        guard let library = library else {
+            setEmpty()
             return
         }
-        guard let libraryId = libraryData.libraryId else {
-            updateEmptyView()
+        guard let libraryId = library.libraryId else {
+            setEmpty()
             return
         }
         
         let libraryType = LibraryType(rawValue: libraryId)
         nameLabel.text = libraryType?.name
-        availableLabel.text = libraryData.availableSeats.readable + " " + "kuStudy.Available".localized()
+        availableLabel.text = library.availableSeats.readable + " " + "kuStudy.Available".localized()
         
-        thumbnailImageView.image = libraryData.thumbnail
-        percentageView.progress = libraryData.availablePercentage
-        percentageView.progressColor = libraryData.availablePercentageColor
+        thumbnailImageView.image = library.thumbnail
+        percentageView.progress = library.availablePercentage
+        percentageView.progressColor = library.availablePercentageColor
     }
 }

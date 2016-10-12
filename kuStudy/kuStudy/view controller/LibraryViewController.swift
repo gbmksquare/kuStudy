@@ -35,7 +35,7 @@ class LibraryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setInitialView()
-        navigationController?.setTransparentNavigationBar()
+        navigationController?.setTransparent()
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
         tableView.delegate = self
@@ -118,7 +118,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
         let sector = libraryData?.sectors?[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "readingRoomCell", for: indexPath) as! ReadingRoomTableViewCell
         if let sector = sector {
-            cell.populate(sector)
+            cell.populate(sector: sector)
         }
         return cell
     }

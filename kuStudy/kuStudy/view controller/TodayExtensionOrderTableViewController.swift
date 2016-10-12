@@ -62,9 +62,9 @@ extension TodayExtensionOrderTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let libraryId: String
-        switch (indexPath as NSIndexPath).section {
-        case 0: libraryId = orderedLibraryIds[(indexPath as NSIndexPath).row]
-        case 1: libraryId = hiddenLibraryIds[(indexPath as NSIndexPath).row]
+        switch indexPath.section {
+        case 0: libraryId = orderedLibraryIds[indexPath.row]
+        case 1: libraryId = hiddenLibraryIds[indexPath.row]
         default: return cell
         }
         let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!

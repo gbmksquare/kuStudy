@@ -158,7 +158,7 @@ extension AppDelegate {
     
     fileprivate func customizeAppearance() {
         UINavigationBar.appearance().barStyle = .black
-        UINavigationBar.appearance().barTintColor = UIColor.themeColor
+        UINavigationBar.appearance().barTintColor = UIColor.theme
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         UIBarButtonItem.appearance().tintColor = UIColor.white

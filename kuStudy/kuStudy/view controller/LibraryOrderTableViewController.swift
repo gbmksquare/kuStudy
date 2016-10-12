@@ -60,7 +60,7 @@ extension LibraryOrderTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let libraryId = orderedLibraryIds[(indexPath as NSIndexPath).row]
+        let libraryId = orderedLibraryIds[indexPath.row]
         let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!
         cell.textLabel?.text = libraryType.name
         return cell
@@ -82,8 +82,8 @@ extension LibraryOrderTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let fromRow = (sourceIndexPath as NSIndexPath).row
-        let toRow = (destinationIndexPath as NSIndexPath).row
+        let fromRow = sourceIndexPath.row
+        let toRow = destinationIndexPath.row
         let moveLibraryId = orderedLibraryIds[fromRow]
         orderedLibraryIds.remove(at: fromRow)
         orderedLibraryIds.insert(moveLibraryId, at: toRow)

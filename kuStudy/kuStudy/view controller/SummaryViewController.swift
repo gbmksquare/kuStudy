@@ -33,7 +33,7 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         setInitialView()
-        navigationController?.setTransparentNavigationBar() // Transparent navigation bar
+        navigationController?.setTransparent()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.emptyDataSetDelegate = self
@@ -167,7 +167,7 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let libraryData = summaryData.libraries[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath) as! LibraryTableViewCell
-        cell.populate(libraryData)
+        cell.populate(library: libraryData)
         return cell
     }
     

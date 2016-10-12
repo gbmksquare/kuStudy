@@ -12,6 +12,6 @@ class MainTabBarController: UITabBarController {
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.tintColor = UIColor.themeColor
+        tabBar.tintColor = UIColor.theme
     }
 }
