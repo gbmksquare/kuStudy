@@ -1,15 +1,5 @@
-New Features
-• Added support for iPad split view.
-• Added support for iPad hardware keyboard shortcuts.
-
-Improvements
-• Added support for today widget on iOS 10.
-• Added icons to 3D touch quick actions.
-• Replaced Apple Watch app menu icon.
-
 Bug Fixes
-• Fixed 3D touch quick actions not showing on install until library order is changed.
-• Fixed Apple Watch app crashing when tapping cell while refreshing is on progress.
+• Fixed app cannot connect to server due to API changes.
 
 
 Happy studying! :)

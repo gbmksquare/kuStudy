@@ -12,7 +12,7 @@ import AlamofireObjectMapper
 
 public typealias FailureHandler = (_ error: Error) -> Void
 
-private let apiUrl = "http://cdl.korea.ac.kr/DLMS_KOU_INTRO/api/seatStatusList.do"
+private let apiUrl = "http://librsv.korea.ac.kr/DLMS_KOU_INTRO/api/seatStatusList.do"
 
 public extension kuStudy {
     public class func requestSummaryData(onLibrarySuccess: ((_ libraryData: LibraryData) -> ())?, onFailure: FailureHandler?, onCompletion: ((_ summaryData: SummaryData) -> ())?) {
