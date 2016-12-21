@@ -6,6 +6,13 @@
   Copyright © 2016년 gbmKSquare. All rights reserved.
 */
 
-"kuStudy.Total" = "Total";
-"kuStudy.Available" = "Available";
-"kuStudy.Used" = "Occupied";
+"kuStudy.Today.Loading" = "Loading...";
+"kuStudy.Today.Error" = "Error";
+"kuStudy.Today.TapToRefresh" = "Tap to refresh";
+
+"kuStudy.Today.Studying" = " people studying.";
+"kuStudy.Today.Updated" = "Updated: ";
+
+"kuStudy.Today.Total" = "Total";
+"kuStudy.Today.Available" = "Available";
+"kuStudy.Today.Used" = "Occupied";

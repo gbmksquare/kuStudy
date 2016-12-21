@@ -9,31 +9,77 @@
 import UIKit
 import NotificationCenter
 import kuStudyKit
+import Localize_Swift
+
+enum State {
+    case loading, loaded, error(Error)
+}
 
 class TodayViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var noticeView: UIView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var table: UITableView!
     
-    fileprivate var summaryData = SummaryData()
-    fileprivate var orderedLibraryIds: [String]!
+    fileprivate var noticeHeight: NSLayoutConstraint!
+    fileprivate var contentHeight: NSLayoutConstraint!
+    fileprivate var tableHeight: NSLayoutConstraint!
     
-    // MARK: View
-    override func viewDidLoad() {
-        func registerPreference() {
-            let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
-            let libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
-            defaults.register(defaults: ["libraryOrder": libraryOrder,
-                "todayExtensionOrder": libraryOrder,
-                "todayExtensionHidden": []])
-            defaults.synchronize()
+    @IBOutlet weak var noticeLabel: UILabel!
+    @IBOutlet weak var noticeHelperLabel: UILabel!
+    
+    @IBOutlet var nameLabels: [UILabel]!
+    @IBOutlet var availableLabels: [UILabel]!
+    
+    @IBOutlet weak var studyingLabel: UILabel!
+    @IBOutlet weak var updatedLabel: UILabel!
+    
+    var state = State.loading {
+        didSet {
+            switch state {
+            case .loading:
+                noticeLabel.text = "kuStudy.Today.Loading".localized()
+                noticeHelperLabel.text = ""
+            case .loaded:
+                noticeLabel.text = ""
+                noticeHelperLabel.text = "kuStudy.Today.TapToRefresh".localized()
+            case .error(let error):
+                noticeLabel.text = error.localizedDescription
+                noticeHelperLabel.text = "kuStudy.Today.TapToRefresh".localized()
+            }
+            updateView()
         }
-        
-        super.viewDidLoad()
+    }
+    
+    var summaryData = SummaryData() {
+        didSet {
+            reorder()
+            studyingLabel.text = summaryData.usedSeats!.readable + "kuStudy.Today.Studying".localized()
+        }
+    }
+    
+    var orderedLibraryIds: [String]!
+    
+    private var updated = Date() {
+        didSet {
+            let formatter = DateFormatter()
+            formatter.timeStyle = .medium
+            let updatedString = formatter.string(from: updated)
+            updatedLabel.text = "kuStudy.Today.Updated".localized() + updatedString
+        }
+    }
+    
+    // MARK: - Setup
+    fileprivate func setup() {
+        table.delegate = self
+        table.dataSource = self
+        noticeHeight = noticeView.heightAnchor.constraint(equalToConstant: 110)
+        contentHeight = contentView.heightAnchor.constraint(equalToConstant: 0)
+        tableHeight = table.heightAnchor.constraint(equalToConstant: 0)
+        noticeHeight.isActive = true
+        contentHeight.isActive = true
+        tableHeight.isActive = true
         registerPreference()
         listenToPreferenceChange()
-        tableView.delegate = self
-        tableView.dataSource = self
-        updateView()
         
         if #available(iOSApplicationExtension 10.0, *) {
             extensionContext?.widgetLargestAvailableDisplayMode = .expanded
@@ -43,89 +89,97 @@ class TodayViewController: UIViewController {
         }
     }
     
+    // MARK: - View
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setup()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateData()
     }
     
     // MARK: Action
-    fileprivate func updateData() {
-        kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
-            
-            }, onFailure: { (error) in
-                
-            }) { [weak self] (summaryData) in
-                self?.summaryData = summaryData
-                self?.updateView()
-        }
-    }
-    
-    fileprivate func updateView() {
-        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
-        orderedLibraryIds = defaults.array(forKey: "todayExtensionOrder") as! [String]
-        tableViewHeightConstraint.constant = CGFloat(orderedLibraryIds.count) * tableView.rowHeight
-        
-        reorderLibraryData()
-        if summaryData.libraries.count > 0 {
-            tableViewHeightConstraint.constant = CGFloat(summaryData.libraries.count) * tableView.rowHeight
-            tableView.reloadData()
-        } else {
-            tableViewHeightConstraint.constant = 0
-        }
-    }
-    
-    fileprivate func reorderLibraryData() {
-        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
-        orderedLibraryIds = defaults.array(forKey: "todayExtensionOrder") as! [String]
-        
-        var orderedLibraryData = [LibraryData]()
-        for libraryId in orderedLibraryIds {
-            guard let libraryData = summaryData.libraries.filter({ $0.libraryId! == libraryId }).first else { continue }
-            orderedLibraryData.append(libraryData)
-        }
-        summaryData.libraries = orderedLibraryData
-    }
-}
-
-// MARK: - Table view
-extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
-    // Delegate
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let libraryId = summaryData.libraries[indexPath.row].libraryId else { return }
+    func openApp(libraryId: String = "") {
         guard let url = URL(string: "kustudy://?libraryId=\(libraryId)") else { return }
         extensionContext?.open(url, completionHandler: { (completed) in
             
         })
     }
     
-    // Data source
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+    fileprivate func updateData() {
+        state = .loading
+        kuStudy.requestSummaryData(onLibrarySuccess: nil, onFailure: { [weak self] (error) in
+            self?.state = .error(error)
+        }) { [weak self] (summary) in
+            self?.updated = Date()
+            self?.summaryData = summary
+            self?.state = .loaded
+        }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return summaryData.libraries.count
+    func updateView() {
+        switch state {
+        case .loading:
+            noticeHeight.constant = 110
+            contentHeight.constant = 0
+            tableHeight.constant = 0
+        case .loaded:
+            noticeHeight.constant = 0
+            contentHeight.constant = 110
+            tableHeight.constant = 0
+            
+            let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
+            orderedLibraryIds = defaults.array(forKey: "todayExtensionOrder") as! [String]
+            tableHeight.constant = CGFloat(orderedLibraryIds.count) * table.rowHeight
+            
+            // TODO: Hide main library labels if count is less than 3
+            
+            if summaryData.libraries.count > 0 {
+                
+                for (index, library) in summaryData.libraries.enumerated() {
+                    if index > 3 { break }
+                    let nameLabel = nameLabels.filter({ $0.tag == index }).first
+                    let availableLabel = availableLabels.filter({ $0.tag == index }).first
+                    nameLabel?.text = library.libraryName
+                    availableLabel?.text = library.availableSeats.readable
+                }
+                
+                tableHeight.constant = CGFloat(summaryData.libraries.count) * table.rowHeight
+                table.reloadData()
+            } else {
+                tableHeight.constant = 0
+            }
+        case .error(_):
+            noticeHeight.constant = 110
+            contentHeight.constant = 0
+            tableHeight.constant = 0
+        }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let libraryData = summaryData.libraries[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath) as! LibraryTableViewCell
-        cell.populate(libraryData)
-        return cell
+    // MARK: - Helper
+    private func reorder() {
+        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
+        orderedLibraryIds = defaults.array(forKey: "todayExtensionOrder") as! [String]
+        
+        var ordered = [LibraryData]()
+        for libraryId in orderedLibraryIds {
+            guard let libraryData = summaryData.libraries.filter({ $0.libraryId! == libraryId }).first else { continue }
+            ordered.append(libraryData)
+        }
+        summaryData.libraries = ordered
     }
 }
 
 // MARK: - Widget
 extension TodayViewController: NCWidgetProviding {
-    func widgetPerformUpdate(_ completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        print("Widget update")
-//        updateData()
-//        completionHandler(.NewData)
+    func widgetPerformUpdate(completionHandler: @escaping (NCUpdateResult) -> Void) {
         completionHandler(.noData)
     }
     
     func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 0)
+        return UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
     }
     
     @available(iOSApplicationExtension 10.0, *)
@@ -134,18 +188,9 @@ extension TodayViewController: NCWidgetProviding {
         case .compact:
             preferredContentSize = maxSize
         case .expanded:
-            preferredContentSize = CGSize(width: maxSize.width, height: CGFloat(summaryData.libraries.count) * tableView.rowHeight)
+            let width = maxSize.width
+            let height = contentHeight.constant + CGFloat(summaryData.libraries.count) * table.rowHeight
+            preferredContentSize = CGSize(width: width, height: height)
         }
-    }
-}
-
-// MARK: - Notification
-extension TodayViewController {
-    fileprivate func listenToPreferenceChange() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handle(preferenceChanged:)), name: UserDefaults.didChangeNotification, object: nil)
-    }
-    
-    @objc func handle(preferenceChanged notification: Notification) {
-        updateView()
     }
 }
