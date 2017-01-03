@@ -1,8 +1,6 @@
 # Release Notes
 
-
-
-## 1.1 (18)
+## 1.2 (19)
 
 ### New features
 
@@ -13,6 +11,12 @@
 * App is now written in Swift 3.
 * Library names are localized.
 * Added shortened version of library names.
+
+## 1.1.1 (18)
+
+### Bug fixes
+
+* Changed API base URL due to API url changes.
 
 ## 1.1 (17)
 
