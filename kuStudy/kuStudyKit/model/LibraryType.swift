@@ -19,6 +19,14 @@ public enum LibraryType: String {
         return [.CentralLibrary, .CentralSquare, .HanaSquare, .ScienceLibrary, .CDL]
     }
     
+    public static func liberalArtCampusTypes() -> [LibraryType] {
+        return [.CentralLibrary, CentralSquare, .CDL]
+    }
+    
+    public static func scienceCampusTypes() -> [LibraryType] {
+        return [.HanaSquare, .ScienceLibrary]
+    }
+    
     private var localizedKey: String {
         switch self {
         case .CentralSquare: return "kuStudy.Library.Name.CentralSquare"
