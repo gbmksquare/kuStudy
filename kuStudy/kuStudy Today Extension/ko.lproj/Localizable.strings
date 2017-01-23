@@ -10,9 +10,12 @@
 "kuStudy.Today.Error" = "오류";
 "kuStudy.Today.TapToRefresh" = "탭해서 새로고침";
 
-"kuStudy.Today.Studying" = " 명이 공부 중입니다.";
+"kuStudy.Today.Studying" = " 명 공부 중";
 "kuStudy.Today.Updated" = "업데이트: ";
 
 "kuStudy.Today.Total" = "전체";
 "kuStudy.Today.Available" = "잔여";
 "kuStudy.Today.Used" = "사용 중";
+
+"kuStudy.Today.LiberalArtCampus" = "문과캠퍼스";
+"kuStudy.Today.ScienceCampus" = "자연계 캠퍼스";

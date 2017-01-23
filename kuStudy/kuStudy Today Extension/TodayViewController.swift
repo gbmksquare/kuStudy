@@ -17,21 +17,21 @@ enum State {
 
 class TodayViewController: UIViewController {
     @IBOutlet weak var noticeView: UIView!
-    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var table: UITableView!
     
     fileprivate var noticeHeight: NSLayoutConstraint!
-    fileprivate var contentHeight: NSLayoutConstraint!
     fileprivate var tableHeight: NSLayoutConstraint!
     
     @IBOutlet weak var noticeLabel: UILabel!
     @IBOutlet weak var noticeHelperLabel: UILabel!
     
-    @IBOutlet var nameLabels: [UILabel]!
-    @IBOutlet var availableLabels: [UILabel]!
-    
+    @IBOutlet weak var contentView: UIView!
+    fileprivate var contentHeight: NSLayoutConstraint!
     @IBOutlet weak var studyingLabel: UILabel!
-    @IBOutlet weak var updatedLabel: UILabel!
+    @IBOutlet weak var liberalArtCampusLabel: UILabel!
+    @IBOutlet weak var liberalArtCampusDataLabel: UILabel!
+    @IBOutlet weak var scienceCampusLabel: UILabel!
+    @IBOutlet weak var scienceCampusDataLabel: UILabel!
     
     var state = State.loading {
         didSet {
@@ -59,15 +59,6 @@ class TodayViewController: UIViewController {
     
     var orderedLibraryIds: [String]!
     
-    private var updated = Date() {
-        didSet {
-            let formatter = DateFormatter()
-            formatter.timeStyle = .medium
-            let updatedString = formatter.string(from: updated)
-            updatedLabel.text = "kuStudy.Today.Updated".localized() + updatedString
-        }
-    }
-    
     // MARK: - Setup
     fileprivate func setup() {
         table.delegate = self
@@ -80,6 +71,9 @@ class TodayViewController: UIViewController {
         tableHeight.isActive = true
         registerPreference()
         listenToPreferenceChange()
+        
+        liberalArtCampusLabel.text = "kuStudy.Today.LiberalArtCampus".localized() + " : "
+        scienceCampusLabel.text = "kuStudy.Today.ScienceCampus".localized() + " : "
         
         if #available(iOSApplicationExtension 10.0, *) {
             extensionContext?.widgetLargestAvailableDisplayMode = .expanded
@@ -113,7 +107,6 @@ class TodayViewController: UIViewController {
         kuStudy.requestSummaryData(onLibrarySuccess: nil, onFailure: { [weak self] (error) in
             self?.state = .error(error)
         }) { [weak self] (summary) in
-            self?.updated = Date()
             self?.summaryData = summary
             self?.state = .loaded
         }
@@ -134,17 +127,9 @@ class TodayViewController: UIViewController {
             orderedLibraryIds = defaults.array(forKey: "todayExtensionOrder") as! [String]
             tableHeight.constant = CGFloat(orderedLibraryIds.count) * table.rowHeight
             
-            // TODO: Hide main library labels if count is less than 3
-            
             if summaryData.libraries.count > 0 {
-                
-                for (index, library) in summaryData.libraries.enumerated() {
-                    if index > 3 { break }
-                    let nameLabel = nameLabels.filter({ $0.tag == index }).first
-                    let availableLabel = availableLabels.filter({ $0.tag == index }).first
-                    nameLabel?.text = library.libraryName
-                    availableLabel?.text = library.availableSeats.readable
-                }
+                liberalArtCampusDataLabel.text = (summaryData.usedSeatsInLiberalArtCampus?.readable ?? "0") + "kuStudy.Today.Studying".localized()
+                scienceCampusDataLabel.text = (summaryData.usedSeatsInScienceCampus?.readable ?? "0") + "kuStudy.Today.Studying".localized()
                 
                 tableHeight.constant = CGFloat(summaryData.libraries.count) * table.rowHeight
                 table.reloadData()
