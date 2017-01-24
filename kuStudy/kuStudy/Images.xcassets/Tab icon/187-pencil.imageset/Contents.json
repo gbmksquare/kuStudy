@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "glyphicons-352-book-open.png",
+      "filename" : "187-pencil.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "glyphicons-352-book-open@2x.png",
+      "filename" : "187-pencil@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "glyphicons-352-book-open@3x.png",
+      "filename" : "187-pencil@3x.png",
       "scale" : "3x"
     }
   ],

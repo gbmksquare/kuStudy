@@ -103,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let actionType = "com.gbmksquare.kuapps.kucourse.LibraryAction"
         
-        let icon = UIApplicationShortcutIcon(templateImageName: "glyphicons-352-book-open")
+        let icon = UIApplicationShortcutIcon(templateImageName: "187-pencil")
         var quickActionItems = [UIMutableApplicationShortcutItem]()
         for libraryId in orderedLibraryIds {
             let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!

@@ -476,7 +476,7 @@
         <scene sceneID="aaW-NW-3tp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wHj-Mk-HMD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Library" image="glyphicons-236-pen" id="vqK-jg-LRr"/>
+                    <tabBarItem key="tabBarItem" title="Library" image="187-pencil" id="vqK-jg-LRr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Gsy-K3-1uo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -985,9 +985,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="187-pencil" width="23" height="23"/>
         <image name="AppIcon60x60" width="28" height="22"/>
         <image name="glyphicons-138-cogwheels" width="34" height="27"/>
-        <image name="glyphicons-236-pen" width="23" height="23"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mtb-Ar-Dsw"/>
