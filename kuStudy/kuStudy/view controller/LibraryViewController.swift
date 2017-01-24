@@ -18,6 +18,7 @@ class LibraryViewController: UIViewController {
     
     @IBOutlet weak var libraryNameLabel: UILabel!
     @IBOutlet weak var libraryAvailableLabel: UILabel!
+    @IBOutlet weak var libraryAvailableDataLabel: UILabel!
     @IBOutlet weak var libraryTotalLabel: UILabel!
     @IBOutlet weak var libraryUsedLabel: UILabel!
     @IBOutlet weak var photographerLabel: UILabel!
@@ -81,9 +82,10 @@ class LibraryViewController: UIViewController {
     
     fileprivate func setInitialView() {
         libraryNameLabel.text = LibraryType(rawValue: libraryId)?.name
-        libraryTotalLabel.text = ""
-        libraryAvailableLabel.text = ""
-        libraryUsedLabel.text = ""
+        libraryAvailableLabel.text = "kuStudy.Available".localized()
+        libraryTotalLabel.text = "kuStudy.Total".localized() + ": --"
+        libraryAvailableDataLabel.text = "--"
+        libraryUsedLabel.text = "kuStudy.Used".localized() + ": --"
         photographerLabel.text = ""
         let photo = PhotoProvider.sharedProvider.photo(libraryId)
         headerImageView.image = photo.image
@@ -95,15 +97,14 @@ class LibraryViewController: UIViewController {
     fileprivate func updateView() {
         if let libraryData = libraryData {
             libraryTotalLabel.text = "kuStudy.Total".localized() + ": " + libraryData.totalSeats.readable
-            libraryAvailableLabel.text = libraryData.availableSeats.readable + " " + "kuStudy.Available".localized()
+            libraryAvailableDataLabel.text = libraryData.availableSeats.readable
             libraryUsedLabel.text = "kuStudy.Used".localized() + ": " + libraryData.usedSeats.readable
         }
         tableView.reloadData()
     }
 }
 
-// MARK:
-// MARK: Table view
+// MARK: - Table view
 extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     // Data source
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -138,7 +139,6 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
 
 // MARK: Handoff
 extension LibraryViewController {
-    // MARK: Handoff
     fileprivate func startHandoff() {
         guard let libraryId = self.libraryId, let name = LibraryType(rawValue: libraryId)?.name else { return }
         let activity = NSUserActivity(activityType: kuStudyHandoffLibrary)
