@@ -17,21 +17,19 @@ enum State {
 
 class TodayViewController: UIViewController {
     @IBOutlet weak var noticeView: UIView!
-    @IBOutlet weak var table: UITableView!
-    
-    fileprivate var noticeHeight: NSLayoutConstraint!
-    fileprivate var tableHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var noticeLabel: UILabel!
     @IBOutlet weak var noticeHelperLabel: UILabel!
     
     @IBOutlet weak var contentView: UIView!
-    fileprivate var contentHeight: NSLayoutConstraint!
     @IBOutlet weak var studyingLabel: UILabel!
     @IBOutlet weak var liberalArtCampusLabel: UILabel!
     @IBOutlet weak var liberalArtCampusDataLabel: UILabel!
     @IBOutlet weak var scienceCampusLabel: UILabel!
     @IBOutlet weak var scienceCampusDataLabel: UILabel!
+    
+    @IBOutlet weak var tableView: UITableView!
+    fileprivate var tableViewHeight: NSLayoutConstraint!
+    var orderedLibraryIds: [String]!
     
     var state = State.loading {
         didSet {
@@ -41,7 +39,7 @@ class TodayViewController: UIViewController {
                 noticeHelperLabel.text = ""
             case .loaded:
                 noticeLabel.text = ""
-                noticeHelperLabel.text = "kuStudy.Today.TapToRefresh".localized()
+                noticeHelperLabel.text = ""
             case .error(let error):
                 noticeLabel.text = error.localizedDescription
                 noticeHelperLabel.text = "kuStudy.Today.TapToRefresh".localized()
@@ -57,40 +55,29 @@ class TodayViewController: UIViewController {
         }
     }
     
-    var orderedLibraryIds: [String]!
-    
     // MARK: - Setup
-    fileprivate func setup() {
-        table.delegate = self
-        table.dataSource = self
-        noticeHeight = noticeView.heightAnchor.constraint(equalToConstant: 110)
-        contentHeight = contentView.heightAnchor.constraint(equalToConstant: 0)
-        tableHeight = table.heightAnchor.constraint(equalToConstant: 0)
-        noticeHeight.isActive = true
-        contentHeight.isActive = true
-        tableHeight.isActive = true
+    func setup() {
+        tableView.delegate = self
+        tableView.dataSource = self
         registerPreference()
         listenToPreferenceChange()
         
+        contentView.heightAnchor.constraint(equalToConstant: 110).isActive = true
+        
+        let height = tableView.rowHeight * CGFloat(summaryData.libraries.count)
+        tableViewHeight = tableView.heightAnchor.constraint(equalToConstant: height)
+        tableViewHeight.isActive = true
+        
+        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        
         liberalArtCampusLabel.text = "kuStudy.Today.LiberalArtCampus".localized() + " : "
         scienceCampusLabel.text = "kuStudy.Today.ScienceCampus".localized() + " : "
-        
-        if #available(iOSApplicationExtension 10.0, *) {
-            extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-        } else {
-            // iOS 9 workaround: http://stackoverflow.com/questions/26309364/uitableview-in-a-today-extension-not-receiving-row-taps
-            view.backgroundColor = UIColor(white: 1, alpha: 0.01)
-        }
     }
     
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         updateData()
     }
     
@@ -113,34 +100,54 @@ class TodayViewController: UIViewController {
     }
     
     func updateView() {
+        let width = extensionContext!.widgetMaximumSize(for: .expanded).width
         switch state {
         case .loading:
-            noticeHeight.constant = 110
-            contentHeight.constant = 0
-            tableHeight.constant = 0
+            hideContents()
+            showNoticeView()
+            setCompactHeight(maxSize: CGSize(width: width, height: 110))
         case .loaded:
-            noticeHeight.constant = 0
-            contentHeight.constant = 110
-            tableHeight.constant = 0
+            showContents()
+            hideNoticeView()
             
             let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
             orderedLibraryIds = defaults.array(forKey: "todayExtensionOrder") as! [String]
-            tableHeight.constant = CGFloat(orderedLibraryIds.count) * table.rowHeight
             
             if summaryData.libraries.count > 0 {
                 liberalArtCampusDataLabel.text = (summaryData.usedSeatsInLiberalArtCampus?.readable ?? "0") + "kuStudy.Today.Studying".localized()
                 scienceCampusDataLabel.text = (summaryData.usedSeatsInScienceCampus?.readable ?? "0") + "kuStudy.Today.Studying".localized()
                 
-                tableHeight.constant = CGFloat(summaryData.libraries.count) * table.rowHeight
-                table.reloadData()
+                let height = CGFloat(summaryData.libraries.count) * tableView.rowHeight
+                tableViewHeight.constant = height
+                setExpandedHeight(maxSize: CGSize(width: width, height: height))
+                tableView.reloadData()
             } else {
-                tableHeight.constant = 0
+                tableViewHeight.constant = 0
+                setCompactHeight(maxSize: CGSize(width: width, height: 110))
             }
         case .error(_):
-            noticeHeight.constant = 110
-            contentHeight.constant = 0
-            tableHeight.constant = 0
+            hideContents()
+            showNoticeView()
+            setCompactHeight(maxSize: CGSize(width: width, height: 110))
         }
+    }
+    
+    fileprivate func showContents() {
+        contentView.alpha = 1
+        tableView.alpha = 1
+    }
+    
+    fileprivate func hideContents() {
+        contentView.alpha = 0
+        tableView.alpha = 0
+    }
+    
+    fileprivate func showNoticeView() {
+        noticeView.isHidden = false
+    }
+    
+    fileprivate func hideNoticeView() {
+        noticeView.isHidden = true
     }
     
     // MARK: - Helper
@@ -159,6 +166,7 @@ class TodayViewController: UIViewController {
 
 // MARK: - Widget
 extension TodayViewController: NCWidgetProviding {
+    // Widget
     func widgetPerformUpdate(completionHandler: @escaping (NCUpdateResult) -> Void) {
         completionHandler(.noData)
     }
@@ -167,15 +175,23 @@ extension TodayViewController: NCWidgetProviding {
         return UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 20)
     }
     
-    @available(iOSApplicationExtension 10.0, *)
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         switch activeDisplayMode {
         case .compact:
-            preferredContentSize = maxSize
+            setCompactHeight(maxSize: maxSize)
         case .expanded:
-            let width = maxSize.width
-            let height = contentHeight.constant + CGFloat(summaryData.libraries.count) * table.rowHeight
-            preferredContentSize = CGSize(width: width, height: height)
+            setExpandedHeight(maxSize: maxSize)
         }
+    }
+    
+    // Height
+    fileprivate func setCompactHeight(maxSize: CGSize) {
+        preferredContentSize = maxSize
+    }
+    
+    fileprivate func setExpandedHeight(maxSize: CGSize) {
+        let width = maxSize.width
+        let height = 110 + CGFloat(summaryData.libraries.count) * tableView.rowHeight
+        preferredContentSize = CGSize(width: width, height: height)
     }
 }

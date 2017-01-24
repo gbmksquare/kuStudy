@@ -19,3 +19,5 @@
 
 "kuStudy.Today.LiberalArtCampus" = "Liberal Art Campus";
 "kuStudy.Today.ScienceCampus" = "Science Campus";
+
+"kuStudy.Today.EmptyData" = "--";

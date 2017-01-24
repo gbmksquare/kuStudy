@@ -14,21 +14,28 @@ class LibraryTableViewCell: UITableViewCell {
     @IBOutlet weak var indicatorView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var totalPlaceholderLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var totalDataLabel: UILabel!
+    @IBOutlet weak var availablePlaceholderLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
-    @IBOutlet weak var availableDataLabel: UILabel!
+    @IBOutlet weak var usedPlaceholderLabel: UILabel!
     @IBOutlet weak var usedLabel: UILabel!
-    @IBOutlet weak var usedPercentageLabel: UILabel!
     
-    // MARK: Setup
+    // MARK: View
     override func awakeFromNib() {
         super.awakeFromNib()
-        totalLabel.text = "kuStudy.Today.Total".localized()
-        availableLabel.text = "kuStudy.Today.Available".localized()
-        usedLabel.text = "kuStudy.Today.Used".localized()
+        totalPlaceholderLabel.text = "kuStudy.Today.Total".localized()
+        availablePlaceholderLabel.text = "kuStudy.Today.Available".localized()
+        usedPlaceholderLabel.text = "kuStudy.Today.Used".localized()
         indicatorView.layer.cornerRadius = indicatorView.bounds.width / 2
         indicatorView.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.95, alpha: 1)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        totalLabel.text = "kuStudy.Today.EmptyData".localized()
+        availableLabel.text = "kuStudy.Today.EmptyData".localized()
+        usedLabel.text = "kuStudy.Today.EmptyData".localized()
     }
     
     // MARK: Populate
@@ -37,9 +44,9 @@ class LibraryTableViewCell: UITableViewCell {
         
         let libraryType = LibraryType(rawValue: libraryId)
         nameLabel.text = libraryType?.name
-        totalDataLabel.text = libraryData.totalSeats.readable
-        availableDataLabel.text = libraryData.availableSeats.readable
-        usedPercentageLabel.text = libraryData.usedPercentage.percentageReadable
+        totalLabel.text = libraryData.totalSeats.readable
+        availableLabel.text = libraryData.availableSeats.readable
+        usedLabel.text = libraryData.usedSeats.readable
         
         indicatorView.backgroundColor = libraryData.availablePercentageColor
     }

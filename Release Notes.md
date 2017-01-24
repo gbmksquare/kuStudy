@@ -1,16 +1,33 @@
 # Release Notes
 
-## 1.2 (19)
+## 2.0 (20)
 
 ### New features
 
+* New app icon!
+* Redesigned iOS app!
+* Redesigned Today widget!
 * Added support for Apple Watch complications.
+
+### Improvements
+
+* ​
 
 ### Code improvements
 
 * App is now written in Swift 3.
 * Library names are localized.
 * Added shortened version of library names.
+
+### Bug fixes
+
+* ​
+
+## 1.2 (19)
+
+(Later changed to 2.0)
+
+
 
 ## 1.1.1 (18)
 

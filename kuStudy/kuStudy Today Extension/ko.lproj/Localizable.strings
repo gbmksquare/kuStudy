@@ -19,3 +19,5 @@
 
 "kuStudy.Today.LiberalArtCampus" = "문과캠퍼스";
 "kuStudy.Today.ScienceCampus" = "자연계 캠퍼스";
+
+"kuStudy.Today.EmptyData" = "--";
