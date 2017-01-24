@@ -13,7 +13,7 @@
 "kuStudy.Available" = "잔여";
 "kuStudy.Used" = "사용 중";
 
-"kuStudy.Main.Studying" = " 명이 공부 중입니다.";
+"kuStudy.Main.Studying" = " 명 공부 중";
 
 "kuStudy.Settings.Today.Header.Show" = "보기";
 "kuStudy.Settings.Today.Header.Hide" = "숨기기";
@@ -35,3 +35,6 @@
 
 "kuStudy.Status.Downloading" = "사람 세는 중...";
 "kuStudy.Status.Error" = "이런! 오류가 발생했습니다.";
+
+"kuStudy.LiberalArtCampus" = "문과캠퍼스";
+"kuStudy.ScienceCampus" = "자연계캠퍼스";

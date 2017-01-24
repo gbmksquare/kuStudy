@@ -13,7 +13,7 @@
 "kuStudy.Available" = "Available";
 "kuStudy.Used" = "Occupied";
 
-"kuStudy.Main.Studying" = " people are now studying.";
+"kuStudy.Main.Studying" = " Studying";
 
 "kuStudy.Settings.Today.Header.Show" = "Show";
 "kuStudy.Settings.Today.Header.Hide" = "Hide";
@@ -34,3 +34,6 @@
 
 "kuStudy.Status.Downloading" = "Counting people...";
 "kuStudy.Status.Error" = "Oops! An error occurred.";
+
+"kuStudy.LiberalArtCampus" = "Liberal Art Campus";
+"kuStudy.ScienceCampus" = "Science Campus";

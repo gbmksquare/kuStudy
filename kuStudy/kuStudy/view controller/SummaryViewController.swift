@@ -19,7 +19,11 @@ enum DataSourceState {
 class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegate {
     @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var headerBlurImageView: UIImageView!
+    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var studyingLabel: UILabel!
+    @IBOutlet weak var studyingDataLabel: UILabel!
+    @IBOutlet weak var liberalArtCampusDataLabel: UILabel!
+    @IBOutlet weak var scienceCampusDataLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     fileprivate  var refreshControl = UIRefreshControl()
     
@@ -77,12 +81,16 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     }
     
     fileprivate func setInitialView() {
-        studyingLabel.text = ""
+        totalLabel.text = "kuStudy.Total".localized()
+        studyingLabel.text = "kuStudy.Main.Studying".localized()
+        studyingDataLabel.text = "--"
     }
     
     fileprivate func updateView() {
         if let usedSeats = summaryData.usedSeats {
-            studyingLabel.text = usedSeats.readable + "kuStudy.Main.Studying".localized()
+            studyingDataLabel.text = usedSeats.readable
+            liberalArtCampusDataLabel.text = "kuStudy.LiberalArtCampus".localized() + ": " + (summaryData.usedSeatsInLiberalArtCampus?.readable ?? "0") + "kuStudy.Main.Studying".localized()
+            scienceCampusDataLabel.text = "kuStudy.ScienceCampus".localized() + ": " + (summaryData.usedSeatsInScienceCampus?.readable ?? "0") + "kuStudy.Main.Studying".localized()
         }
         tableView.reloadData()
     }
