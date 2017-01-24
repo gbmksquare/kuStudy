@@ -8,27 +8,34 @@
 
 import UIKit
 import kuStudyKit
+import Localize_Swift
 
 class LibraryTableViewCell: UITableViewCell {
+    @IBOutlet weak var indicatorView: UIView!
     @IBOutlet weak var thumbnailImageView: UIImageView!
-    @IBOutlet weak var percentageView: CircularProgressView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var availableLabel: UILabel!
+    @IBOutlet weak var availableDataLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var usedLabel: UILabel!
 
-    // MARK: Setup
+    // MARK: View
     override func awakeFromNib() {
         super.awakeFromNib()
         layoutIfNeeded()
+        indicatorView.layer.cornerRadius = indicatorView.bounds.width / 2
         thumbnailImageView.layer.cornerRadius = thumbnailImageView.bounds.width / 2
-        percentageView.progressBackgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.95, alpha: 1)
+        availableLabel.text = "kuStudy.Available".localized()
     }
     
     // MARK: Populate
     private func setEmpty() {
         thumbnailImageView.image = nil
-        percentageView.progress = 0
         nameLabel.text = "--"
-        availableLabel.text = "--"
+        availableDataLabel.text = "--"
+        totalLabel.text = "kuStudy.Total".localized() + ": --"
+        usedLabel.text = "kuStudy.Used".localized() + ": --"
+        indicatorView.backgroundColor = UIColor.lightGray
     }
     
     func populate(library: LibraryData?) {
@@ -43,10 +50,11 @@ class LibraryTableViewCell: UITableViewCell {
         
         let libraryType = LibraryType(rawValue: libraryId)
         nameLabel.text = libraryType?.name
-        availableLabel.text = library.availableSeats.readable + " " + "kuStudy.Available".localized()
+        availableDataLabel.text =  library.availableSeats.readable
+        totalLabel.text = "kuStudy.Total".localized() + ": " + library.totalSeats.readable
+        usedLabel.text = "kuStudy.Used".localized() + ": " + library.usedSeats.readable
         
         thumbnailImageView.image = library.thumbnail
-        percentageView.progress = library.availablePercentage
-        percentageView.progressColor = library.availablePercentageColor
+        indicatorView.backgroundColor = library.availablePercentageColor
     }
 }
