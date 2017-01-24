@@ -62,7 +62,7 @@ extension SettingsTableViewController {
             guard let appUrl = URL(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=925255895&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software") else { return }
             let application = UIApplication.shared
             if application.canOpenURL(appUrl) {
-                application.openURL(appUrl)
+                application.open(appUrl, options: [:], completionHandler: nil)
                 Answers.logCustomEvent(withName: "Rate on App Store", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
             }
         default: break

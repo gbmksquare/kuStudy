@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11201" systemVersion="16A320" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11077"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
     </dependencies>
     <scenes>
         <!--kuStudy-->
@@ -210,76 +212,6 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="367" y="221"/>
-        </scene>
-        <!--Glance Interface Controller-->
-        <scene sceneID="rjY-Ar-IMT">
-            <objects>
-                <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="kuStudy_WatchKit_App" customModuleProvider="target">
-                    <items>
-                        <group alignment="left" id="gv7-I2-MZq">
-                            <items>
-                                <group width="0.40000000000000002" height="1" alignment="left" backgroundImage="radial" contentMode="scaleAspectFit" initiallyAnimated="NO" id="9Ud-vr-adX">
-                                    <items>
-                                        <label alignment="center" verticalAlignment="center" text="0%" textAlignment="center" id="Ihz-xR-fxT">
-                                            <fontDescription key="font" type="system" pointSize="12"/>
-                                        </label>
-                                    </items>
-                                </group>
-                                <group width="0.75" alignment="left" layout="vertical" spacing="1" id="p6K-3H-Zgd">
-                                    <items>
-                                        <label alignment="left" text="Available" id="M16-VE-8UX">
-                                            <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="font" type="system" weight="medium" pointSize="12"/>
-                                        </label>
-                                        <label alignment="left" text="0" id="oqE-g4-SuH">
-                                            <fontDescription key="font" type="system" weight="medium" pointSize="18"/>
-                                        </label>
-                                    </items>
-                                    <edgeInsets key="margins" left="10" right="0.0" top="0.0" bottom="0.0"/>
-                                </group>
-                            </items>
-                            <edgeInsets key="margins" left="5" right="0.0" top="8" bottom="0.0"/>
-                        </group>
-                        <group alignment="left" layout="vertical" spacing="8" id="eew-Gs-W6Y">
-                            <items>
-                                <group width="1" alignment="left" verticalAlignment="bottom" layout="vertical" id="i1Z-Lz-4Hs">
-                                    <items>
-                                        <label alignment="left" text="Liberal Arts Campus" id="Soq-8l-6x4">
-                                            <fontDescription key="font" type="system" weight="semibold" pointSize="12"/>
-                                        </label>
-                                        <label alignment="left" text="0" id="JE4-sC-5YV">
-                                            <fontDescription key="font" type="system" weight="light" pointSize="21"/>
-                                        </label>
-                                    </items>
-                                </group>
-                                <separator alignment="left" verticalAlignment="bottom" id="FHu-Nc-zLw">
-                                    <color key="color" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </separator>
-                                <group width="1" alignment="left" verticalAlignment="bottom" layout="vertical" id="hIr-wa-sua">
-                                    <items>
-                                        <label alignment="left" text="Science Campus" id="fa7-n6-Nig">
-                                            <fontDescription key="font" type="system" weight="semibold" pointSize="12"/>
-                                        </label>
-                                        <label alignment="left" text="0" id="Pbh-Zh-dWZ">
-                                            <fontDescription key="font" type="system" weight="light" pointSize="21"/>
-                                        </label>
-                                    </items>
-                                </group>
-                            </items>
-                            <edgeInsets key="margins" left="5" right="5" top="0.0" bottom="0.0"/>
-                        </group>
-                    </items>
-                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
-                    <connections>
-                        <outlet property="availableLabel" destination="oqE-g4-SuH" id="W8i-YN-fBL"/>
-                        <outlet property="liberalArtCampusLabel" destination="JE4-sC-5YV" id="GKO-jd-fXq"/>
-                        <outlet property="percentageGroup" destination="9Ud-vr-adX" id="kAD-C7-Xsp"/>
-                        <outlet property="percentageLabel" destination="Ihz-xR-fxT" id="ngl-BS-DtP"/>
-                        <outlet property="scienceCampusLabel" destination="Pbh-Zh-dWZ" id="dYW-v0-l6h"/>
-                    </connections>
-                </glanceController>
-            </objects>
-            <point key="canvasLocation" x="164" y="451"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.78049671649932861" green="0.097925871610641479" blue="0.14808227121829987" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

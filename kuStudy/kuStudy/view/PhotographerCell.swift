@@ -28,9 +28,9 @@ class PhotographerCell: UITableViewCell {
         
         let application = UIApplication.shared
         if application.canOpenURL(instagramAppUrl) {
-            application.openURL(instagramAppUrl)
+            application.open(instagramAppUrl, options: [:], completionHandler: nil)
         } else {
-            application.openURL(instagramUrl)
+            application.open(instagramUrl, options: [:], completionHandler: nil)
         }
     }
     

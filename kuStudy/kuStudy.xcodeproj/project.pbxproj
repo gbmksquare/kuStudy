@@ -12,7 +12,6 @@
 		160505EE1D6EDC1D0033B123 /* kuStudy_Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160505ED1D6EDC1D0033B123 /* kuStudy_Snapshot.swift */; };
 		160505F71D6EDC8B0033B123 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160505F51D6EDC450033B123 /* SnapshotHelper.swift */; };
 		16136BD81B1C3F0700B3F744 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BD71B1C3F0700B3F744 /* InterfaceController.swift */; };
-		16136BDA1B1C3F0700B3F744 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BD91B1C3F0700B3F744 /* GlanceController.swift */; };
 		16136BDC1B1C3F0700B3F744 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16136BDB1B1C3F0700B3F744 /* Images.xcassets */; };
 		16136BE81B1C3F0800B3F744 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16136BE61B1C3F0700B3F744 /* Interface.storyboard */; };
 		16136BEA1B1C3F0800B3F744 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16136BE91B1C3F0800B3F744 /* Images.xcassets */; };
@@ -255,7 +254,6 @@
 		16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "kuStudy WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16136BD61B1C3F0700B3F744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16136BD71B1C3F0700B3F744 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
-		16136BD91B1C3F0700B3F744 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
 		16136BDB1B1C3F0700B3F744 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		16136BDF1B1C3F0700B3F744 /* kuStudy WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kuStudy WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16136BE51B1C3F0700B3F744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -479,7 +477,6 @@
 				16136BF61B1C43DA00B3F744 /* Extension */,
 				16136BFD1B1C44EF00B3F744 /* Application */,
 				16B9A25A1DADF97F003BF871 /* Complication */,
-				16136BFE1B1C44F400B3F744 /* Glance */,
 				16136BF71B1C43E400B3F744 /* Resource */,
 			);
 			path = "kuStudy WatchKit Extension";
@@ -537,14 +534,6 @@
 				1673304D1B1C928A00573FFC /* Detail */,
 			);
 			name = Application;
-			sourceTree = "<group>";
-		};
-		16136BFE1B1C44F400B3F744 /* Glance */ = {
-			isa = PBXGroup;
-			children = (
-				16136BD91B1C3F0700B3F744 /* GlanceController.swift */,
-			);
-			name = Glance;
 			sourceTree = "<group>";
 		};
 		1631A2D91CF023FF0078381F /* Extension */ = {
@@ -1702,7 +1691,6 @@
 				16136BFC1B1C44BA00B3F744 /* Definitions.swift in Sources */,
 				16B9A25D1DADFA5D003BF871 /* ComplicationController.swift in Sources */,
 				168841191B1EB58700F3C818 /* ReadingRoomCell.swift in Sources */,
-				16136BDA1B1C3F0700B3F744 /* GlanceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
