@@ -19,6 +19,7 @@
 * App is now written in Swift 3.
 * Library names are localized.
 * Added shortened version of library names.
+* Updated Fabric.
 
 ### Bug fixes
 
