@@ -182,6 +182,7 @@
                                             <outlet property="thumbnailImageView" destination="xxf-Zy-SLF" id="qCU-M0-ig6"/>
                                             <outlet property="totalLabel" destination="ehW-LM-n7B" id="YZM-kw-bgu"/>
                                             <outlet property="usedLabel" destination="Qb2-iB-pik" id="Li9-JE-X46"/>
+                                            <segue destination="k5Q-Ya-8E3" kind="showDetail" identifier="librarySegue" id="mtb-Ar-Dsw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -988,5 +989,8 @@
         <image name="glyphicons-138-cogwheels" width="34" height="27"/>
         <image name="glyphicons-236-pen" width="23" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="mtb-Ar-Dsw"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.82744997740000004" green="0.18431000410000001" blue="0.18431000410000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>
