@@ -1163,7 +1163,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = gbmKSquare;
 				TargetAttributes = {
 					160505EA1D6EDC1D0033B123 = {
@@ -2383,6 +2383,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 19E673EA13423A798E88583B /* Pods-kuStudyKitTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(inherited)",
@@ -2404,6 +2405,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E342CF4E215BA6BDD59FAB1B /* Pods-kuStudyKitTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(inherited)",

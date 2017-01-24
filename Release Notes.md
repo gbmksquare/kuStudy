@@ -11,7 +11,8 @@
 
 ### Improvements
 
-* ​
+* Dropped iOS 9 support.
+* Dropped watchOS 2 support.
 
 ### Code improvements
 
