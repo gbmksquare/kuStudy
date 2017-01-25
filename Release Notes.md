@@ -21,10 +21,13 @@
 * Library names are localized.
 * Added shortened version of library names.
 * Updated Fabric.
+* Updated Fastlane Snapshot settings.
+* iPad screenshots are now taken in landscape.
 
 ### Bug fixes
 
-* Fixed today widget title may not show correct localization.​
+* Fixed today widget title may not show correct localization.
+* Fixed Snapshot UI test for iPad.
 
 ## 1.2 (19)
 
