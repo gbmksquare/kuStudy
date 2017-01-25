@@ -13,6 +13,7 @@
 
 * Dropped iOS 9 support.
 * Dropped watchOS 2 support.
+* Improved today widget life cycle.
 
 ### Code improvements
 
@@ -23,7 +24,7 @@
 
 ### Bug fixes
 
-* ​
+* Fixed today widget title may not show correct localization.​
 
 ## 1.2 (19)
 

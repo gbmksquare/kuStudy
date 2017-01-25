@@ -40,5 +40,7 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widget-extension</string>
 	</dict>
+	<key>LSHasLocalizedDisplayName</key>
+	<true/>
 </dict>
 </plist>
