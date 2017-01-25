@@ -33,21 +33,31 @@ class kuStudy_Snapshot: XCTestCase {
         super.tearDown()
     }
     
+    // MARK: Test
     func testSnapshot() {
         snapshot("0_Main")
         
         let app = XCUIApplication()
         let tablesQuery = app.tables
-        tablesQuery.cells.element(boundBy: 0).tap()
+        tablesQuery.cells.element(boundBy: 1).tap()
         snapshot("1_First")
         
-        if UIDevice.current.userInterfaceIdiom != .pad {
-            let button = app.navigationBars["kuStudy.LibraryView"].buttons[" "]
-            button.tap()
-        }
+        tapBackButton()
         
-        tablesQuery.cells.element(boundBy: 3).tap()
+        tablesQuery.cells.element(boundBy: 2).tap()
         snapshot("2_Second")
+        
+        tapBackButton()
+        
+        tablesQuery.cells.element(boundBy: 4).tap()
+        snapshot("3_Third")
     }
     
+    // MARK: Helper
+    private func tapBackButton() {
+        if UIDevice.current.userInterfaceIdiom != .pad {
+            let button = XCUIApplication().navigationBars["kuStudy.LibraryView"].buttons[" "]
+            button.tap()
+        }
+    }
 }
