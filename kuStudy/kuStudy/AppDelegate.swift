@@ -12,6 +12,7 @@ import kuStudyKit
 import Fabric
 import Crashlytics
 import AlamofireNetworkActivityIndicator
+import SimulatorStatusMagic
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupFabric()
         registerDefaultPreferences()
         customizeAppearance()
+        setupStatusbarForSnapshot()
         listenForUserDefaultsDidChange()
         NetworkActivityIndicatorManager.shared.isEnabled = true
         return true
@@ -162,5 +164,12 @@ extension AppDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         UIBarButtonItem.appearance().tintColor = UIColor.white
+    }
+    
+    fileprivate func setupStatusbarForSnapshot() {
+        if UserDefaults.standard.bool(forKey: "FASTLANE_SNAPSHOT") {
+            guard NSClassFromString("SDStatusBarManager") != nil else { return }
+            SDStatusBarManager.sharedInstance().enableOverrides()
+        }
     }
 }

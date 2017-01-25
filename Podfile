@@ -16,6 +16,7 @@ target 'kuStudy' do
   pod 'Localize-Swift'
   pod 'DZNEmptyDataSet'
   pod 'AcknowList'
+	pod 'SimulatorStatusMagic', :configurations => ['Debug']
   shared_pods
 
   target 'kuStudyTests' do

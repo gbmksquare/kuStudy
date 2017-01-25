@@ -23,6 +23,9 @@
 * Updated Fabric.
 * Updated Fastlane Snapshot settings.
 * iPad screenshots are now taken in landscape.
+* Predefined images will show when running Snapshot.
+* Improved taking better screenshots.
+* Statusbar is automatically cleaned up for Snapshot.
 
 ### Bug fixes
 
