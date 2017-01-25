@@ -70,11 +70,31 @@ public class PhotoProvider {
         
         // Get new index if needed
         if loadedPhotos[libraryId] == nil {
-            let randomIndex = Int(arc4random_uniform(UInt32(photos.count)))
-            loadedPhotos[libraryId] = randomIndex
+            let isRunningTest = ProcessInfo.processInfo.arguments.contains("Snapshot") ? true : false
+            if isRunningTest == true {
+                let index = predefinedIndex(libraryId: libraryId)
+                loadedPhotos[libraryId] = index
+            } else {
+                let randomIndex = Int(arc4random_uniform(UInt32(photos.count)))
+                loadedPhotos[libraryId] = randomIndex
+            }
         }
         
         let index = loadedPhotos[libraryId]!
         return photos[index]
+    }
+    
+    // Fastlane Snapshot
+    private func predefinedIndex(libraryId: Int) -> Int {
+        guard let libraryType = LibraryType(rawValue: "\(libraryId)") else {
+            return 0
+        }
+        switch libraryType {
+        case .CentralSquare: return 0
+        case .CentralLibrary: return 2
+        case .CDL: return 0
+        case .HanaSquare: return 0
+        case .ScienceLibrary: return 5
+        }
     }
 }

@@ -25,6 +25,7 @@ class kuStudy_Snapshot: XCTestCase {
         // Launch
         let app = XCUIApplication()
         setupSnapshot(app)
+        app.launchArguments = ["Snapshot"]
         app.launch()
     }
     

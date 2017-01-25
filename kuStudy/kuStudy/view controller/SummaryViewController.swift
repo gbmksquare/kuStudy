@@ -97,14 +97,21 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     
     fileprivate func updateHeaderImage() {
         let libraryTypes = LibraryType.allTypes()
-        let randomIndex = Int(arc4random_uniform(UInt32(libraryTypes.count)))
-        let libraryId = libraryTypes[randomIndex].rawValue
-        if let libraryType = LibraryType(rawValue: libraryId) {
-            let photo = PhotoProvider.sharedProvider.photo(libraryType.rawValue)
-            headerImageView.image = photo.image
-            headerBlurImageView.image = photo.image
-            headerBlurImageView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        
+        let libraryId: String
+        let isRunningTest = ProcessInfo.processInfo.arguments.contains("Snapshot") ? true : false
+        if isRunningTest == true {
+            // Fastlane Snapshot
+            let libraryType = LibraryType.CentralSquare
+            libraryId = libraryType.rawValue
+        } else {
+            let randomIndex = Int(arc4random_uniform(UInt32(libraryTypes.count)))
+            libraryId = libraryTypes[randomIndex].rawValue
         }
+        let photo = PhotoProvider.sharedProvider.photo(libraryId)
+        headerImageView.image = photo.image
+        headerBlurImageView.image = photo.image
+        headerBlurImageView.transform = CGAffineTransform(scaleX: 1, y: -1)
     }
     
     fileprivate func reorderLibraryData() {
