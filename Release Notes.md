@@ -23,6 +23,7 @@
 * Updated Fabric.
 * Updated Fastlane Snapshot settings.
 * iPad screenshots are now taken in landscape.
+* iPad skips "1" screenshot because it's the same as "0".
 * Predefined images will show when running Snapshot.
 * Improved taking better screenshots.
 * Statusbar is automatically cleaned up for Snapshot.

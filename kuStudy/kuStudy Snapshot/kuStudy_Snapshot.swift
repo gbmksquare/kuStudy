@@ -39,10 +39,14 @@ class kuStudy_Snapshot: XCTestCase {
         
         let app = XCUIApplication()
         let tablesQuery = app.tables
-        tablesQuery.cells.element(boundBy: 1).tap()
-        snapshot("1_First")
         
-        tapBackButton()
+        // iPad doesn't require this screenshot because it's the same as 0_main
+        if UIDevice.current.userInterfaceIdiom != .pad {
+            tablesQuery.cells.element(boundBy: 1).tap()
+            snapshot("1_First")
+        
+            tapBackButton()
+        }
         
         tablesQuery.cells.element(boundBy: 2).tap()
         snapshot("2_Second")
