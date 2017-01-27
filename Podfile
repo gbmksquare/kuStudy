@@ -41,6 +41,7 @@ target 'kuStudy WatchKit Extension' do
   use_frameworks!
   platform :watchos, '2.0'
 
+  pod 'Localize-Swift'
   shared_pods
 end
 
