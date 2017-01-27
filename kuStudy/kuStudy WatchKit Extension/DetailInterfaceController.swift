@@ -9,21 +9,35 @@
 import Foundation
 import WatchKit
 import kuStudyWatchKit
+import Localize_Swift
 
 class DetailInterfaceController: WKInterfaceController {
     @IBOutlet weak var table: WKInterfaceTable!
+    @IBOutlet weak var percentageGroup: WKInterfaceGroup!
+    
+    @IBOutlet weak var totalPlaceholderLabel: WKInterfaceLabel!
+    @IBOutlet weak var usedPlaceholderLabel: WKInterfaceLabel!
+    @IBOutlet weak var availablePlaceholderLabel: WKInterfaceLabel!
+    
     @IBOutlet weak var totalLabel: WKInterfaceLabel!
     @IBOutlet weak var usedLabel: WKInterfaceLabel!
     @IBOutlet weak var availableLabel: WKInterfaceLabel!
-    @IBOutlet weak var percentageGroup: WKInterfaceGroup!
     
-    // MARK: Model
+    // Model
     var libraryData: LibraryData!
+    
+    // Setup
+    private func setup() {
+        totalPlaceholderLabel.setText("kuStudy.Watch.Total".localized())
+        usedPlaceholderLabel.setText("kuStudy.Watch.Available".localized())
+        availablePlaceholderLabel.setText("kuStudy.Watch.Used".localized())
+    }
     
     // MARK: Watch
     override func awake(withContext context: Any?) {
         super.awake(withContext: context)
         libraryData = context as! LibraryData
+        setup()
         updateView()
     }
     
@@ -78,8 +92,7 @@ class DetailInterfaceController: WKInterfaceController {
     }
 }
 
-// MARK:
-// MARK: Handoff
+// MARK: - Handoff
 extension DetailInterfaceController {
     fileprivate func startHandoff() {
         guard let libraryId = libraryData.libraryId else { return }

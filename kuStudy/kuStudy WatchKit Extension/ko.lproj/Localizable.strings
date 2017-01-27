@@ -6,7 +6,15 @@
   Copyright (c) 2015년 gbmKSquare. All rights reserved.
 */
 
-"kuStudy.Watch.StudyingDescription" = " 명 공부 중.";
+"kuStudy.Watch.StudyingDescription" = " 명 공부 중";
 
 "kuStudy.Watch.Complication.Total" = "전체: ";
 "kuStudy.Watch.Complication.Available" = "잔여: ";
+
+"kuStudy.Watch.Total" = "젼체";
+"kuStudy.Watch.Available" = "잔여";
+"kuStudy.Watch.Used" = "사용 중";
+
+"kuStudy.Watch.Cell.Total" = "젼체";
+"kuStudy.Watch.Cell.Available" = "잔여";
+"kuStudy.Watch.Cell.Used" = "사용 중";

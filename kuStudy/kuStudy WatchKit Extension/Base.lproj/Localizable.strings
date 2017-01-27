@@ -6,7 +6,15 @@
   Copyright (c) 2015년 gbmKSquare. All rights reserved.
 */
 
-"kuStudy.Watch.StudyingDescription" = " studying.";
+"kuStudy.Watch.StudyingDescription" = " Studying";
 
 "kuStudy.Watch.Complication.Total" = "Total: ";
 "kuStudy.Watch.Complication.Available" = "Available: ";
+
+"kuStudy.Watch.Total" = "Total";
+"kuStudy.Watch.Available" = "Available";
+"kuStudy.Watch.Used" = "Occupied";
+
+"kuStudy.Watch.Cell.Total" = "Total";
+"kuStudy.Watch.Cell.Available" = "Available";
+"kuStudy.Watch.Cell.Used" = "Occupied";

@@ -7,6 +7,7 @@
 * New app icon!
 * Redesigned iOS app!
 * Redesigned Today widget!
+* Refined watchOS app design.
 * Added support for Apple Watch complications.
 
 ### Improvements
