@@ -9,188 +9,224 @@
 import ClockKit
 import kuStudyWatchKit
 
-class ComplicationController: NSObject, CLKComplicationDataSource {
+class ComplicationController: NSObject { // CLKComplicationDataSource
     // MRAK: Privacy
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
         handler(.showOnLockScreen)
     }
     
-    // MARK: Refresh
-    func getNextRequestedUpdateDate(handler: @escaping (Date?) -> Void) {
-        handler(Date(timeIntervalSinceNow: 60))
-    }
-    
     // MARK: Placeholder
     func getPlaceholderTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
-        guard let library = LibraryType(rawValue: "1") else {
-            handler(nil)
-            return
-        }
-        
+        // Shortcut
         switch complication.family {
         case .circularSmall:
-            let template = CLKComplicationTemplateCircularSmallStackText()
-            template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
-            template.line2TextProvider = CLKSimpleTextProvider(text: "--")
+            let template = CLKComplicationTemplateCircularSmallSimpleImage()
+            let image = #imageLiteral(resourceName: "Complication/Circular")
+            template.imageProvider = CLKImageProvider(onePieceImage: image)
             handler(template)
         case .utilitarianSmall:
-            let template = CLKComplicationTemplateUtilitarianSmallRingText()
-            template.textProvider = CLKSimpleTextProvider(text: library.shortName)
-            template.ringStyle = .closed
-            template.fillFraction = 0.0
-            handler(template)
-        case .utilitarianSmallFlat:
-            let template = CLKComplicationTemplateUtilitarianSmallFlat()
-            template.textProvider = CLKSimpleTextProvider(text: library.name, shortText: library.shortName)
-            handler(template)
-        case .utilitarianLarge:
-            let template = CLKComplicationTemplateUtilitarianLargeFlat()
-            template.textProvider = CLKSimpleTextProvider(text: library.name, shortText: library.shortName)
+            let template = CLKComplicationTemplateUtilitarianSmallSquare()
+            let image = #imageLiteral(resourceName: "Complication/Utilitarian")
+            template.imageProvider = CLKImageProvider(onePieceImage: image)
             handler(template)
         case .modularSmall:
-            let template = CLKComplicationTemplateModularSmallStackText()
-            template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
-            template.line2TextProvider = CLKSimpleTextProvider(text: library.shortName)
-            handler(template)
-        case .modularLarge:
-            let template = CLKComplicationTemplateModularLargeStandardBody()
-            template.headerTextProvider = CLKSimpleTextProvider(text: library.name, shortText: library.shortName)
-            template.body1TextProvider = CLKSimpleTextProvider(text: "--")
-            template.body2TextProvider = CLKSimpleTextProvider(text: "--")
+            let template = CLKComplicationTemplateModularSmallSimpleImage()
+            let image = #imageLiteral(resourceName: "Complication/Modular")
+            template.imageProvider = CLKImageProvider(onePieceImage: image)
             handler(template)
         case .extraLarge:
-            let template = CLKComplicationTemplateExtraLargeStackText()
-            template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
-            template.line2TextProvider = CLKSimpleTextProvider(text: "--", shortText: "--")
+            let template = CLKComplicationTemplateExtraLargeSimpleImage()
+            let image = #imageLiteral(resourceName: "Complication/Extra Large")
+            template.imageProvider = CLKImageProvider(onePieceImage: image)
             handler(template)
+        case .modularLarge, .utilitarianSmallFlat, .utilitarianLarge:
+            handler(nil)
         }
     }
     
-    func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
-        guard let library = LibraryType(rawValue: "1") else {
-            handler(nil)
-            return
-        }
-        
-        switch complication.family {
-        case .circularSmall:
-            let template = CLKComplicationTemplateCircularSmallStackText()
-            template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
-            template.line2TextProvider = CLKSimpleTextProvider(text: "--")
-            handler(template)
-        case .utilitarianSmall:
-            let template = CLKComplicationTemplateUtilitarianSmallRingText()
-            template.textProvider = CLKSimpleTextProvider(text: library.shortName)
-            template.ringStyle = .closed
-            template.fillFraction = 0.0
-            handler(template)
-        case .utilitarianSmallFlat:
-            let template = CLKComplicationTemplateUtilitarianSmallFlat()
-            template.textProvider = CLKSimpleTextProvider(text: library.name, shortText: library.shortName)
-            handler(template)
-        case .utilitarianLarge:
-            let template = CLKComplicationTemplateUtilitarianLargeFlat()
-            template.textProvider = CLKSimpleTextProvider(text: library.name, shortText: library.shortName)
-            handler(template)
-        case .modularSmall:
-            let template = CLKComplicationTemplateModularSmallStackText()
-            template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
-            template.line2TextProvider = CLKSimpleTextProvider(text: library.shortName)
-            handler(template)
-        case .modularLarge:
-            let template = CLKComplicationTemplateModularLargeStandardBody()
-            template.headerTextProvider = CLKSimpleTextProvider(text: library.name, shortText: library.shortName)
-            template.body1TextProvider = CLKSimpleTextProvider(text: "--")
-            template.body2TextProvider = CLKSimpleTextProvider(text: "--")
-            handler(template)
-        case .extraLarge:
-            let template = CLKComplicationTemplateExtraLargeStackText()
-            template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
-            template.line2TextProvider = CLKSimpleTextProvider(text: "--", shortText: "--")
-            handler(template)
-        }
-    }
+//    func getPlaceholderTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
+//        guard let library = LibraryType(rawValue: "1") else {
+//            handler(nil)
+//            return
+//        }
+//        
+//        switch complication.family {
+//        case .circularSmall:
+//            let template = CLKComplicationTemplateCircularSmallStackText()
+//            template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
+//            template.line2TextProvider = CLKSimpleTextProvider(text: "--")
+//            handler(template)
+//        case .utilitarianSmall:
+//            let template = CLKComplicationTemplateUtilitarianSmallRingText()
+//            template.textProvider = CLKSimpleTextProvider(text: library.shortName)
+//            template.ringStyle = .closed
+//            template.fillFraction = 0.0
+//            handler(template)
+//        case .utilitarianSmallFlat:
+//            let template = CLKComplicationTemplateUtilitarianSmallFlat()
+//            template.textProvider = CLKSimpleTextProvider(text: library.name, shortText: library.shortName)
+//            handler(template)
+//        case .utilitarianLarge:
+//            let template = CLKComplicationTemplateUtilitarianLargeFlat()
+//            template.textProvider = CLKSimpleTextProvider(text: library.name, shortText: library.shortName)
+//            handler(template)
+//        case .modularSmall:
+//            let template = CLKComplicationTemplateModularSmallStackText()
+//            template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
+//            template.line2TextProvider = CLKSimpleTextProvider(text: library.shortName)
+//            handler(template)
+//        case .modularLarge:
+//            let template = CLKComplicationTemplateModularLargeStandardBody()
+//            template.headerTextProvider = CLKSimpleTextProvider(text: library.name, shortText: library.shortName)
+//            template.body1TextProvider = CLKSimpleTextProvider(text: "--")
+//            template.body2TextProvider = CLKSimpleTextProvider(text: "--")
+//            handler(template)
+//        case .extraLarge:
+//            let template = CLKComplicationTemplateExtraLargeStackText()
+//            template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
+//            template.line2TextProvider = CLKSimpleTextProvider(text: "--", shortText: "--")
+//            handler(template)
+//        }
+//    }
+    
+//    func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
+//        guard let library = LibraryType(rawValue: "1") else {
+//            handler(nil)
+//            return
+//        }
+//        
+//        switch complication.family {
+//        case .circularSmall:
+//            let template = CLKComplicationTemplateCircularSmallStackText()
+//            template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
+//            template.line2TextProvider = CLKSimpleTextProvider(text: "--")
+//            handler(template)
+//        case .utilitarianSmall:
+//            let template = CLKComplicationTemplateUtilitarianSmallRingText()
+//            template.textProvider = CLKSimpleTextProvider(text: library.shortName)
+//            template.ringStyle = .closed
+//            template.fillFraction = 0.0
+//            handler(template)
+//        case .utilitarianSmallFlat:
+//            let template = CLKComplicationTemplateUtilitarianSmallFlat()
+//            template.textProvider = CLKSimpleTextProvider(text: library.name, shortText: library.shortName)
+//            handler(template)
+//        case .utilitarianLarge:
+//            let template = CLKComplicationTemplateUtilitarianLargeFlat()
+//            template.textProvider = CLKSimpleTextProvider(text: library.name, shortText: library.shortName)
+//            handler(template)
+//        case .modularSmall:
+//            let template = CLKComplicationTemplateModularSmallStackText()
+//            template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
+//            template.line2TextProvider = CLKSimpleTextProvider(text: library.shortName)
+//            handler(template)
+//        case .modularLarge:
+//            let template = CLKComplicationTemplateModularLargeStandardBody()
+//            template.headerTextProvider = CLKSimpleTextProvider(text: library.name, shortText: library.shortName)
+//            template.body1TextProvider = CLKSimpleTextProvider(text: "--")
+//            template.body2TextProvider = CLKSimpleTextProvider(text: "--")
+//            handler(template)
+//        case .extraLarge:
+//            let template = CLKComplicationTemplateExtraLargeStackText()
+//            template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
+//            template.line2TextProvider = CLKSimpleTextProvider(text: "--", shortText: "--")
+//            handler(template)
+//        }
+//    }
     
     // MARK: - Timeline Configuration
     func getSupportedTimeTravelDirections(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimeTravelDirections) -> Void) {
         handler(CLKComplicationTimeTravelDirections())
     }
     
-//    func getTimelineStartDateForComplication(complication: CLKComplication, withHandler handler: (Date?) -> Void) {
-//        handler(nil)
+    // MARK: - Timeline Population
+//    func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
+//        // Shortcut
+//        switch complication.family {
+//        case .circularSmall:
+//            let template = CLKComplicationTemplateCircularSmallSimpleImage()
+//            let image = #imageLiteral(resourceName: "Complication/Circular")
+//            template.imageProvider = CLKImageProvider(onePieceImage: image)
+//            
+//            let entry
+//            handler(entry)
+//        case .utilitarianSmall:
+//            let template = CLKComplicationTemplateUtilitarianSmallSquare()
+//            let image = #imageLiteral(resourceName: "Complication/Circular")
+//            template.imageProvider = CLKImageProvider(onePieceImage: image)
+//            handler(template)
+//        case .modularSmall:
+//            let template = CLKComplicationTemplateModularSmallSimpleImage()
+//            let image = #imageLiteral(resourceName: "Complication/Circular")
+//            template.imageProvider = CLKImageProvider(onePieceImage: image)
+//            handler(template)
+//        case .extraLarge:
+//            let template = CLKComplicationTemplateExtraLargeSimpleImage()
+//            let image = #imageLiteral(resourceName: "Complication/Extra Large")
+//            template.imageProvider = CLKImageProvider(onePieceImage: image)
+//            handler(template)
+//        case .modularLarge, .utilitarianSmallFlat, .utilitarianLarge:
+//            handler(nil)
+//        }
 //    }
-//    
-//    func getTimelineEndDateForComplication(complication: CLKComplication, withHandler handler: (Date?) -> Void) {
-//        handler(nil)
-//    }
-    
-//    // MARK: - Timeline Population
-    func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
-        guard let library = LibraryType(rawValue: "1") else {
-            handler(nil)
-            return
-        }
-        
-        kuStudy.requestLibraryData(libraryId: library.rawValue, onSuccess: { (libraryData) in
-            let total = libraryData.totalSeats.readable
-            let available = libraryData.availableSeats.readable
-            let totalLong = NSLocalizedString("kuStudy.Watch.Complication.Total", comment: "") + total
-            let availableLong = NSLocalizedString("kuStudy.Watch.Complication.Available", comment: "") + available
-            
-            switch complication.family {
-            case .circularSmall:
-                let template = CLKComplicationTemplateCircularSmallStackText()
-                template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
-                template.line2TextProvider = CLKSimpleTextProvider(text: available)
-                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-                handler(entry)
-            case .utilitarianSmall:
-                let template = CLKComplicationTemplateUtilitarianSmallRingText()
-                template.textProvider = CLKSimpleTextProvider(text: library.shortName)
-                template.ringStyle = .closed
-                template.fillFraction = Float(libraryData.availableSeats) / Float(libraryData.totalSeats)
-                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-                handler(entry)
-            case .utilitarianSmallFlat:
-                let template = CLKComplicationTemplateUtilitarianSmallFlat()
-                template.textProvider = CLKSimpleTextProvider(text: library.shortName)
-                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-                handler(entry)
-            case .utilitarianLarge:
-                let template = CLKComplicationTemplateUtilitarianLargeFlat()
-                template.textProvider = CLKSimpleTextProvider(text: library.name + " " + availableLong)
-                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-                handler(entry)
-            case .modularSmall:
-                let template = CLKComplicationTemplateModularSmallStackText()
-                template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
-                template.line2TextProvider = CLKSimpleTextProvider(text: available)
-                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-                handler(entry)
-            case .modularLarge:
-                let template = CLKComplicationTemplateModularLargeStandardBody()
-                template.headerTextProvider = CLKSimpleTextProvider(text: library.name, shortText: library.shortName)
-                template.body1TextProvider = CLKSimpleTextProvider(text: totalLong, shortText: total)
-                template.body2TextProvider = CLKSimpleTextProvider(text: availableLong, shortText: available)
-                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-                handler(entry)
-            case .extraLarge:
-                let template = CLKComplicationTemplateExtraLargeStackText()
-                template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
-                template.line2TextProvider = CLKSimpleTextProvider(text: available)
-                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
-                handler(entry)
-            }
-        }) { (error) in
-            handler(nil)
-        }
-    }
-    
-//    func getTimelineEntriesForComplication(complication: CLKComplication, beforeDate date: Date, limit: Int, withHandler handler: ([CLKComplicationTimelineEntry]?) -> Void) {
-//        handler(nil)
-//    }
-//    
-//    func getTimelineEntriesForComplication(complication: CLKComplication, afterDate date: Date, limit: Int, withHandler handler: ([CLKComplicationTimelineEntry]?) -> Void) {
-//        handler(nil)
+//    func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
+//        guard let library = LibraryType(rawValue: "1") else {
+//            handler(nil)
+//            return
+//        }
+//        
+//        kuStudy.requestLibraryData(libraryId: library.rawValue, onSuccess: { (libraryData) in
+//            let total = libraryData.totalSeats.readable
+//            let available = libraryData.availableSeats.readable
+//            let totalLong = NSLocalizedString("kuStudy.Watch.Complication.Total", comment: "") + total
+//            let availableLong = NSLocalizedString("kuStudy.Watch.Complication.Available", comment: "") + available
+//            
+//            switch complication.family {
+//            case .circularSmall:
+//                let template = CLKComplicationTemplateCircularSmallStackText()
+//                template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
+//                template.line2TextProvider = CLKSimpleTextProvider(text: available)
+//                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+//                handler(entry)
+//            case .utilitarianSmall:
+//                let template = CLKComplicationTemplateUtilitarianSmallRingText()
+//                template.textProvider = CLKSimpleTextProvider(text: library.shortName)
+//                template.ringStyle = .closed
+//                template.fillFraction = Float(libraryData.availableSeats) / Float(libraryData.totalSeats)
+//                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+//                handler(entry)
+//            case .utilitarianSmallFlat:
+//                let template = CLKComplicationTemplateUtilitarianSmallFlat()
+//                template.textProvider = CLKSimpleTextProvider(text: library.shortName)
+//                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+//                handler(entry)
+//            case .utilitarianLarge:
+//                let template = CLKComplicationTemplateUtilitarianLargeFlat()
+//                template.textProvider = CLKSimpleTextProvider(text: library.name + " " + availableLong)
+//                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+//                handler(entry)
+//            case .modularSmall:
+//                let template = CLKComplicationTemplateModularSmallStackText()
+//                template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
+//                template.line2TextProvider = CLKSimpleTextProvider(text: available)
+//                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+//                handler(entry)
+//            case .modularLarge:
+//                let template = CLKComplicationTemplateModularLargeStandardBody()
+//                template.headerTextProvider = CLKSimpleTextProvider(text: library.name, shortText: library.shortName)
+//                template.body1TextProvider = CLKSimpleTextProvider(text: totalLong, shortText: total)
+//                template.body2TextProvider = CLKSimpleTextProvider(text: availableLong, shortText: available)
+//                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+//                handler(entry)
+//            case .extraLarge:
+//                let template = CLKComplicationTemplateExtraLargeStackText()
+//                template.line1TextProvider = CLKSimpleTextProvider(text: library.shortName)
+//                template.line2TextProvider = CLKSimpleTextProvider(text: available)
+//                let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+//                handler(entry)
+//            }
+//        }) { (error) in
+//            handler(nil)
+//        }
 //    }
 }

@@ -28,10 +28,7 @@
 	<array>
 		<string>CLKComplicationFamilyExtraLarge</string>
 		<string>CLKComplicationFamilyCircularSmall</string>
-		<string>CLKComplicationFamilyUtilitarianLarge</string>
-		<string>CLKComplicationFamilyUtilitarianSmallFlat</string>
 		<string>CLKComplicationFamilyUtilitarianSmall</string>
-		<string>CLKComplicationFamilyModularLarge</string>
 		<string>CLKComplicationFamilyModularSmall</string>
 	</array>
 	<key>NSAppTransportSecurity</key>
