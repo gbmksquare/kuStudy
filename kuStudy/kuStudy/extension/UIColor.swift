@@ -10,6 +10,6 @@ import UIKit
 
 extension UIColor {
     static var theme: UIColor {
-        return UIColor(hue: 359/359, saturation: 0.78, brightness: 0.83, alpha: 1)
+        return UIColor(red:0.78, green:0.10, blue:0.11, alpha:1.00)
     }
 }
