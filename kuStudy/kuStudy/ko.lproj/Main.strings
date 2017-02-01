@@ -54,13 +54,13 @@
 "esP-sP-H3n.text" = "Name";
 
 /* Class = "UINavigationItem"; title = "순서"; ObjectID = "hJW-zu-PMx"; */
-"hJW-zu-PMx.title" = "순서";
+"hJW-zu-PMx.title" = "표시 순서";
 
 /* Class = "UILabel"; text = "Photography by"; ObjectID = "j0O-z7-wAJ"; */
 "j0O-z7-wAJ.text" = "Photography by";
 
 /* Class = "UILabel"; text = "순서"; ObjectID = "jhN-SJ-xk9"; */
-"jhN-SJ-xk9.text" = "순서";
+"jhN-SJ-xk9.text" = "표시 순서";
 
 /* Class = "UILabel"; text = "도서관"; ObjectID = "jqd-om-39e"; */
 "jqd-om-39e.text" = "도서관";
