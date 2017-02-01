@@ -9,6 +9,7 @@
 * Redesigned Today widget!
 * Refined watchOS app design.
 * Added support for Apple Watch shortcut complications.
+* Tapping on main view of today widget opens app.
 
 ### Improvements
 

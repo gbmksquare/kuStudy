@@ -61,6 +61,23 @@ class MainViewController: UIViewController {
         extensionContext?.widgetLargestAvailableDisplayMode = estimatedTableHeight == 0 ? .compact : .expanded
     }
     
+    // MARK: - Action
+    func openMainApp(libraryId: String? = nil) {
+        let url: URL
+        if let libraryId = libraryId {
+            url = URL(string: "kustudy://?libraryId=\(libraryId)")!
+        } else {
+            url = URL(string: "kustudy://")!
+        }
+        extensionContext?.open(url, completionHandler: { (completed) in
+            
+        })
+    }
+    
+    @IBAction func tappedMainView(_ sender: UITapGestureRecognizer) {
+        openMainApp()
+    }
+    
     // MARK: - Helper
     private func setup() {
         extensionContext?.widgetLargestAvailableDisplayMode = estimatedTableHeight == 0 ? .compact : .expanded
@@ -168,16 +185,6 @@ extension MainViewController: NCWidgetProviding {
             let height = estimatedTableHeight + (extensionContext?.widgetMaximumSize(for: .compact).height ?? 110)
             preferredContentSize = CGSize(width: maxSize.width, height: height)
         }
-    }
-}
-
-// MARK: - Action
-extension MainViewController {
-    func openMainApp(libraryId: String = "") {
-        guard let url = URL(string: "kustudy://?libraryId=\(libraryId)") else { return }
-        extensionContext?.open(url, completionHandler: { (completed) in
-            
-        })
     }
 }
 

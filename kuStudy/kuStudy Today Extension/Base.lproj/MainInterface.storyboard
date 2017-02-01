@@ -110,6 +110,7 @@
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="trailingMargin" secondItem="GRc-pp-5Oz" secondAttribute="trailing" constant="16" id="Fmt-Gz-uGF"/>
                                             <constraint firstItem="O0F-OC-LJv" firstAttribute="top" secondItem="GRc-pp-5Oz" secondAttribute="bottom" constant="8" id="V6Q-lD-aJB"/>
@@ -121,6 +122,9 @@
                                             <constraint firstAttribute="height" constant="110" id="wJS-ep-Rf9"/>
                                             <constraint firstAttribute="trailing" secondItem="6Wb-4I-3Ma" secondAttribute="trailing" id="yIj-Xu-n4f"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="GLV-qH-tTl" appends="YES" id="lE3-4g-ccE"/>
+                                        </connections>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vgC-i7-qKN">
                                         <rect key="frame" x="0.0" y="110" width="375" height="557"/>
@@ -270,6 +274,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jvm-OS-nhK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="GLV-qH-tTl">
+                    <connections>
+                        <action selector="tappedMainView:" destination="MDO-T2-kL1" id="p5B-da-xF1"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="121" y="250"/>
         </scene>
