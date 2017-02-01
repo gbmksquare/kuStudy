@@ -12,10 +12,7 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
     // Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let libraryId = summaryData.libraries[indexPath.row].libraryId else { return }
-        guard let url = URL(string: "kustudy://?libraryId=\(libraryId)") else { return }
-        extensionContext?.open(url, completionHandler: { (completed) in
-            
-        })
+        openApp(libraryId: libraryId)
     }
     
     // Data source

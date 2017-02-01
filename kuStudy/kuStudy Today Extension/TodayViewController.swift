@@ -59,10 +59,21 @@ class TodayViewController: UIViewController {
     func setup() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 0)
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        tableView.tableFooterView?.backgroundColor = UIColor.clear
+        
         registerPreference()
         listenToPreferenceChange()
         
-        contentView.heightAnchor.constraint(equalToConstant: 110).isActive = true
+        let contentHeight: CGFloat
+        if let context = extensionContext {
+            contentHeight = context.widgetMaximumSize(for: .compact).height
+        } else {
+            contentHeight = 110
+        }
+        
+        contentView.heightAnchor.constraint(equalToConstant: contentHeight).isActive = true
         
         let height = tableView.rowHeight * CGFloat(summaryData.libraries.count)
         tableViewHeight = tableView.heightAnchor.constraint(equalToConstant: height)
@@ -70,8 +81,8 @@ class TodayViewController: UIViewController {
         
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         
-        liberalArtCampusLabel.text = "kuStudy.Today.LiberalArtCampus".localized() + " : "
-        scienceCampusLabel.text = "kuStudy.Today.ScienceCampus".localized() + " : "
+        liberalArtCampusLabel.text = "kuStudy.Today.LiberalArtCampus".localized() + ": "
+        scienceCampusLabel.text = "kuStudy.Today.ScienceCampus".localized() + ": "
     }
     
     // MARK: - View
@@ -105,7 +116,7 @@ class TodayViewController: UIViewController {
         case .loading:
             hideContents()
             showNoticeView()
-            setCompactHeight(maxSize: CGSize(width: width, height: 110))
+            setCompactHeight()
         case .loaded:
             showContents()
             hideNoticeView()
@@ -123,12 +134,12 @@ class TodayViewController: UIViewController {
                 tableView.reloadData()
             } else {
                 tableViewHeight.constant = 0
-                setCompactHeight(maxSize: CGSize(width: width, height: 110))
+                setCompactHeight()
             }
         case .error(_):
             hideContents()
             showNoticeView()
-            setCompactHeight(maxSize: CGSize(width: width, height: 110))
+            setCompactHeight()
         }
     }
     
@@ -166,7 +177,6 @@ class TodayViewController: UIViewController {
 
 // MARK: - Widget
 extension TodayViewController: NCWidgetProviding {
-    // Widget
     func widgetPerformUpdate(completionHandler: @escaping (NCUpdateResult) -> Void) {
         completionHandler(.noData)
     }
@@ -177,21 +187,28 @@ extension TodayViewController: NCWidgetProviding {
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         switch activeDisplayMode {
-        case .compact:
-            setCompactHeight(maxSize: maxSize)
-        case .expanded:
-            setExpandedHeight(maxSize: maxSize)
+        case .compact: setCompactHeight(maxSize: maxSize)
+        case .expanded: setExpandedHeight(maxSize: maxSize)
         }
     }
     
     // Height
-    fileprivate func setCompactHeight(maxSize: CGSize) {
-        preferredContentSize = maxSize
+    fileprivate func setCompactHeight(maxSize: CGSize? = nil) {
+        if let maxSize = maxSize {
+            preferredContentSize = maxSize
+        } else {
+            preferredContentSize = extensionContext?.widgetMaximumSize(for: .compact) ?? CGSize.zero
+        }
     }
     
     fileprivate func setExpandedHeight(maxSize: CGSize) {
+        guard let context = extensionContext else {
+            preferredContentSize = CGSize.zero
+            return
+        }
+        let defaultMaxWidgetHeight = context.widgetMaximumSize(for: .compact).height
         let width = maxSize.width
-        let height = 110 + CGFloat(summaryData.libraries.count) * tableView.rowHeight
+        let height = defaultMaxWidgetHeight + CGFloat(summaryData.libraries.count) * tableView.rowHeight
         preferredContentSize = CGSize(width: width, height: height)
     }
 }
