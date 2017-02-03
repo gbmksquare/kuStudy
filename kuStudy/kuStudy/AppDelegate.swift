@@ -12,7 +12,9 @@ import kuStudyKit
 import Fabric
 import Crashlytics
 import AlamofireNetworkActivityIndicator
+#if DEBUG
 import SimulatorStatusMagic
+#endif
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -167,9 +169,11 @@ extension AppDelegate {
     }
     
     fileprivate func setupStatusbarForSnapshot() {
+        #if DEBUG
         if UserDefaults.standard.bool(forKey: "FASTLANE_SNAPSHOT") {
             guard NSClassFromString("SDStatusBarManager") != nil else { return }
             SDStatusBarManager.sharedInstance().enableOverrides()
         }
+        #endif
     }
 }

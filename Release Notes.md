@@ -5,35 +5,34 @@
 ### New features
 
 * New app icon!
-* Redesigned iOS app!
-* Redesigned Today widget!
-* Refined watchOS app design.
+* Enhanced design for iOS and watchOS apps.
+* Redesigned today widget for iOS 10.
 * Added support for Apple Watch shortcut complications.
 * Tapping on main view of today widget opens app.
 
 ### Improvements
 
-* Dropped iOS 9 support.
-* Dropped watchOS 2 support.
 * Improved today widget life cycle.
-
-### Code improvements
-
-* App is now written in Swift 3.
-* Library names are localized.
-* Added shortened version of library names.
-* Updated Fabric.
-* Updated Fastlane Snapshot settings.
-* iPad screenshots are now taken in landscape.
-* iPad skips "1" screenshot because it's the same as "0".
-* Predefined images will show when running Snapshot.
-* Improved taking better screenshots.
-* Statusbar is automatically cleaned up for Snapshot.
+* 1 px separator on today widget has been moved down.
+* Changed app's main tint color.
+* Settings menu is now reordered.
 
 ### Bug fixes
 
 * Fixed today widget title may not show correct localization.
-* Fixed Snapshot UI test for iPad.
+
+### Code improvements
+
+- Swift 3! App is now fully written in Swift 3.
+- Library names are localized and include a shortened version.
+- Updated Fabric and third party libraries.
+- Updated Fastlane Snapshot settings.
+- iPad screenshots are now taken in landscape.
+- iPad skips "1" screenshot because it's the same as "0".
+- Predefined images will show when running Snapshot.
+- Improved taking better screenshots.
+- Statusbar is automatically cleaned up for Snapshot.
+- Fixed Snapshot UI test for iPad.
 
 ## 1.2 (19)
 
