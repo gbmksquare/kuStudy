@@ -110,7 +110,9 @@ extension MainSplitViewController: UISplitViewControllerDelegate {
             } else {
                 // !!!: When launching from Today or Handoff, split view controller is not collapsed and will show detail view controller as modal
                 if traitCollection.userInterfaceIdiom == .phone && traitCollection.horizontalSizeClass == .compact {
-                    navigations.first?.pushViewController(vc, animated: true)
+                    DispatchQueue.main.async {
+                        navigations.first?.pushViewController(vc, animated: true)
+                    }
                     return true
                 }
                 return false
@@ -118,7 +120,9 @@ extension MainSplitViewController: UISplitViewControllerDelegate {
         } else {
             if splitViewController.isCollapsed == true {
                 guard let vc = detailNavigation.childViewControllers.first else { return true }
-                navigations.last?.pushViewController(vc, animated: true)
+                DispatchQueue.main.async {
+                    navigations.last?.pushViewController(vc, animated: true)
+                }
             } else {
                 return false
             }

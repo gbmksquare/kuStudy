@@ -6,6 +6,7 @@
 
 ### Bug Fixes
 
+* Fixed back button not working when launched app from today widget, 3D touch quick actions, or handoff.
 * Fixed today widget title being cut off in iPhone 5s or lower by reducing the name.
 * Fixed today widget some localization not showing correctly.
 
