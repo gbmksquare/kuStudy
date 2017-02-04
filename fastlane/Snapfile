@@ -12,15 +12,16 @@ languages([
   "ko"
 ])
 
-# Arguments to pass to the app on launch. See https://github.com/fastlane/snapshot#launch-arguments
-# launch_arguments(["-favColor red"])
-
-# The name of the scheme which contains the UI Tests
-scheme "kuStudy Snapshot"
-
 output_directory "./fastlane/screenshots"
 clear_previous_screenshots true
 
-# Choose which project/workspace to use
-# project "./kuStudy/kuStudy.xcodeproj"
 workspace "./kuStudy.xcworkspace"
+scheme "kuStudy Snapshot"
+
+# Arguments to pass to the app on launch. See https://github.com/fastlane/snapshot#launch-arguments
+# launch_arguments(["-favColor red"])
+
+erase_simulator true
+localize_simulator true
+clean true
+reinstall_app true
