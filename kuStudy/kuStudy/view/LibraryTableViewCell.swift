@@ -28,6 +28,18 @@ class LibraryTableViewCell: UITableViewCell {
         availableLabel.text = "kuStudy.Available".localized()
     }
     
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        let color = indicatorView.backgroundColor
+        super.setHighlighted(highlighted, animated: animated)
+        indicatorView.backgroundColor = color
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        let color = indicatorView.backgroundColor
+        super.setSelected(selected, animated: animated)
+        indicatorView.backgroundColor = color
+    }
+    
     // MARK: Populate
     private func setEmpty() {
         thumbnailImageView.image = nil

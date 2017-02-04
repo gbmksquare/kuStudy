@@ -57,6 +57,14 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         super.viewWillAppear(animated)
         startHandoff()
         updateHeaderImage()
+        
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if (splitViewController?.childViewControllers.last?.childViewControllers.first is LibraryViewController) == false {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    tableView.deselectRow(at: indexPath, animated: true)
+                }
+            }
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -170,6 +178,13 @@ extension SummaryViewController {
 
 // MARK: - Table view
 extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+    // Delegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
     // Data source
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

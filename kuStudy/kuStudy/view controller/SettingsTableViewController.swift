@@ -25,8 +25,19 @@ class SettingsTableViewController: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         // iOS Bug: http://stackoverflow.com/questions/19379510/uitableviewcell-doesnt-get-deselected-when-swiping-back-quickly
-        if let indexPath = tableView.indexPathForSelectedRow {
-            tableView.deselectRow(at: indexPath, animated: true)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+        }
+        
+        // Deselct cell if detail view does not match master view
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if (splitViewController?.childViewControllers.last?.childViewControllers.first is LibraryViewController) == true {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    tableView.deselectRow(at: indexPath, animated: true)
+                }
+            }
         }
     }
 }
