@@ -1,5 +1,14 @@
 # Release Notes
 
+## 2.0 (21)
+
+### Improvements
+
+### Bug Fixes
+
+* Fixed today widget title being cut off in iPhone 5s or lower by reducing the name.
+* Fixed today widget some localization not showing correctly.
+
 ## 2.0 (20)
 
 ### New features

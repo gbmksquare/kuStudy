@@ -86,8 +86,8 @@ class MainViewController: UIViewController {
         usedLabel.text = "kuStudy.Today.EmptyData".localized() + "kuStudy.Today.Studying".localized()
         laCampusPlaceholderLabel.text = "kuStudy.Today.LiberalArtCampus".localized() + ": "
         scCampusPlaceholderLabeL.text = "kuStudy.Today.ScienceCampus".localized() + ": "
-        laCampusUsedLabel.text =  "kuStudy.Today.EmptyData".localized()
-        scCampusUsedLabel.text = "kuStudy.Today.EmptyData".localized()
+        laCampusUsedLabel.text =  "kuStudy.Today.EmptyData".localized() + "kuStudy.Today.Studying".localized()
+        scCampusUsedLabel.text = "kuStudy.Today.EmptyData".localized() + "kuStudy.Today.Studying".localized()
     }
     
     private func registerPreference() {
@@ -136,8 +136,8 @@ class MainViewController: UIViewController {
             
             // Update content
             usedLabel.text = (used?.readable ?? "kuStudy.Today.EmptyData".localized()) + "kuStudy.Today.Studying".localized()
-            laCampusUsedLabel.text = laCampusUsed?.readable ?? "kuStudy.Today.EmptyData".localized() + "kuStudy.Today.Studying".localized()
-            scCampusUsedLabel.text = scCampusUsed?.readable ?? "kuStudy.Today.EmptyData".localized() + "kuStudy.Today.Studying".localized()
+            laCampusUsedLabel.text = (laCampusUsed?.readable ?? "kuStudy.Today.EmptyData".localized()) + "kuStudy.Today.Studying".localized()
+            scCampusUsedLabel.text = (scCampusUsed?.readable ?? "kuStudy.Today.EmptyData".localized()) + "kuStudy.Today.Studying".localized()
             tableView.reloadData()
             
             // Change height if needed
