@@ -35,7 +35,7 @@
  * SHARED STRINGS
  */
 
-"kuStudy.Status.Downloading" = "사람 세는 중...";
+"kuStudy.Status.Downloading" = "얼마나 많은 사람들이\n지금 공부를 하고 있을까?";
 "kuStudy.Status.Error" = "이런! 오류가 발생했습니다.";
 
 "kuStudy.LiberalArtCampus" = "문과캠퍼스";
