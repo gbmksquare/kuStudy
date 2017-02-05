@@ -19,11 +19,15 @@ enum DataSourceState {
 class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegate {
     @IBOutlet weak var headerImageView: UIImageView!
     @IBOutlet weak var headerBlurImageView: UIImageView!
-    @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var studyingLabel: UILabel!
-    @IBOutlet weak var studyingDataLabel: UILabel!
-    @IBOutlet weak var liberalArtCampusDataLabel: UILabel!
-    @IBOutlet weak var scienceCampusDataLabel: UILabel!
+    
+    @IBOutlet weak var usedPlaceholderLabel: UILabel!
+    @IBOutlet weak var laCampusUsedPlaceholderLabel: UILabel!
+    @IBOutlet weak var scCampusUsedPlaceholderLabel: UILabel!
+    
+    @IBOutlet weak var usedLabel: UILabel!
+    @IBOutlet weak var laCampusUsedLabel: UILabel!
+    @IBOutlet weak var scCampusUsedLabel: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
     fileprivate  var refreshControl = UIRefreshControl()
     
@@ -89,16 +93,20 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     }
     
     fileprivate func setInitialView() {
-        totalLabel.text = "kuStudy.Total".localized()
-        studyingLabel.text = "kuStudy.Main.Studying".localized()
-        studyingDataLabel.text = "--"
+        usedPlaceholderLabel.text = "kuStudy.Main.Studying".localized()
+        laCampusUsedPlaceholderLabel.text = "kuStudy.LiberalArtCampus".localized() + ":"
+        scCampusUsedPlaceholderLabel.text = "kuStudy.ScienceCampus".localized() + ":"
+        
+        usedLabel.text = "kuStudy.NoData".localized()
+        laCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
+        scCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
     }
     
     fileprivate func updateView() {
         if let usedSeats = summaryData.usedSeats {
-            studyingDataLabel.text = usedSeats.readable
-            liberalArtCampusDataLabel.text = "kuStudy.LiberalArtCampus".localized() + ": " + (summaryData.usedSeatsInLiberalArtCampus?.readable ?? "0") + "kuStudy.Main.Studying".localized()
-            scienceCampusDataLabel.text = "kuStudy.ScienceCampus".localized() + ": " + (summaryData.usedSeatsInScienceCampus?.readable ?? "0") + "kuStudy.Main.Studying".localized()
+            usedLabel.text = usedSeats.readable
+            laCampusUsedLabel.text = (summaryData.usedSeatsInLiberalArtCampus?.readable ?? "kuStudy.NoData".localized()) + "kuStudy.Main.Studying".localized()
+            scCampusUsedLabel.text = (summaryData.usedSeatsInScienceCampus?.readable ?? "kuStudy.NoData".localized()) + "kuStudy.Main.Studying".localized()
         }
         tableView.reloadData()
     }

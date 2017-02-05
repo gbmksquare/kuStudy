@@ -4,6 +4,8 @@
 
 ### Improvements
 
+* Enhanced iOS app design for iPad from previous build. Label's won't cut off any more on lesser width devices like iPhone SE, or in iPad split view.
+
 ### Bug Fixes
 
 * Fixed back button not working when launched app from today widget, 3D touch quick actions, or handoff.

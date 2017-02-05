@@ -13,26 +13,36 @@ import Localize_Swift
 class ReadingRoomTableViewCell: UITableViewCell {
     @IBOutlet weak var indicatorView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
+  
+    @IBOutlet weak var availablePlaceholderLabel: UILabel!
+    @IBOutlet weak var totalPlaceholderLabel: UILabel!
+    @IBOutlet weak var usedPlaceholderLabel: UILabel!
+    
     @IBOutlet weak var availableLabel: UILabel!
-    @IBOutlet weak var availableDataLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var usedLabel: UILabel!
+    
     @IBOutlet weak var usedProgressView: UIProgressView!
     
     // MARK: View
     override func awakeFromNib() {
         super.awakeFromNib()
         indicatorView.layer.cornerRadius = indicatorView.bounds.width / 2
-        availableLabel.text = "kuStudy.Available".localized()
+        availablePlaceholderLabel.text = "kuStudy.Available".localized()
         setEmpty()
     }
     
     // MARK: Populate
     private func setEmpty() {
-        nameLabel.text = "--"
-        availableDataLabel.text = "--"
-        totalLabel.text = "kuStudy.Total".localized() + ": --"
-        usedLabel.text = "kuStudy.Used".localized() + ": --"
+        nameLabel.text = "kuStudy.NoData".localized()
+        availablePlaceholderLabel.text = "kuStudy.Available".localized()
+        totalPlaceholderLabel.text = "kuStudy.Total".localized()
+        usedPlaceholderLabel.text = "kuStudy.Used".localized()
+        
+        availableLabel.text = "kuStudy.NoData".localized()
+        totalLabel.text = "kuStudy.NoData".localized()
+        usedLabel.text = "kuStudy.NoData".localized()
+        
         indicatorView.backgroundColor = UIColor.lightGray
         usedProgressView.progress = 0
     }
@@ -51,9 +61,9 @@ class ReadingRoomTableViewCell: UITableViewCell {
         }
         
         nameLabel.text = name
-        availableDataLabel.text =  availableSeats.readable
-        totalLabel.text = "kuStudy.Total".localized() + ": " + totalSeats.readable
-        usedLabel.text = "kuStudy.Used".localized() + ": " + usedSeats.readable
+        availableLabel.text =  availableSeats.readable
+        totalLabel.text = totalSeats.readable
+        usedLabel.text = usedSeats.readable
         
         indicatorView.backgroundColor = sector.usedPercentageColor
         usedProgressView.progress = sector.usedPercentage

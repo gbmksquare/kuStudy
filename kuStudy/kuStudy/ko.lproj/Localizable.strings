@@ -13,6 +13,8 @@
 "kuStudy.Available" = "잔여";
 "kuStudy.Used" = "사용 중";
 
+"kuStudy.NoData" = "--";
+
 "kuStudy.Main.Studying" = " 명 공부 중";
 
 "kuStudy.Settings.Today.Header.Show" = "보기";

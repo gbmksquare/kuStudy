@@ -17,10 +17,15 @@ class LibraryViewController: UIViewController {
     @IBOutlet weak var headerBlurImageView: UIImageView!
     
     @IBOutlet weak var libraryNameLabel: UILabel!
-    @IBOutlet weak var libraryAvailableLabel: UILabel!
-    @IBOutlet weak var libraryAvailableDataLabel: UILabel!
-    @IBOutlet weak var libraryTotalLabel: UILabel!
-    @IBOutlet weak var libraryUsedLabel: UILabel!
+    
+    @IBOutlet weak var availableLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var usedLabel: UILabel!
+    
+    @IBOutlet weak var availablePlaceholderLabel: UILabel!
+    @IBOutlet weak var totalPlaceholderLabel: UILabel!
+    @IBOutlet weak var usedPlaceholderLabel: UILabel!
+    
     @IBOutlet weak var photographerLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
@@ -82,10 +87,14 @@ class LibraryViewController: UIViewController {
     
     fileprivate func setInitialView() {
         libraryNameLabel.text = LibraryType(rawValue: libraryId)?.name
-        libraryAvailableLabel.text = "kuStudy.Available".localized()
-        libraryTotalLabel.text = "kuStudy.Total".localized() + ": --"
-        libraryAvailableDataLabel.text = "--"
-        libraryUsedLabel.text = "kuStudy.Used".localized() + ": --"
+        availablePlaceholderLabel.text  = "kuStudy.Available".localized()
+        totalPlaceholderLabel.text = "kuStudy.Total".localized()
+        usedPlaceholderLabel.text = "kuStudy.Used".localized()
+        
+        availableLabel.text = "kuStudy.NoData".localized()
+        totalLabel.text = "kuStudy.NoData".localized()
+        usedLabel.text = "kuStudy.NoData".localized()
+        
         photographerLabel.text = ""
         let photo = PhotoProvider.sharedProvider.photo(libraryId)
         headerImageView.image = photo.image
@@ -96,9 +105,9 @@ class LibraryViewController: UIViewController {
     
     fileprivate func updateView() {
         if let libraryData = libraryData {
-            libraryTotalLabel.text = "kuStudy.Total".localized() + ": " + libraryData.totalSeats.readable
-            libraryAvailableDataLabel.text = libraryData.availableSeats.readable
-            libraryUsedLabel.text = "kuStudy.Used".localized() + ": " + libraryData.usedSeats.readable
+            availableLabel.text = libraryData.availableSeats.readable
+            totalLabel.text = libraryData.totalSeats.readable
+            usedLabel.text = libraryData.usedSeats.readable
         }
         tableView.reloadData()
     }

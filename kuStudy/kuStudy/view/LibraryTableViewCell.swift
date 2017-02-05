@@ -14,8 +14,12 @@ class LibraryTableViewCell: UITableViewCell {
     @IBOutlet weak var indicatorView: UIView!
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var availablePlaceholderLabel: UILabel!
+    @IBOutlet weak var totalPlaceholderLabel: UILabel!
+    @IBOutlet weak var usedPlaceholderLabel: UILabel!
+    
     @IBOutlet weak var availableLabel: UILabel!
-    @IBOutlet weak var availableDataLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var usedLabel: UILabel!
 
@@ -25,7 +29,7 @@ class LibraryTableViewCell: UITableViewCell {
         layoutIfNeeded()
         indicatorView.layer.cornerRadius = indicatorView.bounds.width / 2
         thumbnailImageView.layer.cornerRadius = thumbnailImageView.bounds.width / 2
-        availableLabel.text = "kuStudy.Available".localized()
+        setEmpty()
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
@@ -43,10 +47,13 @@ class LibraryTableViewCell: UITableViewCell {
     // MARK: Populate
     private func setEmpty() {
         thumbnailImageView.image = nil
-        nameLabel.text = "--"
-        availableDataLabel.text = "--"
-        totalLabel.text = "kuStudy.Total".localized() + ": --"
-        usedLabel.text = "kuStudy.Used".localized() + ": --"
+        nameLabel.text = "kuStudy.NoData".localized()
+        availablePlaceholderLabel.text = "kuStudy.Available".localized()
+        totalPlaceholderLabel.text = "kuStudy.Total".localized()
+        usedPlaceholderLabel.text = "kuStudy.Used".localized()
+        availableLabel.text = "kuStudy.NoData".localized()
+        totalLabel.text = "kuStudy.NoData".localized()
+        usedLabel.text = "kuStudy.NoData".localized()
         indicatorView.backgroundColor = UIColor.lightGray
     }
     
@@ -62,9 +69,9 @@ class LibraryTableViewCell: UITableViewCell {
         
         let libraryType = LibraryType(rawValue: libraryId)
         nameLabel.text = libraryType?.name
-        availableDataLabel.text =  library.availableSeats.readable
-        totalLabel.text = "kuStudy.Total".localized() + ": " + library.totalSeats.readable
-        usedLabel.text = "kuStudy.Used".localized() + ": " + library.usedSeats.readable
+        availableLabel.text =  library.availableSeats.readable
+        totalLabel.text = library.totalSeats.readable
+        usedLabel.text = library.usedSeats.readable
         
         thumbnailImageView.image = library.thumbnail
         indicatorView.backgroundColor = library.availablePercentageColor

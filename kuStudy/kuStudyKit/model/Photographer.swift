@@ -21,9 +21,9 @@ public struct Photographer {
             return "사진: \(association) \(name)"
         } else {
             if association_en.characters.count > 0 {
-                return "Photography by \(name_en), \(association_en)"
+                return "Photography by\n\(name_en), \(association_en)"
             } else {
-                return "Photography by \(name_en)"
+                return "Photography by\n\(name_en)"
             }
         }
     }

@@ -13,6 +13,8 @@
 "kuStudy.Available" = "Available";
 "kuStudy.Used" = "Occupied";
 
+"kuStudy.NoData" = "--";
+
 "kuStudy.Main.Studying" = " Studying";
 
 "kuStudy.Settings.Today.Header.Show" = "Show";
