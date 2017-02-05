@@ -9,7 +9,7 @@
 import ClockKit
 import kuStudyWatchKit
 
-class ComplicationController: NSObject { // CLKComplicationDataSource
+class ComplicationController: NSObject, CLKComplicationDataSource {
     // MRAK: Privacy
     func getPrivacyBehavior(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationPrivacyBehavior) -> Void) {
         handler(.showOnLockScreen)
@@ -23,21 +23,25 @@ class ComplicationController: NSObject { // CLKComplicationDataSource
             let template = CLKComplicationTemplateCircularSmallSimpleImage()
             let image = #imageLiteral(resourceName: "Complication/Circular")
             template.imageProvider = CLKImageProvider(onePieceImage: image)
+            template.imageProvider.tintColor = UIColor.theme
             handler(template)
         case .utilitarianSmall:
             let template = CLKComplicationTemplateUtilitarianSmallSquare()
             let image = #imageLiteral(resourceName: "Complication/Utilitarian")
             template.imageProvider = CLKImageProvider(onePieceImage: image)
+            template.imageProvider.tintColor = UIColor.theme
             handler(template)
         case .modularSmall:
             let template = CLKComplicationTemplateModularSmallSimpleImage()
             let image = #imageLiteral(resourceName: "Complication/Modular")
             template.imageProvider = CLKImageProvider(onePieceImage: image)
+            template.imageProvider.tintColor = UIColor.theme
             handler(template)
         case .extraLarge:
             let template = CLKComplicationTemplateExtraLargeSimpleImage()
             let image = #imageLiteral(resourceName: "Complication/Extra Large")
             template.imageProvider = CLKImageProvider(onePieceImage: image)
+            template.imageProvider.tintColor = UIColor.theme
             handler(template)
         case .modularLarge, .utilitarianSmallFlat, .utilitarianLarge:
             handler(nil)
@@ -140,6 +144,45 @@ class ComplicationController: NSObject { // CLKComplicationDataSource
     }
     
     // MARK: - Timeline Population
+    func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
+        // Shortcut
+        let finalTemplate: CLKComplicationTemplate?
+        switch complication.family {
+        case .circularSmall:
+            let template = CLKComplicationTemplateCircularSmallSimpleImage()
+            let image = #imageLiteral(resourceName: "Complication/Circular")
+            template.imageProvider = CLKImageProvider(onePieceImage: image)
+            template.imageProvider.tintColor = UIColor.theme
+            finalTemplate = template
+        case .utilitarianSmall:
+            let template = CLKComplicationTemplateUtilitarianSmallSquare()
+            let image = #imageLiteral(resourceName: "Complication/Utilitarian")
+            template.imageProvider = CLKImageProvider(onePieceImage: image)
+            template.imageProvider.tintColor = UIColor.theme
+            finalTemplate = template
+        case .modularSmall:
+            let template = CLKComplicationTemplateModularSmallSimpleImage()
+            let image = #imageLiteral(resourceName: "Complication/Modular")
+            template.imageProvider = CLKImageProvider(onePieceImage: image)
+            template.imageProvider.tintColor = UIColor.theme
+            finalTemplate = template
+        case .extraLarge:
+            let template = CLKComplicationTemplateExtraLargeSimpleImage()
+            let image = #imageLiteral(resourceName: "Complication/Extra Large")
+            template.imageProvider = CLKImageProvider(onePieceImage: image)
+            template.imageProvider.tintColor = UIColor.theme
+            finalTemplate = template
+        case .modularLarge, .utilitarianSmallFlat, .utilitarianLarge:
+            finalTemplate = nil
+        }
+        if let template = finalTemplate {
+            let entry = CLKComplicationTimelineEntry(date: Date(), complicationTemplate: template)
+            handler(entry)
+        } else {
+            handler(nil)
+        }
+    }
+    
 //    func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
 //        // Shortcut
 //        switch complication.family {

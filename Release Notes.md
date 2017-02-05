@@ -5,6 +5,7 @@
 ### Improvements
 
 * Enhanced iOS app design for iPad from previous build. Label's won't cut off any more on lesser width devices like iPhone SE, or in iPad split view.
+* Changed watchOS complication tint color.
 
 ### Bug Fixes
 
@@ -12,6 +13,9 @@
 * Fixed table view highlighting for iPad.
 * Fixed today widget title being cut off in iPhone 5s or lower by reducing the name.
 * Fixed today widget some localization not showing correctly.
+* Fixed watchOS complication may not show up when setting complications from iOS Watch app.
+* Fixed watchOS complication not showing on iOS Watch app.
+* Fixed watchOS app title localizations.
 
 ## 2.0 (20)
 
