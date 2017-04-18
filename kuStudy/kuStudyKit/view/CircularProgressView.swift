@@ -79,8 +79,8 @@ public class CircularProgressView: UIView {
     fileprivate func createArc() -> UIBezierPath {
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let radius = bounds.width / 2 - progressInset
-        let startAngle = CGFloat(M_PI + M_PI_2)
-        let endAngle = startAngle + CGFloat(M_PI) * 2 * CGFloat(progress)
+        let startAngle = CGFloat(Double.pi + Double.pi / 2)
+        let endAngle = startAngle + CGFloat(Double.pi) * 2 * CGFloat(progress)
         let arcPath = UIBezierPath(arcCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
         arcPath.addLine(to: center)
         return arcPath
