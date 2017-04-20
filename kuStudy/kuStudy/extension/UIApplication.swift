@@ -12,6 +12,10 @@ extension UIApplication {
     static var versionString: String {
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
-        return "\(version) (\(build))"
+        #if DEBUG
+            return "\(version) (\(build)) Debug"
+        #else
+            return "\(version) (\(build))"
+        #endif
     }
 }
