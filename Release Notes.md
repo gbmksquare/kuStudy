@@ -1,5 +1,25 @@
 # Release Notes 
 
+## 2.0.1 (22)
+
+### Improvements
+
+* Show Rate on App Store alert after "Share with Friends" action.
+* Circle indicator view is larger and progress view is thicker to increase visibility.
+* Updated third party libraries.
+
+### Bug Fixes
+
+* Minor UI fixes.
+
+### Code improvements
+
+* Show "Debug" mode in app version.
+* Updated to Swift 3.1.
+* Updated Fabric.
+
+
+
 ## 2.0 (21)
 
 ### Improvements
@@ -7,7 +27,7 @@
 * Enhanced iOS app design for iPad from previous build. Label's won't cut off any more on lesser width devices like iPhone SE, or in iPad split view.
 * Changed watchOS complication tint color.
 
-### Bug Fixes
+### Bug fixes
 
 * Fixed back button not working when launched app from today widget, 3D touch quick actions, or handoff.
 * Fixed table view highlighting for iPad.

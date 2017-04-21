@@ -7,12 +7,12 @@
 ## Installation
 
 * Xcode 8 and above
-* Swift 2.3
+* Swift 3
 * CocoaPods
 
 ## Architecture
 
-* kuStudy (Universal iOS 9)
+* kuStudy (Universal iOS 10)
 * kuStudyKit (Dynamic Framework)
 * kuStudyWatchKit (Dynamic Framework)
 * kuStudy Today Extension
