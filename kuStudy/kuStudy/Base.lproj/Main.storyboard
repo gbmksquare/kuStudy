@@ -715,24 +715,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="zoC-KU-fku">
-                            <rect key="frame" x="0.0" y="389" width="414" height="82"/>
+                            <rect key="frame" x="0.0" y="389" width="414" height="84"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppIcon60x60" translatesAutoresizingMaskIntoConstraints="NO" id="Gh8-L4-sMX">
-                                    <rect key="frame" x="192.66666666666666" y="4" width="29" height="29"/>
+                                    <rect key="frame" x="192.33333333333334" y="4" width="29" height="29"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="29" id="5Lm-ET-9RM"/>
                                         <constraint firstAttribute="width" secondItem="Gh8-L4-sMX" secondAttribute="height" multiplier="1:1" id="NwI-Nz-c0G"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="BumMo Koo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWm-mN-eda">
-                                    <rect key="frame" x="173" y="57.666666666666657" width="68" height="14.333333333333343"/>
+                                    <rect key="frame" x="173" y="59" width="68" height="15"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kuStudy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enX-X7-aXx">
-                                    <rect key="frame" x="183.66666666666666" y="41" width="47" height="12.666666666666664"/>
+                                    <rect key="frame" x="183.66666666666666" y="41" width="47" height="14"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
