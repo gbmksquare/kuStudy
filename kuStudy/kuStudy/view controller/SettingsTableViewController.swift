@@ -8,7 +8,7 @@
 
 import UIKit
 import AcknowList
-//import StoreKit
+import StoreKit
 import Crashlytics
 
 class SettingsTableViewController: UITableViewController {
@@ -58,6 +58,12 @@ extension SettingsTableViewController {
             activityVC.popoverPresentationController?.permittedArrowDirections = .any
             activityVC.popoverPresentationController?.sourceView = cell
             activityVC.popoverPresentationController?.sourceRect = cell.bounds
+            activityVC.completionWithItemsHandler = { (_, _, _, _) in
+                // Show rate on App Store
+                if #available(iOS 10.3, *) {
+                    SKStoreReviewController.requestReview()
+                }
+            }
             present(activityVC, animated: true, completion: { 
                 Answers.logInvite(withMethod: "iOS", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
             })
