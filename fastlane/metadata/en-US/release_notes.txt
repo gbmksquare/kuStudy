@@ -1,19 +1,10 @@
-New Features
-
-• New app icon!
-• Completely rewritten Today widget with better design for iOS 10.
-• Apple Watch app now supports shortcut complications.
-
 Improvements
-
-• App is now entirely written in Apple's newest language - Swift 3!
-• Improved iOS app design.
-• Improved watchOS app design.
+• Dialog requesting app review may appear 3 times max per year.
+• Improved visibility of some UI components.
 • Updated third party libraries.
 
 Bug Fixes
-
-•  Fixed today widget may not show correct localization.
+• Minor UI fixes.
 
 
 Happy studying! :)
