@@ -22,7 +22,7 @@
 "kuStudy.Settings.Today.Footer.Hidden" = "이 곳에 옮겨진 항목은 알림 센터에서 보이지 않습니다.";
 "kuStudy.Settings.Today.Footer.Instruction" = "오늘 위젯 추가하기:\n\n1. 화면 상단에서 스와이프해 알림 센터를 여세요.\n2. 오늘 탭으로 변경하세요.\n3. 최하단으로 내려가 편집 버튼을 누르세요.\n4. 고려대학교 열람실을 찾아 왼쪽의 + 아이콘을 누르세요.\n5. 완료를 누르세요.";
 
-"kuStudy.Settings.Recommend" = "kuStudy로 고려대학교 열람실 현황을 살펴보세요! 오늘 위젯과 Apple Watch를 지원하며 고려대학교의 아름다운 건물을 사진으로 볼 수 있습니다.";
+"kuStudy.Settings.Recommend" = "kuStudy 앱으로 고려대학교 열람실 현황을 확인하세요! 오늘 위젯과 Apple Watch를 지원합니다.";
 
 /*
  * ./kuStudy/kuStudy/view controller/SummaryViewController.swift
