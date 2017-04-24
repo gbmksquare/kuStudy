@@ -10,7 +10,7 @@
 "kuStudy.KeyCommand.Preferences" = "설정";
 
 "kuStudy.Total" = "전체";
-"kuStudy.Available" = "잔여";
+"kuStudy.Available" = "잔여석";
 "kuStudy.Used" = "사용 중";
 
 "kuStudy.NoData" = "--";
