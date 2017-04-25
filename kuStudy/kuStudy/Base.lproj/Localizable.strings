@@ -30,6 +30,8 @@
 
 "Updated: " = "Updated: ";
 
+"kuStudy.Settings.ThanksTo.InstagramAlert.Title" = "Open in Instagram?";
+
 /*
  * SHARED STRINGS
  */
@@ -39,3 +41,6 @@
 
 "kuStudy.LiberalArtCampus" = "Liberal Art Campus";
 "kuStudy.ScienceCampus" = "Science Campus";
+
+"kuStudy.Alert.Confirm" = "OK";
+"kuStudy.Alert.Cancel" = "Cancel";

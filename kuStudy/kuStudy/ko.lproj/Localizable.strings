@@ -30,6 +30,7 @@
 
 "Updated: " = "업데이트: ";
 
+"kuStudy.Settings.ThanksTo.InstagramAlert.Title" = "Instagram 앱에서 열겠습니까?";
 
 /*
  * SHARED STRINGS
@@ -40,3 +41,6 @@
 
 "kuStudy.LiberalArtCampus" = "문과캠퍼스";
 "kuStudy.ScienceCampus" = "자연계캠퍼스";
+
+"kuStudy.Alert.Confirm" = "확인";
+"kuStudy.Alert.Cancel" = "취소";

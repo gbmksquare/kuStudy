@@ -38,6 +38,7 @@ extension AcknowledgementViewController: UITableViewDelegate, UITableViewDataSou
         let photographer = photographers[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "photographerCell", for: indexPath) as! PhotographerCell
         cell.populate(photographer)
+        cell.presentingViewController = self
         return cell
     }
 }
