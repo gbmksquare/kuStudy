@@ -34,7 +34,7 @@
  * SHARED STRINGS
  */
 
-"kuStudy.Status.Downloading" = "I wonder how many people\nare studying right now?";
+"kuStudy.Status.Downloading" = "Loading...";
 "kuStudy.Status.Error" = "Oops! An error occurred.";
 
 "kuStudy.LiberalArtCampus" = "Liberal Art Campus";
