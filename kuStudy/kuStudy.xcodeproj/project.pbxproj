@@ -31,7 +31,6 @@
 		1631A2D81CEF51480078381F /* LibraryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2D61CEF51480078381F /* LibraryType.swift */; };
 		1631A2DB1CF025060078381F /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2DA1CF025060078381F /* Int.swift */; };
 		1631A2DC1CF025060078381F /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2DA1CF025060078381F /* Int.swift */; };
-		1631A2DF1CF17EF30078381F /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2DE1CF17EF30078381F /* CircularProgressView.swift */; };
 		164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E921C5608E0004C6663 /* MainTabBarController.swift */; };
 		164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */; };
 		164DD35B1D9FB30F001236F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164DD3591D9FB30F001236F8 /* LaunchScreen.storyboard */; };
@@ -270,7 +269,6 @@
 		1631A2D31CEF4F240078381F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = controller/API.swift; sourceTree = "<group>"; };
 		1631A2D61CEF51480078381F /* LibraryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryType.swift; path = model/LibraryType.swift; sourceTree = "<group>"; };
 		1631A2DA1CF025060078381F /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Int.swift; path = extension/Int.swift; sourceTree = "<group>"; };
-		1631A2DE1CF17EF30078381F /* CircularProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircularProgressView.swift; path = view/CircularProgressView.swift; sourceTree = "<group>"; };
 		164C0E921C5608E0004C6663 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = "view controller/MainTabBarController.swift"; sourceTree = "<group>"; };
 		164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = "view controller/SettingsTableViewController.swift"; sourceTree = "<group>"; };
 		164DD35A1D9FB30F001236F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -548,14 +546,6 @@
 			name = Extension;
 			sourceTree = "<group>";
 		};
-		1631A2DD1CF17ECD0078381F /* View */ = {
-			isa = PBXGroup;
-			children = (
-				1631A2DE1CF17EF30078381F /* CircularProgressView.swift */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 		164C0E911C5608D1004C6663 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -751,7 +741,6 @@
 				1672460C1B19C43C0083035F /* Framework */,
 				1600D6311B204044008000B8 /* API */,
 				1660A4B01C8FA34B003D5460 /* Photo */,
-				1631A2DD1CF17ECD0078381F /* View */,
 				1664D5691D5AC7C4000BAF56 /* Protocol */,
 				1631A2D91CF023FF0078381F /* Extension */,
 				165F9C921B2199D400101EBE /* Resource */,
@@ -1764,7 +1753,6 @@
 				166C4B181D5B1E3400297651 /* Photo.swift in Sources */,
 				166C4B0F1D5B0ED100297651 /* Photographer.swift in Sources */,
 				166C4B151D5B162400297651 /* PhotoLocation.swift in Sources */,
-				1631A2DF1CF17EF30078381F /* CircularProgressView.swift in Sources */,
 				1664D5671D5AC637000BAF56 /* UIColor.swift in Sources */,
 				1664D56B1D5AC7E0000BAF56 /* PercentagePresentable.swift in Sources */,
 				1631A2D71CEF51480078381F /* LibraryType.swift in Sources */,
