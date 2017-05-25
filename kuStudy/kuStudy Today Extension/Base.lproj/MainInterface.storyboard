@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="MDO-T2-kL1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="MDO-T2-kL1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -134,7 +134,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ud3-iQ-8th" id="fAH-bd-x3m">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="mhK-Ro-mMx">
@@ -266,6 +266,7 @@
                         <outlet property="laCampusPlaceholderLabel" destination="STz-Wd-Ewi" id="cEr-jq-Y18"/>
                         <outlet property="laCampusUsedLabel" destination="7MK-Ij-eas" id="jrj-OF-h6W"/>
                         <outlet property="mainView" destination="KSX-y0-8KY" id="GQ5-Zo-wTc"/>
+                        <outlet property="mainViewHeight" destination="wJS-ep-Rf9" id="DfW-3Y-8io"/>
                         <outlet property="noticeView" destination="YTW-kH-36s" id="WOI-Gh-Moc"/>
                         <outlet property="scCampusPlaceholderLabeL" destination="HfW-g5-l1m" id="cNy-iw-yZs"/>
                         <outlet property="scCampusUsedLabel" destination="gbW-AH-RXM" id="t6y-sn-dHq"/>

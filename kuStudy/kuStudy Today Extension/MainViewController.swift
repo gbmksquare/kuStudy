@@ -16,6 +16,8 @@ class MainViewController: UIViewController {
     @IBOutlet fileprivate weak var mainView: UIView!
     @IBOutlet fileprivate weak var tableView: UITableView!
     
+    @IBOutlet fileprivate weak var mainViewHeight: NSLayoutConstraint!
+    
     @IBOutlet fileprivate weak var laCampusPlaceholderLabel: UILabel!
     @IBOutlet fileprivate weak var scCampusPlaceholderLabeL: UILabel!
     
@@ -81,6 +83,8 @@ class MainViewController: UIViewController {
     // MARK: - Helper
     private func setup() {
         extensionContext?.widgetLargestAvailableDisplayMode = estimatedTableHeight == 0 ? .compact : .expanded
+        
+        mainViewHeight.constant = extensionContext?.widgetMaximumSize(for: .compact).height ?? 110
         
         // Localize
         usedLabel.text = "kuStudy.Today.EmptyData".localized() + "kuStudy.Today.Studying".localized()
