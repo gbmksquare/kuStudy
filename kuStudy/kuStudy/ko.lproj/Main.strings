@@ -6,7 +6,7 @@
 "9G6-bV-8tU.text" = "오늘 위젯";
 
 /* Class = "UINavigationItem"; title = "사진 제공"; ObjectID = "D4Y-in-rYe"; */
-"D4Y-in-rYe.title" = "사진 제공";
+"D4Y-in-rYe.title" = "감사의 말";
 
 /* Class = "UILabel"; text = "0"; ObjectID = "DZQ-sq-912"; */
 "DZQ-sq-912.text" = "0";
@@ -66,7 +66,7 @@
 "jqd-om-39e.text" = "도서관";
 
 /* Class = "UILabel"; text = "사진 제공"; ObjectID = "lPr-9Z-t5V"; */
-"lPr-9Z-t5V.text" = "사진 제공";
+"lPr-9Z-t5V.text" = "감사의 말";
 
 /* Class = "UINavigationItem"; title = "설정"; ObjectID = "lgZ-TA-sm2"; */
 "lgZ-TA-sm2.title" = "설정";
