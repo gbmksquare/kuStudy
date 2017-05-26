@@ -69,30 +69,25 @@ extension SettingsTableViewController {
                 Answers.logInvite(withMethod: "iOS", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
             })
         case 999: // App Store review
-            // TODO: On iOS 9, this doesn't allow directly showing review page.
-//            let storeVC = SKStoreProductViewController()
-//            let parameters = [SKStoreProductParameterITunesItemIdentifier: "925255895"]
-//            storeVC.delegate = self
-//            storeVC.loadProductWithParameters(parameters, completionBlock: nil)
-//            presentViewController(storeVC, animated: true, completion: nil)
+            let storeVC = GBMSKStoreProductViewController()
+            let parameters = [SKStoreProductParameterITunesItemIdentifier: "925255895"]
+            storeVC.delegate = self
+            storeVC.loadProduct(withParameters: parameters, completionBlock: nil)
+            storeVC.loadProduct(withParameters: parameters, completionBlock: { [weak self] (result, error) in
+                self?.present(storeVC, animated: true, completion: nil)
+            })
             
             tableView.deselectRow(at: indexPath, animated: true)
-            guard let appUrl = URL(string: "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=925255895&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software") else { return }
-            let application = UIApplication.shared
-            if application.canOpenURL(appUrl) {
-                application.open(appUrl, options: [:], completionHandler: nil)
-                Answers.logCustomEvent(withName: "Rate on App Store", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
-            }
         default: break
         }
     }
 }
 
-//extension SettingsTableViewController: SKStoreProductViewControllerDelegate {
-//    func productViewControllerDidFinish(viewController: SKStoreProductViewController) {
-//        if let indexPath = tableView.indexPathForSelectedRow {
-//            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-//        }
-//        viewController.dismissViewControllerAnimated(true, completion: nil)
-//    }
-//}
+extension SettingsTableViewController: SKStoreProductViewControllerDelegate {
+    func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        viewController.dismiss(animated: true, completion: nil)
+    }
+}
