@@ -170,10 +170,9 @@ extension AppDelegate {
     
     fileprivate func setupStatusbarForSnapshot() {
         #if DEBUG
-        if UserDefaults.standard.bool(forKey: "FASTLANE_SNAPSHOT") {
-            guard NSClassFromString("SDStatusBarManager") != nil else { return }
-            SDStatusBarManager.sharedInstance().enableOverrides()
-        }
+            if ProcessInfo.processInfo.arguments.contains("Snapshot") ? true : false {
+                SDStatusBarManager.sharedInstance().enableOverrides()
+            }
         #endif
     }
 }
