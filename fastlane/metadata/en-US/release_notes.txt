@@ -1,10 +1,11 @@
 Improvements
-• Dialog requesting app review may appear 3 times max per year.
-• Improved visibility of some UI components.
+• "Write a Review" on settings now open App Store within app instead of opening App Store.
+• Instagram pages for photo contributors now open in Safari within app if Instagram app is not installed.
+• Minor localization changes.
 • Updated third party libraries.
 
 Bug Fixes
-• Minor UI fixes.
+• Fixed Today widget has wrong height on iPad Pro 12.9 inch.
 
 
 Happy studying! :)

@@ -1,5 +1,25 @@
 # Release Notes 
 
+## 2.0.2 (23)
+
+### Improvements
+
+* "Write a Review" on settings now open App Store within app instead of opening App Store.
+* Instagram pages for photo contributors now open in Safari within app if Instagram app is not installed.
+* Minor localization changes.
+* Updated third party libraries.
+
+### Bug fixes
+
+* • Fixed Today widget has wrong height on iPad Pro 12.9 inch.
+
+### Code improvments
+
+* Fixed statusbar not cleaned when running Snapshot.
+* Removed unnecessary classes.
+
+
+
 ## 2.0.1 (22)
 
 ### Improvements
