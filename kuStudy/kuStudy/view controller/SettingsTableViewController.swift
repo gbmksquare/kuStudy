@@ -72,7 +72,6 @@ extension SettingsTableViewController {
             let storeVC = GBMSKStoreProductViewController()
             let parameters = [SKStoreProductParameterITunesItemIdentifier: "925255895"]
             storeVC.delegate = self
-            storeVC.loadProduct(withParameters: parameters, completionBlock: nil)
             storeVC.loadProduct(withParameters: parameters, completionBlock: { [weak self] (result, error) in
                 self?.present(storeVC, animated: true, completion: nil)
             })
