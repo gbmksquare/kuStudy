@@ -20,6 +20,11 @@ class SettingsTableViewController: UITableViewController {
         appIconImageView.layer.cornerRadius = 8
         versionLabel.text = "kuStudy " + UIApplication.versionString
         clearsSelectionOnViewWillAppear = false
+        
+        if #available(iOS 11.0, *) {
+            navigationItem.largeTitleDisplayMode = .automatic
+            navigationController?.navigationBar.prefersLargeTitles = true
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
