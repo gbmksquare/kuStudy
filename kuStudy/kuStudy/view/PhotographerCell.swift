@@ -10,7 +10,8 @@ import UIKit
 import kuStudyKit
 import SafariServices
 
-class PhotographerCell: UITableViewCell {
+class PhotographerCell: UICollectionViewCell {
+    @IBOutlet weak var wrapperView: UIView!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var associationLabel: UILabel!
@@ -20,7 +21,21 @@ class PhotographerCell: UITableViewCell {
     fileprivate var currentPhotoIndex = 0
     fileprivate var timer: Timer?
     
-    weak var presentingViewController: AcknowledgementViewController?
+    weak var presentingViewController: ThanksToViewController?
+    
+    // MARK: - View
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setup()
+    }
+    
+    private func setup() {
+        wrapperView.layer.cornerRadius = 13
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowRadius = 9
+        layer.shadowOffset = CGSize(width: 1, height: 1)
+        layer.shadowOpacity = 0.5
+    }
     
     // MARK: Action
     @IBAction func tappedInstagramButton(_ sender: UIButton) {
