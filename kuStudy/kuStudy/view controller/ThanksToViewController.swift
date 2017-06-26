@@ -22,18 +22,28 @@ class ThanksToViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
 }
 
 // MARK: - Collection view
 extension ThanksToViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     // Delegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = CGSize(width: collectionView.bounds.width, height: 260)
-        return size
+        if traitCollection.horizontalSizeClass == .compact {
+            let size = CGSize(width: collectionView.bounds.width, height: 260)
+            return size
+        } else {
+            let size = CGSize(width: (collectionView.bounds.width - 10) / 2, height: 260)
+            return size
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
