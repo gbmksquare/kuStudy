@@ -1037,7 +1037,7 @@
             </objects>
             <point key="canvasLocation" x="2774" y="2230"/>
         </scene>
-        <!--Thanks To View Controller-->
+        <!--Thanks To-->
         <scene sceneID="Vsu-HB-cuQ">
             <objects>
                 <viewController extendedLayoutIncludesOpaqueBars="YES" id="dTL-Rd-Uvl" customClass="ThanksToViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
@@ -1155,7 +1155,7 @@
                             <constraint firstItem="7Zd-Ln-WUN" firstAttribute="top" secondItem="Opb-YM-z8d" secondAttribute="top" id="x0o-lB-rRq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="XFK-Jo-5j3"/>
+                    <navigationItem key="navigationItem" title="Thanks To" id="fSz-gw-F54"/>
                     <connections>
                         <outlet property="collectionView" destination="7Zd-Ln-WUN" id="V9q-wQ-sCC"/>
                     </connections>
