@@ -19,19 +19,19 @@ public protocol PercentagePresentable {
 public extension PercentagePresentable {
     var availablePercentageColor: UIColor {
         switch availablePercentage {
-        case let p where p < 0.1: return UIColor.kuStudyError
-        case let p where p < 0.25: return UIColor.kuStudyWarning
-        case let p where p < 0.4: return UIColor.kuStudyLightWarning
-        default: return UIColor.kuStudyConfirm
+        case let p where p < 0.1: return UIColor.error
+        case let p where p < 0.25: return UIColor.warning
+        case let p where p < 0.4: return UIColor.warningLight
+        default: return UIColor.confirm
         }
     }
     
     var usedPercentageColor: UIColor {
         switch usedPercentage {
-        case let p where p > 0.9: return UIColor.kuStudyError
-        case let p where p > 0.75: return UIColor.kuStudyWarning
-        case let p where p > 0.6: return UIColor.kuStudyLightWarning
-        default: return UIColor.kuStudyConfirm
+        case let p where p > 0.9: return UIColor.error
+        case let p where p > 0.75: return UIColor.warning
+        case let p where p > 0.6: return UIColor.warningLight
+        default: return UIColor.confirm
         }
     }
 }

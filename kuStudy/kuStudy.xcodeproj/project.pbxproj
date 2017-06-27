@@ -107,6 +107,7 @@
 		16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */; };
 		16DD052E1E46DBB4007AB912 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD052D1E46DBB4007AB912 /* UIColor.swift */; };
 		16DD05311E46E10B007AB912 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16DD05331E46E10B007AB912 /* InfoPlist.strings */; };
+		16E06BC81F01FA1D005C7947 /* Resource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16E06BC71F01FA1D005C7947 /* Resource.xcassets */; };
 		16EE9F691F00F2EA006B75BB /* ThanksToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */; };
 		1A6ADFECC0BE4686683FEB7A /* Pods_kuStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9CA6B659DC9080D5A97D52 /* Pods_kuStudy.framework */; };
 		1CA21C0B1A9AA61CE621D2AB /* Pods_kuStudyKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936F5DC271654941D5D5F120 /* Pods_kuStudyKitTests.framework */; };
@@ -341,6 +342,7 @@
 		16DD052D1E46DBB4007AB912 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		16DD05321E46E10B007AB912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16DD05341E46E10D007AB912 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		16E06BC71F01FA1D005C7947 /* Resource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resource.xcassets; sourceTree = "<group>"; };
 		16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Photographers.plist; path = ../kuStudy/Photographers.plist; sourceTree = "<group>"; };
 		16EE13B01C8AECB2002D4F12 /* Photos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Photos.plist; path = ../kuStudy/Photos.plist; sourceTree = "<group>"; };
 		16EE13B21C8AED5B002D4F12 /* PhotoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoProvider.swift; path = ../kuStudy/Base.lproj/controller/PhotoProvider.swift; sourceTree = "<group>"; };
@@ -581,6 +583,7 @@
 		165F9C921B2199D400101EBE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				16E06BC71F01FA1D005C7947 /* Resource.xcassets */,
 				1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */,
 				16EE13B01C8AECB2002D4F12 /* Photos.plist */,
 				166C4B111D5B142400297651 /* PhotoLocations.plist */,
@@ -1332,6 +1335,7 @@
 				166C4B121D5B142400297651 /* PhotoLocations.plist in Resources */,
 				1660A4B11C8FA470003D5460 /* Photos.plist in Resources */,
 				166C4B1B1D5B1FBB00297651 /* LibraryPhotos.xcassets in Resources */,
+				16E06BC81F01FA1D005C7947 /* Resource.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
