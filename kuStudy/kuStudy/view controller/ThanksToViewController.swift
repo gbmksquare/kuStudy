@@ -38,6 +38,11 @@ extension ThanksToViewController: UICollectionViewDelegateFlowLayout, UICollecti
         
         if traitCollection.horizontalSizeClass == .compact {
             width = collectionView.bounds.width
+        } else if traitCollection.preferredContentSizeCategory == .accessibilityLarge ||
+            traitCollection.preferredContentSizeCategory == .accessibilityExtraLarge ||
+            traitCollection.preferredContentSizeCategory == .accessibilityExtraExtraLarge ||
+            traitCollection.preferredContentSizeCategory == .accessibilityExtraExtraExtraLarge {
+            width = collectionView.bounds.width
         } else {
             width = (collectionView.bounds.width - 10) / 2
         }
