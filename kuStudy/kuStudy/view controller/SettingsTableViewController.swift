@@ -15,6 +15,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var appIconImageView: UIImageView!
     @IBOutlet weak var versionLabel: UILabel!
     
+    // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
         appIconImageView.layer.cornerRadius = 8
@@ -42,6 +43,20 @@ class SettingsTableViewController: UITableViewController {
                 if let indexPath = tableView.indexPathForSelectedRow {
                     tableView.deselectRow(at: indexPath, animated: true)
                 }
+            }
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        // Adjust table footer view height to support dynamic type
+        if let footer = tableView.tableFooterView {
+            let height = footer.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+            var frame = footer.frame
+            if frame.height != height {
+                frame.size.height = height
+                footer.frame = frame
+                tableView.tableFooterView = footer
             }
         }
     }
