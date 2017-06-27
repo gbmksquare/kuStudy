@@ -109,6 +109,7 @@
 		16DD05311E46E10B007AB912 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16DD05331E46E10B007AB912 /* InfoPlist.strings */; };
 		16E06BC81F01FA1D005C7947 /* Resource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16E06BC71F01FA1D005C7947 /* Resource.xcassets */; };
 		16EE9F691F00F2EA006B75BB /* ThanksToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */; };
+		16EFE0EC1F0243EB00FD476B /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EFE0EB1F0243EB00FD476B /* Preference.swift */; };
 		1A6ADFECC0BE4686683FEB7A /* Pods_kuStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9CA6B659DC9080D5A97D52 /* Pods_kuStudy.framework */; };
 		1CA21C0B1A9AA61CE621D2AB /* Pods_kuStudyKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936F5DC271654941D5D5F120 /* Pods_kuStudyKitTests.framework */; };
 		775879C9C863D09501D7E0C8 /* Pods_kuStudyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4392D020A2D904BE378580 /* Pods_kuStudyTests.framework */; };
@@ -347,6 +348,7 @@
 		16EE13B01C8AECB2002D4F12 /* Photos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Photos.plist; path = ../kuStudy/Photos.plist; sourceTree = "<group>"; };
 		16EE13B21C8AED5B002D4F12 /* PhotoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoProvider.swift; path = ../kuStudy/Base.lproj/controller/PhotoProvider.swift; sourceTree = "<group>"; };
 		16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThanksToViewController.swift; path = "view controller/ThanksToViewController.swift"; sourceTree = "<group>"; };
+		16EFE0EB1F0243EB00FD476B /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Preference.swift; path = controller/Preference.swift; sourceTree = "<group>"; };
 		19E673EA13423A798E88583B /* Pods-kuStudyKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudyKitTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudyKitTests/Pods-kuStudyKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B8A305A9EC4933DE4DE0309 /* Pods-kuStudy WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy WatchKit App.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy WatchKit App/Pods-kuStudy WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
 		2210BCB64C450C6FBF44E8B2 /* Pods-kuStudy WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy WatchKit Extension.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -684,6 +686,7 @@
 			children = (
 				167245E41B19C07B0083035F /* Application */,
 				167245E61B19C0890083035F /* User Interface */,
+				16EFE0EA1F02439100FD476B /* Controller */,
 				1672461D1B1B44630083035F /* View Controller */,
 				16DB2DAC1C55D55D0096AFB9 /* Extension */,
 				167245E51B19C0850083035F /* Resource */,
@@ -907,6 +910,14 @@
 				16DD052D1E46DBB4007AB912 /* UIColor.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		16EFE0EA1F02439100FD476B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				16EFE0EB1F0243EB00FD476B /* Preference.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		3352B19D19667EC6E2FBA752 /* Pods */ = {
@@ -1742,6 +1753,7 @@
 				1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift in Sources */,
 				164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */,
 				167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */,
+				16EFE0EC1F0243EB00FD476B /* Preference.swift in Sources */,
 				1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,6 @@ import kuStudyKit
 import Localize_Swift
 
 class TodayExtensionOrderTableViewController: UITableViewController {
-    fileprivate var defaults: UserDefaults!
     fileprivate var libraryTypes: [LibraryType]!
     fileprivate var orderedLibraryIds: [String]!
     fileprivate var hiddenLibraryIds: [String]!
@@ -19,9 +18,8 @@ class TodayExtensionOrderTableViewController: UITableViewController {
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
-        orderedLibraryIds = defaults.array(forKey: "todayExtensionOrder") as! [String]
-        hiddenLibraryIds = defaults.array(forKey: "todayExtensionHidden") as! [String]
+        orderedLibraryIds = Preference.shared.widgetLibraryOrder
+        hiddenLibraryIds = Preference.shared.widgetLibraryHidden
         libraryTypes = LibraryType.allTypes()
         tableView.delegate = self
         tableView.dataSource = self
@@ -108,9 +106,7 @@ extension TodayExtensionOrderTableViewController {
             hiddenLibraryIds.insert(movingLibraryId, at: toRow)
         }
         
-        defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
-        defaults.setValue(orderedLibraryIds, forKey: "todayExtensionOrder")
-        defaults.setValue(hiddenLibraryIds, forKey: "todayExtensionHidden")
-        defaults.synchronize()
+        Preference.shared.widgetLibraryOrder = orderedLibraryIds
+        Preference.shared.widgetLibraryHidden = hiddenLibraryIds
     }
 }

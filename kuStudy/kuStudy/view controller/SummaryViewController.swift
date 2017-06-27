@@ -131,8 +131,7 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     }
     
     fileprivate func reorderLibraryData() {
-        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
-        orderedLibraryIds = defaults.array(forKey: "libraryOrder") as! [String]
+        orderedLibraryIds = Preference.shared.libraryOrder
         
         var orderedLibraryData = [LibraryData]()
         for libraryId in orderedLibraryIds {

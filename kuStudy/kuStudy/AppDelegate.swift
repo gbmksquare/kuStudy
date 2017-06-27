@@ -66,32 +66,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: - Quick action
-    fileprivate func listenForUserDefaultsDidChange() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsDidChange(_:)), name: UserDefaults.didChangeNotification, object: nil)
-    }
-    
-    @objc fileprivate func handleUserDefaultsDidChange(_ notification: Notification) {
-        updateQuickActionItems()
-    }
-    
-    fileprivate func updateQuickActionItems() {
-        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
-        let orderedLibraryIds = defaults.array(forKey: "libraryOrder") as! [String]
-        let libraryTypes = LibraryType.allTypes()
-        
-        let actionType = "com.gbmksquare.kuapps.kucourse.LibraryAction"
-        
-        let icon = UIApplicationShortcutIcon(templateImageName: "187-pencil")
-        var quickActionItems = [UIMutableApplicationShortcutItem]()
-        for libraryId in orderedLibraryIds {
-            let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!
-            let item = UIMutableApplicationShortcutItem(type: actionType, localizedTitle: libraryType.name, localizedSubtitle: nil, icon: icon, userInfo: ["libraryId": libraryId])
-            quickActionItems.append(item)
-        }
-        
-        UIApplication.shared.shortcutItems = quickActionItems
-    }
-    
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         guard let window = window else { return }
         
@@ -117,11 +91,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - Setup
 extension AppDelegate {
     fileprivate func setupApplication() {
-        setupFabric()
-        setupDefaultPreferences()
+        Preference.shared.registerDefault()
         setupAppearance()
         setupStatusbarForSnapshot()
-        listenForUserDefaultsDidChange()
+        setupFabric()
         NetworkActivityIndicatorManager.shared.isEnabled = true
     }
     
@@ -129,16 +102,6 @@ extension AppDelegate {
         #if !DEBUG
             Fabric.with([Crashlytics()])
         #endif
-    }
-    
-    private func setupDefaultPreferences() {
-        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
-        let libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
-        defaults.register(defaults: ["libraryOrder": libraryOrder,
-            "todayExtensionOrder": libraryOrder,
-            "todayExtensionHidden": []])
-        defaults.synchronize()
-        updateQuickActionItems()
     }
     
     private func setupAppearance() {

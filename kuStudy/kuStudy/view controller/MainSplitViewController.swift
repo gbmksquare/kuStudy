@@ -28,8 +28,7 @@ class MainSplitViewController: UISplitViewController {
     }
     
     override var keyCommands: [UIKeyCommand]? {
-        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
-        let libraryIds = defaults.array(forKey: "libraryOrder") as! [String]
+        let libraryIds = Preference.shared.libraryOrder
         var commands = [UIKeyCommand]()
         for (index, libraryId) in libraryIds.enumerated() {
             let libraryType = LibraryType(rawValue: libraryId)!
@@ -47,8 +46,7 @@ class MainSplitViewController: UISplitViewController {
         tabBarController.selectedIndex = 0
         
         let summaryViewController = (tabBarController.childViewControllers.first as! UINavigationController).childViewControllers.first as! SummaryViewController
-        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
-        let libraryIds = defaults.array(forKey: "libraryOrder") as! [String]
+        let libraryIds = Preference.shared.libraryOrder
         let index = Int(sender.input)! - 1
         let libraryId = libraryIds[index]
         summaryViewController.performSegue(withIdentifier: "librarySegue", sender: libraryId)

@@ -11,7 +11,6 @@ import kuStudyKit
 import WatchConnectivity
 
 class LibraryOrderTableViewController: UITableViewController, WCSessionDelegate {
-    fileprivate var defaults: UserDefaults!
     fileprivate var libraryTypes: [LibraryType]!
     fileprivate var orderedLibraryIds: [String]!
     
@@ -20,8 +19,7 @@ class LibraryOrderTableViewController: UITableViewController, WCSessionDelegate 
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
-        orderedLibraryIds = defaults.array(forKey: "libraryOrder") as! [String]
+        orderedLibraryIds = Preference.shared.libraryOrder
         libraryTypes = LibraryType.allTypes()
         tableView.delegate = self
         tableView.dataSource = self
@@ -88,8 +86,7 @@ extension LibraryOrderTableViewController {
         orderedLibraryIds.remove(at: fromRow)
         orderedLibraryIds.insert(moveLibraryId, at: toRow)
         
-        defaults.setValue(orderedLibraryIds, forKey: "libraryOrder")
-        defaults.synchronize()
+        Preference.shared.libraryOrder = orderedLibraryIds
         
         // Send settings to watch
         do {

@@ -31,7 +31,7 @@ class LibraryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     fileprivate var refreshControl = UIRefreshControl()
     
-    var libraryId: String! = UserDefaults(suiteName: kuStudySharedContainer)?.array(forKey: "libraryOrder")?.first as? String ?? UserDefaults.standard.array(forKey: "libraryOrder")?.first as? String ?? "1";
+    var libraryId: String! = Preference.shared.libraryOrder.first ?? "1"
     fileprivate var libraryData: LibraryData?
     
     fileprivate var dataState: DataSourceState = .fetching
