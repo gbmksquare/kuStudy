@@ -33,13 +33,23 @@ class ThanksToViewController: UIViewController {
 extension ThanksToViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     // Delegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat
+        let height: CGFloat
+        
         if traitCollection.horizontalSizeClass == .compact {
-            let size = CGSize(width: collectionView.bounds.width, height: 260)
-            return size
+            width = collectionView.bounds.width
         } else {
-            let size = CGSize(width: (collectionView.bounds.width - 10) / 2, height: 260)
-            return size
+            width = (collectionView.bounds.width - 10) / 2
         }
+        
+        if traitCollection.preferredContentSizeCategory == .accessibilityExtraLarge ||
+            traitCollection.preferredContentSizeCategory == .accessibilityExtraExtraLarge ||
+            traitCollection.preferredContentSizeCategory == .accessibilityExtraExtraExtraLarge {
+            height = 480
+        } else {
+            height = 260
+        }
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

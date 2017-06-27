@@ -34,7 +34,14 @@ class PhotographerCell: UICollectionViewCell {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowRadius = 9
         layer.shadowOffset = CGSize(width: 1, height: 1)
-        layer.shadowOpacity = 0.5
+        layer.shadowOpacity = 0.2
+        
+        [nameLabel, associationLabel].forEach {
+            $0?.layer.shadowColor = UIColor.black.cgColor
+            $0?.layer.shadowRadius = 6
+            $0?.layer.shadowOpacity = 0.85
+            $0?.layer.shadowOffset = CGSize(width: 1, height: 1)
+        }
     }
     
     // MARK: Action
