@@ -1121,52 +1121,18 @@
                                                                 <constraint firstItem="K7t-6l-nuT" firstAttribute="leading" secondItem="ERh-QV-Evs" secondAttribute="leadingMargin" id="j15-WV-YHc"/>
                                                             </constraints>
                                                         </view>
-                                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aqw-Gi-zRY">
-                                                            <rect key="frame" x="0.0" y="136" width="276" height="60"/>
-                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nZY-hj-awu">
-                                                                <rect key="frame" x="0.0" y="0.0" width="276" height="60"/>
-                                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                                <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OcJ-0x-CVF">
-                                                                        <rect key="frame" x="197" y="31" width="59" height="27"/>
-                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                                        <state key="normal" title="Instagram">
-                                                                            <color key="titleColor" red="0.0" green="0.1137254902" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        </state>
-                                                                        <connections>
-                                                                            <action selector="tappedInstagramButton:" destination="RwK-SS-6qm" eventType="touchUpInside" id="4e6-gr-AFx"/>
-                                                                        </connections>
-                                                                    </button>
-                                                                </subviews>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="OcJ-0x-CVF" secondAttribute="trailing" constant="20" id="o9X-K2-v0h"/>
-                                                                </constraints>
-                                                            </view>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="60" id="FMp-8g-gp9"/>
-                                                            </constraints>
-                                                            <blurEffect style="extraLight"/>
-                                                        </visualEffectView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstItem="oHD-Zs-NJw" firstAttribute="top" secondItem="uaf-G8-OLZ" secondAttribute="top" id="7Je-uV-T7a"/>
                                                         <constraint firstItem="oHD-Zs-NJw" firstAttribute="leading" secondItem="uaf-G8-OLZ" secondAttribute="leading" id="Cl8-wj-N7h"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Aqw-Gi-zRY" secondAttribute="trailing" id="Js0-Pa-71h"/>
                                                         <constraint firstAttribute="trailingMargin" secondItem="ERh-QV-Evs" secondAttribute="trailing" id="MD2-aa-wde"/>
                                                         <constraint firstItem="ERh-QV-Evs" firstAttribute="leading" secondItem="uaf-G8-OLZ" secondAttribute="leadingMargin" id="Mrf-NM-HCL"/>
                                                         <constraint firstAttribute="trailing" secondItem="oHD-Zs-NJw" secondAttribute="trailing" id="Z9K-ru-5nM"/>
                                                         <constraint firstItem="ERh-QV-Evs" firstAttribute="top" relation="greaterThanOrEqual" secondItem="uaf-G8-OLZ" secondAttribute="topMargin" id="aLz-2P-D9V"/>
                                                         <constraint firstAttribute="bottom" secondItem="oHD-Zs-NJw" secondAttribute="bottom" id="oB5-rY-8P6"/>
-                                                        <constraint firstItem="Aqw-Gi-zRY" firstAttribute="leading" secondItem="uaf-G8-OLZ" secondAttribute="leading" id="rwH-S3-09t"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Aqw-Gi-zRY" secondAttribute="bottom" id="uNT-28-1sl"/>
                                                         <constraint firstAttribute="bottomMargin" secondItem="ERh-QV-Evs" secondAttribute="bottom" id="vd3-g4-dRF"/>
                                                     </constraints>
-                                                    <variation key="default">
-                                                        <mask key="subviews">
-                                                            <exclude reference="Aqw-Gi-zRY"/>
-                                                        </mask>
-                                                    </variation>
                                                 </view>
                                             </subviews>
                                         </view>
@@ -1179,7 +1145,6 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="associationLabel" destination="QZx-9f-1Te" id="5je-0G-cKy"/>
-                                            <outlet property="instagramButton" destination="OcJ-0x-CVF" id="vaf-li-zg7"/>
                                             <outlet property="nameLabel" destination="yB6-fz-3mC" id="GBT-ri-5tc"/>
                                             <outlet property="photoImageView" destination="oHD-Zs-NJw" id="JNK-mK-UGA"/>
                                             <outlet property="wrapperView" destination="uaf-G8-OLZ" id="wFV-Ex-zy8"/>

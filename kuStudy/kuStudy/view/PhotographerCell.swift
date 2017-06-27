@@ -15,7 +15,6 @@ class PhotographerCell: UICollectionViewCell {
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var associationLabel: UILabel!
-    @IBOutlet weak var instagramButton: UIButton!
     
     fileprivate var photographer: Photographer?
     fileprivate var currentPhotoIndex = 0
@@ -44,12 +43,6 @@ class PhotographerCell: UICollectionViewCell {
         }
     }
     
-    // MARK: Action
-    @IBAction func tappedInstagramButton(_ sender: UIButton) {
-        guard let instagramId = photographer?.instagramId else { return }
-        presentInstagram(id: instagramId)
-    }
-    
     // MARK: Popuplate
     override func prepareForReuse() {
         currentPhotoIndex = 0
@@ -59,7 +52,6 @@ class PhotographerCell: UICollectionViewCell {
         photoImageView.image = nil
         nameLabel.text = nil
         associationLabel.text = nil
-        instagramButton.setTitle("", for: UIControlState())
     }
     
     func populate(_ photographer: Photographer) {
@@ -78,11 +70,6 @@ class PhotographerCell: UICollectionViewCell {
             nameLabel.text = photographer.name_en
             associationLabel.text = photographer.association_en
         }
-        if photographer.instagramId.characters.count > 0 {
-            instagramButton.setTitle("@" + photographer.instagramId, for: .normal)
-        } else {
-            instagramButton.setTitle("", for: UIControlState())
-        }
     }
     
     @objc fileprivate func updateImage(_ sender: Timer) {
@@ -96,36 +83,5 @@ class PhotographerCell: UICollectionViewCell {
           animations: { [weak self] in
             self?.photoImageView.image = photo.image
         }, completion: nil)
-    }
-}
-
-// MARK: - Action
-extension PhotographerCell {
-    fileprivate func presentInstagram(id instagramId: String) {
-        guard let instagramAppUrl = URL(string: "instagram://user?username=\(instagramId)"),
-            let instagramUrl = URL(string: "https://instagram.com/\(instagramId)") else { return }
-        let application = UIApplication.shared
-        if application.canOpenURL(instagramAppUrl) {
-            openInInstagram(instagramAppUrl)
-        } else {
-            openInSafariViewController(instagramUrl)
-        }
-    }
-    
-    private func openInInstagram(_ url: URL) {
-        let alert = UIAlertController(title: "kuStudy.Settings.ThanksTo.InstagramAlert.Title".localized(), message: nil, preferredStyle: .alert)
-        let open = UIAlertAction(title: "kuStudy.Alert.Confirm".localized(), style: .default) { (_) in
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
-        let cancel = UIAlertAction(title: "kuStudy.Alert.Cancel".localized(), style: .cancel, handler: nil)
-        alert.addAction(cancel)
-        alert.addAction(open)
-        presentingViewController?.present(alert, animated: true, completion: nil)
-    }
-    
-    private func openInSafariViewController(_ url: URL) {
-        let safari = SFSafariViewController(url: url)
-        safari.preferredControlTintColor = UIColor.theme
-        presentingViewController?.present(safari, animated: true, completion: nil)
     }
 }

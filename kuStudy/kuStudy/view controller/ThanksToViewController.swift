@@ -8,6 +8,7 @@
 
 import UIKit
 import kuStudyKit
+import SafariServices
 
 class ThanksToViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
@@ -65,6 +66,11 @@ extension ThanksToViewController: UICollectionViewDelegateFlowLayout, UICollecti
         return 0
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photographer = photographers[indexPath.row]
+        presentInstagram(id: photographer.instagramId)
+    }
+    
     // Data source
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -80,5 +86,36 @@ extension ThanksToViewController: UICollectionViewDelegateFlowLayout, UICollecti
         cell.populate(photographer)
         cell.presentingViewController = self
         return cell
+    }
+}
+
+// MARK: - Instagram
+extension ThanksToViewController {
+    fileprivate func presentInstagram(id instagramId: String) {
+        guard let instagramAppUrl = URL(string: "instagram://user?username=\(instagramId)"),
+            let instagramUrl = URL(string: "https://instagram.com/\(instagramId)") else { return }
+        let application = UIApplication.shared
+        if application.canOpenURL(instagramAppUrl) {
+            openInInstagram(instagramAppUrl)
+        } else {
+            openInSafariViewController(instagramUrl)
+        }
+    }
+    
+    private func openInInstagram(_ url: URL) {
+        let alert = UIAlertController(title: "kuStudy.Settings.ThanksTo.InstagramAlert.Title".localized(), message: nil, preferredStyle: .alert)
+        let open = UIAlertAction(title: "kuStudy.Alert.Confirm".localized(), style: .default) { (_) in
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        let cancel = UIAlertAction(title: "kuStudy.Alert.Cancel".localized(), style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        alert.addAction(open)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func openInSafariViewController(_ url: URL) {
+        let safari = SFSafariViewController(url: url)
+        safari.preferredControlTintColor = UIColor.theme
+        present(safari, animated: true, completion: nil)
     }
 }
