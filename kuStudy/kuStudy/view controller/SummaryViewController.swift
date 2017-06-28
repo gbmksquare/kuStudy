@@ -48,6 +48,8 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         tableView.emptyDataSetSource = self
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
         tableView.tableFooterView = UIView()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = 120
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(updateData(_:)), for: .valueChanged)
         registerPeekAndPop()
