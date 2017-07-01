@@ -45,6 +45,7 @@
 		1660A4B31C8FA471003D5460 /* Photos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16EE13B01C8AECB2002D4F12 /* Photos.plist */; };
 		1660A4B41C8FA471003D5460 /* Photographers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */; };
 		1660A4B81C8FB4EE003D5460 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660A4B71C8FB4EE003D5460 /* LibraryTableViewCell.swift */; };
+		1661C3DF1F07E9C0005C889F /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1661C3DE1F07E9C0005C889F /* UIDevice.swift */; };
 		1664D5521D55E1C6000BAF56 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664D5511D55E1C6000BAF56 /* UINavigationController.swift */; };
 		1664D5541D55E1E2000BAF56 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664D5531D55E1E2000BAF56 /* UIColor.swift */; };
 		1664D5561D55E24B000BAF56 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664D5551D55E24B000BAF56 /* UIApplication.swift */; };
@@ -281,6 +282,7 @@
 		1658FF091D7BB80D00D35A90 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		1660A4B71C8FB4EE003D5460 /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = LibraryPhotos.xcassets; path = kuStudyKit/LibraryPhotos.xcassets; sourceTree = SOURCE_ROOT; };
+		1661C3DE1F07E9C0005C889F /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIDevice.swift; path = extension/UIDevice.swift; sourceTree = "<group>"; };
 		1664D5511D55E1C6000BAF56 /* UINavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINavigationController.swift; path = extension/UINavigationController.swift; sourceTree = "<group>"; };
 		1664D5531D55E1E2000BAF56 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = extension/UIColor.swift; sourceTree = "<group>"; };
 		1664D5551D55E24B000BAF56 /* UIApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplication.swift; path = extension/UIApplication.swift; sourceTree = "<group>"; };
@@ -896,6 +898,7 @@
 		16DB2DAC1C55D55D0096AFB9 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1661C3DE1F07E9C0005C889F /* UIDevice.swift */,
 				1664D5551D55E24B000BAF56 /* UIApplication.swift */,
 				1664D5511D55E1C6000BAF56 /* UINavigationController.swift */,
 				169D41DD1ED7D86100233F70 /* GBMSKStoreProductViewController.swift */,
@@ -1738,6 +1741,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1672461A1B1B13610083035F /* Definitions.swift in Sources */,
+				1661C3DF1F07E9C0005C889F /* UIDevice.swift in Sources */,
 				1664D5541D55E1E2000BAF56 /* UIColor.swift in Sources */,
 				164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */,
 				167246231B1B4BEC0083035F /* LibraryTableViewCell.swift in Sources */,

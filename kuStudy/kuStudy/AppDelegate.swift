@@ -101,6 +101,25 @@ extension AppDelegate {
     private func setupFabric() {
         #if !DEBUG
             Fabric.with([Crashlytics()])
+            let device = UIDevice.current
+            let data: [String: Any] = ["Device": device.model,
+                                       "Model": device.modelIdentifier,
+                                       "OS": device.systemName + " " + device.systemVersion,
+                                       "Version": UIApplication.versionString,
+                                       "VoiceOver": UIAccessibilityIsVoiceOverRunning(),
+                                       "BoldText": UIAccessibilityIsBoldTextEnabled(),
+                                       "ReduceTransparency": UIAccessibilityIsReduceTransparencyEnabled(),
+                                       "ReduceMotion": UIAccessibilityIsReduceMotionEnabled(),
+                                       "Grayscale": UIAccessibilityIsGrayscaleEnabled(),
+                                       "InvertColor": UIAccessibilityIsInvertColorsEnabled(),
+                                       "MonoAudio": UIAccessibilityIsMonoAudioEnabled(),
+                                       "ShakeToUndo": UIAccessibilityIsShakeToUndoEnabled(),
+                                       "SpeakScreen": UIAccessibilityIsSpeakScreenEnabled(),
+                                       "SpeakSelection": UIAccessibilityIsSpeakSelectionEnabled(),
+                                       "GuidedAccess": UIAccessibilityIsGuidedAccessEnabled(),
+                                       "SwitchControl": UIAccessibilityIsSwitchControlRunning(),
+                                       "AssistiveTouch": UIAccessibilityIsAssistiveTouchRunning()]
+            Answers.logCustomEvent(withName: "Launch", customAttributes: data)
         #endif
     }
     
