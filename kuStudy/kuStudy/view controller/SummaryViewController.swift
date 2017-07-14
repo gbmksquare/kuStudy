@@ -40,18 +40,8 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        setInitialView()
-        navigationController?.setTransparent()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.emptyDataSetDelegate = self
-        tableView.emptyDataSetSource = self
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
-        tableView.tableFooterView = UIView()
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.rowHeight = 120
-        tableView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: #selector(updateData(_:)), for: .valueChanged)
+        setup()
+        
         registerPeekAndPop()
         listenForUserDefaultsDidChange()
         updateData()
@@ -78,6 +68,35 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         userActivity?.invalidate()
     }
     
+    // MARK: - Setup
+    private func setup() {
+        setInitialView()
+        setupTableView()
+    }
+    
+    fileprivate func setInitialView() {
+        usedPlaceholderLabel.text = "kuStudy.Main.Studying".localized()
+        laCampusUsedPlaceholderLabel.text = "kuStudy.LiberalArtCampus".localized() + ":"
+        scCampusUsedPlaceholderLabel.text = "kuStudy.ScienceCampus".localized() + ":"
+        
+        usedLabel.text = "kuStudy.NoData".localized()
+        laCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
+        scCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
+    }
+    
+    fileprivate func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.emptyDataSetSource = self
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
+        tableView.tableFooterView = UIView()
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = 120
+        tableView.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(updateData(_:)), for: .valueChanged)
+    }
+    
     // MARK: Action
     @objc fileprivate func updateData(_ sender: UIRefreshControl? = nil) {
         dataState = .fetching
@@ -92,16 +111,6 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
             self?.reorderLibraryData()
             self?.updateView()
         }
-    }
-    
-    fileprivate func setInitialView() {
-        usedPlaceholderLabel.text = "kuStudy.Main.Studying".localized()
-        laCampusUsedPlaceholderLabel.text = "kuStudy.LiberalArtCampus".localized() + ":"
-        scCampusUsedPlaceholderLabel.text = "kuStudy.ScienceCampus".localized() + ":"
-        
-        usedLabel.text = "kuStudy.NoData".localized()
-        laCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
-        scCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
     }
     
     fileprivate func updateView() {

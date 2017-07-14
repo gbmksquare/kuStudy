@@ -12,24 +12,21 @@ import DZNEmptyDataSet
 import Crashlytics
 
 class LibraryViewController: UIViewController {
-    @IBOutlet weak var summaryView: UIView!
-    @IBOutlet weak var headerImageView: UIImageView!
-    @IBOutlet weak var headerBlurImageView: UIImageView!
-    
-    @IBOutlet weak var libraryNameLabel: UILabel!
-    
-    @IBOutlet weak var availableLabel: UILabel!
-    @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var usedLabel: UILabel!
-    
-    @IBOutlet weak var availablePlaceholderLabel: UILabel!
-    @IBOutlet weak var totalPlaceholderLabel: UILabel!
-    @IBOutlet weak var usedPlaceholderLabel: UILabel!
-    
-    @IBOutlet weak var photographerLabel: UILabel!
-    
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet fileprivate weak var table: UITableView!
+    @IBOutlet fileprivate weak var header: UIView!
     fileprivate var refreshControl = UIRefreshControl()
+    
+    @IBOutlet fileprivate weak var heroImageView: UIImageView!
+    @IBOutlet fileprivate weak var titleLabel: UILabel!
+    @IBOutlet fileprivate weak var subtitleLabel: UILabel!
+    
+    @IBOutlet var dataLabels: [UILabel]!
+    @IBOutlet var dataTitleLabels: [UILabel]!
+    
+    override var hidesBottomBarWhenPushed: Bool {
+        get { return navigationController?.topViewController == self }
+        set { super.hidesBottomBarWhenPushed = newValue }
+    }
     
     var libraryId: String! = Preference.shared.libraryOrder.first ?? "1"
     fileprivate var libraryData: LibraryData?
@@ -40,18 +37,7 @@ class LibraryViewController: UIViewController {
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        setInitialView()
-        navigationController?.setTransparent()
-        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-        navigationItem.leftItemsSupplementBackButton = true
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.emptyDataSetDelegate = self
-        tableView.emptyDataSetSource = self
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
-        tableView.tableFooterView = UIView()
-        tableView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: #selector(updateData(_:)), for: .valueChanged)
+        setup()
         updateData()
         
         if let libraryType = LibraryType(rawValue: libraryId) {
@@ -62,11 +48,74 @@ class LibraryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startHandoff()
+        
+        let view = navigationController?.navigationBar.subviews.first
+        view?.alpha = 0
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        userActivity?.invalidate()
+        endHandoff()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let header = table.tableHeaderView {
+            let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+            var frame = header.frame
+            if frame.height != height {
+                frame.size.height = height
+                header.frame = frame
+                table.tableHeaderView = header
+            }
+        }
+    }
+    
+    // MARK: - Setup
+    private func setup() {
+        automaticallyAdjustsScrollViewInsets = false
+        setupNavigation()
+        setupTableView()
+        setupContent()
+    }
+    
+    private func setupNavigation() {
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        navigationItem.leftItemsSupplementBackButton = true
+    }
+    
+    private func setupTableView() {
+        table.emptyDataSetSource = self
+        table.emptyDataSetDelegate = self
+        table.tableFooterView = UIView()
+        table.addSubview(refreshControl)
+        refreshControl.addTarget(self, action: #selector(updateData(_:)), for: .valueChanged)
+        
+        if #available(iOS 11.0, *) {
+            table.contentInsetAdjustmentBehavior = .never
+        }
+    }
+    
+    fileprivate func setupContent() {
+        //        libraryNameLabel.text = LibraryType(rawValue: libraryId)?.name
+        //        availablePlaceholderLabel.text  = "kuStudy.Available".localized()
+        //        totalPlaceholderLabel.text = "kuStudy.Total".localized()
+        //        usedPlaceholderLabel.text = "kuStudy.Used".localized()
+        
+        //        availableLabel.text = "kuStudy.NoData".localized()
+        //        totalLabel.text = "kuStudy.NoData".localized()
+        //        usedLabel.text = "kuStudy.NoData".localized()
+        
+        //        photographerLabel.text = ""
+        let photo = PhotoProvider.sharedProvider.photo(libraryId)
+        //        headerImageView.image = photo.image
+        //        headerBlurImageView.image = photo.image
+        //        headerBlurImageView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        //        photographerLabel.text = photo.photographer.attributionString
+        
+        titleLabel.text = LibraryType(rawValue: libraryId)?.name
+        subtitleLabel.text = LibraryType(rawValue: libraryId)?.name
+        heroImageView.image = photo.image
     }
     
     // MARK: Action
@@ -85,31 +134,23 @@ class LibraryViewController: UIViewController {
         }
     }
     
-    fileprivate func setInitialView() {
-        libraryNameLabel.text = LibraryType(rawValue: libraryId)?.name
-        availablePlaceholderLabel.text  = "kuStudy.Available".localized()
-        totalPlaceholderLabel.text = "kuStudy.Total".localized()
-        usedPlaceholderLabel.text = "kuStudy.Used".localized()
-        
-        availableLabel.text = "kuStudy.NoData".localized()
-        totalLabel.text = "kuStudy.NoData".localized()
-        usedLabel.text = "kuStudy.NoData".localized()
-        
-        photographerLabel.text = ""
-        let photo = PhotoProvider.sharedProvider.photo(libraryId)
-        headerImageView.image = photo.image
-        headerBlurImageView.image = photo.image
-        headerBlurImageView.transform = CGAffineTransform(scaleX: 1, y: -1)
-        photographerLabel.text = photo.photographer.attributionString
-    }
-    
     fileprivate func updateView() {
         if let libraryData = libraryData {
-            availableLabel.text = libraryData.availableSeats.readable
-            totalLabel.text = libraryData.totalSeats.readable
-            usedLabel.text = libraryData.usedSeats.readable
+            dataLabels.forEach {
+                guard let tag = DataTag(rawValue: $0.tag) else { return }
+                switch tag {
+                case .total: $0.text = libraryData.totalSeats.readable
+                case .available: $0.text = libraryData.availableSeats.readable
+                case .used: $0.text = libraryData.usedSeats.readable
+                case .disabled: $0.text = libraryData.disabledOnlySeats.readable
+                case .printer: $0.text = libraryData.printerCount.readable
+                case .scanner: $0.text = libraryData.scannerCount.readable
+                case .ineligible: $0.text = libraryData.ineligibleSeats.readable
+                case .outOfOrder: $0.text = libraryData.outOfOrderSeats.readable
+                }
+            }
         }
-        tableView.reloadData()
+        table.reloadData()
     }
 }
 
@@ -146,6 +187,60 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
 }
 
+// MARK: - Scroll view
+extension LibraryViewController {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        if offset >= heroImageView.bounds.height {
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 1
+            
+            title = LibraryType(rawValue: libraryId)?.name
+        } else {
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 0
+            
+            title = nil
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        if offset <= 0 {
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 0
+        } else if offset < heroImageView.bounds.height / 2 {
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 0
+        } else if offset >= heroImageView.bounds.height / 2 && offset < heroImageView.bounds.height {
+            scrollView.setContentOffset(CGPoint(x: 0, y: heroImageView.bounds.height), animated: true)
+            
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 1
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offset = scrollView.contentOffset.y
+        if offset <= 0 {
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 0
+        } else if offset < heroImageView.bounds.height / 2 {
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 0
+        } else if offset >= heroImageView.bounds.height / 2 && offset < heroImageView.bounds.height {
+            scrollView.setContentOffset(CGPoint(x: 0, y: heroImageView.bounds.height), animated: true)
+            
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 1
+        }
+    }
+}
+
 // MARK: Handoff
 extension LibraryViewController {
     fileprivate func startHandoff() {
@@ -155,5 +250,9 @@ extension LibraryViewController {
         activity.addUserInfoEntries(from: ["libraryId": libraryId])
         activity.becomeCurrent()
         userActivity = activity
+    }
+    
+    fileprivate func endHandoff() {
+        userActivity?.invalidate()
     }
 }
