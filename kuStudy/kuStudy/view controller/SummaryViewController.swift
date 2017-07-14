@@ -37,6 +37,8 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     
     @IBOutlet fileprivate weak var heroImageView: UIImageView!
     
+    fileprivate lazy var gradient = CAGradientLayer()
+    
     fileprivate var summaryData = SummaryData()
     fileprivate var dataState: DataSourceState = .fetching
     fileprivate var error: Error?
@@ -84,9 +86,25 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         userActivity?.invalidate()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        if let header = table.tableHeaderView {
+            let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+            var frame = header.frame
+            if frame.height != height {
+                frame.size.height = height
+                header.frame = frame
+                table.tableHeaderView = header
+            }
+        }
+        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController!.navigationBar.bounds.height)
+        gradient.frame = CGRect(origin: .zero, size: size)
+    }
+    
     // MARK: - Setup
     private func setup() {
         setInitialView()
+        setupGradient()
         setupTableView()
     }
     
@@ -98,6 +116,13 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         usedLabel.text = "kuStudy.NoData".localized()
         laCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
         scCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
+    }
+    
+    private func setupGradient() {
+        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController!.navigationBar.bounds.height)
+        gradient.colors = [UIColor.black.withAlphaComponent(0.5).cgColor, UIColor.clear]
+        gradient.frame = CGRect(origin: .zero, size: size)
+        header.layer.addSublayer(gradient)
     }
     
     fileprivate func setupTableView() {

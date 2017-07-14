@@ -20,6 +20,8 @@ class LibraryViewController: UIViewController {
     @IBOutlet fileprivate weak var titleLabel: UILabel!
     @IBOutlet fileprivate weak var subtitleLabel: UILabel!
     
+    fileprivate lazy var gradient = CAGradientLayer()
+    
     @IBOutlet var dataLabels: [UILabel]!
     @IBOutlet var dataTitleLabels: [UILabel]!
     
@@ -72,12 +74,15 @@ class LibraryViewController: UIViewController {
                 table.tableHeaderView = header
             }
         }
+        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController!.navigationBar.bounds.height)
+        gradient.frame = CGRect(origin: .zero, size: size)
     }
     
     // MARK: - Setup
     private func setup() {
         automaticallyAdjustsScrollViewInsets = false
         setupNavigation()
+        setupGradient()
         setupTableView()
         setupContent()
     }
@@ -85,6 +90,13 @@ class LibraryViewController: UIViewController {
     private func setupNavigation() {
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
+    }
+    
+    private func setupGradient() {
+        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController!.navigationBar.bounds.height)
+        gradient.colors = [UIColor.black.withAlphaComponent(0.5).cgColor, UIColor.clear]
+        gradient.frame = CGRect(origin: .zero, size: size)
+        header.layer.addSublayer(gradient)
     }
     
     private func setupTableView() {
