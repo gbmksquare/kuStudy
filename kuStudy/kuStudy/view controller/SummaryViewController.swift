@@ -207,7 +207,7 @@ extension SummaryViewController {
                 let libraryId = sender as! String
                 destinationViewController.libraryId = libraryId
             } else {
-                guard let selectedRow = (tableView.indexPathForSelectedRow as IndexPath?)?.row else { return }
+                guard let selectedRow = (table.indexPathForSelectedRow as IndexPath?)?.row else { return }
                 let libraryData = summaryData.libraries[selectedRow]
                 destinationViewController.libraryId = libraryData.libraryId
             }
