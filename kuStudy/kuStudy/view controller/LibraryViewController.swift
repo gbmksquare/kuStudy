@@ -48,7 +48,10 @@ class LibraryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startHandoff()
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         let view = navigationController?.navigationBar.subviews.first
         view?.alpha = 0
     }
@@ -85,8 +88,6 @@ class LibraryViewController: UIViewController {
     }
     
     private func setupTableView() {
-        table.emptyDataSetSource = self
-        table.emptyDataSetDelegate = self
         table.tableFooterView = UIView()
         table.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(updateData(_:)), for: .valueChanged)

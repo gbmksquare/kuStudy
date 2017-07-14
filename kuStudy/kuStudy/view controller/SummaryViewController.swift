@@ -29,7 +29,13 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     @IBOutlet weak var scCampusUsedLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
+    
+    // Refactored
+    @IBOutlet fileprivate weak var table: UITableView!
+    @IBOutlet fileprivate weak var header: UIView!
     fileprivate  var refreshControl = UIRefreshControl()
+    
+    @IBOutlet fileprivate weak var heroImageView: UIImageView!
     
     fileprivate var summaryData = SummaryData()
     fileprivate var dataState: DataSourceState = .fetching
@@ -41,6 +47,10 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        
+        if #available(iOS 11.0, *) {
+            table.contentInsetAdjustmentBehavior = .never
+        }
         
         registerPeekAndPop()
         listenForUserDefaultsDidChange()
@@ -61,6 +71,12 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
                 }
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let view = navigationController?.navigationBar.subviews.first
+        view?.alpha = 0
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -95,6 +111,9 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         tableView.rowHeight = 120
         tableView.addSubview(refreshControl)
         refreshControl.addTarget(self, action: #selector(updateData(_:)), for: .valueChanged)
+        
+        table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
+        table.tableFooterView = UIView()
     }
     
     // MARK: Action
@@ -120,6 +139,7 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
             scCampusUsedLabel.text = (summaryData.usedSeatsInScienceCampus?.readable ?? "kuStudy.NoData".localized()) + "kuStudy.Main.Studying".localized()
         }
         tableView.reloadData()
+        table.reloadData()
     }
     
     fileprivate func updateHeaderImage() {
@@ -139,6 +159,8 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         headerImageView.image = photo.image
         headerBlurImageView.image = photo.image
         headerBlurImageView.transform = CGAffineTransform(scaleX: 1, y: -1)
+        
+        heroImageView.image = photo.image
     }
     
     fileprivate func reorderLibraryData() {
@@ -241,6 +263,60 @@ extension SummaryViewController {
     @objc fileprivate func handleUserDefaultsDidChange(_ notification: Notification) {
         reorderLibraryData()
         updateView()
+    }
+}
+
+// MARK: - Scroll view
+extension SummaryViewController {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        if offset >= heroImageView.bounds.height {
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 1
+            
+            title = "Library"
+        } else {
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 0
+            
+            title = nil
+        }
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y
+        if offset <= 0 {
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 0
+        } else if offset < heroImageView.bounds.height / 2 {
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 0
+        } else if offset >= heroImageView.bounds.height / 2 && offset < heroImageView.bounds.height {
+            scrollView.setContentOffset(CGPoint(x: 0, y: heroImageView.bounds.height), animated: true)
+            
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 1
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offset = scrollView.contentOffset.y
+        if offset <= 0 {
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 0
+        } else if offset < heroImageView.bounds.height / 2 {
+            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+            
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 0
+        } else if offset >= heroImageView.bounds.height / 2 && offset < heroImageView.bounds.height {
+            scrollView.setContentOffset(CGPoint(x: 0, y: heroImageView.bounds.height), animated: true)
+            
+            let view = self.navigationController?.navigationBar.subviews.first
+            view?.alpha = 1
+        }
     }
 }
 
