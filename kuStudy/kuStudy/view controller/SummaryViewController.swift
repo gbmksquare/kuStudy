@@ -8,6 +8,7 @@
 
 import UIKit
 import kuStudyKit
+import MXParallaxHeader
 import DZNEmptyDataSet
 import Localize_Swift
 import Crashlytics
@@ -16,28 +17,16 @@ enum DataSourceState {
     case fetching, error
 }
 
-class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegate {
-    @IBOutlet weak var headerImageView: UIImageView!
-    @IBOutlet weak var headerBlurImageView: UIImageView!
-    
-    @IBOutlet weak var usedPlaceholderLabel: UILabel!
-    @IBOutlet weak var laCampusUsedPlaceholderLabel: UILabel!
-    @IBOutlet weak var scCampusUsedPlaceholderLabel: UILabel!
-    
-    @IBOutlet weak var usedLabel: UILabel!
-    @IBOutlet weak var laCampusUsedLabel: UILabel!
-    @IBOutlet weak var scCampusUsedLabel: UILabel!
-    
-    @IBOutlet weak var tableView: UITableView!
-    
-    // Refactored
+class SummaryViewController: UIViewController {
     @IBOutlet fileprivate weak var table: UITableView!
     @IBOutlet fileprivate weak var header: UIView!
-    fileprivate  var refreshControl = UIRefreshControl()
     
     @IBOutlet fileprivate weak var heroImageView: UIImageView!
     
     fileprivate lazy var gradient = CAGradientLayer()
+    
+    fileprivate var showNavigationAnimator: UIViewPropertyAnimator?
+    fileprivate var hideNavigationAnimator: UIViewPropertyAnimator?
     
     fileprivate var summaryData = SummaryData()
     fileprivate var dataState: DataSourceState = .fetching
@@ -49,13 +38,6 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        
-        if #available(iOS 11.0, *) {
-            table.contentInsetAdjustmentBehavior = .never
-        }
-        
-        registerPeekAndPop()
-        listenForUserDefaultsDidChange()
         updateData()
         
         Answers.logContentView(withName: "Summary", contentType: "Summary", contentId: "0", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
@@ -68,8 +50,8 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             if (splitViewController?.childViewControllers.last?.childViewControllers.first is LibraryViewController) == false {
-                if let indexPath = tableView.indexPathForSelectedRow {
-                    tableView.deselectRow(at: indexPath, animated: true)
+                if let indexPath = table.indexPathForSelectedRow {
+                    table.deselectRow(at: indexPath, animated: true)
                 }
             }
         }
@@ -77,46 +59,39 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        let view = navigationController?.navigationBar.subviews.first
-        view?.alpha = 0
+        showNavigation(animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        userActivity?.invalidate()
+        endHandoff()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if let header = table.tableHeaderView {
-            let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
-            var frame = header.frame
-            if frame.height != height {
-                frame.size.height = height
-                header.frame = frame
-                table.tableHeaderView = header
-            }
-        }
-        guard let navigationController = navigationController else { return }
-        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController.navigationBar.bounds.height)
-        gradient.frame = CGRect(origin: .zero, size: size)
+        resizeHeader()
+        resizeGradient()
     }
-    
-    // MARK: - Setup
-    private func setup() {
-        setInitialView()
+}
+
+// MARK: - Setup
+extension SummaryViewController {
+    fileprivate func setup() {
+        setupImageHeader()
         setupGradient()
         setupTableView()
+        setupContent()
+        listenForUserDefaultsDidChange()
+        registerPeekAndPop()
     }
     
-    fileprivate func setInitialView() {
-        usedPlaceholderLabel.text = "kuStudy.Main.Studying".localized()
-        laCampusUsedPlaceholderLabel.text = "kuStudy.LiberalArtCampus".localized() + ":"
-        scCampusUsedPlaceholderLabel.text = "kuStudy.ScienceCampus".localized() + ":"
-        
-        usedLabel.text = "kuStudy.NoData".localized()
-        laCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
-        scCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
+    private func setupImageHeader() {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        table.parallaxHeader.view = imageView
+        table.parallaxHeader.height = 200
+        table.parallaxHeader.mode = .topFill
+        heroImageView = imageView
     }
     
     private func setupGradient() {
@@ -124,102 +99,46 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
         let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController.navigationBar.bounds.height)
         gradient.colors = [UIColor.black.withAlphaComponent(0.5).cgColor, UIColor.clear]
         gradient.frame = CGRect(origin: .zero, size: size)
-        header.layer.addSublayer(gradient)
+        heroImageView.layer.addSublayer(gradient)
     }
     
-    fileprivate func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.emptyDataSetDelegate = self
-        tableView.emptyDataSetSource = self
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
-        tableView.tableFooterView = UIView()
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.rowHeight = 120
-        tableView.addSubview(refreshControl)
-        refreshControl.addTarget(self, action: #selector(updateData(_:)), for: .valueChanged)
-        
-        table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
+    private func setupTableView() {
+        var inset = table.contentInset
+        inset.bottom += tabBarController?.tabBar.bounds.height ?? 0
+        table.contentInset = inset
         table.tableFooterView = UIView()
-    }
-    
-    // MARK: Action
-    @objc fileprivate func updateData(_ sender: UIRefreshControl? = nil) {
-        dataState = .fetching
-        kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
-            
-        }, onFailure: { [weak self] (error) in
-            self?.error = error
-            self?.dataState = .error
-        }) { [weak self] (summaryData: SummaryData) in
-            sender?.endRefreshing()
-            self?.summaryData = summaryData
-            self?.reorderLibraryData()
-            self?.updateView()
-        }
-    }
-    
-    fileprivate func updateView() {
-        if let usedSeats = summaryData.usedSeats {
-            usedLabel.text = usedSeats.readable
-            laCampusUsedLabel.text = (summaryData.usedSeatsInLiberalArtCampus?.readable ?? "kuStudy.NoData".localized()) + "kuStudy.Main.Studying".localized()
-            scCampusUsedLabel.text = (summaryData.usedSeatsInScienceCampus?.readable ?? "kuStudy.NoData".localized()) + "kuStudy.Main.Studying".localized()
-        }
-        tableView.reloadData()
-        table.reloadData()
-    }
-    
-    fileprivate func updateHeaderImage() {
-        let libraryTypes = LibraryType.allTypes()
         
-        let libraryId: String
-        let isRunningTest = ProcessInfo.processInfo.arguments.contains("Snapshot") ? true : false
-        if isRunningTest == true {
-            // Fastlane Snapshot
-            let libraryType = LibraryType.CentralSquare
-            libraryId = libraryType.rawValue
-        } else {
-            let randomIndex = Int(arc4random_uniform(UInt32(libraryTypes.count)))
-            libraryId = libraryTypes[randomIndex].rawValue
+        if #available(iOS 11.0, *) {
+            table.contentInsetAdjustmentBehavior = .never
         }
-        let photo = PhotoProvider.sharedProvider.photo(libraryId)
-        headerImageView.image = photo.image
-        headerBlurImageView.image = photo.image
-        headerBlurImageView.transform = CGAffineTransform(scaleX: 1, y: -1)
-        
-        heroImageView.image = photo.image
     }
     
-    fileprivate func reorderLibraryData() {
-        orderedLibraryIds = Preference.shared.libraryOrder
-        
-        var orderedLibraryData = [LibraryData]()
-        for libraryId in orderedLibraryIds {
-            guard let libraryData = summaryData.libraries.filter({ $0.libraryId! == libraryId }).first else { continue }
-            orderedLibraryData.append(libraryData)
-        }
-        summaryData.libraries = orderedLibraryData
+    private func setupContent() {
+//        usedPlaceholderLabel.text = "kuStudy.Main.Studying".localized()
+//        laCampusUsedPlaceholderLabel.text = "kuStudy.LiberalArtCampus".localized() + ":"
+//        scCampusUsedPlaceholderLabel.text = "kuStudy.ScienceCampus".localized() + ":"
+//
+//        usedLabel.text = "kuStudy.NoData".localized()
+//        laCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
+//        scCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
     }
     
-    // MARK: Peek & Pop
-    fileprivate func registerPeekAndPop() {
+    private func listenForUserDefaultsDidChange() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsDidChange(_: )), name: UserDefaults.didChangeNotification, object: nil)
+    }
+    
+    private func registerPeekAndPop() {
         if traitCollection.forceTouchCapability == .available {
             registerForPreviewing(with: self, sourceView: view)
         }
     }
-    
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        let locationInTableView = tableView.convert(location, from: view)
-        guard let indexPath = tableView.indexPathForRow(at: locationInTableView) else { return nil }
-        let libraryViewController = self.storyboard?.instantiateViewController(withIdentifier: "libraryViewController") as! LibraryViewController
-        let libraryData = summaryData.libraries[indexPath.row]
-        libraryViewController.libraryId = libraryData.libraryId
-        previewingContext.sourceRect = view.convert(tableView.rectForRow(at: indexPath), from: tableView)
-        return libraryViewController
-    }
-    
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        show(viewControllerToCommit, sender: self)
+}
+
+// MARK: - Notification
+extension SummaryViewController {
+    @objc fileprivate func handleUserDefaultsDidChange(_ notification: Notification) {
+        reorderLibraryData()
+        updateView()
     }
 }
 
@@ -240,6 +159,74 @@ extension SummaryViewController {
             }
         default: break
         }
+    }
+}
+
+// MARK: - Action
+extension SummaryViewController {
+    @objc fileprivate func updateData() {
+        dataState = .fetching
+        kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
+            
+        }, onFailure: { [weak self] (error) in
+            self?.error = error
+            self?.dataState = .error
+        }) { [weak self] (summaryData: SummaryData) in
+            self?.summaryData = summaryData
+            self?.reorderLibraryData()
+            self?.updateView()
+        }
+    }
+    
+    fileprivate func updateView() {
+//        if let usedSeats = summaryData.usedSeats {
+//            usedLabel.text = usedSeats.readable
+//            laCampusUsedLabel.text = (summaryData.usedSeatsInLiberalArtCampus?.readable ?? "kuStudy.NoData".localized()) + "kuStudy.Main.Studying".localized()
+//            scCampusUsedLabel.text = (summaryData.usedSeatsInScienceCampus?.readable ?? "kuStudy.NoData".localized()) + "kuStudy.Main.Studying".localized()
+//        }
+        table.reloadData()
+    }
+}
+
+// MARK: - Peek & Pop
+extension SummaryViewController: UIViewControllerPreviewingDelegate {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        let locationInTableView = table.convert(location, from: view)
+        guard let indexPath = table.indexPathForRow(at: locationInTableView) else { return nil }
+        let libraryViewController = self.storyboard?.instantiateViewController(withIdentifier: "libraryViewController") as! LibraryViewController
+        let libraryData = summaryData.libraries[indexPath.row]
+        libraryViewController.libraryId = libraryData.libraryId
+        previewingContext.sourceRect = view.convert(table.rectForRow(at: indexPath), from: table)
+        return libraryViewController
+    }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
+    }
+}
+
+// MARK: - Handoff
+extension SummaryViewController {
+    fileprivate func startHandoff() {
+        let activity = NSUserActivity(activityType: kuStudyHandoffSummary)
+        activity.title = "Summary"
+        activity.becomeCurrent()
+        userActivity = activity
+    }
+    
+    fileprivate func endHandoff() {
+        userActivity?.invalidate()
+    }
+    
+    override func restoreUserActivityState(_ activity: NSUserActivity) {
+        switch activity.activityType {
+        case kuStudyHandoffSummary: break
+        case kuStudyHandoffLibrary:
+            let libraryId = activity.userInfo!["libraryId"]
+            performSegue(withIdentifier: "librarySegue", sender: libraryId)
+        default: break
+        }
+        super.restoreUserActivityState(activity)
     }
 }
 
@@ -281,15 +268,101 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
 }
 
-// MARK: - Notification
+// MARK: - UI
 extension SummaryViewController {
-    fileprivate func listenForUserDefaultsDidChange() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsDidChange(_: )), name: UserDefaults.didChangeNotification, object: nil)
+    fileprivate var navigationBackground: UIView? {
+        return navigationController?.navigationBar.subviews.first
     }
     
-    @objc fileprivate func handleUserDefaultsDidChange(_ notification: Notification) {
-        reorderLibraryData()
-        updateView()
+    fileprivate func showNavigation(animated: Bool = true) {
+        guard navigationBackground?.alpha != 1 else { return }
+        navigationController?.isNavigationBarHidden = false
+        if animated == true {
+            guard showNavigationAnimator == nil else { return }
+            hideNavigationAnimator?.stopAnimation(true)
+            let animator = UIViewPropertyAnimator(duration: 0.25, curve: .linear, animations: { [weak self] in
+                self?.navigationBackground?.alpha = 1
+                //                self?.navigationController?.isNavigationBarHidden = false
+            })
+            animator.addCompletion({ [weak self] (_) in
+                //                self?.navigationController?.isNavigationBarHidden = false
+                self?.showNavigationAnimator = nil
+                self?.hideNavigationAnimator = nil
+            })
+            showNavigationAnimator = animator
+            animator.startAnimation()
+        } else {
+            navigationBackground?.alpha = 1
+            //            navigationController?.isNavigationBarHidden = false
+        }
+    }
+    
+    fileprivate func hideNavigation(animated: Bool = true) {
+        guard navigationBackground?.alpha != 0 else { return }
+        if animated == true {
+            guard hideNavigationAnimator == nil else { return }
+            showNavigationAnimator?.stopAnimation(true)
+            let animator = UIViewPropertyAnimator(duration: 0.25, curve: .linear, animations: { [weak self] in
+                self?.navigationBackground?.alpha = 0
+                //                self?.navigationController?.isNavigationBarHidden = true
+            })
+            animator.addCompletion({ [weak self] (_) in
+                //                self?.navigationController?.isNavigationBarHidden = true
+                self?.showNavigationAnimator = nil
+                self?.hideNavigationAnimator = nil
+            })
+            hideNavigationAnimator = animator
+            animator.startAnimation()
+        } else {
+            navigationBackground?.alpha = 0
+            navigationController?.isNavigationBarHidden = true
+        }
+    }
+    
+    fileprivate func resizeHeader() {
+        if let header = table.tableHeaderView {
+            let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+            var frame = header.frame
+            if frame.height != height {
+                frame.size.height = height
+                header.frame = frame
+                table.tableHeaderView = header
+            }
+        }
+    }
+    
+    fileprivate func resizeGradient() {
+        guard let navigationController = navigationController else { return }
+        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController.navigationBar.bounds.height)
+        gradient.frame = CGRect(origin: .zero, size: size)
+    }
+    
+    fileprivate func updateHeaderImage() {
+        let libraryTypes = LibraryType.allTypes()
+        
+        let libraryId: String
+        let isRunningTest = ProcessInfo.processInfo.arguments.contains("Snapshot") ? true : false
+        if isRunningTest == true {
+            // Fastlane Snapshot
+            let libraryType = LibraryType.CentralSquare
+            libraryId = libraryType.rawValue
+        } else {
+            let randomIndex = Int(arc4random_uniform(UInt32(libraryTypes.count)))
+            libraryId = libraryTypes[randomIndex].rawValue
+        }
+        let photo = PhotoProvider.sharedProvider.photo(libraryId)
+        heroImageView.image = photo.image
+    }
+    
+    fileprivate func reorderLibraryData() {
+        orderedLibraryIds = Preference.shared.libraryOrder
+        
+        var orderedLibraryData = [LibraryData]()
+        for libraryId in orderedLibraryIds {
+            guard let libraryData = summaryData.libraries.filter({ $0.libraryId! == libraryId }).first else { continue }
+            orderedLibraryData.append(libraryData)
+        }
+        summaryData.libraries = orderedLibraryData
     }
 }
 
@@ -297,73 +370,12 @@ extension SummaryViewController {
 extension SummaryViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
-        if offset >= heroImageView.bounds.height {
-            let view = self.navigationController?.navigationBar.subviews.first
-            view?.alpha = 1
-            
-            title = "Library"
+        if offset <= 0 {
+            hideNavigation()
+            navigationItem.title = nil
         } else {
-            let view = self.navigationController?.navigationBar.subviews.first
-            view?.alpha = 0
-            
-            title = nil
+            showNavigation()
+            navigationItem.title = "Library"
         }
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let offset = scrollView.contentOffset.y
-        if offset <= 0 {
-            let view = self.navigationController?.navigationBar.subviews.first
-            view?.alpha = 0
-        } else if offset < heroImageView.bounds.height / 2 {
-            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-            
-            let view = self.navigationController?.navigationBar.subviews.first
-            view?.alpha = 0
-        } else if offset >= heroImageView.bounds.height / 2 && offset < heroImageView.bounds.height {
-            scrollView.setContentOffset(CGPoint(x: 0, y: heroImageView.bounds.height), animated: true)
-            
-            let view = self.navigationController?.navigationBar.subviews.first
-            view?.alpha = 1
-        }
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        let offset = scrollView.contentOffset.y
-        if offset <= 0 {
-            let view = self.navigationController?.navigationBar.subviews.first
-            view?.alpha = 0
-        } else if offset < heroImageView.bounds.height / 2 {
-            scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
-            
-            let view = self.navigationController?.navigationBar.subviews.first
-            view?.alpha = 0
-        } else if offset >= heroImageView.bounds.height / 2 && offset < heroImageView.bounds.height {
-            scrollView.setContentOffset(CGPoint(x: 0, y: heroImageView.bounds.height), animated: true)
-            
-            let view = self.navigationController?.navigationBar.subviews.first
-            view?.alpha = 1
-        }
-    }
-}
-
-// MARK: - Handoff
-extension SummaryViewController {
-    fileprivate func startHandoff() {
-        let activity = NSUserActivity(activityType: kuStudyHandoffSummary)
-        activity.title = "Summary"
-        activity.becomeCurrent()
-        userActivity = activity
-    }
-    
-    override func restoreUserActivityState(_ activity: NSUserActivity) {
-        switch activity.activityType {
-        case kuStudyHandoffSummary: break
-        case kuStudyHandoffLibrary:
-            let libraryId = activity.userInfo!["libraryId"]
-            performSegue(withIdentifier: "librarySegue", sender: libraryId)
-        default: break
-        }
-        super.restoreUserActivityState(activity)
     }
 }
