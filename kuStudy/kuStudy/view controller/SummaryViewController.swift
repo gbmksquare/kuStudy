@@ -87,6 +87,7 @@ extension SummaryViewController {
     
     private func setupImageHeader() {
         let imageView = UIImageView()
+        imageView.backgroundColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
         imageView.contentMode = .scaleAspectFill
         table.parallaxHeader.view = imageView
         table.parallaxHeader.height = 200
