@@ -184,7 +184,7 @@ extension SummaryViewController {
         if let usedSeats = summaryData.usedSeats,
             let laCampusUsedSeats = summaryData.usedSeatsInLiberalArtCampus?.readable,
             let scCampusUsedSeats = summaryData.usedSeatsInScienceCampus?.readable {
-            summaryLabel.text = "\(usedSeats.readable) people studying.\n\(laCampusUsedSeats) are studying in liberal art campus,\n\(scCampusUsedSeats)are studying in science campus."
+            summaryLabel.text = "\(usedSeats.readable) people studying.\n\(laCampusUsedSeats) are studying in liberal art campus,\n\(scCampusUsedSeats) are studying in science campus."
         }
         table.reloadData()
     }
