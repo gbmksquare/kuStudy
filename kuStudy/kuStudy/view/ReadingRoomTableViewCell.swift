@@ -11,19 +11,19 @@ import kuStudyKit
 import Localize_Swift
 
 class ReadingRoomTableViewCell: UITableViewCell {
-    @IBOutlet weak var indicatorView: UIView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet fileprivate weak var indicatorView: UIView!
+    @IBOutlet fileprivate weak var nameLabel: UILabel!
   
-    @IBOutlet weak var dataStackView: UIStackView!
-    @IBOutlet weak var availablePlaceholderLabel: UILabel!
-    @IBOutlet weak var totalPlaceholderLabel: UILabel!
-    @IBOutlet weak var usedPlaceholderLabel: UILabel!
+    @IBOutlet fileprivate weak var dataStackView: UIStackView!
+    @IBOutlet fileprivate weak var availablePlaceholderLabel: UILabel!
+    @IBOutlet fileprivate weak var totalPlaceholderLabel: UILabel!
+    @IBOutlet fileprivate weak var usedPlaceholderLabel: UILabel!
     
-    @IBOutlet weak var availableLabel: UILabel!
-    @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var usedLabel: UILabel!
+    @IBOutlet fileprivate weak var availableLabel: UILabel!
+    @IBOutlet fileprivate weak var totalLabel: UILabel!
+    @IBOutlet fileprivate weak var usedLabel: UILabel!
     
-    @IBOutlet weak var usedProgressView: UIProgressView!
+    @IBOutlet fileprivate weak var usedProgressView: UIProgressView!
     
     // MARK: View
     override func awakeFromNib() {
@@ -31,6 +31,18 @@ class ReadingRoomTableViewCell: UITableViewCell {
         indicatorView.layer.cornerRadius = indicatorView.bounds.width / 2
         availablePlaceholderLabel.text = "kuStudy.Available".localized()
         setEmpty()
+    }
+    
+    // MARK: UI
+    func updateInterface(for traitCollectoin: UITraitCollection) {
+        if traitCollection.preferredContentSizeCategory == .accessibilityLarge ||
+            traitCollection.preferredContentSizeCategory == .accessibilityExtraLarge ||
+            traitCollection.preferredContentSizeCategory == .accessibilityExtraExtraLarge ||
+            traitCollection.preferredContentSizeCategory == .accessibilityExtraExtraExtraLarge {
+            dataStackView.axis = .vertical
+        } else {
+            dataStackView.axis = .horizontal
+        }
     }
     
     // MARK: Populate

@@ -21,7 +21,7 @@ class SummaryViewController: UIViewController {
     @IBOutlet fileprivate weak var table: UITableView!
     @IBOutlet fileprivate weak var header: UIView!
     
-    @IBOutlet fileprivate weak var heroImageView: UIImageView!
+    fileprivate weak var heroImageView: UIImageView!
     
     fileprivate lazy var gradient = CAGradientLayer()
     
@@ -253,6 +253,7 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
         let libraryData = summaryData.libraries[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath) as! LibraryTableViewCell
         cell.populate(library: libraryData)
+        cell.updateInterface(for: traitCollection)
         return cell
     }
     

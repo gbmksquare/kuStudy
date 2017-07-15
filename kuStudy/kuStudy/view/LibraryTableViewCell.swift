@@ -11,17 +11,19 @@ import kuStudyKit
 import Localize_Swift
 
 class LibraryTableViewCell: UITableViewCell {
-    @IBOutlet weak var indicatorView: UIView!
-    @IBOutlet weak var thumbnailImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet fileprivate weak var indicatorView: UIView!
+    @IBOutlet fileprivate weak var thumbnailImageView: UIImageView!
+    @IBOutlet fileprivate weak var nameLabel: UILabel!
     
-    @IBOutlet weak var availablePlaceholderLabel: UILabel!
-    @IBOutlet weak var totalPlaceholderLabel: UILabel!
-    @IBOutlet weak var usedPlaceholderLabel: UILabel!
+    @IBOutlet fileprivate weak var bottomStackView: UIStackView!
+    @IBOutlet fileprivate weak var dataStackView: UIStackView!
+    @IBOutlet fileprivate weak var availablePlaceholderLabel: UILabel!
+    @IBOutlet fileprivate weak var totalPlaceholderLabel: UILabel!
+    @IBOutlet fileprivate weak var usedPlaceholderLabel: UILabel!
     
-    @IBOutlet weak var availableLabel: UILabel!
-    @IBOutlet weak var totalLabel: UILabel!
-    @IBOutlet weak var usedLabel: UILabel!
+    @IBOutlet fileprivate weak var availableLabel: UILabel!
+    @IBOutlet fileprivate weak var totalLabel: UILabel!
+    @IBOutlet fileprivate weak var usedLabel: UILabel!
 
     // MARK: View
     override func awakeFromNib() {
@@ -42,6 +44,20 @@ class LibraryTableViewCell: UITableViewCell {
         let color = indicatorView.backgroundColor
         super.setSelected(selected, animated: animated)
         indicatorView.backgroundColor = color
+    }
+    
+    // MARK: UI
+    func updateInterface(for traitCollectoin: UITraitCollection) {
+        if traitCollection.preferredContentSizeCategory == .accessibilityLarge ||
+            traitCollection.preferredContentSizeCategory == .accessibilityExtraLarge ||
+            traitCollection.preferredContentSizeCategory == .accessibilityExtraExtraLarge ||
+            traitCollection.preferredContentSizeCategory == .accessibilityExtraExtraExtraLarge {
+            bottomStackView.axis = .vertical
+            dataStackView.axis = .vertical
+        } else {
+            bottomStackView.axis = .horizontal
+            dataStackView.axis = .horizontal
+        }
     }
     
     // MARK: Populate

@@ -206,14 +206,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
         if let sector = sector {
             cell.populate(sector: sector)
         }
-        if traitCollection.preferredContentSizeCategory == .accessibilityLarge ||
-            traitCollection.preferredContentSizeCategory == .accessibilityExtraLarge ||
-            traitCollection.preferredContentSizeCategory == .accessibilityExtraExtraLarge ||
-            traitCollection.preferredContentSizeCategory == .accessibilityExtraExtraExtraLarge {
-            cell.dataStackView.axis = .vertical
-        } else {
-            cell.dataStackView.axis = .horizontal
-        }
+        cell.updateInterface(for: traitCollection)
         return cell
     }
     
