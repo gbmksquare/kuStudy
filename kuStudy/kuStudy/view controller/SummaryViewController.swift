@@ -22,6 +22,7 @@ class SummaryViewController: UIViewController {
     @IBOutlet fileprivate weak var header: UIView!
     
     fileprivate weak var heroImageView: UIImageView!
+    @IBOutlet fileprivate weak var summaryLabel: UILabel!
     
     fileprivate lazy var gradient = CAGradientLayer()
     
@@ -180,11 +181,11 @@ extension SummaryViewController {
     }
     
     fileprivate func updateView() {
-//        if let usedSeats = summaryData.usedSeats {
-//            usedLabel.text = usedSeats.readable
-//            laCampusUsedLabel.text = (summaryData.usedSeatsInLiberalArtCampus?.readable ?? "kuStudy.NoData".localized()) + "kuStudy.Main.Studying".localized()
-//            scCampusUsedLabel.text = (summaryData.usedSeatsInScienceCampus?.readable ?? "kuStudy.NoData".localized()) + "kuStudy.Main.Studying".localized()
-//        }
+        if let usedSeats = summaryData.usedSeats,
+            let laCampusUsedSeats = summaryData.usedSeatsInLiberalArtCampus?.readable,
+            let scCampusUsedSeats = summaryData.usedSeatsInScienceCampus?.readable {
+            summaryLabel.text = "\(usedSeats.readable) people studying.\n\(laCampusUsedSeats) are studying in liberal art campus,\n\(scCampusUsedSeats)are studying in science campus."
+        }
         table.reloadData()
     }
 }
