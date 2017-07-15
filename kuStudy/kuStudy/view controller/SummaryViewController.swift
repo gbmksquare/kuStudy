@@ -97,7 +97,8 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
                 table.tableHeaderView = header
             }
         }
-        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController!.navigationBar.bounds.height)
+        guard let navigationController = navigationController else { return }
+        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController.navigationBar.bounds.height)
         gradient.frame = CGRect(origin: .zero, size: size)
     }
     
@@ -119,7 +120,8 @@ class SummaryViewController: UIViewController, UIViewControllerPreviewingDelegat
     }
     
     private func setupGradient() {
-        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController!.navigationBar.bounds.height)
+        guard let navigationController = navigationController else { return }
+        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController.navigationBar.bounds.height)
         gradient.colors = [UIColor.black.withAlphaComponent(0.5).cgColor, UIColor.clear]
         gradient.frame = CGRect(origin: .zero, size: size)
         header.layer.addSublayer(gradient)

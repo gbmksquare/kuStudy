@@ -8,6 +8,7 @@ PODS:
     - ObjectMapper (~> 2.0)
   - DZNEmptyDataSet (1.8.1)
   - Localize-Swift (1.7.1)
+  - MXParallaxHeader (0.6.1)
   - ObjectMapper (2.2.7)
   - SimulatorStatusMagic (1.9.5)
 
@@ -18,6 +19,7 @@ DEPENDENCIES:
   - AlamofireObjectMapper
   - DZNEmptyDataSet
   - Localize-Swift
+  - MXParallaxHeader
   - SimulatorStatusMagic
 
 SPEC CHECKSUMS:
@@ -27,9 +29,10 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   Localize-Swift: 6cabc1087c0e910e77bfa87c2ed3f65c80c0b2df
+  MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
   ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
   SimulatorStatusMagic: b3b4c5c49a07e8b1c452cc0327275e267a865fea
 
-PODFILE CHECKSUM: ccc5ab632380133dea2e6e25f203e58daacd3f9e
+PODFILE CHECKSUM: e7912e91762ee70cc8aad7d7b60d3a0af4dea6b6
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.0.beta.2
