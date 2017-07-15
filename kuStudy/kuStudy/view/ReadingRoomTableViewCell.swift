@@ -14,6 +14,7 @@ class ReadingRoomTableViewCell: UITableViewCell {
     @IBOutlet weak var indicatorView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
   
+    @IBOutlet weak var dataStackView: UIStackView!
     @IBOutlet weak var availablePlaceholderLabel: UILabel!
     @IBOutlet weak var totalPlaceholderLabel: UILabel!
     @IBOutlet weak var usedPlaceholderLabel: UILabel!
