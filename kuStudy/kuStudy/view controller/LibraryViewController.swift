@@ -133,7 +133,7 @@ extension LibraryViewController {
         //        photographerLabel.text = photo.photographer.attributionString
         
         titleLabel.text = LibraryType(rawValue: libraryId)?.name
-        subtitleLabel.text = LibraryType(rawValue: libraryId)?.name
+        subtitleLabel.text = LibraryType(rawValue: libraryId)?.nameInAlternateLanguage
         heroImageView.image = photo.image
     }
 }
