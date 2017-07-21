@@ -22,6 +22,7 @@ class SummaryViewController: UIViewController {
     @IBOutlet fileprivate weak var header: UIView!
     
     fileprivate weak var heroImageView: UIImageView!
+    @IBOutlet fileprivate weak var dateLabel: UILabel!
     @IBOutlet fileprivate weak var summaryLabel: UILabel!
     
     fileprivate lazy var gradient = CAGradientLayer()
@@ -84,6 +85,10 @@ extension SummaryViewController {
         setupContent()
         listenForUserDefaultsDidChange()
         registerPeekAndPop()
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        dateLabel.text = formatter.string(from: Date())
     }
     
     private func setupImageHeader() {
