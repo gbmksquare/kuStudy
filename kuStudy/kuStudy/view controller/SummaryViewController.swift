@@ -49,6 +49,7 @@ class SummaryViewController: UIViewController {
         super.viewWillAppear(animated)
         startHandoff()
         updateHeaderImage()
+        hideNavigation(animated: false)
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             if (splitViewController?.childViewControllers.last?.childViewControllers.first is LibraryViewController) == false {
@@ -61,7 +62,7 @@ class SummaryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        showNavigation(animated: false)
+        hideNavigation(animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

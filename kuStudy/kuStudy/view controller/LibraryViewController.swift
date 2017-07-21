@@ -53,6 +53,7 @@ class LibraryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startHandoff()
+        hideNavigation(animated: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {
