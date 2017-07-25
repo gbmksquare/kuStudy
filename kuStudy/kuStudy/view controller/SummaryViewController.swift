@@ -111,13 +111,13 @@ extension SummaryViewController {
     }
     
     private func setupTableView() {
-        var inset = table.contentInset
-        inset.bottom += tabBarController?.tabBar.bounds.height ?? 0
-        table.contentInset = inset
+//        var inset = table.contentInset
+//        inset.bottom += tabBarController?.tabBar.bounds.height ?? 0
+//        table.contentInset = inset
         table.tableFooterView = UIView()
         
         if #available(iOS 11.0, *) {
-            table.contentInsetAdjustmentBehavior = .never
+//            table.contentInsetAdjustmentBehavior = .never
         }
     }
     

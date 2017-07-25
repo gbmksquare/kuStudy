@@ -111,7 +111,7 @@ extension LibraryViewController {
         table.tableFooterView = UIView()
         
         if #available(iOS 11.0, *) {
-            table.contentInsetAdjustmentBehavior = .never
+//            table.contentInsetAdjustmentBehavior = .never
         }
     }
     
