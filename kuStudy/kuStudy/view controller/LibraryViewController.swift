@@ -76,7 +76,6 @@ class LibraryViewController: UIViewController {
 // MARK: - Setup
 extension LibraryViewController {
     fileprivate func setup() {
-        automaticallyAdjustsScrollViewInsets = false
         setupNavigation()
         setupImageHeader()
         setupGradient()
