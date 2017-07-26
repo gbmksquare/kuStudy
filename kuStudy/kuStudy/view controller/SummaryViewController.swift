@@ -42,8 +42,6 @@ class SummaryViewController: UIViewController {
         setup()
         updateData()
         
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        
         Answers.logContentView(withName: "Summary", contentType: "Summary", contentId: "0", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
     }
     
@@ -51,17 +49,6 @@ class SummaryViewController: UIViewController {
         super.viewWillAppear(animated)
         startHandoff()
         updateHeaderImage()
-//        hideNavigation(animated: false)
-        
-        let scrollView = table as UIScrollView
-        let offset = scrollView.contentOffset.y
-        if offset >= 0 {
-            navigationController?.setNavigationBarHidden(false, animated: false)
-        } else {
-            navigationController?.setNavigationBarHidden(true, animated: false)
-        }
-        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-        navigationController?.navigationBar.shadowImage = nil
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             if (splitViewController?.childViewControllers.last?.childViewControllers.first is LibraryViewController) == false {
@@ -70,11 +57,6 @@ class SummaryViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        hideNavigation(animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -110,7 +92,7 @@ extension SummaryViewController {
         imageView.contentMode = .scaleAspectFill
         table.parallaxHeader.view = imageView
         table.parallaxHeader.height = 200
-        table.parallaxHeader.mode = .topFill
+        table.parallaxHeader.mode = .fill
         heroImageView = imageView
     }
     
@@ -123,14 +105,7 @@ extension SummaryViewController {
     }
     
     private func setupTableView() {
-//        var inset = table.contentInset
-//        inset.bottom += tabBarController?.tabBar.bounds.height ?? 0
-//        table.contentInset = inset
         table.tableFooterView = UIView()
-        
-        if #available(iOS 11.0, *) {
-//            table.contentInsetAdjustmentBehavior = .never
-        }
     }
     
     private func setupContent() {
@@ -291,55 +266,6 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
 
 // MARK: - UI
 extension SummaryViewController {
-    fileprivate var navigationBackground: UIView? {
-        return navigationController?.navigationBar.subviews.first
-    }
-    
-    fileprivate func showNavigation(animated: Bool = true) {
-        guard navigationBackground?.alpha != 1 else { return }
-        navigationController?.isNavigationBarHidden = false
-        if animated == true {
-            guard showNavigationAnimator == nil else { return }
-            hideNavigationAnimator?.stopAnimation(true)
-            let animator = UIViewPropertyAnimator(duration: 0.25, curve: .linear, animations: { [weak self] in
-                self?.navigationBackground?.alpha = 1
-                //                self?.navigationController?.isNavigationBarHidden = false
-            })
-            animator.addCompletion({ [weak self] (_) in
-                //                self?.navigationController?.isNavigationBarHidden = false
-                self?.showNavigationAnimator = nil
-                self?.hideNavigationAnimator = nil
-            })
-            showNavigationAnimator = animator
-            animator.startAnimation()
-        } else {
-            navigationBackground?.alpha = 1
-            //            navigationController?.isNavigationBarHidden = false
-        }
-    }
-    
-    fileprivate func hideNavigation(animated: Bool = true) {
-        guard navigationBackground?.alpha != 0 else { return }
-        if animated == true {
-            guard hideNavigationAnimator == nil else { return }
-            showNavigationAnimator?.stopAnimation(true)
-            let animator = UIViewPropertyAnimator(duration: 0.25, curve: .linear, animations: { [weak self] in
-                self?.navigationBackground?.alpha = 0
-                //                self?.navigationController?.isNavigationBarHidden = true
-            })
-            animator.addCompletion({ [weak self] (_) in
-                //                self?.navigationController?.isNavigationBarHidden = true
-                self?.showNavigationAnimator = nil
-                self?.hideNavigationAnimator = nil
-            })
-            hideNavigationAnimator = animator
-            animator.startAnimation()
-        } else {
-            navigationBackground?.alpha = 0
-            navigationController?.isNavigationBarHidden = true
-        }
-    }
-    
     fileprivate func resizeHeader() {
         if let header = table.tableHeaderView {
             let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
@@ -390,15 +316,6 @@ extension SummaryViewController {
 // MARK: - Scroll view
 extension SummaryViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offset = scrollView.contentOffset.y
-        if offset <= 0 {
-//            hideNavigation()
-            navigationController?.setNavigationBarHidden(true, animated: true)
-            navigationItem.title = nil
-        } else {
-//            showNavigation()
-            navigationController?.setNavigationBarHidden(false, animated: true)
-            navigationItem.title = "Library"
-        }
+        
     }
 }

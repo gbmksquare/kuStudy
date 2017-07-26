@@ -53,16 +53,6 @@ class LibraryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startHandoff()
-//        hideNavigation(animated: false)
-        
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        hideNavigation(animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -99,7 +89,7 @@ extension LibraryViewController {
         imageView.contentMode = .scaleAspectFill
         table.parallaxHeader.view = imageView
         table.parallaxHeader.height = 200
-        table.parallaxHeader.mode = .topFill
+        table.parallaxHeader.mode = .fill
         heroImageView = imageView
     }
     
@@ -113,10 +103,6 @@ extension LibraryViewController {
     
     private func setupTableView() {
         table.tableFooterView = UIView()
-        
-        if #available(iOS 11.0, *) {
-//            table.contentInsetAdjustmentBehavior = .never
-        }
     }
     
     private func setupContent() {
@@ -229,55 +215,6 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
 
 // MARK: - UI
 extension LibraryViewController {
-    fileprivate var navigationBackground: UIView? {
-        return navigationController?.navigationBar.subviews.first
-    }
-    
-    fileprivate func showNavigation(animated: Bool = true) {
-        guard navigationBackground?.alpha != 1 else { return }
-        navigationController?.isNavigationBarHidden = false
-        if animated == true {
-            guard showNavigationAnimator == nil else { return }
-            hideNavigationAnimator?.stopAnimation(true)
-            let animator = UIViewPropertyAnimator(duration: 0.25, curve: .linear, animations: { [weak self] in
-                self?.navigationBackground?.alpha = 1
-                //                self?.navigationController?.isNavigationBarHidden = false
-            })
-            animator.addCompletion({ [weak self] (_) in
-                //                self?.navigationController?.isNavigationBarHidden = false
-                self?.showNavigationAnimator = nil
-                self?.hideNavigationAnimator = nil
-            })
-            showNavigationAnimator = animator
-            animator.startAnimation()
-        } else {
-            navigationBackground?.alpha = 1
-            //            navigationController?.isNavigationBarHidden = false
-        }
-    }
-    
-    fileprivate func hideNavigation(animated: Bool = true) {
-        guard navigationBackground?.alpha != 0 else { return }
-        if animated == true {
-            guard hideNavigationAnimator == nil else { return }
-            showNavigationAnimator?.stopAnimation(true)
-            let animator = UIViewPropertyAnimator(duration: 0.25, curve: .linear, animations: { [weak self] in
-                self?.navigationBackground?.alpha = 0
-                //                self?.navigationController?.isNavigationBarHidden = true
-            })
-            animator.addCompletion({ [weak self] (_) in
-                //                self?.navigationController?.isNavigationBarHidden = true
-                self?.showNavigationAnimator = nil
-                self?.hideNavigationAnimator = nil
-            })
-            hideNavigationAnimator = animator
-            animator.startAnimation()
-        } else {
-            navigationBackground?.alpha = 0
-            navigationController?.isNavigationBarHidden = true
-        }
-    }
-    
     fileprivate func resizeHeader() {
         if let header = table.tableHeaderView {
             let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
@@ -300,22 +237,7 @@ extension LibraryViewController {
 // MARK: - Scroll view
 extension LibraryViewController {
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            let offset = scrollView.contentOffset.y
-            if offset <= 0 {
-//                hideNavigation()
-                UIView.animate(withDuration: 0.25, animations: { [weak self] in
-                    self?.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-                    self?.navigationController?.navigationBar.shadowImage = UIImage()
-                })
-                title = nil
-            } else {
-                UIView.animate(withDuration: 0.25, animations: { [weak self] in
-                    self?.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-                    self?.navigationController?.navigationBar.shadowImage = nil
-                })
-//                showNavigation()
-                title = LibraryType(rawValue: libraryId)?.name
-            }
+            
         }
 }
 
