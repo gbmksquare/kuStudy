@@ -53,12 +53,16 @@ class LibraryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startHandoff()
-        hideNavigation(animated: false)
+//        hideNavigation(animated: false)
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        hideNavigation(animated: false)
+//        hideNavigation(animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -298,10 +302,18 @@ extension LibraryViewController {
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
             let offset = scrollView.contentOffset.y
             if offset <= 0 {
-                hideNavigation()
+//                hideNavigation()
+                UIView.animate(withDuration: 0.25, animations: { [weak self] in
+                    self?.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+                    self?.navigationController?.navigationBar.shadowImage = UIImage()
+                })
                 title = nil
             } else {
-                showNavigation()
+                UIView.animate(withDuration: 0.25, animations: { [weak self] in
+                    self?.navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+                    self?.navigationController?.navigationBar.shadowImage = nil
+                })
+//                showNavigation()
                 title = LibraryType(rawValue: libraryId)?.name
             }
         }

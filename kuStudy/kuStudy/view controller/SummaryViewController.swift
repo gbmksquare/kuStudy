@@ -42,6 +42,8 @@ class SummaryViewController: UIViewController {
         setup()
         updateData()
         
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
         Answers.logContentView(withName: "Summary", contentType: "Summary", contentId: "0", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
     }
     
@@ -49,7 +51,17 @@ class SummaryViewController: UIViewController {
         super.viewWillAppear(animated)
         startHandoff()
         updateHeaderImage()
-        hideNavigation(animated: false)
+//        hideNavigation(animated: false)
+        
+        let scrollView = table as UIScrollView
+        let offset = scrollView.contentOffset.y
+        if offset >= 0 {
+            navigationController?.setNavigationBarHidden(false, animated: false)
+        } else {
+            navigationController?.setNavigationBarHidden(true, animated: false)
+        }
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+        navigationController?.navigationBar.shadowImage = nil
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             if (splitViewController?.childViewControllers.last?.childViewControllers.first is LibraryViewController) == false {
@@ -62,7 +74,7 @@ class SummaryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        hideNavigation(animated: false)
+//        hideNavigation(animated: false)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -380,10 +392,12 @@ extension SummaryViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
         if offset <= 0 {
-            hideNavigation()
+//            hideNavigation()
+            navigationController?.setNavigationBarHidden(true, animated: true)
             navigationItem.title = nil
         } else {
-            showNavigation()
+//            showNavigation()
+            navigationController?.setNavigationBarHidden(false, animated: true)
             navigationItem.title = "Library"
         }
     }
