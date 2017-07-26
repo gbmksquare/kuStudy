@@ -47,7 +47,7 @@ class MainSplitViewController: UISplitViewController {
         
         let summaryViewController = (tabBarController.childViewControllers.first as! UINavigationController).childViewControllers.first as! SummaryViewController
         let libraryIds = Preference.shared.libraryOrder
-        let index = Int(sender.input)! - 1
+        let index = Int(sender.input!)! - 1
         let libraryId = libraryIds[index]
         summaryViewController.performSegue(withIdentifier: "librarySegue", sender: libraryId)
     }

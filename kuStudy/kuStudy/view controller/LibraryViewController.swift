@@ -218,7 +218,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let text = dataState == .fetching ? "kuStudy.Status.Downloading".localized() : (error?.localizedDescription ?? "kuStudy.Status.Error".localized())
-        let attribute = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 17)]
+        let attribute = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 17)]
         return NSAttributedString(string: text, attributes: attribute)
     }
 }

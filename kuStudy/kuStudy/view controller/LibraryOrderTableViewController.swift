@@ -26,7 +26,7 @@ class LibraryOrderTableViewController: UITableViewController, WCSessionDelegate 
         tableView.isEditing = true
         
         if WCSession.isSupported() == true {
-            session = WCSession.default()
+            session = WCSession.default
             session?.delegate = self
             session?.activate()
         }

@@ -37,7 +37,7 @@ class InterfaceController: WKInterfaceController {
         updateData()
         
         if WCSession.isSupported() == true {
-            session = WCSession.default()
+            session = WCSession.default
             session?.delegate = self
             session?.activate()
         }
