@@ -30,9 +30,9 @@ xcode-select --install
 
 # Available Actions
 ## iOS
-### ios update_version_major
+### ios increase_build
 ```
-fastlane ios update_version_major
+fastlane ios increase_build
 ```
 
 ### ios update_version_minor
@@ -65,6 +65,11 @@ Submit a new Beta Build to Apple TestFlight
 fastlane ios appstore
 ```
 Deploy a new version to the App Store
+### ios release
+```
+fastlane ios release
+```
+A new release
 
 ----
 
