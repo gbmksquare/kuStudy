@@ -102,7 +102,9 @@ extension SummaryViewController {
     }
     
     private func setupTableView() {
-        table.contentInsetAdjustmentBehavior = .never
+        if #available(iOS 11.0, *) {
+            table.contentInsetAdjustmentBehavior = .never
+        }
         table.tableFooterView = UIView()
     }
     

@@ -15,7 +15,7 @@
         <!--Empty Data Set Delegate-->
         <scene sceneID="Jo3-z7-H7X">
             <objects>
-                <viewController id="isl-ru-6bB" customClass="SummaryViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="isl-ru-6bB" customClass="SummaryViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cLG-nE-nts">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

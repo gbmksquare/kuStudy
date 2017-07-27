@@ -85,7 +85,9 @@ extension LibraryViewController {
     private func setupNavigation() {
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
-        table.contentInsetAdjustmentBehavior = .never
+        if #available(iOS 11.0, *) {
+            table.contentInsetAdjustmentBehavior = .never
+        }
     }
     
     private func enableEdgeBackGesture() {
