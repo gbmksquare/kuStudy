@@ -71,6 +71,10 @@ class SummaryViewController: UIViewController {
         resizeHeader()
         resizeGradient()
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        table.reloadData()
+    }
 }
 
 // MARK: - Setup
@@ -119,7 +123,7 @@ extension SummaryViewController {
         
         let formatter = DateFormatter()
         formatter.dateStyle = .full
-        dateLabel.text = formatter.string(from: Date())
+        dateLabel.text = formatter.string(from: Date()).localizedUppercase
         
         navigationItem.title = "Library"
     }
