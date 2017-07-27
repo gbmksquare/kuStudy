@@ -28,30 +28,12 @@ class MainSplitViewController: UISplitViewController {
     }
     
     override var keyCommands: [UIKeyCommand]? {
-        let libraryIds = Preference.shared.libraryOrder
-        var commands = [UIKeyCommand]()
-        for (index, libraryId) in libraryIds.enumerated() {
-            let libraryType = LibraryType(rawValue: libraryId)!
-            let command = UIKeyCommand(input: "\(index + 1)", modifierFlags: .command, action: #selector(gotoLibraries(_:)), discoverabilityTitle: libraryType.name)
-            commands.append(command)
-        }
-        let libraries = UIKeyCommand(input: ".", modifierFlags: .command, action: #selector(gotoLibrary(_:)), discoverabilityTitle: "kuStudy.KeyCommand.Libraries".localized())
+        let libraries = UIKeyCommand(input: "l", modifierFlags: .command, action: #selector(gotoLibrary(_:)), discoverabilityTitle: "kuStudy.KeyCommand.Libraries".localized())
         let settings = UIKeyCommand(input: ",", modifierFlags: .command, action: #selector(gotoPreferences(_:)), discoverabilityTitle: "kuStudy.KeyCommand.Preferences".localized())
-        return commands + [libraries, settings]
+        return [libraries, settings]
     }
     
     // MARK: - Action
-    @objc private func gotoLibraries(_ sender: UIKeyCommand) {
-        let tabBarController = childViewControllers.first as! MainTabBarController
-        tabBarController.selectedIndex = 0
-        
-        let summaryViewController = (tabBarController.childViewControllers.first as! UINavigationController).childViewControllers.first as! SummaryViewController
-        let libraryIds = Preference.shared.libraryOrder
-        let index = Int(sender.input!)! - 1
-        let libraryId = libraryIds[index]
-        summaryViewController.performSegue(withIdentifier: "librarySegue", sender: libraryId)
-    }
-    
     @objc private func gotoLibrary(_ sender: UIKeyCommand) {
         let tabBarController = childViewControllers.first as! MainTabBarController
         tabBarController.selectedIndex = 0

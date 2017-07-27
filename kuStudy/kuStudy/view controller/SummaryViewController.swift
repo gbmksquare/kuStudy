@@ -66,6 +66,11 @@ class SummaryViewController: UIViewController {
         endHandoff()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        becomeFirstResponder()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         resizeHeader()
@@ -248,6 +253,31 @@ extension SummaryViewController {
         default: break
         }
         super.restoreUserActivityState(activity)
+    }
+}
+
+// MARK: - Key command
+extension SummaryViewController {
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
+    
+    override var keyCommands: [UIKeyCommand]? {
+        var commands = [UIKeyCommand]()
+        let libraryIds = Preference.shared.libraryOrder
+        for (index, libraryId) in libraryIds.enumerated() {
+            let libraryType = LibraryType(rawValue: libraryId)!
+            let command = UIKeyCommand(input: "\(index + 1)", modifierFlags: .init(rawValue: 0), action: #selector(gotoLibraries(_:)), discoverabilityTitle: libraryType.name)
+            commands.append(command)
+        }
+        return commands
+    }
+    
+    @objc private func gotoLibraries(_ sender: UIKeyCommand) {
+        let libraryIds = Preference.shared.libraryOrder
+        let index = Int(sender.input!)! - 1
+        let libraryId = libraryIds[index]
+        performSegue(withIdentifier: "librarySegue", sender: libraryId)
     }
 }
 
