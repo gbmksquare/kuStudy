@@ -54,6 +54,10 @@ class LibraryViewController: UIViewController {
         super.viewWillAppear(animated)
         startHandoff()
         handleNavigationBar()
+        
+        // This line fixes edge gesture not working if view is loaded with 3D Touch
+        // Don't move this line to `viewDidLoad`
+        enableEdgeBackGesture()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -81,8 +85,11 @@ extension LibraryViewController {
     private func setupNavigation() {
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
         table.contentInsetAdjustmentBehavior = .never
+    }
+    
+    private func enableEdgeBackGesture() {
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     private func setupImageHeader() {
