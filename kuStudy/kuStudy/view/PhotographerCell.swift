@@ -16,9 +16,9 @@ class PhotographerCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var associationLabel: UILabel!
     
-    fileprivate var photographer: Photographer?
-    fileprivate var currentPhotoIndex = 0
-    fileprivate var timer: Timer?
+    private var photographer: Photographer?
+    private var currentPhotoIndex = 0
+    private var timer: Timer?
     
     weak var presentingViewController: ThanksToViewController?
     
@@ -72,7 +72,7 @@ class PhotographerCell: UICollectionViewCell {
         }
     }
     
-    @objc fileprivate func updateImage(_ sender: Timer) {
+    @objc private func updateImage(_ sender: Timer) {
         guard let photos = photographer?.photos else { return }
         currentPhotoIndex += 1
         if currentPhotoIndex >= photos.count {

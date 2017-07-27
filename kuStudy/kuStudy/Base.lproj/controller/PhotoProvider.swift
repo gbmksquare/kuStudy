@@ -16,7 +16,7 @@ public class PhotoProvider {
     public let photos: [Photo]
     
     /// [Library ID: Photo Index]
-    fileprivate var loadedPhotos = [Int: Int]()
+    private var loadedPhotos = [Int: Int]()
     
     // MARK: Initialization
     init() {

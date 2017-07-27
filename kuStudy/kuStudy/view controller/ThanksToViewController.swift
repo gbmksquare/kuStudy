@@ -13,7 +13,7 @@ import SafariServices
 class ThanksToViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    fileprivate var photographers: [Photographer] {
+    private var photographers: [Photographer] {
         return PhotoProvider.sharedProvider.photographers
     }
     
@@ -91,7 +91,7 @@ extension ThanksToViewController: UICollectionViewDelegateFlowLayout, UICollecti
 
 // MARK: - Instagram
 extension ThanksToViewController {
-    fileprivate func presentInstagram(id instagramId: String) {
+    private func presentInstagram(id instagramId: String) {
         guard let instagramAppUrl = URL(string: "instagram://user?username=\(instagramId)"),
             let instagramUrl = URL(string: "https://instagram.com/\(instagramId)") else { return }
         let application = UIApplication.shared

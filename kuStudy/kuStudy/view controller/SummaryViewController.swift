@@ -18,23 +18,23 @@ enum DataSourceState {
 }
 
 class SummaryViewController: UIViewController {
-    @IBOutlet fileprivate weak var table: UITableView!
-    @IBOutlet fileprivate weak var header: UIView!
+    @IBOutlet private weak var table: UITableView!
+    @IBOutlet private weak var header: UIView!
     
-    fileprivate weak var heroImageView: UIImageView!
-    @IBOutlet fileprivate weak var dateLabel: UILabel!
-    @IBOutlet fileprivate weak var summaryLabel: UILabel!
+    private weak var heroImageView: UIImageView!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var summaryLabel: UILabel!
     
-    fileprivate lazy var gradient = CAGradientLayer()
+    private lazy var gradient = CAGradientLayer()
     
-    fileprivate var showNavigationAnimator: UIViewPropertyAnimator?
-    fileprivate var hideNavigationAnimator: UIViewPropertyAnimator?
+    private var showNavigationAnimator: UIViewPropertyAnimator?
+    private var hideNavigationAnimator: UIViewPropertyAnimator?
     
-    fileprivate var summaryData = SummaryData()
-    fileprivate var dataState: DataSourceState = .fetching
-    fileprivate var error: Error?
+    private var summaryData = SummaryData()
+    private var dataState: DataSourceState = .fetching
+    private var error: Error?
     
-    fileprivate var orderedLibraryIds: [String]!
+    private var orderedLibraryIds: [String]!
     
     // MARK: View
     override func viewDidLoad() {
@@ -73,7 +73,7 @@ class SummaryViewController: UIViewController {
 
 // MARK: - Setup
 extension SummaryViewController {
-    fileprivate func setup() {
+    private func setup() {
         setupImageHeader()
         setupGradient()
         setupTableView()
@@ -131,7 +131,7 @@ extension SummaryViewController {
 
 // MARK: - Notification
 extension SummaryViewController {
-    @objc fileprivate func handleUserDefaultsDidChange(_ notification: Notification) {
+    @objc private func handleUserDefaultsDidChange(_ notification: Notification) {
         reorderLibraryData()
         updateView()
     }
@@ -159,7 +159,7 @@ extension SummaryViewController {
 
 // MARK: - Action
 extension SummaryViewController {
-    @objc fileprivate func updateData() {
+    @objc private func updateData() {
         dataState = .fetching
         kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
             
@@ -173,7 +173,7 @@ extension SummaryViewController {
         }
     }
     
-    fileprivate func updateView() {
+    private func updateView() {
         if let usedSeats = summaryData.usedSeats,
             let laCampusUsedSeats = summaryData.usedSeatsInLiberalArtCampus?.readable,
             let scCampusUsedSeats = summaryData.usedSeatsInScienceCampus?.readable {
@@ -202,14 +202,14 @@ extension SummaryViewController: UIViewControllerPreviewingDelegate {
 
 // MARK: - Handoff
 extension SummaryViewController {
-    fileprivate func startHandoff() {
+    private func startHandoff() {
         let activity = NSUserActivity(activityType: kuStudyHandoffSummary)
         activity.title = "Summary"
         activity.becomeCurrent()
         userActivity = activity
     }
     
-    fileprivate func endHandoff() {
+    private func endHandoff() {
         userActivity?.invalidate()
     }
     
@@ -266,7 +266,7 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
 
 // MARK: - UI
 extension SummaryViewController {
-    fileprivate func resizeHeader() {
+    private func resizeHeader() {
         if let header = table.tableHeaderView {
             let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
             var frame = header.frame
@@ -278,13 +278,13 @@ extension SummaryViewController {
         }
     }
     
-    fileprivate func resizeGradient() {
+    private func resizeGradient() {
         guard let navigationController = navigationController else { return }
         let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController.navigationBar.bounds.height)
         gradient.frame = CGRect(origin: .zero, size: size)
     }
     
-    fileprivate func updateHeaderImage() {
+    private func updateHeaderImage() {
         let libraryTypes = LibraryType.allTypes()
         
         let libraryId: String
@@ -301,7 +301,7 @@ extension SummaryViewController {
         heroImageView.image = photo.image
     }
     
-    fileprivate func reorderLibraryData() {
+    private func reorderLibraryData() {
         orderedLibraryIds = Preference.shared.libraryOrder
         
         var orderedLibraryData = [LibraryData]()

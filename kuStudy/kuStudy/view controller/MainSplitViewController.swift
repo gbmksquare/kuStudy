@@ -41,7 +41,7 @@ class MainSplitViewController: UISplitViewController {
     }
     
     // MARK: - Action
-    @objc fileprivate func gotoLibraries(_ sender: UIKeyCommand) {
+    @objc private func gotoLibraries(_ sender: UIKeyCommand) {
         let tabBarController = childViewControllers.first as! MainTabBarController
         tabBarController.selectedIndex = 0
         
@@ -52,12 +52,12 @@ class MainSplitViewController: UISplitViewController {
         summaryViewController.performSegue(withIdentifier: "librarySegue", sender: libraryId)
     }
     
-    @objc fileprivate func gotoLibrary(_ sender: UIKeyCommand) {
+    @objc private func gotoLibrary(_ sender: UIKeyCommand) {
         let tabBarController = childViewControllers.first as! MainTabBarController
         tabBarController.selectedIndex = 0
     }
     
-    @objc fileprivate func gotoPreferences(_ sender: UIKeyCommand) {
+    @objc private func gotoPreferences(_ sender: UIKeyCommand) {
         let tabBarController = childViewControllers.first as! MainTabBarController
         tabBarController.selectedIndex = 1
     }

@@ -10,7 +10,7 @@ import Foundation
 import kuStudyKit
 
 class Preference {
-    fileprivate enum Key: String {
+    private enum Key: String {
         case order = "libraryOrder"
         case widgetOrder = "todayExtensionOrder"
         case widgetHidden = "todayExtensionHidden"
@@ -62,7 +62,7 @@ class Preference {
         NotificationCenter.default.removeObserver(self)
     }
     
-    fileprivate lazy var preference = UserDefaults(suiteName: "group.com.gbmksquare.kuapps.kuStudy") ?? UserDefaults.standard
+    private lazy var preference = UserDefaults(suiteName: "group.com.gbmksquare.kuapps.kuStudy") ?? UserDefaults.standard
     
     // MARK: - Registration
     func registerDefault() {
@@ -74,14 +74,14 @@ class Preference {
     }
     
     // MARK: - Notification
-    @objc fileprivate func handle(preferenceChanged notification: Notification) {
+    @objc private func handle(preferenceChanged notification: Notification) {
         updateQuickActions()
     }
 }
 
 // MARK: - Quick action
 extension Preference {
-    fileprivate func updateQuickActions() {
+    private func updateQuickActions() {
         guard let orderedLibraryIds = preference.array(forKey: Preference.Key.order.rawValue) as? [String] else { return }
         let libraryTypes = LibraryType.allTypes()
         

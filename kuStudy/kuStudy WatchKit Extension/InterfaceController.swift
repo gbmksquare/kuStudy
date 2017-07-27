@@ -17,11 +17,11 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet weak var percentageGroup: WKInterfaceGroup!
     @IBOutlet weak var summaryLabel: WKInterfaceLabel!
     
-    fileprivate var session: WCSession?
+    private var session: WCSession?
     
     // MARK: Model
-    fileprivate var summaryData = SummaryData()
-    fileprivate var orderedLibraryIds: [String]!
+    private var summaryData = SummaryData()
+    private var orderedLibraryIds: [String]!
     
     // MARK: Watch
     override func awake(withContext context: Any?) {
@@ -69,7 +69,7 @@ class InterfaceController: WKInterfaceController {
         updateView()
     }
     
-    fileprivate func updateData() {
+    private func updateData() {
         summaryData.libraries.removeAll(keepingCapacity: true)
         kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
             
@@ -81,7 +81,7 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
-    fileprivate func updateView() {
+    private func updateView() {
         reorderLibraryData()
         
         // Summary
@@ -99,7 +99,7 @@ class InterfaceController: WKInterfaceController {
         }
     }
     
-    fileprivate func reorderLibraryData() {
+    private func reorderLibraryData() {
         let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
         orderedLibraryIds = defaults.array(forKey: "libraryOrder") as! [String]
         
@@ -114,7 +114,7 @@ class InterfaceController: WKInterfaceController {
 
 // MARK: - Handoff
 extension InterfaceController {
-    fileprivate func startHandOff() {
+    private func startHandOff() {
         updateUserActivity(kuStudyHandoffSummary, userInfo: [kuStudyHandoffSummaryKey: kuStudyHandoffSummaryKey], webpageURL: nil)
     }
 }

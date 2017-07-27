@@ -11,10 +11,10 @@ import kuStudyKit
 import WatchConnectivity
 
 class LibraryOrderTableViewController: UITableViewController, WCSessionDelegate {
-    fileprivate var libraryTypes: [LibraryType]!
-    fileprivate var orderedLibraryIds: [String]!
+    private var libraryTypes: [LibraryType]!
+    private var orderedLibraryIds: [String]!
     
-    fileprivate var session: WCSession?
+    private var session: WCSession?
     
     // MARK: View
     override func viewDidLoad() {

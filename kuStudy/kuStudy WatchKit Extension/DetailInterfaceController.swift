@@ -60,7 +60,7 @@ class DetailInterfaceController: WKInterfaceController {
         updateView()
     }
     
-    fileprivate func updateData() {
+    private func updateData() {
         guard let libraryId = libraryData.libraryId else { return }
         kuStudy.requestLibraryData(libraryId: libraryId,
            onSuccess: { [weak self](libraryData) in
@@ -70,7 +70,7 @@ class DetailInterfaceController: WKInterfaceController {
         }
     }
     
-    fileprivate func updateView() {
+    private func updateView() {
         guard let libraryId = libraryData.libraryId else { return }
         let libraryType = LibraryType(rawValue: libraryId)
         setTitle(libraryType?.name)
@@ -94,7 +94,7 @@ class DetailInterfaceController: WKInterfaceController {
 
 // MARK: - Handoff
 extension DetailInterfaceController {
-    fileprivate func startHandoff() {
+    private func startHandoff() {
         guard let libraryId = libraryData.libraryId else { return }
         updateUserActivity(kuStudyHandoffLibrary, userInfo: [kuStudyHandoffLibraryIdKey: libraryId], webpageURL: nil)
     }

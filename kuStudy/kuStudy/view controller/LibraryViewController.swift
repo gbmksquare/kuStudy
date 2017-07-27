@@ -13,20 +13,20 @@ import DZNEmptyDataSet
 import Crashlytics
 
 class LibraryViewController: UIViewController {
-    @IBOutlet fileprivate weak var table: UITableView!
-    @IBOutlet fileprivate weak var header: UIView!
+    @IBOutlet private weak var table: UITableView!
+    @IBOutlet private weak var header: UIView!
     
-    fileprivate var heroImageView: UIImageView!
-    @IBOutlet fileprivate weak var titleLabel: UILabel!
-    @IBOutlet fileprivate weak var subtitleLabel: UILabel!
+    private var heroImageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var subtitleLabel: UILabel!
     
-    fileprivate lazy var gradient = CAGradientLayer()
+    private lazy var gradient = CAGradientLayer()
     
     @IBOutlet var dataLabels: [UILabel]!
     @IBOutlet var dataTitleLabels: [UILabel]!
     
-    fileprivate var showNavigationAnimator: UIViewPropertyAnimator?
-    fileprivate var hideNavigationAnimator: UIViewPropertyAnimator?
+    private var showNavigationAnimator: UIViewPropertyAnimator?
+    private var hideNavigationAnimator: UIViewPropertyAnimator?
     
     override var hidesBottomBarWhenPushed: Bool {
         get { return navigationController?.topViewController == self }
@@ -34,10 +34,10 @@ class LibraryViewController: UIViewController {
     }
     
     var libraryId: String! = Preference.shared.libraryOrder.first ?? "1"
-    fileprivate var libraryData: LibraryData?
+    private var libraryData: LibraryData?
     
-    fileprivate var dataState: DataSourceState = .fetching
-    fileprivate var error: Error?
+    private var dataState: DataSourceState = .fetching
+    private var error: Error?
     
     // MARK: View
     override func viewDidLoad() {
@@ -69,7 +69,7 @@ class LibraryViewController: UIViewController {
 
 // MARK: - Setup
 extension LibraryViewController {
-    fileprivate func setup() {
+    private func setup() {
         setupNavigation()
         setupImageHeader()
         setupGradient()
@@ -130,7 +130,7 @@ extension LibraryViewController {
 
 // MARK: - Action
 extension LibraryViewController {
-    fileprivate func updateData() {
+    private func updateData() {
         guard let libraryId = self.libraryId else { return }
         kuStudy.requestLibraryData(libraryId: libraryId,
                                    onSuccess: { [weak self] (libraryData) in
@@ -143,7 +143,7 @@ extension LibraryViewController {
         }
     }
     
-    fileprivate func updateView() {
+    private func updateView() {
         if let libraryData = libraryData {
             dataLabels.forEach {
                 guard let tag = DataTag(rawValue: $0.tag) else { return }
@@ -165,7 +165,7 @@ extension LibraryViewController {
 
 // MARK: - Handoff
 extension LibraryViewController {
-    fileprivate func startHandoff() {
+    private func startHandoff() {
         guard let libraryId = self.libraryId, let name = LibraryType(rawValue: libraryId)?.name else { return }
         let activity = NSUserActivity(activityType: kuStudyHandoffLibrary)
         activity.title = name
@@ -174,7 +174,7 @@ extension LibraryViewController {
         userActivity = activity
     }
     
-    fileprivate func endHandoff() {
+    private func endHandoff() {
         userActivity?.invalidate()
     }
 }
@@ -215,7 +215,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
 
 // MARK: - UI
 extension LibraryViewController {
-    fileprivate func resizeHeader() {
+    private func resizeHeader() {
         if let header = table.tableHeaderView {
             let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
             var frame = header.frame
@@ -227,7 +227,7 @@ extension LibraryViewController {
         }
     }
     
-    fileprivate func resizeGradient() {
+    private func resizeGradient() {
         guard let navigationController = navigationController else { return }
         let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController.navigationBar.bounds.height)
         gradient.frame = CGRect(origin: .zero, size: size)

@@ -12,34 +12,34 @@ import kuStudyKit
 import Localize_Swift
 
 class MainViewController: UIViewController {
-    @IBOutlet fileprivate weak var noticeView: UIView!
-    @IBOutlet fileprivate weak var mainView: UIView!
-    @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet private weak var noticeView: UIView!
+    @IBOutlet private weak var mainView: UIView!
+    @IBOutlet private weak var tableView: UITableView!
     
-    @IBOutlet fileprivate weak var mainViewHeight: NSLayoutConstraint!
+    @IBOutlet private weak var mainViewHeight: NSLayoutConstraint!
     
-    @IBOutlet fileprivate weak var laCampusPlaceholderLabel: UILabel!
-    @IBOutlet fileprivate weak var scCampusPlaceholderLabeL: UILabel!
+    @IBOutlet private weak var laCampusPlaceholderLabel: UILabel!
+    @IBOutlet private weak var scCampusPlaceholderLabeL: UILabel!
     
-    @IBOutlet fileprivate weak var usedLabel: UILabel!
-    @IBOutlet fileprivate weak var laCampusUsedLabel: UILabel!
-    @IBOutlet fileprivate weak var scCampusUsedLabel: UILabel!
+    @IBOutlet private weak var usedLabel: UILabel!
+    @IBOutlet private weak var laCampusUsedLabel: UILabel!
+    @IBOutlet private weak var scCampusUsedLabel: UILabel!
     
-    fileprivate var used: Int?
-    fileprivate var laCampusUsed: Int?
-    fileprivate var scCampusUsed: Int?
-    fileprivate var data: SummaryData? {
+    private var used: Int?
+    private var laCampusUsed: Int?
+    private var scCampusUsed: Int?
+    private var data: SummaryData? {
         didSet {
             reorderData()
             updateView()
         }
     }
     
-    fileprivate var preference: UserDefaults {
+    private var preference: UserDefaults {
         return UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
     }
     
-    fileprivate var estimatedTableHeight: CGFloat {
+    private var estimatedTableHeight: CGFloat {
         let count = preference.array(forKey: "todayExtensionOrder")?.count ?? 0
         return CGFloat(count) * tableView.rowHeight
     }
@@ -115,7 +115,7 @@ class MainViewController: UIViewController {
         data.libraries = ordered
     }
     
-    fileprivate func updateData() {
+    private func updateData() {
         kuStudy.requestSummaryData(onLibrarySuccess: nil, onFailure: {(error) in
             
         }) { [weak self] (summary) in
@@ -133,7 +133,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    fileprivate func updateView() {
+    private func updateView() {
         // Data available
         if let data = data {
             hideNotice()

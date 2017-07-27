@@ -11,19 +11,19 @@ import kuStudyKit
 import Localize_Swift
 
 class ReadingRoomTableViewCell: UITableViewCell {
-    @IBOutlet fileprivate weak var indicatorView: UIView!
-    @IBOutlet fileprivate weak var nameLabel: UILabel!
+    @IBOutlet private weak var indicatorView: UIView!
+    @IBOutlet private weak var nameLabel: UILabel!
   
-    @IBOutlet fileprivate weak var dataStackView: UIStackView!
-    @IBOutlet fileprivate weak var availablePlaceholderLabel: UILabel!
-    @IBOutlet fileprivate weak var totalPlaceholderLabel: UILabel!
-    @IBOutlet fileprivate weak var usedPlaceholderLabel: UILabel!
+    @IBOutlet private weak var dataStackView: UIStackView!
+    @IBOutlet private weak var availablePlaceholderLabel: UILabel!
+    @IBOutlet private weak var totalPlaceholderLabel: UILabel!
+    @IBOutlet private weak var usedPlaceholderLabel: UILabel!
     
-    @IBOutlet fileprivate weak var availableLabel: UILabel!
-    @IBOutlet fileprivate weak var totalLabel: UILabel!
-    @IBOutlet fileprivate weak var usedLabel: UILabel!
+    @IBOutlet private weak var availableLabel: UILabel!
+    @IBOutlet private weak var totalLabel: UILabel!
+    @IBOutlet private weak var usedLabel: UILabel!
     
-    @IBOutlet fileprivate weak var usedProgressView: UIProgressView!
+    @IBOutlet private weak var usedProgressView: UIProgressView!
     
     // MARK: View
     override func awakeFromNib() {

@@ -11,9 +11,9 @@ import kuStudyKit
 import Localize_Swift
 
 class TodayExtensionOrderTableViewController: UITableViewController {
-    fileprivate var libraryTypes: [LibraryType]!
-    fileprivate var orderedLibraryIds: [String]!
-    fileprivate var hiddenLibraryIds: [String]!
+    private var libraryTypes: [LibraryType]!
+    private var orderedLibraryIds: [String]!
+    private var hiddenLibraryIds: [String]!
     
     // MARK: View
     override func viewDidLoad() {
