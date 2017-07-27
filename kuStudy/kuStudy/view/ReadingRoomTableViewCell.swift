@@ -28,12 +28,20 @@ class ReadingRoomTableViewCell: UITableViewCell {
     // MARK: View
     override func awakeFromNib() {
         super.awakeFromNib()
-        indicatorView.layer.cornerRadius = indicatorView.bounds.width / 2
-        availablePlaceholderLabel.text = "kuStudy.Available".localized()
+        setup()
         setEmpty()
     }
     
     // MARK: UI
+    private func setup() {
+        indicatorView.layer.cornerRadius = indicatorView.bounds.width / 2
+        availablePlaceholderLabel.text = "kuStudy.Available".localized()
+        
+        if #available(iOS 11.0, *) {
+            indicatorView.accessibilityIgnoresInvertColors = true
+        }
+    }
+    
     func updateInterface(for traitCollectoin: UITraitCollection) {
         if traitCollection.preferredContentSizeCategory == .accessibilityLarge ||
             traitCollection.preferredContentSizeCategory == .accessibilityExtraLarge ||

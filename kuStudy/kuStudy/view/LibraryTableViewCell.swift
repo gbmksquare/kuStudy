@@ -28,9 +28,7 @@ class LibraryTableViewCell: UITableViewCell {
     // MARK: View
     override func awakeFromNib() {
         super.awakeFromNib()
-        layoutIfNeeded()
-        indicatorView.layer.cornerRadius = indicatorView.bounds.width / 2
-        thumbnailImageView.layer.cornerRadius = thumbnailImageView.bounds.width / 2
+        setup()
         setEmpty()
     }
     
@@ -47,6 +45,16 @@ class LibraryTableViewCell: UITableViewCell {
     }
     
     // MARK: UI
+    private func setup() {
+        indicatorView.layer.cornerRadius = indicatorView.bounds.width / 2
+        thumbnailImageView.layer.cornerRadius = thumbnailImageView.bounds.width / 2
+        
+        if #available(iOS 11.0, *) {
+            indicatorView.accessibilityIgnoresInvertColors = true
+            thumbnailImageView.accessibilityIgnoresInvertColors = true
+        }
+    }
+    
     func updateInterface(for traitCollectoin: UITraitCollection) {
         if traitCollection.preferredContentSizeCategory == .accessibilityLarge ||
             traitCollection.preferredContentSizeCategory == .accessibilityExtraLarge ||

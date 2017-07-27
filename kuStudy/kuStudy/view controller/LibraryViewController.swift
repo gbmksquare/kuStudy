@@ -102,6 +102,10 @@ extension LibraryViewController {
         table.parallaxHeader.height = 200
         table.parallaxHeader.mode = .topFill
         heroImageView = imageView
+        
+        if #available(iOS 11.0, *) {
+            imageView.accessibilityIgnoresInvertColors = true
+        }
     }
     
     private func setupGradient() {

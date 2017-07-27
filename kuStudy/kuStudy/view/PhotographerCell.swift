@@ -41,6 +41,12 @@ class PhotographerCell: UICollectionViewCell {
             $0?.layer.shadowOpacity = 0.85
             $0?.layer.shadowOffset = CGSize(width: 1, height: 1)
         }
+        
+        if #available(iOS 11.0, *) {
+            photoImageView.accessibilityIgnoresInvertColors = true
+            nameLabel.accessibilityIgnoresInvertColors = true
+            associationLabel.accessibilityIgnoresInvertColors = true
+        }
     }
     
     // MARK: Popuplate
