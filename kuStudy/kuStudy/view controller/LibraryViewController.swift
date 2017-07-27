@@ -53,6 +53,7 @@ class LibraryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         startHandoff()
+        handleNavigationBar()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -81,6 +82,7 @@ extension LibraryViewController {
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
         navigationController?.interactivePopGestureRecognizer?.delegate = self
+        table.contentInsetAdjustmentBehavior = .never
     }
     
     private func setupImageHeader() {
@@ -89,13 +91,12 @@ extension LibraryViewController {
         imageView.contentMode = .scaleAspectFill
         table.parallaxHeader.view = imageView
         table.parallaxHeader.height = 200
-        table.parallaxHeader.mode = .fill
+        table.parallaxHeader.mode = .topFill
         heroImageView = imageView
     }
     
     private func setupGradient() {
-        guard let navigationController = navigationController else { return }
-        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController.navigationBar.bounds.height)
+        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height)
         gradient.colors = [UIColor.black.withAlphaComponent(0.5).cgColor, UIColor.clear]
         gradient.frame = CGRect(origin: .zero, size: size)
         heroImageView.layer.addSublayer(gradient)
@@ -122,6 +123,7 @@ extension LibraryViewController {
         //        headerBlurImageView.transform = CGAffineTransform(scaleX: 1, y: -1)
         //        photographerLabel.text = photo.photographer.attributionString
         
+        title = LibraryType(rawValue: libraryId)?.name
         titleLabel.text = LibraryType(rawValue: libraryId)?.name
         subtitleLabel.text = LibraryType(rawValue: libraryId)?.nameInAlternateLanguage
         heroImageView.image = photo.image
@@ -232,12 +234,23 @@ extension LibraryViewController {
         let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController.navigationBar.bounds.height)
         gradient.frame = CGRect(origin: .zero, size: size)
     }
+    
+    private func handleNavigationBar() {
+        let scrollView = table as UIScrollView
+        let offset = scrollView.contentOffset.y
+        
+        if offset > 0 {
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        } else {
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        }
+    }
 }
 
 // MARK: - Scroll view
 extension LibraryViewController {
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            
+            handleNavigationBar()
         }
 }
 

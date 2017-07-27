@@ -50,6 +50,8 @@ class SummaryViewController: UIViewController {
         startHandoff()
         updateHeaderImage()
         
+        handleNavigationBar()
+        
         if UIDevice.current.userInterfaceIdiom == .pad {
             if (splitViewController?.childViewControllers.last?.childViewControllers.first is LibraryViewController) == false {
                 if let indexPath = table.indexPathForSelectedRow {
@@ -80,10 +82,6 @@ extension SummaryViewController {
         setupContent()
         listenForUserDefaultsDidChange()
         registerPeekAndPop()
-        
-        let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        dateLabel.text = formatter.string(from: Date())
     }
     
     private func setupImageHeader() {
@@ -92,19 +90,19 @@ extension SummaryViewController {
         imageView.contentMode = .scaleAspectFill
         table.parallaxHeader.view = imageView
         table.parallaxHeader.height = 200
-        table.parallaxHeader.mode = .fill
+        table.parallaxHeader.mode = .topFill
         heroImageView = imageView
     }
     
     private func setupGradient() {
-        guard let navigationController = navigationController else { return }
-        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController.navigationBar.bounds.height)
+        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height)
         gradient.colors = [UIColor.black.withAlphaComponent(0.5).cgColor, UIColor.clear]
         gradient.frame = CGRect(origin: .zero, size: size)
         heroImageView.layer.addSublayer(gradient)
     }
     
     private func setupTableView() {
+        table.contentInsetAdjustmentBehavior = .never
         table.tableFooterView = UIView()
     }
     
@@ -116,6 +114,12 @@ extension SummaryViewController {
 //        usedLabel.text = "kuStudy.NoData".localized()
 //        laCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
 //        scCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        dateLabel.text = formatter.string(from: Date())
+        
+        navigationItem.title = "Library"
     }
     
     private func listenForUserDefaultsDidChange() {
@@ -311,11 +315,22 @@ extension SummaryViewController {
         }
         summaryData.libraries = orderedLibraryData
     }
+    
+    private func handleNavigationBar() {
+        let scrollView = table as UIScrollView
+        let offset = scrollView.contentOffset.y
+        
+        if offset > 0 {
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        } else {
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        }
+    }
 }
 
 // MARK: - Scroll view
 extension SummaryViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+        handleNavigationBar()
     }
 }
