@@ -74,7 +74,7 @@ class InterfaceController: WKInterfaceController {
         kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
             
             }, onFailure: { (error) in
-                
+                print(error.localizedDescription)
             }) { [weak self] (summaryData) in
                 self?.summaryData = summaryData
                 self?.updateView()

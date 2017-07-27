@@ -18,7 +18,6 @@ target 'kuStudy' do
   pod 'AcknowList'
   pod 'MXParallaxHeader'
   pod 'SimulatorStatusMagic', :configurations => ['Debug']
-  shared_pods
 
   target 'kuStudyTests' do
     inherit! :search_paths
@@ -30,7 +29,6 @@ target 'kuStudy Today Extension' do
   platform :ios, '9.0'
 
   pod 'Localize-Swift'
-  # shared_pods
 end
 
 target 'kuStudy WatchKit App' do
@@ -43,7 +41,6 @@ target 'kuStudy WatchKit Extension' do
   platform :watchos, '2.0'
 
   pod 'Localize-Swift'
-  shared_pods
 end
 
 target 'kuStudyKit' do
