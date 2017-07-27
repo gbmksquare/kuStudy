@@ -70,6 +70,11 @@ class LibraryViewController: UIViewController {
         resizeHeader()
         resizeGradient()
     }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        setImageHeaderHeight()
+        table.reloadData()
+    }
 }
 
 // MARK: - Setup
@@ -100,17 +105,28 @@ extension LibraryViewController {
         imageView.contentMode = .scaleAspectFill
         table.parallaxHeader.view = imageView
         table.parallaxHeader.height = 200
-        table.parallaxHeader.mode = .topFill
+        table.parallaxHeader.mode = .fill
         heroImageView = imageView
+        setImageHeaderHeight()
         
         if #available(iOS 11.0, *) {
             imageView.accessibilityIgnoresInvertColors = true
         }
     }
     
+    private func setImageHeaderHeight() {
+        if traitCollection.verticalSizeClass == .compact {
+            table.parallaxHeader.height = 120
+        } else if traitCollection.userInterfaceIdiom == .phone {
+            table.parallaxHeader.height = 200
+        } else {
+            table.parallaxHeader.height = 280
+        }
+    }
+    
     private func setupGradient() {
-        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height)
-        gradient.colors = [UIColor.black.withAlphaComponent(0.5).cgColor, UIColor.clear]
+        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + 8)
+        gradient.colors = [UIColor.black.withAlphaComponent(0.45).cgColor, UIColor.black.withAlphaComponent(0).cgColor]
         gradient.frame = CGRect(origin: .zero, size: size)
         heroImageView.layer.addSublayer(gradient)
     }
@@ -243,8 +259,7 @@ extension LibraryViewController {
     }
     
     private func resizeGradient() {
-        guard let navigationController = navigationController else { return }
-        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + navigationController.navigationBar.bounds.height)
+        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + 8)
         gradient.frame = CGRect(origin: .zero, size: size)
     }
     
