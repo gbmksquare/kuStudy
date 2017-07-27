@@ -60,9 +60,9 @@ Runs all the tests
 fastlane ios beta
 ```
 Submit a new Beta Build to Apple TestFlight
-### ios appstore
+### ios store
 ```
-fastlane ios appstore
+fastlane ios store
 ```
 Deploy a new version to the App Store
 ### ios release
