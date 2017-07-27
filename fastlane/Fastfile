@@ -8,23 +8,20 @@ platform :ios do
     
   end
 
-  lane :increase_build do
-  increment_version_number(bump_type: "major")
-    increment_build_number
+  lane :update_version_major do
+    increment_version_number(bump_type: "major", xcodeproj: "./kuStudy/kuStudy.xcodeproj")
   end
 
   lane :update_version_minor do
-    increment_version_number(bump_type: "minor")
-    increment_build_number
+    increment_version_number(bump_type: "minor", xcodeproj: "./kuStudy/kuStudy.xcodeproj")
   end
 
   lane :update_version_patch do
-    increment_version_number(bump_type: "patch")
-    increment_build_number
+    increment_version_number(bump_type: "patch", xcodeproj: "./kuStudy/kuStudy.xcodeproj")
   end
 
   lane :update_build_number do
-    increment_build_number
+    increment_build_number(xcodeproj: "./kuStudy/kuStudy.xcodeproj")
   end
 
   desc "Runs all the tests"
@@ -69,7 +66,7 @@ platform :ios do
     deliver(skip_metadata: true, skip_screenshots: true)
 
     # Increase build number
-    increment_build_number
+    increment_build_number(xcodeproj: "./kuStudy/kuStudy.xcodeproj")
     commit_version_bump(message: "Increased build number.")
 
     notification(subtitle: "🚀 Fastlane done!", message: "Uploaded to App Store.")
@@ -84,7 +81,7 @@ platform :ios do
     deliver
 
     # Increase build number
-    increment_build_number
+    increment_build_number(xcodeproj: "./kuStudy/kuStudy.xcodeproj")
     commit_version_bump(message: "Increased build number.")
 
     notification(subtitle: "🚀 Fastlane done!", message: "Uploaded to App Store.")
