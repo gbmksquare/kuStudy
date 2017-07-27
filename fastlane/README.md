@@ -30,9 +30,9 @@ xcode-select --install
 
 # Available Actions
 ## iOS
-### ios increase_build
+### ios update_version_major
 ```
-fastlane ios increase_build
+fastlane ios update_version_major
 ```
 
 ### ios update_version_minor
