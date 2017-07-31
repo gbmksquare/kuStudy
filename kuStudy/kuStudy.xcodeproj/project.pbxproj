@@ -31,6 +31,7 @@
 		1631A2DB1CF025060078381F /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2DA1CF025060078381F /* Int.swift */; };
 		1631A2DC1CF025060078381F /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2DA1CF025060078381F /* Int.swift */; };
 		163AAC511F18E9D000E6DD0C /* DataTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163AAC501F18E9D000E6DD0C /* DataTag.swift */; };
+		164190FA1F2F675C008682E5 /* Localizations.swift in Resources */ = {isa = PBXBuildFile; fileRef = 164190F91F2F675C008682E5 /* Localizations.swift */; };
 		164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E921C5608E0004C6663 /* MainTabBarController.swift */; };
 		164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */; };
 		164DD35B1D9FB30F001236F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164DD3591D9FB30F001236F8 /* LaunchScreen.storyboard */; };
@@ -274,6 +275,7 @@
 		1631A2D61CEF51480078381F /* LibraryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryType.swift; path = model/LibraryType.swift; sourceTree = "<group>"; };
 		1631A2DA1CF025060078381F /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Int.swift; path = extension/Int.swift; sourceTree = "<group>"; };
 		163AAC501F18E9D000E6DD0C /* DataTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataTag.swift; path = model/DataTag.swift; sourceTree = "<group>"; };
+		164190F91F2F675C008682E5 /* Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
 		164C0E921C5608E0004C6663 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = "view controller/MainTabBarController.swift"; sourceTree = "<group>"; };
 		164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = "view controller/SettingsTableViewController.swift"; sourceTree = "<group>"; };
 		164DD35A1D9FB30F001236F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -732,6 +734,7 @@
 				167245CB1B19C0370083035F /* Images.xcassets */,
 				1664D5641D5AC241000BAF56 /* InfoPlist.strings */,
 				16A5807D1C63298000E7EDC5 /* Localizable.strings */,
+				164190F91F2F675C008682E5 /* Localizations.swift */,
 				162F120C1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist */,
 			);
 			name = Resource;
@@ -1331,6 +1334,7 @@
 				1664D5621D5AC241000BAF56 /* InfoPlist.strings in Resources */,
 				16A5807B1C63298000E7EDC5 /* Localizable.strings in Resources */,
 				162F120D1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist in Resources */,
+				164190FA1F2F675C008682E5 /* Localizations.swift in Resources */,
 				164DD35B1D9FB30F001236F8 /* LaunchScreen.storyboard in Resources */,
 				167245CC1B19C0370083035F /* Images.xcassets in Resources */,
 			);
