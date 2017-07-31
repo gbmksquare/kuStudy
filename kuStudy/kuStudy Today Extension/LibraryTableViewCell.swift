@@ -8,7 +8,6 @@
 
 import UIKit
 import kuStudyKit
-import Localize_Swift
 
 class LibraryTableViewCell: UITableViewCell {
     @IBOutlet weak var indicatorView: UIView!
@@ -24,18 +23,18 @@ class LibraryTableViewCell: UITableViewCell {
     // MARK: View
     override func awakeFromNib() {
         super.awakeFromNib()
-        totalPlaceholderLabel.text = "kuStudy.Today.Total".localized()
-        availablePlaceholderLabel.text = "kuStudy.Today.Available".localized()
-        usedPlaceholderLabel.text = "kuStudy.Today.Used".localized()
+        totalPlaceholderLabel.text = Localizations.Today.Cell.Label.Total
+        availablePlaceholderLabel.text = Localizations.Today.Cell.Label.Available
+        usedPlaceholderLabel.text = Localizations.Today.Cell.Label.Used
         indicatorView.layer.cornerRadius = indicatorView.bounds.width / 2
         indicatorView.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.95, alpha: 1)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        totalLabel.text = "kuStudy.Today.EmptyData".localized()
-        availableLabel.text = "kuStudy.Today.EmptyData".localized()
-        usedLabel.text = "kuStudy.Today.EmptyData".localized()
+        totalLabel.text = Localizations.Today.Cell.Label.Nodata
+        availableLabel.text = Localizations.Today.Cell.Label.Nodata
+        usedLabel.text = Localizations.Today.Cell.Label.Nodata
     }
     
     // MARK: Populate

@@ -9,7 +9,6 @@
 import UIKit
 import NotificationCenter
 import kuStudyKit
-import Localize_Swift
 
 class MainViewController: UIViewController {
     @IBOutlet private weak var noticeView: UIView!
@@ -87,11 +86,11 @@ class MainViewController: UIViewController {
         mainViewHeight.constant = extensionContext?.widgetMaximumSize(for: .compact).height ?? 110
         
         // Localize
-        usedLabel.text = "kuStudy.Today.EmptyData".localized() + "kuStudy.Today.Studying".localized()
-        laCampusPlaceholderLabel.text = "kuStudy.Today.LiberalArtCampus".localized() + ": "
-        scCampusPlaceholderLabeL.text = "kuStudy.Today.ScienceCampus".localized() + ": "
-        laCampusUsedLabel.text =  "kuStudy.Today.EmptyData".localized() + "kuStudy.Today.Studying".localized()
-        scCampusUsedLabel.text = "kuStudy.Today.EmptyData".localized() + "kuStudy.Today.Studying".localized()
+        usedLabel.text = Localizations.Today.Main.Label.Studying(Localizations.Today.Main.Label.Nodata)
+        laCampusPlaceholderLabel.text = Localizations.Today.Main.Label.Liberalartcampus
+        scCampusPlaceholderLabeL.text = Localizations.Today.Main.Label.Sciencecampus
+        laCampusUsedLabel.text = Localizations.Today.Main.Label.Studying(Localizations.Today.Main.Label.Nodata)
+        scCampusUsedLabel.text = Localizations.Today.Main.Label.Studying(Localizations.Today.Main.Label.Nodata)
     }
     
     private func registerPreference() {
@@ -139,9 +138,9 @@ class MainViewController: UIViewController {
             hideNotice()
             
             // Update content
-            usedLabel.text = (used?.readable ?? "kuStudy.Today.EmptyData".localized()) + "kuStudy.Today.Studying".localized()
-            laCampusUsedLabel.text = (laCampusUsed?.readable ?? "kuStudy.Today.EmptyData".localized()) + "kuStudy.Today.Studying".localized()
-            scCampusUsedLabel.text = (scCampusUsed?.readable ?? "kuStudy.Today.EmptyData".localized()) + "kuStudy.Today.Studying".localized()
+            usedLabel.text = Localizations.Today.Main.Label.Studying(used?.readable ?? Localizations.Today.Main.Label.Nodata)
+            laCampusUsedLabel.text = Localizations.Today.Main.Label.Studying(laCampusUsed?.readable ?? Localizations.Today.Main.Label.Nodata)
+            scCampusUsedLabel.text = Localizations.Today.Main.Label.Studying(scCampusUsed?.readable ?? Localizations.Today.Main.Label.Nodata)
             tableView.reloadData()
             
             // Change height if needed

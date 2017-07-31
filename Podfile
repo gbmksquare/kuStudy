@@ -13,7 +13,6 @@ target 'kuStudy' do
   platform :ios, '9.0'
 
   pod 'AlamofireNetworkActivityIndicator'
-  pod 'Localize-Swift'
   pod 'DZNEmptyDataSet'
   pod 'AcknowList'
   pod 'MXParallaxHeader'
@@ -27,8 +26,6 @@ end
 target 'kuStudy Today Extension' do
   use_frameworks!
   platform :ios, '9.0'
-
-  pod 'Localize-Swift'
 end
 
 target 'kuStudy WatchKit App' do
@@ -39,8 +36,6 @@ end
 target 'kuStudy WatchKit Extension' do
   use_frameworks!
   platform :watchos, '2.0'
-
-  pod 'Localize-Swift'
 end
 
 target 'kuStudyKit' do

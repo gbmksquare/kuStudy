@@ -81,7 +81,7 @@ extension SettingsTableViewController {
             navigationController?.showDetailViewController(detailNavigationController, sender: true)
         case 998: // Recommend to a friend
             tableView.deselectRow(at: indexPath, animated: true)
-            let message = "kuStudy.Settings.Recommend".localized()
+            let message = Localizations.Settings.Recommend.Message
             let url = URL(string: "https://geo.itunes.apple.com/kr/app/kustudy-golyeodaehaggyo-yeollamsil/id925255895?mt=8&ign-mpt=uo%3D4")! as Any
             let activityVC = UIActivityViewController(activityItems: [message, url], applicationActivities: nil)
             activityVC.popoverPresentationController?.permittedArrowDirections = .any

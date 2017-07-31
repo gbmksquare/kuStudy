@@ -17,44 +17,66 @@ import Foundation
 public struct Localizations {
 
 
-    public struct Kustudy {
+    public struct Today {
 
 
-        public struct Today {
+        public struct Table {
 
-            /// Base translation: Total
-            public static var Total : String = NSLocalizedString("kuStudy.Today.Total", comment: "")
 
-            /// Base translation: Error
-            public static var Error : String = NSLocalizedString("kuStudy.Today.Error", comment: "")
+            public struct Label {
 
-            /// Base translation: Tap to refresh
-            public static var Taptorefresh : String = NSLocalizedString("kuStudy.Today.TapToRefresh", comment: "")
+                /// Base translation: Error
+                public static var Error : String = NSLocalizedString("Today.Table.Label.Error", comment: "")
 
-            /// Base translation: Liberal Art Campus
-            public static var Liberalartcampus : String = NSLocalizedString("kuStudy.Today.LiberalArtCampus", comment: "")
+                /// Base translation: Loading...
+                public static var Loading : String = NSLocalizedString("Today.Table.Label.Loading", comment: "")
 
-            /// Base translation: Updated: 
-            public static var Updated : String = NSLocalizedString("kuStudy.Today.Updated", comment: "")
+                /// Base translation: Tap to refresh
+                public static var Taptorefresh : String = NSLocalizedString("Today.Table.Label.TapToRefresh", comment: "")
 
-            /// Base translation: Available
-            public static var Available : String = NSLocalizedString("kuStudy.Today.Available", comment: "")
+            }
+        }
 
-            /// Base translation: Science Campus
-            public static var Sciencecampus : String = NSLocalizedString("kuStudy.Today.ScienceCampus", comment: "")
+        public struct Cell {
 
-            /// Base translation:  Studying
-            public static var Studying : String = NSLocalizedString("kuStudy.Today.Studying", comment: "")
 
-            /// Base translation: Occupied
-            public static var Used : String = NSLocalizedString("kuStudy.Today.Used", comment: "")
+            public struct Label {
 
-            /// Base translation: Loading...
-            public static var Loading : String = NSLocalizedString("kuStudy.Today.Loading", comment: "")
+                /// Base translation: Total
+                public static var Total : String = NSLocalizedString("Today.Cell.Label.Total", comment: "")
 
-            /// Base translation: --
-            public static var Emptydata : String = NSLocalizedString("kuStudy.Today.EmptyData", comment: "")
+                /// Base translation: Available
+                public static var Available : String = NSLocalizedString("Today.Cell.Label.Available", comment: "")
 
+                /// Base translation: --
+                public static var Nodata : String = NSLocalizedString("Today.Cell.Label.NoData", comment: "")
+
+                /// Base translation: Occupied
+                public static var Used : String = NSLocalizedString("Today.Cell.Label.Used", comment: "")
+
+            }
+        }
+
+        public struct Main {
+
+
+            public struct Label {
+
+                /// Base translation: Science Campus:
+                public static var Sciencecampus : String = NSLocalizedString("Today.Main.Label.ScienceCampus", comment: "")
+
+                /// Base translation: --
+                public static var Nodata : String = NSLocalizedString("Today.Main.Label.NoData", comment: "")
+
+                /// Base translation: Liberal Art Campus:
+                public static var Liberalartcampus : String = NSLocalizedString("Today.Main.Label.LiberalArtCampus", comment: "")
+
+                /// Base translation: %@ studying
+                public static func Studying(_ value1 : String) -> String {
+                    return String(format: NSLocalizedString("Today.Main.Label.Studying", comment: ""), value1)
+                }
+
+            }
         }
     }
 }

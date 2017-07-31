@@ -9,7 +9,6 @@
 import Foundation
 import WatchKit
 import kuStudyWatchKit
-import Localize_Swift
 
 class LibraryCell: NSObject {
     @IBOutlet weak var nameLabel: WKInterfaceLabel!
@@ -20,8 +19,8 @@ class LibraryCell: NSObject {
     @IBOutlet weak var percentGroup: WKInterfaceGroup!
     
     func populate(_ libraryData: LibraryData) {
-        availablePlaceholderLabel.setText("kuStudy.Watch.Cell.Available".localized())
-        usedPlaceholderLabel.setText("kuStudy.Watch.Cell.Used".localized())
+        availablePlaceholderLabel.setText(Localizations.Watch.Cell.Label.Available)
+        usedPlaceholderLabel.setText(Localizations.Watch.Cell.Label.Used)
         
         nameLabel.setText(libraryData.libraryName)
         availableLabel.setText(libraryData.availableSeats.readable)

@@ -1,46 +1,45 @@
-/* 
-  Localizable.strings
+/* Localizable.strings
   kuStudy
 
   Created by 구범모 on 2016. 2. 4..
-  Copyright © 2016년 gbmKSquare. All rights reserved.
-*/
+  Copyright © 2016년 gbmKSquare. All rights reserved. */
 
-"kuStudy.KeyCommand.Libraries" = "도서관";
-"kuStudy.KeyCommand.Preferences" = "설정";
+"Keyboard.Libraries" = "도서관";
 
-"kuStudy.Total" = "전체";
-"kuStudy.Available" = "잔여석";
-"kuStudy.Used" = "사용 중";
+"Keyboard.Preference" = "설정";
 
-"kuStudy.NoData" = "--";
+"Common.Total" = "전체";
 
-"kuStudy.Main.Studying" = " 명 공부 중";
+"Common.Available" = "잔여석";
 
-"kuStudy.Settings.Today.Header.Show" = "보기";
-"kuStudy.Settings.Today.Header.Hide" = "숨기기";
-"kuStudy.Settings.Today.Footer.Hidden" = "이 곳에 옮겨진 항목은 알림 센터에서 보이지 않습니다.";
-"kuStudy.Settings.Today.Footer.Instruction" = "오늘 위젯 추가하기:\n\n1. 화면 상단에서 스와이프해 알림 센터를 여세요.\n2. 오늘 탭으로 변경하세요.\n3. 최하단으로 내려가 편집 버튼을 누르세요.\n4. 고려대학교 열람실을 찾아 왼쪽의 + 아이콘을 누르세요.\n5. 완료를 누르세요.";
+"Common.Used" = "사용 중";
 
-"kuStudy.Settings.Recommend" = "kuStudy 앱으로 고려대학교 열람실 현황을 확인하세요! 오늘 위젯과 Apple Watch를 지원합니다.";
+"Common.NoData" = "--";
 
-/*
- * ./kuStudy/kuStudy/view controller/SummaryViewController.swift
- */
+"Main.Studying" = " 명 공부 중";
 
-"Updated: " = "업데이트: ";
+"Settings.Today.Table.Header.Show" = "보기";
 
-"kuStudy.Settings.ThanksTo.InstagramAlert.Title" = "Instagram 앱에서 열겠습니까?";
+"Settings.Today.Table.Header.Hide" = "숨기기";
 
-/*
- * SHARED STRINGS
- */
+"Settings.Today.Table.Footer.Hidden" = "이 곳에 옮겨진 항목은 알림 센터에서 보이지 않습니다.";
 
-"kuStudy.Status.Downloading" = "로딩 중";
-"kuStudy.Status.Error" = "이런! 오류가 발생했습니다.";
+"Settings.Today.Table.Footer.Instruction" = "오늘 위젯 추가하기:\n\n1. 화면 상단에서 스와이프해 알림 센터를 여세요.\n2. 오늘 탭으로 변경하세요.\n3. 최하단으로 내려가 편집 버튼을 누르세요.\n4. 고려대학교 열람실을 찾아 왼쪽의 + 아이콘을 누르세요.\n5. 완료를 누르세요.";
 
-"kuStudy.LiberalArtCampus" = "문과캠퍼스";
-"kuStudy.ScienceCampus" = "자연계캠퍼스";
+"Settings.Recommend.Message" = "kuStudy 앱으로 고려대학교 열람실 현황을 확인하세요! 오늘 위젯과 Apple Watch를 지원합니다.";
 
-"kuStudy.Alert.Confirm" = "확인";
-"kuStudy.Alert.Cancel" = "취소";
+"Settings.ThanksTo.Instagram.Alert.Title" = "Instagram 앱에서 열겠습니까?";
+
+/* * SHARED STRINGS */
+"Table.Label.Loading" = "로딩 중";
+
+"Table.Label.Error" = "이런! 오류가 발생했습니다.";
+
+"Common.LiberalArtCampus" = "문과캠퍼스";
+
+"Common.ScienceCampus" = "자연계캠퍼스";
+
+"Alert.Action.Confirm" = "확인";
+
+"Alert.Action.Cancel" = "취소";
+

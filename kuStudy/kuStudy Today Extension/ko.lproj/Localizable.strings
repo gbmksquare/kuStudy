@@ -1,23 +1,28 @@
-/* 
-  Localizable.strings
+/* Localizable.strings
   kuStudy
 
   Created by BumMo Koo on 2016. 8. 10..
-  Copyright © 2016년 gbmKSquare. All rights reserved.
-*/
+  Copyright © 2016년 gbmKSquare. All rights reserved. */
 
-"kuStudy.Today.Loading" = "로딩 중...";
-"kuStudy.Today.Error" = "오류";
-"kuStudy.Today.TapToRefresh" = "탭해서 새로고침";
+"Today.Table.Label.Loading" = "로딩 중...";
 
-"kuStudy.Today.Studying" = " 명 공부 중";
-"kuStudy.Today.Updated" = "업데이트: ";
+"Today.Table.Label.Error" = "오류";
 
-"kuStudy.Today.Total" = "전체";
-"kuStudy.Today.Available" = "잔여석";
-"kuStudy.Today.Used" = "사용 중";
+"Today.Table.Label.TapToRefresh" = "탭해서 새로고침";
 
-"kuStudy.Today.LiberalArtCampus" = "문과 캠퍼스";
-"kuStudy.Today.ScienceCampus" = "자연계 캠퍼스";
+"Today.Main.Label.NoData" = "--";
 
-"kuStudy.Today.EmptyData" = "--";
+"Today.Main.Label.Studying" = "%@ 명 공부 중";
+
+"Today.Cell.Label.Total" = "전체";
+
+"Today.Cell.Label.Used" = "사용 중";
+
+"Today.Cell.Label.Available" = "잔여석";
+
+"Today.Cell.Label.NoData" = "--";
+
+"Today.Main.Label.ScienceCampus" = "자연계 캠퍼스:";
+
+"Today.Main.Label.LiberalArtCampus" = "문과 캠퍼스:";
+

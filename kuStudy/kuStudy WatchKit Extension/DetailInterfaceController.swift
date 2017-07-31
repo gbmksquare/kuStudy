@@ -9,7 +9,6 @@
 import Foundation
 import WatchKit
 import kuStudyWatchKit
-import Localize_Swift
 
 class DetailInterfaceController: WKInterfaceController {
     @IBOutlet weak var table: WKInterfaceTable!
@@ -28,9 +27,9 @@ class DetailInterfaceController: WKInterfaceController {
     
     // Setup
     private func setup() {
-        totalPlaceholderLabel.setText("kuStudy.Watch.Total".localized())
-        usedPlaceholderLabel.setText("kuStudy.Watch.Available".localized())
-        availablePlaceholderLabel.setText("kuStudy.Watch.Used".localized())
+        totalPlaceholderLabel.setText(Localizations.Watch.Label.Total)
+        usedPlaceholderLabel.setText(Localizations.Watch.Label.Available)
+        availablePlaceholderLabel.setText(Localizations.Watch.Label.Used)
     }
     
     // MARK: Watch

@@ -8,7 +8,6 @@
 
 import UIKit
 import kuStudyKit
-import Localize_Swift
 
 class MainSplitViewController: UISplitViewController {
     // MARK: - View
@@ -28,8 +27,8 @@ class MainSplitViewController: UISplitViewController {
     }
     
     override var keyCommands: [UIKeyCommand]? {
-        let libraries = UIKeyCommand(input: "l", modifierFlags: .command, action: #selector(gotoLibrary(_:)), discoverabilityTitle: "kuStudy.KeyCommand.Libraries".localized())
-        let settings = UIKeyCommand(input: ",", modifierFlags: .command, action: #selector(gotoPreferences(_:)), discoverabilityTitle: "kuStudy.KeyCommand.Preferences".localized())
+        let libraries = UIKeyCommand(input: "l", modifierFlags: .command, action: #selector(gotoLibrary(_:)), discoverabilityTitle: Localizations.Keyboard.Libraries)
+        let settings = UIKeyCommand(input: ",", modifierFlags: .command, action: #selector(gotoPreferences(_:)), discoverabilityTitle: Localizations.Keyboard.Preference)
         return [libraries, settings]
     }
     

@@ -1,46 +1,45 @@
-/* 
-  Localizable.strings
+/* Localizable.strings
   kuStudy
 
   Created by 구범모 on 2016. 2. 4..
-  Copyright © 2016년 gbmKSquare. All rights reserved.
-*/
+  Copyright © 2016년 gbmKSquare. All rights reserved. */
 
-"kuStudy.KeyCommand.Libraries" = "Library";
-"kuStudy.KeyCommand.Preferences" = "Preferences";
+"Keyboard.Libraries" = "Library";
 
-"kuStudy.Total" = "Total";
-"kuStudy.Available" = "Available";
-"kuStudy.Used" = "Occupied";
+"Keyboard.Preference" = "Preferences";
 
-"kuStudy.NoData" = "--";
+"Common.Total" = "Total";
 
-"kuStudy.Main.Studying" = " Studying";
+"Common.Available" = "Available";
 
-"kuStudy.Settings.Today.Header.Show" = "Show";
-"kuStudy.Settings.Today.Header.Hide" = "Hide";
-"kuStudy.Settings.Today.Footer.Hidden" = "Items dragged here are hidden in Notificaiton Center.";
-"kuStudy.Settings.Today.Footer.Instruction" = "How to add Today widget:\n\n1. Swipe down from the top of the screen to open Notification Center.\n2.Switch to Today tab.\n3.Scroll to the bottom and tap Edit.\n4.Find Korea University Reading Room and tap + icon.\n5. Tap Done.";
+"Common.Used" = "Occupied";
 
-"kuStudy.Settings.Recommend" = "Check real time reading room status in Korea University with kuStudy! It supports Today widget and Apple Watch.";
+"Common.NoData" = "--";
 
-/*
- * ./kuStudy/kuStudy/view controller/SummaryViewController.swift
- */
+"Main.Studying" = " Studying";
 
-"Updated: " = "Updated: ";
+"Settings.Today.Table.Header.Show" = "Show";
 
-"kuStudy.Settings.ThanksTo.InstagramAlert.Title" = "Open in Instagram?";
+"Settings.Today.Table.Header.Hide" = "Hide";
 
-/*
- * SHARED STRINGS
- */
+"Settings.Today.Table.Footer.Hidden" = "Items dragged here are hidden in Notificaiton Center.";
 
-"kuStudy.Status.Downloading" = "Loading...";
-"kuStudy.Status.Error" = "Oops! An error occurred.";
+"Settings.Today.Table.Footer.Instruction" = "How to add Today widget:\n\n1. Swipe down from the top of the screen to open Notification Center.\n2.Switch to Today tab.\n3.Scroll to the bottom and tap Edit.\n4.Find Korea University Reading Room and tap + icon.\n5. Tap Done.";
 
-"kuStudy.LiberalArtCampus" = "Liberal Art Campus";
-"kuStudy.ScienceCampus" = "Science Campus";
+"Settings.Recommend.Message" = "Check real time reading room status in Korea University with kuStudy! It supports Today widget and Apple Watch.";
 
-"kuStudy.Alert.Confirm" = "OK";
-"kuStudy.Alert.Cancel" = "Cancel";
+"Settings.ThanksTo.Instagram.Alert.Title" = "Open in Instagram?";
+
+/* * SHARED STRINGS */
+"Table.Label.Loading" = "Loading...";
+
+"Table.Label.Error" = "Oops! An error occurred.";
+
+"Common.LiberalArtCampus" = "Liberal Art Campus";
+
+"Common.ScienceCampus" = "Science Campus";
+
+"Alert.Action.Confirm" = "OK";
+
+"Alert.Action.Cancel" = "Cancel";
+

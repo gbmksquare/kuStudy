@@ -1,23 +1,28 @@
-/* 
-  Localizable.strings
+/* Localizable.strings
   kuStudy
 
   Created by BumMo Koo on 2016. 8. 10..
-  Copyright © 2016년 gbmKSquare. All rights reserved.
-*/
+  Copyright © 2016년 gbmKSquare. All rights reserved. */
 
-"kuStudy.Today.Loading" = "Loading...";
-"kuStudy.Today.Error" = "Error";
-"kuStudy.Today.TapToRefresh" = "Tap to refresh";
+"Today.Table.Label.Loading" = "Loading...";
 
-"kuStudy.Today.Studying" = " Studying";
-"kuStudy.Today.Updated" = "Updated: ";
+"Today.Table.Label.Error" = "Error";
 
-"kuStudy.Today.Total" = "Total";
-"kuStudy.Today.Available" = "Available";
-"kuStudy.Today.Used" = "Occupied";
+"Today.Table.Label.TapToRefresh" = "Tap to refresh";
 
-"kuStudy.Today.LiberalArtCampus" = "Liberal Art Campus";
-"kuStudy.Today.ScienceCampus" = "Science Campus";
+"Today.Main.Label.NoData" = "--";
 
-"kuStudy.Today.EmptyData" = "--";
+"Today.Main.Label.Studying" = "%@ studying";
+
+"Today.Cell.Label.Total" = "Total";
+
+"Today.Cell.Label.Used" = "Occupied";
+
+"Today.Cell.Label.Available" = "Available";
+
+"Today.Cell.Label.NoData" = "--";
+
+"Today.Main.Label.ScienceCampus" = "Science Campus:";
+
+"Today.Main.Label.LiberalArtCampus" = "Liberal Art Campus:";
+

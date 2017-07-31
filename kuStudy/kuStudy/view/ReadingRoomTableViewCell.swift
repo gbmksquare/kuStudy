@@ -8,7 +8,6 @@
 
 import UIKit
 import kuStudyKit
-import Localize_Swift
 
 class ReadingRoomTableViewCell: UITableViewCell {
     @IBOutlet private weak var indicatorView: UIView!
@@ -35,7 +34,7 @@ class ReadingRoomTableViewCell: UITableViewCell {
     // MARK: UI
     private func setup() {
         indicatorView.layer.cornerRadius = indicatorView.bounds.width / 2
-        availablePlaceholderLabel.text = "kuStudy.Available".localized()
+        availablePlaceholderLabel.text = Localizations.Common.Available
         
         if #available(iOS 11.0, *) {
             indicatorView.accessibilityIgnoresInvertColors = true
@@ -55,14 +54,14 @@ class ReadingRoomTableViewCell: UITableViewCell {
     
     // MARK: Populate
     private func setEmpty() {
-        nameLabel.text = "kuStudy.NoData".localized()
-        availablePlaceholderLabel.text = "kuStudy.Available".localized()
-        totalPlaceholderLabel.text = "kuStudy.Total".localized()
-        usedPlaceholderLabel.text = "kuStudy.Used".localized()
+        nameLabel.text = Localizations.Common.Nodata
+        availablePlaceholderLabel.text = Localizations.Common.Available
+        totalPlaceholderLabel.text = Localizations.Common.Total
+        usedPlaceholderLabel.text = Localizations.Common.Used
         
-        availableLabel.text = "kuStudy.NoData".localized()
-        totalLabel.text = "kuStudy.NoData".localized()
-        usedLabel.text = "kuStudy.NoData".localized()
+        availableLabel.text = Localizations.Common.Nodata
+        totalLabel.text = Localizations.Common.Nodata
+        usedLabel.text = Localizations.Common.Nodata
         
         indicatorView.backgroundColor = UIColor.lightGray
         usedProgressView.progress = 0

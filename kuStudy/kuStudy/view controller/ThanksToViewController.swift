@@ -103,11 +103,11 @@ extension ThanksToViewController {
     }
     
     private func openInInstagram(_ url: URL) {
-        let alert = UIAlertController(title: "kuStudy.Settings.ThanksTo.InstagramAlert.Title".localized(), message: nil, preferredStyle: .alert)
-        let open = UIAlertAction(title: "kuStudy.Alert.Confirm".localized(), style: .default) { (_) in
+        let alert = UIAlertController(title: Localizations.Settings.Thanksto.Instagram.Alert.Title, message: nil, preferredStyle: .alert)
+        let open = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default) { (_) in
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
-        let cancel = UIAlertAction(title: "kuStudy.Alert.Cancel".localized(), style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: Localizations.Alert.Action.Cancel, style: .cancel, handler: nil)
         alert.addAction(cancel)
         alert.addAction(open)
         present(alert, animated: true, completion: nil)

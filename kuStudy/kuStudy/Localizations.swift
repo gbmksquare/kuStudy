@@ -16,107 +16,124 @@ import Foundation
 
 public struct Localizations {
 
-    /// Base translation: Updated: 
-    public static var Updated : String = NSLocalizedString("Updated: ", comment: "")
+
+    public struct Settings {
 
 
-    public struct Kustudy {
-
-        /// Base translation: --
-        public static var Nodata : String = NSLocalizedString("kuStudy.NoData", comment: "")
-
-        /// Base translation: Liberal Art Campus
-        public static var Liberalartcampus : String = NSLocalizedString("kuStudy.LiberalArtCampus", comment: "")
-
-        /// Base translation: Available
-        public static var Available : String = NSLocalizedString("kuStudy.Available", comment: "")
-
-        /// Base translation: Science Campus
-        public static var Sciencecampus : String = NSLocalizedString("kuStudy.ScienceCampus", comment: "")
-
-        /// Base translation: Occupied
-        public static var Used : String = NSLocalizedString("kuStudy.Used", comment: "")
-
-        /// Base translation: Total
-        public static var Total : String = NSLocalizedString("kuStudy.Total", comment: "")
+        public struct Today {
 
 
-        public struct Status {
-
-            /// Base translation: Oops! An error occurred.
-            public static var Error : String = NSLocalizedString("kuStudy.Status.Error", comment: "")
-
-            /// Base translation: Loading...
-            public static var Downloading : String = NSLocalizedString("kuStudy.Status.Downloading", comment: "")
-
-        }
-
-        public struct Keycommand {
-
-            /// Base translation: Library
-            public static var Libraries : String = NSLocalizedString("kuStudy.KeyCommand.Libraries", comment: "")
-
-            /// Base translation: Preferences
-            public static var Preferences : String = NSLocalizedString("kuStudy.KeyCommand.Preferences", comment: "")
-
-        }
-
-        public struct Alert {
-
-            /// Base translation: OK
-            public static var Confirm : String = NSLocalizedString("kuStudy.Alert.Confirm", comment: "")
-
-            /// Base translation: Cancel
-            public static var Cancel : String = NSLocalizedString("kuStudy.Alert.Cancel", comment: "")
-
-        }
-
-        public struct Settings {
-
-            /// Base translation: Check real time reading room status in Korea University with kuStudy! It supports Today widget and Apple Watch.
-            public static var Recommend : String = NSLocalizedString("kuStudy.Settings.Recommend", comment: "")
-
-
-            public struct Today {
+            public struct Table {
 
 
                 public struct Header {
 
                     /// Base translation: Show
-                    public static var Show : String = NSLocalizedString("kuStudy.Settings.Today.Header.Show", comment: "")
+                    public static var Show : String = NSLocalizedString("Settings.Today.Table.Header.Show", comment: "")
 
                     /// Base translation: Hide
-                    public static var Hide : String = NSLocalizedString("kuStudy.Settings.Today.Header.Hide", comment: "")
+                    public static var Hide : String = NSLocalizedString("Settings.Today.Table.Header.Hide", comment: "")
 
                 }
 
                 public struct Footer {
 
                     /// Base translation: Items dragged here are hidden in Notificaiton Center.
-                    public static var Hidden : String = NSLocalizedString("kuStudy.Settings.Today.Footer.Hidden", comment: "")
+                    public static var Hidden : String = NSLocalizedString("Settings.Today.Table.Footer.Hidden", comment: "")
 
                     /// Base translation: How to add Today widget:  1. Swipe down from the top of the screen to open Notification Center. 2.Switch to Today tab. 3.Scroll to the bottom and tap Edit. 4.Find Korea University Reading Room and tap + icon. 5. Tap Done.
-                    public static var Instruction : String = NSLocalizedString("kuStudy.Settings.Today.Footer.Instruction", comment: "")
-
-                }
-            }
-
-            public struct Thanksto {
-
-
-                public struct Instagramalert {
-
-                    /// Base translation: Open in Instagram?
-                    public static var Title : String = NSLocalizedString("kuStudy.Settings.ThanksTo.InstagramAlert.Title", comment: "")
+                    public static var Instruction : String = NSLocalizedString("Settings.Today.Table.Footer.Instruction", comment: "")
 
                 }
             }
         }
 
-        public struct Main {
+        public struct Thanksto {
 
-            /// Base translation:  Studying
-            public static var Studying : String = NSLocalizedString("kuStudy.Main.Studying", comment: "")
+
+            public struct Instagram {
+
+
+                public struct Alert {
+
+                    /// Base translation: Open in Instagram?
+                    public static var Title : String = NSLocalizedString("Settings.ThanksTo.Instagram.Alert.Title", comment: "")
+
+                }
+            }
+        }
+
+        public struct Recommend {
+
+            /// Base translation: Check real time reading room status in Korea University with kuStudy! It supports Today widget and Apple Watch.
+            public static var Message : String = NSLocalizedString("Settings.Recommend.Message", comment: "")
+
+        }
+    }
+
+    public struct Main {
+
+        /// Base translation:  Studying
+        public static var Studying : String = NSLocalizedString("Main.Studying", comment: "")
+
+    }
+
+    public struct Alert {
+
+
+        public struct Action {
+
+            /// Base translation: OK
+            public static var Confirm : String = NSLocalizedString("Alert.Action.Confirm", comment: "")
+
+            /// Base translation: Cancel
+            public static var Cancel : String = NSLocalizedString("Alert.Action.Cancel", comment: "")
+
+        }
+    }
+
+    public struct Common {
+
+        /// Base translation: Total
+        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
+
+        /// Base translation: Science Campus
+        public static var Sciencecampus : String = NSLocalizedString("Common.ScienceCampus", comment: "")
+
+        /// Base translation: Available
+        public static var Available : String = NSLocalizedString("Common.Available", comment: "")
+
+        /// Base translation: --
+        public static var Nodata : String = NSLocalizedString("Common.NoData", comment: "")
+
+        /// Base translation: Liberal Art Campus
+        public static var Liberalartcampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
+
+        /// Base translation: Occupied
+        public static var Used : String = NSLocalizedString("Common.Used", comment: "")
+
+    }
+
+    public struct Keyboard {
+
+        /// Base translation: Preferences
+        public static var Preference : String = NSLocalizedString("Keyboard.Preference", comment: "")
+
+        /// Base translation: Library
+        public static var Libraries : String = NSLocalizedString("Keyboard.Libraries", comment: "")
+
+    }
+
+    public struct Table {
+
+
+        public struct Label {
+
+            /// Base translation: Loading...
+            public static var Loading : String = NSLocalizedString("Table.Label.Loading", comment: "")
+
+            /// Base translation: Oops! An error occurred.
+            public static var Error : String = NSLocalizedString("Table.Label.Error", comment: "")
 
         }
     }

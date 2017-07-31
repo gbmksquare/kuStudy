@@ -8,7 +8,6 @@
 
 import UIKit
 import kuStudyKit
-import Localize_Swift
 
 class TodayExtensionOrderTableViewController: UITableViewController {
     private var libraryTypes: [LibraryType]!
@@ -31,16 +30,16 @@ class TodayExtensionOrderTableViewController: UITableViewController {
 extension TodayExtensionOrderTableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 0: return "kuStudy.Settings.Today.Header.Show".localized()
-        case 1: return "kuStudy.Settings.Today.Header.Hide".localized()
+        case 0: return Localizations.Settings.Today.Table.Header.Show
+        case 1: return Localizations.Settings.Today.Table.Header.Hide
         default: return nil
         }
     }
     
     override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
-        case 0: return "kuStudy.Settings.Today.Footer.Instruction".localized()
-        case 1: return "kuStudy.Settings.Today.Footer.Hidden".localized()
+        case 0: return Localizations.Settings.Today.Table.Footer.Instruction
+        case 1: return Localizations.Settings.Today.Table.Footer.Hidden
         default: return ""
         }
     }

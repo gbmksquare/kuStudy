@@ -8,7 +8,6 @@
 
 import UIKit
 import kuStudyKit
-import Localize_Swift
 
 class LibraryTableViewCell: UITableViewCell {
     @IBOutlet private weak var indicatorView: UIView!
@@ -71,13 +70,13 @@ class LibraryTableViewCell: UITableViewCell {
     // MARK: Populate
     private func setEmpty() {
         thumbnailImageView.image = nil
-        nameLabel.text = "kuStudy.NoData".localized()
-        availablePlaceholderLabel.text = "kuStudy.Available".localized()
-        totalPlaceholderLabel.text = "kuStudy.Total".localized()
-        usedPlaceholderLabel.text = "kuStudy.Used".localized()
-        availableLabel.text = "kuStudy.NoData".localized()
-        totalLabel.text = "kuStudy.NoData".localized()
-        usedLabel.text = "kuStudy.NoData".localized()
+        nameLabel.text = Localizations.Common.Nodata
+        availablePlaceholderLabel.text = Localizations.Common.Available
+        totalPlaceholderLabel.text = Localizations.Common.Total
+        usedPlaceholderLabel.text = Localizations.Common.Used
+        availableLabel.text = Localizations.Common.Nodata
+        totalLabel.text = Localizations.Common.Nodata
+        usedLabel.text = Localizations.Common.Nodata
         indicatorView.backgroundColor = UIColor.lightGray
     }
     

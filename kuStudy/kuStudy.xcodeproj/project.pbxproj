@@ -33,6 +33,9 @@
 		163AAC511F18E9D000E6DD0C /* DataTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163AAC501F18E9D000E6DD0C /* DataTag.swift */; };
 		164190FA1F2F675C008682E5 /* Localizations.swift in Resources */ = {isa = PBXBuildFile; fileRef = 164190F91F2F675C008682E5 /* Localizations.swift */; };
 		164190FD1F2F6B81008682E5 /* Localizations.swift in Resources */ = {isa = PBXBuildFile; fileRef = 164190FC1F2F6B80008682E5 /* Localizations.swift */; };
+		164190FE1F2F6D71008682E5 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164190FB1F2F6B6C008682E5 /* Localizations.swift */; };
+		164190FF1F2F724D008682E5 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164190F91F2F675C008682E5 /* Localizations.swift */; };
+		164191001F2F7257008682E5 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164190FC1F2F6B80008682E5 /* Localizations.swift */; };
 		164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E921C5608E0004C6663 /* MainTabBarController.swift */; };
 		164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */; };
 		164DD35B1D9FB30F001236F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164DD3591D9FB30F001236F8 /* LaunchScreen.storyboard */; };
@@ -1525,14 +1528,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Localize-Swift-watchOS/Localize_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-watchOS/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper-watchOS/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper-watchOS/ObjectMapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -1568,7 +1569,6 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
-				"${BUILT_PRODUCTS_DIR}/Localize-Swift-iOS/Localize_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
 				"${BUILT_PRODUCTS_DIR}/SimulatorStatusMagic/SimulatorStatusMagic.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper-iOS/AlamofireObjectMapper.framework",
@@ -1580,7 +1580,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimulatorStatusMagic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
@@ -1776,6 +1775,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				164191001F2F7257008682E5 /* Localizations.swift in Sources */,
 				1673304F1B1C92BF00573FFC /* DetailInterfaceController.swift in Sources */,
 				16DD052E1E46DBB4007AB912 /* UIColor.swift in Sources */,
 				16136BD81B1C3F0700B3F744 /* InterfaceController.swift in Sources */,
@@ -1812,6 +1812,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				164190FF1F2F724D008682E5 /* Localizations.swift in Sources */,
 				1672461A1B1B13610083035F /* Definitions.swift in Sources */,
 				1661C3DF1F07E9C0005C889F /* UIDevice.swift in Sources */,
 				1664D5541D55E1E2000BAF56 /* UIColor.swift in Sources */,
@@ -1879,6 +1880,7 @@
 			files = (
 				16251CAD1B232D650035F2D9 /* Definitions.swift in Sources */,
 				169B18C61E41D53B007422CC /* MainViewController.swift in Sources */,
+				164190FE1F2F6D71008682E5 /* Localizations.swift in Sources */,
 				1660A4B81C8FB4EE003D5460 /* LibraryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
