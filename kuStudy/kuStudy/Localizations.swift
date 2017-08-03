@@ -20,6 +20,13 @@ public struct Localizations {
     public struct Settings {
 
 
+        public struct Recommend {
+
+            /// Base translation: Check real time reading room status in Korea University with kuStudy! It supports Today widget and Apple Watch.
+            public static var Message : String = NSLocalizedString("Settings.Recommend.Message", comment: "")
+
+        }
+
         public struct Today {
 
 
@@ -63,18 +70,85 @@ public struct Localizations {
             }
         }
 
-        public struct Recommend {
+        public struct Table {
 
-            /// Base translation: Check real time reading room status in Korea University with kuStudy! It supports Today widget and Apple Watch.
-            public static var Message : String = NSLocalizedString("Settings.Recommend.Message", comment: "")
 
+            public struct Section {
+
+
+                public struct Header {
+
+                    /// Base translation: Share
+                    public static var Share : String = NSLocalizedString("Settings.Table.Section.Header.Share", comment: "")
+
+                    /// Base translation: Display
+                    public static var Display : String = NSLocalizedString("Settings.Table.Section.Header.Display", comment: "")
+
+                    /// Base translation: About
+                    public static var About : String = NSLocalizedString("Settings.Table.Section.Header.About", comment: "")
+
+                }
+            }
+
+            public struct Cell {
+
+
+                public struct Title {
+
+                    /// Base translation: Recommend to a Friend
+                    public static var Recommend : String = NSLocalizedString("Settings.Table.Cell.Title.Recommend", comment: "")
+
+                    /// Base translation: Today Widget Order
+                    public static var Todayorder : String = NSLocalizedString("Settings.Table.Cell.Title.TodayOrder", comment: "")
+
+                    /// Base translation: Thanks To
+                    public static var Thanksto : String = NSLocalizedString("Settings.Table.Cell.Title.ThanksTo", comment: "")
+
+                    /// Base translation: Rate on App Store
+                    public static var Rate : String = NSLocalizedString("Settings.Table.Cell.Title.Rate", comment: "")
+
+                    /// Base translation: Library Order
+                    public static var Order : String = NSLocalizedString("Settings.Table.Cell.Title.Order", comment: "")
+
+                    /// Base translation: Open Source
+                    public static var Opensource : String = NSLocalizedString("Settings.Table.Cell.Title.OpenSource", comment: "")
+
+                }
+            }
         }
     }
 
     public struct Main {
 
-        /// Base translation:  Studying
-        public static var Studying : String = NSLocalizedString("Main.Studying", comment: "")
+        /// Base translation: %@ are studying now.
+        public static func Studying(_ value1 : String) -> String {
+            return String(format: NSLocalizedString("Main.Studying", comment: ""), value1)
+        }
+
+        /// Base translation: %@ are studying in liberal art campus, %@ are studying in science campus.
+        public static func Studyingcampus(_ value1 : String, _ value2 : String) -> String {
+            return String(format: NSLocalizedString("Main.StudyingCampus", comment: ""), value1, value2)
+        }
+
+
+        public struct Title {
+
+            /// Base translation: Library
+            public static var Library : String = NSLocalizedString("Main.Title.Library", comment: "")
+
+            /// Base translation: Preference
+            public static var Preference : String = NSLocalizedString("Main.Title.Preference", comment: "")
+
+        }
+    }
+
+    public struct Keyboard {
+
+        /// Base translation: Preferences
+        public static var Preference : String = NSLocalizedString("Keyboard.Preference", comment: "")
+
+        /// Base translation: Library
+        public static var Libraries : String = NSLocalizedString("Keyboard.Libraries", comment: "")
 
     }
 
@@ -94,33 +168,38 @@ public struct Localizations {
 
     public struct Common {
 
-        /// Base translation: Total
-        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
-
-        /// Base translation: Science Campus
-        public static var Sciencecampus : String = NSLocalizedString("Common.ScienceCampus", comment: "")
-
-        /// Base translation: Available
-        public static var Available : String = NSLocalizedString("Common.Available", comment: "")
+        /// Base translation: Printer
+        public static var Printer : String = NSLocalizedString("Common.Printer", comment: "")
 
         /// Base translation: --
         public static var Nodata : String = NSLocalizedString("Common.NoData", comment: "")
 
-        /// Base translation: Liberal Art Campus
-        public static var Liberalartcampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
+        /// Base translation: Total
+        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
+
+        /// Base translation: Ineligible
+        public static var Ineligible : String = NSLocalizedString("Common.Ineligible", comment: "")
+
+        /// Base translation: Scanner
+        public static var Scanner : String = NSLocalizedString("Common.Scanner", comment: "")
 
         /// Base translation: Occupied
         public static var Used : String = NSLocalizedString("Common.Used", comment: "")
 
-    }
+        /// Base translation: Available
+        public static var Available : String = NSLocalizedString("Common.Available", comment: "")
 
-    public struct Keyboard {
+        /// Base translation: Science Campus
+        public static var Sciencecampus : String = NSLocalizedString("Common.ScienceCampus", comment: "")
 
-        /// Base translation: Preferences
-        public static var Preference : String = NSLocalizedString("Keyboard.Preference", comment: "")
+        /// Base translation: Liberal Art Campus
+        public static var Liberalartcampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
 
-        /// Base translation: Library
-        public static var Libraries : String = NSLocalizedString("Keyboard.Libraries", comment: "")
+        /// Base translation: Disabled
+        public static var Disabled : String = NSLocalizedString("Common.Disabled", comment: "")
+
+        /// Base translation: Out of Order
+        public static var Outoforder : String = NSLocalizedString("Common.OutOfOrder", comment: "")
 
     }
 

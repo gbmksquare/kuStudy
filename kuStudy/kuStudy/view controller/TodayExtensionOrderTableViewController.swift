@@ -17,6 +17,7 @@ class TodayExtensionOrderTableViewController: UITableViewController {
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = Localizations.Settings.Table.Cell.Title.Todayorder
         orderedLibraryIds = Preference.shared.widgetLibraryOrder
         hiddenLibraryIds = Preference.shared.widgetLibraryHidden
         libraryTypes = LibraryType.allTypes()

@@ -133,19 +133,13 @@ extension SummaryViewController {
     }
     
     private func setupContent() {
-//        usedPlaceholderLabel.text = "kuStudy.Main.Studying".localized()
-//        laCampusUsedPlaceholderLabel.text = "kuStudy.LiberalArtCampus".localized() + ":"
-//        scCampusUsedPlaceholderLabel.text = "kuStudy.ScienceCampus".localized() + ":"
-//
-//        usedLabel.text = "kuStudy.NoData".localized()
-//        laCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
-//        scCampusUsedLabel.text = "kuStudy.NoData".localized() + "kuStudy.Main.Studying".localized()
+        title = Localizations.Main.Title.Library
+//        let noData = Localizations.Common.Nodata
+//        summaryLabel.text = Localizations.Main.Studying(noData) + "\n" + Localizations.Main.Studyingcampus(noData, noData)
         
         let formatter = DateFormatter()
         formatter.dateStyle = .full
         dateLabel.text = formatter.string(from: Date()).localizedUppercase
-        
-        navigationItem.title = "Library"
     }
     
     private func listenForUserDefaultsDidChange() {
@@ -207,7 +201,7 @@ extension SummaryViewController {
         if let usedSeats = summaryData.usedSeats,
             let laCampusUsedSeats = summaryData.usedSeatsInLiberalArtCampus?.readable,
             let scCampusUsedSeats = summaryData.usedSeatsInScienceCampus?.readable {
-            summaryLabel.text = "\(usedSeats.readable) people studying.\n\(laCampusUsedSeats) are studying in liberal art campus,\n\(scCampusUsedSeats) are studying in science campus."
+            summaryLabel.text = Localizations.Main.Studying(usedSeats.readable) + "\n" + Localizations.Main.Studyingcampus(laCampusUsedSeats, scCampusUsedSeats)
         }
         table.reloadData()
     }

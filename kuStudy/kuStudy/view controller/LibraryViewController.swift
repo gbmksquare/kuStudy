@@ -136,26 +136,26 @@ extension LibraryViewController {
     }
     
     private func setupContent() {
-        //        libraryNameLabel.text = LibraryType(rawValue: libraryId)?.name
-        //        availablePlaceholderLabel.text  = "kuStudy.Available".localized()
-        //        totalPlaceholderLabel.text = "kuStudy.Total".localized()
-        //        usedPlaceholderLabel.text = "kuStudy.Used".localized()
-        
-        //        availableLabel.text = "kuStudy.NoData".localized()
-        //        totalLabel.text = "kuStudy.NoData".localized()
-        //        usedLabel.text = "kuStudy.NoData".localized()
-        
-        //        photographerLabel.text = ""
         let photo = PhotoProvider.sharedProvider.photo(libraryId)
-        //        headerImageView.image = photo.image
-        //        headerBlurImageView.image = photo.image
-        //        headerBlurImageView.transform = CGAffineTransform(scaleX: 1, y: -1)
-        //        photographerLabel.text = photo.photographer.attributionString
         
         title = LibraryType(rawValue: libraryId)?.name
         titleLabel.text = LibraryType(rawValue: libraryId)?.name
         subtitleLabel.text = LibraryType(rawValue: libraryId)?.nameInAlternateLanguage
         heroImageView.image = photo.image
+        
+        dataTitleLabels.forEach {
+            guard let tag = DataTag(rawValue: $0.tag) else { return }
+            switch tag {
+            case .total: $0.text = Localizations.Common.Total
+            case .available: $0.text = Localizations.Common.Available
+            case .used: $0.text = Localizations.Common.Used
+            case .disabled: $0.text = Localizations.Common.Disabled
+            case .printer: $0.text = Localizations.Common.Printer
+            case .scanner: $0.text = Localizations.Common.Scanner
+            case .ineligible: $0.text = Localizations.Common.Ineligible
+            case .outOfOrder: $0.text = Localizations.Common.Outoforder
+            }
+        }
     }
 }
 

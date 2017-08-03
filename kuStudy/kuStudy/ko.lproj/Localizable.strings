@@ -16,7 +16,7 @@
 
 "Common.NoData" = "--";
 
-"Main.Studying" = " 명 공부 중";
+"Main.Studying" = "%@ 명이 공부 중입니다.";
 
 "Settings.Today.Table.Header.Show" = "보기";
 
@@ -42,4 +42,38 @@
 "Alert.Action.Confirm" = "확인";
 
 "Alert.Action.Cancel" = "취소";
+
+"Main.Title.Library" = "도서관";
+
+"Main.Title.Preference" = "설정";
+
+"Settings.Table.Section.Header.Display" = "표시";
+
+"Settings.Table.Section.Header.About" = "관하여";
+
+"Settings.Table.Section.Header.Share" = "공유";
+
+"Settings.Table.Cell.Title.Order" = "도서관 순서";
+
+"Settings.Table.Cell.Title.TodayOrder" = "오늘 위젯 순서";
+
+"Settings.Table.Cell.Title.Recommend" = "친구에게 추천하기";
+
+"Settings.Table.Cell.Title.Rate" = "앱스토어에서 평가하기";
+
+"Settings.Table.Cell.Title.OpenSource" = "오픈소스";
+
+"Settings.Table.Cell.Title.ThanksTo" = "감사의 말";
+
+"Common.Disabled" = "장애인석";
+
+"Common.Printer" = "프린터";
+
+"Common.Scanner" = "스캐너";
+
+"Common.Ineligible" = "사용불가";
+
+"Common.OutOfOrder" = "수리 중";
+
+"Main.StudyingCampus" = "%@ 명은 문과캠퍼스에서 공부 중이고,\n%@ 명은 이과캠퍼스에서 공부 중입니다.";
 

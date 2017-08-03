@@ -19,6 +19,7 @@ class LibraryOrderTableViewController: UITableViewController, WCSessionDelegate 
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = Localizations.Settings.Table.Cell.Title.Order
         orderedLibraryIds = Preference.shared.libraryOrder
         libraryTypes = LibraryType.allTypes()
         tableView.delegate = self

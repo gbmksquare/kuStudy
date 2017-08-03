@@ -16,7 +16,7 @@
 
 "Common.NoData" = "--";
 
-"Main.Studying" = " Studying";
+"Main.Studying" = "%@ are studying now.";
 
 "Settings.Today.Table.Header.Show" = "Show";
 
@@ -42,4 +42,38 @@
 "Alert.Action.Confirm" = "OK";
 
 "Alert.Action.Cancel" = "Cancel";
+
+"Main.Title.Library" = "Library";
+
+"Main.Title.Preference" = "Preference";
+
+"Settings.Table.Section.Header.Display" = "Display";
+
+"Settings.Table.Section.Header.About" = "About";
+
+"Settings.Table.Section.Header.Share" = "Share";
+
+"Settings.Table.Cell.Title.Order" = "Library Order";
+
+"Settings.Table.Cell.Title.TodayOrder" = "Today Widget Order";
+
+"Settings.Table.Cell.Title.Recommend" = "Recommend to a Friend";
+
+"Settings.Table.Cell.Title.Rate" = "Rate on App Store";
+
+"Settings.Table.Cell.Title.OpenSource" = "Open Source";
+
+"Settings.Table.Cell.Title.ThanksTo" = "Thanks To";
+
+"Common.Disabled" = "Disabled";
+
+"Common.Printer" = "Printer";
+
+"Common.Scanner" = "Scanner";
+
+"Common.Ineligible" = "Ineligible";
+
+"Common.OutOfOrder" = "Out of Order";
+
+"Main.StudyingCampus" = "%@ are studying in liberal art campus,\n%@ are studying in science campus.";
 

@@ -20,6 +20,7 @@ class ThanksToViewController: UIViewController {
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = Localizations.Settings.Table.Cell.Title.Thanksto
         collectionView.delegate = self
         collectionView.dataSource = self
     }

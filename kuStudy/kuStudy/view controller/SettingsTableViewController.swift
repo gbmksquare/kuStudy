@@ -18,6 +18,7 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = Localizations.Main.Title.Preference
         appIconImageView.layer.cornerRadius = 8
         versionLabel.text = "kuStudy " + UIApplication.versionString
         clearsSelectionOnViewWillAppear = false
@@ -71,6 +72,29 @@ extension SettingsTableViewController {
         return UITableViewAutomaticDimension
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 0: return Localizations.Settings.Table.Section.Header.Display
+        case 1: return Localizations.Settings.Table.Section.Header.Share
+        case 2: return Localizations.Settings.Table.Section.Header.About
+        default: return nil
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let title: String?
+        switch  cell.tag {
+        case 100: title = Localizations.Settings.Table.Cell.Title.Order
+        case 101: title = Localizations.Settings.Table.Cell.Title.Todayorder
+        case 900: title = Localizations.Settings.Table.Cell.Title.Opensource
+        case 901: title = Localizations.Settings.Table.Cell.Title.Thanksto
+        case 998: title = Localizations.Settings.Table.Cell.Title.Recommend
+        case 999: title = Localizations.Settings.Table.Cell.Title.Rate
+        default: title = nil
+        }
+        cell.textLabel?.text = title
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         switch  cell.tag {
@@ -78,6 +102,7 @@ extension SettingsTableViewController {
             let path = Bundle.main.path(forResource: "Pods-kuStudy-acknowledgements", ofType: "plist")
             let acknowledgementViewController = AcknowListViewController(acknowledgementsPlistPath: path)
             let detailNavigationController = UINavigationController(rootViewController: acknowledgementViewController)
+            acknowledgementViewController.title = Localizations.Settings.Table.Cell.Title.Opensource
             navigationController?.showDetailViewController(detailNavigationController, sender: true)
         case 998: // Recommend to a friend
             tableView.deselectRow(at: indexPath, animated: true)
