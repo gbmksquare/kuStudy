@@ -6,7 +6,7 @@
 
 "Today.Table.Label.Loading" = "로딩 중...";
 
-"Today.Table.Label.Error" = "오류";
+"Today.Table.Label.Error" = "정보를 가져올 수 없습니다.";
 
 "Today.Table.Label.TapToRefresh" = "탭해서 새로고침";
 

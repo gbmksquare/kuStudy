@@ -26,6 +26,8 @@ end
 target 'kuStudy Today Extension' do
   use_frameworks!
   platform :ios, '9.0'
+
+  pod 'SnapKit'
 end
 
 target 'kuStudy WatchKit App' do

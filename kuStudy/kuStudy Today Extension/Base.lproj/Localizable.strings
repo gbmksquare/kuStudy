@@ -6,7 +6,7 @@
 
 "Today.Table.Label.Loading" = "Loading...";
 
-"Today.Table.Label.Error" = "Error";
+"Today.Table.Label.Error" = "Failed to load information.";
 
 "Today.Table.Label.TapToRefresh" = "Tap to refresh";
 
