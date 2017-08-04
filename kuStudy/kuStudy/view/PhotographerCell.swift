@@ -16,6 +16,8 @@ class PhotographerCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var associationLabel: UILabel!
     
+    @IBOutlet weak var photographerStackView: UIStackView!
+    
     private var photographer: Photographer?
     private var currentPhotoIndex = 0
     private var timer: Timer?
@@ -34,6 +36,13 @@ class PhotographerCell: UICollectionViewCell {
         layer.shadowRadius = 9
         layer.shadowOffset = CGSize(width: 1, height: 1)
         layer.shadowOpacity = 0.2
+        
+        if #available(iOS 11.0, *) {
+            
+        } else {
+            photographerStackView.spacing = 4
+            photographerStackView.isBaselineRelativeArrangement = false
+        }
         
         [nameLabel, associationLabel].forEach {
             $0?.layer.shadowColor = UIColor.black.cgColor

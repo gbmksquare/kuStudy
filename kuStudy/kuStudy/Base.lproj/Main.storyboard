@@ -664,7 +664,7 @@
         <scene sceneID="kkd-dl-cLg">
             <objects>
                 <tableViewController id="gU0-ZJ-vss" customClass="SettingsTableViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="9zR-sD-Zmq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="9zR-sD-Zmq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -849,7 +849,7 @@
         <scene sceneID="aJc-Ux-5pe">
             <objects>
                 <tableViewController id="vcs-Cd-iQP" customClass="LibraryOrderTableViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="coG-bf-mw5">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="coG-bf-mw5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -887,7 +887,7 @@
         <scene sceneID="5te-do-eTx">
             <objects>
                 <tableViewController id="sw5-2Q-HLp" customClass="TodayExtensionOrderTableViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="ap8-ff-HAj">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ap8-ff-HAj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1082,6 +1082,7 @@
                                             <outlet property="associationLabel" destination="QZx-9f-1Te" id="5je-0G-cKy"/>
                                             <outlet property="nameLabel" destination="yB6-fz-3mC" id="GBT-ri-5tc"/>
                                             <outlet property="photoImageView" destination="oHD-Zs-NJw" id="JNK-mK-UGA"/>
+                                            <outlet property="photographerStackView" destination="K7t-6l-nuT" id="yDf-pt-vQr"/>
                                             <outlet property="wrapperView" destination="uaf-G8-OLZ" id="wFV-Ex-zy8"/>
                                         </connections>
                                     </collectionViewCell>
