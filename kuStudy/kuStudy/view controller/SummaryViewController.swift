@@ -130,6 +130,7 @@ extension SummaryViewController {
             table.contentInsetAdjustmentBehavior = .never
         }
         table.tableFooterView = UIView()
+        table.showsVerticalScrollIndicator = false
     }
     
     private func setupContent() {

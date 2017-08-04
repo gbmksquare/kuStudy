@@ -133,6 +133,7 @@ extension LibraryViewController {
     
     private func setupTableView() {
         table.tableFooterView = UIView()
+        table.showsVerticalScrollIndicator = false
     }
     
     private func setupContent() {

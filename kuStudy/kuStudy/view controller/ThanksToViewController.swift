@@ -46,7 +46,7 @@ extension ThanksToViewController: UICollectionViewDelegateFlowLayout, UICollecti
             traitCollection.preferredContentSizeCategory == .accessibilityExtraExtraExtraLarge {
             width = collectionView.bounds.width
         } else {
-            width = (collectionView.bounds.width - 10) / 2
+            width = collectionView.bounds.width / 2
         }
         
         if traitCollection.preferredContentSizeCategory == .accessibilityExtraLarge ||
@@ -60,7 +60,7 @@ extension ThanksToViewController: UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
