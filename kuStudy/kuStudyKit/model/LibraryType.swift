@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 public enum LibraryType: String {
     case CentralLibrary = "3"
@@ -63,5 +64,15 @@ public enum LibraryType: String {
     public var shortName: String {
         let framework = Bundle(for: kuStudy.self)
         return NSLocalizedString(localizedKey + ".Short", bundle: framework, comment: "")
+    }
+    
+    public var coordinate: CLLocationCoordinate2D {
+        switch self {
+        case .CentralSquare: return CLLocationCoordinate2D(latitude: 37.58851, longitude: 127.0337)
+        case .CentralLibrary: return CLLocationCoordinate2D(latitude: 37.59075, longitude: 127.0341)
+        case .HanaSquare: return CLLocationCoordinate2D(latitude: 37.58510, longitude: 127.0265)
+        case .ScienceLibrary: return CLLocationCoordinate2D(latitude: 37.58459, longitude: 127.0266)
+        case .CDL: return CLLocationCoordinate2D(latitude: 37.58944, longitude: 127.0344)
+        }
     }
 }
