@@ -193,6 +193,28 @@ extension LibraryViewController {
         }
         table.reloadData()
     }
+    
+    @IBAction fileprivate func tapped(map button: UIButton) {
+        // Apple Maps Universal Link Reference
+        // https://developer.apple.com/library/content/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
+        //
+        // Google Maps Universal Link Reference
+        // https://developers.google.com/maps/documentation/urls/ios-urlscheme
+        //
+        guard let libraryId = self.libraryId, let library = LibraryType(rawValue: libraryId) else { return }
+        guard let mapsUrl = URL(string: "http://maps.apple.com/?t=m&z=18&ll=\(library.coordinate.latitude),\(library.coordinate.longitude)") else {
+            return
+        }
+        if UIApplication.shared.canOpenURL(mapsUrl) == true {
+            UIApplication.shared.open(mapsUrl, options: [:], completionHandler: nil)
+        }
+        
+//        if let mapsUrl = URL(string: "https://www.google.com/maps/@\(library.coordinate.latitude),\(library.coordinate.longitude),18z") {
+//            if UIApplication.shared.canOpenURL(mapsUrl) == true {
+//                UIApplication.shared.open(mapsUrl, options: [:], completionHandler: nil)
+//            }
+//        }
+    }
 }
 
 // MARK: - Handoff
