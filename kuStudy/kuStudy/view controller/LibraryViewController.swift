@@ -25,6 +25,9 @@ class LibraryViewController: UIViewController {
     @IBOutlet var dataLabels: [UILabel]!
     @IBOutlet var dataTitleLabels: [UILabel]!
     
+    @IBOutlet weak var mapButton: UIButton!
+    @IBOutlet weak var remindButton: UIButton!
+    
     private var showNavigationAnimator: UIViewPropertyAnimator?
     private var hideNavigationAnimator: UIViewPropertyAnimator?
     
@@ -82,6 +85,7 @@ extension LibraryViewController {
     private func setup() {
         setupNavigation()
         setupImageHeader()
+        setupView()
         setupGradient()
         setupTableView()
         setupContent()
@@ -97,6 +101,13 @@ extension LibraryViewController {
     
     private func enableEdgeBackGesture() {
         navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+    
+    private func setupView() {
+        [mapButton, remindButton].forEach {
+            $0?.clipsToBounds = true
+            $0?.layer.cornerRadius = 9
+        }
     }
     
     private func setupImageHeader() {
@@ -214,6 +225,10 @@ extension LibraryViewController {
 //                UIApplication.shared.open(mapsUrl, options: [:], completionHandler: nil)
 //            }
 //        }
+    }
+    
+    @IBAction fileprivate func tapped(remind button: UIButton) {
+        
     }
 }
 
