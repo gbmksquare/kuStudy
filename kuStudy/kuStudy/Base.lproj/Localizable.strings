@@ -39,7 +39,7 @@
 
 "Common.ScienceCampus" = "Science Campus";
 
-"Alert.Action.Confirm" = "OK";
+"Alert.Action.Confirm" = "Confirm";
 
 "Alert.Action.Cancel" = "Cancel";
 
@@ -82,4 +82,18 @@
 "Library.Button.Remind" = "Remind Me";
 
 "Notification.Content.TapToShow" = "Tap to show current seat status.";
+
+"Alert.Title.Notification.AccessDenied" = "Access Denied";
+
+"Alert.Message.Notification.AccessDenied" = "Notification is turned off. Please enable notification from Settings app.";
+
+"Alert.Action.OpenSettings" = "Open Settings";
+
+"Alert.Message.Notification.SetTimeInterval" = "Remind me after";
+
+"TimeInterval.Custom" = "Custom";
+
+"TimeInterval.Now" = "Now";
+
+"TimeInterval.Hour" = "Hours";
 

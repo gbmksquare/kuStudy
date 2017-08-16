@@ -19,6 +19,7 @@
 		16136C001B1C451100B3F744 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BFF1B1C451100B3F744 /* LibraryCell.swift */; };
 		16251CAD1B232D650035F2D9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1625B4621F44386700744C01 /* NotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1625B4611F44386700744C01 /* NotificationCoordinator.swift */; };
+		1625B4641F44870500744C01 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1625B4631F44870500744C01 /* UIViewController.swift */; };
 		162F120D1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 162F120C1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist */; };
 		162F12151D5F86B000A401D8 /* PhotographerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F12141D5F86B000A401D8 /* PhotographerCell.swift */; };
 		1631A2CE1CEF4EA60078381F /* SectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2CD1CEF4EA60078381F /* SectorData.swift */; };
@@ -279,6 +280,7 @@
 		16136BFF1B1C451100B3F744 /* LibraryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		16251CAC1B232C8F0035F2D9 /* kuStudy Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy Today Extension.entitlements"; sourceTree = "<group>"; };
 		1625B4611F44386700744C01 /* NotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationCoordinator.swift; path = controller/NotificationCoordinator.swift; sourceTree = "<group>"; };
+		1625B4631F44870500744C01 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIViewController.swift; path = extension/UIViewController.swift; sourceTree = "<group>"; };
 		162F120C1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-kuStudy-acknowledgements.plist"; path = "../../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy-acknowledgements.plist"; sourceTree = "<group>"; };
 		162F12141D5F86B000A401D8 /* PhotographerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotographerCell.swift; path = view/PhotographerCell.swift; sourceTree = "<group>"; };
 		1631A2CD1CEF4EA60078381F /* SectorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectorData.swift; path = model/SectorData.swift; sourceTree = "<group>"; };
@@ -941,6 +943,7 @@
 				1661C3DE1F07E9C0005C889F /* UIDevice.swift */,
 				1664D5551D55E24B000BAF56 /* UIApplication.swift */,
 				1664D5511D55E1C6000BAF56 /* UINavigationController.swift */,
+				1625B4631F44870500744C01 /* UIViewController.swift */,
 				169D41DD1ED7D86100233F70 /* GBMSKStoreProductViewController.swift */,
 				1664D5531D55E1E2000BAF56 /* UIColor.swift */,
 			);
@@ -1870,6 +1873,7 @@
 				1664D5561D55E24B000BAF56 /* UIApplication.swift in Sources */,
 				16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */,
 				1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift in Sources */,
+				1625B4641F44870500744C01 /* UIViewController.swift in Sources */,
 				164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */,
 				167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */,
 				16EFE0EC1F0243EB00FD476B /* Preference.swift in Sources */,

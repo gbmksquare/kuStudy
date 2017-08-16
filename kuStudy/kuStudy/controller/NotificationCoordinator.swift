@@ -12,22 +12,28 @@ import kuStudyKit
 
 enum RemindInterval {
     case now
-    case min15
-    case min30
-    case hour1
-    case hour3
+    case hour2
+    case hour4
     case hour6
     case custom(TimeInterval)
     
     var seconds: TimeInterval {
         switch self {
-        case .now: return 2
-        case .min15: return 900
-        case .min30: return 1800
-        case .hour1: return 3600
-        case .hour3: return 10800
+        case .now: return 3
+        case .hour2: return 7200
+        case .hour4: return 14400
         case .hour6: return 21600
         case .custom(let interval): return interval
+        }
+    }
+    
+    var name: String {
+        switch self {
+        case .now: return Localizations.Timeinterval.Now
+        case .hour2, .hour4, .hour6:
+            return String(Int(seconds / 60 / 60)) + " \(Localizations.Timeinterval.Hour)"
+        case .custom(let interval):
+            return Localizations.Timeinterval.Custom
         }
     }
 }
@@ -46,9 +52,9 @@ class NotificationCoordinator: NSObject {
     }
     
     // MARK: - Authorization
-    func requestAuthorization() {
+    func requestAuthorization(_ handler: @escaping (Bool, Error?) -> Void) {
         center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-            
+            handler(granted, error)
         }
     }
     

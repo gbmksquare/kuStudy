@@ -230,10 +230,57 @@ extension LibraryViewController {
 //        }
     }
     
-    @IBAction fileprivate func tapped(remind button: UIButton) {
+    @IBAction fileprivate func tapped(remind button: UIButton? = nil) {
+        UNUserNotificationCenter.current().getNotificationSettings { [weak self] (settings) in
+            switch settings.authorizationStatus {
+            case .authorized: self?.askRemindTimeInterval()
+            case .denied: self?.handleNotificationAccessDenied()
+            case .notDetermined:
+                NotificationCoordinator.shared.requestAuthorization { (granted, error) in
+                    self?.tapped(remind: nil)
+                }
+            }
+        }
+    }
+    
+    private func askRemindTimeInterval() {
         guard let libraryId = self.libraryId, let library = LibraryType(rawValue: libraryId) else { return }
-        NotificationCoordinator.shared.requestAuthorization()
-        NotificationCoordinator.shared.remind(library: library, fromNow: .now)
+        let alert = UIAlertController(title: nil, message: Localizations.Alert.Message.Notification.Settimeinterval, preferredStyle: .actionSheet)
+        #if DEBUG
+            let debugOption = UIAlertAction(title: RemindInterval.now.name, style: .default) { (_) in
+                NotificationCoordinator.shared.remind(library: library, fromNow: .now)
+            }
+            alert.addAction(debugOption)
+        #endif
+        let option1 = UIAlertAction(title: RemindInterval.hour2.name, style: .default) { (_) in
+            NotificationCoordinator.shared.remind(library: library, fromNow: .hour2)
+        }
+        let option2 = UIAlertAction(title: RemindInterval.hour4.name, style: .default) { (_) in
+            NotificationCoordinator.shared.remind(library: library, fromNow: .hour4)
+        }
+        let option3 = UIAlertAction(title: RemindInterval.hour6.name, style: .default) { (_) in
+            NotificationCoordinator.shared.remind(library: library, fromNow: .hour6)
+        }
+        let cancel = UIAlertAction(title: Localizations.Alert.Action.Cancel, style: .cancel, handler: nil)
+        [option1, option2, option3, cancel].forEach { alert.addAction($0) }
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func handleNotificationAccessDenied() {
+        let alert = UIAlertController(title: Localizations.Alert.Title.Notification.Accessdenied, message: Localizations.Alert.Message.Notification.Accessdenied, preferredStyle: .alert)
+        let confirm = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default) { [weak self] (_) in
+            self?.tapped(remind: nil)
+        }
+        let openSettings = UIAlertAction(title: Localizations.Alert.Action.Opensettings, style: .default) { (_) in
+            guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
+            let app = UIApplication.shared
+            if app.canOpenURL(url) {
+                app.open(url, options: [:], completionHandler: nil)
+            }
+        }
+        alert.addAction(confirm)
+        alert.addAction(openSettings)
+        present(alert, animated: true, completion: nil)
     }
 }
 

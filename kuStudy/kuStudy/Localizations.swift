@@ -57,13 +57,41 @@ public struct Localizations {
     public struct Alert {
 
 
+        public struct Title {
+
+
+            public struct Notification {
+
+                /// Base translation: Access Denied
+                public static var Accessdenied : String = NSLocalizedString("Alert.Title.Notification.AccessDenied", comment: "")
+
+            }
+        }
+
+        public struct Message {
+
+
+            public struct Notification {
+
+                /// Base translation: Notification is turned off. Please enable notification from Settings app.
+                public static var Accessdenied : String = NSLocalizedString("Alert.Message.Notification.AccessDenied", comment: "")
+
+                /// Base translation: Remind me after
+                public static var Settimeinterval : String = NSLocalizedString("Alert.Message.Notification.SetTimeInterval", comment: "")
+
+            }
+        }
+
         public struct Action {
 
-            /// Base translation: OK
+            /// Base translation: Confirm
             public static var Confirm : String = NSLocalizedString("Alert.Action.Confirm", comment: "")
 
             /// Base translation: Cancel
             public static var Cancel : String = NSLocalizedString("Alert.Action.Cancel", comment: "")
+
+            /// Base translation: Open Settings
+            public static var Opensettings : String = NSLocalizedString("Alert.Action.OpenSettings", comment: "")
 
         }
     }
@@ -212,6 +240,19 @@ public struct Localizations {
             public static var Preference : String = NSLocalizedString("Main.Title.Preference", comment: "")
 
         }
+    }
+
+    public struct Timeinterval {
+
+        /// Base translation: Now
+        public static var Now : String = NSLocalizedString("TimeInterval.Now", comment: "")
+
+        /// Base translation: Hours
+        public static var Hour : String = NSLocalizedString("TimeInterval.Hour", comment: "")
+
+        /// Base translation: Custom
+        public static var Custom : String = NSLocalizedString("TimeInterval.Custom", comment: "")
+
     }
 
     public struct Library {
