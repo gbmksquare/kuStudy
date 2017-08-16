@@ -181,8 +181,8 @@ public struct Localizations {
                     /// Base translation: Share
                     public static var Share : String = NSLocalizedString("Settings.Table.Section.Header.Share", comment: "")
 
-                    /// Base translation: Display
-                    public static var Display : String = NSLocalizedString("Settings.Table.Section.Header.Display", comment: "")
+                    /// Base translation: General
+                    public static var General : String = NSLocalizedString("Settings.Table.Section.Header.General", comment: "")
 
                     /// Base translation: About
                     public static var About : String = NSLocalizedString("Settings.Table.Section.Header.About", comment: "")

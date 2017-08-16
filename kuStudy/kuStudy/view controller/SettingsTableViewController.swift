@@ -74,7 +74,7 @@ extension SettingsTableViewController {
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 0: return Localizations.Settings.Table.Section.Header.Display
+        case 0: return Localizations.Settings.Table.Section.Header.General
         case 1: return Localizations.Settings.Table.Section.Header.Share
         case 2: return Localizations.Settings.Table.Section.Header.About
         default: return nil

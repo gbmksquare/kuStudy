@@ -47,7 +47,7 @@
 
 "Main.Title.Preference" = "설정";
 
-"Settings.Table.Section.Header.Display" = "표시";
+"Settings.Table.Section.Header.General" = "일반";
 
 "Settings.Table.Section.Header.About" = "관하여";
 
@@ -89,7 +89,7 @@
 
 "Alert.Action.OpenSettings" = "설정 열기";
 
-"Alert.Message.Notification.SetTimeInterval" = "이 기간 후 나한테 알리기";
+"Alert.Message.Notification.SetTimeInterval" = "다음 시간 후 나한테 알리기";
 
 "TimeInterval.Custom" = "사용자 지정";
 
