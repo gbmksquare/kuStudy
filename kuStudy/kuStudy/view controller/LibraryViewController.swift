@@ -11,6 +11,7 @@ import kuStudyKit
 import MXParallaxHeader
 import DZNEmptyDataSet
 import Crashlytics
+import UserNotifications
 
 class LibraryViewController: UIViewController {
     @IBOutlet private weak var table: UITableView!
@@ -108,6 +109,8 @@ extension LibraryViewController {
             $0?.clipsToBounds = true
             $0?.layer.cornerRadius = 9
         }
+        mapButton.setTitle(Localizations.Library.Button.Map, for: .normal)
+        remindButton.setTitle(Localizations.Library.Button.Remind, for: .normal)
     }
     
     private func setupImageHeader() {
@@ -228,7 +231,9 @@ extension LibraryViewController {
     }
     
     @IBAction fileprivate func tapped(remind button: UIButton) {
-        
+        guard let libraryId = self.libraryId, let library = LibraryType(rawValue: libraryId) else { return }
+        NotificationCoordinator.shared.requestAuthorization()
+        NotificationCoordinator.shared.remind(library: library, fromNow: .now)
     }
 }
 

@@ -18,6 +18,7 @@
 		16136BFC1B1C44BA00B3F744 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		16136C001B1C451100B3F744 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BFF1B1C451100B3F744 /* LibraryCell.swift */; };
 		16251CAD1B232D650035F2D9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
+		1625B4621F44386700744C01 /* NotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1625B4611F44386700744C01 /* NotificationCoordinator.swift */; };
 		162F120D1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 162F120C1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist */; };
 		162F12151D5F86B000A401D8 /* PhotographerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F12141D5F86B000A401D8 /* PhotographerCell.swift */; };
 		1631A2CE1CEF4EA60078381F /* SectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2CD1CEF4EA60078381F /* SectorData.swift */; };
@@ -277,6 +278,7 @@
 		16136BF51B1C406800B3F744 /* kuStudy WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		16136BFF1B1C451100B3F744 /* LibraryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		16251CAC1B232C8F0035F2D9 /* kuStudy Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy Today Extension.entitlements"; sourceTree = "<group>"; };
+		1625B4611F44386700744C01 /* NotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationCoordinator.swift; path = controller/NotificationCoordinator.swift; sourceTree = "<group>"; };
 		162F120C1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-kuStudy-acknowledgements.plist"; path = "../../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy-acknowledgements.plist"; sourceTree = "<group>"; };
 		162F12141D5F86B000A401D8 /* PhotographerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotographerCell.swift; path = view/PhotographerCell.swift; sourceTree = "<group>"; };
 		1631A2CD1CEF4EA60078381F /* SectorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectorData.swift; path = model/SectorData.swift; sourceTree = "<group>"; };
@@ -966,6 +968,7 @@
 			isa = PBXGroup;
 			children = (
 				16EFE0EB1F0243EB00FD476B /* Preference.swift */,
+				1625B4611F44386700744C01 /* NotificationCoordinator.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1849,6 +1852,7 @@
 			files = (
 				164190FF1F2F724D008682E5 /* Localizations.swift in Sources */,
 				1672461A1B1B13610083035F /* Definitions.swift in Sources */,
+				1625B4621F44386700744C01 /* NotificationCoordinator.swift in Sources */,
 				1661C3DF1F07E9C0005C889F /* UIDevice.swift in Sources */,
 				1664D5541D55E1E2000BAF56 /* UIColor.swift in Sources */,
 				164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */,

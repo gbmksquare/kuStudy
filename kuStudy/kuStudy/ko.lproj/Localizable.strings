@@ -77,3 +77,9 @@
 
 "Main.StudyingCampus" = "%@ 명은 문과캠퍼스에서 공부 중이고,\n%@ 명은 이과캠퍼스에서 공부 중입니다.";
 
+"Library.Button.Map" = "지도로 보기";
+
+"Library.Button.Remind" = "알림";
+
+"Notification.Content.TapToShow" = "탭해서 좌석 현황을 보세요.";
+

@@ -17,6 +17,78 @@ import Foundation
 public struct Localizations {
 
 
+    public struct Common {
+
+        /// Base translation: Printer
+        public static var Printer : String = NSLocalizedString("Common.Printer", comment: "")
+
+        /// Base translation: --
+        public static var Nodata : String = NSLocalizedString("Common.NoData", comment: "")
+
+        /// Base translation: Total
+        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
+
+        /// Base translation: Ineligible
+        public static var Ineligible : String = NSLocalizedString("Common.Ineligible", comment: "")
+
+        /// Base translation: Scanner
+        public static var Scanner : String = NSLocalizedString("Common.Scanner", comment: "")
+
+        /// Base translation: Occupied
+        public static var Used : String = NSLocalizedString("Common.Used", comment: "")
+
+        /// Base translation: Available
+        public static var Available : String = NSLocalizedString("Common.Available", comment: "")
+
+        /// Base translation: Science Campus
+        public static var Sciencecampus : String = NSLocalizedString("Common.ScienceCampus", comment: "")
+
+        /// Base translation: Liberal Art Campus
+        public static var Liberalartcampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
+
+        /// Base translation: Disabled
+        public static var Disabled : String = NSLocalizedString("Common.Disabled", comment: "")
+
+        /// Base translation: Out of Order
+        public static var Outoforder : String = NSLocalizedString("Common.OutOfOrder", comment: "")
+
+    }
+
+    public struct Alert {
+
+
+        public struct Action {
+
+            /// Base translation: OK
+            public static var Confirm : String = NSLocalizedString("Alert.Action.Confirm", comment: "")
+
+            /// Base translation: Cancel
+            public static var Cancel : String = NSLocalizedString("Alert.Action.Cancel", comment: "")
+
+        }
+    }
+
+    public struct Keyboard {
+
+        /// Base translation: Preferences
+        public static var Preference : String = NSLocalizedString("Keyboard.Preference", comment: "")
+
+        /// Base translation: Library
+        public static var Libraries : String = NSLocalizedString("Keyboard.Libraries", comment: "")
+
+    }
+
+    public struct Notification {
+
+
+        public struct Content {
+
+            /// Base translation: Tap to show current seat status.
+            public static var Taptoshow : String = NSLocalizedString("Notification.Content.TapToShow", comment: "")
+
+        }
+    }
+
     public struct Settings {
 
 
@@ -142,65 +214,18 @@ public struct Localizations {
         }
     }
 
-    public struct Keyboard {
-
-        /// Base translation: Preferences
-        public static var Preference : String = NSLocalizedString("Keyboard.Preference", comment: "")
-
-        /// Base translation: Library
-        public static var Libraries : String = NSLocalizedString("Keyboard.Libraries", comment: "")
-
-    }
-
-    public struct Alert {
+    public struct Library {
 
 
-        public struct Action {
+        public struct Button {
 
-            /// Base translation: OK
-            public static var Confirm : String = NSLocalizedString("Alert.Action.Confirm", comment: "")
+            /// Base translation: Show in Map
+            public static var Map : String = NSLocalizedString("Library.Button.Map", comment: "")
 
-            /// Base translation: Cancel
-            public static var Cancel : String = NSLocalizedString("Alert.Action.Cancel", comment: "")
+            /// Base translation: Remind Me
+            public static var Remind : String = NSLocalizedString("Library.Button.Remind", comment: "")
 
         }
-    }
-
-    public struct Common {
-
-        /// Base translation: Printer
-        public static var Printer : String = NSLocalizedString("Common.Printer", comment: "")
-
-        /// Base translation: --
-        public static var Nodata : String = NSLocalizedString("Common.NoData", comment: "")
-
-        /// Base translation: Total
-        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
-
-        /// Base translation: Ineligible
-        public static var Ineligible : String = NSLocalizedString("Common.Ineligible", comment: "")
-
-        /// Base translation: Scanner
-        public static var Scanner : String = NSLocalizedString("Common.Scanner", comment: "")
-
-        /// Base translation: Occupied
-        public static var Used : String = NSLocalizedString("Common.Used", comment: "")
-
-        /// Base translation: Available
-        public static var Available : String = NSLocalizedString("Common.Available", comment: "")
-
-        /// Base translation: Science Campus
-        public static var Sciencecampus : String = NSLocalizedString("Common.ScienceCampus", comment: "")
-
-        /// Base translation: Liberal Art Campus
-        public static var Liberalartcampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
-
-        /// Base translation: Disabled
-        public static var Disabled : String = NSLocalizedString("Common.Disabled", comment: "")
-
-        /// Base translation: Out of Order
-        public static var Outoforder : String = NSLocalizedString("Common.OutOfOrder", comment: "")
-
     }
 
     public struct Table {

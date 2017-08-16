@@ -25,7 +25,7 @@ public struct Localizations {
 
             public struct Label {
 
-                /// Base translation: Error
+                /// Base translation: Failed to load information.
                 public static var Error : String = NSLocalizedString("Today.Table.Label.Error", comment: "")
 
                 /// Base translation: Loading...

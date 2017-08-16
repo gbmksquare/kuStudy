@@ -77,3 +77,9 @@
 
 "Main.StudyingCampus" = "%@ are studying in liberal art campus,\n%@ are studying in science campus.";
 
+"Library.Button.Map" = "Show in Map";
+
+"Library.Button.Remind" = "Remind Me";
+
+"Notification.Content.TapToShow" = "Tap to show current seat status.";
+
