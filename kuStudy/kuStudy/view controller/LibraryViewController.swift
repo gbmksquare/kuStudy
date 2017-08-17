@@ -237,7 +237,9 @@ extension LibraryViewController {
             case .denied: self?.handleNotificationAccessDenied()
             case .notDetermined:
                 NotificationCoordinator.shared.requestAuthorization { (granted, error) in
-                    self?.tapped(remind: nil)
+                    DispatchQueue.main.async {
+                        self?.tapped(remind: nil)
+                    }
                 }
             }
         }
@@ -246,6 +248,9 @@ extension LibraryViewController {
     private func askRemindTimeInterval() {
         guard let libraryId = self.libraryId, let library = LibraryType(rawValue: libraryId) else { return }
         let alert = UIAlertController(title: nil, message: Localizations.Alert.Message.Notification.Settimeinterval, preferredStyle: .actionSheet)
+        alert.popoverPresentationController?.sourceView = remindButton
+        alert.popoverPresentationController?.sourceRect = remindButton.bounds
+        alert.popoverPresentationController?.permittedArrowDirections = .any
         #if DEBUG
             let debugOption = UIAlertAction(title: RemindInterval.now.name, style: .default) { (_) in
                 NotificationCoordinator.shared.remind(library: library, fromNow: .now)
@@ -268,6 +273,7 @@ extension LibraryViewController {
     
     private func handleNotificationAccessDenied() {
         let alert = UIAlertController(title: Localizations.Alert.Title.Notification.Accessdenied, message: Localizations.Alert.Message.Notification.Accessdenied, preferredStyle: .alert)
+        alert.popoverPresentationController?.sourceView = remindButton
         let confirm = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default) { [weak self] (_) in
             self?.tapped(remind: nil)
         }
