@@ -63,8 +63,8 @@ class LibraryCell: UICollectionViewCell {
         
         // Shadow
         indicator.layer.shadowColor = UIColor.black.cgColor
-        indicator.layer.shadowOpacity = 0.15
-        indicator.layer.shadowOffset = CGSize(width: 1, height: 1)
+        indicator.layer.shadowOpacity = 0.1
+        indicator.layer.shadowOffset = CGSize.zero
         indicator.layer.shadowRadius = 3
         indicator.layer.shouldRasterize = true
         indicator.layer.rasterizationScale = UIScreen.main.scale
@@ -79,7 +79,7 @@ class LibraryCell: UICollectionViewCell {
         availableTitleLabel.textColor = .darkGray
         
         // Font
-        var availableLabelFont = UIFont.systemFont(ofSize: 24, weight: .medium)
+        var availableLabelFont = UIFont.systemFont(ofSize: 30, weight: .light)
         if #available(iOS 11, *) {
             let metrics = UIFontMetrics(forTextStyle: .body)
             availableLabelFont = metrics.scaledFont(for: availableLabelFont)
@@ -88,9 +88,11 @@ class LibraryCell: UICollectionViewCell {
         availableLabel.font = availableLabelFont
         availableTitleLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
         
-        libraryLabel.adjustsFontForContentSizeCategory = true
-        availableLabel.adjustsFontForContentSizeCategory = true
-        availableTitleLabel.adjustsFontForContentSizeCategory = true
+        [libraryLabel, availableLabel, availableTitleLabel].forEach {
+            $0.adjustsFontSizeToFitWidth = true
+            $0.adjustsFontForContentSizeCategory = true
+            $0.setContentHuggingPriority(.required, for: .vertical)
+        }
         
         libraryLabel.numberOfLines = 0
         libraryLabel.lineBreakMode = .byWordWrapping
@@ -102,8 +104,9 @@ class LibraryCell: UICollectionViewCell {
         // Layout
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.alignment = .leading
+        stack.alignment = .fill
         stack.distribution = .fillProportionally
+        stack.setContentHuggingPriority(.required, for: .vertical)
         if #available(iOS 11, *) {
             stack.spacing = UIStackView.spacingUseSystem
             stack.isBaselineRelativeArrangement = true
@@ -116,14 +119,15 @@ class LibraryCell: UICollectionViewCell {
         indicator.snp.makeConstraints { (make) in
             make.width.equalTo(indicatorWidth)
             make.height.equalTo(indicatorWidth)
-            make.leading.equalTo(contentView.snp.leading).offset(8)
-            make.centerY.equalTo(libraryLabel.snp.centerY)
+            make.leading.equalTo(contentView.snp.leading).offset(12)
+            make.trailing.equalTo(stack.snp.leading).offset(-12)
+            make.centerY.equalToSuperview()
         }
         stack.snp.makeConstraints { (make) in
-            make.top.equalTo(contentView.snp.top).offset(8)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-8)
+            make.top.greaterThanOrEqualToSuperview().priority(UILayoutPriority.defaultLow.rawValue)
+            make.bottom.greaterThanOrEqualToSuperview().priority(UILayoutPriority.defaultLow.rawValue)
+            make.centerY.equalToSuperview()
             make.trailing.equalTo(contentView.snp.trailing).offset(-8)
-            make.leading.equalTo(indicator.snp.trailing).offset(14)
         }
     }
 }

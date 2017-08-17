@@ -27,7 +27,7 @@ class TodayViewController: UIViewController {
     }
     
     // Preference
-    private let numberOfCellPerLine: CGFloat = 1
+    private let numberOfCellPerLine: CGFloat = 2
     private let lineSpacing: CGFloat = 10
     
     // MARK: - View
