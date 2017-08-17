@@ -81,6 +81,13 @@ extension SettingsTableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        switch section {
+        case 1: return Localizations.Settings.Table.Section.Footer.Review
+        default: return nil
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let title: String?
         switch  cell.tag {

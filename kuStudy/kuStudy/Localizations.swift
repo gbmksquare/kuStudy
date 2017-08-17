@@ -188,6 +188,13 @@ public struct Localizations {
                     public static var About : String = NSLocalizedString("Settings.Table.Section.Header.About", comment: "")
 
                 }
+
+                public struct Footer {
+
+                    /// Base translation: Leaving review grealy encourages app developer.
+                    public static var Review : String = NSLocalizedString("Settings.Table.Section.Footer.Review", comment: "")
+
+                }
             }
 
             public struct Cell {
