@@ -970,10 +970,10 @@
             </objects>
             <point key="canvasLocation" x="-927" y="3172"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Large Title Navigation Controller-->
         <scene sceneID="uuY-2u-Ae6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D6y-qR-U2g" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="D6y-qR-U2g" customClass="LargeTitleNavigationController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tBh-h2-OS6">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -988,10 +988,10 @@
             </objects>
             <point key="canvasLocation" x="2774" y="833"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Large Title Navigation Controller-->
         <scene sceneID="1ca-s7-1tB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BLm-hC-5IG" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BLm-hC-5IG" customClass="LargeTitleNavigationController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lN3-X7-jqH">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -1006,10 +1006,10 @@
             </objects>
             <point key="canvasLocation" x="2774" y="1540"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Large Title Navigation Controller-->
         <scene sceneID="COK-to-DWv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b2G-5r-lw2" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="b2G-5r-lw2" customClass="LargeTitleNavigationController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="INU-Mx-vci">
