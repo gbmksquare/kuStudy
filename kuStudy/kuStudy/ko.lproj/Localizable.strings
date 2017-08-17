@@ -77,7 +77,7 @@
 
 "Main.StudyingCampus" = "%@ 명은 문과캠퍼스에서 공부 중이고,\n%@ 명은 이과캠퍼스에서 공부 중입니다.";
 
-"Library.Button.Map" = "지도로 보기";
+"Library.Button.Map" = "지도에서 보기";
 
 "Library.Button.Remind" = "알림";
 
@@ -89,7 +89,7 @@
 
 "Alert.Action.OpenSettings" = "설정 열기";
 
-"Alert.Message.Notification.SetTimeInterval" = "다음 시간 후 나한테 알리기";
+"Alert.Message.Notification.SetTimeInterval" = "다음 시간 후 나에게 알리기";
 
 "TimeInterval.Custom" = "사용자 지정";
 
@@ -98,4 +98,10 @@
 "TimeInterval.Hour" = "시간";
 
 "Settings.Table.Section.Footer.Review" = "리뷰를 남기면 개발자에게 큰 힘이 됩니다.";
+
+"Settings.Table.Cell.Title.Maps" = "지도";
+
+"Settings.Table.Cell.Detail.AppleMap" = "애플 지도";
+
+"Settings.Table.Cell.Detail.GoogleMap" = "구글 지도";
 

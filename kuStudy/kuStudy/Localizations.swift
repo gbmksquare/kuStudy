@@ -191,7 +191,7 @@ public struct Localizations {
 
                 public struct Footer {
 
-                    /// Base translation: Leaving review grealy encourages app developer.
+                    /// Base translation: Leaving a review greatly encourages developer.
                     public static var Review : String = NSLocalizedString("Settings.Table.Section.Footer.Review", comment: "")
 
                 }
@@ -202,23 +202,36 @@ public struct Localizations {
 
                 public struct Title {
 
-                    /// Base translation: Recommend to a Friend
-                    public static var Recommend : String = NSLocalizedString("Settings.Table.Cell.Title.Recommend", comment: "")
-
                     /// Base translation: Today Widget Order
                     public static var Todayorder : String = NSLocalizedString("Settings.Table.Cell.Title.TodayOrder", comment: "")
-
-                    /// Base translation: Thanks To
-                    public static var Thanksto : String = NSLocalizedString("Settings.Table.Cell.Title.ThanksTo", comment: "")
 
                     /// Base translation: Rate on App Store
                     public static var Rate : String = NSLocalizedString("Settings.Table.Cell.Title.Rate", comment: "")
 
-                    /// Base translation: Library Order
-                    public static var Order : String = NSLocalizedString("Settings.Table.Cell.Title.Order", comment: "")
+                    /// Base translation: Recommend to a Friend
+                    public static var Recommend : String = NSLocalizedString("Settings.Table.Cell.Title.Recommend", comment: "")
+
+                    /// Base translation: Maps
+                    public static var Maps : String = NSLocalizedString("Settings.Table.Cell.Title.Maps", comment: "")
 
                     /// Base translation: Open Source
                     public static var Opensource : String = NSLocalizedString("Settings.Table.Cell.Title.OpenSource", comment: "")
+
+                    /// Base translation: Library Order
+                    public static var Order : String = NSLocalizedString("Settings.Table.Cell.Title.Order", comment: "")
+
+                    /// Base translation: Thanks To
+                    public static var Thanksto : String = NSLocalizedString("Settings.Table.Cell.Title.ThanksTo", comment: "")
+
+                }
+
+                public struct Detail {
+
+                    /// Base translation: Google Maps
+                    public static var Googlemap : String = NSLocalizedString("Settings.Table.Cell.Detail.GoogleMap", comment: "")
+
+                    /// Base translation: Apple Maps
+                    public static var Applemap : String = NSLocalizedString("Settings.Table.Cell.Detail.AppleMap", comment: "")
 
                 }
             }

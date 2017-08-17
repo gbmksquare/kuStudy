@@ -10,10 +10,15 @@ import Foundation
 import kuStudyKit
 
 class Preference {
+    enum MapType: Int {
+        case apple, google
+    }
+    
     private enum Key: String {
         case order = "libraryOrder"
         case widgetOrder = "todayExtensionOrder"
         case widgetHidden = "todayExtensionHidden"
+        case preferredMap = "preferredMap"
         
         var name: String {
             return rawValue
@@ -50,6 +55,17 @@ class Preference {
         }
     }
     
+    var preferredMap: MapType {
+        get {
+            let int = preference.integer(forKey: Preference.Key.preferredMap.name)
+            return MapType(rawValue: int) ?? MapType.apple
+        }
+        set {
+            preference.setValue(newValue.rawValue, forKey: Preference.Key.preferredMap.name)
+            preference.synchronize()
+        }
+    }
+    
     // MARK: - Initialization
     static let shared = Preference()
     
@@ -69,7 +85,8 @@ class Preference {
         let libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
         preference.register(defaults: [Preference.Key.order.name: libraryOrder,
                                      Preference.Key.widgetOrder.name: libraryOrder,
-                                     Preference.Key.widgetHidden.name: []])
+                                     Preference.Key.widgetHidden.name: [],
+                                     Preference.Key.preferredMap.name: MapType.apple.rawValue])
         preference.synchronize()
     }
     

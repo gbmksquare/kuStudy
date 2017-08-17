@@ -77,7 +77,7 @@
 
 "Main.StudyingCampus" = "%@ are studying in liberal art campus,\n%@ are studying in science campus.";
 
-"Library.Button.Map" = "Show in Map";
+"Library.Button.Map" = "View in Map";
 
 "Library.Button.Remind" = "Remind Me";
 
@@ -98,4 +98,10 @@
 "TimeInterval.Hour" = "Hours";
 
 "Settings.Table.Section.Footer.Review" = "Leaving a review greatly encourages developer.";
+
+"Settings.Table.Cell.Title.Maps" = "Maps";
+
+"Settings.Table.Cell.Detail.AppleMap" = "Apple Maps";
+
+"Settings.Table.Cell.Detail.GoogleMap" = "Google Maps";
 

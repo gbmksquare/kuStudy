@@ -216,18 +216,15 @@ extension LibraryViewController {
         // https://developers.google.com/maps/documentation/urls/ios-urlscheme
         //
         guard let libraryId = self.libraryId, let library = LibraryType(rawValue: libraryId) else { return }
-        guard let mapsUrl = URL(string: "http://maps.apple.com/?t=m&z=18&ll=\(library.coordinate.latitude),\(library.coordinate.longitude)") else {
-            return
-        }
-        if UIApplication.shared.canOpenURL(mapsUrl) == true {
-            UIApplication.shared.open(mapsUrl, options: [:], completionHandler: nil)
-        }
         
-//        if let mapsUrl = URL(string: "https://www.google.com/maps/@\(library.coordinate.latitude),\(library.coordinate.longitude),18z") {
-//            if UIApplication.shared.canOpenURL(mapsUrl) == true {
-//                UIApplication.shared.open(mapsUrl, options: [:], completionHandler: nil)
-//            }
-//        }
+        let urlString = Preference.shared.preferredMap == .apple
+            ? "http://maps.apple.com/?t=m&z=18&ll=\(library.coordinate.latitude),\(library.coordinate.longitude)"
+            : "https://www.google.com/maps/@\(library.coordinate.latitude),\(library.coordinate.longitude),18z"
+        guard let url = URL(string: urlString) else { return }
+        
+        if UIApplication.shared.canOpenURL(url) == true {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
     }
     
     @IBAction fileprivate func tapped(remind button: UIButton? = nil) {

@@ -93,6 +93,11 @@ extension SettingsTableViewController {
         switch  cell.tag {
         case 100: title = Localizations.Settings.Table.Cell.Title.Order
         case 101: title = Localizations.Settings.Table.Cell.Title.Todayorder
+        case 102:
+            title = Localizations.Settings.Table.Cell.Title.Maps
+            cell.detailTextLabel?.text = Preference.shared.preferredMap == .apple
+                ? Localizations.Settings.Table.Cell.Detail.Applemap
+                : Localizations.Settings.Table.Cell.Detail.Googlemap
         case 900: title = Localizations.Settings.Table.Cell.Title.Opensource
         case 901: title = Localizations.Settings.Table.Cell.Title.Thanksto
         case 998: title = Localizations.Settings.Table.Cell.Title.Recommend
@@ -105,6 +110,15 @@ extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
         switch  cell.tag {
+        case 102: // Map
+            if Preference.shared.preferredMap == .apple {
+                Preference.shared.preferredMap = .google
+                cell.detailTextLabel?.text = Localizations.Settings.Table.Cell.Detail.Googlemap
+            } else {
+                Preference.shared.preferredMap = .apple
+                cell.detailTextLabel?.text = Localizations.Settings.Table.Cell.Detail.Applemap
+            }
+            tableView.deselectRow(at: indexPath, animated: true)
         case 900: // Open source
             let path = Bundle.main.path(forResource: "Pods-kuStudy-acknowledgements", ofType: "plist")
             let acknowledgementViewController = AcknowListViewController(acknowledgementsPlistPath: path)
