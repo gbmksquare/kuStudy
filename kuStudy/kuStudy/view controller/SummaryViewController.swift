@@ -365,10 +365,22 @@ extension SummaryViewController {
         let scrollView = table as UIScrollView
         let offset = scrollView.contentOffset.y
         
-        if offset > 0 {
+        if offset >= 0 {
             navigationController?.setNavigationBarHidden(false, animated: true)
         } else {
             navigationController?.setNavigationBarHidden(true, animated: true)
+        }
+    }
+    
+    private func handleScrollOffset() {
+        let scrollView = table as UIScrollView
+        let offset = scrollView.contentOffset.y
+        let headerHeight = table.parallaxHeader.height
+        
+        if offset < 0 {
+            scrollView.setContentOffset(CGPoint(x: 0, y: -headerHeight), animated: true)
+        } else {
+            
         }
     }
 }
@@ -377,5 +389,13 @@ extension SummaryViewController {
 extension SummaryViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         handleNavigationBar()
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        handleScrollOffset()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        handleScrollOffset()
     }
 }
