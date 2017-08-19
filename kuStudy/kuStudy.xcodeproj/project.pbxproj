@@ -32,8 +32,6 @@
 		1631A2DB1CF025060078381F /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2DA1CF025060078381F /* Int.swift */; };
 		1631A2DC1CF025060078381F /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2DA1CF025060078381F /* Int.swift */; };
 		163AAC511F18E9D000E6DD0C /* DataTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163AAC501F18E9D000E6DD0C /* DataTag.swift */; };
-		164190FA1F2F675C008682E5 /* Localizations.swift in Resources */ = {isa = PBXBuildFile; fileRef = 164190F91F2F675C008682E5 /* Localizations.swift */; };
-		164190FD1F2F6B81008682E5 /* Localizations.swift in Resources */ = {isa = PBXBuildFile; fileRef = 164190FC1F2F6B80008682E5 /* Localizations.swift */; };
 		164190FE1F2F6D71008682E5 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164190FB1F2F6B6C008682E5 /* Localizations.swift */; };
 		164190FF1F2F724D008682E5 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164190F91F2F675C008682E5 /* Localizations.swift */; };
 		164191001F2F7257008682E5 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164190FC1F2F6B80008682E5 /* Localizations.swift */; };
@@ -1345,7 +1343,6 @@
 			files = (
 				16A8873D1B21DD8A00C49551 /* Localizable.strings in Resources */,
 				16D392B41D62C5310078223E /* InfoPlist.strings in Resources */,
-				164190FD1F2F6B81008682E5 /* Localizations.swift in Resources */,
 				16136BDC1B1C3F0700B3F744 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1379,7 +1376,6 @@
 				1664D5621D5AC241000BAF56 /* InfoPlist.strings in Resources */,
 				16A5807B1C63298000E7EDC5 /* Localizable.strings in Resources */,
 				162F120D1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist in Resources */,
-				164190FA1F2F675C008682E5 /* Localizations.swift in Resources */,
 				164DD35B1D9FB30F001236F8 /* LaunchScreen.storyboard in Resources */,
 				167245CC1B19C0370083035F /* Images.xcassets in Resources */,
 			);
