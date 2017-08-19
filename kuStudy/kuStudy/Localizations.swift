@@ -280,7 +280,7 @@ public struct Localizations {
 
         public struct Button {
 
-            /// Base translation: Show in Map
+            /// Base translation: View in Map
             public static var Map : String = NSLocalizedString("Library.Button.Map", comment: "")
 
             /// Base translation: Remind Me
@@ -299,6 +299,19 @@ public struct Localizations {
 
             /// Base translation: Oops! An error occurred.
             public static var Error : String = NSLocalizedString("Table.Label.Error", comment: "")
+
+        }
+    }
+
+    public struct Share {
+
+
+        public struct Library {
+
+            /// Base translation: %@ Total: %@ Available: %@ Used: %@ 
+            public static func Data(_ value1 : String, _ value2 : String, _ value3 : String, _ value4 : String) -> String {
+                return String(format: NSLocalizedString("Share.Library.Data", comment: ""), value1, value2, value3, value4)
+            }
 
         }
     }

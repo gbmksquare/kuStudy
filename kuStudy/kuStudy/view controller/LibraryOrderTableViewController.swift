@@ -26,6 +26,8 @@ class LibraryOrderTableViewController: UITableViewController, WCSessionDelegate 
         tableView.dataSource = self
         tableView.isEditing = true
         
+        listenForUserDefaultsDidChange()
+        
         if WCSession.isSupported() == true {
             session = WCSession.default
             session?.delegate = self
@@ -33,7 +35,17 @@ class LibraryOrderTableViewController: UITableViewController, WCSessionDelegate 
         }
     }
     
-    // MARK: Watch
+    // MARK: - Action
+    private func listenForUserDefaultsDidChange() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsDidChange(_: )), name: UserDefaults.didChangeNotification, object: nil)
+    }
+    
+    @objc private func handleUserDefaultsDidChange(_ notification: Notification) {
+        orderedLibraryIds = Preference.shared.libraryOrder
+        tableView.reloadData()
+    }
+    
+    // MARK: - Watch
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         
     }

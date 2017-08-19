@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import MobileCoreServices
 import kuStudyKit
 import MXParallaxHeader
 import DZNEmptyDataSet
 import Crashlytics
+import WatchConnectivity
 
 enum DataSourceState {
     case fetching, error
@@ -35,6 +37,8 @@ class SummaryViewController: UIViewController {
     
     private var orderedLibraryIds: [String]!
     
+    private var session: WCSession?
+    
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +46,12 @@ class SummaryViewController: UIViewController {
         updateData()
         
         Answers.logContentView(withName: "Summary", contentType: "Summary", contentId: "0", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
+        
+        if WCSession.isSupported() == true {
+            session = WCSession.default
+            session?.delegate = self
+            session?.activate()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,6 +141,11 @@ extension SummaryViewController {
         }
         table.tableFooterView = UIView()
         table.showsVerticalScrollIndicator = false
+        
+        if #available(iOS 11.0, *) {
+            table.dragInteractionEnabled = true
+            table.dragDelegate = self
+        }
     }
     
     private func setupContent() {
@@ -275,45 +290,6 @@ extension SummaryViewController {
     }
 }
 
-// MARK: - Table view
-extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
-    // Delegate
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-    }
-    
-    // Data source
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return summaryData.libraries.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let libraryData = summaryData.libraries[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath) as! LibraryTableViewCell
-        cell.populate(library: libraryData)
-        cell.updateInterface(for: traitCollection)
-        return cell
-    }
-    
-    // MARK: Empty state
-    func emptyDataSetDidTap(_ scrollView: UIScrollView!) {
-        updateData()
-        updateView()
-    }
-    
-    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = dataState == .fetching ? Localizations.Table.Label.Loading : (error?.localizedDescription ?? Localizations.Table.Label.Error)
-        let attribute = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 17)]
-        return NSAttributedString(string: text, attributes: attribute)
-    }
-}
-
 // MARK: - UI
 extension SummaryViewController {
     private func resizeHeader() {
@@ -385,6 +361,85 @@ extension SummaryViewController {
     }
 }
 
+// MARK: - Table view
+extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
+    // Delegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let fromRow = sourceIndexPath.row
+        let toRow = destinationIndexPath.row
+        let moveLibraryId = orderedLibraryIds[fromRow]
+        orderedLibraryIds.remove(at: fromRow)
+        orderedLibraryIds.insert(moveLibraryId, at: toRow)
+        
+        Preference.shared.libraryOrder = orderedLibraryIds
+        
+        // Send settings to watch
+        do {
+            try session?.updateApplicationContext(["libraryOrder": orderedLibraryIds])
+        } catch { }
+    }
+    
+    // Data source
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return summaryData.libraries.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let libraryData = summaryData.libraries[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath) as! LibraryTableViewCell
+        cell.populate(library: libraryData)
+        cell.updateInterface(for: traitCollection)
+        return cell
+    }
+    
+    // MARK: Empty state
+    func emptyDataSetDidTap(_ scrollView: UIScrollView!) {
+        updateData()
+        updateView()
+    }
+    
+    func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
+        let text = dataState == .fetching ? Localizations.Table.Label.Loading : (error?.localizedDescription ?? Localizations.Table.Label.Error)
+        let attribute = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 17)]
+        return NSAttributedString(string: text, attributes: attribute)
+    }
+}
+
+// MARK: - Drag & Drop
+@available(iOS 11.0, *)
+extension SummaryViewController: UITableViewDragDelegate {
+    func tableView(_ tableView: UITableView, dragSessionAllowsMoveOperation session: UIDragSession) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        let libraryData = summaryData.libraries[indexPath.row]
+        let string = Localizations.Share.Library.Data(libraryData.libraryName, libraryData.totalSeats.readable, libraryData.availableSeats.readable, libraryData.usedSeats.readable)
+        guard let data = string.data(using: .utf8) else { return [] }
+        
+        let stringItem = UIDragItem(itemProvider: NSItemProvider(item: data as NSData, typeIdentifier: kUTTypePlainText as String))
+        return [stringItem]
+    }
+    
+    func tableView(_ tableView: UITableView, itemsForAddingTo session: UIDragSession, at indexPath: IndexPath, point: CGPoint) -> [UIDragItem] {
+        return self.tableView(tableView, itemsForBeginning: session, at: indexPath)
+    }
+}
+
 // MARK: - Scroll view
 extension SummaryViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -397,5 +452,21 @@ extension SummaryViewController {
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         handleScrollOffset()
+    }
+}
+
+// MARK: - Watch
+extension SummaryViewController: WCSessionDelegate {
+    // MARK: Watch
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        
+    }
+    
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        
+    }
+    
+    func sessionDidDeactivate(_ session: WCSession) {
+        
     }
 }
