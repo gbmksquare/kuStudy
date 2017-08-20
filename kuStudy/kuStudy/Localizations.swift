@@ -22,17 +22,17 @@ public struct Localizations {
         /// Base translation: Printer
         public static var Printer : String = NSLocalizedString("Common.Printer", comment: "")
 
+        /// Base translation: Ineligible
+        public static var Ineligible : String = NSLocalizedString("Common.Ineligible", comment: "")
+
         /// Base translation: --
         public static var Nodata : String = NSLocalizedString("Common.NoData", comment: "")
 
         /// Base translation: Total
         public static var Total : String = NSLocalizedString("Common.Total", comment: "")
 
-        /// Base translation: Ineligible
-        public static var Ineligible : String = NSLocalizedString("Common.Ineligible", comment: "")
-
-        /// Base translation: Scanner
-        public static var Scanner : String = NSLocalizedString("Common.Scanner", comment: "")
+        /// Base translation: Liberal Art Campus
+        public static var Liberalartcampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
 
         /// Base translation: Occupied
         public static var Used : String = NSLocalizedString("Common.Used", comment: "")
@@ -43,8 +43,8 @@ public struct Localizations {
         /// Base translation: Science Campus
         public static var Sciencecampus : String = NSLocalizedString("Common.ScienceCampus", comment: "")
 
-        /// Base translation: Liberal Art Campus
-        public static var Liberalartcampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
+        /// Base translation: Scanner
+        public static var Scanner : String = NSLocalizedString("Common.Scanner", comment: "")
 
         /// Base translation: Disabled
         public static var Disabled : String = NSLocalizedString("Common.Disabled", comment: "")
@@ -73,11 +73,11 @@ public struct Localizations {
 
             public struct Notification {
 
-                /// Base translation: Notification is turned off. Please enable notification from Settings app.
-                public static var Accessdenied : String = NSLocalizedString("Alert.Message.Notification.AccessDenied", comment: "")
-
                 /// Base translation: Remind me after
                 public static var Settimeinterval : String = NSLocalizedString("Alert.Message.Notification.SetTimeInterval", comment: "")
+
+                /// Base translation: Notification is turned off. Please enable notification from Settings app.
+                public static var Accessdenied : String = NSLocalizedString("Alert.Message.Notification.AccessDenied", comment: "")
 
             }
         }
@@ -178,14 +178,17 @@ public struct Localizations {
 
                 public struct Header {
 
+                    /// Base translation: About
+                    public static var About : String = NSLocalizedString("Settings.Table.Section.Header.About", comment: "")
+
                     /// Base translation: Share
                     public static var Share : String = NSLocalizedString("Settings.Table.Section.Header.Share", comment: "")
 
+                    /// Base translation: Feedback
+                    public static var Feedback : String = NSLocalizedString("Settings.Table.Section.Header.Feedback", comment: "")
+
                     /// Base translation: General
                     public static var General : String = NSLocalizedString("Settings.Table.Section.Header.General", comment: "")
-
-                    /// Base translation: About
-                    public static var About : String = NSLocalizedString("Settings.Table.Section.Header.About", comment: "")
 
                 }
 
@@ -202,26 +205,29 @@ public struct Localizations {
 
                 public struct Title {
 
-                    /// Base translation: Today Widget Order
-                    public static var Todayorder : String = NSLocalizedString("Settings.Table.Cell.Title.TodayOrder", comment: "")
-
                     /// Base translation: Rate on App Store
                     public static var Rate : String = NSLocalizedString("Settings.Table.Cell.Title.Rate", comment: "")
+
+                    /// Base translation: Today Widget Order
+                    public static var Todayorder : String = NSLocalizedString("Settings.Table.Cell.Title.TodayOrder", comment: "")
 
                     /// Base translation: Recommend to a Friend
                     public static var Recommend : String = NSLocalizedString("Settings.Table.Cell.Title.Recommend", comment: "")
 
-                    /// Base translation: Maps
-                    public static var Maps : String = NSLocalizedString("Settings.Table.Cell.Title.Maps", comment: "")
+                    /// Base translation: Library Order
+                    public static var Order : String = NSLocalizedString("Settings.Table.Cell.Title.Order", comment: "")
 
                     /// Base translation: Open Source
                     public static var Opensource : String = NSLocalizedString("Settings.Table.Cell.Title.OpenSource", comment: "")
 
-                    /// Base translation: Library Order
-                    public static var Order : String = NSLocalizedString("Settings.Table.Cell.Title.Order", comment: "")
+                    /// Base translation: Maps
+                    public static var Maps : String = NSLocalizedString("Settings.Table.Cell.Title.Maps", comment: "")
 
                     /// Base translation: Thanks To
                     public static var Thanksto : String = NSLocalizedString("Settings.Table.Cell.Title.ThanksTo", comment: "")
+
+                    /// Base translation: Feedback
+                    public static var Feedback : String = NSLocalizedString("Settings.Table.Cell.Title.Feedback", comment: "")
 
                 }
 
@@ -236,6 +242,19 @@ public struct Localizations {
                 }
             }
         }
+    }
+
+    public struct Timeinterval {
+
+        /// Base translation: Now
+        public static var Now : String = NSLocalizedString("TimeInterval.Now", comment: "")
+
+        /// Base translation: Hours
+        public static var Hour : String = NSLocalizedString("TimeInterval.Hour", comment: "")
+
+        /// Base translation: Custom
+        public static var Custom : String = NSLocalizedString("TimeInterval.Custom", comment: "")
+
     }
 
     public struct Main {
@@ -262,19 +281,6 @@ public struct Localizations {
         }
     }
 
-    public struct Timeinterval {
-
-        /// Base translation: Now
-        public static var Now : String = NSLocalizedString("TimeInterval.Now", comment: "")
-
-        /// Base translation: Hours
-        public static var Hour : String = NSLocalizedString("TimeInterval.Hour", comment: "")
-
-        /// Base translation: Custom
-        public static var Custom : String = NSLocalizedString("TimeInterval.Custom", comment: "")
-
-    }
-
     public struct Library {
 
 
@@ -294,11 +300,11 @@ public struct Localizations {
 
         public struct Label {
 
-            /// Base translation: Loading...
-            public static var Loading : String = NSLocalizedString("Table.Label.Loading", comment: "")
-
             /// Base translation: Oops! An error occurred.
             public static var Error : String = NSLocalizedString("Table.Label.Error", comment: "")
+
+            /// Base translation: Loading...
+            public static var Loading : String = NSLocalizedString("Table.Label.Loading", comment: "")
 
         }
     }

@@ -15,6 +15,7 @@ target 'kuStudy' do
   pod 'AlamofireNetworkActivityIndicator'
   pod 'DZNEmptyDataSet'
   pod 'AcknowList'
+  pod 'CTFeedback'
   pod 'MXParallaxHeader'
   pod 'SimulatorStatusMagic', :configurations => ['Debug']
 

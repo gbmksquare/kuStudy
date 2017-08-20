@@ -10,6 +10,7 @@ import UIKit
 import AcknowList
 import StoreKit
 import Crashlytics
+import CTFeedback
 
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var appIconImageView: UIImageView!
@@ -76,7 +77,8 @@ extension SettingsTableViewController {
         switch section {
         case 0: return Localizations.Settings.Table.Section.Header.General
         case 1: return Localizations.Settings.Table.Section.Header.Share
-        case 2: return Localizations.Settings.Table.Section.Header.About
+        case 2: return Localizations.Settings.Table.Section.Header.Feedback
+        case 3: return Localizations.Settings.Table.Section.Header.About
         default: return nil
         }
     }
@@ -98,6 +100,7 @@ extension SettingsTableViewController {
             cell.detailTextLabel?.text = Preference.shared.preferredMap == .apple
                 ? Localizations.Settings.Table.Cell.Detail.Applemap
                 : Localizations.Settings.Table.Cell.Detail.Googlemap
+        case 800: title = Localizations.Settings.Table.Cell.Title.Feedback
         case 900: title = Localizations.Settings.Table.Cell.Title.Opensource
         case 901: title = Localizations.Settings.Table.Cell.Title.Thanksto
         case 998: title = Localizations.Settings.Table.Cell.Title.Recommend
@@ -118,6 +121,14 @@ extension SettingsTableViewController {
                 Preference.shared.preferredMap = .apple
                 cell.detailTextLabel?.text = Localizations.Settings.Table.Cell.Detail.Applemap
             }
+            tableView.deselectRow(at: indexPath, animated: true)
+        case 800: // Feedback
+            let feedback = CTFeedbackViewController(topics: CTFeedbackViewController.defaultTopics(), localizedTopics: CTFeedbackViewController.defaultLocalizedTopics())
+            feedback?.toRecipients = ["ksquareatm@gmail.com"]
+            feedback?.useHTML = true
+            let detailNavigationController = UINavigationController(rootViewController: feedback!)
+            detailNavigationController.modalPresentationStyle = .formSheet
+            present(detailNavigationController, animated: true, completion: nil)
             tableView.deselectRow(at: indexPath, animated: true)
         case 900: // Open source
             let path = Bundle.main.path(forResource: "Pods-kuStudy-acknowledgements", ofType: "plist")

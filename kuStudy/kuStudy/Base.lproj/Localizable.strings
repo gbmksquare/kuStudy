@@ -107,3 +107,7 @@
 
 "Share.Library.Data" = "%@\nTotal: %@\nAvailable: %@\nUsed: %@\n";
 
+"Settings.Table.Section.Header.Feedback" = "Feedback";
+
+"Settings.Table.Cell.Title.Feedback" = "Send Feedback";
+

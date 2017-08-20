@@ -107,3 +107,7 @@
 
 "Share.Library.Data" = "%@\n전체: %@\n잔여석: %@\n사용 중: %@\n";
 
+"Settings.Table.Section.Header.Feedback" = "피드백";
+
+"Settings.Table.Cell.Title.Feedback" = "피드백 보내기";
+
