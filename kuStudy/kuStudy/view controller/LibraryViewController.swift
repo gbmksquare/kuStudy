@@ -372,7 +372,7 @@ extension LibraryViewController {
         let offset = scrollView.contentOffset.y
         let headerHeight = table.parallaxHeader.height
         
-        if offset < 0 {
+        if offset < 0 && offset > -44 {
             scrollView.setContentOffset(CGPoint(x: 0, y: -headerHeight), animated: true)
         } else {
             
