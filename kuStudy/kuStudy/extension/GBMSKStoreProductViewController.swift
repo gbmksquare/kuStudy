@@ -11,6 +11,10 @@ import StoreKit
 
 class GBMSKStoreProductViewController: SKStoreProductViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+        if #available(iOS 11, *) {
+            return .default
+        } else {
+            return .lightContent
+        }
     }
 }
