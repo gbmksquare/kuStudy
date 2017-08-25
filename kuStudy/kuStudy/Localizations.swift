@@ -178,14 +178,17 @@ public struct Localizations {
 
                 public struct Header {
 
-                    /// Base translation: About
-                    public static var About : String = NSLocalizedString("Settings.Table.Section.Header.About", comment: "")
-
                     /// Base translation: Share
                     public static var Share : String = NSLocalizedString("Settings.Table.Section.Header.Share", comment: "")
 
+                    /// Base translation: About
+                    public static var About : String = NSLocalizedString("Settings.Table.Section.Header.About", comment: "")
+
                     /// Base translation: Feedback
                     public static var Feedback : String = NSLocalizedString("Settings.Table.Section.Header.Feedback", comment: "")
+
+                    /// Base translation: Tip Jar
+                    public static var Tipjar : String = NSLocalizedString("Settings.Table.Section.Header.TipJar", comment: "")
 
                     /// Base translation: General
                     public static var General : String = NSLocalizedString("Settings.Table.Section.Header.General", comment: "")
@@ -211,6 +214,9 @@ public struct Localizations {
                     /// Base translation: Today Widget Order
                     public static var Todayorder : String = NSLocalizedString("Settings.Table.Cell.Title.TodayOrder", comment: "")
 
+                    /// Base translation: Tip Developer
+                    public static var Tipjar : String = NSLocalizedString("Settings.Table.Cell.Title.TipJar", comment: "")
+
                     /// Base translation: Recommend to a Friend
                     public static var Recommend : String = NSLocalizedString("Settings.Table.Cell.Title.Recommend", comment: "")
 
@@ -226,7 +232,7 @@ public struct Localizations {
                     /// Base translation: Thanks To
                     public static var Thanksto : String = NSLocalizedString("Settings.Table.Cell.Title.ThanksTo", comment: "")
 
-                    /// Base translation: Feedback
+                    /// Base translation: Send Feedback
                     public static var Feedback : String = NSLocalizedString("Settings.Table.Cell.Title.Feedback", comment: "")
 
                 }

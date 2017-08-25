@@ -78,7 +78,8 @@ extension SettingsTableViewController {
         case 0: return Localizations.Settings.Table.Section.Header.General
         case 1: return Localizations.Settings.Table.Section.Header.Share
         case 2: return Localizations.Settings.Table.Section.Header.Feedback
-        case 3: return Localizations.Settings.Table.Section.Header.About
+        case 3: return Localizations.Settings.Table.Section.Header.Tipjar
+        case 4: return Localizations.Settings.Table.Section.Header.About
         default: return nil
         }
     }
@@ -105,6 +106,7 @@ extension SettingsTableViewController {
         case 901: title = Localizations.Settings.Table.Cell.Title.Thanksto
         case 998: title = Localizations.Settings.Table.Cell.Title.Recommend
         case 999: title = Localizations.Settings.Table.Cell.Title.Rate
+        case 1004: title = Localizations.Settings.Table.Cell.Title.Tipjar
         default: title = nil
         }
         cell.textLabel?.text = title
@@ -130,6 +132,12 @@ extension SettingsTableViewController {
             detailNavigationController.modalPresentationStyle = .formSheet
             present(detailNavigationController, animated: true, completion: nil)
             tableView.deselectRow(at: indexPath, animated: true)
+        case 1004: // Tip Jar
+            let tipjar = TipJarViewController()
+            let navigation = UINavigationController(rootViewController: tipjar)
+            navigation.modalPresentationStyle = .formSheet
+            present(navigation, animated: true, completion: nil)
+            tableView.deselectRow(at: indexPath, animated: true )
         case 900: // Open source
             let path = Bundle.main.path(forResource: "Pods-kuStudy-acknowledgements", ofType: "plist")
             let acknowledgementViewController = AcknowListViewController(acknowledgementsPlistPath: path)
