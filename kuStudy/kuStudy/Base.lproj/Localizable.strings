@@ -115,3 +115,7 @@
 
 "Settings.Table.Section.Header.TipJar" = "Tip Jar";
 
+"Common.Error" = "Error";
+
+"Alert.Message.PaymentError" = "You can't purchase items at this time.";
+

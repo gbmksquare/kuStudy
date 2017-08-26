@@ -115,3 +115,7 @@
 
 "Settings.Table.Section.Header.TipJar" = "응원하기";
 
+"Common.Error" = "오류";
+
+"Alert.Message.PaymentError" = "구매를 시작할 수 없습니다.";
+

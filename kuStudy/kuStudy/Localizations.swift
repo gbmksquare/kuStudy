@@ -19,17 +19,26 @@ public struct Localizations {
 
     public struct Common {
 
-        /// Base translation: Printer
-        public static var Printer : String = NSLocalizedString("Common.Printer", comment: "")
+        /// Base translation: Available
+        public static var Available : String = NSLocalizedString("Common.Available", comment: "")
 
-        /// Base translation: Ineligible
-        public static var Ineligible : String = NSLocalizedString("Common.Ineligible", comment: "")
+        /// Base translation: Disabled
+        public static var Disabled : String = NSLocalizedString("Common.Disabled", comment: "")
 
         /// Base translation: --
         public static var Nodata : String = NSLocalizedString("Common.NoData", comment: "")
 
+        /// Base translation: Science Campus
+        public static var Sciencecampus : String = NSLocalizedString("Common.ScienceCampus", comment: "")
+
+        /// Base translation: Error
+        public static var Error : String = NSLocalizedString("Common.Error", comment: "")
+
         /// Base translation: Total
         public static var Total : String = NSLocalizedString("Common.Total", comment: "")
+
+        /// Base translation: Out of Order
+        public static var Outoforder : String = NSLocalizedString("Common.OutOfOrder", comment: "")
 
         /// Base translation: Liberal Art Campus
         public static var Liberalartcampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
@@ -37,20 +46,14 @@ public struct Localizations {
         /// Base translation: Occupied
         public static var Used : String = NSLocalizedString("Common.Used", comment: "")
 
-        /// Base translation: Available
-        public static var Available : String = NSLocalizedString("Common.Available", comment: "")
-
-        /// Base translation: Science Campus
-        public static var Sciencecampus : String = NSLocalizedString("Common.ScienceCampus", comment: "")
+        /// Base translation: Printer
+        public static var Printer : String = NSLocalizedString("Common.Printer", comment: "")
 
         /// Base translation: Scanner
         public static var Scanner : String = NSLocalizedString("Common.Scanner", comment: "")
 
-        /// Base translation: Disabled
-        public static var Disabled : String = NSLocalizedString("Common.Disabled", comment: "")
-
-        /// Base translation: Out of Order
-        public static var Outoforder : String = NSLocalizedString("Common.OutOfOrder", comment: "")
+        /// Base translation: Ineligible
+        public static var Ineligible : String = NSLocalizedString("Common.Ineligible", comment: "")
 
     }
 
@@ -69,6 +72,9 @@ public struct Localizations {
         }
 
         public struct Message {
+
+            /// Base translation: You can't purchase items at this time.
+            public static var Paymenterror : String = NSLocalizedString("Alert.Message.PaymentError", comment: "")
 
 
             public struct Notification {

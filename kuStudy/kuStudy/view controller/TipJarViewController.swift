@@ -22,6 +22,15 @@ class TipJarViewController: UIViewController {
         title = Localizations.Settings.Table.Cell.Title.Tipjar
         setup()
         getProducts()
+        
+        print(SKPaymentQueue.default().transactions.count)
+        SKPaymentQueue.default().transactions.forEach {
+            SKPaymentQueue.default().finishTransaction($0)
+        }
+    }
+    
+    deinit {
+        SKPaymentQueue.default().remove(self)
     }
 }
 
@@ -44,8 +53,13 @@ extension TipJarViewController {
             navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(close(_:)))
         }
         
+        func setupPayment() {
+            SKPaymentQueue.default().add(self)
+        }
+        
         setupTableView()
         setupNavigation()
+        setupPayment()
     }
     
     func getProducts() {
@@ -75,10 +89,51 @@ extension TipJarViewController: SKProductsRequestDelegate {
     }
 }
 
+// MARK: - Payment
+extension TipJarViewController: SKPaymentTransactionObserver {
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .deferred:
+                print("Deferred")
+            case .purchasing:
+                print("Purchasing")
+            case .purchased:
+                print("Purchased - \(transaction.payment.productIdentifier)")
+                SKPaymentQueue.default().finishTransaction(transaction)
+            case .failed:
+                print("Failed")
+                SKPaymentQueue.default().finishTransaction(transaction)
+            case .restored:
+                print("Restored")
+                SKPaymentQueue.default().finishTransaction(transaction)
+            }
+        }
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction]) {
+        print("Transaction removed")
+    }
+    
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        print("Restore finished")
+    }
+}
+
 // MARK: - Table
 extension TipJarViewController: UITableViewDelegate, UITableViewDataSource {
     // Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let product = products?[indexPath.row], SKPaymentQueue.canMakePayments() == true {
+            let payment = SKPayment(product: product)
+            SKPaymentQueue.default().add(payment)
+        } else {
+            let alert = UIAlertController(title: Localizations.Common.Error, message: Localizations.Alert.Message.Paymenterror, preferredStyle: .alert)
+            let confirm = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default, handler: nil)
+            alert.addAction(confirm)
+            present(alert, animated: true, completion: nil)
+        }
+        
         table.deselectRow(at: indexPath, animated: true)
     }
     
