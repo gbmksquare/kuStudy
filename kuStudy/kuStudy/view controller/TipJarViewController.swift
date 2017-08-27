@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import StoreKit
+import DZNEmptyDataSet
 
 class TipJarViewController: UIViewController {
     private lazy var table = UITableView(frame: .zero, style: .grouped)
@@ -22,11 +23,6 @@ class TipJarViewController: UIViewController {
         title = Localizations.Settings.Table.Cell.Title.Tipjar
         setup()
         getProducts()
-        
-        print(SKPaymentQueue.default().transactions.count)
-        SKPaymentQueue.default().transactions.forEach {
-            SKPaymentQueue.default().finishTransaction($0)
-        }
     }
     
     deinit {
@@ -40,6 +36,7 @@ extension TipJarViewController {
         func setupTableView() {
             table.delegate = self
             table.dataSource = self
+            table.emptyDataSetSource = self
             table.rowHeight = UITableViewAutomaticDimension
             table.estimatedRowHeight = UITableViewAutomaticDimension
             
@@ -121,7 +118,7 @@ extension TipJarViewController: SKPaymentTransactionObserver {
 }
 
 // MARK: - Table
-extension TipJarViewController: UITableViewDelegate, UITableViewDataSource {
+extension TipJarViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource {
     // Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let product = products?[indexPath.row], SKPaymentQueue.canMakePayments() == true {
@@ -163,5 +160,13 @@ extension TipJarViewController: UITableViewDelegate, UITableViewDataSource {
             cell.detailTextLabel?.text = product.localizedDescription
         }
         return cell
+    }
+    
+    // Empty
+    func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        indicator.color = .lightGray
+        indicator.startAnimating()
+        return indicator
     }
 }
