@@ -12,7 +12,11 @@ import StoreKit
 class GBMSKStoreProductViewController: SKStoreProductViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         if #available(iOS 11, *) {
-            return .default
+            if traitCollection.userInterfaceIdiom == .phone {
+                return .default
+            } else {
+                return .lightContent
+            }
         } else {
             return .lightContent
         }
