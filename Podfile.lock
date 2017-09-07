@@ -1,6 +1,6 @@
 PODS:
   - AcknowList (1.2.1)
-  - Alamofire (4.5.0)
+  - Alamofire (4.5.1)
   - AlamofireNetworkActivityIndicator (2.2.0):
     - Alamofire (~> 4.5)
   - AlamofireObjectMapper (4.1.0):
@@ -26,7 +26,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AcknowList: 6089be555e4dcb5066de3071270ac7ad9df9ee55
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
   AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
   CTFeedback: 6f128606e0d26d46075c3fa9fc33884372df8675
