@@ -23,6 +23,7 @@ class LibraryViewController: UIViewController {
     
     private lazy var gradient = CAGradientLayer()
     
+    @IBOutlet weak var dataScrollView: UIScrollView!
     @IBOutlet var dataLabels: [UILabel]!
     @IBOutlet var dataTitleLabels: [UILabel]!
     
@@ -73,6 +74,7 @@ class LibraryViewController: UIViewController {
         super.viewDidLayoutSubviews()
         resizeHeader()
         resizeGradient()
+        resetDataScrollViewInset()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -354,6 +356,11 @@ extension LibraryViewController {
     private func resizeGradient() {
         let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + 8)
         gradient.frame = CGRect(origin: .zero, size: size)
+    }
+    
+    private func resetDataScrollViewInset() {
+        dataScrollView.contentInset = UIEdgeInsets(top: 0, left: view.layoutMargins.left,
+                                                   bottom: 0, right: view.layoutMargins.right)
     }
     
     private func handleNavigationBar() {
