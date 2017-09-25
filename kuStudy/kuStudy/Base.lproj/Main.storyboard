@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="74v-81-bfI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="74v-81-bfI">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13165.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -14,7 +14,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Empty Data Set Delegate-->
+        <!--Summary View Controller-->
         <scene sceneID="Jo3-z7-H7X">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="isl-ru-6bB" customClass="SummaryViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
@@ -187,8 +187,6 @@
                                 <connections>
                                     <outlet property="dataSource" destination="isl-ru-6bB" id="6Qm-sd-4xI"/>
                                     <outlet property="delegate" destination="isl-ru-6bB" id="32o-rE-mmo"/>
-                                    <outlet property="emptyDataSetDelegate" destination="isl-ru-6bB" id="rE9-th-SLK"/>
-                                    <outlet property="emptyDataSetSource" destination="isl-ru-6bB" id="QTB-ga-LWU"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -217,7 +215,7 @@
             </objects>
             <point key="canvasLocation" x="550.72463768115949" y="2413.858695652174"/>
         </scene>
-        <!--Empty Data Set Delegate-->
+        <!--Library View Controller-->
         <scene sceneID="xZE-K0-3Zm">
             <objects>
                 <viewController storyboardIdentifier="libraryViewController" automaticallyAdjustsScrollViewInsets="NO" id="4PY-Tz-wT9" customClass="LibraryViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
@@ -571,8 +569,6 @@
                                 <connections>
                                     <outlet property="dataSource" destination="4PY-Tz-wT9" id="vIc-yY-4jO"/>
                                     <outlet property="delegate" destination="4PY-Tz-wT9" id="3dP-lS-RLl"/>
-                                    <outlet property="emptyDataSetDelegate" destination="4PY-Tz-wT9" id="hRq-V0-LPo"/>
-                                    <outlet property="emptyDataSetSource" destination="4PY-Tz-wT9" id="CBH-Jl-dGm"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -1213,7 +1209,7 @@
         <image name="glyphicons-138-cogwheels" width="34" height="27"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YiS-GJ-Ud7"/>
+        <segue reference="viD-Uj-elC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.82744997740000004" green="0.18431000410000001" blue="0.18431000410000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>
