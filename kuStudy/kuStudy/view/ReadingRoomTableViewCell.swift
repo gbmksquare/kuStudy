@@ -72,10 +72,10 @@ class ReadingRoomTableViewCell: UITableViewCell {
             setEmpty()
             return
         }
-        guard let name = sector.sectorName,
-            let totalSeats = sector.totalSeats,
-            let availableSeats = sector.availableSeats,
-            let usedSeats = sector.usedSeats else {
+        guard let name = sector.name,
+            let totalSeats = sector.total,
+            let availableSeats = sector.available,
+            let usedSeats = sector.occupied else {
                 setEmpty()
                 return
         }
@@ -85,8 +85,8 @@ class ReadingRoomTableViewCell: UITableViewCell {
         totalLabel.text = totalSeats.readable
         usedLabel.text = usedSeats.readable
         
-        indicatorView.backgroundColor = sector.usedPercentageColor
-        usedProgressView.progress = sector.usedPercentage
-        usedProgressView.tintColor = sector.usedPercentageColor
+        indicatorView.backgroundColor = sector.occupiedPercentageColor
+        usedProgressView.progress = sector.occupiedPercentage
+        usedProgressView.tintColor = sector.occupiedPercentageColor
     }
 }

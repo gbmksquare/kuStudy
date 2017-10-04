@@ -76,9 +76,9 @@ class DetailInterfaceController: WKInterfaceController {
         totalLabel.setText(libraryData.totalSeats.readable)
         usedLabel.setText(libraryData.usedSeats.readable)
         availableLabel.setText(libraryData.availableSeats.readable)
-        availableLabel.setTextColor(libraryData.usedPercentageColor)
+        availableLabel.setTextColor(libraryData.occupiedPercentageColor)
         percentageGroup.startAnimatingWithImages(in:
-            NSRange(location: 0, length: Int(libraryData.usedPercentage * 100)),
+            NSRange(location: 0, length: Int(libraryData.occupiedPercentage * 100)),
             duration: 1, repeatCount: 1)
         
         // Refresh table

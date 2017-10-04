@@ -164,7 +164,7 @@ extension SummaryData: PercentagePresentable {
         return Float(availableSeats) / Float(totalSeats)
     }
     
-    public var usedPercentage: Float {
+    public var occupiedPercentage: Float {
         guard totalSeats != 0 else { return 0 }
         guard let usedSeats = usedSeats, let totalSeats = totalSeats else { return 0 }
         return Float(usedSeats) / Float(totalSeats)
@@ -176,7 +176,7 @@ extension SummaryData: PercentagePresentable {
         return Float(availableSeats) / Float(totalSeats)
     }
     
-    public var usedPercentageInLiberalArtCampus: Float {
+    public var occupiedPercentageInLiberalArtCampus: Float {
         guard totalSeatsInLiberalArtCampus != 0 else { return 0 }
         guard let usedSeats = usedSeatsInLiberalArtCampus, let totalSeats = totalSeatsInLiberalArtCampus else { return 0 }
         return Float(usedSeats) / Float(totalSeats)
@@ -188,7 +188,7 @@ extension SummaryData: PercentagePresentable {
         return Float(availableSeats) / Float(totalSeats)
     }
     
-    public var usedPercentageInScienceCampus: Float {
+    public var occupiedPercentageInScienceCampus: Float {
         guard totalSeatsInScienceCampus != 0 else { return 0 }
         guard let usedSeats = usedSeatsInScienceCampus, let totalSeats = totalSeatsInScienceCampus else { return 0 }
         return Float(usedSeats) / Float(totalSeats)

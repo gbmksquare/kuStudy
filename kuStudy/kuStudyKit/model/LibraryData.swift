@@ -11,15 +11,17 @@ import ObjectMapper
 
 public class LibraryData: Mappable {
     public var libraryId: String?
-    public var sectorCount: Int?
+    public var sectorCount: Int? {
+        return sectors?.count
+    }
     public var sectors: [SectorData]?
     
     required public  init?(map: Map) { }
     
     public func mapping(map: Map) {
-        libraryId <- map["pLibNo"]
-        sectorCount <- map["statListCnt"]
-        sectors <- map["statList"]
+//        libraryId <- map["pLibNo"]
+//        sectorCount <- map["statListCnt"]
+        sectors <- map["data"]
     }
 }
 
@@ -34,56 +36,56 @@ public extension LibraryData {
     public var totalSeats: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
-            return initial + (sector.totalSeats ?? 0)
+            return initial + (sector.total ?? 0)
         })
     }
     
     public var usedSeats: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
-            return initial + (sector.usedSeats ?? 0)
+            return initial + (sector.occupied ?? 0)
         })
     }
     
     public var availableSeats: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
-            return initial + (sector.availableSeats ?? 0)
+            return initial + (sector.available ?? 0)
         })
     }
     
     public var ineligibleSeats: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
-            return initial + (sector.ineligibleSeats ?? 0)
+            return initial + (0)
         })
     }
     
     public var outOfOrderSeats: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
-            return initial + (sector.outOfOrderSeats ?? 0)
+            return initial + (0)
         })
     }
     
     public var disabledOnlySeats: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
-            return initial + (sector.disabledOnlySeats ?? 0)
+            return initial + (0)
         })
     }
     
     public var printerCount: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
-            return initial + (sector.printerCount ?? 0)
+            return initial + (0)
         })
     }
     
     public var scannerCount: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
-            return initial + (sector.scannerCount ?? 0)
+            return initial + (0)
         })
     }
 }
@@ -94,7 +96,7 @@ extension LibraryData: PercentagePresentable {
         return Float(availableSeats) / Float(totalSeats)
     }
     
-    public var usedPercentage: Float {
+    public var occupiedPercentage: Float {
         guard totalSeats != 0 else { return 0 }
         return Float(usedSeats) / Float(totalSeats)
     }

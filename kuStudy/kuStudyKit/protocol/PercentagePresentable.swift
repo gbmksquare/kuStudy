@@ -12,8 +12,8 @@ public protocol PercentagePresentable {
     var availablePercentage: Float { get }
     var availablePercentageColor: UIColor { get }
     
-    var usedPercentage: Float { get }
-    var usedPercentageColor: UIColor { get }
+    var occupiedPercentage: Float { get }
+    var occupiedPercentageColor: UIColor { get }
 }
 
 public extension PercentagePresentable {
@@ -26,8 +26,8 @@ public extension PercentagePresentable {
         }
     }
     
-    var usedPercentageColor: UIColor {
-        switch usedPercentage {
+    var occupiedPercentageColor: UIColor {
+        switch occupiedPercentage {
         case let p where p > 0.9: return UIColor.error
         case let p where p > 0.75: return UIColor.warning
         case let p where p > 0.6: return UIColor.warningLight

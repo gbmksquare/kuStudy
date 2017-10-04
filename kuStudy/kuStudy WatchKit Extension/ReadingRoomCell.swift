@@ -22,9 +22,9 @@ class ReadingRoomCell: NSObject {
         availablePlaceholderLabel.setText(Localizations.Watch.Cell.Label.Available)
         usedPlaceholderLabel.setText(Localizations.Watch.Cell.Label.Used)
         
-        nameLabel.setText(sectorData.sectorName)
-        availableLabel.setText(sectorData.availableSeats?.readable)
-        usedLabel.setText(sectorData.usedSeats?.readable)
-        percentGroup.setBackgroundColor(sectorData.usedPercentageColor)
+        nameLabel.setText(sectorData.name)
+        availableLabel.setText(sectorData.available?.readable)
+        usedLabel.setText(sectorData.occupied?.readable)
+        percentGroup.setBackgroundColor(sectorData.occupiedPercentageColor)
     }
 }

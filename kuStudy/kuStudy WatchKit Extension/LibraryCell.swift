@@ -25,6 +25,6 @@ class LibraryCell: NSObject {
         nameLabel.setText(libraryData.libraryName)
         availableLabel.setText(libraryData.availableSeats.readable)
         usedLabel.setText(libraryData.usedSeats.readable)
-        percentGroup.setBackgroundColor(libraryData.usedPercentageColor)
+        percentGroup.setBackgroundColor(libraryData.occupiedPercentageColor)
     }
 }
