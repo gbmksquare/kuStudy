@@ -1,1 +1,17 @@
+New Features
+• Completely new UI for iOS 11!
+• Reorder library with drag & drop.
+• Send feedback from settings tab.
+• Accessibility: Now supports Dynamic Type.
+• Accessibility: Now supports Smart Invert.
 
+향상된 기능
+• Now correctly gathers data from the new library website.
+• Improved iPad hardward keyboard support.
+
+Removed Features
+• Dropped iOS 9 support.
+• Dropped watchOS 2 support.
+
+
+Happy studying! :)
