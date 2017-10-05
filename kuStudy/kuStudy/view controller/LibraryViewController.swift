@@ -27,9 +27,6 @@ class LibraryViewController: UIViewController {
     @IBOutlet var dataLabels: [UILabel]!
     @IBOutlet var dataTitleLabels: [UILabel]!
     
-    @IBOutlet weak var mapButton: UIButton!
-    @IBOutlet weak var remindButton: UIButton!
-    
     private var showNavigationAnimator: UIViewPropertyAnimator?
     private var hideNavigationAnimator: UIViewPropertyAnimator?
     
@@ -107,12 +104,7 @@ extension LibraryViewController {
     }
     
     private func setupView() {
-        [mapButton, remindButton].forEach {
-            $0?.clipsToBounds = true
-            $0?.layer.cornerRadius = 9
-        }
-        mapButton.setTitle(Localizations.Library.Button.Map, for: .normal)
-        remindButton.setTitle(Localizations.Library.Button.Remind, for: .normal)
+
     }
     
     private func setupImageHeader() {
@@ -245,47 +237,47 @@ extension LibraryViewController {
     }
     
     private func askRemindTimeInterval() {
-        guard let libraryId = self.libraryId, let library = LibraryType(rawValue: libraryId) else { return }
-        let alert = UIAlertController(title: nil, message: Localizations.Alert.Message.Notification.Settimeinterval, preferredStyle: .actionSheet)
-        alert.popoverPresentationController?.sourceView = remindButton
-        alert.popoverPresentationController?.sourceRect = remindButton.bounds
-        alert.popoverPresentationController?.permittedArrowDirections = .any
-        #if DEBUG
-            let debugOption = UIAlertAction(title: RemindInterval.now.name, style: .default) { (_) in
-                NotificationCoordinator.shared.remind(library: library, fromNow: .now)
-            }
-            alert.addAction(debugOption)
-        #endif
-        let option1 = UIAlertAction(title: RemindInterval.hour2.name, style: .default) { (_) in
-            NotificationCoordinator.shared.remind(library: library, fromNow: .hour2)
-        }
-        let option2 = UIAlertAction(title: RemindInterval.hour4.name, style: .default) { (_) in
-            NotificationCoordinator.shared.remind(library: library, fromNow: .hour4)
-        }
-        let option3 = UIAlertAction(title: RemindInterval.hour6.name, style: .default) { (_) in
-            NotificationCoordinator.shared.remind(library: library, fromNow: .hour6)
-        }
-        let cancel = UIAlertAction(title: Localizations.Alert.Action.Cancel, style: .cancel, handler: nil)
-        [option1, option2, option3, cancel].forEach { alert.addAction($0) }
-        present(alert, animated: true, completion: nil)
+//        guard let libraryId = self.libraryId, let library = LibraryType(rawValue: libraryId) else { return }
+//        let alert = UIAlertController(title: nil, message: Localizations.Alert.Message.Notification.Settimeinterval, preferredStyle: .actionSheet)
+//        alert.popoverPresentationController?.sourceView = remindButton
+//        alert.popoverPresentationController?.sourceRect = remindButton.bounds
+//        alert.popoverPresentationController?.permittedArrowDirections = .any
+//        #if DEBUG
+//            let debugOption = UIAlertAction(title: RemindInterval.now.name, style: .default) { (_) in
+//                NotificationCoordinator.shared.remind(library: library, fromNow: .now)
+//            }
+//            alert.addAction(debugOption)
+//        #endif
+//        let option1 = UIAlertAction(title: RemindInterval.hour2.name, style: .default) { (_) in
+//            NotificationCoordinator.shared.remind(library: library, fromNow: .hour2)
+//        }
+//        let option2 = UIAlertAction(title: RemindInterval.hour4.name, style: .default) { (_) in
+//            NotificationCoordinator.shared.remind(library: library, fromNow: .hour4)
+//        }
+//        let option3 = UIAlertAction(title: RemindInterval.hour6.name, style: .default) { (_) in
+//            NotificationCoordinator.shared.remind(library: library, fromNow: .hour6)
+//        }
+//        let cancel = UIAlertAction(title: Localizations.Alert.Action.Cancel, style: .cancel, handler: nil)
+//        [option1, option2, option3, cancel].forEach { alert.addAction($0) }
+//        present(alert, animated: true, completion: nil)
     }
     
     private func handleNotificationAccessDenied() {
-        let alert = UIAlertController(title: Localizations.Alert.Title.Notification.Accessdenied, message: Localizations.Alert.Message.Notification.Accessdenied, preferredStyle: .alert)
-        alert.popoverPresentationController?.sourceView = remindButton
-        let confirm = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default) { [weak self] (_) in
-            self?.tapped(remind: nil)
-        }
-        let openSettings = UIAlertAction(title: Localizations.Alert.Action.Opensettings, style: .default) { (_) in
-            guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
-            let app = UIApplication.shared
-            if app.canOpenURL(url) {
-                app.open(url, options: [:], completionHandler: nil)
-            }
-        }
-        alert.addAction(confirm)
-        alert.addAction(openSettings)
-        present(alert, animated: true, completion: nil)
+//        let alert = UIAlertController(title: Localizations.Alert.Title.Notification.Accessdenied, message: Localizations.Alert.Message.Notification.Accessdenied, preferredStyle: .alert)
+//        alert.popoverPresentationController?.sourceView = remindButton
+//        let confirm = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default) { [weak self] (_) in
+//            self?.tapped(remind: nil)
+//        }
+//        let openSettings = UIAlertAction(title: Localizations.Alert.Action.Opensettings, style: .default) { (_) in
+//            guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
+//            let app = UIApplication.shared
+//            if app.canOpenURL(url) {
+//                app.open(url, options: [:], completionHandler: nil)
+//            }
+//        }
+//        alert.addAction(confirm)
+//        alert.addAction(openSettings)
+//        present(alert, animated: true, completion: nil)
     }
 }
 

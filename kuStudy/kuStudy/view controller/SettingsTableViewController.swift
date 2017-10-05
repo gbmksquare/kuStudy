@@ -78,8 +78,8 @@ extension SettingsTableViewController {
         case 0: return Localizations.Settings.Table.Section.Header.General
         case 1: return Localizations.Settings.Table.Section.Header.Share
         case 2: return Localizations.Settings.Table.Section.Header.Feedback
-        case 3: return Localizations.Settings.Table.Section.Header.Tipjar
-        case 4: return Localizations.Settings.Table.Section.Header.About
+//        case 3: return Localizations.Settings.Table.Section.Header.Tipjar
+        case 3: return Localizations.Settings.Table.Section.Header.About
         default: return nil
         }
     }
