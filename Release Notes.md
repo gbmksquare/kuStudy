@@ -1,5 +1,46 @@
 # Release Notes 
 
+## 3.0.0 (29)
+
+### New features
+
+* New UI for iOS 11.
+* New UI for Thanks To view.
+* Drag & Drop to reorder library on main view.
+* Added send feedback to Settings view.
+* Added support for Dynamic Type accessibility.
+* Added support for Smart Invert accessibility.
+
+### Improvements
+
+* Improved getting data from new website.
+
+
+* Improved iPad hardware keyboard support.
+* Improved Settings view.
+* Dropped iOS 9 support.
+* Dropped watchOS 2 support.
+
+### Code improvements
+
+* Updated to Xcode 9.
+* Updated to Swift 4.
+* Added a new Preference manager.
+* Collect more analytics data on launch.
+* Improved Podfile.
+* Improved Fastfile and Snapfile.
+* Updated Fabric.
+* Removed unused files.
+
+### Unreleased features
+
+* Implemented maps to library.
+* Implemented switching between Apple Maps and Google Maps.
+* Implemented reminder notification features.
+* Implemented Tip Jar.
+
+
+
 ## 2.0.2 (23)
 
 ### Improvements

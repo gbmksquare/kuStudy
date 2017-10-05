@@ -22,5 +22,9 @@ Apple Watch:
 • Use shortcut complications to swifly launch app from watch face.
 • Use Handoff to continue view what you are looking on your iPhone.
 
+Accessibility:
+• Use Dynamic Type to adjust font that is pleasing to your eyes.
+• Smart Invert shows images as meant to be in inverted mode.
+
 
 Happy studying and enjoy the campus! :)
