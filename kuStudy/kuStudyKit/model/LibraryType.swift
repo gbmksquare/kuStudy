@@ -10,11 +10,30 @@ import Foundation
 import CoreLocation
 
 public enum LibraryType: String {
-    case CentralLibrary = "3"
-    case CentralSquare = "1"
+    // Old
+//    case CentralLibrary = "3"
+//    case CentralSquare = "1"
+//    case HanaSquare = "5"
+//    case ScienceLibrary = "26"
+//    case CDL = "4"
+    
+    // New
+    case CentralLibrary = "1"
+    case CentralSquare = "2"
     case HanaSquare = "5"
-    case ScienceLibrary = "26"
-    case CDL = "4"
+    case ScienceLibrary = "4"
+    case CDL = "3"
+    
+    internal static func convertToNewLibraryIdFromOld(id: String) -> String {
+        switch id {
+        case "3": return "1"
+        case "1": return "2"
+        case "5": return "5"
+        case "26": return "4"
+        case "4": return "3"
+        default: return id
+        }
+    }
     
     public static func allTypes() -> [LibraryType] {
         return [.CentralLibrary, .CentralSquare, .HanaSquare, .ScienceLibrary, .CDL]

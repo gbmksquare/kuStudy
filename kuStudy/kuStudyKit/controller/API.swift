@@ -57,6 +57,15 @@ public extension kuStudy {
             .responseObject { (response: DataResponse<LibraryData>) in
                 switch response.result {
                 case .success(let libraryData):
+                    // This exist to convert old library ID values to new library ID values
+//                    switch libraryId {
+//                    case "1": libraryData.libraryId = "0"
+//                    case "2": libraryData.libraryId = "0"
+//                    case "3": libraryData.libraryId = "4"
+//                    case "4": libraryData.libraryId = "0"
+//                    case "5": libraryData.libraryId = "0"
+//                    default: break
+//                    }
                     libraryData.libraryId = libraryId
                     onSuccess(libraryData)
                 case .failure(let error):

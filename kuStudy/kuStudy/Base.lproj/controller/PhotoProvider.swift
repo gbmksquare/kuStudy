@@ -43,7 +43,9 @@ public class PhotoProvider {
             let item = item as! [String: Any]
             let key = item["key"] as! String
             let id = item["id"] as! Int
-            return PhotoLocation(id: id, key: key)
+            // Convert old id
+            let newId = Int(LibraryType.convertToNewLibraryIdFromOld(id: "\(id)"))!
+            return PhotoLocation(id: newId, key: key)
         })
         
         // Photos
@@ -56,7 +58,9 @@ public class PhotoProvider {
             let locationId = item["libraryId"] as! Int
             let photographerId = item["photographerId"] as! Int
             let description = item["description"] as! String
-            return Photo(imageName: imageName, locationId: locationId, photographerId: photographerId, description: description)
+            // Convert old id
+            let newLocationId = Int(LibraryType.convertToNewLibraryIdFromOld(id: "\(locationId)"))!
+            return Photo(imageName: imageName, locationId: newLocationId, photographerId: photographerId, description: description)
         })
     }
     

@@ -19,6 +19,7 @@ class Preference {
         case widgetOrder = "todayExtensionOrder"
         case widgetHidden = "todayExtensionHidden"
         case preferredMap = "preferredMap"
+        case preferenceVersion = "preferenceVersion"
         
         var name: String {
             return rawValue
@@ -66,10 +67,21 @@ class Preference {
         }
     }
     
+    var preferenceVersion: Int {
+        get {
+            return preference.integer(forKey: Preference.Key.preferenceVersion.name)
+        }
+        set {
+            preference.setValue(newValue, forKey: Preference.Key.preferenceVersion.name)
+            preference.synchronize()
+        }
+    }
+    
     // MARK: - Initialization
     static let shared = Preference()
     
     init() {
+        clearOldValuesIfNecessary()
         updateQuickActions()
         NotificationCenter.default.addObserver(self, selector: #selector(handle(preferenceChanged:)), name: UserDefaults.didChangeNotification, object: nil)
     }
@@ -84,10 +96,18 @@ class Preference {
     func registerDefault() {
         let libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
         preference.register(defaults: [Preference.Key.order.name: libraryOrder,
-                                     Preference.Key.widgetOrder.name: libraryOrder,
-                                     Preference.Key.widgetHidden.name: [],
-                                     Preference.Key.preferredMap.name: MapType.apple.rawValue])
+                                       Preference.Key.widgetOrder.name: libraryOrder,
+                                       Preference.Key.widgetHidden.name: [],
+                                       Preference.Key.preferredMap.name: MapType.apple.rawValue,
+                                       Preference.Key.preferenceVersion.name: 3])
         preference.synchronize()
+    }
+    
+    private func clearOldValuesIfNecessary() {
+        guard preferenceVersion < 3 else { return }
+        preference.removeObject(forKey: Preference.Key.order.name)
+        preference.removeObject(forKey: Preference.Key.widgetOrder.name)
+        preference.removeObject(forKey: Preference.Key.widgetHidden.name)
     }
     
     // MARK: - Notification
