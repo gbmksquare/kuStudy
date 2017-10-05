@@ -60,8 +60,14 @@ class kuStudy_Snapshot: XCTestCase {
     // MARK: Helper
     private func tapBackButton() {
         if UIDevice.current.userInterfaceIdiom != .pad {
-            let button = XCUIApplication().navigationBars["kuStudy.LibraryView"].buttons[" "]
-            button.tap()
+//            let button = XCUIApplication().navigationBars["kuStudy.LibraryView"].buttons[" "]
+//            button.tap()
+            
+            // Swipe back gesture
+            let app = XCUIApplication()
+            let coord1 = app.coordinate(withNormalizedOffset: CGVector(dx: 0.01, dy: 0.15))
+            let coord2 = coord1.withOffset(CGVector(dx: 300, dy: 0))
+            coord1.press(forDuration: 0.05, thenDragTo: coord2)
         }
     }
 }

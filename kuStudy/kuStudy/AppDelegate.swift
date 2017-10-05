@@ -134,7 +134,7 @@ extension AppDelegate {
     private func setupStatusbarForSnapshot() {
         #if DEBUG
             if ProcessInfo.processInfo.arguments.contains("Snapshot") ? true : false {
-                SDStatusBarManager.sharedInstance().enableOverrides()
+//                SDStatusBarManager.sharedInstance().enableOverrides()
             }
         #endif
     }
