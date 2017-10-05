@@ -1,17 +1,17 @@
 PODS:
-  - AcknowList (1.2.1)
+  - AcknowList (1.4)
   - Alamofire (4.5.1)
   - AlamofireNetworkActivityIndicator (2.2.0):
     - Alamofire (~> 4.5)
-  - AlamofireObjectMapper (4.1.0):
+  - AlamofireObjectMapper (5.0.0):
     - Alamofire (~> 4.1)
-    - ObjectMapper (~> 2.0)
+    - ObjectMapper (~> 3.0)
   - CTFeedback (1.1.1)
   - DZNEmptyDataSet (1.8.1)
   - MXParallaxHeader (0.6.1)
-  - ObjectMapper (2.2.8)
-  - SimulatorStatusMagic (1.9.5)
-  - SnapKit (3.2.0)
+  - ObjectMapper (3.0.0)
+  - SimulatorStatusMagic (2.0)
+  - SnapKit (4.0.0)
 
 DEPENDENCIES:
   - AcknowList
@@ -25,17 +25,17 @@ DEPENDENCIES:
   - SnapKit
 
 SPEC CHECKSUMS:
-  AcknowList: 6089be555e4dcb5066de3071270ac7ad9df9ee55
+  AcknowList: 1fae3fa62f256ddd1001adf20ba5c52743515ac7
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
-  AlamofireObjectMapper: 435adc82f5b367679bd9e71c4974a54efd0b2521
+  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   CTFeedback: 6f128606e0d26d46075c3fa9fc33884372df8675
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
-  ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
-  SimulatorStatusMagic: b3b4c5c49a07e8b1c452cc0327275e267a865fea
-  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
+  SimulatorStatusMagic: c8e958d70e0e0cd2d7cf33bb95014a222ddecf0a
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 6bc8b04a64ba6e429daebac399d2732a7a145c5a
+PODFILE CHECKSUM: 40acbbcc9fe304c72d080bdab80e64e6a0359f92
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0.beta.1

@@ -10,7 +10,7 @@ end
 
 target 'kuStudy' do
   use_frameworks!
-  platform :ios, '9.0'
+  platform :ios, '10.0'
 
   pod 'AlamofireNetworkActivityIndicator'
   pod 'DZNEmptyDataSet'
@@ -26,24 +26,24 @@ end
 
 target 'kuStudy Today Extension' do
   use_frameworks!
-  platform :ios, '9.0'
+  platform :ios, '10.0'
 
   pod 'SnapKit'
 end
 
 target 'kuStudy WatchKit App' do
   use_frameworks!
-  platform :watchos, '2.0'
+  platform :watchos, '3.0'
 end
 
 target 'kuStudy WatchKit Extension' do
   use_frameworks!
-  platform :watchos, '2.0'
+  platform :watchos, '3.0'
 end
 
 target 'kuStudyKit' do
   use_frameworks!
-  platform :ios, '9.0'
+  platform :ios, '10.0'
 
   shared_pods
 
@@ -55,7 +55,7 @@ end
 
 target 'kuStudyWatchKit' do
   use_frameworks!
-  platform :watchos, '2.0'
+  platform :watchos, '3.0'
 
   shared_pods
 end
@@ -63,7 +63,11 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '3.2'
+    	if config.name == 'Release'
+    		config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Owholemodule'
+    	else
+    		config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Onone'
+    	end
     end
   end
 end
