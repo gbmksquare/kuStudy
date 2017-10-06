@@ -12,6 +12,7 @@ import MXParallaxHeader
 import DZNEmptyDataSet
 import Crashlytics
 import UserNotifications
+import StoreKit
 
 class LibraryViewController: UIViewController {
     @IBOutlet private weak var table: UITableView!
@@ -63,6 +64,17 @@ class LibraryViewController: UIViewController {
         // This line fixes edge gesture not working if view is loaded with 3D Touch
         // Don't move this line to `viewDidLoad`
         enableEdgeBackGesture()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Show rate on App Store
+        #if !DEBUG
+            if #available(iOS 10.3, *) {
+                SKStoreReviewController.requestReview()
+            }
+        #endif
     }
     
     override func viewWillDisappear(_ animated: Bool) {
