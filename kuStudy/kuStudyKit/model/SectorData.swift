@@ -14,11 +14,11 @@ public class SectorData: Mappable {
     public var name: String?
     public var total: Int?
     public var occupied: Int?
-    
     public var disabledOnly: Int?
-    public var laptopCapable: String?
-    public var openTime: String?
-    public var closeTime: String?
+    
+    public var laptopCapable: Bool?
+    public var openTime: Date?
+    public var closeTime: Date?
     
     required public init?(map: Map) {
         
@@ -30,9 +30,9 @@ public class SectorData: Mappable {
         total <- map["available"]
         occupied <- map["inUse"]
         disabledOnly <- map["disabled"]
-        laptopCapable <- map["noteBookYN"]
-        openTime <- map["startTm"]
-        closeTime <- map["endTm"]
+        laptopCapable <- (map["noteBookYN"], YesNoTransform())
+        openTime <- (map["startTm"], OpenTimeTransform())
+        closeTime <- (map["endTm"], CloseTimeTransform())
     }
 }
 

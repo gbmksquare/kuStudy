@@ -89,6 +89,12 @@
 		167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246261B1B4F2C0083035F /* LibraryViewController.swift */; };
 		1673304F1B1C92BF00573FFC /* DetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673304E1B1C92BF00573FFC /* DetailInterfaceController.swift */; };
 		1676C3D31B2418B8001B3AB6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1676C3D51B2418B8001B3AB6 /* MainInterface.storyboard */; };
+		167B4C861F872E7700BDE991 /* YesNoTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C851F872E7700BDE991 /* YesNoTransform.swift */; };
+		167B4C871F872E7700BDE991 /* YesNoTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C851F872E7700BDE991 /* YesNoTransform.swift */; };
+		167B4C891F872EB800BDE991 /* CloseTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C881F872EB800BDE991 /* CloseTimeTransform.swift */; };
+		167B4C8A1F872EB800BDE991 /* CloseTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C881F872EB800BDE991 /* CloseTimeTransform.swift */; };
+		167B4C8C1F872F0000BDE991 /* OpenTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C8B1F872F0000BDE991 /* OpenTimeTransform.swift */; };
+		167B4C8D1F872F0000BDE991 /* OpenTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C8B1F872F0000BDE991 /* OpenTimeTransform.swift */; };
 		168573A81F4FC81700399AA2 /* TipJarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168573A71F4FC81700399AA2 /* TipJarViewController.swift */; };
 		168841191B1EB58700F3C818 /* ReadingRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168841181B1EB58700F3C818 /* ReadingRoomCell.swift */; };
 		1688C4171C4F6B790044D1EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A887351B21D1FF00C49551 /* Localizable.strings */; };
@@ -340,6 +346,9 @@
 		167246261B1B4F2C0083035F /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = "view controller/LibraryViewController.swift"; sourceTree = "<group>"; };
 		1673304E1B1C92BF00573FFC /* DetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInterfaceController.swift; sourceTree = "<group>"; };
 		1676C3D41B2418B8001B3AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		167B4C851F872E7700BDE991 /* YesNoTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YesNoTransform.swift; path = model/YesNoTransform.swift; sourceTree = "<group>"; };
+		167B4C881F872EB800BDE991 /* CloseTimeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloseTimeTransform.swift; path = model/CloseTimeTransform.swift; sourceTree = "<group>"; };
+		167B4C8B1F872F0000BDE991 /* OpenTimeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenTimeTransform.swift; path = model/OpenTimeTransform.swift; sourceTree = "<group>"; };
 		168573A71F4FC81700399AA2 /* TipJarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipJarViewController.swift; path = "view controller/TipJarViewController.swift"; sourceTree = "<group>"; };
 		168841181B1EB58700F3C818 /* ReadingRoomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingRoomCell.swift; sourceTree = "<group>"; };
 		16940EEF1CF1D263005965A2 /* SummaryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryData.swift; path = model/SummaryData.swift; sourceTree = "<group>"; };
@@ -489,6 +498,7 @@
 				16940EEF1CF1D263005965A2 /* SummaryData.swift */,
 				1631A2D01CEF4EEC0078381F /* LibraryData.swift */,
 				1631A2CD1CEF4EA60078381F /* SectorData.swift */,
+				167B4C841F872CBF00BDE991 /* Transform */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -870,6 +880,16 @@
 				168841181B1EB58700F3C818 /* ReadingRoomCell.swift */,
 			);
 			name = Detail;
+			sourceTree = "<group>";
+		};
+		167B4C841F872CBF00BDE991 /* Transform */ = {
+			isa = PBXGroup;
+			children = (
+				167B4C851F872E7700BDE991 /* YesNoTransform.swift */,
+				167B4C8B1F872F0000BDE991 /* OpenTimeTransform.swift */,
+				167B4C881F872EB800BDE991 /* CloseTimeTransform.swift */,
+			);
+			name = Transform;
 			sourceTree = "<group>";
 		};
 		16B453681B22A9A400A3B008 /* kuStudy Today Extension */ = {
@@ -1836,6 +1856,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				167B4C8A1F872EB800BDE991 /* CloseTimeTransform.swift in Sources */,
 				1631A2D81CEF51480078381F /* LibraryType.swift in Sources */,
 				16940EF11CF1D263005965A2 /* SummaryData.swift in Sources */,
 				16940EF51CF1D86E005965A2 /* Definitions.swift in Sources */,
@@ -1844,7 +1865,9 @@
 				1660A4AF1C8FA320003D5460 /* PhotoProvider.swift in Sources */,
 				166C4B101D5B0ED500297651 /* Photographer.swift in Sources */,
 				16940EF41CF1D564005965A2 /* Float.swift in Sources */,
+				167B4C8D1F872F0000BDE991 /* OpenTimeTransform.swift in Sources */,
 				1664D5681D5AC637000BAF56 /* UIColor.swift in Sources */,
+				167B4C871F872E7700BDE991 /* YesNoTransform.swift in Sources */,
 				166C4B1D1D5B215A00297651 /* Photo.swift in Sources */,
 				166C4B161D5B162400297651 /* PhotoLocation.swift in Sources */,
 				1631A2DC1CF025060078381F /* Int.swift in Sources */,
@@ -1899,6 +1922,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				167B4C891F872EB800BDE991 /* CloseTimeTransform.swift in Sources */,
 				166C4B181D5B1E3400297651 /* Photo.swift in Sources */,
 				166C4B0F1D5B0ED100297651 /* Photographer.swift in Sources */,
 				166C4B151D5B162400297651 /* PhotoLocation.swift in Sources */,
@@ -1907,7 +1931,9 @@
 				1631A2D71CEF51480078381F /* LibraryType.swift in Sources */,
 				16940EF61CF1D86E005965A2 /* Definitions.swift in Sources */,
 				167246101B1AB1AD0083035F /* kuStudy.swift in Sources */,
+				167B4C8C1F872F0000BDE991 /* OpenTimeTransform.swift in Sources */,
 				16940EF01CF1D263005965A2 /* SummaryData.swift in Sources */,
+				167B4C861F872E7700BDE991 /* YesNoTransform.swift in Sources */,
 				1631A2D11CEF4EEC0078381F /* LibraryData.swift in Sources */,
 				1631A2CE1CEF4EA60078381F /* SectorData.swift in Sources */,
 				1660A4AE1C8FA31F003D5460 /* PhotoProvider.swift in Sources */,
