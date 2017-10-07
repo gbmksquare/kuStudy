@@ -9,35 +9,8 @@
 import UIKit
 
 public extension UIColor {
-    static var error: UIColor {
-        let color = UIColor(hue:0.01, saturation:0.74, brightness:0.94, alpha:1)
-        if #available(iOSApplicationExtension 11.0, watchOSApplicationExtension 4.0, *) {
-            return UIColor(named: "Error") ?? color
-        }
-        return color
-    }
-    
-    static var warning: UIColor {
-        let color = UIColor(hue:0.09, saturation:0.82, brightness:0.99, alpha:1)
-        if #available(iOSApplicationExtension 11.0, watchOSApplicationExtension 4.0, *) {
-            return UIColor(named: "Warning") ?? color
-        }
-        return color
-    }
-    
-    static var warningLight: UIColor {
-        let color = UIColor(hue:0.12, saturation:0.79, brightness:0.99, alpha:1)
-        if #available(iOSApplicationExtension 11.0, watchOSApplicationExtension 4.0, *) {
-            return UIColor(named: "Warning Light") ?? color
-        }
-        return color
-    }
-    
-    static var confirm: UIColor {
-        let color = UIColor(hue:0.34, saturation:0.52, brightness:0.68, alpha:1)
-        if #available(iOSApplicationExtension 11.0, watchOSApplicationExtension 4.0, *) {
-            return UIColor(named: "Confirm") ?? color
-        }
-        return color
-    }
+    static var error: UIColor { return #colorLiteral(red: 0.9915245175, green: 0.3746330142, blue: 0.3410668373, alpha: 1) }
+    static var warning: UIColor { return #colorLiteral(red: 0.9799304605, green: 0.5882352941, blue: 0, alpha: 1) }
+    static var warningLight: UIColor { return #colorLiteral(red: 0.9995546937, green: 0.7494820952, blue: 0.1818162799, alpha: 1) }
+    static var confirm: UIColor { return #colorLiteral(red: 0.1646617353, green: 0.7905144691, blue: 0.2539618611, alpha: 1) }
 }

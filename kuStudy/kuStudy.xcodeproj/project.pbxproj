@@ -125,7 +125,6 @@
 		16DD05311E46E10B007AB912 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16DD05331E46E10B007AB912 /* InfoPlist.strings */; };
 		16DFF8501F34423300B6A4FB /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DFF84F1F34423300B6A4FB /* StatusView.swift */; };
 		16DFF8521F34476100B6A4FB /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DFF8511F34476100B6A4FB /* LibraryCell.swift */; };
-		16E06BC81F01FA1D005C7947 /* Resource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16E06BC71F01FA1D005C7947 /* Resource.xcassets */; };
 		16EE9F691F00F2EA006B75BB /* ThanksToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */; };
 		16EFE0EC1F0243EB00FD476B /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EFE0EB1F0243EB00FD476B /* Preference.swift */; };
 		16FE9CCC1F4021CA00555ED0 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FE9CCB1F4021CA00555ED0 /* Media.swift */; };
@@ -377,7 +376,6 @@
 		16DD05341E46E10D007AB912 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16DFF84F1F34423300B6A4FB /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		16DFF8511F34476100B6A4FB /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
-		16E06BC71F01FA1D005C7947 /* Resource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resource.xcassets; sourceTree = "<group>"; };
 		16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Photographers.plist; path = ../kuStudy/Photographers.plist; sourceTree = "<group>"; };
 		16EE13B01C8AECB2002D4F12 /* Photos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Photos.plist; path = ../kuStudy/Photos.plist; sourceTree = "<group>"; };
 		16EE13B21C8AED5B002D4F12 /* PhotoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoProvider.swift; path = ../kuStudy/Base.lproj/controller/PhotoProvider.swift; sourceTree = "<group>"; };
@@ -635,7 +633,6 @@
 		165F9C921B2199D400101EBE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				16E06BC71F01FA1D005C7947 /* Resource.xcassets */,
 				1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */,
 				16EE13B01C8AECB2002D4F12 /* Photos.plist */,
 				166C4B111D5B142400297651 /* PhotoLocations.plist */,
@@ -1427,7 +1424,6 @@
 				166C4B121D5B142400297651 /* PhotoLocations.plist in Resources */,
 				1660A4B11C8FA470003D5460 /* Photos.plist in Resources */,
 				166C4B1B1D5B1FBB00297651 /* LibraryPhotos.xcassets in Resources */,
-				16E06BC81F01FA1D005C7947 /* Resource.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
