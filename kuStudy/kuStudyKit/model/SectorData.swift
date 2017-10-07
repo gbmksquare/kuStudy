@@ -15,6 +15,8 @@ public class SectorData: Mappable {
     public var total: Int?
     public var occupied: Int?
     public var disabledOnly: Int?
+    public var fixing: Int?
+    public var unavailable: Int?
     
     public var laptopCapable: Bool?
     public var openTime: Date?
@@ -27,9 +29,11 @@ public class SectorData: Mappable {
     public func mapping(map: Map) {
         identifier <- map["code"]
         name <- map["name"]
-        total <- map["available"]
+        total <- map["cnt"]
         occupied <- map["inUse"]
         disabledOnly <- map["disabled"]
+        fixing <- map["fix"]
+        unavailable <- map["unavailable"]
         laptopCapable <- (map["noteBookYN"], YesNoTransform())
         openTime <- (map["startTm"], OpenTimeTransform())
         closeTime <- (map["endTm"], CloseTimeTransform())
@@ -39,7 +43,10 @@ public class SectorData: Mappable {
 extension SectorData: PercentagePresentable {
     public var available: Int? {
         guard let total = total, let occupied = occupied else  { return nil }
-        return total - occupied
+        let disabledOnly = self.disabledOnly ?? 0
+        let fixing = self.fixing ?? 0
+        let unavailable = self.unavailable ?? 0
+        return total - occupied - disabledOnly - fixing - unavailable
     }
     
     public var availablePercentage: Float {
