@@ -322,8 +322,8 @@ extension SummaryViewController {
             let randomIndex = Int(arc4random_uniform(UInt32(libraryTypes.count)))
             libraryId = libraryTypes[randomIndex].rawValue
         }
-        let photo = PhotoProvider.sharedProvider.photo(libraryId)
-        heroImageView.image = photo.image
+        
+        heroImageView.image = MediaManager.shared.mediaForMain()?.image
     }
     
     private func reorderLibraryData() {

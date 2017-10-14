@@ -18,7 +18,15 @@ class PhotographerCell: UICollectionViewCell {
     
     @IBOutlet weak var photographerStackView: UIStackView!
     
-    private var photographer: Photographer_Legacy?
+    private var artist: Artist?
+    private var media: [Media]? {
+        if let artist = artist {
+            return MediaManager.shared.media(by: artist)
+        } else {
+            return nil
+        }
+    }
+    
     private var currentPhotoIndex = 0
     private var timer: Timer?
     
@@ -69,31 +77,26 @@ class PhotographerCell: UICollectionViewCell {
         associationLabel.text = nil
     }
     
-    func populate(_ photographer: Photographer_Legacy) {
-        self.photographer = photographer
+    func populate(_ artist: Artist) {
+        self.artist = artist
         
-        if let photo = photographer.photos.first {
-            photoImageView.image = photo.image
+        if let medium = media?.first {
+            photoImageView.image = medium.image
             
             timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateImage(_:)), userInfo: nil, repeats: true)
         }
         
-        if Locale.preferredLanguages.first?.hasPrefix("ko") == true {
-            nameLabel.text = photographer.name
-            associationLabel.text = photographer.association
-        } else {
-            nameLabel.text = photographer.name_en
-            associationLabel.text = photographer.association_en
-        }
+        nameLabel.text = artist.name
+        associationLabel.text = artist.association
     }
     
     @objc private func updateImage(_ sender: Timer) {
-        guard let photos = photographer?.photos else { return }
+        guard let media = media else { return }
         currentPhotoIndex += 1
-        if currentPhotoIndex >= photos.count {
+        if currentPhotoIndex >= media.count {
             currentPhotoIndex = 0
         }
-        let photo = photos[currentPhotoIndex]
+        let photo = media[currentPhotoIndex]
         UIView.transition(with: photoImageView, duration: 0.75, options: .transitionCrossDissolve,
           animations: { [weak self] in
             self?.photoImageView.image = photo.image

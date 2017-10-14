@@ -12,7 +12,9 @@ public class MediaManager {
     public static let shared = MediaManager()
     
     internal let media: [Media]
-    internal let artists: [Artist]
+    public let artists: [Artist]
+    
+    private var cachedMedia = [String: String]()
     
     // MARK: - Initialization
     init() {
@@ -33,6 +35,7 @@ public class MediaManager {
     }
     
     // MARK: - Media
+    // Multiple media with filtering
     public func media(for library: LibraryType,
                       artist: Artist? = nil,
                       mediaType: Media.MediaType? = nil,
@@ -63,7 +66,33 @@ public class MediaManager {
             .filter({ return weather == nil ? true : $0.weather == weather })
     }
     
-    // TODO: Cached media for summary and library
+    // Defined media with cache and auto update
+    public func mediaForMain() -> Media? {
+        if let identifier = cachedMedia["main"] {
+            return media.filter({ $0.identifier == identifier }).first
+        } else {
+            let collection = self.media.filter({ $0.presentationType == Media.PresentationType.main })
+            let media = collection[randomIndex(below: collection.count)]
+            cachedMedia["main"] = media.identifier
+            return media
+        }
+    }
+    
+    public func media(for library: LibraryType) -> Media? {
+        if let identifier = cachedMedia[library.rawValue] {
+            return media.filter({ $0.identifier == identifier }).first
+        } else {
+            let collection = self.media(for: library, artist: nil, mediaType: nil, presentationType: nil, timeframe: nil, weather: nil)
+            let media = collection[randomIndex(below: collection.count)]
+            cachedMedia[library.rawValue] = media.identifier
+            return media
+        }
+    }
     
     // TODO: Preset media for Snapshot screenshot
+    
+    // MARK: - Helper
+    private func randomIndex(below max: Int) -> Int {
+        return Int(arc4random_uniform(UInt32(max)))
+    }
 }

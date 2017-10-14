@@ -165,12 +165,14 @@ extension LibraryViewController {
     }
     
     private func setupContent() {
-        let photo = PhotoProvider.sharedProvider.photo(libraryId)
-        
         title = LibraryType(rawValue: libraryId)?.name
         titleLabel.text = LibraryType(rawValue: libraryId)?.name
         subtitleLabel.text = LibraryType(rawValue: libraryId)?.nameInAlternateLanguage
-        heroImageView.image = photo.image
+        
+        // Image
+        if let libraryType = LibraryType(rawValue: libraryId) {
+            heroImageView.image = MediaManager.shared.media(for: libraryType)?.image
+        }
         
         dataTitleLabels.forEach {
             guard let tag = DataTag(rawValue: $0.tag) else { return }

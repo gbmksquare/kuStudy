@@ -13,9 +13,7 @@ import SafariServices
 class ThanksToViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var photographers: [Photographer_Legacy] {
-        return PhotoProvider.sharedProvider.photographers
-    }
+    private let artists = MediaManager.shared.artists
     
     // MARK: - View
     override func viewDidLoad() {
@@ -68,8 +66,8 @@ extension ThanksToViewController: UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let photographer = photographers[indexPath.row]
-        presentInstagram(id: photographer.instagramId)
+        let artist = artists[indexPath.row]
+        presentInstagram(artist: artist)
     }
     
     // Data source
@@ -78,13 +76,13 @@ extension ThanksToViewController: UICollectionViewDelegateFlowLayout, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photographers.count
+        return artists.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let photographer = photographers[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PhotographerCell
-        cell.populate(photographer)
+        let artist = artists[indexPath.row]
+        cell.populate(artist)
         cell.presentingViewController = self
         return cell
     }
@@ -92,15 +90,21 @@ extension ThanksToViewController: UICollectionViewDelegateFlowLayout, UICollecti
 
 // MARK: - Instagram
 extension ThanksToViewController {
-    private func presentInstagram(id instagramId: String) {
-        guard let instagramAppUrl = URL(string: "instagram://user?username=\(instagramId)"),
-            let instagramUrl = URL(string: "https://instagram.com/\(instagramId)") else { return }
-        let application = UIApplication.shared
-        if application.canOpenURL(instagramAppUrl) {
-            openInInstagram(instagramAppUrl)
-        } else {
-            openInSafariViewController(instagramUrl)
-        }
+    private func presentInstagram(artist: Artist) {
+//        for account in artist.socialAccounts {
+//            switch account.socialService {
+//            case SocialAccount.SocialService.instagram(let instagramId):
+//                guard let instagramAppUrl = URL(string: "instagram://user?username=\(instagramId)"),
+//                    let instagramUrl = URL(string: "https://instagram.com/\(instagramId)") else { return }
+//                let application = UIApplication.shared
+//                if application.canOpenURL(instagramAppUrl) {
+//                    openInInstagram(instagramAppUrl)
+//                } else {
+//                    openInSafariViewController(instagramUrl)
+//                }
+//            default: return
+//            }
+//        }
     }
     
     private func openInInstagram(_ url: URL) {

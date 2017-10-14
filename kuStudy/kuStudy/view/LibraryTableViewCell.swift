@@ -96,7 +96,7 @@ class LibraryTableViewCell: UITableViewCell {
         totalLabel.text = library.totalSeats.readable
         usedLabel.text = library.usedSeats.readable
         
-        thumbnailImageView.image = library.thumbnail
+        thumbnailImageView.image = library.media?.thumbnail
         indicatorView.backgroundColor = library.availablePercentageColor
     }
 }

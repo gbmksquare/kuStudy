@@ -104,20 +104,9 @@ extension LibraryData: PercentagePresentable {
 
 // MARK: - Image
 public extension LibraryData {
-    public var thumbnail: UIImage? {
-        get {
-            guard let libraryIdString = self.libraryId else { return nil }
-            guard let libraryId = Int(libraryIdString) else { return nil }
-            return PhotoProvider.sharedProvider.photo(libraryId).thumbnail
-        }
-    }
-    
-    public var photo: (image: UIImage?, photographer: Photographer_Legacy)? {
-        get {
-            guard let libraryIdString = self.libraryId else { return nil }
-            guard let libraryId = Int(libraryIdString) else { return nil }
-            let photo = PhotoProvider.sharedProvider.photo(libraryId)
-            return (photo.image, photo.photographer)
-        }
+    public var media: Media? {
+        guard let libraryId = self.libraryId else { return nil }
+        guard let libraryType = LibraryType(rawValue: libraryId) else { return nil }
+        return MediaManager.shared.media(for: libraryType)
     }
 }
