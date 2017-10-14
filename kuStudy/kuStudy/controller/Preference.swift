@@ -104,10 +104,12 @@ class Preference {
     }
     
     private func clearOldValuesIfNecessary() {
-        guard preferenceVersion < 3 else { return }
-        preference.removeObject(forKey: Preference.Key.order.name)
-        preference.removeObject(forKey: Preference.Key.widgetOrder.name)
-        preference.removeObject(forKey: Preference.Key.widgetHidden.name)
+        if preferenceVersion <= 3 {
+            preference.removeObject(forKey: Preference.Key.order.name)
+            preference.removeObject(forKey: Preference.Key.widgetOrder.name)
+            preference.removeObject(forKey: Preference.Key.widgetHidden.name)
+            preferenceVersion = 4
+        }
     }
     
     // MARK: - Notification
