@@ -81,8 +81,6 @@ class Preference {
     static let shared = Preference()
     
     init() {
-        clearOldValuesIfNecessary()
-        updateQuickActions()
         NotificationCenter.default.addObserver(self, selector: #selector(handle(preferenceChanged:)), name: UserDefaults.didChangeNotification, object: nil)
     }
     
@@ -93,23 +91,33 @@ class Preference {
     private lazy var preference = UserDefaults(suiteName: "group.com.gbmksquare.kuapps.kuStudy") ?? UserDefaults.standard
     
     // MARK: - Registration
-    func registerDefault() {
+    func setup() {
+        updateQuickActions()
+        migrateIfNeeded()
+        registerDefault()
+    }
+    
+    private func registerDefault() {
         let libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
         preference.register(defaults: [Preference.Key.order.name: libraryOrder,
                                        Preference.Key.widgetOrder.name: libraryOrder,
                                        Preference.Key.widgetHidden.name: [],
                                        Preference.Key.preferredMap.name: MapType.apple.rawValue,
-                                       Preference.Key.preferenceVersion.name: 3])
+                                       Preference.Key.preferenceVersion.name: 5])
         preference.synchronize()
     }
     
-    private func clearOldValuesIfNecessary() {
+    private func migrateIfNeeded() {
         if preferenceVersion <= 3 {
             preference.removeObject(forKey: Preference.Key.order.name)
             preference.removeObject(forKey: Preference.Key.widgetOrder.name)
             preference.removeObject(forKey: Preference.Key.widgetHidden.name)
-            preferenceVersion = 4
         }
+        if preferenceVersion == 4 {
+            libraryOrder += [LibraryType.Law.rawValue]
+            widgetLibraryOrder += [LibraryType.Law.rawValue]
+        }
+        preferenceVersion = 5
     }
     
     // MARK: - Notification

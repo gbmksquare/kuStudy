@@ -91,7 +91,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 // MARK: - Setup
 extension AppDelegate {
     private func setupApplication() {
-        Preference.shared.registerDefault()
+        Preference.shared.setup()
         setupAppearance()
         setupStatusbarForSnapshot()
         setupFabric()
