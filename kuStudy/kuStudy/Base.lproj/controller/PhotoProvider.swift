@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(*, deprecated: 1.0)
 public class PhotoProvider {
     public static let sharedProvider = PhotoProvider()
     

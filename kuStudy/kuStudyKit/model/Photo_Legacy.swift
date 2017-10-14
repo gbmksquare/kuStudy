@@ -8,6 +8,7 @@
 
 import Foundation
 
+@available(*, deprecated: 1.0)
 public struct Photo_Legacy {
     let imageName: String
     let locationId: Int

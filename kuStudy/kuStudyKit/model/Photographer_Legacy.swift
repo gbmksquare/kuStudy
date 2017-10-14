@@ -8,6 +8,7 @@
 
 import Foundation
 
+@available(*, deprecated: 1.0)
 public struct Photographer_Legacy {
     let id: Int
     public let name: String
