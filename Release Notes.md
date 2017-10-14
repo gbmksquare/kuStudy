@@ -1,5 +1,11 @@
 # Release Notes 
 
+## 3.0.1 (30)
+
+### Bug fixes
+
+* Fixed a bug where NSUserDefault is reset everytime app launches.
+
 ## 3.0.0 (29)
 
 ### New features
