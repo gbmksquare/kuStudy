@@ -41,26 +41,26 @@ public class MediaManager {
                       weather: Media.Weather? = nil) -> [Media] {
         return media
             .filter({ $0.library == library })
-            .filter({ $0.artist == artist })
-            .filter({ $0.mediaType == mediaType })
-            .filter({ $0.presentationType == presentationType })
-            .filter({ $0.timeframe == timeframe })
-            .filter({ $0.weather == weather })
+            .filter({ return artist == nil ? true : $0.artist == artist })
+            .filter({ return mediaType == nil ? true : $0.mediaType == mediaType })
+            .filter({ return presentationType == nil ? true : $0.presentationType == presentationType })
+            .filter({ return timeframe == nil ? true : $0.timeframe == timeframe })
+            .filter({ return weather == nil ? true : $0.weather == weather })
     }
     
     public func media(by artist: Artist,
                       library: LibraryType? = nil,
-                      mediaType: Media.MediaType,
+                      mediaType: Media.MediaType? = nil,
                       presentationType: Media.PresentationType? = nil,
                       timeframe: Media.Timeframe? = nil,
                       weather: Media.Weather? = nil) -> [Media] {
         return media
             .filter({ $0.artist == artist })
-            .filter({ $0.library == library })
-            .filter({ $0.mediaType == mediaType })
-            .filter({ $0.presentationType == presentationType })
-            .filter({ $0.timeframe == timeframe })
-            .filter({ $0.weather == weather })
+            .filter({ return library == nil ? true : $0.library == library })
+            .filter({ return mediaType == nil ? true : $0.mediaType == mediaType })
+            .filter({ return presentationType == nil ? true : $0.presentationType == presentationType })
+            .filter({ return timeframe == nil ? true : $0.timeframe == timeframe })
+            .filter({ return weather == nil ? true : $0.weather == weather })
     }
     
     // TODO: Cached media for summary and library
