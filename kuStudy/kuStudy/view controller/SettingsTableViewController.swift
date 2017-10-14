@@ -8,7 +8,6 @@
 
 import UIKit
 import AcknowList
-import StoreKit
 import Crashlytics
 import CTFeedback
 
@@ -159,24 +158,14 @@ extension SettingsTableViewController {
                 Answers.logInvite(withMethod: "iOS", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
             })
         case 999: // App Store review
-            let storeVC = GBMSKStoreProductViewController()
-            let parameters = [SKStoreProductParameterITunesItemIdentifier: "925255895"]
-            storeVC.delegate = self
-            storeVC.loadProduct(withParameters: parameters, completionBlock: { [weak self] (result, error) in
-                self?.present(storeVC, animated: true, completion: nil)
-            })
+            guard let url = URL(string: "itms-apps://itunes.apple.com/us/app/kustudy/id925255895?mt=8&action=write-review") else { return }
+            let app = UIApplication.shared
+            if app.canOpenURL(url) {
+                app.open(url, options: [:], completionHandler: nil)
+            }
             
             tableView.deselectRow(at: indexPath, animated: true)
         default: break
         }
-    }
-}
-
-extension SettingsTableViewController: SKStoreProductViewControllerDelegate {
-    func productViewControllerDidFinish(_ viewController: SKStoreProductViewController) {
-        if let indexPath = tableView.indexPathForSelectedRow {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-        viewController.dismiss(animated: true, completion: nil)
     }
 }
