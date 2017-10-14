@@ -10,7 +10,7 @@ import Foundation
 
 public struct SocialAccount: Codable {
     public enum SocialService: Int, Codable {
-        case instagram, facebook
+        case instagram, facebook, website, linkedin
     }
     
     public let socialService: SocialService

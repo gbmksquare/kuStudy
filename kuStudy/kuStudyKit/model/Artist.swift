@@ -8,11 +8,15 @@
 
 import Foundation
 
-public struct Artist: Codable {
+public struct Artist: Codable, Equatable {
     internal let identifier: String
     public let name: String
     public let association: String
     public let socialServices: [SocialAccount]
+    
+    public static func ==(lhs: Artist, rhs: Artist) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
 }
 
 internal let artistsPreset = """

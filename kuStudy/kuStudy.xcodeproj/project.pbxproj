@@ -35,7 +35,6 @@
 		164190FE1F2F6D71008682E5 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164190FB1F2F6B6C008682E5 /* Localizations.swift */; };
 		164190FF1F2F724D008682E5 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164190F91F2F675C008682E5 /* Localizations.swift */; };
 		164191001F2F7257008682E5 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164190FC1F2F6B80008682E5 /* Localizations.swift */; };
-		1649725F1F3EF784002D80C1 /* MediaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1649725E1F3EF649002D80C1 /* MediaProvider.swift */; };
 		164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E921C5608E0004C6663 /* MainTabBarController.swift */; };
 		164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */; };
 		164DD35B1D9FB30F001236F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164DD3591D9FB30F001236F8 /* LaunchScreen.storyboard */; };
@@ -135,8 +134,6 @@
 		16DFF8521F34476100B6A4FB /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DFF8511F34476100B6A4FB /* LibraryCell.swift */; };
 		16EE9F691F00F2EA006B75BB /* ThanksToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */; };
 		16EFE0EC1F0243EB00FD476B /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EFE0EB1F0243EB00FD476B /* Preference.swift */; };
-		16FE9CCC1F4021CA00555ED0 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FE9CCB1F4021CA00555ED0 /* Media.swift */; };
-		16FE9CCE1F4021D300555ED0 /* Creator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FE9CCD1F4021D300555ED0 /* Creator.swift */; };
 		1A6ADFECC0BE4686683FEB7A /* Pods_kuStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9CA6B659DC9080D5A97D52 /* Pods_kuStudy.framework */; };
 		1CA21C0B1A9AA61CE621D2AB /* Pods_kuStudyKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936F5DC271654941D5D5F120 /* Pods_kuStudyKitTests.framework */; };
 		775879C9C863D09501D7E0C8 /* Pods_kuStudyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4392D020A2D904BE378580 /* Pods_kuStudyTests.framework */; };
@@ -303,7 +300,6 @@
 		164190F91F2F675C008682E5 /* Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
 		164190FB1F2F6B6C008682E5 /* Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
 		164190FC1F2F6B80008682E5 /* Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
-		1649725E1F3EF649002D80C1 /* MediaProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaProvider.swift; sourceTree = "<group>"; };
 		164C0E921C5608E0004C6663 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = "view controller/MainTabBarController.swift"; sourceTree = "<group>"; };
 		164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = "view controller/SettingsTableViewController.swift"; sourceTree = "<group>"; };
 		164DD35A1D9FB30F001236F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -393,8 +389,6 @@
 		16EE13B21C8AED5B002D4F12 /* PhotoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoProvider.swift; path = ../kuStudy/Base.lproj/controller/PhotoProvider.swift; sourceTree = "<group>"; };
 		16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThanksToViewController.swift; path = "view controller/ThanksToViewController.swift"; sourceTree = "<group>"; };
 		16EFE0EB1F0243EB00FD476B /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Preference.swift; path = controller/Preference.swift; sourceTree = "<group>"; };
-		16FE9CCB1F4021CA00555ED0 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
-		16FE9CCD1F4021D300555ED0 /* Creator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Creator.swift; sourceTree = "<group>"; };
 		19E673EA13423A798E88583B /* Pods-kuStudyKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudyKitTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudyKitTests/Pods-kuStudyKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B8A305A9EC4933DE4DE0309 /* Pods-kuStudy WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy WatchKit App.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy WatchKit App/Pods-kuStudy WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
 		2210BCB64C450C6FBF44E8B2 /* Pods-kuStudy WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy WatchKit Extension.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
@@ -601,16 +595,6 @@
 			name = Extension;
 			sourceTree = "<group>";
 		};
-		1649725D1F3EF61D002D80C1 /* MediaProvider */ = {
-			isa = PBXGroup;
-			children = (
-				1649725E1F3EF649002D80C1 /* MediaProvider.swift */,
-				16FE9CCB1F4021CA00555ED0 /* Media.swift */,
-				16FE9CCD1F4021D300555ED0 /* Creator.swift */,
-			);
-			path = MediaProvider;
-			sourceTree = "<group>";
-		};
 		164C0E911C5608D1004C6663 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -698,7 +682,6 @@
 			children = (
 				167245ED1B19C42B0083035F /* kuStudyKit */,
 				16538EA71C4F16820097A4F4 /* kuStudyWatchKit */,
-				1649725D1F3EF61D002D80C1 /* MediaProvider */,
 			);
 			name = Framework;
 			sourceTree = "<group>";
@@ -1912,16 +1895,13 @@
 				1664D5541D55E1E2000BAF56 /* UIColor.swift in Sources */,
 				164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */,
 				167246231B1B4BEC0083035F /* LibraryTableViewCell.swift in Sources */,
-				16FE9CCC1F4021CA00555ED0 /* Media.swift in Sources */,
 				16EE9F691F00F2EA006B75BB /* ThanksToViewController.swift in Sources */,
-				16FE9CCE1F4021D300555ED0 /* Creator.swift in Sources */,
 				162F12151D5F86B000A401D8 /* PhotographerCell.swift in Sources */,
 				167245C51B19C0370083035F /* AppDelegate.swift in Sources */,
 				167246251B1B4F0D0083035F /* ReadingRoomTableViewCell.swift in Sources */,
 				169D41DE1ED7D86100233F70 /* GBMSKStoreProductViewController.swift in Sources */,
 				1664D5521D55E1C6000BAF56 /* UINavigationController.swift in Sources */,
 				16019E9D1D8E45DE008A76C7 /* MainSplitViewController.swift in Sources */,
-				1649725F1F3EF784002D80C1 /* MediaProvider.swift in Sources */,
 				1664D5561D55E24B000BAF56 /* UIApplication.swift in Sources */,
 				16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */,
 				1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift in Sources */,

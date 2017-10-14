@@ -33,16 +33,37 @@ public class MediaManager {
     }
     
     // MARK: - Media
-    public func media(for: LibraryType? = nil,
+    public func media(for library: LibraryType,
                       artist: Artist? = nil,
-                      mediaType: Media.MediaType,
-                      presentationType: Media.PresentationType = .unspecified,
-                      timeframe: Media.Timeframe = .unspecified,
-                      weather: Media.Weather = .unspecified) -> [Media] {
-        return []
+                      mediaType: Media.MediaType? = nil,
+                      presentationType: Media.PresentationType? = nil,
+                      timeframe: Media.Timeframe? = nil,
+                      weather: Media.Weather? = nil) -> [Media] {
+        return media
+            .filter({ $0.library == library })
+            .filter({ $0.artist == artist })
+            .filter({ $0.mediaType == mediaType })
+            .filter({ $0.presentationType == presentationType })
+            .filter({ $0.timeframe == timeframe })
+            .filter({ $0.weather == weather })
     }
     
-    // TODO: Cached meida for summary and library
+    public func media(by artist: Artist,
+                      library: LibraryType? = nil,
+                      mediaType: Media.MediaType,
+                      presentationType: Media.PresentationType? = nil,
+                      timeframe: Media.Timeframe? = nil,
+                      weather: Media.Weather? = nil) -> [Media] {
+        return media
+            .filter({ $0.artist == artist })
+            .filter({ $0.library == library })
+            .filter({ $0.mediaType == mediaType })
+            .filter({ $0.presentationType == presentationType })
+            .filter({ $0.timeframe == timeframe })
+            .filter({ $0.weather == weather })
+    }
+    
+    // TODO: Cached media for summary and library
     
     // TODO: Preset media for Snapshot screenshot
 }
