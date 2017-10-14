@@ -82,7 +82,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -94,7 +93,6 @@ let mediaPreset = """
         "presentationType": 1,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -106,7 +104,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -118,7 +115,6 @@ let mediaPreset = """
         "presentationType": 1,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -130,7 +126,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -142,7 +137,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -154,7 +148,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -166,7 +159,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -178,7 +170,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -190,7 +181,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -202,7 +192,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -214,7 +203,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -226,7 +214,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -238,7 +225,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -250,7 +236,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -274,7 +259,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -286,7 +270,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -298,7 +281,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -310,7 +292,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -322,7 +303,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -334,7 +314,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -346,7 +325,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -358,7 +336,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -370,7 +347,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -382,7 +358,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -394,7 +369,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -406,7 +380,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -418,7 +391,6 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
         "description": ""
     },
     {
@@ -430,7 +402,17 @@ let mediaPreset = """
         "presentationType": 0,
         "timeframe": 0,
         "weather": 0,
-        "resourceName": "lyj_cdl_3",
+        "description": ""
+    },
+    {
+        "identifier": "874C3FF8-B077-4D9D-ABAE-12E81DA9CA32",
+        "resourceName": "lyj_sl_3",
+        "libraryIdentifier": "6",
+        "artistIdentifier": "RAS57970-CEDD-41A5-BE93-CB9A9C35F6B4",
+        "mediaType": 0,
+        "presentationType": 0,
+        "timeframe": 0,
+        "weather": 0,
         "description": ""
     },
 ]

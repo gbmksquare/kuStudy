@@ -23,6 +23,7 @@ public enum LibraryType: String, Codable {
     case HanaSquare = "5"
     case ScienceLibrary = "4"
     case CDL = "3"
+    case Law = "6"
     
     internal static func convertToNewLibraryIdFromOld(id: String) -> String {
         switch id {
@@ -31,16 +32,17 @@ public enum LibraryType: String, Codable {
         case "5": return "5"
         case "26": return "4"
         case "4": return "3"
+        case "6": return "0"
         default: return id
         }
     }
     
     public static func allTypes() -> [LibraryType] {
-        return [.CentralLibrary, .CentralSquare, .HanaSquare, .ScienceLibrary, .CDL]
+        return [.CentralLibrary, .CentralSquare, .HanaSquare, .ScienceLibrary, .CDL, .Law]
     }
     
     public static func liberalArtCampusTypes() -> [LibraryType] {
-        return [.CentralLibrary, CentralSquare, .CDL]
+        return [.CentralLibrary, CentralSquare, .CDL, .Law]
     }
     
     public static func scienceCampusTypes() -> [LibraryType] {
@@ -54,6 +56,7 @@ public enum LibraryType: String, Codable {
         case .HanaSquare: return "kuStudy.Library.Name.HanaSquare"
         case .ScienceLibrary: return "kuStudy.Library.Name.ScienceLibrary"
         case .CDL: return "kuStudy.Library.Name.Cdl"
+        case .Law: return "kuStudy.Library.Name.Law"
         }
     }
     
@@ -92,6 +95,7 @@ public enum LibraryType: String, Codable {
         case .HanaSquare: return CLLocationCoordinate2D(latitude: 37.58510, longitude: 127.0265)
         case .ScienceLibrary: return CLLocationCoordinate2D(latitude: 37.58459, longitude: 127.0266)
         case .CDL: return CLLocationCoordinate2D(latitude: 37.58944, longitude: 127.0344)
+        case .Law: return CLLocationCoordinate2D(latitude: 37.58944, longitude: 127.0344)
         }
     }
 }

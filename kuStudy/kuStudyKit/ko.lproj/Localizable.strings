@@ -13,6 +13,7 @@
 "kuStudy.Library.Name.ScienceLibrary" = "과학도서관";
 "kuStudy.Library.Name.Cdl" = "백주념기념관";
 "kuStudy.Library.Name.Sejong" = "세종캠퍼스";
+"kuStudy.Library.Name.Law" = "해송법학도서관";
 
 "kuStudy.Library.Name.CentralLibrary.Short" = "중도";
 "kuStudy.Library.Name.CentralSquare.Short" = "중광";
@@ -20,6 +21,7 @@
 "kuStudy.Library.Name.ScienceLibrary.Short" = "과도";
 "kuStudy.Library.Name.Cdl.Short" = "백기";
 "kuStudy.Library.Name.Sejong.Short" = "세종";
+"kuStudy.Library.Name.Law.Short" = "법도";
 
 // MARK: Reading rooms
 "reading_room_1" = "제1열람실 (노트북 열람실)";

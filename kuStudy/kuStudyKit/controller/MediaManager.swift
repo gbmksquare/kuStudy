@@ -88,6 +88,7 @@ public class MediaManager {
             case .CDL: return media(with: "EE91695A-EFD7-44CD-BEFC-41FE0399DFBB")
             case .HanaSquare: return media(with: "B9BFA3F5-50B7-4D7F-A202-4604158E222C")
             case .ScienceLibrary: return media(with: "6BCD6F93-1F25-40F1-BA72-56CAF764A52A")
+            case .Law: return media(with: "874C3FF8-B077-4D9D-ABAE-12E81DA9CA32")
             }
         }
         

@@ -13,6 +13,7 @@
 "kuStudy.Library.Name.ScienceLibrary" = "Science Library";
 "kuStudy.Library.Name.Cdl" = "Centennial Digital Library";
 "kuStudy.Library.Name.Sejong" = "Sejong Campus";
+"kuStudy.Library.Name.Law" = "Haesong Law Library";
 
 "kuStudy.Library.Name.CentralLibrary.Short" = "CL";
 "kuStudy.Library.Name.CentralSquare.Short" = "CS";
@@ -20,6 +21,7 @@
 "kuStudy.Library.Name.ScienceLibrary.Short" = "SL";
 "kuStudy.Library.Name.Cdl.Short" = "CDL";
 "kuStudy.Library.Name.Sejong.Short" = "SJ";
+"kuStudy.Library.Name.Law.Short" = "LAW";
 
 // MARK: Reading rooms
 "reading_room_1" = "Reading Room 1";

@@ -16,12 +16,12 @@ private let apiUrl = "http://librsv.korea.ac.kr/DLMS_KOU_INTRO/api/seatStatusLis
 
 public extension kuStudy {
     public class func requestSummaryData(onLibrarySuccess: ((_ libraryData: LibraryData) -> ())?, onFailure: FailureHandler?, onCompletion: ((_ summaryData: SummaryData) -> ())?) {
-        let libraryTypes = 1...5 // LibraryType.allTypes()
+        let libraryTypes = LibraryType.allTypes()
         var completeCount = 0
         let summaryData = SummaryData()
         for type in libraryTypes {
-//            let libraryId = type.rawValue
-            requestLibraryData(libraryId: "\(type)",
+            let libraryId = type.rawValue
+            requestLibraryData(libraryId: "\(libraryId)",
                onSuccess: { (libraryData) in
                     onLibrarySuccess?(libraryData)
                     summaryData.libraries.append(libraryData)
