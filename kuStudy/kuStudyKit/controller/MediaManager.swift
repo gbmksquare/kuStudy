@@ -69,7 +69,7 @@ public class MediaManager {
     // Defined media with cache and auto update
     public func mediaForMain() -> Media? {
         if let identifier = cachedMedia["main"] {
-            return media.filter({ $0.identifier == identifier }).first
+            return media(with: identifier)
         } else {
             let collection = self.media.filter({ $0.presentationType == Media.PresentationType.main })
             let media = collection[randomIndex(below: collection.count)]
@@ -79,8 +79,20 @@ public class MediaManager {
     }
     
     public func media(for library: LibraryType) -> Media? {
+        // Snapshot
+        let isRunningSnapshot = ProcessInfo.processInfo.arguments.contains("Snapshot") ? true : false
+        if isRunningSnapshot == true {
+            switch library {
+            case .CentralLibrary: return media(with: "B462E6C0-047A-4E48-A316-3DF99CEAB467")
+            case .CentralSquare: return media(with: "6B4F4F14-44BC-420D-88A3-C0BC421EC59A")
+            case .CDL: return media(with: "EE91695A-EFD7-44CD-BEFC-41FE0399DFBB")
+            case .HanaSquare: return media(with: "B9BFA3F5-50B7-4D7F-A202-4604158E222C")
+            case .ScienceLibrary: return media(with: "6BCD6F93-1F25-40F1-BA72-56CAF764A52A")
+            }
+        }
+        
         if let identifier = cachedMedia[library.rawValue] {
-            return media.filter({ $0.identifier == identifier }).first
+            return media(with: identifier)
         } else {
             let collection = self.media(for: library, artist: nil, mediaType: nil, presentationType: nil, timeframe: nil, weather: nil)
             let media = collection[randomIndex(below: collection.count)]
@@ -89,7 +101,9 @@ public class MediaManager {
         }
     }
     
-    // TODO: Preset media for Snapshot screenshot
+    private func media(with identifier: String) -> Media? {
+        return media.filter({ $0.identifier == identifier }).first
+    }
     
     // MARK: - Helper
     private func randomIndex(below max: Int) -> Int {

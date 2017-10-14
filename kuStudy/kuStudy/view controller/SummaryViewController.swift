@@ -310,19 +310,6 @@ extension SummaryViewController {
     }
     
     private func updateHeaderImage() {
-        let libraryTypes = LibraryType.allTypes()
-        
-        let libraryId: String
-        let isRunningTest = ProcessInfo.processInfo.arguments.contains("Snapshot") ? true : false
-        if isRunningTest == true {
-            // Fastlane Snapshot
-            let libraryType = LibraryType.CentralSquare
-            libraryId = libraryType.rawValue
-        } else {
-            let randomIndex = Int(arc4random_uniform(UInt32(libraryTypes.count)))
-            libraryId = libraryTypes[randomIndex].rawValue
-        }
-        
         heroImageView.image = MediaManager.shared.mediaForMain()?.image
     }
     
