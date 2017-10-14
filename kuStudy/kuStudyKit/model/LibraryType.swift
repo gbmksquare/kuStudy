@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-public enum LibraryType: String {
+public enum LibraryType: String, Codable {
     // Old
 //    case CentralLibrary = "3"
 //    case CentralSquare = "1"

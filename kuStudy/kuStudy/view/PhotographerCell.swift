@@ -18,7 +18,7 @@ class PhotographerCell: UICollectionViewCell {
     
     @IBOutlet weak var photographerStackView: UIStackView!
     
-    private var photographer: Photographer?
+    private var photographer: Photographer_Legacy?
     private var currentPhotoIndex = 0
     private var timer: Timer?
     
@@ -69,7 +69,7 @@ class PhotographerCell: UICollectionViewCell {
         associationLabel.text = nil
     }
     
-    func populate(_ photographer: Photographer) {
+    func populate(_ photographer: Photographer_Legacy) {
         self.photographer = photographer
         
         if let photo = photographer.photos.first {

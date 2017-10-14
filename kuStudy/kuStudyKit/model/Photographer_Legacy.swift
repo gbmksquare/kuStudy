@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Photographer {
+public struct Photographer_Legacy {
     let id: Int
     public let name: String
     public let name_en: String
@@ -28,7 +28,7 @@ public struct Photographer {
         }
     }
     
-    public var photos: [Photo] {
+    public var photos: [Photo_Legacy] {
         return PhotoProvider.sharedProvider.photos.filter({ $0.photographer.name == name })
     }
 }

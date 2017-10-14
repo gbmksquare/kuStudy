@@ -112,7 +112,7 @@ public extension LibraryData {
         }
     }
     
-    public var photo: (image: UIImage?, photographer: Photographer)? {
+    public var photo: (image: UIImage?, photographer: Photographer_Legacy)? {
         get {
             guard let libraryIdString = self.libraryId else { return nil }
             guard let libraryId = Int(libraryIdString) else { return nil }

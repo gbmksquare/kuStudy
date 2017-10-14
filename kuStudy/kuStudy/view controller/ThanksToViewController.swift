@@ -13,7 +13,7 @@ import SafariServices
 class ThanksToViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private var photographers: [Photographer] {
+    private var photographers: [Photographer_Legacy] {
         return PhotoProvider.sharedProvider.photographers
     }
     

@@ -11,9 +11,9 @@ import UIKit
 public class PhotoProvider {
     public static let sharedProvider = PhotoProvider()
     
-    public let photographers: [Photographer]
-    let photoLocations: [PhotoLocation]
-    public let photos: [Photo]
+    public let photographers: [Photographer_Legacy]
+    let photoLocations: [PhotoLocation_Legacy]
+    public let photos: [Photo_Legacy]
     
     /// [Library ID: Photo Index]
     private var loadedPhotos = [Int: Int]()
@@ -24,7 +24,7 @@ public class PhotoProvider {
         let photographersUrl = Bundle(for: kuStudy.self).url(forResource: "Photographers", withExtension: "plist")!
         let photographersContent = NSArray(contentsOf: photographersUrl)!
         
-        photographers = photographersContent.map { (item) -> Photographer in
+        photographers = photographersContent.map { (item) -> Photographer_Legacy in
             let item = item as! [String: Any]
             let id = item["id"] as! Int
             let name = item["name"] as! String
@@ -32,27 +32,27 @@ public class PhotoProvider {
             let association = item["association"] as! String
             let association_en = item["association_en"] as! String
             let instagramId = item["instagram"] as! String
-            return Photographer(id: id, name: name, name_en: name_en, association: association, association_en: association_en, instagramId: instagramId)
+            return Photographer_Legacy(id: id, name: name, name_en: name_en, association: association, association_en: association_en, instagramId: instagramId)
         }
         
         // Photo locations
         let photoLocationsUrl = Bundle(for: kuStudy.self).url(forResource: "PhotoLocations", withExtension: "plist")!
         let photoLocationsContent = NSArray(contentsOf: photoLocationsUrl)!
         
-        photoLocations = photoLocationsContent.map({ (item) -> PhotoLocation in
+        photoLocations = photoLocationsContent.map({ (item) -> PhotoLocation_Legacy in
             let item = item as! [String: Any]
             let key = item["key"] as! String
             let id = item["id"] as! Int
             // Convert old id
             let newId = Int(LibraryType.convertToNewLibraryIdFromOld(id: "\(id)"))!
-            return PhotoLocation(id: newId, key: key)
+            return PhotoLocation_Legacy(id: newId, key: key)
         })
         
         // Photos
         let photosUrl = Bundle(for: kuStudy.self).url(forResource: "Photos", withExtension: "plist")!
         let photosContent = NSArray(contentsOf: photosUrl)!
         
-        photos = photosContent.map({ (item) -> Photo in
+        photos = photosContent.map({ (item) -> Photo_Legacy in
             let item = item as! [String: Any]
             let imageName = item["name"] as! String
             let locationId = item["libraryId"] as! Int
@@ -60,16 +60,16 @@ public class PhotoProvider {
             let description = item["description"] as! String
             // Convert old id
             let newLocationId = Int(LibraryType.convertToNewLibraryIdFromOld(id: "\(locationId)"))!
-            return Photo(imageName: imageName, locationId: newLocationId, photographerId: photographerId, description: description)
+            return Photo_Legacy(imageName: imageName, locationId: newLocationId, photographerId: photographerId, description: description)
         })
     }
     
     // MARK: Photo
-    public func photo(_ libraryId: String) -> Photo {
+    public func photo(_ libraryId: String) -> Photo_Legacy {
         return photo(Int(libraryId)!)
     }
     
-    public func photo(_ libraryId: Int) -> Photo {
+    public func photo(_ libraryId: Int) -> Photo_Legacy {
         let photos = self.photos.filter({ $0.locationId == libraryId })
         
         // Get new index if needed

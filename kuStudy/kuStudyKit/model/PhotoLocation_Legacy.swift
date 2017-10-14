@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PhotoLocation {
+struct PhotoLocation_Legacy {
     let id: Int
     let key: String
 }

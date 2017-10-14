@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Photo {
+public struct Photo_Legacy {
     let imageName: String
     let locationId: Int
     let photographerId: Int
@@ -18,16 +18,16 @@ public struct Photo {
         return imageName + "_thumbnail"
     }
     
-    public var photographer: Photographer {
+    public var photographer: Photographer_Legacy {
         return PhotoProvider.sharedProvider.photographers.filter({ $0.id == photographerId }).first!
     }
     
-    var photoLocation: PhotoLocation {
+    var photoLocation: PhotoLocation_Legacy {
         return PhotoProvider.sharedProvider.photoLocations.filter({ $0.id == locationId }).first!
     }
 }
 
-extension Photo {
+extension Photo_Legacy {
     public var thumbnail: UIImage? {
         #if os(watchOS)
             return nil
