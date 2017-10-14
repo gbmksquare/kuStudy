@@ -91,20 +91,20 @@ extension ThanksToViewController: UICollectionViewDelegateFlowLayout, UICollecti
 // MARK: - Instagram
 extension ThanksToViewController {
     private func presentInstagram(artist: Artist) {
-//        for account in artist.socialAccounts {
-//            switch account.socialService {
-//            case SocialAccount.SocialService.instagram(let instagramId):
-//                guard let instagramAppUrl = URL(string: "instagram://user?username=\(instagramId)"),
-//                    let instagramUrl = URL(string: "https://instagram.com/\(instagramId)") else { return }
-//                let application = UIApplication.shared
-//                if application.canOpenURL(instagramAppUrl) {
-//                    openInInstagram(instagramAppUrl)
-//                } else {
-//                    openInSafariViewController(instagramUrl)
-//                }
-//            default: return
-//            }
-//        }
+        for account in artist.socialAccounts {
+            if account.socialService == .instagram {
+                let instagramId = account.userId
+                guard let instagramAppUrl = URL(string: "instagram://user?username=\(instagramId)"),
+                    let instagramUrl = URL(string: "https://instagram.com/\(instagramId)") else { continue }
+                let application = UIApplication.shared
+                if application.canOpenURL(instagramAppUrl) {
+                    openInInstagram(instagramAppUrl)
+                } else {
+                    openInSafariViewController(instagramUrl)
+                }
+                return
+            }
+        }
     }
     
     private func openInInstagram(_ url: URL) {

@@ -43,12 +43,6 @@
 		16538EAE1C4F16830097A4F4 /* kuStudyWatchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		16538EB81C4F16E40097A4F4 /* kuStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672460F1B1AB1AD0083035F /* kuStudy.swift */; };
 		1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift */; };
-		1660A4AE1C8FA31F003D5460 /* PhotoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE13B21C8AED5B002D4F12 /* PhotoProvider.swift */; };
-		1660A4AF1C8FA320003D5460 /* PhotoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE13B21C8AED5B002D4F12 /* PhotoProvider.swift */; };
-		1660A4B11C8FA470003D5460 /* Photos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16EE13B01C8AECB2002D4F12 /* Photos.plist */; };
-		1660A4B21C8FA470003D5460 /* Photographers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */; };
-		1660A4B31C8FA471003D5460 /* Photos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16EE13B01C8AECB2002D4F12 /* Photos.plist */; };
-		1660A4B41C8FA471003D5460 /* Photographers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */; };
 		1660A4B81C8FB4EE003D5460 /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660A4B71C8FB4EE003D5460 /* LibraryTableViewCell.swift */; };
 		1661C3DF1F07E9C0005C889F /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1661C3DE1F07E9C0005C889F /* UIDevice.swift */; };
 		1664D5521D55E1C6000BAF56 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664D5511D55E1C6000BAF56 /* UINavigationController.swift */; };
@@ -62,15 +56,7 @@
 		1664D56C1D5AC7E0000BAF56 /* PercentagePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1664D56A1D5AC7E0000BAF56 /* PercentagePresentable.swift */; };
 		1664D5731D5AD511000BAF56 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1664D5711D5AD423000BAF56 /* Localizable.strings */; };
 		16657B651F342F2800D43EF2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16657B641F342F2800D43EF2 /* TodayViewController.swift */; };
-		166C4B0F1D5B0ED100297651 /* Photographer_Legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C4B0D1D5B0EB400297651 /* Photographer_Legacy.swift */; };
-		166C4B101D5B0ED500297651 /* Photographer_Legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C4B0D1D5B0EB400297651 /* Photographer_Legacy.swift */; };
-		166C4B121D5B142400297651 /* PhotoLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 166C4B111D5B142400297651 /* PhotoLocations.plist */; };
-		166C4B131D5B142400297651 /* PhotoLocations.plist in Resources */ = {isa = PBXBuildFile; fileRef = 166C4B111D5B142400297651 /* PhotoLocations.plist */; };
-		166C4B151D5B162400297651 /* PhotoLocation_Legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C4B141D5B162400297651 /* PhotoLocation_Legacy.swift */; };
-		166C4B161D5B162400297651 /* PhotoLocation_Legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C4B141D5B162400297651 /* PhotoLocation_Legacy.swift */; };
-		166C4B181D5B1E3400297651 /* Photo_Legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C4B171D5B1E3400297651 /* Photo_Legacy.swift */; };
 		166C4B1B1D5B1FBB00297651 /* LibraryPhotos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */; };
-		166C4B1D1D5B215A00297651 /* Photo_Legacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166C4B171D5B1E3400297651 /* Photo_Legacy.swift */; };
 		167245C51B19C0370083035F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167245C41B19C0370083035F /* AppDelegate.swift */; };
 		167245CA1B19C0370083035F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167245C81B19C0370083035F /* Main.storyboard */; };
 		167245CC1B19C0370083035F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167245CB1B19C0370083035F /* Images.xcassets */; };
@@ -322,10 +308,6 @@
 		1664D5701D5AD423000BAF56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1664D5721D5AD424000BAF56 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16657B641F342F2800D43EF2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		166C4B0D1D5B0EB400297651 /* Photographer_Legacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Photographer_Legacy.swift; path = model/Photographer_Legacy.swift; sourceTree = "<group>"; };
-		166C4B111D5B142400297651 /* PhotoLocations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PhotoLocations.plist; path = kuStudy/PhotoLocations.plist; sourceTree = SOURCE_ROOT; };
-		166C4B141D5B162400297651 /* PhotoLocation_Legacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoLocation_Legacy.swift; path = model/PhotoLocation_Legacy.swift; sourceTree = "<group>"; };
-		166C4B171D5B1E3400297651 /* Photo_Legacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Photo_Legacy.swift; path = model/Photo_Legacy.swift; sourceTree = "<group>"; };
 		167245BF1B19C0370083035F /* kuStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kuStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		167245C31B19C0370083035F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		167245C41B19C0370083035F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -384,9 +366,6 @@
 		16DD05341E46E10D007AB912 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16DFF84F1F34423300B6A4FB /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		16DFF8511F34476100B6A4FB /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
-		16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Photographers.plist; path = ../kuStudy/Photographers.plist; sourceTree = "<group>"; };
-		16EE13B01C8AECB2002D4F12 /* Photos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Photos.plist; path = ../kuStudy/Photos.plist; sourceTree = "<group>"; };
-		16EE13B21C8AED5B002D4F12 /* PhotoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoProvider.swift; path = ../kuStudy/Base.lproj/controller/PhotoProvider.swift; sourceTree = "<group>"; };
 		16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThanksToViewController.swift; path = "view controller/ThanksToViewController.swift"; sourceTree = "<group>"; };
 		16EFE0EB1F0243EB00FD476B /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Preference.swift; path = controller/Preference.swift; sourceTree = "<group>"; };
 		19E673EA13423A798E88583B /* Pods-kuStudyKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudyKitTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudyKitTests/Pods-kuStudyKitTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -630,23 +609,9 @@
 			isa = PBXGroup;
 			children = (
 				1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */,
-				16EE13B01C8AECB2002D4F12 /* Photos.plist */,
-				166C4B111D5B142400297651 /* PhotoLocations.plist */,
-				16EE13AE1C8AEBF2002D4F12 /* Photographers.plist */,
 				16A887351B21D1FF00C49551 /* Localizable.strings */,
 			);
 			name = Resource;
-			sourceTree = "<group>";
-		};
-		1660A4B01C8FA34B003D5460 /* Photo */ = {
-			isa = PBXGroup;
-			children = (
-				16EE13B21C8AED5B002D4F12 /* PhotoProvider.swift */,
-				166C4B171D5B1E3400297651 /* Photo_Legacy.swift */,
-				166C4B0D1D5B0EB400297651 /* Photographer_Legacy.swift */,
-				166C4B141D5B162400297651 /* PhotoLocation_Legacy.swift */,
-			);
-			name = Photo;
 			sourceTree = "<group>";
 		};
 		1664D54C1D55D6F5000BAF56 /* Application */ = {
@@ -793,7 +758,6 @@
 				1672460C1B19C43C0083035F /* Framework */,
 				1600D6311B204044008000B8 /* API */,
 				1685E04F1F91E43600F80699 /* Media */,
-				1660A4B01C8FA34B003D5460 /* Photo */,
 				1664D5691D5AC7C4000BAF56 /* Protocol */,
 				1631A2D91CF023FF0078381F /* Extension */,
 				165F9C921B2199D400101EBE /* Resource */,
@@ -1395,10 +1359,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1660A4B41C8FA471003D5460 /* Photographers.plist in Resources */,
 				1688C4171C4F6B790044D1EE /* Localizable.strings in Resources */,
-				166C4B131D5B142400297651 /* PhotoLocations.plist in Resources */,
-				1660A4B31C8FA471003D5460 /* Photos.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1426,10 +1387,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1660A4B21C8FA470003D5460 /* Photographers.plist in Resources */,
 				16A887331B21D1FF00C49551 /* Localizable.strings in Resources */,
-				166C4B121D5B142400297651 /* PhotoLocations.plist in Resources */,
-				1660A4B11C8FA470003D5460 /* Photos.plist in Resources */,
 				166C4B1B1D5B1FBB00297651 /* LibraryPhotos.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1866,15 +1824,11 @@
 				16940EF51CF1D86E005965A2 /* Definitions.swift in Sources */,
 				1631A2D21CEF4EEC0078381F /* LibraryData.swift in Sources */,
 				1631A2CF1CEF4EA60078381F /* SectorData.swift in Sources */,
-				1660A4AF1C8FA320003D5460 /* PhotoProvider.swift in Sources */,
-				166C4B101D5B0ED500297651 /* Photographer_Legacy.swift in Sources */,
 				16940EF41CF1D564005965A2 /* Float.swift in Sources */,
 				1685E0521F91E45700F80699 /* MediaManager.swift in Sources */,
 				167B4C8D1F872F0000BDE991 /* OpenTimeTransform.swift in Sources */,
 				1664D5681D5AC637000BAF56 /* UIColor.swift in Sources */,
 				167B4C871F872E7700BDE991 /* YesNoTransform.swift in Sources */,
-				166C4B1D1D5B215A00297651 /* Photo_Legacy.swift in Sources */,
-				166C4B161D5B162400297651 /* PhotoLocation_Legacy.swift in Sources */,
 				1685E05B1F91EA7600F80699 /* SocialAccount.swift in Sources */,
 				1631A2DC1CF025060078381F /* Int.swift in Sources */,
 				1664D56C1D5AC7E0000BAF56 /* PercentagePresentable.swift in Sources */,
@@ -1927,10 +1881,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				167B4C891F872EB800BDE991 /* CloseTimeTransform.swift in Sources */,
-				166C4B181D5B1E3400297651 /* Photo_Legacy.swift in Sources */,
 				1685E0571F91E8EB00F80699 /* Media.swift in Sources */,
-				166C4B0F1D5B0ED100297651 /* Photographer_Legacy.swift in Sources */,
-				166C4B151D5B162400297651 /* PhotoLocation_Legacy.swift in Sources */,
 				1664D5671D5AC637000BAF56 /* UIColor.swift in Sources */,
 				1664D56B1D5AC7E0000BAF56 /* PercentagePresentable.swift in Sources */,
 				1631A2D71CEF51480078381F /* LibraryType.swift in Sources */,
@@ -1943,7 +1894,6 @@
 				1631A2D11CEF4EEC0078381F /* LibraryData.swift in Sources */,
 				1631A2CE1CEF4EA60078381F /* SectorData.swift in Sources */,
 				1685E05A1F91EA7600F80699 /* SocialAccount.swift in Sources */,
-				1660A4AE1C8FA31F003D5460 /* PhotoProvider.swift in Sources */,
 				16940EF31CF1D564005965A2 /* Float.swift in Sources */,
 				1631A2DB1CF025060078381F /* Int.swift in Sources */,
 				1685E0541F91E47100F80699 /* Artist.swift in Sources */,
