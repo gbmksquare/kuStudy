@@ -154,7 +154,11 @@ extension LibraryViewController {
     
     private func setupGradient() {
         let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + 8)
-        gradient.colors = [UIColor.black.withAlphaComponent(0.45).cgColor, UIColor.black.withAlphaComponent(0).cgColor]
+        let color = UIColor.black
+        gradient.colors = [color.withAlphaComponent(0.6).cgColor,
+                           color.withAlphaComponent(0.3).cgColor,
+                           color.withAlphaComponent(0.1).cgColor,
+                           color.withAlphaComponent(0).cgColor]
         gradient.frame = CGRect(origin: .zero, size: size)
         heroImageView.layer.addSublayer(gradient)
     }
