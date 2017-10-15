@@ -95,7 +95,7 @@ public enum LibraryType: String, Codable {
         case .HanaSquare: return CLLocationCoordinate2D(latitude: 37.58510, longitude: 127.0265)
         case .ScienceLibrary: return CLLocationCoordinate2D(latitude: 37.58459, longitude: 127.0266)
         case .CDL: return CLLocationCoordinate2D(latitude: 37.58944, longitude: 127.0344)
-        case .Law: return CLLocationCoordinate2D(latitude: 37.58944, longitude: 127.0344)
+        case .Law: return CLLocationCoordinate2D(latitude: 37.5907397, longitude: 127.0319772)
         }
     }
 }

@@ -406,9 +406,9 @@ let mediaPreset = """
     },
     {
         "identifier": "874C3FF8-B077-4D9D-ABAE-12E81DA9CA32",
-        "resourceName": "lyj_sl_3",
+        "resourceName": "gbm_1_law",
         "libraryIdentifier": "6",
-        "artistIdentifier": "RAS57970-CEDD-41A5-BE93-CB9A9C35F6B4",
+        "artistIdentifier": "GBM920C5-54F6-42DD-9069-5ED5307D0DEC",
         "mediaType": 0,
         "presentationType": 0,
         "timeframe": 0,
