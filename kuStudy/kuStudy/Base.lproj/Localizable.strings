@@ -119,3 +119,5 @@
 
 "Alert.Message.PaymentError" = "You can't purchase items at this time.";
 
+"Alert.Message.AppStore.Failed" = "Failed to open App Store.";
+

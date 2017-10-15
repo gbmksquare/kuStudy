@@ -77,6 +77,13 @@ public struct Localizations {
             public static var Paymenterror : String = NSLocalizedString("Alert.Message.PaymentError", comment: "")
 
 
+            public struct Appstore {
+
+                /// Base translation: Failed to open App Store.
+                public static var Failed : String = NSLocalizedString("Alert.Message.AppStore.Failed", comment: "")
+
+            }
+
             public struct Notification {
 
                 /// Base translation: Remind me after

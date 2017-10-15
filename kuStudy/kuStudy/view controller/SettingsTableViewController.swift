@@ -158,12 +158,16 @@ extension SettingsTableViewController {
                 Answers.logInvite(withMethod: "iOS", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
             })
         case 999: // App Store review
-            guard let url = URL(string: "itms-apps://itunes.apple.com/us/app/kustudy/id925255895?mt=8&action=write-review") else { return }
             let app = UIApplication.shared
-            if app.canOpenURL(url) {
+            if let url = URL(string: "itms-apps://itunes.apple.com/us/app/kustudy/id925255895?mt=8&action=write-review"),
+                app.canOpenURL(url) == true {
                 app.open(url, options: [:], completionHandler: nil)
+            } else {
+                let alert = UIAlertController(title: Localizations.Common.Error, message: Localizations.Alert.Message.Appstore.Failed, preferredStyle: .alert)
+                let confirm = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default, handler: nil)
+                alert.addAction(confirm)
+                present(alert, animated: true, completion: nil)
             }
-            
             tableView.deselectRow(at: indexPath, animated: true)
         default: break
         }
