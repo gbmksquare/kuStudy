@@ -108,9 +108,9 @@ class LibraryTableViewCell: UITableViewCell {
         }
         
         nameLabel.text = library.name
-        availableLabel.text =  data.availableSeats.readable
-        totalLabel.text = data.totalSeats.readable
-        usedLabel.text = data.usedSeats.readable
+        availableLabel.text =  data.available.readable
+        totalLabel.text = data.total.readable
+        usedLabel.text = data.occupied.readable
         
         thumbnailImageView.image = data.media?.thumbnail
         indicatorView.backgroundColor = data.availablePercentageColor

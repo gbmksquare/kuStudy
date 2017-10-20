@@ -16,27 +16,27 @@ public class SummaryData {
 
 // MARK: Computed data
 extension SummaryData {
-    public var totalSeats: Int? {
+    public var total: Int? {
         return libraries.reduce(0, { (initial, library) -> Int in
-            return initial + library.totalSeats
+            return initial + library.total
         })
     }
     
-    public var usedSeats: Int? {
+    public var occupied: Int? {
         return libraries.reduce(0, { (initial, library) -> Int in
-            return initial + library.usedSeats
+            return initial + library.occupied
         })
     }
     
-    public var availableSeats: Int? {
+    public var available: Int? {
         return libraries.reduce(0, { (initial, library) -> Int in
-            return initial + library.availableSeats
+            return initial + library.available
         })
     }
 }
 
 extension SummaryData {
-    public var totalSeatsInLiberalArtCampus: Int? {
+    public var totalInLiberalArtCampus: Int? {
         let ids = LibraryType.liberalArtCampusTypes().map({ $0.rawValue })
         let libraryDatas = libraries.filter { (libraryData) -> Bool in
             guard let libraryId = libraryData.libraryId else { return false }
@@ -47,11 +47,11 @@ extension SummaryData {
             }
         }
         return libraryDatas.reduce(0, { (initial, library) -> Int in
-            return initial + library.totalSeats
+            return initial + library.total
         })
     }
     
-    public var usedSeatsInLiberalArtCampus: Int? {
+    public var occupiedInLiberalArtCampus: Int? {
         let ids = LibraryType.liberalArtCampusTypes().map({ $0.rawValue })
         let libraryDatas = libraries.filter { (libraryData) -> Bool in
             guard let libraryId = libraryData.libraryId else { return false }
@@ -62,11 +62,11 @@ extension SummaryData {
             }
         }
         return libraryDatas.reduce(0, { (initial, library) -> Int in
-            return initial + library.usedSeats
+            return initial + library.occupied
         })
     }
     
-    public var availableSeatsInLiberalArtCampus: Int? {
+    public var availableInLiberalArtCampus: Int? {
         let ids = LibraryType.liberalArtCampusTypes().map({ $0.rawValue })
         let libraryDatas = libraries.filter { (libraryData) -> Bool in
             guard let libraryId = libraryData.libraryId else { return false }
@@ -77,11 +77,11 @@ extension SummaryData {
             }
         }
         return libraryDatas.reduce(0, { (initial, library) -> Int in
-            return initial + library.availableSeats
+            return initial + library.available
         })
     }
     
-    public var totalSeatsInScienceCampus: Int? {
+    public var totalInScienceCampus: Int? {
         let ids = LibraryType.scienceCampusTypes().map({ $0.rawValue })
         let libraryDatas = libraries.filter { (libraryData) -> Bool in
             guard let libraryId = libraryData.libraryId else { return false }
@@ -92,11 +92,11 @@ extension SummaryData {
             }
         }
         return libraryDatas.reduce(0, { (initial, library) -> Int in
-            return initial + library.totalSeats
+            return initial + library.total
         })
     }
     
-    public var usedSeatsInScienceCampus: Int? {
+    public var occupiedInScienceCampus: Int? {
         let ids = LibraryType.scienceCampusTypes().map({ $0.rawValue })
         let libraryDatas = libraries.filter { (libraryData) -> Bool in
             guard let libraryId = libraryData.libraryId else { return false }
@@ -107,11 +107,11 @@ extension SummaryData {
             }
         }
         return libraryDatas.reduce(0, { (initial, library) -> Int in
-            return initial + library.usedSeats
+            return initial + library.occupied
         })
     }
     
-    public var availableSeatsInScienceCampus: Int? {
+    public var availableInScienceCampus: Int? {
         let ids = LibraryType.scienceCampusTypes().map({ $0.rawValue })
         let libraryDatas = libraries.filter { (libraryData) -> Bool in
             guard let libraryId = libraryData.libraryId else { return false }
@@ -122,45 +122,45 @@ extension SummaryData {
             }
         }
         return libraryDatas.reduce(0, { (initial, library) -> Int in
-            return initial + library.availableSeats
+            return initial + library.available
         })
     }
 }
 
 extension SummaryData: PercentagePresentable {
     public var availablePercentage: Float {
-        guard totalSeats != 0 else { return 0 }
-        guard let availableSeats = availableSeats, let totalSeats = totalSeats else { return 0 }
-        return Float(availableSeats) / Float(totalSeats)
+        guard total != 0 else { return 0 }
+        guard let available = available, let total = total else { return 0 }
+        return Float(available) / Float(total)
     }
     
     public var occupiedPercentage: Float {
-        guard totalSeats != 0 else { return 0 }
-        guard let usedSeats = usedSeats, let totalSeats = totalSeats else { return 0 }
-        return Float(usedSeats) / Float(totalSeats)
+        guard total != 0 else { return 0 }
+        guard let occupied = occupied, let total = total else { return 0 }
+        return Float(occupied) / Float(total)
     }
     
     public var availablePercentageInLiberalArtCampus: Float {
-        guard totalSeatsInLiberalArtCampus != 0 else { return 0 }
-        guard let availableSeats = availableSeatsInLiberalArtCampus, let totalSeats = totalSeatsInLiberalArtCampus else { return 0 }
-        return Float(availableSeats) / Float(totalSeats)
+        guard totalInLiberalArtCampus != 0 else { return 0 }
+        guard let available = availableInLiberalArtCampus, let total = totalInLiberalArtCampus else { return 0 }
+        return Float(available) / Float(total)
     }
     
     public var occupiedPercentageInLiberalArtCampus: Float {
-        guard totalSeatsInLiberalArtCampus != 0 else { return 0 }
-        guard let usedSeats = usedSeatsInLiberalArtCampus, let totalSeats = totalSeatsInLiberalArtCampus else { return 0 }
-        return Float(usedSeats) / Float(totalSeats)
+        guard totalInLiberalArtCampus != 0 else { return 0 }
+        guard let occupied = occupiedInLiberalArtCampus, let total = totalInLiberalArtCampus else { return 0 }
+        return Float(occupied) / Float(total)
     }
     
     public var availablePercentageInScienceCampus: Float {
-        guard totalSeatsInScienceCampus != 0 else { return 0 }
-        guard let availableSeats = availableSeatsInScienceCampus, let totalSeats = totalSeatsInScienceCampus else { return 0 }
-        return Float(availableSeats) / Float(totalSeats)
+        guard totalInScienceCampus != 0 else { return 0 }
+        guard let available = availableInScienceCampus, let total = totalInScienceCampus else { return 0 }
+        return Float(available) / Float(total)
     }
     
     public var occupiedPercentageInScienceCampus: Float {
-        guard totalSeatsInScienceCampus != 0 else { return 0 }
-        guard let usedSeats = usedSeatsInScienceCampus, let totalSeats = totalSeatsInScienceCampus else { return 0 }
-        return Float(usedSeats) / Float(totalSeats)
+        guard totalInScienceCampus != 0 else { return 0 }
+        guard let occupied = occupiedInScienceCampus, let total = totalInScienceCampus else { return 0 }
+        return Float(occupied) / Float(total)
     }
 }

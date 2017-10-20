@@ -222,9 +222,9 @@ extension LibraryViewController {
             dataLabels.forEach {
                 guard let tag = DataTag(rawValue: $0.tag) else { return }
                 switch tag {
-                case .total: $0.text = libraryData.totalSeats.readable
-                case .available: $0.text = libraryData.availableSeats.readable
-                case .used: $0.text = libraryData.usedSeats.readable
+                case .total: $0.text = libraryData.total.readable
+                case .available: $0.text = libraryData.available.readable
+                case .used: $0.text = libraryData.occupied.readable
                 }
             }
         }

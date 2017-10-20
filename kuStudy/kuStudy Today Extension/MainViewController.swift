@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
     @IBOutlet private weak var laCampusUsedLabel: UILabel!
     @IBOutlet private weak var scCampusUsedLabel: UILabel!
     
-    private var used: Int?
+    private var occupied: Int?
     private var laCampusUsed: Int?
     private var scCampusUsed: Int?
     private var data: SummaryData? {
@@ -119,12 +119,12 @@ class MainViewController: UIViewController {
             
         }) { [weak self] (summary) in
             if summary.libraries.count > 0 {
-                self?.used = summary.usedSeats
-                self?.laCampusUsed = summary.usedSeatsInLiberalArtCampus
-                self?.scCampusUsed = summary.usedSeatsInScienceCampus
+                self?.occupied = summary.occupied
+                self?.laCampusUsed = summary.occupiedInLiberalArtCampus
+                self?.scCampusUsed = summary.occupiedInScienceCampus
                 self?.data = summary
             } else {
-                self?.used = nil
+                self?.occupied = nil
                 self?.laCampusUsed = nil
                 self?.scCampusUsed = nil
                 self?.data = nil
@@ -138,7 +138,7 @@ class MainViewController: UIViewController {
             hideNotice()
             
             // Update content
-            usedLabel.text = Localizations.Today.Main.Label.Studying(used?.readable ?? Localizations.Today.Main.Label.Nodata)
+            usedLabel.text = Localizations.Today.Main.Label.Studying(occupied?.readable ?? Localizations.Today.Main.Label.Nodata)
             laCampusUsedLabel.text = Localizations.Today.Main.Label.Studying(laCampusUsed?.readable ?? Localizations.Today.Main.Label.Nodata)
             scCampusUsedLabel.text = Localizations.Today.Main.Label.Studying(scCampusUsed?.readable ?? Localizations.Today.Main.Label.Nodata)
             tableView.reloadData()

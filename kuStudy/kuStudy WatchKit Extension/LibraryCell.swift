@@ -23,8 +23,8 @@ class LibraryCell: NSObject {
         usedPlaceholderLabel.setText(Localizations.Watch.Cell.Label.Used)
         
         nameLabel.setText(libraryData.libraryName)
-        availableLabel.setText(libraryData.availableSeats.readable)
-        usedLabel.setText(libraryData.usedSeats.readable)
+        availableLabel.setText(libraryData.available.readable)
+        usedLabel.setText(libraryData.occupied.readable)
         percentGroup.setBackgroundColor(libraryData.occupiedPercentageColor)
     }
 }

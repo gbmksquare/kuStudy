@@ -85,7 +85,7 @@ class InterfaceController: WKInterfaceController {
         reorderLibraryData()
         
         // Summary
-        summaryLabel.setText(summaryData.usedSeats!.readable + Localizations.Watch.Label.Studyingdescription)
+        summaryLabel.setText(summaryData.occupied!.readable + Localizations.Watch.Label.Studyingdescription)
         percentageLabel.setText(summaryData.occupiedPercentage.percentageReadable)
         percentageGroup.startAnimatingWithImages(in:
             NSRange(location: 0, length: Int(summaryData.occupiedPercentage * 100)),

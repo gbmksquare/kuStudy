@@ -73,9 +73,9 @@ class DetailInterfaceController: WKInterfaceController {
         guard let libraryId = libraryData.libraryType?.identifier else { return }
         let libraryType = LibraryType(rawValue: libraryId)
         setTitle(libraryType?.name)
-        totalLabel.setText(libraryData.totalSeats.readable)
-        usedLabel.setText(libraryData.usedSeats.readable)
-        availableLabel.setText(libraryData.availableSeats.readable)
+        totalLabel.setText(libraryData.total.readable)
+        usedLabel.setText(libraryData.occupied.readable)
+        availableLabel.setText(libraryData.available.readable)
         availableLabel.setTextColor(libraryData.occupiedPercentageColor)
         percentageGroup.startAnimatingWithImages(in:
             NSRange(location: 0, length: Int(libraryData.occupiedPercentage * 100)),

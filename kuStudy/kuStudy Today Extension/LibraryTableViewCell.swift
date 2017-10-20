@@ -42,9 +42,9 @@ class LibraryTableViewCell: UITableViewCell {
         guard let library = data.libraryType else { return }
         
         nameLabel.text = library.name
-        totalLabel.text = data.totalSeats.readable
-        availableLabel.text = data.availableSeats.readable
-        usedLabel.text = data.usedSeats.readable
+        totalLabel.text = data.total.readable
+        availableLabel.text = data.available.readable
+        usedLabel.text = data.occupied.readable
         
         indicatorView.backgroundColor = data.availablePercentageColor
     }

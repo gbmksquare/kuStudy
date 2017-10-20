@@ -31,21 +31,21 @@ public extension LibraryData {
         return libraryType?.name ?? ""
     }
     
-    public var totalSeats: Int {
+    public var total: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.total ?? 0)
         })
     }
     
-    public var usedSeats: Int {
+    public var occupied: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.occupied ?? 0)
         })
     }
     
-    public var availableSeats: Int {
+    public var available: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.available ?? 0)
@@ -55,13 +55,13 @@ public extension LibraryData {
 
 extension LibraryData: PercentagePresentable {
     public var availablePercentage: Float {
-        guard totalSeats != 0 else { return 0 }
-        return Float(availableSeats) / Float(totalSeats)
+        guard total != 0 else { return 0 }
+        return Float(available) / Float(total)
     }
     
     public var occupiedPercentage: Float {
-        guard totalSeats != 0 else { return 0 }
-        return Float(usedSeats) / Float(totalSeats)
+        guard total != 0 else { return 0 }
+        return Float(occupied) / Float(total)
     }
 }
 

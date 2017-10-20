@@ -228,10 +228,10 @@ extension SummaryViewController {
     }
     
     private func updateView() {
-        if let usedSeats = summaryData.usedSeats,
-            let laCampusUsedSeats = summaryData.usedSeatsInLiberalArtCampus?.readable,
-            let scCampusUsedSeats = summaryData.usedSeatsInScienceCampus?.readable {
-            summaryLabel.text = Localizations.Main.Studying(usedSeats.readable) + "\n" + Localizations.Main.Studyingcampus(laCampusUsedSeats, scCampusUsedSeats)
+        if let occupied = summaryData.occupied,
+            let laCampusUsedSeats = summaryData.occupiedInLiberalArtCampus?.readable,
+            let scCampusUsedSeats = summaryData.occupiedInScienceCampus?.readable {
+            summaryLabel.text = Localizations.Main.Studying(occupied.readable) + "\n" + Localizations.Main.Studyingcampus(laCampusUsedSeats, scCampusUsedSeats)
         }
         table.reloadData()
     }
@@ -429,7 +429,7 @@ extension SummaryViewController: UITableViewDragDelegate {
     
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         let libraryData = summaryData.libraries[indexPath.row]
-        let string = Localizations.Share.Library.Data(libraryData.libraryName, libraryData.totalSeats.readable, libraryData.availableSeats.readable, libraryData.usedSeats.readable)
+        let string = Localizations.Share.Library.Data(libraryData.libraryName, libraryData.total.readable, libraryData.available.readable, libraryData.occupied.readable)
         guard let data = string.data(using: .utf8) else { return [] }
         
         let stringItem = UIDragItem(itemProvider: NSItemProvider(item: data as NSData, typeIdentifier: kUTTypePlainText as String))

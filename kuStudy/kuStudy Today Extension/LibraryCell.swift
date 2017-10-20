@@ -44,7 +44,7 @@ class LibraryCell: UICollectionViewCell {
             return
         }
         libraryLabel.text = library.name
-        availableLabel.text = data.availableSeats.readable
+        availableLabel.text = data.available.readable
         indicator.backgroundColor = data.availablePercentageColor
     }
     
