@@ -1237,7 +1237,7 @@
 				TargetAttributes = {
 					160505EA1D6EDC1D0033B123 = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 						TestTargetID = 167245BE1B19C0370083035F;
 					};
 					16136BD21B1C3F0700B3F744 = {
@@ -2110,7 +2110,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.kuStudy-Snapshot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = kuStudy;
 			};
 			name = Debug;
@@ -2124,7 +2124,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.kuStudy-Snapshot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = kuStudy;
 			};
 			name = Release;

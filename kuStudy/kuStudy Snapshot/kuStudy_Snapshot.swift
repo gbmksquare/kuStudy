@@ -15,7 +15,7 @@ class kuStudy_Snapshot: XCTestCase {
         continueAfterFailure = false
         
         // Rotate device
-        let device = XCUIDevice.shared()
+        let device = XCUIDevice.shared
         if UIDevice.current.userInterfaceIdiom == .pad {
             device.orientation = .landscapeRight
         } else {
