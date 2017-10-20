@@ -136,7 +136,5 @@ public class MediaManager {
 
 // MARK: - Notification
 public extension MediaManager {
-    public class var shouldUpdateImageNotification: Notification.Name {
-        return Notification.Name(rawValue: "kuStudyKit.MediaManager.Notification.ShouldUpdateImage")
-    }
+    public static let shouldUpdateImageNotification = Notification.Name(rawValue: "kuStudyKit.MediaManager.Notification.ShouldUpdateImage")
 }

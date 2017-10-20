@@ -15,6 +15,21 @@ public typealias FailureHandler = (_ error: Error) -> Void
 private let apiUrl = "http://librsv.korea.ac.kr/DLMS_KOU_INTRO/api/seatStatusList.do"
 
 public extension kuStudy {
+    public class func startFecthingData() {
+        DataManager.shared.startFetching()
+    }
+}
+
+public extension kuStudy {
+    public static let didUpdateDataNotification = Notification.Name(rawValue: "kuStudyKit.DataManager.Notification.DidUpdate")
+    
+    public class var summaryData: SummaryData? { return DataManager.shared.summaryData }
+    public class var libraryData: [LibraryData]? { return DataManager.shared.libraryData }
+    public class var errors: SummaryData? { return DataManager.shared.summaryData }
+}
+
+public extension kuStudy {
+    @available(*, deprecated: 1.0)
     public class func requestSummaryData(onLibrarySuccess: ((_ libraryData: LibraryData) -> ())?, onFailure: FailureHandler?, onCompletion: ((_ summaryData: SummaryData) -> ())?) {
         let libraryTypes = LibraryType.allTypes()
         var completeCount = 0
@@ -40,32 +55,12 @@ public extension kuStudy {
         }
     }
     
+    @available(*, deprecated: 1.0)
     public class func requestLibraryData(libraryId: String, onSuccess: @escaping (_ libraryData: LibraryData) -> (), onFailure: FailureHandler?) {
-//        let headers = ["Accept": "application/javascript"]
-//        let body = ["libNo": libraryId]
-//        Alamofire.request(apiUrl, method: .post, parameters: body, encoding: URLEncoding.default, headers: headers)
-//            .responseObject { (response: DataResponse<LibraryData>) in
-//                switch response.result {
-//                case .success(let libraryData):
-//                    onSuccess(libraryData)
-//                case .failure(let error):
-//                    onFailure?(error)
-//                }
-//        }
-        
         Alamofire.request("https://librsv.korea.ac.kr/libraries/lib-status/" + libraryId, method: .get)
             .responseObject { (response: DataResponse<LibraryData>) in
                 switch response.result {
                 case .success(let libraryData):
-                    // This exist to convert old library ID values to new library ID values
-//                    switch libraryId {
-//                    case "1": libraryData.libraryId = "0"
-//                    case "2": libraryData.libraryId = "0"
-//                    case "3": libraryData.libraryId = "4"
-//                    case "4": libraryData.libraryId = "0"
-//                    case "5": libraryData.libraryId = "0"
-//                    default: break
-//                    }
                     libraryData.libraryId = libraryId
                     onSuccess(libraryData)
                 case .failure(let error):

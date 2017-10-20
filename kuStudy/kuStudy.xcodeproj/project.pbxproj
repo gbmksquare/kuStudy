@@ -11,6 +11,8 @@
 		16019E9D1D8E45DE008A76C7 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16019E9C1D8E45DE008A76C7 /* MainSplitViewController.swift */; };
 		160505EE1D6EDC1D0033B123 /* kuStudy_Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160505ED1D6EDC1D0033B123 /* kuStudy_Snapshot.swift */; };
 		160505F71D6EDC8B0033B123 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160505F51D6EDC450033B123 /* SnapshotHelper.swift */; };
+		16051F2F1F99E69500EC9285 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16051F2E1F99E69500EC9285 /* DataManager.swift */; };
+		16051F301F99E69500EC9285 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16051F2E1F99E69500EC9285 /* DataManager.swift */; };
 		16136BD81B1C3F0700B3F744 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BD71B1C3F0700B3F744 /* InterfaceController.swift */; };
 		16136BDC1B1C3F0700B3F744 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16136BDB1B1C3F0700B3F744 /* Images.xcassets */; };
 		16136BE81B1C3F0800B3F744 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16136BE61B1C3F0700B3F744 /* Interface.storyboard */; };
@@ -262,6 +264,7 @@
 		160505ED1D6EDC1D0033B123 /* kuStudy_Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kuStudy_Snapshot.swift; sourceTree = "<group>"; };
 		160505EF1D6EDC1D0033B123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		160505F51D6EDC450033B123 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
+		16051F2E1F99E69500EC9285 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = controller/DataManager.swift; sourceTree = "<group>"; };
 		16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "kuStudy WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16136BD61B1C3F0700B3F744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16136BD71B1C3F0700B3F744 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
@@ -475,11 +478,7 @@
 			isa = PBXGroup;
 			children = (
 				1631A2D31CEF4F240078381F /* API.swift */,
-				1631A2D61CEF51480078381F /* LibraryType.swift */,
-				16940EEF1CF1D263005965A2 /* SummaryData.swift */,
-				1631A2D01CEF4EEC0078381F /* LibraryData.swift */,
-				1631A2CD1CEF4EA60078381F /* SectorData.swift */,
-				167B4C841F872CBF00BDE991 /* Transform */,
+				16051F2E1F99E69500EC9285 /* DataManager.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -492,6 +491,18 @@
 				160505EF1D6EDC1D0033B123 /* Info.plist */,
 			);
 			path = "kuStudy Snapshot";
+			sourceTree = "<group>";
+		};
+		16051F2D1F99E60700EC9285 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1631A2D61CEF51480078381F /* LibraryType.swift */,
+				16940EEF1CF1D263005965A2 /* SummaryData.swift */,
+				1631A2D01CEF4EEC0078381F /* LibraryData.swift */,
+				1631A2CD1CEF4EA60078381F /* SectorData.swift */,
+				167B4C841F872CBF00BDE991 /* Transform */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		16136BD41B1C3F0700B3F744 /* kuStudy WatchKit Extension */ = {
@@ -755,6 +766,7 @@
 				1672460F1B1AB1AD0083035F /* kuStudy.swift */,
 				1672460C1B19C43C0083035F /* Framework */,
 				1600D6311B204044008000B8 /* API */,
+				16051F2D1F99E60700EC9285 /* Model */,
 				1685E04F1F91E43600F80699 /* Media */,
 				1664D5691D5AC7C4000BAF56 /* Protocol */,
 				1631A2D91CF023FF0078381F /* Extension */,
@@ -1828,6 +1840,7 @@
 				167B4C871F872E7700BDE991 /* YesNoTransform.swift in Sources */,
 				1685E05B1F91EA7600F80699 /* SocialAccount.swift in Sources */,
 				1631A2DC1CF025060078381F /* Int.swift in Sources */,
+				16051F301F99E69500EC9285 /* DataManager.swift in Sources */,
 				1664D56C1D5AC7E0000BAF56 /* PercentagePresentable.swift in Sources */,
 				1631A2D51CEF4F240078381F /* API.swift in Sources */,
 				1685E0551F91E47100F80699 /* Artist.swift in Sources */,
@@ -1890,6 +1903,7 @@
 				1631A2D11CEF4EEC0078381F /* LibraryData.swift in Sources */,
 				1631A2CE1CEF4EA60078381F /* SectorData.swift in Sources */,
 				1685E05A1F91EA7600F80699 /* SocialAccount.swift in Sources */,
+				16051F2F1F99E69500EC9285 /* DataManager.swift in Sources */,
 				16940EF31CF1D564005965A2 /* Float.swift in Sources */,
 				1631A2DB1CF025060078381F /* Int.swift in Sources */,
 				1685E0541F91E47100F80699 /* Artist.swift in Sources */,
