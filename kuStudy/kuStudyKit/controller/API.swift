@@ -36,6 +36,10 @@ public extension kuStudy {
     public class var errors: [Error]? { return DataManager.shared.errors }
     
     public class var lastUpdatedAt: Date? { return DataManager.shared.lastUpdatedAt }
+    
+    public class func libraryData(for library: LibraryType) -> LibraryData? {
+        return libraryData?.filter({ $0.libraryType == library }).first
+    }
 }
 
 public extension kuStudy {

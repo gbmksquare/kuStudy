@@ -31,7 +31,7 @@ class SummaryViewController: UIViewController {
     private var showNavigationAnimator: UIViewPropertyAnimator?
     private var hideNavigationAnimator: UIViewPropertyAnimator?
     
-    private var summaryData = SummaryData()
+    private var summary: SummaryData?
     private var dataState: DataSourceState = .fetching
     private var error: Error?
     
@@ -43,7 +43,7 @@ class SummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        updateData()
+        kuStudy.startFecthingData(autoUpdate: false)
         
         Answers.logContentView(withName: "Summary", contentType: "Summary", contentId: "0", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
         
@@ -165,6 +165,7 @@ extension SummaryViewController {
     private func setupNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleShouldUpdateImage(_:)), name: MediaManager.shouldUpdateImageNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsDidChange(_: )), name: UserDefaults.didChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleDataUpdated(_:)), name: kuStudy.didUpdateDataNotification, object: nil)
     }
     
     private func registerPeekAndPop() {
@@ -189,6 +190,21 @@ extension SummaryViewController {
         reorderLibraryData()
         updateView()
     }
+    
+    @objc private func handleDataUpdated(_ notification: Notification) {
+        if let summary = kuStudy.summaryData {
+            if summary.libraries.count > 0 {
+                self.summary = summary
+                reorderLibraryData()
+                updateView()
+                return
+            }
+        }
+        // Error
+        summary = nil
+        error = kuStudy.errors?.first
+        dataState = .error
+    }
 }
 
 // MARK: - Navigation
@@ -203,8 +219,8 @@ extension SummaryViewController {
                 destinationViewController.library = LibraryType(rawValue: libraryId) ?? LibraryType.centralSquare
             } else {
                 guard let selectedRow = (table.indexPathForSelectedRow as IndexPath?)?.row else { return }
-                let libraryData = summaryData.libraries[selectedRow]
-                destinationViewController.library = libraryData.libraryType ?? LibraryType.centralSquare
+                let libraryData = summary?.libraries[selectedRow]
+                destinationViewController.library = libraryData?.libraryType ?? LibraryType.centralSquare
             }
         default: break
         }
@@ -213,24 +229,10 @@ extension SummaryViewController {
 
 // MARK: - Action
 extension SummaryViewController {
-    @objc private func updateData() {
-        dataState = .fetching
-        kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
-            
-        }, onFailure: { [weak self] (error) in
-            self?.error = error
-            self?.dataState = .error
-        }) { [weak self] (summaryData: SummaryData) in
-            self?.summaryData = summaryData
-            self?.reorderLibraryData()
-            self?.updateView()
-        }
-    }
-    
     private func updateView() {
-        if let occupied = summaryData.occupied,
-            let laCampusUsedSeats = summaryData.occupiedInLiberalArtCampus?.readable,
-            let scCampusUsedSeats = summaryData.occupiedInScienceCampus?.readable {
+        if let occupied = summary?.occupied,
+            let laCampusUsedSeats = summary?.occupiedInLiberalArtCampus?.readable,
+            let scCampusUsedSeats = summary?.occupiedInScienceCampus?.readable {
             summaryLabel.text = Localizations.Main.Studying(occupied.readable) + "\n" + Localizations.Main.Studyingcampus(laCampusUsedSeats, scCampusUsedSeats)
         }
         table.reloadData()
@@ -243,8 +245,8 @@ extension SummaryViewController: UIViewControllerPreviewingDelegate {
         let locationInTableView = table.convert(location, from: view)
         guard let indexPath = table.indexPathForRow(at: locationInTableView) else { return nil }
         let libraryViewController = self.storyboard?.instantiateViewController(withIdentifier: "libraryViewController") as! LibraryViewController
-        let libraryData = summaryData.libraries[indexPath.row]
-        libraryViewController.library = libraryData.libraryType ?? LibraryType.centralSquare
+        let libraryData = summary?.libraries[indexPath.row]
+        libraryViewController.library = libraryData?.libraryType ?? LibraryType.centralSquare
         previewingContext.sourceRect = view.convert(table.rectForRow(at: indexPath), from: table)
         return libraryViewController
     }
@@ -332,10 +334,10 @@ extension SummaryViewController {
         
         var orderedLibraryData = [LibraryData]()
         for libraryId in orderedLibraryIds {
-            guard let libraryData = summaryData.libraries.filter({ $0.libraryType!.identifier == libraryId }).first else { continue }
+            guard let libraryData = summary?.libraries.filter({ $0.libraryType!.identifier == libraryId }).first else { continue }
             orderedLibraryData.append(libraryData)
         }
-        summaryData.libraries = orderedLibraryData
+        summary?.libraries = orderedLibraryData
     }
     
     private func handleNavigationBar() {
@@ -396,21 +398,21 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return summaryData.libraries.count
+        return summary?.libraries.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let libraryData = summaryData.libraries[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath) as! LibraryTableViewCell
-        cell.populate(library: libraryData)
+        if let libraryData = summary?.libraries[indexPath.row] {
+            cell.populate(library: libraryData)
+        }
         cell.updateInterface(for: traitCollection)
         return cell
     }
     
     // MARK: Empty state
     func emptyDataSetDidTap(_ scrollView: UIScrollView!) {
-        updateData()
-        updateView()
+        kuStudy.requestUpdateData()
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
@@ -428,7 +430,7 @@ extension SummaryViewController: UITableViewDragDelegate {
     }
     
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        let libraryData = summaryData.libraries[indexPath.row]
+        guard let libraryData = summary?.libraries[indexPath.row] else { return [] }
         let string = Localizations.Share.Library.Data(libraryData.libraryName, libraryData.total.readable, libraryData.available.readable, libraryData.occupied.readable)
         guard let data = string.data(using: .utf8) else { return [] }
         

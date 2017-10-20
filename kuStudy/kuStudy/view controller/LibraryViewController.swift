@@ -49,7 +49,8 @@ class LibraryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        updateData()
+        libraryData = kuStudy.libraryData(for: library)
+        updateView()
         
         Answers.logContentView(withName: library.name, contentType: "Library", contentId: library.identifier, customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
     }
@@ -169,6 +170,7 @@ extension LibraryViewController {
     
     private func setupNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleShouldUpdateImage(_:)), name: MediaManager.shouldUpdateImageNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleDataUpdated(_:)), name: kuStudy.didUpdateDataNotification, object: nil)
     }
     
     private func setupContent() {
@@ -201,10 +203,25 @@ extension LibraryViewController {
                             self?.heroImageView.image = MediaManager.shared.media(for: library)?.image
             }, completion: nil)
     }
+    
+    @objc private func handleDataUpdated(_ notification: Notification) {
+        if let summary = kuStudy.summaryData {
+            if summary.libraries.count > 0 {
+                libraryData = kuStudy.libraryData(for: library)
+                updateView()
+                return
+            }
+        }
+        // Error
+        dataState = .error
+        error = kuStudy.errors?.first
+        updateView()
+    }
 }
 
 // MARK: - Action
 extension LibraryViewController {
+    @available(*, deprecated: 1.0)
     private func updateData() {
         kuStudy.requestLibraryData(libraryId: library.identifier,
                                    onSuccess: { [weak self] (libraryData) in
@@ -346,7 +363,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     
     // Empty state
     func emptyDataSetDidTap(_ scrollView: UIScrollView!) {
-        updateData()
+        kuStudy.requestUpdateData()
         updateView()
     }
     
