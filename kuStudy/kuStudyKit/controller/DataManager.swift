@@ -22,9 +22,9 @@ internal class DataManager {
     
     // Update
     private var timer: Timer?
-    private var lastUpdatedAt: Date?
     private var shouldAutoUpdate = false
     private var updateInterval: TimeInterval = 300
+    internal var lastUpdatedAt: Date?
     
     // MARK: - Initialization
     private init() {
@@ -41,6 +41,17 @@ internal class DataManager {
                                          userInfo: nil,
                                          repeats: true)
         } else {
+            requestAllData()
+        }
+    }
+    
+    internal func requestUpdate() {
+        guard let lastUpdatedAt = lastUpdatedAt else {
+            requestAllData()
+            return
+        }
+        let interval = Date().timeIntervalSince(lastUpdatedAt)
+        if interval > 60 {
             requestAllData()
         }
     }
@@ -68,6 +79,7 @@ internal class DataManager {
             let data = self?.libraryData ?? [LibraryData]()
             let summary = SummaryData(libraryData: data)
             self?.summaryData = summary
+            self?.lastUpdatedAt = Date()
             
             // Notify
             NotificationCenter.default.post(name: kuStudy.didUpdateDataNotification, object: self)

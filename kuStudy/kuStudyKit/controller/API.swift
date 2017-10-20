@@ -18,6 +18,14 @@ public extension kuStudy {
     public class func startFecthingData(autoUpdate: Bool = false) {
         DataManager.shared.startFetching(autoUpdate: autoUpdate)
     }
+    
+    public class func requestUpdateData() {
+        DataManager.shared.requestUpdate()
+    }
+    
+    public class func stopFetchingData() {
+        DataManager.shared.stopFetching()
+    }
 }
 
 public extension kuStudy {
@@ -26,6 +34,8 @@ public extension kuStudy {
     public class var summaryData: SummaryData? { return DataManager.shared.summaryData }
     public class var libraryData: [LibraryData]? { return DataManager.shared.libraryData }
     public class var errors: [Error]? { return DataManager.shared.errors }
+    
+    public class var lastUpdatedAt: Date? { return DataManager.shared.lastUpdatedAt }
 }
 
 public extension kuStudy {
