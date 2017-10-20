@@ -25,7 +25,7 @@ public extension kuStudy {
     
     public class var summaryData: SummaryData? { return DataManager.shared.summaryData }
     public class var libraryData: [LibraryData]? { return DataManager.shared.libraryData }
-    public class var errors: SummaryData? { return DataManager.shared.summaryData }
+    public class var errors: [Error]? { return DataManager.shared.errors }
 }
 
 public extension kuStudy {
