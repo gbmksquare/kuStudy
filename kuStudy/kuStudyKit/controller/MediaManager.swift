@@ -87,12 +87,12 @@ public class MediaManager {
         let isRunningSnapshot = ProcessInfo.processInfo.arguments.contains("Snapshot") ? true : false
         if isRunningSnapshot == true {
             switch library {
-            case .CentralLibrary: return media(with: "B462E6C0-047A-4E48-A316-3DF99CEAB467")
-            case .CentralSquare: return media(with: "6B4F4F14-44BC-420D-88A3-C0BC421EC59A")
-            case .CDL: return media(with: "EE91695A-EFD7-44CD-BEFC-41FE0399DFBB")
-            case .HanaSquare: return media(with: "B9BFA3F5-50B7-4D7F-A202-4604158E222C")
-            case .ScienceLibrary: return media(with: "6BCD6F93-1F25-40F1-BA72-56CAF764A52A")
-            case .Law: return media(with: "874C3FF8-B077-4D9D-ABAE-12E81DA9CA32")
+            case .centralLibrary: return media(with: "B462E6C0-047A-4E48-A316-3DF99CEAB467")
+            case .centralSquare: return media(with: "6B4F4F14-44BC-420D-88A3-C0BC421EC59A")
+            case .cdl: return media(with: "EE91695A-EFD7-44CD-BEFC-41FE0399DFBB")
+            case .hanaSquare: return media(with: "B9BFA3F5-50B7-4D7F-A202-4604158E222C")
+            case .scienceLibrary: return media(with: "6BCD6F93-1F25-40F1-BA72-56CAF764A52A")
+            case .law: return media(with: "874C3FF8-B077-4D9D-ABAE-12E81DA9CA32")
             }
         }
         

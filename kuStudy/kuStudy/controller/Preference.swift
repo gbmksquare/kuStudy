@@ -114,8 +114,8 @@ class Preference {
             preference.removeObject(forKey: Preference.Key.widgetHidden.name)
         }
         if preferenceVersion == 4 {
-            libraryOrder += [LibraryType.Law.rawValue]
-            widgetLibraryOrder += [LibraryType.Law.rawValue]
+            libraryOrder += [LibraryType.law.rawValue]
+            widgetLibraryOrder += [LibraryType.law.rawValue]
         }
         preferenceVersion = 5
     }

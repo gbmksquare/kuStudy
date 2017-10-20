@@ -10,56 +10,42 @@ import Foundation
 import CoreLocation
 
 public enum LibraryType: String, Codable {
-    // Old
-//    case CentralLibrary = "3"
-//    case CentralSquare = "1"
-//    case HanaSquare = "5"
-//    case ScienceLibrary = "26"
-//    case CDL = "4"
-    
-    // New
-    case CentralLibrary = "1"
-    case CentralSquare = "2"
-    case HanaSquare = "5"
-    case ScienceLibrary = "4"
-    case CDL = "3"
-    case Law = "6"
-    
-    internal static func convertToNewLibraryIdFromOld(id: String) -> String {
-        switch id {
-        case "3": return "1"
-        case "1": return "2"
-        case "5": return "5"
-        case "26": return "4"
-        case "4": return "3"
-        case "6": return "0"
-        default: return id
-        }
-    }
-    
-    public static func allTypes() -> [LibraryType] {
-        return [.CentralLibrary, .CentralSquare, .HanaSquare, .ScienceLibrary, .CDL, .Law]
-    }
-    
-    public static func liberalArtCampusTypes() -> [LibraryType] {
-        return [.CentralLibrary, CentralSquare, .CDL, .Law]
-    }
-    
-    public static func scienceCampusTypes() -> [LibraryType] {
-        return [.HanaSquare, .ScienceLibrary]
-    }
+    case centralLibrary = "1"
+    case centralSquare = "2"
+    case cdl = "3"
+    case scienceLibrary = "4"
+    case hanaSquare = "5"
+    case law = "6"
     
     private var localizedKey: String {
         switch self {
-        case .CentralSquare: return "kuStudy.Library.Name.CentralSquare"
-        case .CentralLibrary: return "kuStudy.Library.Name.CentralLibrary"
-        case .HanaSquare: return "kuStudy.Library.Name.HanaSquare"
-        case .ScienceLibrary: return "kuStudy.Library.Name.ScienceLibrary"
-        case .CDL: return "kuStudy.Library.Name.Cdl"
-        case .Law: return "kuStudy.Library.Name.Law"
+        case .centralSquare: return "kuStudy.Library.Name.CentralSquare"
+        case .centralLibrary: return "kuStudy.Library.Name.CentralLibrary"
+        case .hanaSquare: return "kuStudy.Library.Name.HanaSquare"
+        case .scienceLibrary: return "kuStudy.Library.Name.ScienceLibrary"
+        case .cdl: return "kuStudy.Library.Name.Cdl"
+        case .law: return "kuStudy.Library.Name.Law"
         }
     }
+}
+
+// MARK: - Category
+public extension LibraryType {
+    public static func allTypes() -> [LibraryType] {
+        return [.centralLibrary, .centralSquare, .hanaSquare, .scienceLibrary, .cdl, .law]
+    }
     
+    public static func liberalArtCampusTypes() -> [LibraryType] {
+        return [.centralLibrary, centralSquare, .cdl, law]
+    }
+    
+    public static func scienceCampusTypes() -> [LibraryType] {
+        return [.hanaSquare, .scienceLibrary]
+    }
+}
+
+// MARK: - Name
+public extension LibraryType {
     public var name: String {
         let framework = Bundle(for: kuStudy.self)
         return NSLocalizedString(localizedKey, bundle: framework, comment: "")
@@ -87,15 +73,18 @@ public enum LibraryType: String, Codable {
         let framework = Bundle(for: kuStudy.self)
         return NSLocalizedString(localizedKey + ".Short", bundle: framework, comment: "")
     }
-    
+}
+
+// MARK: - Map
+public extension LibraryType {
     public var coordinate: CLLocationCoordinate2D {
         switch self {
-        case .CentralSquare: return CLLocationCoordinate2D(latitude: 37.58851, longitude: 127.0337)
-        case .CentralLibrary: return CLLocationCoordinate2D(latitude: 37.59075, longitude: 127.0341)
-        case .HanaSquare: return CLLocationCoordinate2D(latitude: 37.58510, longitude: 127.0265)
-        case .ScienceLibrary: return CLLocationCoordinate2D(latitude: 37.58459, longitude: 127.0266)
-        case .CDL: return CLLocationCoordinate2D(latitude: 37.58944, longitude: 127.0344)
-        case .Law: return CLLocationCoordinate2D(latitude: 37.5907397, longitude: 127.0319772)
+        case .centralSquare: return CLLocationCoordinate2D(latitude: 37.58851, longitude: 127.0337)
+        case .centralLibrary: return CLLocationCoordinate2D(latitude: 37.59075, longitude: 127.0341)
+        case .hanaSquare: return CLLocationCoordinate2D(latitude: 37.58510, longitude: 127.0265)
+        case .scienceLibrary: return CLLocationCoordinate2D(latitude: 37.58459, longitude: 127.0266)
+        case .cdl: return CLLocationCoordinate2D(latitude: 37.58944, longitude: 127.0344)
+        case .law: return CLLocationCoordinate2D(latitude: 37.5907397, longitude: 127.0319772)
         }
     }
 }
