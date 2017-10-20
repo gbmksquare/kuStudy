@@ -20,7 +20,7 @@ class InterfaceController: WKInterfaceController {
     private var session: WCSession?
     
     // MARK: Model
-    private var summaryData = SummaryData()
+    private var summary: SummaryData?
     private var orderedLibraryIds: [String]!
     
     // MARK: Watch
@@ -34,7 +34,9 @@ class InterfaceController: WKInterfaceController {
         
         super.awake(withContext: context)
         registerDefaultPreferences()
-        updateData()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleDataUpdated(_:)), name: kuStudy.didUpdateDataNotification, object: nil)
+        kuStudy.requestUpdateData()
         
         if WCSession.isSupported() == true {
             session = WCSession.default
@@ -58,42 +60,36 @@ class InterfaceController: WKInterfaceController {
     // MARK: Segue
     override func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> Any? {
         switch segueIdentifier {
-        case "libraryDetail": return summaryData.libraries[rowIndex]
+        case "libraryDetail": return summary?.libraries[rowIndex].libraryType ?? nil
         default: return nil
         }
     }
     
     // MARK: Action
     @IBAction func tappedRefreshMenu() {
-        updateData()
-        updateView()
+        kuStudy.requestUpdateData()
     }
     
-    private func updateData() {
-        summaryData.libraries.removeAll(keepingCapacity: true)
-        kuStudy.requestSummaryData(onLibrarySuccess: { (libraryData) in
-            
-            }, onFailure: { (error) in
-                print(error.localizedDescription)
-            }) { [weak self] (summaryData) in
-                self?.summaryData = summaryData
-                self?.updateView()
-        }
+    @objc private func handleDataUpdated(_ notification: Notification) {
+        summary = kuStudy.summaryData
+        self.updateView()
     }
     
     private func updateView() {
+        guard let summary = summary else { return }
+        
         reorderLibraryData()
         
         // Summary
-        summaryLabel.setText(summaryData.occupied!.readable + Localizations.Watch.Label.Studyingdescription)
-        percentageLabel.setText(summaryData.occupiedPercentage.percentageReadable)
+        summaryLabel.setText(summary.occupied!.readable + Localizations.Watch.Label.Studyingdescription)
+        percentageLabel.setText(summary.occupiedPercentage.percentageReadable)
         percentageGroup.startAnimatingWithImages(in:
-            NSRange(location: 0, length: Int(summaryData.occupiedPercentage * 100)),
+            NSRange(location: 0, length: Int(summary.occupiedPercentage * 100)),
             duration: 1, repeatCount: 1)
         
         // Table
-        table.setNumberOfRows(summaryData.libraries.count, withRowType: "libraryCell")
-        for (index, libraryData) in summaryData.libraries.enumerated() {
+        table.setNumberOfRows(summary.libraries.count, withRowType: "libraryCell")
+        for (index, libraryData) in summary.libraries.enumerated() {
             let row = table.rowController(at: index) as! LibraryCell
             row.populate(libraryData)
         }
@@ -105,10 +101,10 @@ class InterfaceController: WKInterfaceController {
         
         var orderedLibraries = [LibraryData]()
         for libraryId in orderedLibraryIds {
-            guard let libraryData = summaryData.libraries.filter({ $0.libraryType!.identifier == libraryId }).first else { continue }
+            guard let libraryData = summary?.libraries.filter({ $0.libraryType!.identifier == libraryId }).first else { continue }
             orderedLibraries.append(libraryData)
         }
-        summaryData.libraries = orderedLibraries
+        summary?.libraries = orderedLibraries
     }
 }
 
