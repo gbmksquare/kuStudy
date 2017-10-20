@@ -32,7 +32,7 @@ enum RemindInterval {
         case .now: return Localizations.Timeinterval.Now
         case .hour2, .hour4, .hour6:
             return String(Int(seconds / 60 / 60)) + " \(Localizations.Timeinterval.Hour)"
-        case .custom(let interval):
+        case .custom(_):
             return Localizations.Timeinterval.Custom
         }
     }
