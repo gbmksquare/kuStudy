@@ -21,9 +21,7 @@ class TodayViewController: UIViewController {
     
     // Data
     private var summary: SummaryData? {
-        didSet {
-            updateView()
-        }
+        didSet { updateView() }
     }
     
     // Preference
@@ -34,7 +32,8 @@ class TodayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        updateData()
+        NotificationCenter.default.addObserver(self, selector: #selector(handleDataUpdated(_:)), name: kuStudy.didUpdateDataNotification, object: nil)
+        kuStudy.startFecthingData()
     }
 }
 
@@ -66,22 +65,20 @@ extension TodayViewController {
 // MARK: - Action
 extension TodayViewController {
     // Data
-    private func updateData() {
-        kuStudy.requestSummaryData(onLibrarySuccess: nil,
-                                   onFailure: { (error) in
-                                    
-        }) { [weak self] (summary) in
+    @objc private func handleDataUpdated(_ notification: Notification) {
+        if let summary = kuStudy.summaryData {
             if summary.libraries.count > 0 {
-                self?.summary = summary
-                self?.hideStatus()
-                self?.showInformation()
-            } else {
-                self?.summary = nil
-                self?.showStatus()
-                self?.statusView.setErrorState()
-                self?.hideInformation()
+                self.summary = summary
+                hideStatus()
+                showInformation()
+                return
             }
         }
+        // Error
+        self.summary = nil
+        showStatus()
+        statusView.setErrorState()
+        hideInformation()
     }
     
     //

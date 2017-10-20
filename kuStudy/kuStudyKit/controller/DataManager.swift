@@ -31,7 +31,7 @@ internal class DataManager {
     }
     
     // MARK: - Fetch (Internal)
-    internal func startFetching() {
+    internal func startFetching(autoUpdate: Bool = false) {
         requestAllData()
     }
     
