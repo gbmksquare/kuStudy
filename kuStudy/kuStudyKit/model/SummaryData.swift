@@ -33,36 +33,6 @@ extension SummaryData {
             return initial + library.availableSeats
         })
     }
-    
-    public var ineligibleSeats: Int? {
-        return libraries.reduce(0, { (initial, library) -> Int in
-            return initial + library.ineligibleSeats
-        })
-    }
-    
-    public var outOfOrderSeats: Int? {
-        return libraries.reduce(0, { (initial, library) -> Int in
-            return initial + library.outOfOrderSeats
-        })
-    }
-    
-    public var disabledOnlySeats: Int? {
-        return libraries.reduce(0, { (initial, library) -> Int in
-            return initial + library.disabledOnlySeats
-        })
-    }
-    
-    public var printerCount: Int? {
-        return libraries.reduce(0, { (initial, library) -> Int in
-            return initial + library.printerCount
-        })
-    }
-    
-    public var scannerCount: Int? {
-        return libraries.reduce(0, { (initial, library) -> Int in
-            return initial + library.scannerCount
-        })
-    }
 }
 
 extension SummaryData {

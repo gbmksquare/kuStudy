@@ -189,11 +189,6 @@ extension LibraryViewController {
             case .total: $0.text = Localizations.Common.Total
             case .available: $0.text = Localizations.Common.Available
             case .used: $0.text = Localizations.Common.Used
-            case .disabled: $0.text = Localizations.Common.Disabled
-            case .printer: $0.text = Localizations.Common.Printer
-            case .scanner: $0.text = Localizations.Common.Scanner
-            case .ineligible: $0.text = Localizations.Common.Ineligible
-            case .outOfOrder: $0.text = Localizations.Common.Outoforder
             }
         }
     }
@@ -236,11 +231,6 @@ extension LibraryViewController {
                 case .total: $0.text = libraryData.totalSeats.readable
                 case .available: $0.text = libraryData.availableSeats.readable
                 case .used: $0.text = libraryData.usedSeats.readable
-                case .disabled: $0.text = libraryData.disabledOnlySeats.readable
-                case .printer: $0.text = libraryData.printerCount.readable
-                case .scanner: $0.text = libraryData.scannerCount.readable
-                case .ineligible: $0.text = libraryData.ineligibleSeats.readable
-                case .outOfOrder: $0.text = libraryData.outOfOrderSeats.readable
                 }
             }
         }
@@ -350,7 +340,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return libraryData?.sectorCount ?? 0
+        return libraryData?.sectors?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

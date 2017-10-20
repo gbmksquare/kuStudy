@@ -11,22 +11,22 @@ import ObjectMapper
 
 public class LibraryData: Mappable {
     public var libraryId: String?
-    public var sectorCount: Int? {
-        return sectors?.count
-    }
     public var sectors: [SectorData]?
     
     required public  init?(map: Map) { }
     
     public func mapping(map: Map) {
-//        libraryId <- map["pLibNo"]
-//        sectorCount <- map["statListCnt"]
         sectors <- map["data"]
     }
 }
 
 // MARK: Computed data
 public extension LibraryData {
+    public var libraryType: LibraryType? {
+        guard let libraryId = libraryId else { return nil }
+        return LibraryType(rawValue: libraryId)
+    }
+    
     public var libraryName: String {
         guard let libraryId = libraryId else { return "" }
         let libraryType = LibraryType(rawValue: libraryId)
@@ -51,41 +51,6 @@ public extension LibraryData {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.available ?? 0)
-        })
-    }
-    
-    public var ineligibleSeats: Int {
-        guard let sectors = sectors else { return 0 }
-        return sectors.reduce(0, { (initial, sector) -> Int in
-            return initial + (0)
-        })
-    }
-    
-    public var outOfOrderSeats: Int {
-        guard let sectors = sectors else { return 0 }
-        return sectors.reduce(0, { (initial, sector) -> Int in
-            return initial + (0)
-        })
-    }
-    
-    public var disabledOnlySeats: Int {
-        guard let sectors = sectors else { return 0 }
-        return sectors.reduce(0, { (initial, sector) -> Int in
-            return initial + (0)
-        })
-    }
-    
-    public var printerCount: Int {
-        guard let sectors = sectors else { return 0 }
-        return sectors.reduce(0, { (initial, sector) -> Int in
-            return initial + (0)
-        })
-    }
-    
-    public var scannerCount: Int {
-        guard let sectors = sectors else { return 0 }
-        return sectors.reduce(0, { (initial, sector) -> Int in
-            return initial + (0)
         })
     }
 }

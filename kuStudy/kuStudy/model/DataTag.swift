@@ -10,5 +10,5 @@
 import Foundation
 
 enum DataTag: Int {
-    case total, available, used, disabled, printer, scanner, ineligible, outOfOrder
+    case total, available, used
 }
