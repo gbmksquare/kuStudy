@@ -39,7 +39,7 @@ class LibraryViewController: UIViewController {
         set { super.hidesBottomBarWhenPushed = newValue }
     }
     
-    var libraryId: String! = Preference.shared.libraryOrder.first ?? "1"
+    var library: LibraryType = LibraryType.centralSquare
     private var libraryData: LibraryData?
     
     private var dataState: DataSourceState = .fetching
@@ -51,9 +51,7 @@ class LibraryViewController: UIViewController {
         setup()
         updateData()
         
-        if let libraryType = LibraryType(rawValue: libraryId) {
-            Answers.logContentView(withName: libraryType.name, contentType: "Library", contentId: libraryId, customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
-        }
+        Answers.logContentView(withName: library.name, contentType: "Library", contentId: library.identifier, customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -174,14 +172,12 @@ extension LibraryViewController {
     }
     
     private func setupContent() {
-        title = LibraryType(rawValue: libraryId)?.name
-        titleLabel.text = LibraryType(rawValue: libraryId)?.name
-        subtitleLabel.text = LibraryType(rawValue: libraryId)?.nameInAlternateLanguage
+        title = library.name
+        titleLabel.text = library.name
+        subtitleLabel.text = library.nameInAlternateLanguage
         
         // Image
-        if let libraryType = LibraryType(rawValue: libraryId) {
-            heroImageView.image = MediaManager.shared.media(for: libraryType)?.image
-        }
+        heroImageView.image = MediaManager.shared.media(for: library)?.image
         
         dataTitleLabels.forEach {
             guard let tag = DataTag(rawValue: $0.tag) else { return }
@@ -197,22 +193,20 @@ extension LibraryViewController {
 // MARK: - Notification
 extension LibraryViewController {
     @objc private func handleShouldUpdateImage(_ notification: Notification) {
-        if let libraryType = LibraryType(rawValue: libraryId) {
-            UIView.transition(with: heroImageView,
-                              duration: 0.75,
-                              options: .transitionCrossDissolve,
-                              animations: { [weak self] in
-                                self?.heroImageView.image = MediaManager.shared.media(for: libraryType)?.image
-                }, completion: nil)
-        }
+        UIView.transition(with: heroImageView,
+                          duration: 0.75,
+                          options: .transitionCrossDissolve,
+                          animations: { [weak self] in
+                            guard let library = self?.library else { return }
+                            self?.heroImageView.image = MediaManager.shared.media(for: library)?.image
+            }, completion: nil)
     }
 }
 
 // MARK: - Action
 extension LibraryViewController {
     private func updateData() {
-        guard let libraryId = self.libraryId else { return }
-        kuStudy.requestLibraryData(libraryId: libraryId,
+        kuStudy.requestLibraryData(libraryId: library.identifier,
                                    onSuccess: { [weak self] (libraryData) in
                                     self?.libraryData = libraryData
                                     self?.updateView()
@@ -244,8 +238,6 @@ extension LibraryViewController {
         // Google Maps Universal Link Reference
         // https://developers.google.com/maps/documentation/urls/ios-urlscheme
         //
-        guard let libraryId = self.libraryId, let library = LibraryType(rawValue: libraryId) else { return }
-        
         let urlString = Preference.shared.preferredMap == .apple
             ? "http://maps.apple.com/?t=m&z=18&ll=\(library.coordinate.latitude),\(library.coordinate.longitude)"
             : "https://www.google.com/maps/@\(library.coordinate.latitude),\(library.coordinate.longitude),18z"
@@ -272,7 +264,7 @@ extension LibraryViewController {
     }
     
     private func askRemindTimeInterval() {
-        guard let libraryId = self.libraryId, let library = LibraryType(rawValue: libraryId) else { return }
+        let library = self.library
         let alert = UIAlertController(title: nil, message: Localizations.Alert.Message.Notification.Settimeinterval, preferredStyle: .actionSheet)
         alert.popoverPresentationController?.sourceView = remindButton
         alert.popoverPresentationController?.sourceRect = remindButton.bounds
@@ -319,10 +311,9 @@ extension LibraryViewController {
 // MARK: - Handoff
 extension LibraryViewController {
     private func startHandoff() {
-        guard let libraryId = self.libraryId, let name = LibraryType(rawValue: libraryId)?.name else { return }
         let activity = NSUserActivity(activityType: kuStudyHandoffLibrary)
-        activity.title = name
-        activity.addUserInfoEntries(from: ["libraryId": libraryId])
+        activity.title = library.name
+        activity.addUserInfoEntries(from: ["libraryId": library.identifier])
         activity.becomeCurrent()
         userActivity = activity
     }

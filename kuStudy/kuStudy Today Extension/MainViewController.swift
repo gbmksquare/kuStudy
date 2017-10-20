@@ -94,7 +94,7 @@ class MainViewController: UIViewController {
     }
     
     private func registerPreference() {
-        let libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
+        let libraryOrder = LibraryType.allTypes().map({ $0.identifier })
         preference.register(defaults: ["libraryOrder": libraryOrder,
                                        "todayExtensionOrder": libraryOrder,
                                        "todayExtensionHidden": []])
@@ -108,7 +108,7 @@ class MainViewController: UIViewController {
         
         var ordered = [LibraryData]()
         for libraryId in orderedLibraryIds {
-            guard let libraryData = data.libraries.filter({ $0.libraryId! == libraryId }).first else { continue }
+            guard let libraryData = data.libraries.filter({ $0.libraryType!.identifier == libraryId }).first else { continue }
             ordered.append(libraryData)
         }
         data.libraries = ordered
@@ -195,7 +195,7 @@ extension MainViewController: NCWidgetProviding {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     // Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let libraryId = data?.libraries[indexPath.row].libraryId else { return }
+        guard let libraryId = data?.libraries[indexPath.row].libraryType?.identifier else { return }
         openMainApp(libraryId: libraryId)
     }
     

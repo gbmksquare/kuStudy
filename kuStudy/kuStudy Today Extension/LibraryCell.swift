@@ -15,7 +15,7 @@ class LibraryCell: UICollectionViewCell {
     private lazy var availableLabel = UILabel()
     private lazy var availableTitleLabel = UILabel()
     
-    var libraryData: LibraryData? {
+    var data: LibraryData? {
         didSet {
             populate()
         }
@@ -39,12 +39,11 @@ class LibraryCell: UICollectionViewCell {
     }
     
     func populate() {
-        guard let data = libraryData, let id = libraryData?.libraryId else {
+        guard let data = data, let library = data.libraryType else {
             reset()
             return
         }
-        let type = LibraryType(rawValue: id)
-        libraryLabel.text = type?.name
+        libraryLabel.text = library.name
         availableLabel.text = data.availableSeats.readable
         indicator.backgroundColor = data.availablePercentageColor
     }

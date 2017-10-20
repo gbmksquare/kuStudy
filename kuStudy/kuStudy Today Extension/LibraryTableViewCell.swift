@@ -38,15 +38,14 @@ class LibraryTableViewCell: UITableViewCell {
     }
     
     // MARK: Populate
-    func populate(_ libraryData: LibraryData) {
-        guard let libraryId = libraryData.libraryId else { return }
+    func populate(_ data: LibraryData) {
+        guard let library = data.libraryType else { return }
         
-        let libraryType = LibraryType(rawValue: libraryId)
-        nameLabel.text = libraryType?.name
-        totalLabel.text = libraryData.totalSeats.readable
-        availableLabel.text = libraryData.availableSeats.readable
-        usedLabel.text = libraryData.usedSeats.readable
+        nameLabel.text = library.name
+        totalLabel.text = data.totalSeats.readable
+        availableLabel.text = data.availableSeats.readable
+        usedLabel.text = data.usedSeats.readable
         
-        indicatorView.backgroundColor = libraryData.availablePercentageColor
+        indicatorView.backgroundColor = data.availablePercentageColor
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 public class LibraryData: Mappable {
-    public var libraryId: String?
+    internal var libraryId: String?
     public var sectors: [SectorData]?
     
     required public  init?(map: Map) { }
@@ -28,8 +28,6 @@ public extension LibraryData {
     }
     
     public var libraryName: String {
-        guard let libraryId = libraryId else { return "" }
-        let libraryType = LibraryType(rawValue: libraryId)
         return libraryType?.name ?? ""
     }
     

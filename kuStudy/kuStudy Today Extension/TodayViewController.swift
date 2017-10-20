@@ -144,7 +144,7 @@ extension TodayViewController {
 extension TodayViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     // Delegate
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let libraryId = summary?.libraries[indexPath.row].libraryId else { return }
+        guard let libraryId = summary?.libraries[indexPath.row].libraryType?.identifier else { return }
         openMainApp(libraryId: libraryId)
     }
     
@@ -173,7 +173,7 @@ extension TodayViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! LibraryCell
-        cell.libraryData = summary?.libraries[indexPath.row]
+        cell.data = summary?.libraries[indexPath.row]
         return cell
     }
 }

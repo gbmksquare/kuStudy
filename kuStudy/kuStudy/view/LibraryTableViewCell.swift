@@ -24,7 +24,7 @@ class LibraryTableViewCell: UITableViewCell {
     @IBOutlet private weak var totalLabel: UILabel!
     @IBOutlet private weak var usedLabel: UILabel!
     
-    private var library: LibraryData?
+    private var data: LibraryData?
 
     // MARK: View
     override func awakeFromNib() {
@@ -74,12 +74,12 @@ class LibraryTableViewCell: UITableViewCell {
     
     // MARK: - Notification
     @objc private func handleShouldUpdateImage(_ notification: Notification) {
-        guard let library = library else { return }
+        guard let data = data else { return }
         UIView.transition(with: thumbnailImageView,
                           duration: 0.75,
                           options: .transitionCrossDissolve,
                           animations: { [weak self] in
-                            self?.thumbnailImageView.image = library.media?.thumbnail
+                            self?.thumbnailImageView.image = data.media?.thumbnail
             }, completion: nil)
     }
     
@@ -96,24 +96,23 @@ class LibraryTableViewCell: UITableViewCell {
         indicatorView.backgroundColor = UIColor.lightGray
     }
     
-    func populate(library: LibraryData?) {
-        self.library = library
-        guard let library = library else {
+    func populate(library data: LibraryData?) {
+        self.data = data
+        guard let data = data else {
             setEmpty()
             return
         }
-        guard let libraryId = library.libraryId else {
+        guard let library = data.libraryType else {
             setEmpty()
             return
         }
         
-        let libraryType = LibraryType(rawValue: libraryId)
-        nameLabel.text = libraryType?.name
-        availableLabel.text =  library.availableSeats.readable
-        totalLabel.text = library.totalSeats.readable
-        usedLabel.text = library.usedSeats.readable
+        nameLabel.text = library.name
+        availableLabel.text =  data.availableSeats.readable
+        totalLabel.text = data.totalSeats.readable
+        usedLabel.text = data.usedSeats.readable
         
-        thumbnailImageView.image = library.media?.thumbnail
-        indicatorView.backgroundColor = library.availablePercentageColor
+        thumbnailImageView.image = data.media?.thumbnail
+        indicatorView.backgroundColor = data.availablePercentageColor
     }
 }

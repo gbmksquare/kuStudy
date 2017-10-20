@@ -17,6 +17,10 @@ public enum LibraryType: String, Codable {
     case hanaSquare = "5"
     case law = "6"
     
+    public var identifier: String {
+        return rawValue
+    }
+    
     private var localizedKey: String {
         switch self {
         case .centralSquare: return "kuStudy.Library.Name.CentralSquare"
@@ -86,5 +90,12 @@ public extension LibraryType {
         case .cdl: return CLLocationCoordinate2D(latitude: 37.58944, longitude: 127.0344)
         case .law: return CLLocationCoordinate2D(latitude: 37.5907397, longitude: 127.0319772)
         }
+    }
+}
+
+// MARK: - API
+internal extension LibraryType {
+    internal var apiUrl: String {
+        return "https://librsv.korea.ac.kr/libraries/lib-status/\(rawValue)"
     }
 }

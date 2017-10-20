@@ -105,7 +105,7 @@ class InterfaceController: WKInterfaceController {
         
         var orderedLibraries = [LibraryData]()
         for libraryId in orderedLibraryIds {
-            guard let libraryData = summaryData.libraries.filter({ $0.libraryId! == libraryId }).first else { continue }
+            guard let libraryData = summaryData.libraries.filter({ $0.libraryType!.identifier == libraryId }).first else { continue }
             orderedLibraries.append(libraryData)
         }
         summaryData.libraries = orderedLibraries

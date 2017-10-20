@@ -200,11 +200,11 @@ extension SummaryViewController {
             let destinationViewController = (segue.destination as! UINavigationController).childViewControllers.first as! LibraryViewController
             if sender is String { // Handoff
                 let libraryId = sender as! String
-                destinationViewController.libraryId = libraryId
+                destinationViewController.library = LibraryType(rawValue: libraryId) ?? LibraryType.centralSquare
             } else {
                 guard let selectedRow = (table.indexPathForSelectedRow as IndexPath?)?.row else { return }
                 let libraryData = summaryData.libraries[selectedRow]
-                destinationViewController.libraryId = libraryData.libraryId
+                destinationViewController.library = libraryData.libraryType ?? LibraryType.centralSquare
             }
         default: break
         }
@@ -244,7 +244,7 @@ extension SummaryViewController: UIViewControllerPreviewingDelegate {
         guard let indexPath = table.indexPathForRow(at: locationInTableView) else { return nil }
         let libraryViewController = self.storyboard?.instantiateViewController(withIdentifier: "libraryViewController") as! LibraryViewController
         let libraryData = summaryData.libraries[indexPath.row]
-        libraryViewController.libraryId = libraryData.libraryId
+        libraryViewController.library = libraryData.libraryType ?? LibraryType.centralSquare
         previewingContext.sourceRect = view.convert(table.rectForRow(at: indexPath), from: table)
         return libraryViewController
     }
@@ -332,7 +332,7 @@ extension SummaryViewController {
         
         var orderedLibraryData = [LibraryData]()
         for libraryId in orderedLibraryIds {
-            guard let libraryData = summaryData.libraries.filter({ $0.libraryId! == libraryId }).first else { continue }
+            guard let libraryData = summaryData.libraries.filter({ $0.libraryType!.identifier == libraryId }).first else { continue }
             orderedLibraryData.append(libraryData)
         }
         summaryData.libraries = orderedLibraryData
