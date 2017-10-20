@@ -103,6 +103,7 @@ extension LibraryViewController {
         setupView()
         setupGradient()
         setupTableView()
+        setupNotification()
         setupContent()
     }
     
@@ -168,6 +169,10 @@ extension LibraryViewController {
         table.showsVerticalScrollIndicator = false
     }
     
+    private func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleShouldUpdateImage(_:)), name: MediaManager.shouldUpdateImageNotification, object: nil)
+    }
+    
     private func setupContent() {
         title = LibraryType(rawValue: libraryId)?.name
         titleLabel.text = LibraryType(rawValue: libraryId)?.name
@@ -190,6 +195,20 @@ extension LibraryViewController {
             case .ineligible: $0.text = Localizations.Common.Ineligible
             case .outOfOrder: $0.text = Localizations.Common.Outoforder
             }
+        }
+    }
+}
+
+// MARK: - Notification
+extension LibraryViewController {
+    @objc private func handleShouldUpdateImage(_ notification: Notification) {
+        if let libraryType = LibraryType(rawValue: libraryId) {
+            UIView.transition(with: heroImageView,
+                              duration: 0.75,
+                              options: .transitionCrossDissolve,
+                              animations: { [weak self] in
+                                self?.heroImageView.image = MediaManager.shared.media(for: libraryType)?.image
+                }, completion: nil)
         }
     }
 }

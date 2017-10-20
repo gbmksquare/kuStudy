@@ -23,6 +23,8 @@ class LibraryTableViewCell: UITableViewCell {
     @IBOutlet private weak var availableLabel: UILabel!
     @IBOutlet private weak var totalLabel: UILabel!
     @IBOutlet private weak var usedLabel: UILabel!
+    
+    private var library: LibraryData?
 
     // MARK: View
     override func awakeFromNib() {
@@ -52,6 +54,9 @@ class LibraryTableViewCell: UITableViewCell {
             indicatorView.accessibilityIgnoresInvertColors = true
             thumbnailImageView.accessibilityIgnoresInvertColors = true
         }
+        
+        // Notification
+        NotificationCenter.default.addObserver(self, selector: #selector(handleShouldUpdateImage(_:)), name: MediaManager.shouldUpdateImageNotification, object: nil)
     }
     
     func updateInterface(for traitCollectoin: UITraitCollection) {
@@ -65,6 +70,17 @@ class LibraryTableViewCell: UITableViewCell {
             bottomStackView.axis = .horizontal
             dataStackView.axis = .horizontal
         }
+    }
+    
+    // MARK: - Notification
+    @objc private func handleShouldUpdateImage(_ notification: Notification) {
+        guard let library = library else { return }
+        UIView.transition(with: thumbnailImageView,
+                          duration: 0.75,
+                          options: .transitionCrossDissolve,
+                          animations: { [weak self] in
+                            self?.thumbnailImageView.image = library.media?.thumbnail
+            }, completion: nil)
     }
     
     // MARK: Populate
@@ -81,6 +97,7 @@ class LibraryTableViewCell: UITableViewCell {
     }
     
     func populate(library: LibraryData?) {
+        self.library = library
         guard let library = library else {
             setEmpty()
             return

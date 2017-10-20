@@ -99,7 +99,7 @@ extension SummaryViewController {
         setupGradient()
         setupTableView()
         setupContent()
-        listenForUserDefaultsDidChange()
+        setupNotification()
         registerPeekAndPop()
     }
     
@@ -162,7 +162,8 @@ extension SummaryViewController {
         dateLabel.text = formatter.string(from: Date()).localizedUppercase
     }
     
-    private func listenForUserDefaultsDidChange() {
+    private func setupNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(handleShouldUpdateImage(_:)), name: MediaManager.shouldUpdateImageNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsDidChange(_: )), name: UserDefaults.didChangeNotification, object: nil)
     }
     
@@ -175,6 +176,15 @@ extension SummaryViewController {
 
 // MARK: - Notification
 extension SummaryViewController {
+    @objc private func handleShouldUpdateImage(_ notification: Notification) {
+        UIView.transition(with: heroImageView,
+                          duration: 0.75,
+                          options: .transitionCrossDissolve,
+                          animations: { [weak self] in
+                            self?.heroImageView.image = MediaManager.shared.mediaForMain()?.image
+            }, completion: nil)
+    }
+    
     @objc private func handleUserDefaultsDidChange(_ notification: Notification) {
         reorderLibraryData()
         updateView()

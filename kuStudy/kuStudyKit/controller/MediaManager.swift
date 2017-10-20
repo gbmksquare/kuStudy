@@ -15,6 +15,8 @@ public class MediaManager {
     public let artists: [Artist]
     
     private var cachedMedia = [String: String]()
+    private var cachedAt: Date?
+    private let cacheClearInterval: TimeInterval = 180
     
     // MARK: - Initialization
     init() {
@@ -68,6 +70,8 @@ public class MediaManager {
     
     // Defined media with cache and auto update
     public func mediaForMain() -> Media? {
+        clearCacheIfNecessary()
+        
         if let identifier = cachedMedia["main"] {
             return media(with: identifier)
         } else {
@@ -92,6 +96,9 @@ public class MediaManager {
             }
         }
         
+        // Provide media
+        clearCacheIfNecessary()
+        
         if let identifier = cachedMedia[library.rawValue] {
             return media(with: identifier)
         } else {
@@ -109,5 +116,27 @@ public class MediaManager {
     // MARK: - Helper
     private func randomIndex(below max: Int) -> Int {
         return Int(arc4random_uniform(UInt32(max)))
+    }
+    
+    private func clearCacheIfNecessary() {
+        if let cachedAt = cachedAt {
+            let interval = Date().timeIntervalSince(cachedAt)
+            if interval >= cacheClearInterval {
+                cachedMedia = [:]
+                self.cachedAt = Date()
+                
+                // Notify
+                NotificationCenter.default.post(name: MediaManager.shouldUpdateImageNotification, object: self)
+            }
+        } else {
+            cachedAt = Date()
+        }
+    }
+}
+
+// MARK: - Notification
+public extension MediaManager {
+    public class var shouldUpdateImageNotification: Notification.Name {
+        return Notification.Name(rawValue: "kuStudyKit.MediaManager.Notification.ShouldUpdateImage")
     }
 }
