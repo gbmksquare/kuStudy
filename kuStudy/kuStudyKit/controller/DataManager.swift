@@ -21,6 +21,7 @@ internal class DataManager {
     internal var errors: [Error]?
     
     // Update
+    private var timer: Timer?
     private var lastUpdatedAt: Date?
     private var shouldAutoUpdate = false
     private var updateInterval: TimeInterval = 300
@@ -32,14 +33,28 @@ internal class DataManager {
     
     // MARK: - Fetch (Internal)
     internal func startFetching(autoUpdate: Bool = false) {
-        requestAllData()
+        if autoUpdate == true {
+            requestAllData()
+            timer = Timer.scheduledTimer(timeInterval: updateInterval,
+                                         target: self,
+                                         selector: #selector(handle(timer:)),
+                                         userInfo: nil,
+                                         repeats: true)
+        } else {
+            requestAllData()
+        }
     }
     
     internal func stopFetching() {
-        
+        timer?.invalidate()
+        timer = nil
     }
     
     // MARK: - Fetch (Private)
+    @objc private func handle(timer: Timer) {
+        requestAllData()
+    }
+    
     private func requestAllData() {
         let group = DispatchGroup()
         self.group = group
