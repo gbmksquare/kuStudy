@@ -50,10 +50,10 @@ public extension Media {
     
     public var attribution: String {
         switch mediaType {
-        case .photo, .livePhoto: return ""
-        case .video: return ""
-        case .timelapse: return ""
-        case .illustration: return ""
+        case .photo, .livePhoto: return Localizations.Kustudy.Media.Attribution.Photo(artist.name)
+        case .video: return Localizations.Kustudy.Media.Attribution.Video(artist.name)
+        case .timelapse: return Localizations.Kustudy.Media.Attribution.Timelapse(artist.name)
+        case .illustration: return Localizations.Kustudy.Media.Attribution.Illustration(artist.name)
         }
     }
     

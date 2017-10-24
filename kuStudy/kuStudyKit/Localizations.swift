@@ -27,22 +27,22 @@ public struct Localizations {
 
                 /// Base translation: Photo by %@
                 public static func Photo(_ value1 : String) -> String {
-                    return String(format: NSLocalizedString("kuStudy.Media.Attribution.Photo", comment: ""), value1)
+                    return String(format: NSLocalizedString("kuStudy.Media.Attribution.Photo", bundle: Bundle(for: kuStudy.self), comment: ""), value1)
                 }
 
                 /// Base translation: Video by %@
                 public static func Video(_ value1 : String) -> String {
-                    return String(format: NSLocalizedString("kuStudy.Media.Attribution.Video", comment: ""), value1)
+                    return String(format: NSLocalizedString("kuStudy.Media.Attribution.Video", bundle: Bundle(for: kuStudy.self), comment: ""), value1)
                 }
 
                 /// Base translation: Illustration by %@
                 public static func Illustration(_ value1 : String) -> String {
-                    return String(format: NSLocalizedString("kuStudy.Media.Attribution.Illustration", comment: ""), value1)
+                    return String(format: NSLocalizedString("kuStudy.Media.Attribution.Illustration", bundle: Bundle(for: kuStudy.self), comment: ""), value1)
                 }
 
                 /// Base translation: Timelapse by %@
                 public static func Timelapse(_ value1 : String) -> String {
-                    return String(format: NSLocalizedString("kuStudy.Media.Attribution.Timelapse", comment: ""), value1)
+                    return String(format: NSLocalizedString("kuStudy.Media.Attribution.Timelapse", bundle: Bundle(for: kuStudy.self), comment: ""), value1)
                 }
 
             }
@@ -54,40 +54,40 @@ public struct Localizations {
             public struct Name {
 
                 /// Base translation: Sejong Campus
-                public static var Sejong : String = NSLocalizedString("kuStudy.Library.Name.Sejong", comment: "")
+                public static var Sejong : String = NSLocalizedString("kuStudy.Library.Name.Sejong", bundle: Bundle(for: kuStudy.self), comment: "")
 
                 /// Base translation: Hana Square
-                public static var Hanasquare : String = NSLocalizedString("kuStudy.Library.Name.HanaSquare", comment: "")
+                public static var Hanasquare : String = NSLocalizedString("kuStudy.Library.Name.HanaSquare", bundle: Bundle(for: kuStudy.self), comment: "")
 
                 /// Base translation: Central Library
-                public static var Centrallibrary : String = NSLocalizedString("kuStudy.Library.Name.CentralLibrary", comment: "")
+                public static var Centrallibrary : String = NSLocalizedString("kuStudy.Library.Name.CentralLibrary", bundle: Bundle(for: kuStudy.self), comment: "")
 
 
                 public struct Sciencelibrary {
 
                     /// Base translation: SL
-                    public static var Short : String = NSLocalizedString("kuStudy.Library.Name.ScienceLibrary.Short", comment: "")
+                    public static var Short : String = NSLocalizedString("kuStudy.Library.Name.ScienceLibrary.Short", bundle: Bundle(for: kuStudy.self), comment: "")
 
                 }
 
                 public struct Law {
 
                     /// Base translation: LAW
-                    public static var Short : String = NSLocalizedString("kuStudy.Library.Name.Law.Short", comment: "")
+                    public static var Short : String = NSLocalizedString("kuStudy.Library.Name.Law.Short", bundle: Bundle(for: kuStudy.self), comment: "")
 
                 }
 
                 public struct Cdl {
 
                     /// Base translation: CDL
-                    public static var Short : String = NSLocalizedString("kuStudy.Library.Name.Cdl.Short", comment: "")
+                    public static var Short : String = NSLocalizedString("kuStudy.Library.Name.Cdl.Short", bundle: Bundle(for: kuStudy.self), comment: "")
 
                 }
 
                 public struct Centralsquare {
 
                     /// Base translation: CS
-                    public static var Short : String = NSLocalizedString("kuStudy.Library.Name.CentralSquare.Short", comment: "")
+                    public static var Short : String = NSLocalizedString("kuStudy.Library.Name.CentralSquare.Short", bundle: Bundle(for: kuStudy.self), comment: "")
 
                 }
             }

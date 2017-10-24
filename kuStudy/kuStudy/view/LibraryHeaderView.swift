@@ -53,7 +53,8 @@ class LibraryHeaderView: UIView {
     private func populate() {
         availableSeatsLabel.text = libraryData?.available.readable ?? Localizations.Common.Nodata
         progressView.libraryData = libraryData
-        artistLabel.text = "Photography by \(libraryData?.media?.artist.name ?? Localizations.Common.Nodata)"
+        timestampLabel.text = kuStudy.lastUpdatedAt?.description ?? ""
+        artistLabel.text = libraryData?.media?.attribution ?? ""
     }
     
     // MARK: - Setup
@@ -64,8 +65,8 @@ class LibraryHeaderView: UIView {
         subtitleLabel.text = Localizations.Common.Nodata
         availableSeatsLabel.text = Localizations.Common.Nodata
         availableLabel.text = Localizations.Common.Available
-        timestampLabel.text = "Updated at --"
-        artistLabel.text = "Photography by --"
+        timestampLabel.text = Localizations.Common.Nodata
+        artistLabel.text = Localizations.Common.Nodata
     }
     
     private func setupView() {
