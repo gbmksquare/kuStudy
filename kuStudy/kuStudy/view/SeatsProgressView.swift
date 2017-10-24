@@ -8,6 +8,7 @@
 
 import UIKit
 import kuStudyKit
+import LinearProgressView
 
 class SeatsProgressView: UIView {
     private lazy var occupiedStack = UIStackView()
@@ -18,7 +19,7 @@ class SeatsProgressView: UIView {
     private lazy var totalSeatsLabel = UILabel()
     private lazy var totalLabel = UILabel()
     
-    private lazy var progressView = UIProgressView()
+    private lazy var progressView = LinearProgressView()
     
     var libraryData: LibraryData? { didSet { populate() } }
     
@@ -37,8 +38,8 @@ class SeatsProgressView: UIView {
     private func populate() {
         occupiedSeatsLabel.text  = libraryData?.occupied.readable ?? Localizations.Common.NoData
         totalSeatsLabel.text = libraryData?.total.readable ?? Localizations.Common.NoData
-        progressView.progress = libraryData?.occupiedPercentage ?? 0
-        progressView.tintColor = libraryData?.occupiedPercentageColor
+        progressView.trackColor = libraryData?.occupiedPercentageColor ?? #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.937254902, alpha: 1)
+        progressView.setProgress(libraryData?.occupiedPercentage ?? 0, animated: false)
     }
     
     // MARK: - Setup
@@ -50,7 +51,7 @@ class SeatsProgressView: UIView {
         occupiedLabel.text = Localizations.Common.Used
         totalSeatsLabel.text = Localizations.Common.NoData
         totalLabel.text = Localizations.Common.Total
-        progressView.progress = 0
+        progressView.setProgress(0, animated: false)
     }
     
     private func setupView() {
@@ -71,6 +72,13 @@ class SeatsProgressView: UIView {
             $0.textColor = .darkGray
             $0.font = UIFont.systemFont(ofSize: 12, weight: .medium)
         }
+        
+        progressView.minimumValue = 0
+        progressView.maximumValue = 1
+        progressView.isCornersRounded = true
+        progressView.barInset = 0
+        progressView.barColor = #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.937254902, alpha: 1)
+        progressView.trackColor = #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.937254902, alpha: 1)
     }
     
     private func setupLayout() {
@@ -81,7 +89,7 @@ class SeatsProgressView: UIView {
         occupiedStack.snp.makeConstraints { (make) in
             make.top.greaterThanOrEqualToSuperview()
             make.leading.equalToSuperview()
-            make.bottom.equalTo(progressView.snp.top).offset(-8)
+            make.bottom.equalTo(progressView.snp.top).offset(-4)
         }
         
         totalStack.snp.makeConstraints { (make) in
@@ -94,7 +102,7 @@ class SeatsProgressView: UIView {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.height.equalTo(4)
+            make.height.equalTo(8)
         }
     }
 }

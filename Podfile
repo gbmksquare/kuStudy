@@ -13,6 +13,7 @@ target 'kuStudy' do
   platform :ios, '10.0'
 
   pod 'AlamofireNetworkActivityIndicator'
+  pod 'LinearProgressView'
   pod 'DZNEmptyDataSet'
   pod 'AcknowList'
   pod 'CTFeedback'

@@ -117,10 +117,10 @@ class LibraryHeaderView: UIView {
         [timestampLabel, artistLabel].forEach { infoStack.addArrangedSubview($0) }
         
         stack.snp.makeConstraints { (make) in
-            make.top.equalTo(snp.topMargin)
+            make.top.equalTo(snp.topMargin).inset(4)
             make.leading.equalTo(readableContentGuide).inset(8)
             make.trailing.equalTo(readableContentGuide).inset(8)
-            make.bottom.equalTo(snp.bottomMargin)
+            make.bottom.equalTo(snp.bottomMargin).inset(4)
         }
         progressView.snp.makeConstraints { (make) in
             make.width.equalTo(dataStack).multipliedBy(0.6)

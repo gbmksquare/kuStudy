@@ -8,6 +8,7 @@ PODS:
     - ObjectMapper (~> 3.0)
   - CTFeedback (1.1.1)
   - DZNEmptyDataSet (1.8.1)
+  - LinearProgressView (2.0.0)
   - MXParallaxHeader (0.6.1)
   - ObjectMapper (3.0.0)
   - SimulatorStatusMagic (2.0)
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - AlamofireObjectMapper
   - CTFeedback
   - DZNEmptyDataSet
+  - LinearProgressView
   - MXParallaxHeader
   - SimulatorStatusMagic
   - SnapKit
@@ -31,11 +33,12 @@ SPEC CHECKSUMS:
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   CTFeedback: 6f128606e0d26d46075c3fa9fc33884372df8675
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  LinearProgressView: 2e71a3a937b93488f381088f0ba27f2ff52bb26c
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
   ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
   SimulatorStatusMagic: c8e958d70e0e0cd2d7cf33bb95014a222ddecf0a
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 40acbbcc9fe304c72d080bdab80e64e6a0359f92
+PODFILE CHECKSUM: db5bf1502d4e83e4390ff5b8ba28109e42abadb5
 
-COCOAPODS: 1.4.0.beta.1
+COCOAPODS: 1.4.0.beta.2
