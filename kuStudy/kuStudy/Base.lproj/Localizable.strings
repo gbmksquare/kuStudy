@@ -121,3 +121,5 @@
 
 "Alert.Message.AppStore.Failed" = "Failed to open App Store.";
 
+"Library.UpdatedAt" = "Last updated: %@";
+

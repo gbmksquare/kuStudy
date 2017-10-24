@@ -53,7 +53,7 @@ class LibraryHeaderView: UIView {
     private func populate() {
         availableSeatsLabel.text = libraryData?.available.readable ?? Localizations.Common.Nodata
         progressView.libraryData = libraryData
-        timestampLabel.text = kuStudy.lastUpdatedAt?.description ?? ""
+        timestampLabel.text = Localizations.Library.Updatedat(kuStudy.lastUpdatedAt?.readable ?? Localizations.Common.Nodata)
         artistLabel.text = libraryData?.media?.attribution ?? ""
     }
     

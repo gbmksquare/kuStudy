@@ -302,6 +302,11 @@ public struct Localizations {
 
     public struct Library {
 
+        /// Base translation: Last updated: %@
+        public static func Updatedat(_ value1 : String) -> String {
+            return String(format: NSLocalizedString("Library.UpdatedAt", comment: ""), value1)
+        }
+
 
         public struct Button {
 

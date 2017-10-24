@@ -121,3 +121,5 @@
 
 "Alert.Message.AppStore.Failed" = "앱스토어를 열 수 없습니다.";
 
+"Library.UpdatedAt" = "마지막 업데이트: %@";
+
