@@ -20,7 +20,7 @@ class TipJarViewController: UIViewController {
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Localizations.Settings.Table.Cell.Title.Tipjar
+        title = Localizations.Settings.Table.Cell.Title.TipJar
         setup()
         getProducts()
     }
@@ -125,7 +125,7 @@ extension TipJarViewController: UITableViewDelegate, UITableViewDataSource, DZNE
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(payment)
         } else {
-            let alert = UIAlertController(title: Localizations.Common.Error, message: Localizations.Alert.Message.Paymenterror, preferredStyle: .alert)
+            let alert = UIAlertController(title: Localizations.Common.Error, message: Localizations.Alert.Message.PaymentError, preferredStyle: .alert)
             let confirm = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default, handler: nil)
             alert.addAction(confirm)
             present(alert, animated: true, completion: nil)

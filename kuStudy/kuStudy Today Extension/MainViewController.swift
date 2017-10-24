@@ -86,11 +86,11 @@ class MainViewController: UIViewController {
         mainViewHeight.constant = extensionContext?.widgetMaximumSize(for: .compact).height ?? 110
         
         // Localize
-        usedLabel.text = Localizations.Today.Main.Label.Studying(Localizations.Today.Main.Label.Nodata)
-        laCampusPlaceholderLabel.text = Localizations.Today.Main.Label.Liberalartcampus
-        scCampusPlaceholderLabeL.text = Localizations.Today.Main.Label.Sciencecampus
-        laCampusUsedLabel.text = Localizations.Today.Main.Label.Studying(Localizations.Today.Main.Label.Nodata)
-        scCampusUsedLabel.text = Localizations.Today.Main.Label.Studying(Localizations.Today.Main.Label.Nodata)
+        usedLabel.text = Localizations.Main.Label.Studying(Localizations.Main.Label.NoData)
+        laCampusPlaceholderLabel.text = Localizations.Main.Label.LiberalArtCampus
+        scCampusPlaceholderLabeL.text = Localizations.Main.Label.ScienceCampus
+        laCampusUsedLabel.text = Localizations.Main.Label.Studying(Localizations.Main.Label.NoData)
+        scCampusUsedLabel.text = Localizations.Main.Label.Studying(Localizations.Main.Label.NoData)
     }
     
     private func registerPreference() {
@@ -138,9 +138,9 @@ class MainViewController: UIViewController {
             hideNotice()
             
             // Update content
-            usedLabel.text = Localizations.Today.Main.Label.Studying(occupied?.readable ?? Localizations.Today.Main.Label.Nodata)
-            laCampusUsedLabel.text = Localizations.Today.Main.Label.Studying(laCampusUsed?.readable ?? Localizations.Today.Main.Label.Nodata)
-            scCampusUsedLabel.text = Localizations.Today.Main.Label.Studying(scCampusUsed?.readable ?? Localizations.Today.Main.Label.Nodata)
+            usedLabel.text = Localizations.Main.Label.Studying(occupied?.readable ?? Localizations.Main.Label.NoData)
+            laCampusUsedLabel.text = Localizations.Main.Label.Studying(laCampusUsed?.readable ?? Localizations.Main.Label.NoData)
+            scCampusUsedLabel.text = Localizations.Main.Label.Studying(scCampusUsed?.readable ?? Localizations.Main.Label.NoData)
             tableView.reloadData()
             
             // Change height if needed

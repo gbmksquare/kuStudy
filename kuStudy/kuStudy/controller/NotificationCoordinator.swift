@@ -29,11 +29,11 @@ enum RemindInterval {
     
     var name: String {
         switch self {
-        case .now: return Localizations.Timeinterval.Now
+        case .now: return Localizations.TimeInterval.Now
         case .hour2, .hour4, .hour6:
-            return String(Int(seconds / 60 / 60)) + " \(Localizations.Timeinterval.Hour)"
+            return String(Int(seconds / 60 / 60)) + " \(Localizations.TimeInterval.Hour)"
         case .custom(_):
-            return Localizations.Timeinterval.Custom
+            return Localizations.TimeInterval.Custom
         }
     }
 }
@@ -79,7 +79,7 @@ class NotificationCoordinator: NSObject {
         let content = UNMutableNotificationContent()
         content.title = library.name
         content.subtitle = library.nameInAlternateLanguage
-        content.body = Localizations.Notification.Content.Taptoshow
+        content.body = Localizations.Notification.Content.TapToShow
         content.sound = UNNotificationSound.default()
         content.userInfo = ["libraryId": library.rawValue]
         return content

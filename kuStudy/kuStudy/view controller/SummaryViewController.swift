@@ -151,7 +151,7 @@ extension SummaryViewController {
     
     private func setupContent() {
         title = Localizations.Main.Title.Library
-//        let noData = Localizations.Common.Nodata
+//        let noData = Localizations.Common.NoData
 //        summaryLabel.text = Localizations.Main.Studying(noData) + "\n" + Localizations.Main.Studyingcampus(noData, noData)
         
         let formatter = DateFormatter()
@@ -230,7 +230,7 @@ extension SummaryViewController {
         if let occupied = summary?.occupied,
             let laCampusUsedSeats = summary?.occupiedInLiberalArtCampus?.readable,
             let scCampusUsedSeats = summary?.occupiedInScienceCampus?.readable {
-            summaryLabel.text = Localizations.Main.Studying(occupied.readable) + "\n" + Localizations.Main.Studyingcampus(laCampusUsedSeats, scCampusUsedSeats)
+            summaryLabel.text = Localizations.Main.Studying(occupied.readable) + "\n" + Localizations.Main.StudyingCampus(laCampusUsedSeats, scCampusUsedSeats)
         }
         table.reloadData()
     }

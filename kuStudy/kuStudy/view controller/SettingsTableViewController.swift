@@ -77,7 +77,7 @@ extension SettingsTableViewController {
         case 0: return Localizations.Settings.Table.Section.Header.General
         case 1: return Localizations.Settings.Table.Section.Header.Share
         case 2: return Localizations.Settings.Table.Section.Header.Feedback
-        case 3: return Localizations.Settings.Table.Section.Header.Tipjar
+        case 3: return Localizations.Settings.Table.Section.Header.TipJar
         case 4: return Localizations.Settings.Table.Section.Header.About
         default: return nil
         }
@@ -94,18 +94,18 @@ extension SettingsTableViewController {
         let title: String?
         switch  cell.tag {
         case 100: title = Localizations.Settings.Table.Cell.Title.Order
-        case 101: title = Localizations.Settings.Table.Cell.Title.Todayorder
+        case 101: title = Localizations.Settings.Table.Cell.Title.TodayOrder
         case 102:
             title = Localizations.Settings.Table.Cell.Title.Maps
             cell.detailTextLabel?.text = Preference.shared.preferredMap == .apple
-                ? Localizations.Settings.Table.Cell.Detail.Applemap
-                : Localizations.Settings.Table.Cell.Detail.Googlemap
+                ? Localizations.Settings.Table.Cell.Detail.AppleMap
+                : Localizations.Settings.Table.Cell.Detail.GoogleMap
         case 800: title = Localizations.Settings.Table.Cell.Title.Feedback
-        case 900: title = Localizations.Settings.Table.Cell.Title.Opensource
-        case 901: title = Localizations.Settings.Table.Cell.Title.Thanksto
+        case 900: title = Localizations.Settings.Table.Cell.Title.OpenSource
+        case 901: title = Localizations.Settings.Table.Cell.Title.ThanksTo
         case 998: title = Localizations.Settings.Table.Cell.Title.Recommend
         case 999: title = Localizations.Settings.Table.Cell.Title.Rate
-        case 1004: title = Localizations.Settings.Table.Cell.Title.Tipjar
+        case 1004: title = Localizations.Settings.Table.Cell.Title.TipJar
         default: title = nil
         }
         cell.textLabel?.text = title
@@ -117,10 +117,10 @@ extension SettingsTableViewController {
         case 102: // Map
             if Preference.shared.preferredMap == .apple {
                 Preference.shared.preferredMap = .google
-                cell.detailTextLabel?.text = Localizations.Settings.Table.Cell.Detail.Googlemap
+                cell.detailTextLabel?.text = Localizations.Settings.Table.Cell.Detail.GoogleMap
             } else {
                 Preference.shared.preferredMap = .apple
-                cell.detailTextLabel?.text = Localizations.Settings.Table.Cell.Detail.Applemap
+                cell.detailTextLabel?.text = Localizations.Settings.Table.Cell.Detail.AppleMap
             }
             tableView.deselectRow(at: indexPath, animated: true)
         case 800: // Feedback
@@ -141,7 +141,7 @@ extension SettingsTableViewController {
             let path = Bundle.main.path(forResource: "Pods-kuStudy-acknowledgements", ofType: "plist")
             let acknowledgementViewController = AcknowListViewController(acknowledgementsPlistPath: path)
             let detailNavigationController = UINavigationController(rootViewController: acknowledgementViewController)
-            acknowledgementViewController.title = Localizations.Settings.Table.Cell.Title.Opensource
+            acknowledgementViewController.title = Localizations.Settings.Table.Cell.Title.OpenSource
             navigationController?.showDetailViewController(detailNavigationController, sender: true)
         case 998: // Recommend to a friend
             tableView.deselectRow(at: indexPath, animated: true)
@@ -163,7 +163,7 @@ extension SettingsTableViewController {
                 app.canOpenURL(url) == true {
                 app.open(url, options: [:], completionHandler: nil)
             } else {
-                let alert = UIAlertController(title: Localizations.Common.Error, message: Localizations.Alert.Message.Appstore.Failed, preferredStyle: .alert)
+                let alert = UIAlertController(title: Localizations.Common.Error, message: Localizations.Alert.Message.AppStore.Failed, preferredStyle: .alert)
                 let confirm = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default, handler: nil)
                 alert.addAction(confirm)
                 present(alert, animated: true, completion: nil)

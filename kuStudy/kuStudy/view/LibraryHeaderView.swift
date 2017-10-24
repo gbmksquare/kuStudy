@@ -46,14 +46,14 @@ class LibraryHeaderView: UIView {
     
     // MARK: - Populate
     private func updateTitle() {
-        titleLabel.text = library?.name ?? Localizations.Common.Nodata
-        subtitleLabel.text = library?.nameInAlternateLanguage ?? Localizations.Common.Nodata
+        titleLabel.text = library?.name ?? Localizations.Common.NoData
+        subtitleLabel.text = library?.nameInAlternateLanguage ?? Localizations.Common.NoData
     }
     
     private func populate() {
-        availableSeatsLabel.text = libraryData?.available.readable ?? Localizations.Common.Nodata
+        availableSeatsLabel.text = libraryData?.available.readable ?? Localizations.Common.NoData
         progressView.libraryData = libraryData
-        timestampLabel.text = Localizations.Library.Updatedat(kuStudy.lastUpdatedAt?.readable ?? Localizations.Common.Nodata)
+        timestampLabel.text = Localizations.Library.UpdatedAt(kuStudy.lastUpdatedAt?.readable ?? Localizations.Common.NoData)
         artistLabel.text = libraryData?.media?.attribution ?? ""
     }
     
@@ -61,12 +61,12 @@ class LibraryHeaderView: UIView {
     private func setup() {
         setupView()
         setupLayout()
-        titleLabel.text = Localizations.Common.Nodata
-        subtitleLabel.text = Localizations.Common.Nodata
-        availableSeatsLabel.text = Localizations.Common.Nodata
+        titleLabel.text = Localizations.Common.NoData
+        subtitleLabel.text = Localizations.Common.NoData
+        availableSeatsLabel.text = Localizations.Common.NoData
         availableLabel.text = Localizations.Common.Available
-        timestampLabel.text = Localizations.Common.Nodata
-        artistLabel.text = Localizations.Common.Nodata
+        timestampLabel.text = Localizations.Common.NoData
+        artistLabel.text = Localizations.Common.NoData
     }
     
     private func setupView() {

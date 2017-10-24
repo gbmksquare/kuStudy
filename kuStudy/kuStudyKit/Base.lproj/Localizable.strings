@@ -5,39 +5,39 @@
   Copyright (c) 2015년 gbmKSquare. All rights reserved. */
 
 /* MARK: Libraries */
-"kuStudy.Library.Name.CentralLibrary" = "Central Library";
+"Library.Name.CentralLibrary" = "Central Library";
 
-"kuStudy.Library.Name.CentralSquare" = "Central Square";
+"Library.Name.CentralSquare" = "Central Square";
 
-"kuStudy.Library.Name.HanaSquare" = "Hana Square";
+"Library.Name.HanaSquare" = "Hana Square";
 
-"kuStudy.Library.Name.ScienceLibrary" = "Science Library";
+"Library.Name.ScienceLibrary" = "Science Library";
 
-"kuStudy.Library.Name.Cdl" = "Centennial Digital Library";
+"Library.Name.Cdl" = "Centennial Digital Library";
 
-"kuStudy.Library.Name.Sejong" = "Sejong Campus";
+"Library.Name.Sejong" = "Sejong Campus";
 
-"kuStudy.Library.Name.Law" = "Haesong Law Library";
+"Library.Name.Law" = "Haesong Law Library";
 
-"kuStudy.Library.Name.CentralLibrary.Short" = "CL";
+"Library.Name.CentralLibrary.Short" = "CL";
 
-"kuStudy.Library.Name.CentralSquare.Short" = "CS";
+"Library.Name.CentralSquare.Short" = "CS";
 
-"kuStudy.Library.Name.HanaSquare.Short" = "HS";
+"Library.Name.HanaSquare.Short" = "HS";
 
-"kuStudy.Library.Name.ScienceLibrary.Short" = "SL";
+"Library.Name.ScienceLibrary.Short" = "SL";
 
-"kuStudy.Library.Name.Cdl.Short" = "CDL";
+"Library.Name.Cdl.Short" = "CDL";
 
-"kuStudy.Library.Name.Sejong.Short" = "SJ";
+"Library.Name.Sejong.Short" = "SJ";
 
-"kuStudy.Library.Name.Law.Short" = "LAW";
+"Library.Name.Law.Short" = "LAW";
 
-"kuStudy.Media.Attribution.Photo" = "Photo by %@";
+"Media.Attribution.Photo" = "Photo by %@";
 
-"kuStudy.Media.Attribution.Timelapse" = "Timelapse by %@";
+"Media.Attribution.Timelapse" = "Timelapse by %@";
 
-"kuStudy.Media.Attribution.Illustration" = "Illustration by %@";
+"Media.Attribution.Illustration" = "Illustration by %@";
 
-"kuStudy.Media.Attribution.Video" = "Video by %@";
+"Media.Attribution.Video" = "Video by %@";
 

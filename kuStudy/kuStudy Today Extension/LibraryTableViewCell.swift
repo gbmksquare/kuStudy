@@ -23,18 +23,18 @@ class LibraryTableViewCell: UITableViewCell {
     // MARK: View
     override func awakeFromNib() {
         super.awakeFromNib()
-        totalPlaceholderLabel.text = Localizations.Today.Cell.Label.Total
-        availablePlaceholderLabel.text = Localizations.Today.Cell.Label.Available
-        usedPlaceholderLabel.text = Localizations.Today.Cell.Label.Used
+        totalPlaceholderLabel.text = Localizations.Cell.Label.Total
+        availablePlaceholderLabel.text = Localizations.Cell.Label.Available
+        usedPlaceholderLabel.text = Localizations.Cell.Label.Used
         indicatorView.layer.cornerRadius = indicatorView.bounds.width / 2
         indicatorView.backgroundColor = UIColor(hue: 0, saturation: 0, brightness: 0.95, alpha: 1)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        totalLabel.text = Localizations.Today.Cell.Label.Nodata
-        availableLabel.text = Localizations.Today.Cell.Label.Nodata
-        usedLabel.text = Localizations.Today.Cell.Label.Nodata
+        totalLabel.text = Localizations.Cell.Label.NoData
+        availableLabel.text = Localizations.Cell.Label.NoData
+        usedLabel.text = Localizations.Cell.Label.NoData
     }
     
     // MARK: Populate

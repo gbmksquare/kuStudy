@@ -17,66 +17,62 @@ import Foundation
 public struct Localizations {
 
 
-    public struct Today {
+    public struct Table {
 
 
-        public struct Table {
+        public struct Label {
 
+            /// Base translation: Failed to load information.
+            public static var Error : String = NSLocalizedString("Table.Label.Error", comment: "")
 
-            public struct Label {
+            /// Base translation: Tap to refresh
+            public static var TapToRefresh : String = NSLocalizedString("Table.Label.TapToRefresh", comment: "")
 
-                /// Base translation: Failed to load information.
-                public static var Error : String = NSLocalizedString("Today.Table.Label.Error", comment: "")
+            /// Base translation: Loading...
+            public static var Loading : String = NSLocalizedString("Table.Label.Loading", comment: "")
 
-                /// Base translation: Loading...
-                public static var Loading : String = NSLocalizedString("Today.Table.Label.Loading", comment: "")
-
-                /// Base translation: Tap to refresh
-                public static var Taptorefresh : String = NSLocalizedString("Today.Table.Label.TapToRefresh", comment: "")
-
-            }
         }
+    }
 
-        public struct Cell {
+    public struct Main {
 
 
-            public struct Label {
+        public struct Label {
 
-                /// Base translation: Total
-                public static var Total : String = NSLocalizedString("Today.Cell.Label.Total", comment: "")
+            /// Base translation: Science Campus:
+            public static var ScienceCampus : String = NSLocalizedString("Main.Label.ScienceCampus", comment: "")
 
-                /// Base translation: Available
-                public static var Available : String = NSLocalizedString("Today.Cell.Label.Available", comment: "")
+            /// Base translation: Liberal Art Campus:
+            public static var LiberalArtCampus : String = NSLocalizedString("Main.Label.LiberalArtCampus", comment: "")
 
-                /// Base translation: --
-                public static var Nodata : String = NSLocalizedString("Today.Cell.Label.NoData", comment: "")
+            /// Base translation: --
+            public static var NoData : String = NSLocalizedString("Main.Label.NoData", comment: "")
 
-                /// Base translation: Occupied
-                public static var Used : String = NSLocalizedString("Today.Cell.Label.Used", comment: "")
-
+            /// Base translation: %@ studying
+            public static func Studying(_ value1 : String) -> String {
+                return String(format: NSLocalizedString("Main.Label.Studying", comment: ""), value1)
             }
+
         }
+    }
 
-        public struct Main {
+    public struct Cell {
 
 
-            public struct Label {
+        public struct Label {
 
-                /// Base translation: Science Campus:
-                public static var Sciencecampus : String = NSLocalizedString("Today.Main.Label.ScienceCampus", comment: "")
+            /// Base translation: Total
+            public static var Total : String = NSLocalizedString("Cell.Label.Total", comment: "")
 
-                /// Base translation: --
-                public static var Nodata : String = NSLocalizedString("Today.Main.Label.NoData", comment: "")
+            /// Base translation: Available
+            public static var Available : String = NSLocalizedString("Cell.Label.Available", comment: "")
 
-                /// Base translation: Liberal Art Campus:
-                public static var Liberalartcampus : String = NSLocalizedString("Today.Main.Label.LiberalArtCampus", comment: "")
+            /// Base translation: --
+            public static var NoData : String = NSLocalizedString("Cell.Label.NoData", comment: "")
 
-                /// Base translation: %@ studying
-                public static func Studying(_ value1 : String) -> String {
-                    return String(format: NSLocalizedString("Today.Main.Label.Studying", comment: ""), value1)
-                }
+            /// Base translation: Occupied
+            public static var Used : String = NSLocalizedString("Cell.Label.Used", comment: "")
 
-            }
         }
     }
 }

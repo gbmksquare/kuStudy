@@ -35,8 +35,8 @@ class SeatsProgressView: UIView {
     
     // MARK: - Populate
     private func populate() {
-        occupiedSeatsLabel.text  = libraryData?.occupied.readable ?? Localizations.Common.Nodata
-        totalSeatsLabel.text = libraryData?.total.readable ?? Localizations.Common.Nodata
+        occupiedSeatsLabel.text  = libraryData?.occupied.readable ?? Localizations.Common.NoData
+        totalSeatsLabel.text = libraryData?.total.readable ?? Localizations.Common.NoData
         progressView.progress = libraryData?.occupiedPercentage ?? 0
         progressView.tintColor = libraryData?.occupiedPercentageColor
     }
@@ -46,9 +46,9 @@ class SeatsProgressView: UIView {
         setupView()
         setupLayout()
         
-        occupiedSeatsLabel.text = Localizations.Common.Nodata
+        occupiedSeatsLabel.text = Localizations.Common.NoData
         occupiedLabel.text = Localizations.Common.Used
-        totalSeatsLabel.text = Localizations.Common.Nodata
+        totalSeatsLabel.text = Localizations.Common.NoData
         totalLabel.text = Localizations.Common.Total
         progressView.progress = 0
     }

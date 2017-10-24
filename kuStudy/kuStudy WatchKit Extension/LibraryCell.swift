@@ -19,8 +19,8 @@ class LibraryCell: NSObject {
     @IBOutlet weak var percentGroup: WKInterfaceGroup!
     
     func populate(_ libraryData: LibraryData) {
-        availablePlaceholderLabel.setText(Localizations.Watch.Cell.Label.Available)
-        usedPlaceholderLabel.setText(Localizations.Watch.Cell.Label.Used)
+        availablePlaceholderLabel.setText(Localizations.Cell.Label.Available)
+        usedPlaceholderLabel.setText(Localizations.Cell.Label.Used)
         
         nameLabel.setText(libraryData.libraryName)
         availableLabel.setText(libraryData.available.readable)

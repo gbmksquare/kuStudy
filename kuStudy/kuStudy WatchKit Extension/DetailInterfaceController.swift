@@ -28,9 +28,9 @@ class DetailInterfaceController: WKInterfaceController {
     
     // Setup
     private func setup() {
-        totalPlaceholderLabel.setText(Localizations.Watch.Label.Total)
-        usedPlaceholderLabel.setText(Localizations.Watch.Label.Available)
-        availablePlaceholderLabel.setText(Localizations.Watch.Label.Used)
+        totalPlaceholderLabel.setText(Localizations.Label.Total)
+        usedPlaceholderLabel.setText(Localizations.Label.Available)
+        availablePlaceholderLabel.setText(Localizations.Label.Used)
     }
     
     // MARK: Watch

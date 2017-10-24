@@ -4,25 +4,25 @@
   Created by BumMo Koo on 2016. 8. 10..
   Copyright © 2016년 gbmKSquare. All rights reserved. */
 
-"Today.Table.Label.Loading" = "로딩 중...";
+"Table.Label.Loading" = "로딩 중...";
 
-"Today.Table.Label.Error" = "정보를 가져올 수 없습니다.";
+"Table.Label.Error" = "정보를 가져올 수 없습니다.";
 
-"Today.Table.Label.TapToRefresh" = "탭해서 새로고침";
+"Table.Label.TapToRefresh" = "탭해서 새로고침";
 
-"Today.Main.Label.NoData" = "--";
+"Main.Label.NoData" = "--";
 
-"Today.Main.Label.Studying" = "%@ 명 공부 중";
+"Main.Label.Studying" = "%@ 명 공부 중";
 
-"Today.Cell.Label.Total" = "전체";
+"Cell.Label.Total" = "전체";
 
-"Today.Cell.Label.Used" = "사용 중";
+"Cell.Label.Used" = "사용 중";
 
-"Today.Cell.Label.Available" = "잔여석";
+"Cell.Label.Available" = "잔여석";
 
-"Today.Cell.Label.NoData" = "--";
+"Cell.Label.NoData" = "--";
 
-"Today.Main.Label.ScienceCampus" = "자연계 캠퍼스:";
+"Main.Label.ScienceCampus" = "자연계 캠퍼스:";
 
-"Today.Main.Label.LiberalArtCampus" = "문과 캠퍼스:";
+"Main.Label.LiberalArtCampus" = "문과 캠퍼스:";
 

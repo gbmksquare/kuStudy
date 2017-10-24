@@ -256,7 +256,7 @@ extension LibraryViewController {
     
     private func askRemindTimeInterval() {
         let library = self.library
-        let alert = UIAlertController(title: nil, message: Localizations.Alert.Message.Notification.Settimeinterval, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: Localizations.Alert.Message.Notification.SetTimeInterval, preferredStyle: .actionSheet)
         alert.popoverPresentationController?.sourceView = remindButton
         alert.popoverPresentationController?.sourceRect = remindButton.bounds
         alert.popoverPresentationController?.permittedArrowDirections = .any
@@ -281,12 +281,12 @@ extension LibraryViewController {
     }
     
     private func handleNotificationAccessDenied() {
-        let alert = UIAlertController(title: Localizations.Alert.Title.Notification.Accessdenied, message: Localizations.Alert.Message.Notification.Accessdenied, preferredStyle: .alert)
+        let alert = UIAlertController(title: Localizations.Alert.Title.Notification.AccessDenied, message: Localizations.Alert.Message.Notification.AccessDenied, preferredStyle: .alert)
         alert.popoverPresentationController?.sourceView = remindButton
         let confirm = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default) { [weak self] (_) in
             self?.tapped(remind: nil)
         }
-        let openSettings = UIAlertAction(title: Localizations.Alert.Action.Opensettings, style: .default) { (_) in
+        let openSettings = UIAlertAction(title: Localizations.Alert.Action.OpenSettings, style: .default) { (_) in
             guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
             let app = UIApplication.shared
             if app.canOpenURL(url) {

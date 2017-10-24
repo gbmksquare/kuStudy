@@ -17,50 +17,46 @@ import Foundation
 public struct Localizations {
 
 
-    public struct Watch {
+    public struct Label {
 
+        /// Base translation: Total
+        public static var Total : String = NSLocalizedString("Label.Total", comment: "")
 
-        public struct Cell {
+        /// Base translation: Available
+        public static var Available : String = NSLocalizedString("Label.Available", comment: "")
 
+        /// Base translation: Occupied
+        public static var Used : String = NSLocalizedString("Label.Used", comment: "")
 
-            public struct Label {
+        /// Base translation:  Studying
+        public static var StudyingDescription : String = NSLocalizedString("Label.StudyingDescription", comment: "")
 
-                /// Base translation: Total
-                public static var Total : String = NSLocalizedString("Watch.Cell.Label.Total", comment: "")
+    }
 
-                /// Base translation: Occupied
-                public static var Used : String = NSLocalizedString("Watch.Cell.Label.Used", comment: "")
+    public struct Cell {
 
-                /// Base translation: Available
-                public static var Available : String = NSLocalizedString("Watch.Cell.Label.Available", comment: "")
-
-            }
-        }
 
         public struct Label {
 
             /// Base translation: Total
-            public static var Total : String = NSLocalizedString("Watch.Label.Total", comment: "")
-
-            /// Base translation: Available
-            public static var Available : String = NSLocalizedString("Watch.Label.Available", comment: "")
+            public static var Total : String = NSLocalizedString("Cell.Label.Total", comment: "")
 
             /// Base translation: Occupied
-            public static var Used : String = NSLocalizedString("Watch.Label.Used", comment: "")
+            public static var Used : String = NSLocalizedString("Cell.Label.Used", comment: "")
 
-            /// Base translation:  Studying
-            public static var Studyingdescription : String = NSLocalizedString("Watch.Label.StudyingDescription", comment: "")
-
-        }
-
-        public struct Complication {
-
-            /// Base translation: Total: 
-            public static var Total : String = NSLocalizedString("Watch.Complication.Total", comment: "")
-
-            /// Base translation: Available: 
-            public static var Available : String = NSLocalizedString("Watch.Complication.Available", comment: "")
+            /// Base translation: Available
+            public static var Available : String = NSLocalizedString("Cell.Label.Available", comment: "")
 
         }
+    }
+
+    public struct Complication {
+
+        /// Base translation: Total: 
+        public static var Total : String = NSLocalizedString("Complication.Total", comment: "")
+
+        /// Base translation: Available: 
+        public static var Available : String = NSLocalizedString("Complication.Available", comment: "")
+
     }
 }

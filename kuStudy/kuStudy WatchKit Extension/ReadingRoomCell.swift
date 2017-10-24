@@ -19,8 +19,8 @@ class ReadingRoomCell: NSObject {
     @IBOutlet weak var percentGroup: WKInterfaceGroup!
     
     func populate(_ sectorData: SectorData) {
-        availablePlaceholderLabel.setText(Localizations.Watch.Cell.Label.Available)
-        usedPlaceholderLabel.setText(Localizations.Watch.Cell.Label.Used)
+        availablePlaceholderLabel.setText(Localizations.Cell.Label.Available)
+        usedPlaceholderLabel.setText(Localizations.Cell.Label.Used)
         
         nameLabel.setText(sectorData.name)
         availableLabel.setText(sectorData.available?.readable)

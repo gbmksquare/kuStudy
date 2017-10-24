@@ -36,7 +36,7 @@ class StatusView: UIView {
         indicator.activityIndicatorViewStyle = .gray
         indicator.hidesWhenStopped = true
         
-        label.text = Localizations.Today.Table.Label.Error
+        label.text = Localizations.Table.Label.Error
         label.font = UIFont.preferredFont(forTextStyle: .body)
         
         addSubview(vibracyView)
@@ -63,6 +63,6 @@ class StatusView: UIView {
     func setErrorState(message: String? = nil) {
         indicator.stopAnimating()
         label.isHidden = false
-        label.text = message ?? Localizations.Today.Table.Label.Error
+        label.text = message ?? Localizations.Table.Label.Error
     }
 }

@@ -23,12 +23,12 @@ public enum LibraryType: String, Codable {
     
     private var localizedKey: String {
         switch self {
-        case .centralSquare: return "kuStudy.Library.Name.CentralSquare"
-        case .centralLibrary: return "kuStudy.Library.Name.CentralLibrary"
-        case .hanaSquare: return "kuStudy.Library.Name.HanaSquare"
-        case .scienceLibrary: return "kuStudy.Library.Name.ScienceLibrary"
-        case .cdl: return "kuStudy.Library.Name.Cdl"
-        case .law: return "kuStudy.Library.Name.Law"
+        case .centralSquare: return "Library.Name.CentralSquare"
+        case .centralLibrary: return "Library.Name.CentralLibrary"
+        case .hanaSquare: return "Library.Name.HanaSquare"
+        case .scienceLibrary: return "Library.Name.ScienceLibrary"
+        case .cdl: return "Library.Name.Cdl"
+        case .law: return "Library.Name.Law"
         }
     }
 }

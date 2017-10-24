@@ -54,14 +54,14 @@ class ReadingRoomTableViewCell: UITableViewCell {
     
     // MARK: Populate
     private func setEmpty() {
-        nameLabel.text = Localizations.Common.Nodata
+        nameLabel.text = Localizations.Common.NoData
         availablePlaceholderLabel.text = Localizations.Common.Available
         totalPlaceholderLabel.text = Localizations.Common.Total
         usedPlaceholderLabel.text = Localizations.Common.Used
         
-        availableLabel.text = Localizations.Common.Nodata
-        totalLabel.text = Localizations.Common.Nodata
-        usedLabel.text = Localizations.Common.Nodata
+        availableLabel.text = Localizations.Common.NoData
+        totalLabel.text = Localizations.Common.NoData
+        usedLabel.text = Localizations.Common.NoData
         
         indicatorView.backgroundColor = UIColor.lightGray
         usedProgressView.progress = 0

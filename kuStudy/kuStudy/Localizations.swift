@@ -26,10 +26,10 @@ public struct Localizations {
         public static var Disabled : String = NSLocalizedString("Common.Disabled", comment: "")
 
         /// Base translation: --
-        public static var Nodata : String = NSLocalizedString("Common.NoData", comment: "")
+        public static var NoData : String = NSLocalizedString("Common.NoData", comment: "")
 
         /// Base translation: Science Campus
-        public static var Sciencecampus : String = NSLocalizedString("Common.ScienceCampus", comment: "")
+        public static var ScienceCampus : String = NSLocalizedString("Common.ScienceCampus", comment: "")
 
         /// Base translation: Error
         public static var Error : String = NSLocalizedString("Common.Error", comment: "")
@@ -38,10 +38,10 @@ public struct Localizations {
         public static var Total : String = NSLocalizedString("Common.Total", comment: "")
 
         /// Base translation: Out of Order
-        public static var Outoforder : String = NSLocalizedString("Common.OutOfOrder", comment: "")
+        public static var OutOfOrder : String = NSLocalizedString("Common.OutOfOrder", comment: "")
 
         /// Base translation: Liberal Art Campus
-        public static var Liberalartcampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
+        public static var LiberalArtCampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
 
         /// Base translation: Occupied
         public static var Used : String = NSLocalizedString("Common.Used", comment: "")
@@ -66,7 +66,7 @@ public struct Localizations {
             public struct Notification {
 
                 /// Base translation: Access Denied
-                public static var Accessdenied : String = NSLocalizedString("Alert.Title.Notification.AccessDenied", comment: "")
+                public static var AccessDenied : String = NSLocalizedString("Alert.Title.Notification.AccessDenied", comment: "")
 
             }
         }
@@ -74,10 +74,10 @@ public struct Localizations {
         public struct Message {
 
             /// Base translation: You can't purchase items at this time.
-            public static var Paymenterror : String = NSLocalizedString("Alert.Message.PaymentError", comment: "")
+            public static var PaymentError : String = NSLocalizedString("Alert.Message.PaymentError", comment: "")
 
 
-            public struct Appstore {
+            public struct AppStore {
 
                 /// Base translation: Failed to open App Store.
                 public static var Failed : String = NSLocalizedString("Alert.Message.AppStore.Failed", comment: "")
@@ -87,10 +87,10 @@ public struct Localizations {
             public struct Notification {
 
                 /// Base translation: Remind me after
-                public static var Settimeinterval : String = NSLocalizedString("Alert.Message.Notification.SetTimeInterval", comment: "")
+                public static var SetTimeInterval : String = NSLocalizedString("Alert.Message.Notification.SetTimeInterval", comment: "")
 
                 /// Base translation: Notification is turned off. Please enable notification from Settings app.
-                public static var Accessdenied : String = NSLocalizedString("Alert.Message.Notification.AccessDenied", comment: "")
+                public static var AccessDenied : String = NSLocalizedString("Alert.Message.Notification.AccessDenied", comment: "")
 
             }
         }
@@ -104,7 +104,7 @@ public struct Localizations {
             public static var Cancel : String = NSLocalizedString("Alert.Action.Cancel", comment: "")
 
             /// Base translation: Open Settings
-            public static var Opensettings : String = NSLocalizedString("Alert.Action.OpenSettings", comment: "")
+            public static var OpenSettings : String = NSLocalizedString("Alert.Action.OpenSettings", comment: "")
 
         }
     }
@@ -125,7 +125,7 @@ public struct Localizations {
         public struct Content {
 
             /// Base translation: Tap to show current seat status.
-            public static var Taptoshow : String = NSLocalizedString("Notification.Content.TapToShow", comment: "")
+            public static var TapToShow : String = NSLocalizedString("Notification.Content.TapToShow", comment: "")
 
         }
     }
@@ -168,7 +168,7 @@ public struct Localizations {
             }
         }
 
-        public struct Thanksto {
+        public struct ThanksTo {
 
 
             public struct Instagram {
@@ -201,7 +201,7 @@ public struct Localizations {
                     public static var Feedback : String = NSLocalizedString("Settings.Table.Section.Header.Feedback", comment: "")
 
                     /// Base translation: Tip Jar
-                    public static var Tipjar : String = NSLocalizedString("Settings.Table.Section.Header.TipJar", comment: "")
+                    public static var TipJar : String = NSLocalizedString("Settings.Table.Section.Header.TipJar", comment: "")
 
                     /// Base translation: General
                     public static var General : String = NSLocalizedString("Settings.Table.Section.Header.General", comment: "")
@@ -225,10 +225,10 @@ public struct Localizations {
                     public static var Rate : String = NSLocalizedString("Settings.Table.Cell.Title.Rate", comment: "")
 
                     /// Base translation: Today Widget Order
-                    public static var Todayorder : String = NSLocalizedString("Settings.Table.Cell.Title.TodayOrder", comment: "")
+                    public static var TodayOrder : String = NSLocalizedString("Settings.Table.Cell.Title.TodayOrder", comment: "")
 
                     /// Base translation: Tip Developer
-                    public static var Tipjar : String = NSLocalizedString("Settings.Table.Cell.Title.TipJar", comment: "")
+                    public static var TipJar : String = NSLocalizedString("Settings.Table.Cell.Title.TipJar", comment: "")
 
                     /// Base translation: Recommend to a Friend
                     public static var Recommend : String = NSLocalizedString("Settings.Table.Cell.Title.Recommend", comment: "")
@@ -237,13 +237,13 @@ public struct Localizations {
                     public static var Order : String = NSLocalizedString("Settings.Table.Cell.Title.Order", comment: "")
 
                     /// Base translation: Open Source
-                    public static var Opensource : String = NSLocalizedString("Settings.Table.Cell.Title.OpenSource", comment: "")
+                    public static var OpenSource : String = NSLocalizedString("Settings.Table.Cell.Title.OpenSource", comment: "")
 
                     /// Base translation: Maps
                     public static var Maps : String = NSLocalizedString("Settings.Table.Cell.Title.Maps", comment: "")
 
                     /// Base translation: Thanks To
-                    public static var Thanksto : String = NSLocalizedString("Settings.Table.Cell.Title.ThanksTo", comment: "")
+                    public static var ThanksTo : String = NSLocalizedString("Settings.Table.Cell.Title.ThanksTo", comment: "")
 
                     /// Base translation: Send Feedback
                     public static var Feedback : String = NSLocalizedString("Settings.Table.Cell.Title.Feedback", comment: "")
@@ -253,17 +253,17 @@ public struct Localizations {
                 public struct Detail {
 
                     /// Base translation: Google Maps
-                    public static var Googlemap : String = NSLocalizedString("Settings.Table.Cell.Detail.GoogleMap", comment: "")
+                    public static var GoogleMap : String = NSLocalizedString("Settings.Table.Cell.Detail.GoogleMap", comment: "")
 
                     /// Base translation: Apple Maps
-                    public static var Applemap : String = NSLocalizedString("Settings.Table.Cell.Detail.AppleMap", comment: "")
+                    public static var AppleMap : String = NSLocalizedString("Settings.Table.Cell.Detail.AppleMap", comment: "")
 
                 }
             }
         }
     }
 
-    public struct Timeinterval {
+    public struct TimeInterval {
 
         /// Base translation: Now
         public static var Now : String = NSLocalizedString("TimeInterval.Now", comment: "")
@@ -284,7 +284,7 @@ public struct Localizations {
         }
 
         /// Base translation: %@ are studying in liberal art campus, %@ are studying in science campus.
-        public static func Studyingcampus(_ value1 : String, _ value2 : String) -> String {
+        public static func StudyingCampus(_ value1 : String, _ value2 : String) -> String {
             return String(format: NSLocalizedString("Main.StudyingCampus", comment: ""), value1, value2)
         }
 
@@ -303,7 +303,7 @@ public struct Localizations {
     public struct Library {
 
         /// Base translation: Last updated: %@
-        public static func Updatedat(_ value1 : String) -> String {
+        public static func UpdatedAt(_ value1 : String) -> String {
             return String(format: NSLocalizedString("Library.UpdatedAt", comment: ""), value1)
         }
 

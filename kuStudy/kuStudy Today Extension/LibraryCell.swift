@@ -98,7 +98,7 @@ class LibraryCell: UICollectionViewCell {
         libraryLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         
         // Content
-        availableTitleLabel.text = Localizations.Today.Cell.Label.Available
+        availableTitleLabel.text = Localizations.Cell.Label.Available
         
         // Layout
         let stack = UIStackView()
