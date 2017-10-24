@@ -28,6 +28,7 @@ platform :ios do
   lane :localize do
   	sh "cd .. && wget -O LaurineGenerator.swift https://raw.githubusercontent.com/JiriTrecak/Laurine/master/LaurineGenerator.swift"
   	sh "cd .. && ./LaurineGenerator.swift -i ./kuStudy/kuStudy/Base.lproj/Localizable.strings -c -o ./kuStudy/kuStudy/Localizations.swift"
+  	sh "cd .. && ./LaurineGenerator.swift -i ./kuStudy/kuStudyKit/Base.lproj/Localizable.strings -c -o ./kuStudy/kuStudyKit/Localizations.swift"
   	sh "cd .. && ./LaurineGenerator.swift -i \"./kuStudy/kuStudy\ Today\ Extension/Base.lproj/Localizable.strings\" -c -o \"./kuStudy/kuStudy\ Today\ Extension/Localizations.swift\""
   	sh "cd .. && ./LaurineGenerator.swift -i \"./kuStudy/kuStudy\ WatchKit\ Extension/Base.lproj/Localizable.strings\" -c -o \"./kuStudy/kuStudy\ WatchKit\ Extension/Localizations.swift\""
   end

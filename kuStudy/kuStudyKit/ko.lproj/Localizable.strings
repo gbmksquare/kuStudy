@@ -1,24 +1,43 @@
-/* 
-  Localizable.strings
+/* Localizable.strings
   kuStudy
 
   Created by 구범모 on 2015. 6. 5..
-  Copyright (c) 2015년 gbmKSquare. All rights reserved.
-*/
+  Copyright (c) 2015년 gbmKSquare. All rights reserved. */
 
-// MARK: Libraries
+/* MARK: Libraries */
 "kuStudy.Library.Name.CentralLibrary" = "중앙도서관";
+
 "kuStudy.Library.Name.CentralSquare" = "중앙광장";
+
 "kuStudy.Library.Name.HanaSquare" = "하나스퀘어";
+
 "kuStudy.Library.Name.ScienceLibrary" = "과학도서관";
+
 "kuStudy.Library.Name.Cdl" = "백주념기념관";
+
 "kuStudy.Library.Name.Sejong" = "세종캠퍼스";
+
 "kuStudy.Library.Name.Law" = "해송법학도서관";
 
 "kuStudy.Library.Name.CentralLibrary.Short" = "중도";
+
 "kuStudy.Library.Name.CentralSquare.Short" = "중광";
+
 "kuStudy.Library.Name.HanaSquare.Short" = "하스";
+
 "kuStudy.Library.Name.ScienceLibrary.Short" = "과도";
+
 "kuStudy.Library.Name.Cdl.Short" = "백기";
+
 "kuStudy.Library.Name.Sejong.Short" = "세종";
+
 "kuStudy.Library.Name.Law.Short" = "법도";
+
+"kuStudy.Media.Attribution.Photo" = "사진 촬영: %@";
+
+"kuStudy.Media.Attribution.Timelapse" = "타임랩스: %@";
+
+"kuStudy.Media.Attribution.Illustration" = "일러스트: %@";
+
+"kuStudy.Media.Attribution.Video" = "비디오 촬영: %@";
+

@@ -48,6 +48,15 @@ public extension Media {
         return MediaManager.shared.artists.filter { $0.identifier == artistIdentifier }.first!
     }
     
+    public var attribution: String {
+        switch mediaType {
+        case .photo, .livePhoto: return ""
+        case .video: return ""
+        case .timelapse: return ""
+        case .illustration: return ""
+        }
+    }
+    
     #if os(iOS)
     public var image: UIImage? {
         switch mediaType {
