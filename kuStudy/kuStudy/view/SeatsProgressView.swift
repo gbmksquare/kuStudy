@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import kuStudyKit
 
 class SeatsProgressView: UIView {
     private lazy var occupiedStack = UIStackView()
@@ -19,6 +20,8 @@ class SeatsProgressView: UIView {
     
     private lazy var progressView = UIProgressView()
     
+    var libraryData: LibraryData? { didSet { populate() } }
+    
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -30,16 +33,24 @@ class SeatsProgressView: UIView {
         setup()
     }
     
+    // MARK: - Populate
+    private func populate() {
+        occupiedSeatsLabel.text  = libraryData?.occupied.readable ?? Localizations.Common.Nodata
+        totalSeatsLabel.text = libraryData?.total.readable ?? Localizations.Common.Nodata
+        progressView.progress = libraryData?.occupiedPercentage ?? 0
+        progressView.tintColor = libraryData?.occupiedPercentageColor
+    }
+    
     // MARK: - Setup
     private func setup() {
         setupView()
         setupLayout()
         
-        occupiedSeatsLabel.text = "123"
-        occupiedLabel.text = "Occupied"
-        totalSeatsLabel.text = "1234"
-        totalLabel.text = "Total"
-        progressView.progress = 0.65
+        occupiedSeatsLabel.text = Localizations.Common.Nodata
+        occupiedLabel.text = Localizations.Common.Used
+        totalSeatsLabel.text = Localizations.Common.Nodata
+        totalLabel.text = Localizations.Common.Total
+        progressView.progress = 0
     }
     
     private func setupView() {

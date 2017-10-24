@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import kuStudyKit
 
 class LibraryHeaderView: UIView {
     private lazy var stack = UIStackView()
@@ -29,6 +30,9 @@ class LibraryHeaderView: UIView {
     
     private lazy var separator = UIView()
     
+    var library: LibraryType? { didSet { updateTitle() } }
+    var libraryData: LibraryData? { didSet { populate() } }
+    
     // MARK: - View
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -40,16 +44,28 @@ class LibraryHeaderView: UIView {
         setup()
     }
     
+    // MARK: - Populate
+    private func updateTitle() {
+        titleLabel.text = library?.name ?? Localizations.Common.Nodata
+        subtitleLabel.text = library?.nameInAlternateLanguage ?? Localizations.Common.Nodata
+    }
+    
+    private func populate() {
+        availableSeatsLabel.text = libraryData?.available.readable ?? Localizations.Common.Nodata
+        progressView.libraryData = libraryData
+        artistLabel.text = "Photography by \(libraryData?.media?.artist.name ?? Localizations.Common.Nodata)"
+    }
+    
     // MARK: - Setup
     private func setup() {
         setupView()
         setupLayout()
-        titleLabel.text = "Library"
-        subtitleLabel.text = "Library Libertas"
-        availableSeatsLabel.text = "321"
-        availableLabel.text = "Available"
-        timestampLabel.text = "Updated at 12:00"
-        artistLabel.text = "Photography by BumMo Koo"
+        titleLabel.text = Localizations.Common.Nodata
+        subtitleLabel.text = Localizations.Common.Nodata
+        availableSeatsLabel.text = Localizations.Common.Nodata
+        availableLabel.text = Localizations.Common.Available
+        timestampLabel.text = "Updated at --"
+        artistLabel.text = "Photography by --"
     }
     
     private func setupView() {

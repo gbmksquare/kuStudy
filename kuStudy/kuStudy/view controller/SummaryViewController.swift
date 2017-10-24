@@ -28,9 +28,6 @@ class SummaryViewController: UIViewController {
     
     private lazy var gradient = CAGradientLayer()
     
-    private var showNavigationAnimator: UIViewPropertyAnimator?
-    private var hideNavigationAnimator: UIViewPropertyAnimator?
-    
     private var summary: SummaryData?
     private var dataState: DataSourceState = .fetching
     private var error: Error?

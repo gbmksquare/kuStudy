@@ -19,20 +19,12 @@ class LibraryViewController: UIViewController {
     @IBOutlet private weak var header: UIView!
     
     private var heroImageView: UIImageView!
-    @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var subtitleLabel: UILabel!
+    private var headerContentView = LibraryHeaderView()
     
     private lazy var gradient = CAGradientLayer()
     
-    @IBOutlet weak var dataScrollView: UIScrollView!
-    @IBOutlet var dataLabels: [UILabel]!
-    @IBOutlet var dataTitleLabels: [UILabel]!
-    
     @IBOutlet weak var mapButton: UIButton!
     @IBOutlet weak var remindButton: UIButton!
-    
-    private var showNavigationAnimator: UIViewPropertyAnimator?
-    private var hideNavigationAnimator: UIViewPropertyAnimator?
     
     override var hidesBottomBarWhenPushed: Bool {
         get { return navigationController?.topViewController == self }
@@ -85,7 +77,6 @@ class LibraryViewController: UIViewController {
         super.viewDidLayoutSubviews()
         resizeHeader()
         resizeGradient()
-        resetDataScrollViewInset()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -128,6 +119,8 @@ extension LibraryViewController {
     }
     
     private func setupImageHeader() {
+        table.tableHeaderView = headerContentView
+        
         let imageView = UIImageView()
         imageView.backgroundColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
         imageView.contentMode = .scaleAspectFill
@@ -175,20 +168,10 @@ extension LibraryViewController {
     
     private func setupContent() {
         title = library.name
-        titleLabel.text = library.name
-        subtitleLabel.text = library.nameInAlternateLanguage
+        headerContentView.library = library
         
         // Image
         heroImageView.image = MediaManager.shared.media(for: library)?.image
-        
-        dataTitleLabels.forEach {
-            guard let tag = DataTag(rawValue: $0.tag) else { return }
-            switch tag {
-            case .total: $0.text = Localizations.Common.Total
-            case .available: $0.text = Localizations.Common.Available
-            case .used: $0.text = Localizations.Common.Used
-            }
-        }
     }
 }
 
@@ -235,16 +218,7 @@ extension LibraryViewController {
     }
     
     private func updateView() {
-        if let libraryData = libraryData {
-            dataLabels.forEach {
-                guard let tag = DataTag(rawValue: $0.tag) else { return }
-                switch tag {
-                case .total: $0.text = libraryData.total.readable
-                case .available: $0.text = libraryData.available.readable
-                case .used: $0.text = libraryData.occupied.readable
-                }
-            }
-        }
+        headerContentView.libraryData = libraryData
         table.reloadData()
     }
     
@@ -391,11 +365,6 @@ extension LibraryViewController {
     private func resizeGradient() {
         let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + 8)
         gradient.frame = CGRect(origin: .zero, size: size)
-    }
-    
-    private func resetDataScrollViewInset() {
-        dataScrollView.contentInset = UIEdgeInsets(top: 0, left: view.layoutMargins.left,
-                                                   bottom: 0, right: view.layoutMargins.right)
     }
     
     private func handleNavigationBar() {
