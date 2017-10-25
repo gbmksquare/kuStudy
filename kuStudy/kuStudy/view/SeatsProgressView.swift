@@ -58,19 +58,19 @@ class SeatsProgressView: UIView {
         [occupiedStack, totalStack].forEach {
             $0.axis = .vertical
             $0.distribution = .fillProportionally
-            $0.spacing = 1
+            $0.spacing = 0
         }
         occupiedStack.alignment = .leading
         totalStack.alignment = .trailing
         
         [occupiedSeatsLabel, totalSeatsLabel].forEach {
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+            $0.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         }
         
         [occupiedLabel, totalLabel].forEach {
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: 12, weight: .medium)
+            $0.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
         }
         
         progressView.minimumValue = 0

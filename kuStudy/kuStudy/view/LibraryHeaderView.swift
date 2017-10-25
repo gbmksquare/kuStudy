@@ -78,7 +78,7 @@ class LibraryHeaderView: UIView {
         titleStack.axis = .vertical
         titleStack.alignment = .fill
         titleStack.distribution = .fillProportionally
-        titleStack.spacing = 4
+        titleStack.spacing = 2
         
         dataStack.axis = .horizontal
         dataStack.alignment = .lastBaseline
@@ -88,7 +88,7 @@ class LibraryHeaderView: UIView {
         availableStack.axis = .vertical
         availableStack.alignment = .fill
         availableStack.distribution = .fillProportionally
-        availableStack.spacing = 2
+        availableStack.spacing = 0
         
         infoStack.axis = .horizontal
         infoStack.alignment = .fill
@@ -96,15 +96,16 @@ class LibraryHeaderView: UIView {
         infoStack.spacing = 4
         
         titleLabel.font = UIFont.systemFont(ofSize: 33, weight: .bold)
-        subtitleLabel.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        subtitleLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         availableSeatsLabel.font = UIFont.systemFont(ofSize: 36, weight: .regular)
-        availableLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        availableLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
         timestampLabel.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
         artistLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
         
-        subtitleLabel.textColor = .darkGray
-        timestampLabel.textColor = .lightGray
-        artistLabel.textColor = .lightGray
+        subtitleLabel.textColor = .lightGray
+        availableLabel.textColor = .lightGray
+        timestampLabel.textColor = #colorLiteral(red: 0.8392109871, green: 0.8391088247, blue: 0.8563356996, alpha: 1)
+        artistLabel.textColor = #colorLiteral(red: 0.8392109871, green: 0.8391088247, blue: 0.8563356996, alpha: 1)
         separator.backgroundColor = #colorLiteral(red: 0.8392109871, green: 0.8391088247, blue: 0.8563356996, alpha: 1)
     }
     
