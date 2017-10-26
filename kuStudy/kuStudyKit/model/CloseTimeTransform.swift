@@ -18,7 +18,7 @@ class CloseTimeTransform: TransformType {
     open func transformFromJSON(_ value: Any?) -> Date? {
         if let raw = value as? String {
             let formatter = DateFormatter()
-            formatter.dateFormat = "hhmm PM"
+            formatter.dateFormat = "hhmm a"
             
             let time = raw + " AM"
             return formatter.date(from: time)

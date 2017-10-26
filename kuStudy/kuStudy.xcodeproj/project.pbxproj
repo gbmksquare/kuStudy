@@ -77,7 +77,6 @@
 		1672461A1B1B13610083035F /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672461E1B1B44850083035F /* SummaryViewController.swift */; };
 		167246231B1B4BEC0083035F /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246221B1B4BEC0083035F /* LibraryTableViewCell.swift */; };
-		167246251B1B4F0D0083035F /* ReadingRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246241B1B4F0D0083035F /* ReadingRoomTableViewCell.swift */; };
 		167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246261B1B4F2C0083035F /* LibraryViewController.swift */; };
 		1673304F1B1C92BF00573FFC /* DetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673304E1B1C92BF00573FFC /* DetailInterfaceController.swift */; };
 		1676C3D31B2418B8001B3AB6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1676C3D51B2418B8001B3AB6 /* MainInterface.storyboard */; };
@@ -98,6 +97,7 @@
 		1685E05B1F91EA7600F80699 /* SocialAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685E0591F91EA7600F80699 /* SocialAccount.swift */; };
 		168841191B1EB58700F3C818 /* ReadingRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168841181B1EB58700F3C818 /* ReadingRoomCell.swift */; };
 		1688C4171C4F6B790044D1EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A887351B21D1FF00C49551 /* Localizable.strings */; };
+		168C18CC1FA1F3F100F576D6 /* MiniInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C18CB1FA1F3F100F576D6 /* MiniInfoView.swift */; };
 		16940EF01CF1D263005965A2 /* SummaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16940EEF1CF1D263005965A2 /* SummaryData.swift */; };
 		16940EF11CF1D263005965A2 /* SummaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16940EEF1CF1D263005965A2 /* SummaryData.swift */; };
 		16940EF31CF1D564005965A2 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16940EF21CF1D564005965A2 /* Float.swift */; };
@@ -338,7 +338,6 @@
 		1672461C1B1B138B0083035F /* kuStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = kuStudy.entitlements; sourceTree = "<group>"; };
 		1672461E1B1B44850083035F /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryViewController.swift; path = "view controller/SummaryViewController.swift"; sourceTree = "<group>"; };
 		167246221B1B4BEC0083035F /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryTableViewCell.swift; path = view/LibraryTableViewCell.swift; sourceTree = "<group>"; };
-		167246241B1B4F0D0083035F /* ReadingRoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReadingRoomTableViewCell.swift; path = view/ReadingRoomTableViewCell.swift; sourceTree = "<group>"; };
 		167246261B1B4F2C0083035F /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = "view controller/LibraryViewController.swift"; sourceTree = "<group>"; };
 		1673304E1B1C92BF00573FFC /* DetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInterfaceController.swift; sourceTree = "<group>"; };
 		1676C3D41B2418B8001B3AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -351,6 +350,7 @@
 		1685E0561F91E8EB00F80699 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Media.swift; path = model/Media.swift; sourceTree = "<group>"; };
 		1685E0591F91EA7600F80699 /* SocialAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SocialAccount.swift; path = model/SocialAccount.swift; sourceTree = "<group>"; };
 		168841181B1EB58700F3C818 /* ReadingRoomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingRoomCell.swift; sourceTree = "<group>"; };
+		168C18CB1FA1F3F100F576D6 /* MiniInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MiniInfoView.swift; path = view/MiniInfoView.swift; sourceTree = "<group>"; };
 		16940EEF1CF1D263005965A2 /* SummaryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryData.swift; path = model/SummaryData.swift; sourceTree = "<group>"; };
 		16940EF21CF1D564005965A2 /* Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Float.swift; path = extension/Float.swift; sourceTree = "<group>"; };
 		169B18C51E41D53B007422CC /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -840,7 +840,7 @@
 				162363501F9F181700CD78F2 /* LibraryHeaderView.swift */,
 				164579EF1F9F7E3C00DD8F22 /* SeatsProgressView.swift */,
 				16D1E8C51FA0CB2B006A5847 /* SectorCell.swift */,
-				167246241B1B4F0D0083035F /* ReadingRoomTableViewCell.swift */,
+				168C18CB1FA1F3F100F576D6 /* MiniInfoView.swift */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -1881,11 +1881,11 @@
 				16EE9F691F00F2EA006B75BB /* ThanksToViewController.swift in Sources */,
 				162F12151D5F86B000A401D8 /* PhotographerCell.swift in Sources */,
 				167245C51B19C0370083035F /* AppDelegate.swift in Sources */,
-				167246251B1B4F0D0083035F /* ReadingRoomTableViewCell.swift in Sources */,
 				1664D5521D55E1C6000BAF56 /* UINavigationController.swift in Sources */,
 				16019E9D1D8E45DE008A76C7 /* MainSplitViewController.swift in Sources */,
 				1664D5561D55E24B000BAF56 /* UIApplication.swift in Sources */,
 				16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */,
+				168C18CC1FA1F3F100F576D6 /* MiniInfoView.swift in Sources */,
 				1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift in Sources */,
 				168573A81F4FC81700399AA2 /* TipJarViewController.swift in Sources */,
 				164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */,
