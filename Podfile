@@ -12,6 +12,7 @@ target 'kuStudy' do
   use_frameworks!
   platform :ios, '10.0'
 
+  pod 'DeviceKit'
   pod 'AlamofireNetworkActivityIndicator'
   pod 'LinearProgressView'
   pod 'DZNEmptyDataSet'

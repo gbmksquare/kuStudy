@@ -13,6 +13,7 @@ import DZNEmptyDataSet
 import Crashlytics
 import UserNotifications
 import StoreKit
+import DeviceKit
 
 class LibraryViewController: UIViewController {
     private lazy var gradient = CAGradientLayer()
@@ -132,9 +133,9 @@ extension LibraryViewController {
         if traitCollection.verticalSizeClass == .compact {
             table.parallaxHeader.height = 120
         } else if traitCollection.userInterfaceIdiom == .phone {
-            table.parallaxHeader.height = 200
+            table.parallaxHeader.height = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) == true ? 244 : 200
         } else {
-            table.parallaxHeader.height = 280
+            table.parallaxHeader.height = 240
         }
     }
     

@@ -7,6 +7,7 @@ PODS:
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.0)
   - CTFeedback (1.1.1)
+  - DeviceKit (1.4.0)
   - DZNEmptyDataSet (1.8.1)
   - LinearProgressView (2.0.0)
   - MXParallaxHeader (0.6.1)
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - AlamofireNetworkActivityIndicator
   - AlamofireObjectMapper
   - CTFeedback
+  - DeviceKit
   - DZNEmptyDataSet
   - LinearProgressView
   - MXParallaxHeader
@@ -32,6 +34,7 @@ SPEC CHECKSUMS:
   AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
   AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
   CTFeedback: 6f128606e0d26d46075c3fa9fc33884372df8675
+  DeviceKit: fa74d97499660e88081718b16688e19217595dba
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   LinearProgressView: 2e71a3a937b93488f381088f0ba27f2ff52bb26c
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
@@ -39,6 +42,6 @@ SPEC CHECKSUMS:
   SimulatorStatusMagic: c8e958d70e0e0cd2d7cf33bb95014a222ddecf0a
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: db5bf1502d4e83e4390ff5b8ba28109e42abadb5
+PODFILE CHECKSUM: 140cffd3bc4e01a059d6f648f2479a16833e8528
 
 COCOAPODS: 1.4.0.beta.2

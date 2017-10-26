@@ -13,6 +13,7 @@ import MXParallaxHeader
 import DZNEmptyDataSet
 import Crashlytics
 import WatchConnectivity
+import DeviceKit
 
 enum DataSourceState {
     case fetching, error
@@ -119,9 +120,9 @@ extension SummaryViewController {
         if traitCollection.verticalSizeClass == .compact {
             table.parallaxHeader.height = 120
         } else if traitCollection.userInterfaceIdiom == .phone {
-            table.parallaxHeader.height = 200
+            table.parallaxHeader.height = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) == true ? 244 : 200
         } else {
-            table.parallaxHeader.height = 280
+            table.parallaxHeader.height = 240
         }
     }
     
