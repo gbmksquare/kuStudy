@@ -22,6 +22,7 @@ class SeatsProgressView: UIView {
     private lazy var progressView = LinearProgressView()
     
     var libraryData: LibraryData? { didSet { populate() } }
+    var sectorData: SectorData? { didSet { populate() } }
     
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -36,17 +37,32 @@ class SeatsProgressView: UIView {
     
     // MARK: - Populate
     private func populate() {
-        occupiedSeatsLabel.text  = libraryData?.occupied.readable ?? Localizations.Common.NoData
-        totalSeatsLabel.text = libraryData?.total.readable ?? Localizations.Common.NoData
-        progressView.trackColor = libraryData?.occupiedPercentageColor ?? #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.937254902, alpha: 1)
-        progressView.setProgress(libraryData?.occupiedPercentage ?? 0, animated: false)
+        if let data = libraryData {
+            occupiedSeatsLabel.text  = data.occupied.readable
+            totalSeatsLabel.text = data.total.readable
+            progressView.trackColor = data.occupiedPercentageColor
+            progressView.setProgress(data.occupiedPercentage, animated: false)
+        } else if let data = sectorData {
+            occupiedSeatsLabel.text  = data.occupied?.readable ?? Localizations.Common.NoData
+            totalSeatsLabel.text = data.total?.readable ?? Localizations.Common.NoData
+            progressView.trackColor = data.occupiedPercentageColor
+            progressView.setProgress(data.occupiedPercentage, animated: false)
+        } else {
+            occupiedSeatsLabel.text  = Localizations.Common.NoData
+            totalSeatsLabel.text = Localizations.Common.NoData
+            progressView.trackColor = #colorLiteral(red: 0.9176470588, green: 0.9176470588, blue: 0.937254902, alpha: 1)
+            progressView.setProgress(0, animated: false)
+        }
     }
     
     // MARK: - Setup
     private func setup() {
         setupView()
         setupLayout()
-        
+        setupContent()
+    }
+    
+    private func setupContent() {
         occupiedSeatsLabel.text = Localizations.Common.NoData
         occupiedLabel.text = Localizations.Common.Used
         totalSeatsLabel.text = Localizations.Common.NoData

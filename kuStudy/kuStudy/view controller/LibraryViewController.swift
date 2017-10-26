@@ -157,6 +157,9 @@ extension LibraryViewController {
     }
     
     private func setupTableView() {
+        table.register(SectorCell.self, forCellReuseIdentifier: "cell")
+        table.rowHeight = UITableViewAutomaticDimension
+        table.estimatedRowHeight = UITableViewAutomaticDimension
         table.tableFooterView = UIView()
         table.showsVerticalScrollIndicator = false
     }
@@ -326,12 +329,18 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let sector = libraryData?.sectors?[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "readingRoomCell", for: indexPath) as! ReadingRoomTableViewCell
-        if let sector = sector {
-            cell.populate(sector: sector)
-        }
-        cell.updateInterface(for: traitCollection)
+//        let sector = libraryData?.sectors?[indexPath.row]
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "readingRoomCell", for: indexPath) as! ReadingRoomTableViewCell
+//        if let sector = sector {
+//            cell.populate(sector: sector)
+//        }
+//        cell.updateInterface(for: traitCollection)
+        
+        let data = libraryData?.sectors?[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SectorCell
+        cell.sectorData = data
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
         return cell
     }
     

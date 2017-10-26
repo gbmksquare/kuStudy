@@ -61,6 +61,10 @@ class LibraryHeaderView: UIView {
     private func setup() {
         setupView()
         setupLayout()
+        setupContent()
+    }
+    
+    private func setupContent() {
         titleLabel.text = Localizations.Common.NoData
         subtitleLabel.text = Localizations.Common.NoData
         availableSeatsLabel.text = Localizations.Common.NoData
