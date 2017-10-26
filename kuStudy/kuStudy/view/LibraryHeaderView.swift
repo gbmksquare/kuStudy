@@ -116,6 +116,11 @@ class LibraryHeaderView: UIView {
         buttonStack.distribution = .fill
         buttonStack.spacing = 8
         
+        titleLabel.numberOfLines = 0
+        titleLabel.lineBreakMode = .byWordWrapping
+        subtitleLabel.numberOfLines = 0
+        subtitleLabel.lineBreakMode = .byWordWrapping
+        
         titleLabel.font = UIFont.systemFont(ofSize: 33, weight: .bold)
         subtitleLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
         availableSeatsLabel.font = UIFont.systemFont(ofSize: 36, weight: .regular)
