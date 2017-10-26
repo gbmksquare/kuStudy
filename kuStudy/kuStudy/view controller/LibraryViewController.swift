@@ -15,16 +15,12 @@ import UserNotifications
 import StoreKit
 
 class LibraryViewController: UIViewController {
+    private lazy var gradient = CAGradientLayer()
     @IBOutlet private weak var table: UITableView!
     @IBOutlet private weak var header: UIView!
     
     private var heroImageView: UIImageView!
     private var headerContentView = LibraryHeaderView()
-    
-    private lazy var gradient = CAGradientLayer()
-    
-    @IBOutlet weak var mapButton: UIButton!
-    @IBOutlet weak var remindButton: UIButton!
     
     override var hidesBottomBarWhenPushed: Bool {
         get { return navigationController?.topViewController == self }
@@ -110,12 +106,9 @@ extension LibraryViewController {
     }
     
     private func setupView() {
-        [mapButton, remindButton].forEach {
-            $0?.clipsToBounds = true
-            $0?.layer.cornerRadius = 9
-        }
-        mapButton.setTitle(Localizations.Library.Button.Map, for: .normal)
-        remindButton.setTitle(Localizations.Library.Button.Remind, for: .normal)
+        headerContentView.remindButton.addTarget(self, action: #selector(tapped(remind:)), for: .touchUpInside)
+        headerContentView.mapButton.addTarget(self, action: #selector(tapped(map:)), for: .touchUpInside)
+        headerContentView.actionButton.addTarget(self, action: #selector(tapped(action:)), for: .touchUpInside)
     }
     
     private func setupImageHeader() {
@@ -225,7 +218,7 @@ extension LibraryViewController {
         table.reloadData()
     }
     
-    @IBAction fileprivate func tapped(map button: UIButton) {
+    @objc private func tapped(map button: UIButton) {
         // Apple Maps Universal Link Reference
         // https://developer.apple.com/library/content/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
         //
@@ -242,7 +235,7 @@ extension LibraryViewController {
         }
     }
     
-    @IBAction fileprivate func tapped(remind button: UIButton? = nil) {
+    @objc private func tapped(remind button: UIButton? = nil) {
         UNUserNotificationCenter.current().getNotificationSettings { [weak self] (settings) in
             switch settings.authorizationStatus {
             case .authorized: self?.askRemindTimeInterval()
@@ -250,18 +243,22 @@ extension LibraryViewController {
             case .notDetermined:
                 NotificationCoordinator.shared.requestAuthorization { (granted, error) in
                     DispatchQueue.main.async {
-                        self?.tapped(remind: nil)
+                        self?.tapped(remind: button)
                     }
                 }
             }
         }
     }
     
+    @objc private func tapped(action button: UIButton? = nil ) {
+        
+    }
+    
     private func askRemindTimeInterval() {
         let library = self.library
         let alert = UIAlertController(title: nil, message: Localizations.Alert.Message.Notification.SetTimeInterval, preferredStyle: .actionSheet)
-        alert.popoverPresentationController?.sourceView = remindButton
-        alert.popoverPresentationController?.sourceRect = remindButton.bounds
+        alert.popoverPresentationController?.sourceView = headerContentView.remindButton
+        alert.popoverPresentationController?.sourceRect = headerContentView.remindButton.bounds
         alert.popoverPresentationController?.permittedArrowDirections = .any
         #if DEBUG
             let debugOption = UIAlertAction(title: RemindInterval.now.name, style: .default) { (_) in
@@ -285,7 +282,7 @@ extension LibraryViewController {
     
     private func handleNotificationAccessDenied() {
         let alert = UIAlertController(title: Localizations.Alert.Title.Notification.AccessDenied, message: Localizations.Alert.Message.Notification.AccessDenied, preferredStyle: .alert)
-        alert.popoverPresentationController?.sourceView = remindButton
+        alert.popoverPresentationController?.sourceView = headerContentView.remindButton
         let confirm = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default) { [weak self] (_) in
             self?.tapped(remind: nil)
         }

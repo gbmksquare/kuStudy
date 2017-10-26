@@ -405,21 +405,15 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuH-eY-g7K">
                                                     <rect key="frame" x="0.0" y="0.0" width="207" height="44"/>
-                                                    <color key="backgroundColor" red="0.94784563779830933" green="0.93595355749130249" blue="0.93506520986557007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" red="0.94901960784313721" green="0.93725490196078431" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <state key="normal" title="Show in Map"/>
-                                                    <connections>
-                                                        <action selector="tappedWithMap:" destination="4PY-Tz-wT9" eventType="touchUpInside" id="UrL-md-ARx"/>
-                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Dd-E8-RMs">
                                                     <rect key="frame" x="207" y="0.0" width="207" height="44"/>
                                                     <color key="backgroundColor" red="0.94784563779830933" green="0.93595355749130249" blue="0.93506520986557007" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                     <state key="normal" title="Remind Me"/>
-                                                    <connections>
-                                                        <action selector="tappedWithRemind:" destination="4PY-Tz-wT9" eventType="touchUpInside" id="eaj-QH-acx"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -589,8 +583,6 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="header" destination="LW1-x8-t4P" id="esq-NF-NAv"/>
-                        <outlet property="mapButton" destination="ZuH-eY-g7K" id="zrV-Zn-njy"/>
-                        <outlet property="remindButton" destination="1Dd-E8-RMs" id="sDY-Cd-t0R"/>
                         <outlet property="table" destination="gx7-GD-bIb" id="5xE-79-N4A"/>
                     </connections>
                 </viewController>
