@@ -24,6 +24,9 @@ class SummaryViewController: UIViewController {
     @IBOutlet private weak var header: UIView!
     
     private weak var heroImageView: UIImageView!
+    private var heroImageViewHeight: CGFloat?
+    private var canTriggerRefresh = true
+    
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var summaryLabel: UILabel!
     
@@ -117,13 +120,16 @@ extension SummaryViewController {
     }
     
     private func setImageHeaderHeight() {
+        let height: CGFloat
         if traitCollection.verticalSizeClass == .compact {
-            table.parallaxHeader.height = 120
+            height = 120
         } else if traitCollection.userInterfaceIdiom == .phone {
-            table.parallaxHeader.height = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) == true ? 244 : 200
+            height = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) == true ? 244 : 200
         } else {
-            table.parallaxHeader.height = 240
+            height = 240
         }
+        table.parallaxHeader.height = height
+        heroImageViewHeight = height
     }
     
     private func setupGradient() {
@@ -235,6 +241,11 @@ extension SummaryViewController {
         }
         table.reloadData()
     }
+    
+    private func triggerRefresh() {
+        guard canTriggerRefresh == true else { return }
+        kuStudy.requestUpdateData()
+    }
 }
 
 // MARK: - Peek & Pop
@@ -342,10 +353,18 @@ extension SummaryViewController {
         let scrollView = table as UIScrollView
         let offset = scrollView.contentOffset.y
         
+        // Navigation bar
         if offset >= 0 {
             navigationController?.setNavigationBarHidden(false, animated: true)
         } else {
             navigationController?.setNavigationBarHidden(true, animated: true)
+        }
+        
+        // Refresh
+        guard let heroImageViewHeight = heroImageViewHeight else { return }
+        if offset <= -(heroImageViewHeight * 1.5) {
+            triggerRefresh()
+            canTriggerRefresh = false
         }
     }
     
@@ -449,6 +468,7 @@ extension SummaryViewController {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         handleScrollOffset()
+        canTriggerRefresh = true
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
