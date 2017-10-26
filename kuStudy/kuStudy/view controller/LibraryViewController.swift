@@ -339,6 +339,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
         let data = libraryData?.sectors?[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SectorCell
         cell.sectorData = data
+        cell.selectionStyle = .none
         cell.setNeedsLayout()
         cell.layoutIfNeeded()
         return cell
