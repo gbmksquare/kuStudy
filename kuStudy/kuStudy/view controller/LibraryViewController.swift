@@ -22,6 +22,7 @@ class LibraryViewController: UIViewController {
     
     private var heroImageView: UIImageView!
     private var heroImageViewHeight: CGFloat?
+    private var refreshView = RefreshEffectView()
     private var canTriggerRefresh = true
     
     private var headerContentView = LibraryHeaderView()
@@ -125,6 +126,12 @@ extension LibraryViewController {
         table.parallaxHeader.height = 200
         table.parallaxHeader.mode = .fill
         heroImageView = imageView
+        
+        imageView.addSubview(refreshView)
+        refreshView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
         setImageHeaderHeight()
         
         if #available(iOS 11.0, *) {
@@ -198,6 +205,7 @@ extension LibraryViewController {
                 return
             }
         }
+        refreshView.endRefreshing()
         // Error
         dataState = .error
         error = kuStudy.errors?.first
@@ -226,7 +234,10 @@ extension LibraryViewController {
     }
     
     private func triggerRefresh() {
-        guard canTriggerRefresh == true else { return }
+        guard canTriggerRefresh == true else {
+            refreshView.endRefreshing()
+            return
+        }
         kuStudy.requestUpdateData()
     }
     
@@ -400,6 +411,7 @@ extension LibraryViewController {
         // Refresh
         guard let heroImageViewHeight = heroImageViewHeight else { return }
         if offset <= -(heroImageViewHeight * 1.5) {
+            refreshView.startRefreshing()
             triggerRefresh()
             canTriggerRefresh = false
         }

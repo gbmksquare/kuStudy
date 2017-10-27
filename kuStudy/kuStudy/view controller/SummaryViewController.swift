@@ -25,6 +25,7 @@ class SummaryViewController: UIViewController {
     
     private weak var heroImageView: UIImageView!
     private var heroImageViewHeight: CGFloat?
+    private var refreshView = RefreshEffectView()
     private var canTriggerRefresh = true
     
     @IBOutlet private weak var dateLabel: UILabel!
@@ -112,6 +113,11 @@ extension SummaryViewController {
         table.parallaxHeader.mode = .fill
         heroImageView = imageView
         
+        imageView.addSubview(refreshView)
+        refreshView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
         setImageHeaderHeight()
         
         if #available(iOS 11.0, *) {
@@ -158,8 +164,8 @@ extension SummaryViewController {
     
     private func setupContent() {
         title = Localizations.Main.Title.Library
-//        let noData = Localizations.Common.NoData
-//        summaryLabel.text = Localizations.Main.Studying(noData) + "\n" + Localizations.Main.Studyingcampus(noData, noData)
+        //        let noData = Localizations.Common.NoData
+        //        summaryLabel.text = Localizations.Main.Studying(noData) + "\n" + Localizations.Main.Studyingcampus(noData, noData)
         
         let formatter = DateFormatter()
         formatter.dateStyle = .full
@@ -204,6 +210,7 @@ extension SummaryViewController {
                 return
             }
         }
+        refreshView.endRefreshing()
         // Error
         summary = nil
         error = kuStudy.errors?.first
@@ -243,7 +250,10 @@ extension SummaryViewController {
     }
     
     private func triggerRefresh() {
-        guard canTriggerRefresh == true else { return }
+        guard canTriggerRefresh == true else {
+            refreshView.endRefreshing()
+            return
+        }
         kuStudy.requestUpdateData()
     }
 }
@@ -363,6 +373,7 @@ extension SummaryViewController {
         // Refresh
         guard let heroImageViewHeight = heroImageViewHeight else { return }
         if offset <= -(heroImageViewHeight * 1.5) {
+            refreshView.startRefreshing()
             triggerRefresh()
             canTriggerRefresh = false
         }

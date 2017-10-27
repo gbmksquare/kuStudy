@@ -118,6 +118,7 @@
 		16BB42EE1B2C225900201DE2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BB42EC1B2C225900201DE2 /* Fabric.framework */; };
 		16BB42EF1B2C225900201DE2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BB42ED1B2C225900201DE2 /* Crashlytics.framework */; };
 		16BB431E1B2C277400201DE2 /* kuStudyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167245EC1B19C42B0083035F /* kuStudyKit.framework */; };
+		16C85E521FA2DEAF0003A38C /* RefreshEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C85E511FA2DEAF0003A38C /* RefreshEffectView.swift */; };
 		16D1E8C61FA0CB2B006A5847 /* SectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1E8C51FA0CB2B006A5847 /* SectorCell.swift */; };
 		16D392B41D62C5310078223E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16D392B61D62C5310078223E /* InfoPlist.strings */; };
 		16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */; };
@@ -368,6 +369,7 @@
 		16B9A25B1DADF9F8003BF871 /* ComplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		16BB42EC1B2C225900201DE2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		16BB42ED1B2C225900201DE2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
+		16C85E511FA2DEAF0003A38C /* RefreshEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RefreshEffectView.swift; path = view/RefreshEffectView.swift; sourceTree = "<group>"; };
 		16D1E8C51FA0CB2B006A5847 /* SectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SectorCell.swift; path = view/SectorCell.swift; sourceTree = "<group>"; };
 		16D392B51D62C5310078223E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16D392B71D62C5330078223E /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -716,6 +718,7 @@
 				167245E41B19C07B0083035F /* Application */,
 				167245E61B19C0890083035F /* User Interface */,
 				16EFE0EA1F02439100FD476B /* Controller */,
+				16C85E501FA2DE970003A38C /* View */,
 				1672461D1B1B44630083035F /* View Controller */,
 				16DB2DAC1C55D55D0096AFB9 /* Extension */,
 				167245E51B19C0850083035F /* Resource */,
@@ -838,9 +841,7 @@
 			children = (
 				167246261B1B4F2C0083035F /* LibraryViewController.swift */,
 				162363501F9F181700CD78F2 /* LibraryHeaderView.swift */,
-				164579EF1F9F7E3C00DD8F22 /* SeatsProgressView.swift */,
 				16D1E8C51FA0CB2B006A5847 /* SectorCell.swift */,
-				168C18CB1FA1F3F100F576D6 /* MiniInfoView.swift */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -949,6 +950,16 @@
 				16BB42ED1B2C225900201DE2 /* Crashlytics.framework */,
 			);
 			name = Vendor;
+			sourceTree = "<group>";
+		};
+		16C85E501FA2DE970003A38C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				16C85E511FA2DEAF0003A38C /* RefreshEffectView.swift */,
+				164579EF1F9F7E3C00DD8F22 /* SeatsProgressView.swift */,
+				168C18CB1FA1F3F100F576D6 /* MiniInfoView.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		16DB2DAC1C55D55D0096AFB9 /* Extension */ = {
@@ -1887,6 +1898,7 @@
 				16019E9D1D8E45DE008A76C7 /* MainSplitViewController.swift in Sources */,
 				1664D5561D55E24B000BAF56 /* UIApplication.swift in Sources */,
 				16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */,
+				16C85E521FA2DEAF0003A38C /* RefreshEffectView.swift in Sources */,
 				168C18CC1FA1F3F100F576D6 /* MiniInfoView.swift in Sources */,
 				1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift in Sources */,
 				168573A81F4FC81700399AA2 /* TipJarViewController.swift in Sources */,
