@@ -88,7 +88,7 @@ class LibraryHeaderView: UIView {
     private func setupView() {
         stack.axis = .vertical
         stack.alignment = .fill
-        stack.distribution = .equalSpacing
+        stack.distribution = .fillProportionally
         stack.spacing = 16
         
         titleStack.axis = .vertical
@@ -107,7 +107,7 @@ class LibraryHeaderView: UIView {
         availableStack.spacing = 0
         
         infoStack.axis = .horizontal
-        infoStack.alignment = .fill
+        infoStack.alignment = .center
         infoStack.distribution = .equalSpacing
         infoStack.spacing = 4
         

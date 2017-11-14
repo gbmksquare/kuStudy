@@ -103,7 +103,7 @@ class SeatsProgressView: UIView {
         [totalSeatsLabel, totalLabel].forEach { totalStack.addArrangedSubview($0) }
         
         occupiedStack.snp.makeConstraints { (make) in
-            make.top.greaterThanOrEqualToSuperview()
+//            make.top.greaterThanOrEqualToSuperview()
             make.leading.equalToSuperview()
             make.bottom.equalTo(progressView.snp.top).offset(-4)
         }
