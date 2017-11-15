@@ -137,12 +137,12 @@ class SectorCell: UITableViewCell {
             make.width.equalTo(13)
             make.height.equalTo(13)
             make.centerY.equalTo(dataStack.snp.centerY)
-            make.leading.equalTo(readableContentGuide).inset(8)
+            make.leading.equalTo(contentView.readableContentGuide).inset(8)
         }
         stack.snp.makeConstraints { (make) in
             make.top.equalTo(contentView).inset(12)
             make.leading.equalTo(indicator.snp.trailing).offset(12)
-            make.trailing.equalTo(readableContentGuide).inset(8)
+            make.trailing.equalTo(contentView.readableContentGuide.snp.trailing).inset(8)
             make.bottom.equalTo(contentView).inset(12)
         }
         progressView.snp.makeConstraints { (make) in
