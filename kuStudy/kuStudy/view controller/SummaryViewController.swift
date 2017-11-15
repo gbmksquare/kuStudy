@@ -25,8 +25,8 @@ class SummaryViewController: UIViewController {
     
     private weak var heroImageView: UIImageView!
     private var heroImageViewHeight: CGFloat?
-    private var refreshView = RefreshEffectView()
-    private var canTriggerRefresh = true
+//    private var refreshView = RefreshEffectView()
+//    private var canTriggerRefresh = true
     
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var summaryLabel: UILabel!
@@ -113,10 +113,10 @@ extension SummaryViewController {
         table.parallaxHeader.mode = .fill
         heroImageView = imageView
         
-        imageView.addSubview(refreshView)
-        refreshView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
+//        imageView.addSubview(refreshView)
+//        refreshView.snp.makeConstraints { (make) in
+//            make.edges.equalToSuperview()
+//        }
         
         setImageHeaderHeight()
         
@@ -210,7 +210,7 @@ extension SummaryViewController {
                 return
             }
         }
-        refreshView.endRefreshing()
+//        refreshView.endRefreshing()
         // Error
         summary = nil
         error = kuStudy.errors?.first
@@ -249,13 +249,13 @@ extension SummaryViewController {
         table.reloadData()
     }
     
-    private func triggerRefresh() {
-        guard canTriggerRefresh == true else {
-            refreshView.endRefreshing()
-            return
-        }
-        kuStudy.requestUpdateData()
-    }
+//    private func triggerRefresh() {
+//        guard canTriggerRefresh == true else {
+//            refreshView.endRefreshing()
+//            return
+//        }
+//        kuStudy.requestUpdateData()
+//    }
 }
 
 // MARK: - Peek & Pop
@@ -371,12 +371,12 @@ extension SummaryViewController {
         }
         
         // Refresh
-        guard let heroImageViewHeight = heroImageViewHeight else { return }
-        if offset <= -(heroImageViewHeight * 1.5) {
-            refreshView.startRefreshing()
-            triggerRefresh()
-            canTriggerRefresh = false
-        }
+//        guard let heroImageViewHeight = heroImageViewHeight else { return }
+//        if offset <= -(heroImageViewHeight * 1.5) {
+//            refreshView.startRefreshing()
+//            triggerRefresh()
+//            canTriggerRefresh = false
+//        }
     }
     
     private func handleScrollOffset() {
@@ -479,7 +479,7 @@ extension SummaryViewController {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         handleScrollOffset()
-        canTriggerRefresh = true
+//        canTriggerRefresh = true
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

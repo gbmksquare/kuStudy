@@ -22,8 +22,8 @@ class LibraryViewController: UIViewController {
     
     private var heroImageView: UIImageView!
     private var heroImageViewHeight: CGFloat?
-    private var refreshView = RefreshEffectView()
-    private var canTriggerRefresh = true
+//    private var refreshView = RefreshEffectView()
+//    private var canTriggerRefresh = true
     
     private var headerContentView = LibraryHeaderView()
     
@@ -127,10 +127,10 @@ extension LibraryViewController {
         table.parallaxHeader.mode = .fill
         heroImageView = imageView
         
-        imageView.addSubview(refreshView)
-        refreshView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
+//        imageView.addSubview(refreshView)
+//        refreshView.snp.makeConstraints { (make) in
+//            make.edges.equalToSuperview()
+//        }
         
         setImageHeaderHeight()
         
@@ -205,7 +205,7 @@ extension LibraryViewController {
                 return
             }
         }
-        refreshView.endRefreshing()
+//        refreshView.endRefreshing()
         // Error
         dataState = .error
         error = kuStudy.errors?.first
@@ -233,13 +233,13 @@ extension LibraryViewController {
         table.reloadData()
     }
     
-    private func triggerRefresh() {
-        guard canTriggerRefresh == true else {
-            refreshView.endRefreshing()
-            return
-        }
-        kuStudy.requestUpdateData()
-    }
+//    private func triggerRefresh() {
+//        guard canTriggerRefresh == true else {
+//            refreshView.endRefreshing()
+//            return
+//        }
+//        kuStudy.requestUpdateData()
+//    }
     
     @objc private func tapped(map button: UIButton) {
         // Apple Maps Universal Link Reference
@@ -409,12 +409,12 @@ extension LibraryViewController {
         }
         
         // Refresh
-        guard let heroImageViewHeight = heroImageViewHeight else { return }
-        if offset <= -(heroImageViewHeight * 1.5) {
-            refreshView.startRefreshing()
-            triggerRefresh()
-            canTriggerRefresh = false
-        }
+//        guard let heroImageViewHeight = heroImageViewHeight else { return }
+//        if offset <= -(heroImageViewHeight * 1.5) {
+//            refreshView.startRefreshing()
+//            triggerRefresh()
+//            canTriggerRefresh = false
+//        }
     }
     
     private func handleScrollOffset() {
@@ -438,7 +438,7 @@ extension LibraryViewController {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         handleScrollOffset()
-        canTriggerRefresh = true
+//        canTriggerRefresh = true
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
