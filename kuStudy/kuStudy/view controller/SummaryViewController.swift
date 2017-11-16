@@ -156,6 +156,7 @@ extension SummaryViewController {
         }
         table.tableFooterView = UIView()
         table.showsVerticalScrollIndicator = false
+        table.register(LibraryCell.self, forCellReuseIdentifier: "cell")
         
         if #available(iOS 11.0, *) {
             table.dragInteractionEnabled = true
@@ -390,6 +391,7 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
         if UIDevice.current.userInterfaceIdiom == .phone {
             tableView.deselectRow(at: indexPath, animated: true)
         }
+        performSegue(withIdentifier: "librarySegue", sender: self)
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
@@ -421,11 +423,15 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath) as! LibraryTableViewCell
-        if let libraryData = summary?.libraries[indexPath.row] {
-            cell.populate(library: libraryData)
-        }
-        cell.updateInterface(for: traitCollection)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath) as! LibraryTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LibraryCell
+        cell.accessoryType = .disclosureIndicator
+        cell.libraryData = summary?.libraries[indexPath.row]
+//        if let libraryData = summary?.libraries[indexPath.row] {
+//            cell.populate(library: libraryData)
+//        }
+//        cell.updateInterface(for: traitCollection)
+        cell.layoutIfNeeded()
         return cell
     }
     

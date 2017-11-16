@@ -35,6 +35,16 @@ class SeatsProgressView: UIView {
         setup()
     }
     
+    // MARK: - Action
+    func getColors() -> (barColor: UIColor, trackColor: UIColor) {
+        return (progressView.barColor, progressView.trackColor)
+    }
+    
+    func setColors(colors: (barColor: UIColor, trackColor: UIColor)) {
+        progressView.barColor = colors.barColor
+        progressView.trackColor = colors.trackColor
+    }
+    
     // MARK: - Populate
     private func populate() {
         if let data = libraryData {
