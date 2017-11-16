@@ -128,7 +128,9 @@ class SectorCell: UITableViewCell {
     
     private func setupLayout() {
         [indicator, stack].forEach { contentView.addSubview($0) }
-        [titleLabel, dataStack, infoStack].forEach { stack.addArrangedSubview($0) }
+        [titleLabel, dataStack].forEach { stack.addArrangedSubview($0) }
+        /// !!!: Disabled info stack
+//        [titleLabel, dataStack, infoStack].forEach { stack.addArrangedSubview($0) }
         [availableStack, progressView].forEach { dataStack.addArrangedSubview($0) }
         [availableSeatsLabel, availableLabel].forEach { availableStack.addArrangedSubview($0) }
         [openInfoView, closeInfoView, disabledInfoView].forEach { infoStack.addArrangedSubview($0) }
