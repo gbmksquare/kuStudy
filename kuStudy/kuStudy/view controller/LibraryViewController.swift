@@ -25,7 +25,7 @@ class LibraryViewController: UIViewController {
 //    private var refreshView = RefreshEffectView()
 //    private var canTriggerRefresh = true
     
-    private var headerContentView = LibraryHeaderView()
+    private lazy var headerContentView = LibraryHeaderView()
     
     override var hidesBottomBarWhenPushed: Bool {
         get { return navigationController?.topViewController == self }

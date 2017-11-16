@@ -28,8 +28,7 @@ class SummaryViewController: UIViewController {
 //    private var refreshView = RefreshEffectView()
 //    private var canTriggerRefresh = true
     
-    @IBOutlet private weak var dateLabel: UILabel!
-    @IBOutlet private weak var summaryLabel: UILabel!
+    private lazy var summaryContentView = SummaryHeaderView()
     
     private lazy var gradient = CAGradientLayer()
     
@@ -106,6 +105,8 @@ extension SummaryViewController {
     }
     
     private func setupImageHeader() {
+        table.tableHeaderView = summaryContentView
+        
         let imageView = UIImageView()
         imageView.backgroundColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
         imageView.contentMode = .scaleAspectFill
@@ -164,12 +165,6 @@ extension SummaryViewController {
     
     private func setupContent() {
         title = Localizations.Main.Title.Library
-        //        let noData = Localizations.Common.NoData
-        //        summaryLabel.text = Localizations.Main.Studying(noData) + "\n" + Localizations.Main.Studyingcampus(noData, noData)
-        
-        let formatter = DateFormatter()
-        formatter.dateStyle = .full
-        dateLabel.text = formatter.string(from: Date()).localizedUppercase
     }
     
     private func setupNotification() {
@@ -241,11 +236,7 @@ extension SummaryViewController {
 // MARK: - Action
 extension SummaryViewController {
     private func updateView() {
-        if let occupied = summary?.occupied,
-            let laCampusUsedSeats = summary?.occupiedInLiberalArtCampus?.readable,
-            let scCampusUsedSeats = summary?.occupiedInScienceCampus?.readable {
-            summaryLabel.text = Localizations.Main.Studying(occupied.readable) + "\n" + Localizations.Main.StudyingCampus(laCampusUsedSeats, scCampusUsedSeats)
-        }
+        summaryContentView.summary = summary
         table.reloadData()
     }
     

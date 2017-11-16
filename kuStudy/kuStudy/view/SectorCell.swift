@@ -139,7 +139,7 @@ class SectorCell: UITableViewCell {
             make.width.equalTo(13)
             make.height.equalTo(13)
             make.centerY.equalTo(dataStack.snp.centerY)
-            make.leading.equalTo(contentView.readableContentGuide).inset(8)
+            make.leading.equalTo(contentView.readableContentGuide.snp.leading).inset(8)
         }
         stack.snp.makeConstraints { (make) in
             make.top.equalTo(contentView).inset(12)

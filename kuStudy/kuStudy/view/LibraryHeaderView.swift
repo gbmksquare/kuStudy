@@ -156,8 +156,8 @@ class LibraryHeaderView: UIView {
         
         stack.snp.makeConstraints { (make) in
             make.top.equalTo(self).inset(12)
-            make.leading.equalTo(readableContentGuide).inset(8)
-            make.trailing.equalTo(readableContentGuide).inset(8)
+            make.leading.equalTo(readableContentGuide.snp.leading).inset(8)
+            make.trailing.equalTo(readableContentGuide.snp.trailing).inset(8)
         }
         progressView.snp.makeConstraints { (make) in
             make.width.equalTo(dataStack).multipliedBy(0.6)
