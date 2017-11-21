@@ -65,6 +65,10 @@ class SettingsTableViewController: UITableViewController {
 
 extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch (indexPath.section, indexPath.row) {
+        case (0, 2), (2, 3): return 0
+        default: break
+        }
         return UITableViewAutomaticDimension
     }
     
