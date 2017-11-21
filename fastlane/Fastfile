@@ -60,7 +60,7 @@ platform :ios do
 
     # Increase build number
     increment_build_number(xcodeproj: "./kuStudy/kuStudy.xcodeproj")
-    commit_version_bump(message: "Increased build number.")
+    commit_version_bump(message: "Increased build number.", xcodeproj: "./kuStudy/kuStudy.xcodeproj")
 
     notification(subtitle: "🚀 Fastlane done!", message: "Uploaded to TestFlight.")
   end
@@ -78,7 +78,7 @@ platform :ios do
 
     # Increase build number
     increment_build_number(xcodeproj: "./kuStudy/kuStudy.xcodeproj")
-    commit_version_bump(message: "Increased build number.")
+    commit_version_bump(message: "Increased build number.", xcodeproj: "./kuStudy/kuStudy.xcodeproj")
 
     notification(subtitle: "🚀 Fastlane done!", message: "Uploaded to App Store.")
   end
@@ -97,7 +97,7 @@ platform :ios do
 
     # Increase build number
     increment_build_number(xcodeproj: "./kuStudy/kuStudy.xcodeproj")
-    commit_version_bump(message: "Increased build number.")
+    commit_version_bump(message: "Increased build number.", xcodeproj: "./kuStudy/kuStudy.xcodeproj")
 
     notification(subtitle: "🚀 Fastlane done!", message: "Uploaded to App Store.")
   end
