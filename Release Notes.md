@@ -1,5 +1,48 @@
 # Release Notes 
 
+## 3.1.0 (32)
+
+## New features
+* Added Hae-song Law Library.
+
+## Improvements
+* Optimized for iPhone X.
+* Enhanced user interface.
+* Settings are re-organized.
+* Rate on App Store open App Store app and shows review page directly.
+* Improved Dynamic Type support.
+* Improved Smart Invert support.
+* Updated third party libraries.
+
+## Bug fixes
+* Fixed preference being reset everytime 
+
+## Removed features
+* Minimum deployment target is now iOS 11.0 and watchOS 3.0.
+
+## Code imiprovements
+* New DataManager class to manage API and automatic updates.
+* When data is requested, update only runs if last update is more than one minute.
+* New MediaProvider class for better management and providing more types of media.
+* Main view now only shows predefined media.
+* Images are automatically changed every 3 minutes.
+* Updated colors to match macOS window buttons.
+* Better reflects data on website.
+* Moved review request to library view.
+* Code cleanup and improvements.
+* Converted some storyboard components into code.
+* Updated Fabric.
+
+
+
+## 3.0.1 (30)
+
+### Bug fixes
+
+* Fixed a bug where NSUserDefault is reset everytime app launches.
+
+
+
 ## 3.0.0 (29)
 
 ### New features
@@ -14,8 +57,6 @@
 ### Improvements
 
 * Improved getting data from new website.
-
-
 * Improved iPad hardware keyboard support.
 * Improved Settings view.
 * Dropped iOS 9 support.
