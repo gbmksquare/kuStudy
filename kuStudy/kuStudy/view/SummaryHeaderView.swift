@@ -62,13 +62,19 @@ class SummaryHeaderView: UIView {
         stack.distribution = .fillProportionally
         stack.spacing = 8
         
-        dateLabel.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        let headlineMetrics = UIFontMetrics(forTextStyle: .headline)
+        dateLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 18, weight: .bold))
         dateLabel.textColor = #colorLiteral(red: 0.8392109871, green: 0.8391088247, blue: 0.8563356996, alpha: 1)
 
         summaryLabel.font = UIFont.preferredFont(forTextStyle: .body)
         summaryLabel.textColor = .black
         summaryLabel.numberOfLines = 0
         summaryLabel.lineBreakMode = .byWordWrapping
+        
+        [dateLabel, summaryLabel].forEach {
+            $0.adjustsFontSizeToFitWidth = true
+            $0.adjustsFontForContentSizeCategory = true
+        }
     }
     
     private func setupLayout() {

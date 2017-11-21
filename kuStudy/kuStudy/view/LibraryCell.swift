@@ -20,8 +20,6 @@ class LibraryCell: UITableViewCell {
     
     private lazy var thumbnailView = UIImageView()
     
-    private lazy var dataStack = UIStackView()
-    
     private lazy var availableStack = UIStackView()
     private lazy var availableSeatsLabel = UILabel()
     private lazy var availableLabel = UILabel()
@@ -50,7 +48,8 @@ class LibraryCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         indicator.layer.cornerRadius = indicator.bounds.width / 2
-        thumbnailView.layer.cornerRadius = 70 / 2
+        let height = min(UIFontMetrics(forTextStyle: .body).scaledValue(for: 70), 120)
+        thumbnailView.layer.cornerRadius = height / 2
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
@@ -67,6 +66,15 @@ class LibraryCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         indicator.backgroundColor = color
         progressView.setColors(colors: colors)
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        thumbnailView.snp.remakeConstraints { (make) in
+            make.width.equalTo(thumbnailView.snp.height)
+            let height = min(UIFontMetrics(forTextStyle: .body).scaledValue(for: 70), 120)
+            make.height.equalTo(height)
+        }
     }
     
     // MARK: - Populate
@@ -116,17 +124,12 @@ class LibraryCell: UITableViewCell {
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .equalSpacing
-        stack.spacing = 12
+        stack.spacing = 6
         
         imageDataStack.axis = .horizontal
         imageDataStack.alignment = .center
         imageDataStack.distribution = .fill
         imageDataStack.spacing = 16
-        
-        dataStack.axis = .horizontal
-        dataStack.alignment = .lastBaseline
-        dataStack.distribution = .fillEqually
-        dataStack.spacing = 8
         
         availableStack.axis = .vertical
         availableStack.alignment = .fill
@@ -141,9 +144,21 @@ class LibraryCell: UITableViewCell {
             thumbnailView.accessibilityIgnoresInvertColors = true
         }
         
-        titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        availableSeatsLabel.font = UIFont.systemFont(ofSize: 34, weight: .light)
-        availableLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        let headlineMetrics = UIFontMetrics(forTextStyle: .headline)
+        let titleMetrics = UIFontMetrics(forTextStyle: .title1)
+        let captionMetrics = UIFontMetrics(forTextStyle: .caption1)
+        
+        titleLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 18, weight: .semibold))
+        availableSeatsLabel.font = titleMetrics.scaledFont(for: UIFont.systemFont(ofSize: 30, weight: .light))
+        availableLabel.font = captionMetrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .semibold))
+        
+        titleLabel.numberOfLines = 0
+        
+        [titleLabel, availableSeatsLabel, availableLabel].forEach {
+            $0.adjustsFontSizeToFitWidth = true
+            $0.adjustsFontForContentSizeCategory = true
+            $0.setContentCompressionResistancePriority(.required, for: .vertical)
+        }
         
         availableLabel.textColor = .lightGray
     }
@@ -151,8 +166,7 @@ class LibraryCell: UITableViewCell {
     private func setupLayout() {
         [indicator, stack].forEach { contentView.addSubview($0) }
         [titleLabel, imageDataStack].forEach { stack.addArrangedSubview($0) }
-        [thumbnailView, dataStack].forEach { imageDataStack.addArrangedSubview($0) }
-        [availableStack, progressView].forEach { dataStack.addArrangedSubview($0) }
+        [thumbnailView, availableStack].forEach { imageDataStack.addArrangedSubview($0) }
         [availableSeatsLabel, availableLabel].forEach { availableStack.addArrangedSubview($0) }
         
         indicator.snp.makeConstraints { (make) in
@@ -169,10 +183,8 @@ class LibraryCell: UITableViewCell {
         }
         thumbnailView.snp.makeConstraints { (make) in
             make.width.equalTo(thumbnailView.snp.height)
-            make.height.equalTo(70)
+            let height = min(UIFontMetrics(forTextStyle: .body).scaledValue(for: 70), 120)
+            make.height.equalTo(height)
         }
-//        progressView.snp.makeConstraints { (make) in
-//            make.width.equalTo(imageDataStack).multipliedBy(0.3)
-//        }
     }
 }
