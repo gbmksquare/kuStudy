@@ -16,9 +16,11 @@ class LibraryCell: UITableViewCell {
     
     private lazy var titleLabel = UILabel()
     
-    private lazy var dataStack = UIStackView()
+    private lazy var imageDataStack = UIStackView()
     
     private lazy var thumbnailView = UIImageView()
+    
+    private lazy var dataStack = UIStackView()
     
     private lazy var availableStack = UIStackView()
     private lazy var availableSeatsLabel = UILabel()
@@ -116,9 +118,14 @@ class LibraryCell: UITableViewCell {
         stack.distribution = .equalSpacing
         stack.spacing = 12
         
+        imageDataStack.axis = .horizontal
+        imageDataStack.alignment = .center
+        imageDataStack.distribution = .fill
+        imageDataStack.spacing = 16
+        
         dataStack.axis = .horizontal
         dataStack.alignment = .lastBaseline
-        dataStack.distribution = .equalSpacing
+        dataStack.distribution = .fillEqually
         dataStack.spacing = 8
         
         availableStack.axis = .vertical
@@ -143,14 +150,15 @@ class LibraryCell: UITableViewCell {
     
     private func setupLayout() {
         [indicator, stack].forEach { contentView.addSubview($0) }
-        [titleLabel, dataStack].forEach { stack.addArrangedSubview($0) }
-        [thumbnailView, availableStack, progressView].forEach { dataStack.addArrangedSubview($0) }
+        [titleLabel, imageDataStack].forEach { stack.addArrangedSubview($0) }
+        [thumbnailView, dataStack].forEach { imageDataStack.addArrangedSubview($0) }
+        [availableStack, progressView].forEach { dataStack.addArrangedSubview($0) }
         [availableSeatsLabel, availableLabel].forEach { availableStack.addArrangedSubview($0) }
         
         indicator.snp.makeConstraints { (make) in
             make.width.equalTo(13)
             make.height.equalTo(13)
-            make.centerY.equalTo(dataStack.snp.centerY)
+            make.centerY.equalTo(imageDataStack.snp.centerY)
             make.leading.equalTo(contentView.readableContentGuide.snp.leading).inset(8)
         }
         stack.snp.makeConstraints { (make) in
@@ -163,8 +171,8 @@ class LibraryCell: UITableViewCell {
             make.width.equalTo(thumbnailView.snp.height)
             make.height.equalTo(70)
         }
-        progressView.snp.makeConstraints { (make) in
-            make.width.equalTo(dataStack).multipliedBy(0.3)
-        }
+//        progressView.snp.makeConstraints { (make) in
+//            make.width.equalTo(imageDataStack).multipliedBy(0.3)
+//        }
     }
 }

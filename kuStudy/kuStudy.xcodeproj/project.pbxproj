@@ -78,7 +78,6 @@
 		167246101B1AB1AD0083035F /* kuStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672460F1B1AB1AD0083035F /* kuStudy.swift */; };
 		1672461A1B1B13610083035F /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672461E1B1B44850083035F /* SummaryViewController.swift */; };
-		167246231B1B4BEC0083035F /* LibraryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246221B1B4BEC0083035F /* LibraryTableViewCell.swift */; };
 		167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246261B1B4F2C0083035F /* LibraryViewController.swift */; };
 		1673304F1B1C92BF00573FFC /* DetailInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673304E1B1C92BF00573FFC /* DetailInterfaceController.swift */; };
 		1676C3D31B2418B8001B3AB6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1676C3D51B2418B8001B3AB6 /* MainInterface.storyboard */; };
@@ -342,7 +341,6 @@
 		167246191B1B13610083035F /* Definitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Definitions.swift; sourceTree = "<group>"; };
 		1672461C1B1B138B0083035F /* kuStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = kuStudy.entitlements; sourceTree = "<group>"; };
 		1672461E1B1B44850083035F /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryViewController.swift; path = "view controller/SummaryViewController.swift"; sourceTree = "<group>"; };
-		167246221B1B4BEC0083035F /* LibraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryTableViewCell.swift; path = view/LibraryTableViewCell.swift; sourceTree = "<group>"; };
 		167246261B1B4F2C0083035F /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = "view controller/LibraryViewController.swift"; sourceTree = "<group>"; };
 		1673304E1B1C92BF00573FFC /* DetailInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailInterfaceController.swift; sourceTree = "<group>"; };
 		1676C3D41B2418B8001B3AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
@@ -836,7 +834,6 @@
 			children = (
 				1672461E1B1B44850083035F /* SummaryViewController.swift */,
 				166742F91FBD5B300098C0BB /* SummaryHeaderView.swift */,
-				167246221B1B4BEC0083035F /* LibraryTableViewCell.swift */,
 				166742FB1FBD666E0098C0BB /* LibraryCell.swift */,
 			);
 			name = Summary;
@@ -1896,7 +1893,6 @@
 				1661C3DF1F07E9C0005C889F /* UIDevice.swift in Sources */,
 				1664D5541D55E1E2000BAF56 /* UIColor.swift in Sources */,
 				164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */,
-				167246231B1B4BEC0083035F /* LibraryTableViewCell.swift in Sources */,
 				16EE9F691F00F2EA006B75BB /* ThanksToViewController.swift in Sources */,
 				166742FC1FBD666E0098C0BB /* LibraryCell.swift in Sources */,
 				162F12151D5F86B000A401D8 /* PhotographerCell.swift in Sources */,
