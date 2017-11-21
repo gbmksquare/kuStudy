@@ -35,6 +35,24 @@ class SeatsProgressView: UIView {
         setup()
     }
     
+    // MARK: - View
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        occupiedStack.snp.remakeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview()
+            let metrics = UIFontMetrics(forTextStyle: .caption2)
+            make.bottom.equalTo(progressView.snp.top).offset(metrics.scaledValue(for: -4))
+        }
+        progressView.snp.remakeConstraints { (make) in
+            make.leading.equalToSuperview()
+            make.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+            let metrics = UIFontMetrics(forTextStyle: .caption2)
+            make.height.equalTo(metrics.scaledValue(for: 8))
+        }
+    }
+    
     // MARK: - Action
     func getColors() -> (barColor: UIColor, trackColor: UIColor) {
         return (progressView.barColor, progressView.trackColor)
@@ -91,12 +109,19 @@ class SeatsProgressView: UIView {
         
         [occupiedSeatsLabel, totalSeatsLabel].forEach {
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: 12, weight: .bold)
+            let bodyMetrics = UIFontMetrics(forTextStyle: .caption2)
+            $0.font = bodyMetrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .bold))
         }
         
         [occupiedLabel, totalLabel].forEach {
             $0.textColor = .darkGray
-            $0.font = UIFont.systemFont(ofSize: 10, weight: .semibold)
+            let bodyMetrics = UIFontMetrics(forTextStyle: .caption2)
+            $0.font = bodyMetrics.scaledFont(for: UIFont.systemFont(ofSize: 10, weight: .semibold))
+        }
+        
+        [occupiedSeatsLabel, occupiedLabel, totalSeatsLabel, totalLabel].forEach {
+            $0.adjustsFontForContentSizeCategory = true
+            $0.adjustsFontSizeToFitWidth = true
         }
         
         progressView.minimumValue = 0
@@ -113,9 +138,10 @@ class SeatsProgressView: UIView {
         [totalSeatsLabel, totalLabel].forEach { totalStack.addArrangedSubview($0) }
         
         occupiedStack.snp.makeConstraints { (make) in
-//            make.top.greaterThanOrEqualToSuperview()
+            make.top.equalToSuperview()
             make.leading.equalToSuperview()
-            make.bottom.equalTo(progressView.snp.top).offset(-4)
+            let metrics = UIFontMetrics(forTextStyle: .caption2)
+            make.bottom.equalTo(progressView.snp.top).offset(metrics.scaledValue(for: -4))
         }
         
         totalStack.snp.makeConstraints { (make) in
@@ -128,7 +154,8 @@ class SeatsProgressView: UIView {
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.height.equalTo(8)
+            let metrics = UIFontMetrics(forTextStyle: .caption2)
+            make.height.equalTo(metrics.scaledValue(for: 8))
         }
     }
 }

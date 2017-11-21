@@ -55,10 +55,15 @@ class MiniInfoView: UIView {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 6
         
-        titleLabel.font = UIFont.systemFont(ofSize: 10, weight: .medium)
-        subtitleLabel.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        let bodyMetrics = UIFontMetrics(forTextStyle: .body)
+        titleLabel.font = bodyMetrics.scaledFont(for: UIFont.systemFont(ofSize: 10, weight: .medium))
+        subtitleLabel.font = bodyMetrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .semibold))
         titleLabel.textColor = .darkGray
         subtitleLabel.textColor = .darkGray
+        [titleLabel, subtitleLabel].forEach {
+            $0.adjustsFontSizeToFitWidth = true
+            $0.adjustsFontForContentSizeCategory = true
+        }
     }
     
     private func setupLayout() {

@@ -51,6 +51,17 @@ class LibraryHeaderView: UIView {
         setup()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.preferredContentSizeCategory >=  .extraExtraExtraLarge {
+            setDataStackVertical()
+            setupInfoStackVertical()
+        } else {
+            setDataStackHorizontal()
+            setInfoStackHorizontal()
+        }
+    }
+    
     // MARK: - Populate
     private func updateTitle() {
         titleLabel.text = library?.name ?? Localizations.Common.NoData
@@ -96,20 +107,14 @@ class LibraryHeaderView: UIView {
         titleStack.distribution = .fillProportionally
         titleStack.spacing = 2
         
-        dataStack.axis = .horizontal
-        dataStack.alignment = .lastBaseline
-        dataStack.distribution = .equalSpacing
-        dataStack.spacing = 8
+        setDataStackHorizontal()
         
         availableStack.axis = .vertical
         availableStack.alignment = .fill
         availableStack.distribution = .fillProportionally
         availableStack.spacing = 0
         
-        infoStack.axis = .horizontal
-        infoStack.alignment = .center
-        infoStack.distribution = .equalSpacing
-        infoStack.spacing = 4
+        setInfoStackHorizontal()
         
         buttonStack.axis = .horizontal
         buttonStack.alignment = .fill
@@ -121,12 +126,22 @@ class LibraryHeaderView: UIView {
         subtitleLabel.numberOfLines = 0
         subtitleLabel.lineBreakMode = .byWordWrapping
         
-        titleLabel.font = UIFont.systemFont(ofSize: 33, weight: .bold)
-        subtitleLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        availableSeatsLabel.font = UIFont.systemFont(ofSize: 36, weight: .regular)
-        availableLabel.font = UIFont.systemFont(ofSize: 14, weight: .bold)
-        timestampLabel.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
-        artistLabel.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        let headlineMetrics = UIFontMetrics(forTextStyle: .headline)
+        let subheadlineMetrics = UIFontMetrics(forTextStyle: .subheadline)
+        let bodyMetrics = UIFontMetrics(forTextStyle: .body)
+        let captionMetrics = UIFontMetrics(forTextStyle: .caption2)
+        
+        titleLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 28, weight: .bold))
+        subtitleLabel.font = subheadlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 20, weight: .semibold))
+        availableSeatsLabel.font = bodyMetrics.scaledFont(for: UIFont.systemFont(ofSize: 36, weight: .regular))
+        availableLabel.font = bodyMetrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .bold))
+        timestampLabel.font = captionMetrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .semibold))
+        artistLabel.font = captionMetrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .semibold))
+        
+        [titleLabel, subtitleLabel, availableLabel, availableSeatsLabel, timestampLabel, artistLabel].forEach {
+            $0.adjustsFontSizeToFitWidth = true
+            $0.adjustsFontForContentSizeCategory = true
+        }
         
         subtitleLabel.textColor = .lightGray
         availableLabel.textColor = .lightGray
@@ -159,9 +174,6 @@ class LibraryHeaderView: UIView {
             make.leading.equalTo(readableContentGuide.snp.leading).inset(8)
             make.trailing.equalTo(readableContentGuide.snp.trailing).inset(8)
         }
-        progressView.snp.makeConstraints { (make) in
-            make.width.equalTo(dataStack).multipliedBy(0.6)
-        }
         infoSeparator.snp.makeConstraints { (make) in
             make.top.equalTo(stack.snp.bottom).offset(12)
             make.leading.equalToSuperview()
@@ -188,5 +200,35 @@ class LibraryHeaderView: UIView {
 //            make.bottom.equalToSuperview()
 //            make.height.equalTo(0.3)
 //        }
+    }
+}
+
+extension LibraryHeaderView {
+    private func setDataStackHorizontal() {
+        dataStack.axis = .horizontal
+        dataStack.alignment = .lastBaseline
+        dataStack.distribution = .fillEqually
+        dataStack.spacing = UIStackView.spacingUseDefault
+    }
+    
+    private func setDataStackVertical() {
+        dataStack.axis = .vertical
+        dataStack.alignment = .fill
+        dataStack.distribution = .fillProportionally
+        dataStack.spacing = UIStackView.spacingUseDefault
+    }
+    
+    private func setInfoStackHorizontal() {
+        infoStack.axis = .horizontal
+        infoStack.alignment = .center
+        infoStack.distribution = .equalSpacing
+        infoStack.spacing = UIStackView.spacingUseDefault
+    }
+    
+    private func setupInfoStackVertical() {
+        infoStack.axis = .vertical
+        infoStack.alignment = .leading
+        infoStack.distribution = .equalSpacing
+        infoStack.spacing = UIStackView.spacingUseDefault
     }
 }

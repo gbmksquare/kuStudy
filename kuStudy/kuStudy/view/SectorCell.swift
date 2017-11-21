@@ -53,6 +53,15 @@ class SectorCell: UITableViewCell {
         indicator.layer.cornerRadius = indicator.bounds.width / 2
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if traitCollection.preferredContentSizeCategory >= .extraExtraExtraLarge {
+            setupDataStackVertical()
+        } else {
+            setDataStackHorizontal()
+        }
+    }
+    
     // MARK: - Populate
     private func populate() {
         let data = sectorData
@@ -102,12 +111,9 @@ class SectorCell: UITableViewCell {
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .equalSpacing
-        stack.spacing = 12
+        stack.spacing = 6
         
-        dataStack.axis = .horizontal
-        dataStack.alignment = .lastBaseline
-        dataStack.distribution = .equalSpacing
-        dataStack.spacing = 8
+        setDataStackHorizontal()
         
         availableStack.axis = .vertical
         availableStack.alignment = .fill
@@ -119,9 +125,18 @@ class SectorCell: UITableViewCell {
         infoStack.distribution = .fillEqually
         infoStack.spacing = 4
         
-        titleLabel.font = UIFont.systemFont(ofSize: 18, weight: .semibold)
-        availableSeatsLabel.font = UIFont.systemFont(ofSize: 34, weight: .light)
-        availableLabel.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+        let headlineMetrics = UIFontMetrics(forTextStyle: .headline)
+        let titleMetrics = UIFontMetrics(forTextStyle: .title1)
+        let captionMetrics = UIFontMetrics(forTextStyle: .caption1)
+        
+        titleLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 18, weight: .semibold))
+        availableSeatsLabel.font = titleMetrics.scaledFont(for: UIFont.systemFont(ofSize: 30, weight: .light))
+        availableLabel.font = captionMetrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .semibold))
+        
+        [titleLabel, availableSeatsLabel, availableLabel].forEach {
+            $0.adjustsFontSizeToFitWidth = true
+            $0.adjustsFontForContentSizeCategory = true
+        }
         
         availableLabel.textColor = .lightGray
     }
@@ -147,8 +162,24 @@ class SectorCell: UITableViewCell {
             make.trailing.equalTo(contentView.readableContentGuide.snp.trailing).inset(8)
             make.bottom.equalTo(contentView).inset(12)
         }
-        progressView.snp.makeConstraints { (make) in
-            make.width.equalTo(dataStack).multipliedBy(0.6)
-        }
+//        progressView.snp.makeConstraints { (make) in
+//            make.width.equalTo(dataStack).multipliedBy(0.6)
+//        }
+    }
+}
+
+extension SectorCell {
+    private func setDataStackHorizontal() {
+        dataStack.axis = .horizontal
+        dataStack.alignment = .lastBaseline
+        dataStack.distribution = .fillEqually
+        dataStack.spacing = UIStackView.spacingUseDefault
+    }
+    
+    private func setupDataStackVertical() {
+        dataStack.axis = .vertical
+        dataStack.alignment = .fill
+        dataStack.distribution = .fillProportionally
+        dataStack.spacing = UIStackView.spacingUseDefault
     }
 }
