@@ -99,6 +99,8 @@ class SeatsProgressView: UIView {
     }
     
     private func setupView() {
+        progressView.accessibilityIgnoresInvertColors = true
+        
         [occupiedStack, totalStack].forEach {
             $0.axis = .vertical
             $0.distribution = .fillProportionally

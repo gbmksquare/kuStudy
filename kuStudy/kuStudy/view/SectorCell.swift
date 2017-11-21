@@ -108,6 +108,8 @@ class SectorCell: UITableViewCell {
     }
     
     private func setupView() {
+        indicator.accessibilityIgnoresInvertColors = true
+        
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .equalSpacing
