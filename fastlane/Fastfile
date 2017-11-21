@@ -41,8 +41,6 @@ platform :ios do
 
   desc "Submit a new Beta Build to Apple TestFlight"
   lane :beta do
-    xcode_select "/Applications/Xcode-beta.app"
-
     # Check & Badge
     ensure_git_status_clean
     badge(dark: true)
@@ -50,19 +48,19 @@ platform :ios do
     # Upload
     cocoapods
     gym(scheme: "kuStudy")
-    # pilot
+    deliver(skip_metadata: true, skip_screenshots: true)
 
     # Reset
     reset_git_repo
     cocoapods
 
     # Tag
-    # version = "#{get_version_number}.#{get_build_number}"
-    # add_git_tag(tag: version)
+    version = "#{get_version_number(xcodeproj: './kuStudy/kuStudy.xcodeproj')}.#{get_build_number(xcodeproj: './kuStudy/kuStudy.xcodeproj')}"
+    add_git_tag(tag: version)
 
     # Increase build number
-    # increment_build_number
-    # commit_version_bump(message: "Increased build number.")
+    increment_build_number(xcodeproj: "./kuStudy/kuStudy.xcodeproj")
+    commit_version_bump(message: "Increased build number.")
 
     notification(subtitle: "🚀 Fastlane done!", message: "Uploaded to TestFlight.")
   end
@@ -73,6 +71,10 @@ platform :ios do
     cocoapods
     gym(scheme: "kuStudy")
     deliver(skip_metadata: true, skip_screenshots: true)
+
+    # Tag
+    version = "#{get_version_number(xcodeproj: './kuStudy/kuStudy.xcodeproj')}.#{get_build_number(xcodeproj: './kuStudy/kuStudy.xcodeproj')}"
+    add_git_tag(tag: version)
 
     # Increase build number
     increment_build_number(xcodeproj: "./kuStudy/kuStudy.xcodeproj")
@@ -88,6 +90,10 @@ platform :ios do
     gym(scheme: "kuStudy")
     snapshot
     deliver
+
+    # Tag
+    version = "#{get_version_number(xcodeproj: './kuStudy/kuStudy.xcodeproj')}.#{get_build_number(xcodeproj: './kuStudy/kuStudy.xcodeproj')}"
+    add_git_tag(tag: version)
 
     # Increase build number
     increment_build_number(xcodeproj: "./kuStudy/kuStudy.xcodeproj")
