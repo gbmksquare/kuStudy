@@ -13,7 +13,7 @@ class MainSplitViewController: UISplitViewController {
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-        preferredDisplayMode = .automatic
+        preferredDisplayMode = .allVisible
         preferredPrimaryColumnWidthFraction = 0.4
         minimumPrimaryColumnWidth = 320
         maximumPrimaryColumnWidth = view.bounds.width * 0.4
