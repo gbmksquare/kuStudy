@@ -388,10 +388,10 @@ extension SummaryViewController {
 extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     // Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "librarySegue", sender: self)
         if UIDevice.current.userInterfaceIdiom == .phone {
             tableView.deselectRow(at: indexPath, animated: true)
         }
-        performSegue(withIdentifier: "librarySegue", sender: self)
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
