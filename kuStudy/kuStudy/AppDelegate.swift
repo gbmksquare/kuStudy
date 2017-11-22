@@ -27,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func applicationWillTerminate(_ application: UIApplication) {
+        disableStatusbarOverrideForSnapshot()
+    }
+    
     // MARK: - Url
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
         guard let window = window else { return false }
@@ -93,7 +97,7 @@ extension AppDelegate {
     private func setupApplication() {
         Preference.shared.setup()
         setupAppearance()
-        setupStatusbarForSnapshot()
+        enableStatusbarOverrideForSnapshot()
         setupFabric()
         NetworkActivityIndicatorManager.shared.isEnabled = true
     }
@@ -131,10 +135,18 @@ extension AppDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
     }
     
-    private func setupStatusbarForSnapshot() {
+    private func enableStatusbarOverrideForSnapshot() {
         #if DEBUG
             if ProcessInfo.processInfo.arguments.contains("Snapshot") ? true : false {
-//                SDStatusBarManager.sharedInstance().enableOverrides()
+                SDStatusBarManager.sharedInstance().enableOverrides()
+            }
+        #endif
+    }
+    
+    private func disableStatusbarOverrideForSnapshot() {
+        #if DEBUG
+            if ProcessInfo.processInfo.arguments.contains("Snapshot") ? true : false {
+                SDStatusBarManager.sharedInstance().disableOverrides()
             }
         #endif
     }
