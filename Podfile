@@ -19,10 +19,14 @@ target 'kuStudy' do
   pod 'AcknowList'
   pod 'CTFeedback'
   pod 'MXParallaxHeader'
-  pod 'SimulatorStatusMagic', :configurations => ['Debug']
 
   target 'kuStudyTests' do
     inherit! :search_paths
+  end
+
+  target 'kuStudy Snapshot' do
+    inherit! :search_paths
+    pod 'SimulatorStatusMagic'
   end
 end
 

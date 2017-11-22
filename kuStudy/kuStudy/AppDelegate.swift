@@ -12,9 +12,6 @@ import kuStudyKit
 import Fabric
 import Crashlytics
 import AlamofireNetworkActivityIndicator
-#if DEBUG
-import SimulatorStatusMagic
-#endif
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,10 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setupApplication()
         return true
-    }
-    
-    func applicationWillTerminate(_ application: UIApplication) {
-        disableStatusbarOverrideForSnapshot()
     }
     
     // MARK: - Url
@@ -97,7 +90,6 @@ extension AppDelegate {
     private func setupApplication() {
         Preference.shared.setup()
         setupAppearance()
-        enableStatusbarOverrideForSnapshot()
         setupFabric()
         NetworkActivityIndicatorManager.shared.isEnabled = true
     }
@@ -133,21 +125,5 @@ extension AppDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         UINavigationBar.appearance().tintColor = UIColor.white
-    }
-    
-    private func enableStatusbarOverrideForSnapshot() {
-        #if DEBUG
-            if ProcessInfo.processInfo.arguments.contains("Snapshot") ? true : false {
-                SDStatusBarManager.sharedInstance().enableOverrides()
-            }
-        #endif
-    }
-    
-    private func disableStatusbarOverrideForSnapshot() {
-        #if DEBUG
-            if ProcessInfo.processInfo.arguments.contains("Snapshot") ? true : false {
-                SDStatusBarManager.sharedInstance().disableOverrides()
-            }
-        #endif
     }
 }

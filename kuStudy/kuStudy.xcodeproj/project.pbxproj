@@ -131,6 +131,7 @@
 		16EFE0EC1F0243EB00FD476B /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EFE0EB1F0243EB00FD476B /* Preference.swift */; };
 		1A6ADFECC0BE4686683FEB7A /* Pods_kuStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9CA6B659DC9080D5A97D52 /* Pods_kuStudy.framework */; };
 		1CA21C0B1A9AA61CE621D2AB /* Pods_kuStudyKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936F5DC271654941D5D5F120 /* Pods_kuStudyKitTests.framework */; };
+		33D6169906F7C3A208337823 /* Pods_kuStudy_Snapshot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC510132D0CFC05A0DC1349 /* Pods_kuStudy_Snapshot.framework */; };
 		775879C9C863D09501D7E0C8 /* Pods_kuStudyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB4392D020A2D904BE378580 /* Pods_kuStudyTests.framework */; };
 		7D12FA996F3B8968DB6CBA4F /* Pods_kuStudy_WatchKit_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF364D1399DF9820268672BA /* Pods_kuStudy_WatchKit_Extension.framework */; };
 		B967FEDDED18FE404060C662 /* Pods_kuStudyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5413C6725922671D8C1210 /* Pods_kuStudyKit.framework */; };
@@ -385,12 +386,15 @@
 		16EFE0EB1F0243EB00FD476B /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Preference.swift; path = controller/Preference.swift; sourceTree = "<group>"; };
 		19E673EA13423A798E88583B /* Pods-kuStudyKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudyKitTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudyKitTests/Pods-kuStudyKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B8A305A9EC4933DE4DE0309 /* Pods-kuStudy WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy WatchKit App.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy WatchKit App/Pods-kuStudy WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
+		1DC6C81A4F513BB5AB64B44B /* Pods-kuStudy Snapshot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy Snapshot.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy Snapshot/Pods-kuStudy Snapshot.debug.xcconfig"; sourceTree = "<group>"; };
 		2210BCB64C450C6FBF44E8B2 /* Pods-kuStudy WatchKit Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy WatchKit Extension.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		48616CC494882D887829956D /* Pods-kuStudy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy.debug.xcconfig"; sourceTree = "<group>"; };
 		4C5E6BAFE1D71C4E0C76F8CE /* Pods-kuStudy Today Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy Today Extension.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy Today Extension/Pods-kuStudy Today Extension.release.xcconfig"; sourceTree = "<group>"; };
+		4DC510132D0CFC05A0DC1349 /* Pods_kuStudy_Snapshot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kuStudy_Snapshot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4259409020174B9E2F91A9 /* Pods-kuStudy WatchKit Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy WatchKit Extension.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension.release.xcconfig"; sourceTree = "<group>"; };
 		6D4ABC988201E7E4A04CA0FB /* Pods_kuStudy_WatchKit_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kuStudy_WatchKit_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F306345CF653EA2FE34810F /* Pods-kuStudy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy.release.xcconfig"; sourceTree = "<group>"; };
+		7551E46A44B16A38B5FAF7E1 /* Pods-kuStudy Snapshot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy Snapshot.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy Snapshot/Pods-kuStudy Snapshot.release.xcconfig"; sourceTree = "<group>"; };
 		936F5DC271654941D5D5F120 /* Pods_kuStudyKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kuStudyKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A038AB25963B809B6368261A /* Pods-kuStudyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudyTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudyTests/Pods-kuStudyTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A278F63C3D1633DA1EDA6132 /* Pods_kuStudy_Today_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kuStudy_Today_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -410,6 +414,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33D6169906F7C3A208337823 /* Pods_kuStudy_Snapshot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1021,6 +1026,8 @@
 				C9417F7B2A1F3D0C8ABCEAC9 /* Pods-kuStudyTests.release.xcconfig */,
 				C3F71AD1B428E624607F5156 /* Pods-kuStudyWatchKit.debug.xcconfig */,
 				15927B011AC433CE2175A7B9 /* Pods-kuStudyWatchKit.release.xcconfig */,
+				1DC6C81A4F513BB5AB64B44B /* Pods-kuStudy Snapshot.debug.xcconfig */,
+				7551E46A44B16A38B5FAF7E1 /* Pods-kuStudy Snapshot.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1038,6 +1045,7 @@
 				936F5DC271654941D5D5F120 /* Pods_kuStudyKitTests.framework */,
 				DB4392D020A2D904BE378580 /* Pods_kuStudyTests.framework */,
 				0E12927D8EC4D7BFAB562778 /* Pods_kuStudyWatchKit.framework */,
+				4DC510132D0CFC05A0DC1349 /* Pods_kuStudy_Snapshot.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1068,9 +1076,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 160505F41D6EDC1D0033B123 /* Build configuration list for PBXNativeTarget "kuStudy Snapshot" */;
 			buildPhases = (
+				E7F6638FDB160430157831FD /* [CP] Check Pods Manifest.lock */,
 				160505E71D6EDC1D0033B123 /* Sources */,
 				160505E81D6EDC1D0033B123 /* Frameworks */,
 				160505E91D6EDC1D0033B123 /* Resources */,
+				E24BC5CD9BED1D136AC3F4EF /* [CP] Embed Pods Frameworks */,
+				FF817A5BA0729DE92ACB7641 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1633,7 +1644,6 @@
 				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
 				"${BUILT_PRODUCTS_DIR}/LinearProgressView/LinearProgressView.framework",
 				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
-				"${BUILT_PRODUCTS_DIR}/SimulatorStatusMagic/SimulatorStatusMagic.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper-iOS/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper-iOS/ObjectMapper.framework",
@@ -1648,7 +1658,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinearProgressView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimulatorStatusMagic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -1772,6 +1781,42 @@
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E24BC5CD9BED1D136AC3F4EF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy Snapshot/Pods-kuStudy Snapshot-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SimulatorStatusMagic/SimulatorStatusMagic.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimulatorStatusMagic.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy Snapshot/Pods-kuStudy Snapshot-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7F6638FDB160430157831FD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-kuStudy Snapshot-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EA7FD6E9FFB17DFFC8D07DF4 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1825,6 +1870,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FF817A5BA0729DE92ACB7641 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy Snapshot/Pods-kuStudy Snapshot-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2142,6 +2202,7 @@
 /* Begin XCBuildConfiguration section */
 		160505F21D6EDC1D0033B123 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DC6C81A4F513BB5AB64B44B /* Pods-kuStudy Snapshot.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -2157,6 +2218,7 @@
 		};
 		160505F31D6EDC1D0033B123 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7551E46A44B16A38B5FAF7E1 /* Pods-kuStudy Snapshot.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = "kuStudy Snapshot/Info.plist";

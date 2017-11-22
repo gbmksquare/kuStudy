@@ -7,8 +7,14 @@
 //
 
 import XCTest
+import SimulatorStatusMagic
 
 class kuStudy_Snapshot: XCTestCase {
+    
+    override class func setUp() {
+        super.setUp()
+        SDStatusBarManager.sharedInstance().enableOverrides()
+    }
         
     override func setUp() {
         super.setUp()
@@ -33,26 +39,31 @@ class kuStudy_Snapshot: XCTestCase {
         super.tearDown()
     }
     
+    override class func tearDown() {
+        super.tearDown()
+        SDStatusBarManager.sharedInstance().disableOverrides()
+    }
+    
     // MARK: Test
     func testSnapshot() {
         snapshot("0_Main")
-        
+
         let app = XCUIApplication()
         let tablesQuery = app.tables
-        
+
         // iPad doesn't require this screenshot because it's the same as 0_main
         if UIDevice.current.userInterfaceIdiom != .pad {
             tablesQuery.cells.element(boundBy: 1).tap()
             snapshot("1_First")
-        
+
             tapBackButton()
         }
-        
+
         tablesQuery.cells.element(boundBy: 2).tap()
         snapshot("2_Second")
-        
+
         tapBackButton()
-        
+
         tablesQuery.cells.element(boundBy: 4).tap()
         snapshot("3_Third")
     }
