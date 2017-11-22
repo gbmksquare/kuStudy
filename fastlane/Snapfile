@@ -1,9 +1,11 @@
 # A list of devices you want to take the screenshots from
 devices([
-  "iPhone 7",
-  "iPhone 7 Plus",
+  "iPhone 8",
+  "iPhone 8 Plus",
   "iPhone SE",
+  "iPhone X",
   "iPad Pro (9.7-inch)",
+  "iPad Pro (10.5-inch)",
   "iPad Pro (12.9-inch)"
 ])
 
@@ -22,6 +24,6 @@ scheme "kuStudy Snapshot"
 # launch_arguments(["-favColor red"])
 
 # erase_simulator true
-localize_simulator true
+# localize_simulator true
 # clean true
 # reinstall_app true
