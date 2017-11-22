@@ -23,6 +23,6 @@ scheme "kuStudy Snapshot"
 # launch_arguments(["-favColor red"])
 
 # erase_simulator true
-# localize_simulator true
+localize_simulator true
 # clean true
 # reinstall_app true
