@@ -131,7 +131,7 @@ extension SummaryViewController {
         if traitCollection.verticalSizeClass == .compact {
             height = 120
         } else if traitCollection.userInterfaceIdiom == .phone {
-            height = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) == true ? 244 : 200
+            height = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) == true ? 220 : 200
         } else {
             height = 240
         }
