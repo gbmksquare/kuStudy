@@ -151,9 +151,6 @@ extension SummaryViewController {
     }
     
     private func setupTableView() {
-        if #available(iOS 11.0, *) {
-            table.contentInsetAdjustmentBehavior = .never
-        }
         table.tableFooterView = UIView()
         table.showsVerticalScrollIndicator = false
         table.register(LibraryCell.self, forCellReuseIdentifier: "cell")

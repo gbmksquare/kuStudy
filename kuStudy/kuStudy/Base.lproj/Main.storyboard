@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="74v-81-bfI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="74v-81-bfI">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -32,10 +31,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YZF-k5-9AM" firstAttribute="leading" secondItem="xd3-qP-dkP" secondAttribute="leading" id="Mkz-Yo-jiw"/>
-                            <constraint firstItem="xd3-qP-dkP" firstAttribute="bottom" secondItem="YZF-k5-9AM" secondAttribute="bottom" id="RQ1-UW-SUV"/>
+                            <constraint firstItem="YZF-k5-9AM" firstAttribute="leading" secondItem="cLG-nE-nts" secondAttribute="leading" id="Mkz-Yo-jiw"/>
+                            <constraint firstAttribute="bottom" secondItem="YZF-k5-9AM" secondAttribute="bottom" constant="49" id="RQ1-UW-SUV"/>
                             <constraint firstItem="YZF-k5-9AM" firstAttribute="top" secondItem="cLG-nE-nts" secondAttribute="top" id="VR9-s0-cWA"/>
-                            <constraint firstItem="xd3-qP-dkP" firstAttribute="trailing" secondItem="YZF-k5-9AM" secondAttribute="trailing" id="yxK-eP-Pkj"/>
+                            <constraint firstAttribute="trailing" secondItem="YZF-k5-9AM" secondAttribute="trailing" id="yxK-eP-Pkj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xd3-qP-dkP"/>
                     </view>
@@ -61,7 +60,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gx7-GD-bIb">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="4PY-Tz-wT9" id="vIc-yY-4jO"/>
@@ -72,9 +71,9 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gx7-GD-bIb" firstAttribute="top" secondItem="CHN-vV-xkS" secondAttribute="top" id="FDp-1L-4O2"/>
-                            <constraint firstItem="nie-F1-ZkN" firstAttribute="trailing" secondItem="gx7-GD-bIb" secondAttribute="trailing" id="KFd-g5-tm4"/>
-                            <constraint firstItem="nie-F1-ZkN" firstAttribute="bottom" secondItem="gx7-GD-bIb" secondAttribute="bottom" id="N1P-rC-WEm"/>
-                            <constraint firstItem="gx7-GD-bIb" firstAttribute="leading" secondItem="nie-F1-ZkN" secondAttribute="leading" id="znb-3h-Bwe"/>
+                            <constraint firstAttribute="trailing" secondItem="gx7-GD-bIb" secondAttribute="trailing" id="KFd-g5-tm4"/>
+                            <constraint firstAttribute="bottom" secondItem="gx7-GD-bIb" secondAttribute="bottom" id="N1P-rC-WEm"/>
+                            <constraint firstItem="gx7-GD-bIb" firstAttribute="leading" secondItem="CHN-vV-xkS" secondAttribute="leading" id="znb-3h-Bwe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nie-F1-ZkN"/>
                     </view>
@@ -565,7 +564,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Zd-Ln-WUN">
-                                <rect key="frame" x="0.0" y="108" width="414" height="579"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GTo-ti-bdo">
                                     <size key="itemSize" width="300" height="220"/>
