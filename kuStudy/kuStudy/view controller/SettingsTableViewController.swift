@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import kuStudyKit
 import AcknowList
 import Crashlytics
 import CTFeedback
@@ -64,6 +65,18 @@ class SettingsTableViewController: UITableViewController {
 }
 
 extension SettingsTableViewController {
+    @IBAction private func tapped(autoUpdate onOffSwitch: UISwitch) {
+        let shouldAutoUpdate = onOffSwitch.isOn
+        Preference.shared.shouldAutoUpdate = shouldAutoUpdate
+        if shouldAutoUpdate == true {
+            kuStudy.enableAutoUpdate()
+        } else {
+            kuStudy.disableAutoUpdate()
+        }
+    }
+}
+
+extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
@@ -92,7 +105,7 @@ extension SettingsTableViewController {
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let title: String?
-        switch  cell.tag {
+        switch cell.tag {
         case 100: title = Localizations.Settings.Table.Cell.Title.Order
         case 101: title = Localizations.Settings.Table.Cell.Title.TodayOrder
         case 102:
@@ -100,6 +113,15 @@ extension SettingsTableViewController {
             cell.detailTextLabel?.text = Preference.shared.preferredMap == .apple
                 ? Localizations.Settings.Table.Cell.Detail.AppleMap
                 : Localizations.Settings.Table.Cell.Detail.GoogleMap
+        case 103:
+            let cell = cell as! SwitchCell
+            cell.titleLabel.text = Localizations.Settings.Table.Cell.Title.AutoUpdate
+            cell.onOffSwitch.isOn = Preference.shared.shouldAutoUpdate
+            title = ""
+        case 104:
+            title = Localizations.Settings.Table.Cell.Title.UpdateInterval
+            let interval = TimeInterval(Preference.shared.updateInterval)
+            cell.detailTextLabel?.text = interval.readableTime
         case 800: title = Localizations.Settings.Table.Cell.Title.Feedback
         case 900: title = Localizations.Settings.Table.Cell.Title.OpenSource
         case 901: title = Localizations.Settings.Table.Cell.Title.ThanksTo
@@ -123,6 +145,26 @@ extension SettingsTableViewController {
                 cell.detailTextLabel?.text = Localizations.Settings.Table.Cell.Detail.AppleMap
             }
             tableView.deselectRow(at: indexPath, animated: true)
+        case 104: // Update interval
+            let alert = UIAlertController(title: Localizations.Settings.Table.Cell.Title.UpdateInterval, message: nil, preferredStyle: .actionSheet)
+            var intervals: [Double] = [60, 180, 300, 600]
+            #if DEBUG
+                intervals.insert(1, at: 0)
+            #endif
+            intervals.forEach {
+                let interval = $0
+                let action = UIAlertAction(title: $0.readableTime, style: .default, handler: { [weak self] (_) in
+                    Preference.shared.updateInterval = interval
+                    kuStudy.update(updateInterval: interval)
+                    self?.tableView.reloadData()
+                })
+                alert.addAction(action)
+            }
+            let cancel = UIAlertAction(title: Localizations.Alert.Action.Cancel, style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            present(alert, animated: true, completion: { [weak self] in
+                self?.tableView.deselectRow(at: indexPath, animated: true)
+            })
         case 800: // Feedback
             let feedback = CTFeedbackViewController(topics: CTFeedbackViewController.defaultTopics(), localizedTopics: CTFeedbackViewController.defaultLocalizedTopics())
             feedback?.toRecipients = ["ksquareatm@gmail.com"]

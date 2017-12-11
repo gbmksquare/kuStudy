@@ -19,6 +19,9 @@ public struct Localizations {
 
     public struct Common {
 
+        /// Base translation: minute
+        public static var Minute : String = NSLocalizedString("Common.Minute", comment: "")
+
         /// Base translation: Available
         public static var Available : String = NSLocalizedString("Common.Available", comment: "")
 
@@ -28,20 +31,26 @@ public struct Localizations {
         /// Base translation: --
         public static var NoData : String = NSLocalizedString("Common.NoData", comment: "")
 
+        /// Base translation: seconds
+        public static var Seconds : String = NSLocalizedString("Common.Seconds", comment: "")
+
         /// Base translation: Science Campus
         public static var ScienceCampus : String = NSLocalizedString("Common.ScienceCampus", comment: "")
 
         /// Base translation: Error
         public static var Error : String = NSLocalizedString("Common.Error", comment: "")
 
-        /// Base translation: Total
-        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
-
         /// Base translation: Out of Order
         public static var OutOfOrder : String = NSLocalizedString("Common.OutOfOrder", comment: "")
 
+        /// Base translation: second
+        public static var Second : String = NSLocalizedString("Common.Second", comment: "")
+
         /// Base translation: Liberal Art Campus
         public static var LiberalArtCampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
+
+        /// Base translation: Total
+        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
 
         /// Base translation: Occupied
         public static var Used : String = NSLocalizedString("Common.Used", comment: "")
@@ -51,6 +60,9 @@ public struct Localizations {
 
         /// Base translation: Scanner
         public static var Scanner : String = NSLocalizedString("Common.Scanner", comment: "")
+
+        /// Base translation: minutes
+        public static var Minutes : String = NSLocalizedString("Common.Minutes", comment: "")
 
         /// Base translation: Ineligible
         public static var Ineligible : String = NSLocalizedString("Common.Ineligible", comment: "")
@@ -230,20 +242,26 @@ public struct Localizations {
                     /// Base translation: Tip Developer
                     public static var TipJar : String = NSLocalizedString("Settings.Table.Cell.Title.TipJar", comment: "")
 
+                    /// Base translation: Update Interval
+                    public static var UpdateInterval : String = NSLocalizedString("Settings.Table.Cell.Title.UpdateInterval", comment: "")
+
                     /// Base translation: Recommend to a Friend
                     public static var Recommend : String = NSLocalizedString("Settings.Table.Cell.Title.Recommend", comment: "")
 
-                    /// Base translation: Library Order
-                    public static var Order : String = NSLocalizedString("Settings.Table.Cell.Title.Order", comment: "")
+                    /// Base translation: Auto Update
+                    public static var AutoUpdate : String = NSLocalizedString("Settings.Table.Cell.Title.AutoUpdate", comment: "")
 
                     /// Base translation: Open Source
                     public static var OpenSource : String = NSLocalizedString("Settings.Table.Cell.Title.OpenSource", comment: "")
 
-                    /// Base translation: Maps
-                    public static var Maps : String = NSLocalizedString("Settings.Table.Cell.Title.Maps", comment: "")
+                    /// Base translation: Library Order
+                    public static var Order : String = NSLocalizedString("Settings.Table.Cell.Title.Order", comment: "")
 
                     /// Base translation: Thanks To
                     public static var ThanksTo : String = NSLocalizedString("Settings.Table.Cell.Title.ThanksTo", comment: "")
+
+                    /// Base translation: Maps
+                    public static var Maps : String = NSLocalizedString("Settings.Table.Cell.Title.Maps", comment: "")
 
                     /// Base translation: Send Feedback
                     public static var Feedback : String = NSLocalizedString("Settings.Table.Cell.Title.Feedback", comment: "")

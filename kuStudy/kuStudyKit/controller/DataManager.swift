@@ -23,7 +23,7 @@ internal class DataManager {
     // Update
     private var timer: Timer?
     private var shouldAutoUpdate = false
-    private var updateInterval: TimeInterval = 300
+    private var updateInterval: TimeInterval = 60
     internal var lastUpdatedAt: Date?
     
     // MARK: - Initialization
@@ -32,10 +32,16 @@ internal class DataManager {
     }
     
     // MARK: - Fetch (Internal)
-    internal func startFetching(autoUpdate: Bool = false) {
-        if autoUpdate == true {
+    internal func startFetching(autoUpdate: Bool? = nil, updateInterval: TimeInterval? = nil) {
+        if let updateInterval = updateInterval {
+            self.updateInterval = updateInterval
+        }
+        if let autoUpdate = autoUpdate {
+            self.shouldAutoUpdate = autoUpdate
+        }
+        if self.shouldAutoUpdate == true {
             requestAllData()
-            timer = Timer.scheduledTimer(timeInterval: updateInterval,
+            timer = Timer.scheduledTimer(timeInterval: self.updateInterval,
                                          target: self,
                                          selector: #selector(handle(timer:)),
                                          userInfo: nil,
@@ -59,6 +65,22 @@ internal class DataManager {
     internal func stopFetching() {
         timer?.invalidate()
         timer = nil
+    }
+    
+    internal func enableAutoUpdate() {
+        shouldAutoUpdate = true
+        startFetching()
+    }
+    
+    internal func disableAutoUpdate() {
+        shouldAutoUpdate = false
+        stopFetching()
+    }
+    
+    internal func update(updateInterval: TimeInterval) {
+        self.updateInterval = updateInterval
+        stopFetching()
+        startFetching()
     }
     
     // MARK: - Fetch (Private)

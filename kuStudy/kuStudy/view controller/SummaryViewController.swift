@@ -44,7 +44,7 @@ class SummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        kuStudy.startFecthingData(autoUpdate: false)
+        kuStudy.startFecthingData(autoUpdate: Preference.shared.shouldAutoUpdate, updateInterval: Preference.shared.updateInterval)
         
         Answers.logContentView(withName: "Summary", contentType: "Summary", contentId: "0", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
         

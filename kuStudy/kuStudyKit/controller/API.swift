@@ -15,8 +15,8 @@ public typealias FailureHandler = (_ error: Error) -> Void
 private let apiUrl = "http://librsv.korea.ac.kr/DLMS_KOU_INTRO/api/seatStatusList.do"
 
 public extension kuStudy {
-    public class func startFecthingData(autoUpdate: Bool = false) {
-        DataManager.shared.startFetching(autoUpdate: autoUpdate)
+    public class func startFecthingData(autoUpdate: Bool? = nil, updateInterval: TimeInterval? = nil) {
+        DataManager.shared.startFetching(autoUpdate: autoUpdate, updateInterval: updateInterval)
     }
     
     public class func requestUpdateData() {
@@ -25,6 +25,18 @@ public extension kuStudy {
     
     public class func stopFetchingData() {
         DataManager.shared.stopFetching()
+    }
+    
+    public class func enableAutoUpdate() {
+        DataManager.shared.enableAutoUpdate()
+    }
+    
+    public class func disableAutoUpdate() {
+        DataManager.shared.disableAutoUpdate()
+    }
+    
+    public class func update(updateInterval: TimeInterval) {
+        DataManager.shared.update(updateInterval: updateInterval)
     }
 }
 

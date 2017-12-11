@@ -19,6 +19,8 @@
 		16136BEA1B1C3F0800B3F744 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16136BE91B1C3F0800B3F744 /* Images.xcassets */; };
 		16136BFC1B1C44BA00B3F744 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		16136C001B1C451100B3F744 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BFF1B1C451100B3F744 /* LibraryCell.swift */; };
+		161A7E821FDEB98300808780 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A7E811FDEB98300808780 /* SwitchCell.swift */; };
+		161A7E841FDEC87B00808780 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A7E831FDEC87B00808780 /* TimeInterval.swift */; };
 		162363511F9F181700CD78F2 /* LibraryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162363501F9F181700CD78F2 /* LibraryHeaderView.swift */; };
 		16251CAD1B232D650035F2D9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1625B4621F44386700744C01 /* NotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1625B4611F44386700744C01 /* NotificationCoordinator.swift */; };
@@ -284,6 +286,8 @@
 		16136BE91B1C3F0800B3F744 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		16136BF51B1C406800B3F744 /* kuStudy WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		16136BFF1B1C451100B3F744 /* LibraryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
+		161A7E811FDEB98300808780 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwitchCell.swift; path = view/SwitchCell.swift; sourceTree = "<group>"; };
+		161A7E831FDEC87B00808780 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeInterval.swift; path = extension/TimeInterval.swift; sourceTree = "<group>"; };
 		162363501F9F181700CD78F2 /* LibraryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryHeaderView.swift; path = view/LibraryHeaderView.swift; sourceTree = "<group>"; };
 		16251CAC1B232C8F0035F2D9 /* kuStudy Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy Today Extension.entitlements"; sourceTree = "<group>"; };
 		1625B4611F44386700744C01 /* NotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationCoordinator.swift; path = controller/NotificationCoordinator.swift; sourceTree = "<group>"; };
@@ -616,6 +620,7 @@
 			isa = PBXGroup;
 			children = (
 				164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */,
+				161A7E811FDEB98300808780 /* SwitchCell.swift */,
 				16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */,
 				1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift */,
 				16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */,
@@ -973,6 +978,7 @@
 		16DB2DAC1C55D55D0096AFB9 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				161A7E831FDEC87B00808780 /* TimeInterval.swift */,
 				1661C3DE1F07E9C0005C889F /* UIDevice.swift */,
 				1664D5551D55E24B000BAF56 /* UIApplication.swift */,
 				1664D5511D55E1C6000BAF56 /* UINavigationController.swift */,
@@ -1957,6 +1963,7 @@
 				166742FC1FBD666E0098C0BB /* LibraryCell.swift in Sources */,
 				162F12151D5F86B000A401D8 /* PhotographerCell.swift in Sources */,
 				167245C51B19C0370083035F /* AppDelegate.swift in Sources */,
+				161A7E821FDEB98300808780 /* SwitchCell.swift in Sources */,
 				1664D5521D55E1C6000BAF56 /* UINavigationController.swift in Sources */,
 				16019E9D1D8E45DE008A76C7 /* MainSplitViewController.swift in Sources */,
 				1664D5561D55E24B000BAF56 /* UIApplication.swift in Sources */,
@@ -1966,6 +1973,7 @@
 				1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift in Sources */,
 				168573A81F4FC81700399AA2 /* TipJarViewController.swift in Sources */,
 				164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */,
+				161A7E841FDEC87B00808780 /* TimeInterval.swift in Sources */,
 				166742FA1FBD5B300098C0BB /* SummaryHeaderView.swift in Sources */,
 				164579F01F9F7E3C00DD8F22 /* SeatsProgressView.swift in Sources */,
 				167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */,

@@ -20,6 +20,8 @@ class Preference {
         case widgetHidden = "todayExtensionHidden"
         case preferredMap = "preferredMap"
         case preferenceVersion = "preferenceVersion"
+        case shouldAutoUpdate = "shouldAutoUpdate"
+        case updateInterval = "updateInterval"
         
         var name: String {
             return rawValue
@@ -27,9 +29,7 @@ class Preference {
     }
     
     var libraryOrder: [String] {
-        get {
-            return preference.array(forKey: Preference.Key.order.name) as? [String] ?? []
-        }
+        get { return preference.array(forKey: Preference.Key.order.name) as? [String] ?? [] }
         set {
             preference.setValue(newValue, forKey: Preference.Key.order.name)
             preference.synchronize()
@@ -37,9 +37,7 @@ class Preference {
     }
     
     var widgetLibraryOrder: [String] {
-        get {
-            return preference.array(forKey: Preference.Key.widgetOrder.name) as? [String] ?? []
-        }
+        get { return preference.array(forKey: Preference.Key.widgetOrder.name) as? [String] ?? [] }
         set {
             preference.setValue(newValue, forKey: Preference.Key.widgetOrder.name)
             preference.synchronize()
@@ -47,9 +45,7 @@ class Preference {
     }
     
     var widgetLibraryHidden: [String] {
-        get {
-            return preference.array(forKey: Preference.Key.widgetHidden.name) as? [String] ?? []
-        }
+        get { return preference.array(forKey: Preference.Key.widgetHidden.name) as? [String] ?? [] }
         set {
             preference.setValue(newValue, forKey: Preference.Key.widgetHidden.name)
             preference.synchronize()
@@ -68,11 +64,25 @@ class Preference {
     }
     
     var preferenceVersion: Int {
-        get {
-            return preference.integer(forKey: Preference.Key.preferenceVersion.name)
-        }
+        get { return preference.integer(forKey: Preference.Key.preferenceVersion.name) }
         set {
             preference.setValue(newValue, forKey: Preference.Key.preferenceVersion.name)
+            preference.synchronize()
+        }
+    }
+    
+    var shouldAutoUpdate: Bool {
+        get { return preference.bool(forKey: Preference.Key.shouldAutoUpdate.name) }
+        set {
+            preference.setValue(newValue, forKey: Preference.Key.shouldAutoUpdate.name)
+            preference.synchronize()
+        }
+    }
+    
+    var updateInterval: Double {
+        get { return preference.double(forKey: Preference.Key.updateInterval.name) }
+        set {
+            preference.setValue(newValue, forKey: Preference.Key.updateInterval.name)
             preference.synchronize()
         }
     }
@@ -103,7 +113,9 @@ class Preference {
                                        Preference.Key.widgetOrder.name: libraryOrder,
                                        Preference.Key.widgetHidden.name: [],
                                        Preference.Key.preferredMap.name: MapType.apple.rawValue,
-                                       Preference.Key.preferenceVersion.name: 5])
+                                       Preference.Key.preferenceVersion.name: 5,
+                                       Preference.Key.shouldAutoUpdate.name: true,
+                                       Preference.Key.updateInterval.name: 60])
         preference.synchronize()
     }
     
