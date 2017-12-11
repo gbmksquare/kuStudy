@@ -1,17 +1,16 @@
 New Features
-• Completely new UI for iOS 11!
-• Reorder library with drag & drop.
-• Send feedback from settings tab.
-• Accessibility: Now supports Dynamic Type.
-• Accessibility: Now supports Smart Invert.
+• App now automatically update library data periodically.
+• Enable or disable automatic updates.
+• Set time interval for automatic updates.
 
-향상된 기능
-• Now correctly gathers data from the new library website.
-• Improved iPad hardward keyboard support.
+Improvements
+• Changed image header height for iPhone X.
+• Improved table layout for iPhone X landscape orientation.
+• Updated third party libraries.
 
-Removed Features
-• Dropped iOS 9 support.
-• Dropped watchOS 2 support.
+Bug Fixes
+• Fixed table not showing under the tab bar.
+• Fixed split view not showing correctly on iPad portrait orientation.
 
 
 Happy studying! :)

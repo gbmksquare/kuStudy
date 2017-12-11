@@ -1,11 +1,40 @@
 # Release Notes 
 
+## 3.2.0 (33)
+
+### New features
+
+- Automatically update library data.
+- Enable or disable automatic updates.
+- Set time interval for automatic updates.
+
+### Improvements
+
+- Improved image header height for iPhone X.
+- Improved table layout for iPhone X landscape orientation.
+- Updated third party libraries.
+
+### Bug fixes
+
+- Fixed table not showing under the tab bar.
+- Fixed split view not showing correctly on iPad portrait orientation.
+
+### Code improvements
+
+* Enable SimulatorStatusMagic on snapshot launch and disable on app termination.
+* Updated Snapfile.
+* Updated Snapshot helper.
+
+
+
 ## 3.1.0 (32)
 
-## New features
+### New features
+
 * Added Hae-song Law Library.
 
-## Improvements
+### Improvements
+
 * Optimized for iPhone X.
 * Enhanced user interface.
 * Settings are re-organized.
@@ -14,13 +43,16 @@
 * Improved Smart Invert support.
 * Updated third party libraries.
 
-## Bug fixes
+### Bug fixes
+
 * Fixed preference being reset everytime 
 
-## Removed features
+### Removed features
+
 * Minimum deployment target is now iOS 11.0 and watchOS 3.0.
 
-## Code imiprovements
+### Code imiprovements
+
 * New DataManager class to manage API and automatic updates.
 * When data is requested, update only runs if last update is more than one minute.
 * New MediaProvider class for better management and providing more types of media.
