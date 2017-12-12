@@ -626,7 +626,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7Zd-Ln-WUN">
-                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GTo-ti-bdo">
                                     <size key="itemSize" width="300" height="220"/>
@@ -643,7 +643,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uaf-G8-OLZ" userLabel="Wrapper">
-                                                    <rect key="frame" x="8" y="8" width="300" height="204"/>
+                                                    <rect key="frame" x="0.0" y="8" width="300" height="204"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oHD-Zs-NJw">
                                                             <rect key="frame" x="0.0" y="0.0" width="300" height="204"/>
@@ -712,12 +712,12 @@
                                 </cells>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottomMargin" secondItem="7Zd-Ln-WUN" secondAttribute="bottom" id="6rR-ko-Iyd"/>
-                            <constraint firstItem="7Zd-Ln-WUN" firstAttribute="leading" secondItem="0OM-z5-Yhu" secondAttribute="leading" id="TQo-a5-Pid"/>
-                            <constraint firstItem="7Zd-Ln-WUN" firstAttribute="top" secondItem="0OM-z5-Yhu" secondAttribute="top" id="n7U-jY-4ZA"/>
-                            <constraint firstItem="7Zd-Ln-WUN" firstAttribute="trailing" secondItem="0OM-z5-Yhu" secondAttribute="trailing" id="yad-8z-J2s"/>
+                            <constraint firstItem="7Zd-Ln-WUN" firstAttribute="leading" secondItem="Opb-YM-z8d" secondAttribute="leading" id="TQo-a5-Pid"/>
+                            <constraint firstAttribute="bottom" secondItem="7Zd-Ln-WUN" secondAttribute="bottom" id="dQ2-yS-zG3"/>
+                            <constraint firstItem="7Zd-Ln-WUN" firstAttribute="top" secondItem="Opb-YM-z8d" secondAttribute="top" id="n7U-jY-4ZA"/>
+                            <constraint firstItem="7Zd-Ln-WUN" firstAttribute="trailing" secondItem="Opb-YM-z8d" secondAttribute="trailing" id="yad-8z-J2s"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0OM-z5-Yhu"/>
                     </view>
