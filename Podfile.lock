@@ -9,6 +9,7 @@ PODS:
   - CTFeedback (1.1.1)
   - DeviceKit (1.6.0)
   - DZNEmptyDataSet (1.8.1)
+  - FTLinearActivityIndicator (1.0.4)
   - LinearProgressView (2.0.0)
   - MXParallaxHeader (0.6.1)
   - ObjectMapper (3.1.0)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - CTFeedback
   - DeviceKit
   - DZNEmptyDataSet
+  - FTLinearActivityIndicator
   - LinearProgressView
   - MXParallaxHeader
   - SimulatorStatusMagic
@@ -37,6 +39,7 @@ SPEC REPOS:
     - CTFeedback
     - DeviceKit
     - DZNEmptyDataSet
+    - FTLinearActivityIndicator
     - LinearProgressView
     - MXParallaxHeader
     - ObjectMapper
@@ -51,12 +54,13 @@ SPEC CHECKSUMS:
   CTFeedback: 6f128606e0d26d46075c3fa9fc33884372df8675
   DeviceKit: 3de509f9db7ae93bf676da5e97b945517bc957cd
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FTLinearActivityIndicator: 0c4ff2067cd67d88fd932ec214da90083ea7148e
   LinearProgressView: 2e71a3a937b93488f381088f0ba27f2ff52bb26c
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
   ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
   SimulatorStatusMagic: 481558caf2b9ccb2ceba2cc193728d4db3dcac07
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: da29b019e2699ebd6f0570eca60dc5f33097b7f6
+PODFILE CHECKSUM: 39fd45de9a602e1b961388e56a0ccecf670ce212
 
 COCOAPODS: 1.5.0

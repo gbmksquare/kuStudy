@@ -14,6 +14,7 @@ target 'kuStudy' do
 
   pod 'DeviceKit'
   pod 'AlamofireNetworkActivityIndicator'
+  pod 'FTLinearActivityIndicator'
   pod 'LinearProgressView'
   pod 'DZNEmptyDataSet'
   pod 'AcknowList'

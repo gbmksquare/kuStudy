@@ -12,6 +12,7 @@ import kuStudyKit
 import Fabric
 import Crashlytics
 import AlamofireNetworkActivityIndicator
+import FTLinearActivityIndicator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -92,6 +93,7 @@ extension AppDelegate {
         setupAppearance()
         setupFabric()
         NetworkActivityIndicatorManager.shared.isEnabled = true
+        UIApplication.configureLinearNetworkActivityIndicatorIfNeeded()
     }
     
     private func setupFabric() {
