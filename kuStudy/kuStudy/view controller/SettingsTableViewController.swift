@@ -78,6 +78,13 @@ extension SettingsTableViewController {
 
 extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        #if !DEBUG
+        // Hide Tip Jar and Maps settings
+        switch (indexPath.section, indexPath.row) {
+        case (0, 4), (2, 3): return 0
+        default: break
+        }
+        #endif
         return UITableViewAutomaticDimension
     }
     
