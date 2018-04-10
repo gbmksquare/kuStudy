@@ -1,16 +1,8 @@
 New Features
-• App now automatically update library data periodically.
-• Enable or disable automatic updates.
-• Set time interval for automatic updates.
+• Shows custom network activity indicator on iPhone X.
 
 Improvements
-• Changed image header height for iPhone X.
-• Improved table layout for iPhone X landscape orientation.
 • Updated third party libraries.
-
-Bug Fixes
-• Fixed table not showing under the tab bar.
-• Fixed split view not showing correctly on iPad portrait orientation.
 
 
 Happy studying! :)
