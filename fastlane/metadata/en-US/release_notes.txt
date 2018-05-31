@@ -1,7 +1,5 @@
-New Features
-• Shows custom network activity indicator on iPhone X.
-
 Improvements
+• Improved readability on some UI.
 • Updated third party libraries.
 
 
