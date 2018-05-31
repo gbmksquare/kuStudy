@@ -89,6 +89,7 @@
 		167B4C8A1F872EB800BDE991 /* CloseTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C881F872EB800BDE991 /* CloseTimeTransform.swift */; };
 		167B4C8C1F872F0000BDE991 /* OpenTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C8B1F872F0000BDE991 /* OpenTimeTransform.swift */; };
 		167B4C8D1F872F0000BDE991 /* OpenTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C8B1F872F0000BDE991 /* OpenTimeTransform.swift */; };
+		1683E73420C03F7B00721F2E /* SummaryHeaderItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683E73320C03F7B00721F2E /* SummaryHeaderItemCell.swift */; };
 		168573A81F4FC81700399AA2 /* TipJarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168573A71F4FC81700399AA2 /* TipJarViewController.swift */; };
 		1685E0511F91E45700F80699 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685E0501F91E45700F80699 /* MediaManager.swift */; };
 		1685E0521F91E45700F80699 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685E0501F91E45700F80699 /* MediaManager.swift */; };
@@ -352,6 +353,7 @@
 		167B4C851F872E7700BDE991 /* YesNoTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YesNoTransform.swift; path = model/YesNoTransform.swift; sourceTree = "<group>"; };
 		167B4C881F872EB800BDE991 /* CloseTimeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloseTimeTransform.swift; path = model/CloseTimeTransform.swift; sourceTree = "<group>"; };
 		167B4C8B1F872F0000BDE991 /* OpenTimeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenTimeTransform.swift; path = model/OpenTimeTransform.swift; sourceTree = "<group>"; };
+		1683E73320C03F7B00721F2E /* SummaryHeaderItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SummaryHeaderItemCell.swift; path = view/SummaryHeaderItemCell.swift; sourceTree = "<group>"; };
 		168573A71F4FC81700399AA2 /* TipJarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipJarViewController.swift; path = "view controller/TipJarViewController.swift"; sourceTree = "<group>"; };
 		1685E0501F91E45700F80699 /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaManager.swift; path = controller/MediaManager.swift; sourceTree = "<group>"; };
 		1685E0531F91E47100F80699 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Artist.swift; path = model/Artist.swift; sourceTree = "<group>"; };
@@ -844,6 +846,7 @@
 			children = (
 				1672461E1B1B44850083035F /* SummaryViewController.swift */,
 				166742F91FBD5B300098C0BB /* SummaryHeaderView.swift */,
+				1683E73320C03F7B00721F2E /* SummaryHeaderItemCell.swift */,
 				166742FB1FBD666E0098C0BB /* LibraryCell.swift */,
 			);
 			name = Summary;
@@ -1809,6 +1812,7 @@
 				167245C51B19C0370083035F /* AppDelegate.swift in Sources */,
 				161A7E821FDEB98300808780 /* SwitchCell.swift in Sources */,
 				1664D5521D55E1C6000BAF56 /* UINavigationController.swift in Sources */,
+				1683E73420C03F7B00721F2E /* SummaryHeaderItemCell.swift in Sources */,
 				16019E9D1D8E45DE008A76C7 /* MainSplitViewController.swift in Sources */,
 				1664D5561D55E24B000BAF56 /* UIApplication.swift in Sources */,
 				16DA07941C8EBBC300C4174A /* LibraryOrderTableViewController.swift in Sources */,

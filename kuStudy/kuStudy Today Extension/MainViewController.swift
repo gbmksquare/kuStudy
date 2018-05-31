@@ -120,8 +120,8 @@ class MainViewController: UIViewController {
         }) { [weak self] (summary) in
             if summary.libraries.count > 0 {
                 self?.occupied = summary.occupied
-                self?.laCampusUsed = summary.occupiedInLiberalArtCampus
-                self?.scCampusUsed = summary.occupiedInScienceCampus
+                self?.laCampusUsed = summary.liberalArtCampusData.occupied
+                self?.scCampusUsed = summary.scienceCampusData.occupied
                 self?.data = summary
             } else {
                 self?.occupied = nil

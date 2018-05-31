@@ -23,40 +23,40 @@ public struct Localizations {
         public struct Name {
 
             /// Base translation: Haesong Law Library
-            public static var Law : String = NSLocalizedString("Library.Name.Law", bundle: Bundle(for: kuStudy.self), comment: "")
+            public static var Law : String = NSLocalizedString("Library.Name.Law", comment: "")
 
             /// Base translation: Centennial Digital Library
-            public static var Cdl : String = NSLocalizedString("Library.Name.Cdl", bundle: Bundle(for: kuStudy.self), comment: "")
+            public static var Cdl : String = NSLocalizedString("Library.Name.Cdl", comment: "")
 
             /// Base translation: Central Library
-            public static var CentralLibrary : String = NSLocalizedString("Library.Name.CentralLibrary", bundle: Bundle(for: kuStudy.self), comment: "")
+            public static var CentralLibrary : String = NSLocalizedString("Library.Name.CentralLibrary", comment: "")
 
 
             public struct Sejong {
 
                 /// Base translation: SJ
-                public static var Short : String = NSLocalizedString("Library.Name.Sejong.Short", bundle: Bundle(for: kuStudy.self), comment: "")
+                public static var Short : String = NSLocalizedString("Library.Name.Sejong.Short", comment: "")
 
             }
 
             public struct HanaSquare {
 
                 /// Base translation: HS
-                public static var Short : String = NSLocalizedString("Library.Name.HanaSquare.Short", bundle: Bundle(for: kuStudy.self), comment: "")
+                public static var Short : String = NSLocalizedString("Library.Name.HanaSquare.Short", comment: "")
 
             }
 
             public struct ScienceLibrary {
 
                 /// Base translation: SL
-                public static var Short : String = NSLocalizedString("Library.Name.ScienceLibrary.Short", bundle: Bundle(for: kuStudy.self), comment: "")
+                public static var Short : String = NSLocalizedString("Library.Name.ScienceLibrary.Short", comment: "")
 
             }
 
             public struct CentralSquare {
 
                 /// Base translation: CS
-                public static var Short : String = NSLocalizedString("Library.Name.CentralSquare.Short", bundle: Bundle(for: kuStudy.self), comment: "")
+                public static var Short : String = NSLocalizedString("Library.Name.CentralSquare.Short", comment: "")
 
             }
         }
@@ -69,22 +69,22 @@ public struct Localizations {
 
             /// Base translation: Photo by %@
             public static func Photo(_ value1 : String) -> String {
-                return String(format: NSLocalizedString("Media.Attribution.Photo", bundle: Bundle(for: kuStudy.self), comment: ""), value1)
+                return String(format: NSLocalizedString("Media.Attribution.Photo", comment: ""), value1)
             }
 
             /// Base translation: Timelapse by %@
             public static func Timelapse(_ value1 : String) -> String {
-                return String(format: NSLocalizedString("Media.Attribution.Timelapse", bundle: Bundle(for: kuStudy.self), comment: ""), value1)
+                return String(format: NSLocalizedString("Media.Attribution.Timelapse", comment: ""), value1)
             }
 
             /// Base translation: Illustration by %@
             public static func Illustration(_ value1 : String) -> String {
-                return String(format: NSLocalizedString("Media.Attribution.Illustration", bundle: Bundle(for: kuStudy.self), comment: ""), value1)
+                return String(format: NSLocalizedString("Media.Attribution.Illustration", comment: ""), value1)
             }
 
             /// Base translation: Video by %@
             public static func Video(_ value1 : String) -> String {
-                return String(format: NSLocalizedString("Media.Attribution.Video", bundle: Bundle(for: kuStudy.self), comment: ""), value1)
+                return String(format: NSLocalizedString("Media.Attribution.Video", comment: ""), value1)
             }
 
         }

@@ -40,7 +40,7 @@ public extension LibraryType {
     }
     
     public static func liberalArtCampusTypes() -> [LibraryType] {
-        return [.centralLibrary, centralSquare, .cdl, law]
+        return [.centralLibrary, .centralSquare, .cdl, .law]
     }
     
     public static func scienceCampusTypes() -> [LibraryType] {

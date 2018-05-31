@@ -34,6 +34,9 @@ public struct Localizations {
         /// Base translation: seconds
         public static var Seconds : String = NSLocalizedString("Common.Seconds", comment: "")
 
+        /// Base translation: Studying Now
+        public static var Studying : String = NSLocalizedString("Common.Studying", comment: "")
+
         /// Base translation: Science Campus
         public static var ScienceCampus : String = NSLocalizedString("Common.ScienceCampus", comment: "")
 
