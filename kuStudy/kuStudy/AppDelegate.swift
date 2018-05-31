@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let summaryViewController = navigationController.topViewController as! SummaryViewController
         
         let userActivity = NSUserActivity(activityType: kuStudyHandoffLibrary)
-        guard let libraryId = url.query?.characters.split(separator: "=").last.map(String.init) else { return false }
+        guard let libraryId = url.query?.split(separator: "=").last.map(String.init) else { return false }
         userActivity.addUserInfoEntries(from: ["libraryId": libraryId])
         summaryViewController.restoreUserActivityState(userActivity)
         return true
