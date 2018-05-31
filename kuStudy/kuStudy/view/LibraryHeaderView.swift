@@ -145,10 +145,10 @@ class LibraryHeaderView: UIView {
         
         subtitleLabel.textColor = .lightGray
         availableLabel.textColor = .lightGray
-        timestampLabel.textColor = #colorLiteral(red: 0.8392109871, green: 0.8391088247, blue: 0.8563356996, alpha: 1)
-        artistLabel.textColor = #colorLiteral(red: 0.8392109871, green: 0.8391088247, blue: 0.8563356996, alpha: 1)
-        infoSeparator.backgroundColor = #colorLiteral(red: 0.8392109871, green: 0.8391088247, blue: 0.8563356996, alpha: 1)
-        buttonSeparator.backgroundColor = #colorLiteral(red: 0.8392109871, green: 0.8391088247, blue: 0.8563356996, alpha: 1)
+        timestampLabel.textColor = .textDark
+        artistLabel.textColor = .textDark
+        infoSeparator.backgroundColor = .separator
+        buttonSeparator.backgroundColor = .separator
         
         [mapButton, remindButton, actionButton].forEach {
             $0.setTitleColor(UIColor.theme, for: .normal)

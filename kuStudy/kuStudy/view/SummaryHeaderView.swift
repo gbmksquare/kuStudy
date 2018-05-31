@@ -55,7 +55,7 @@ class SummaryHeaderView: UIView {
     }
     
     private func setupView() {
-        separator.backgroundColor = #colorLiteral(red: 0.8392109871, green: 0.8391088247, blue: 0.8563356996, alpha: 1)
+        separator.backgroundColor = .separator
         
         stack.axis = .vertical
         stack.alignment = .leading
@@ -63,8 +63,8 @@ class SummaryHeaderView: UIView {
         stack.spacing = 8
         
         let headlineMetrics = UIFontMetrics(forTextStyle: .headline)
-        dateLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 18, weight: .bold))
-        dateLabel.textColor = #colorLiteral(red: 0.8392109871, green: 0.8391088247, blue: 0.8563356996, alpha: 1)
+        dateLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 16, weight: .semibold))
+        dateLabel.textColor = .textDark
 
         summaryLabel.font = UIFont.preferredFont(forTextStyle: .body)
         summaryLabel.textColor = .black
