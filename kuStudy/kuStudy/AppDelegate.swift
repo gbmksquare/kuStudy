@@ -14,6 +14,10 @@ import Crashlytics
 import AlamofireNetworkActivityIndicator
 import FTLinearActivityIndicator
 
+#if DEBUG
+import Peek
+#endif
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -92,8 +96,18 @@ extension AppDelegate {
         Preference.shared.setup()
         setupAppearance()
         setupFabric()
+        enableDebug()
         NetworkActivityIndicatorManager.shared.isEnabled = true
         UIApplication.configureLinearNetworkActivityIndicatorIfNeeded()
+    }
+    
+    private func enableDebug() {
+        #if DEBUG
+        window?.peek.enableWithOptions({ (options) in
+            options.theme = .dark
+            options.activationMode = .auto
+        })
+        #endif
     }
     
     private func setupFabric() {
