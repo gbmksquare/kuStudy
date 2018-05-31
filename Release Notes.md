@@ -1,5 +1,22 @@
 # Release Notes 
 
+
+
+## 3.2.1 (35)
+
+### New features
+
+* Added linear network activity indicator for iPhone X.
+
+### Improvements
+
+* Updated third party libraries.
+
+### Fixed bugs
+
+* Set background color on acknowledgement view.
+* Fixed acknowledgement view not going under tab bar.
+
 ## 3.2.0 (33)
 
 ### New features
