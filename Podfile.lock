@@ -12,9 +12,9 @@ PODS:
   - FTLinearActivityIndicator (1.0.4)
   - LinearProgressView (2.0.1)
   - MXParallaxHeader (0.6.1)
-  - ObjectMapper (3.2.0)
+  - ObjectMapper (3.3.0)
   - Peek (5.1.0)
-  - SimulatorStatusMagic (2.1)
+  - SimulatorStatusMagic (2.2)
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
@@ -60,9 +60,9 @@ SPEC CHECKSUMS:
   FTLinearActivityIndicator: 0c4ff2067cd67d88fd932ec214da90083ea7148e
   LinearProgressView: 353d4d45dc599b83cc4b43f14e6c0336aa6f3834
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
-  ObjectMapper: 5cccd2de6f253eda859df8116a5a554d9769e859
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   Peek: 452c6789d786321f9865d67c61c930d3b9ef3bb6
-  SimulatorStatusMagic: 481558caf2b9ccb2ceba2cc193728d4db3dcac07
+  SimulatorStatusMagic: 0389a805fa8bd001e2977c4046730bdbd6642861
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
 PODFILE CHECKSUM: 40401ccac4d903a9b12e67a5c157727c801ec57f
