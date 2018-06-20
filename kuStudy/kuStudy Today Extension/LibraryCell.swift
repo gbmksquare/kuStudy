@@ -16,9 +16,7 @@ class LibraryCell: UICollectionViewCell {
     private lazy var availableTitleLabel = UILabel()
     
     var data: LibraryData? {
-        didSet {
-            populate()
-        }
+        didSet { populate() }
     }
     
     // MARK: - Initialization
@@ -57,10 +55,10 @@ class LibraryCell: UICollectionViewCell {
     // MARK: - Setup
     private func setup() {
         backgroundColor = .clear
-//        layer.borderColor = UIColor.lightGray.cgColor
-//        layer.borderWidth = 0.5
         
         // Shadow
+//        indicator.layer.borderColor = UIColor.green.cgColor
+//        indicator.layer.borderWidth = 1
         indicator.layer.shadowColor = UIColor.black.cgColor
         indicator.layer.shadowOpacity = 0.1
         indicator.layer.shadowOffset = CGSize.zero

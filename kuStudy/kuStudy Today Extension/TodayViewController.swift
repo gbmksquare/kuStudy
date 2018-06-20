@@ -12,10 +12,7 @@ import kuStudyKit
 import SnapKit
 
 class TodayViewController: UIViewController {
-    private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        return UICollectionView(frame: .zero, collectionViewLayout: layout)
-    }()
+    private lazy var collectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     private lazy var summaryView = UIView()
     private lazy var statusView = StatusView()
     
