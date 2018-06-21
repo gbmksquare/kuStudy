@@ -132,7 +132,6 @@ extension SettingsTableViewController {
         case 800: title = Localizations.Settings.Table.Cell.Title.Feedback
         case 900: title = Localizations.Settings.Table.Cell.Title.OpenSource
         case 901: title = Localizations.Settings.Table.Cell.Title.ThanksTo
-        case 998: title = Localizations.Settings.Table.Cell.Title.Recommend
         case 999: title = Localizations.Settings.Table.Cell.Title.Rate
         case 1004: title = Localizations.Settings.Table.Cell.Title.TipJar
         default: title = nil
@@ -192,20 +191,6 @@ extension SettingsTableViewController {
             let detailNavigationController = UINavigationController(rootViewController: acknowledgementViewController)
             acknowledgementViewController.title = Localizations.Settings.Table.Cell.Title.OpenSource
             navigationController?.showDetailViewController(detailNavigationController, sender: true)
-        case 998: // Recommend to a friend
-            tableView.deselectRow(at: indexPath, animated: true)
-            let message = Localizations.Settings.Recommend.Message
-            let url = URL(string: "https://geo.itunes.apple.com/kr/app/kustudy-golyeodaehaggyo-yeollamsil/id925255895?mt=8&ign-mpt=uo%3D4")! as Any
-            let activityVC = UIActivityViewController(activityItems: [message, url], applicationActivities: nil)
-            activityVC.popoverPresentationController?.permittedArrowDirections = .any
-            activityVC.popoverPresentationController?.sourceView = cell
-            activityVC.popoverPresentationController?.sourceRect = cell.bounds
-            activityVC.completionWithItemsHandler = { (_, _, _, _) in
-                
-            }
-            present(activityVC, animated: true, completion: { 
-                Answers.logInvite(withMethod: "iOS", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
-            })
         case 999: // App Store review
             let app = UIApplication.shared
             if let url = URL(string: "itms-apps://itunes.apple.com/us/app/kustudy/id925255895?mt=8&action=write-review"),
