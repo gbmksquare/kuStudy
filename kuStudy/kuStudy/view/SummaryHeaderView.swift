@@ -72,6 +72,7 @@ class SummaryHeaderView: UIView {
             $0.adjustsFontForContentSizeCategory = true
         }
         
+        collectionView.clipsToBounds = false
         collectionView.backgroundColor = .clear
         collectionView.alwaysBounceVertical = false
         collectionView.alwaysBounceHorizontal = true
@@ -149,17 +150,14 @@ extension SummaryHeaderView: UICollectionViewDelegateFlowLayout, UICollectionVie
             cell.titleLabel.text = Localizations.Common.Total
             cell.valueLabel.text = summary?.occupied?.readable ?? Localizations.Common.NoData
             cell.descriptionLabel.text = Localizations.Common.Studying
-            cell.setBackgroundColor(summary?.occupiedPercentageColor ?? .placeholder)
         case 1:
             cell.titleLabel.text = Localizations.Common.LiberalArtCampus
             cell.valueLabel.text = summary?.liberalArtCampusData.occupied?.readable ?? Localizations.Common.NoData
             cell.descriptionLabel.text = Localizations.Common.Studying
-            cell.setBackgroundColor(summary?.liberalArtCampusData.occupiedPercentageColor ?? .placeholder)
         case 2:
             cell.titleLabel.text = Localizations.Common.ScienceCampus
             cell.valueLabel.text = summary?.scienceCampusData.occupied?.readable ?? Localizations.Common.NoData
             cell.descriptionLabel.text = Localizations.Common.Studying
-            cell.setBackgroundColor(summary?.scienceCampusData.occupiedPercentageColor ?? .placeholder)
         default: break
         }
     }

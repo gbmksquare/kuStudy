@@ -27,9 +27,14 @@ class SummaryHeaderItemCell: UICollectionViewCell {
     }
     
     private func setup() {
-        containerView.backgroundColor = .placeholder
+        containerView.backgroundColor = .white
         containerView.layer.cornerRadius = 9
-        containerView.layer.masksToBounds = true
+        containerView.layer.shadowColor = UIColor.black.cgColor
+        containerView.layer.shadowOffset = CGSize(width: 0, height: 0)
+        containerView.layer.shadowOpacity = 0.1
+        containerView.layer.shadowRadius = 6
+        containerView.layer.borderWidth = 0.5
+        containerView.layer.borderColor = #colorLiteral(red: 0.9601849914, green: 0.9601849914, blue: 0.9601849914, alpha: 1).cgColor
         contentView.addSubview(containerView)
         containerView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
@@ -46,7 +51,7 @@ class SummaryHeaderItemCell: UICollectionViewCell {
         
         let metrics = UIFontMetrics(forTextStyle: .body)
         
-        titleLabel.textColor = .white
+        titleLabel.textColor = .black
         titleLabel.textAlignment = .left
         titleLabel.numberOfLines = 0
         titleLabel.adjustsFontSizeToFitWidth = true
@@ -55,20 +60,15 @@ class SummaryHeaderItemCell: UICollectionViewCell {
         titleLabel.setContentHuggingPriority(.required, for: .vertical)
         stackView.addArrangedSubview(titleLabel)
         
-        descriptionLabel.textColor = .white
+        descriptionLabel.textColor = .black
         descriptionLabel.textAlignment = .left
         descriptionLabel.font = metrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .medium))
         descriptionLabel.setContentHuggingPriority(.required, for: .vertical)
         stackView.addArrangedSubview(descriptionLabel)
         
-        valueLabel.textColor = .white
+        valueLabel.textColor = .black
         valueLabel.textAlignment = .left
         valueLabel.font = metrics.scaledFont(for: UIFont.systemFont(ofSize: 28, weight: .regular))
         stackView.addArrangedSubview(valueLabel)
-    }
-    
-    // MARK: - Action
-    func setBackgroundColor(_ color: UIColor) {
-        containerView.backgroundColor = color
     }
 }
