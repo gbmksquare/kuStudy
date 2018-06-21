@@ -88,9 +88,7 @@
 
 "Settings.Table.Cell.Title.Order" = "도서관 순서";
 
-"Settings.Table.Cell.Title.Rate" = "앱스토어에서 평가하기";
-
-"Settings.Table.Cell.Title.Recommend" = "친구에게 추천하기";
+"Settings.Table.Cell.Title.Rate" = "앱스토어에 리뷰 남기기";
 
 "Settings.Table.Cell.Title.ThanksTo" = "감사의 말";
 
@@ -100,17 +98,13 @@
 
 "Settings.Table.Cell.Title.UpdateInterval" = "업데이트 주기";
 
-"Settings.Table.Section.Footer.Review" = "리뷰를 남기면 개발자에게 큰 힘이 됩니다.";
+"Settings.Table.Section.Footer.Review" = "리뷰를 남기거나 피드백을 적어주세요! 모든 리뷰는 앱 개발자에게 큰 힘이 됩니다.";
 
 "Settings.Table.Section.Header.About" = "관하여";
 
-"Settings.Table.Section.Header.Feedback" = "피드백";
+"Settings.Table.Section.Header.Feedback" = "평가하기";
 
 "Settings.Table.Section.Header.General" = "일반";
-
-"Settings.Table.Section.Header.Share" = "공유";
-
-"Settings.Table.Section.Header.TipJar" = "응원하기";
 
 "Settings.ThanksTo.Instagram.Alert.Title" = "Instagram 앱에서 열겠습니까?";
 

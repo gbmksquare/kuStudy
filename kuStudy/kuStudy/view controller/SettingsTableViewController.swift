@@ -10,7 +10,6 @@ import UIKit
 import kuStudyKit
 import AcknowList
 import Crashlytics
-import CTFeedback
 
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var appIconImageView: UIImageView!
@@ -95,10 +94,8 @@ extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0: return Localizations.Settings.Table.Section.Header.General
-        case 1: return Localizations.Settings.Table.Section.Header.Share
-        case 2: return Localizations.Settings.Table.Section.Header.Feedback
-        case 3: return Localizations.Settings.Table.Section.Header.TipJar
-        case 4: return Localizations.Settings.Table.Section.Header.About
+        case 1: return Localizations.Settings.Table.Section.Header.Feedback
+        case 2: return Localizations.Settings.Table.Section.Header.About
         default: return nil
         }
     }
@@ -129,7 +126,6 @@ extension SettingsTableViewController {
             title = Localizations.Settings.Table.Cell.Title.UpdateInterval
             let interval = TimeInterval(Preference.shared.updateInterval)
             cell.detailTextLabel?.text = interval.readableTime
-        case 800: title = Localizations.Settings.Table.Cell.Title.Feedback
         case 900: title = Localizations.Settings.Table.Cell.Title.OpenSource
         case 901: title = Localizations.Settings.Table.Cell.Title.ThanksTo
         case 999: title = Localizations.Settings.Table.Cell.Title.Rate
@@ -171,14 +167,6 @@ extension SettingsTableViewController {
             present(alert, animated: true, completion: { [weak self] in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
             })
-        case 800: // Feedback
-            let feedback = CTFeedbackViewController(topics: CTFeedbackViewController.defaultTopics(), localizedTopics: CTFeedbackViewController.defaultLocalizedTopics())
-            feedback?.toRecipients = ["ksquareatm@gmail.com"]
-            feedback?.useHTML = true
-            let detailNavigationController = UINavigationController(rootViewController: feedback!)
-            detailNavigationController.modalPresentationStyle = .formSheet
-            present(detailNavigationController, animated: true, completion: nil)
-            tableView.deselectRow(at: indexPath, animated: true)
         case 1004: // Tip Jar
             let tipjar = TipJarViewController()
             let navigation = UINavigationController(rootViewController: tipjar)

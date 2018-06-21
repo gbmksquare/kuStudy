@@ -88,9 +88,7 @@
 
 "Settings.Table.Cell.Title.Order" = "Library Order";
 
-"Settings.Table.Cell.Title.Rate" = "Rate on App Store";
-
-"Settings.Table.Cell.Title.Recommend" = "Recommend to a Friend";
+"Settings.Table.Cell.Title.Rate" = "Write a review";
 
 "Settings.Table.Cell.Title.ThanksTo" = "Thanks To";
 
@@ -100,17 +98,13 @@
 
 "Settings.Table.Cell.Title.UpdateInterval" = "Update Interval";
 
-"Settings.Table.Section.Footer.Review" = "Leaving a review greatly encourages developer.";
+"Settings.Table.Section.Footer.Review" = "Please leave a review or provide a feedback. It greatly encourages app developer!";
 
 "Settings.Table.Section.Header.About" = "About";
 
-"Settings.Table.Section.Header.Feedback" = "Feedback";
+"Settings.Table.Section.Header.Feedback" = "Review";
 
 "Settings.Table.Section.Header.General" = "General";
-
-"Settings.Table.Section.Header.Share" = "Share";
-
-"Settings.Table.Section.Header.TipJar" = "Tip Jar";
 
 "Settings.ThanksTo.Instagram.Alert.Title" = "Open in Instagram?";
 

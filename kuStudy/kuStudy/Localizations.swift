@@ -206,26 +206,20 @@ public struct Localizations {
 
                 public struct Header {
 
-                    /// Base translation: Share
-                    public static var Share : String = NSLocalizedString("Settings.Table.Section.Header.Share", comment: "")
+                    /// Base translation: General
+                    public static var General : String = NSLocalizedString("Settings.Table.Section.Header.General", comment: "")
+
+                    /// Base translation: Review
+                    public static var Feedback : String = NSLocalizedString("Settings.Table.Section.Header.Feedback", comment: "")
 
                     /// Base translation: About
                     public static var About : String = NSLocalizedString("Settings.Table.Section.Header.About", comment: "")
-
-                    /// Base translation: Feedback
-                    public static var Feedback : String = NSLocalizedString("Settings.Table.Section.Header.Feedback", comment: "")
-
-                    /// Base translation: Tip Jar
-                    public static var TipJar : String = NSLocalizedString("Settings.Table.Section.Header.TipJar", comment: "")
-
-                    /// Base translation: General
-                    public static var General : String = NSLocalizedString("Settings.Table.Section.Header.General", comment: "")
 
                 }
 
                 public struct Footer {
 
-                    /// Base translation: Leaving a review greatly encourages developer.
+                    /// Base translation: Please leave a review or provide a feedback. It greatly encourages app developer!
                     public static var Review : String = NSLocalizedString("Settings.Table.Section.Footer.Review", comment: "")
 
                 }
@@ -236,7 +230,7 @@ public struct Localizations {
 
                 public struct Title {
 
-                    /// Base translation: Rate on App Store
+                    /// Base translation: Write a review
                     public static var Rate : String = NSLocalizedString("Settings.Table.Cell.Title.Rate", comment: "")
 
                     /// Base translation: Today Widget Order
@@ -248,23 +242,20 @@ public struct Localizations {
                     /// Base translation: Update Interval
                     public static var UpdateInterval : String = NSLocalizedString("Settings.Table.Cell.Title.UpdateInterval", comment: "")
 
-                    /// Base translation: Recommend to a Friend
-                    public static var Recommend : String = NSLocalizedString("Settings.Table.Cell.Title.Recommend", comment: "")
-
                     /// Base translation: Auto Update
                     public static var AutoUpdate : String = NSLocalizedString("Settings.Table.Cell.Title.AutoUpdate", comment: "")
-
-                    /// Base translation: Open Source
-                    public static var OpenSource : String = NSLocalizedString("Settings.Table.Cell.Title.OpenSource", comment: "")
 
                     /// Base translation: Library Order
                     public static var Order : String = NSLocalizedString("Settings.Table.Cell.Title.Order", comment: "")
 
-                    /// Base translation: Thanks To
-                    public static var ThanksTo : String = NSLocalizedString("Settings.Table.Cell.Title.ThanksTo", comment: "")
+                    /// Base translation: Open Source
+                    public static var OpenSource : String = NSLocalizedString("Settings.Table.Cell.Title.OpenSource", comment: "")
 
                     /// Base translation: Maps
                     public static var Maps : String = NSLocalizedString("Settings.Table.Cell.Title.Maps", comment: "")
+
+                    /// Base translation: Thanks To
+                    public static var ThanksTo : String = NSLocalizedString("Settings.Table.Cell.Title.ThanksTo", comment: "")
 
                     /// Base translation: Send Feedback
                     public static var Feedback : String = NSLocalizedString("Settings.Table.Cell.Title.Feedback", comment: "")
