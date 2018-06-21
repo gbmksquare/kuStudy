@@ -80,8 +80,6 @@
 
 "Settings.Table.Cell.Title.AutoUpdate" = "자동 업데이트";
 
-"Settings.Table.Cell.Title.Feedback" = "피드백 보내기";
-
 "Settings.Table.Cell.Title.Maps" = "지도";
 
 "Settings.Table.Cell.Title.OpenSource" = "오픈소스";
@@ -90,7 +88,7 @@
 
 "Settings.Table.Cell.Title.Rate" = "앱스토어에 리뷰 남기기";
 
-"Settings.Table.Cell.Title.ThanksTo" = "감사의 말";
+"Settings.Table.Cell.Title.ThanksTo" = "사진 제공";
 
 "Settings.Table.Cell.Title.TipJar" = "개발자 응원하기";
 

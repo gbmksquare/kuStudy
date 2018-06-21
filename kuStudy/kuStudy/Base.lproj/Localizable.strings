@@ -80,8 +80,6 @@
 
 "Settings.Table.Cell.Title.AutoUpdate" = "Auto Update";
 
-"Settings.Table.Cell.Title.Feedback" = "Send Feedback";
-
 "Settings.Table.Cell.Title.Maps" = "Maps";
 
 "Settings.Table.Cell.Title.OpenSource" = "Open Source";
@@ -90,7 +88,7 @@
 
 "Settings.Table.Cell.Title.Rate" = "Write a review";
 
-"Settings.Table.Cell.Title.ThanksTo" = "Thanks To";
+"Settings.Table.Cell.Title.ThanksTo" = "Photo Credit";
 
 "Settings.Table.Cell.Title.TipJar" = "Tip Developer";
 
