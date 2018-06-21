@@ -18,7 +18,6 @@ target 'kuStudy' do
   pod 'LinearProgressView'
   pod 'DZNEmptyDataSet'
   pod 'AcknowList'
-  pod 'CTFeedback'
   pod 'MXParallaxHeader'
 
   pod 'Peek', :configuration => ['Debug']
