@@ -10,7 +10,9 @@ import Foundation
 import kuStudyKit
 
 class SummaryHeaderView: UIView {
+    private lazy var stack = UIStackView()
     private lazy var dateLabel = UILabel()
+    private lazy var summaryLabel = UILabel()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
     private lazy var separator = UIView()
@@ -44,16 +46,31 @@ class SummaryHeaderView: UIView {
         let formatter = DateFormatter()
         formatter.dateStyle = .full
         dateLabel.text = formatter.string(from: Date()).localizedUppercase
+        summaryLabel.text = "Welcome, Lorem ipsum! :)\nCras mattis consectetur purus sit amet fermentum."
     }
     
     private func setupView() {
         separator.backgroundColor = .separator
         
+        stack.axis = .vertical
+        stack.alignment = .fill
+        stack.distribution = .fill
+        stack.spacing = UIStackView.spacingUseSystem
+        
         let headlineMetrics = UIFontMetrics(forTextStyle: .headline)
-        dateLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 16, weight: .semibold))
+        dateLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .semibold))
         dateLabel.textColor = .textDark
-        dateLabel.adjustsFontSizeToFitWidth = true
-        dateLabel.adjustsFontForContentSizeCategory = true
+        
+        let summaryMetrics = UIFontMetrics(forTextStyle: .body)
+        summaryLabel.font = summaryMetrics.scaledFont(for: UIFont.systemFont(ofSize: 16, weight: .regular))
+        summaryLabel.textColor = .black
+        summaryLabel.numberOfLines = 0
+        summaryLabel.lineBreakMode = .byWordWrapping
+        
+        [dateLabel, summaryLabel].forEach {
+            $0.adjustsFontSizeToFitWidth = true
+            $0.adjustsFontForContentSizeCategory = true
+        }
         
         collectionView.backgroundColor = .clear
         collectionView.alwaysBounceVertical = false
@@ -68,15 +85,16 @@ class SummaryHeaderView: UIView {
     }
     
     private func setupLayout() {
-        [dateLabel, collectionView, separator].forEach { addSubview($0) }
+        [stack, collectionView, separator].forEach { addSubview($0) }
+        [dateLabel,summaryLabel].forEach { stack.addArrangedSubview($0) }
         
-        dateLabel.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().inset(12)
+        stack.snp.makeConstraints { (make) in
+            make.top.equalTo(self).inset(12)
             make.leading.equalTo(readableContentGuide.snp.leading).inset(8)
             make.trailing.equalTo(readableContentGuide.snp.trailing).inset(8)
         }
         collectionView.snp.makeConstraints { (make) in
-            make.top.equalTo(dateLabel.snp.bottom).offset(16)
+            make.top.equalTo(stack.snp.bottom).offset(16)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
             make.bottom.equalTo(separator.snp.top).offset(-16)
@@ -107,7 +125,7 @@ extension SummaryHeaderView: UICollectionViewDelegateFlowLayout, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: collectionView.bounds.height)
+        return CGSize(width: 130, height: collectionView.bounds.height)
     }
     
     // Data source

@@ -36,33 +36,35 @@ class SummaryHeaderItemCell: UICollectionViewCell {
         }
         
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
-        stackView.alignment = .center
-        stackView.spacing = UIStackView.spacingUseDefault
+        stackView.alignment = .fill
+        stackView.distribution = .fill
+        stackView.spacing = 2 // UIStackView.spacingUseDefault
         containerView.addSubview(stackView)
         stackView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(4)
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 6, left: 8, bottom: 6, right: 8))
         }
         
         let metrics = UIFontMetrics(forTextStyle: .body)
         
         titleLabel.textColor = .white
-        titleLabel.textAlignment = .center
+        titleLabel.textAlignment = .left
         titleLabel.numberOfLines = 0
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.adjustsFontForContentSizeCategory = true
         titleLabel.font = metrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .semibold))
+        titleLabel.setContentHuggingPriority(.required, for: .vertical)
         stackView.addArrangedSubview(titleLabel)
         
+        descriptionLabel.textColor = .white
+        descriptionLabel.textAlignment = .left
+        descriptionLabel.font = metrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .medium))
+        descriptionLabel.setContentHuggingPriority(.required, for: .vertical)
+        stackView.addArrangedSubview(descriptionLabel)
+        
         valueLabel.textColor = .white
-        valueLabel.textAlignment = .center
+        valueLabel.textAlignment = .left
         valueLabel.font = metrics.scaledFont(for: UIFont.systemFont(ofSize: 28, weight: .regular))
         stackView.addArrangedSubview(valueLabel)
-        
-        descriptionLabel.textColor = .white
-        descriptionLabel.textAlignment = .center
-        descriptionLabel.font = metrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .medium))
-        stackView.addArrangedSubview(descriptionLabel)
     }
     
     // MARK: - Action
