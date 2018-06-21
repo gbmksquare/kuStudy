@@ -10,21 +10,11 @@ import Foundation
 import kuStudyKit
 
 class Preference {
-    enum MapType: Int {
-        case apple, google
-    }
-    
-    private enum Key: String {
-        case order = "libraryOrder"
-        case widgetOrder = "todayExtensionOrder"
-        case widgetHidden = "todayExtensionHidden"
-        case preferredMap = "preferredMap"
-        case preferenceVersion = "preferenceVersion"
-        case shouldAutoUpdate = "shouldAutoUpdate"
-        case updateInterval = "updateInterval"
-        
-        var name: String {
-            return rawValue
+    var preferenceVersion: Int {
+        get { return preference.integer(forKey: Preference.Key.preferenceVersion.name) }
+        set {
+            preference.setValue(newValue, forKey: Preference.Key.preferenceVersion.name)
+            preference.synchronize()
         }
     }
     
@@ -52,25 +42,6 @@ class Preference {
         }
     }
     
-    var preferredMap: MapType {
-        get {
-            let int = preference.integer(forKey: Preference.Key.preferredMap.name)
-            return MapType(rawValue: int) ?? MapType.apple
-        }
-        set {
-            preference.setValue(newValue.rawValue, forKey: Preference.Key.preferredMap.name)
-            preference.synchronize()
-        }
-    }
-    
-    var preferenceVersion: Int {
-        get { return preference.integer(forKey: Preference.Key.preferenceVersion.name) }
-        set {
-            preference.setValue(newValue, forKey: Preference.Key.preferenceVersion.name)
-            preference.synchronize()
-        }
-    }
-    
     var shouldAutoUpdate: Bool {
         get { return preference.bool(forKey: Preference.Key.shouldAutoUpdate.name) }
         set {
@@ -83,6 +54,50 @@ class Preference {
         get { return preference.double(forKey: Preference.Key.updateInterval.name) }
         set {
             preference.setValue(newValue, forKey: Preference.Key.updateInterval.name)
+            preference.synchronize()
+        }
+    }
+    
+    var preferredMap: MapType {
+        get {
+            let int = preference.integer(forKey: Preference.Key.preferredMap.name)
+            return MapType(rawValue: int) ?? MapType.apple
+        }
+        set {
+            preference.setValue(newValue.rawValue, forKey: Preference.Key.preferredMap.name)
+            preference.synchronize()
+        }
+    }
+    
+    var libraryCellType: LibraryCellType  {
+        get {
+            let int = preference.integer(forKey: Preference.Key.libraryCellType.name)
+            return LibraryCellType(rawValue: int) ?? LibraryCellType.classic
+        }
+        set  {
+            preference.setValue(newValue.rawValue, forKey: Preference.Key.libraryCellType.name)
+            preference.synchronize()
+        }
+    }
+    
+    var sectorCellType: SectorCellType {
+        get {
+            let int = preference.integer(forKey: Preference.Key.sectorCellType.name)
+            return SectorCellType(rawValue: int) ?? SectorCellType.classic
+        }
+        set {
+            preference.setValue(newValue.rawValue, forKey: Preference.Key.sectorCellType.name)
+            preference.synchronize()
+        }
+    }
+    
+    var widgetCellType: WidgetCellType {
+        get {
+            let int = preference.integer(forKey: Preference.Key.widgetCellType.name)
+            return WidgetCellType(rawValue: int) ?? WidgetCellType.classic
+        }
+        set {
+            preference.setValue(newValue.rawValue, forKey: Preference.Key.widgetCellType.name)
             preference.synchronize()
         }
     }
@@ -115,7 +130,10 @@ class Preference {
                                        Preference.Key.preferredMap.name: MapType.apple.rawValue,
                                        Preference.Key.preferenceVersion.name: 5,
                                        Preference.Key.shouldAutoUpdate.name: true,
-                                       Preference.Key.updateInterval.name: 60])
+                                       Preference.Key.updateInterval.name: 60,
+                                       Preference.Key.libraryCellType.name: LibraryCellType.classic.rawValue,
+                                       Preference.Key.sectorCellType.name: SectorCellType.classic.rawValue,
+                                       Preference.Key.widgetCellType.name: WidgetCellType.classic.rawValue])
         preference.synchronize()
     }
     
