@@ -46,7 +46,7 @@ class SummaryHeaderItemCell: UICollectionViewCell {
         stackView.spacing = 2 // UIStackView.spacingUseDefault
         containerView.addSubview(stackView)
         stackView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 6, left: 8, bottom: 6, right: 8))
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 8, left: 12, bottom: 8, right: 12))
         }
         
         let metrics = UIFontMetrics(forTextStyle: .body)
