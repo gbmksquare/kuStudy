@@ -166,6 +166,7 @@ extension LibraryViewController {
         table.register(SectorCell.self, forCellReuseIdentifier: "cell")
         table.rowHeight = UITableViewAutomaticDimension
         table.estimatedRowHeight = UITableViewAutomaticDimension
+        footerContentView.library = library
         table.tableFooterView = footerContentView
         table.showsVerticalScrollIndicator = false
     }
