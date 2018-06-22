@@ -24,6 +24,7 @@
 		16136C001B1C451100B3F744 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BFF1B1C451100B3F744 /* LibraryCell.swift */; };
 		161A7E821FDEB98300808780 /* SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A7E811FDEB98300808780 /* SwitchCell.swift */; };
 		161A7E841FDEC87B00808780 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A7E831FDEC87B00808780 /* TimeInterval.swift */; };
+		161F7E3820DC8650002957D7 /* LibraryFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161F7E3720DC8650002957D7 /* LibraryFooterView.swift */; };
 		162363511F9F181700CD78F2 /* LibraryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162363501F9F181700CD78F2 /* LibraryHeaderView.swift */; };
 		16251CAD1B232D650035F2D9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1625B4621F44386700744C01 /* NotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1625B4611F44386700744C01 /* NotificationCoordinator.swift */; };
@@ -293,6 +294,7 @@
 		16136BFF1B1C451100B3F744 /* LibraryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		161A7E811FDEB98300808780 /* SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwitchCell.swift; path = view/SwitchCell.swift; sourceTree = "<group>"; };
 		161A7E831FDEC87B00808780 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeInterval.swift; path = extension/TimeInterval.swift; sourceTree = "<group>"; };
+		161F7E3720DC8650002957D7 /* LibraryFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryFooterView.swift; sourceTree = "<group>"; };
 		162363501F9F181700CD78F2 /* LibraryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryHeaderView.swift; path = view/LibraryHeaderView.swift; sourceTree = "<group>"; };
 		16251CAC1B232C8F0035F2D9 /* kuStudy Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy Today Extension.entitlements"; sourceTree = "<group>"; };
 		1625B4611F44386700744C01 /* NotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationCoordinator.swift; path = controller/NotificationCoordinator.swift; sourceTree = "<group>"; };
@@ -870,6 +872,7 @@
 			children = (
 				167246261B1B4F2C0083035F /* LibraryViewController.swift */,
 				162363501F9F181700CD78F2 /* LibraryHeaderView.swift */,
+				161F7E3720DC8650002957D7 /* LibraryFooterView.swift */,
 				16D1E8C51FA0CB2B006A5847 /* SectorCell.swift */,
 			);
 			name = Library;
@@ -1813,6 +1816,7 @@
 				162F12151D5F86B000A401D8 /* PhotographerCell.swift in Sources */,
 				167245C51B19C0370083035F /* AppDelegate.swift in Sources */,
 				161A7E821FDEB98300808780 /* SwitchCell.swift in Sources */,
+				161F7E3820DC8650002957D7 /* LibraryFooterView.swift in Sources */,
 				1664D5521D55E1C6000BAF56 /* UINavigationController.swift in Sources */,
 				1683E73420C03F7B00721F2E /* SummaryHeaderItemCell.swift in Sources */,
 				16019E9D1D8E45DE008A76C7 /* MainSplitViewController.swift in Sources */,

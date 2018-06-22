@@ -97,6 +97,8 @@ class LibraryHeaderView: UIView {
     }
     
     private func setupView() {
+        backgroundColor = .white
+        
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .fillProportionally

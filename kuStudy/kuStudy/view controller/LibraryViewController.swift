@@ -18,7 +18,6 @@ import DeviceKit
 class LibraryViewController: UIViewController {
     private lazy var gradient = CAGradientLayer()
     @IBOutlet private weak var table: UITableView!
-    @IBOutlet private weak var header: UIView!
     
     private var heroImageView: UIImageView!
     private var heroImageViewHeight: CGFloat?
@@ -26,6 +25,7 @@ class LibraryViewController: UIViewController {
 //    private var canTriggerRefresh = true
     
     private lazy var headerContentView = LibraryHeaderView()
+    private lazy var footerContentView = LibraryFooterView()
     
     override var hidesBottomBarWhenPushed: Bool {
         get { return navigationController?.topViewController == self }
@@ -77,6 +77,7 @@ class LibraryViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         resizeHeader()
+        resizeFooter()
         resizeGradient()
     }
     
@@ -161,10 +162,11 @@ extension LibraryViewController {
     }
     
     private func setupTableView() {
+        table.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.937254902, blue: 0.9333333333, alpha: 1)
         table.register(SectorCell.self, forCellReuseIdentifier: "cell")
         table.rowHeight = UITableViewAutomaticDimension
         table.estimatedRowHeight = UITableViewAutomaticDimension
-        table.tableFooterView = UIView()
+        table.tableFooterView = footerContentView
         table.showsVerticalScrollIndicator = false
     }
     
@@ -385,6 +387,18 @@ extension LibraryViewController {
                 frame.size.height = height
                 header.frame = frame
                 table.tableHeaderView = header
+            }
+        }
+    }
+    
+    private func resizeFooter() {
+        if let footer = table.tableFooterView {
+            let height = footer.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+            var frame = footer.frame
+            if frame.height != height {
+                frame.size.height = height
+                footer.frame = frame
+                table.tableFooterView = footer
             }
         }
     }
