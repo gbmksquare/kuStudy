@@ -110,7 +110,7 @@ extension LibraryViewController {
     
     private func setupView() {
         headerContentView.remindButton.addTarget(self, action: #selector(tapped(remind:)), for: .touchUpInside)
-        headerContentView.mapButton.addTarget(self, action: #selector(tapped(map:)), for: .touchUpInside)
+//        headerContentView.mapButton.addTarget(self, action: #selector(tapped(map:)), for: .touchUpInside)
         headerContentView.actionButton.addTarget(self, action: #selector(tapped(action:)), for: .touchUpInside)
     }
     
@@ -240,23 +240,6 @@ extension LibraryViewController {
 //        }
 //        kuStudy.requestUpdateData()
 //    }
-    
-    @objc private func tapped(map button: UIButton) {
-        // Apple Maps Universal Link Reference
-        // https://developer.apple.com/library/content/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
-        //
-        // Google Maps Universal Link Reference
-        // https://developers.google.com/maps/documentation/urls/ios-urlscheme
-        //
-        let urlString = Preference.shared.preferredMap == .apple
-            ? "http://maps.apple.com/?t=m&z=18&ll=\(library.coordinate.latitude),\(library.coordinate.longitude)"
-            : "https://www.google.com/maps/@\(library.coordinate.latitude),\(library.coordinate.longitude),18z"
-        guard let url = URL(string: urlString) else { return }
-        
-        if UIApplication.shared.canOpenURL(url) == true {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        }
-    }
     
     @objc private func tapped(remind button: UIButton? = nil) {
         UNUserNotificationCenter.current().getNotificationSettings { [weak self] (settings) in

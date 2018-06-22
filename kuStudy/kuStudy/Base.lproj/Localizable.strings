@@ -48,6 +48,8 @@
 
 "Common.Seconds" = "seconds";
 
+"Common.Studying" = "Studying Now";
+
 "Common.Total" = "Total";
 
 "Common.Used" = "Occupied";
@@ -57,6 +59,10 @@
 "Keyboard.Preference" = "Preferences";
 
 "Library.Button.Map" = "View in Map";
+
+"Library.Button.OpenInAppleMaps" = "Open in Apple Maps";
+
+"Library.Button.OpenInGoogleMaps" = "Open in Google Maps";
 
 "Library.Button.Remind" = "Remind Me";
 
@@ -126,6 +132,4 @@
 "TimeInterval.Hour" = "Hours";
 
 "TimeInterval.Now" = "Now";
-
-"Common.Studying" = "Studying Now";
 

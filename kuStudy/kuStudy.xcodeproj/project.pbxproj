@@ -40,6 +40,7 @@
 		1631A2D81CEF51480078381F /* LibraryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2D61CEF51480078381F /* LibraryType.swift */; };
 		1631A2DB1CF025060078381F /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2DA1CF025060078381F /* Int.swift */; };
 		1631A2DC1CF025060078381F /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2DA1CF025060078381F /* Int.swift */; };
+		16327D3D20DCBCA80047655D /* LinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16327D3C20DCBCA80047655D /* LinkButton.swift */; };
 		164190FE1F2F6D71008682E5 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164190FB1F2F6B6C008682E5 /* Localizations.swift */; };
 		164190FF1F2F724D008682E5 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164190F91F2F675C008682E5 /* Localizations.swift */; };
 		164191001F2F7257008682E5 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164190FC1F2F6B80008682E5 /* Localizations.swift */; };
@@ -305,6 +306,7 @@
 		1631A2D31CEF4F240078381F /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = API.swift; path = controller/API.swift; sourceTree = "<group>"; };
 		1631A2D61CEF51480078381F /* LibraryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryType.swift; path = model/LibraryType.swift; sourceTree = "<group>"; };
 		1631A2DA1CF025060078381F /* Int.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Int.swift; path = extension/Int.swift; sourceTree = "<group>"; };
+		16327D3C20DCBCA80047655D /* LinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkButton.swift; sourceTree = "<group>"; };
 		164190F91F2F675C008682E5 /* Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
 		164190FB1F2F6B6C008682E5 /* Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
 		164190FC1F2F6B80008682E5 /* Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
@@ -989,6 +991,7 @@
 				16C85E511FA2DEAF0003A38C /* RefreshEffectView.swift */,
 				164579EF1F9F7E3C00DD8F22 /* SeatsProgressView.swift */,
 				168C18CB1FA1F3F100F576D6 /* MiniInfoView.swift */,
+				16327D3C20DCBCA80047655D /* LinkButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1834,6 +1837,7 @@
 				167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */,
 				16EFE0EC1F0243EB00FD476B /* Preference.swift in Sources */,
 				1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */,
+				16327D3D20DCBCA80047655D /* LinkButton.swift in Sources */,
 				160E1D2520DB7C5500E4AF7D /* Preference+Key.swift in Sources */,
 				162363511F9F181700CD78F2 /* LibraryHeaderView.swift in Sources */,
 			);

@@ -12,6 +12,9 @@ import MapKit
 
 class LibraryFooterView: UIView {
     private lazy var map = MKMapView()
+    private lazy var stack = UIStackView()
+    private lazy var appleMapButton = LinkButton()
+    private lazy var googleMapButton = LinkButton()
     
     var library: LibraryType? {
         didSet { populate() }
@@ -66,6 +69,45 @@ class LibraryFooterView: UIView {
             make.leading.equalTo(readableContentGuide.snp.leading).inset(8)
             make.width.equalTo(160)
             make.height.equalTo(120)
+        }
+        
+        stack.axis = .vertical
+        stack.alignment = .leading
+        stack.distribution = .fillEqually
+        stack.spacing = UIStackView.spacingUseSystem
+        addSubview(stack)
+        stack.snp.makeConstraints { (make) in
+            make.top.equalTo(map).inset(4)
+            make.leading.equalTo(map.snp.trailing).offset(12)
+            make.trailing.equalTo(readableContentGuide.snp.trailing).inset(8)
+        }
+        
+        appleMapButton.setTitle(Localizations.Library.Button.OpenInAppleMaps, for: .normal)
+        appleMapButton.addTarget(self, action: #selector(openAppleMaps), for: .touchUpInside)
+        googleMapButton.addTarget(self, action: #selector(openGoogleMaps), for: .touchUpInside)
+        googleMapButton.setTitle(Localizations.Library.Button.OpenInGoogleMaps, for: .normal)
+        stack.addArrangedSubview(appleMapButton)
+        stack.addArrangedSubview(googleMapButton)
+    }
+    
+    // MARK: - Action
+    @objc private func openAppleMaps() {
+        // Apple Maps Universal Link Reference
+        // https://developer.apple.com/library/content/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
+        guard let library = library else { return }
+        guard let url = URL(string: "http://maps.apple.com/?t=m&z=18&ll=\(library.coordinate.latitude),\(library.coordinate.longitude)") else { return }
+        if UIApplication.shared.canOpenURL(url) == true {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    
+    @objc private func openGoogleMaps() {
+        // Google Maps Universal Link Reference
+        // https://developers.google.com/maps/documentation/urls/ios-urlscheme
+        guard let library = library else { return }
+        guard let url = URL(string: "https://www.google.com/maps/@\(library.coordinate.latitude),\(library.coordinate.longitude),18z") else { return }
+        if UIApplication.shared.canOpenURL(url) == true {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
 }

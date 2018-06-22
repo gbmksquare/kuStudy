@@ -254,11 +254,8 @@ public struct Localizations {
                     /// Base translation: Maps
                     public static var Maps : String = NSLocalizedString("Settings.Table.Cell.Title.Maps", comment: "")
 
-                    /// Base translation: Thanks To
+                    /// Base translation: Photo Credit
                     public static var ThanksTo : String = NSLocalizedString("Settings.Table.Cell.Title.ThanksTo", comment: "")
-
-                    /// Base translation: Send Feedback
-                    public static var Feedback : String = NSLocalizedString("Settings.Table.Cell.Title.Feedback", comment: "")
 
                 }
 
@@ -321,6 +318,12 @@ public struct Localizations {
 
 
         public struct Button {
+
+            /// Base translation: Open in Apple Maps
+            public static var OpenInAppleMaps : String = NSLocalizedString("Library.Button.OpenInAppleMaps", comment: "")
+
+            /// Base translation: Open in Google Maps
+            public static var OpenInGoogleMaps : String = NSLocalizedString("Library.Button.OpenInGoogleMaps", comment: "")
 
             /// Base translation: View in Map
             public static var Map : String = NSLocalizedString("Library.Button.Map", comment: "")
