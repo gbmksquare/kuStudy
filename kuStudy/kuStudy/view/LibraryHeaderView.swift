@@ -102,7 +102,7 @@ class LibraryHeaderView: UIView {
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .fillProportionally
-        stack.spacing = 16
+        stack.spacing = 12
         
         titleStack.axis = .vertical
         titleStack.alignment = .fill
@@ -134,7 +134,7 @@ class LibraryHeaderView: UIView {
         let captionMetrics = UIFontMetrics(forTextStyle: .caption2)
         
         titleLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 28, weight: .bold))
-        subtitleLabel.font = subheadlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 20, weight: .semibold))
+        subtitleLabel.font = subheadlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 18, weight: .semibold))
         availableSeatsLabel.font = bodyMetrics.scaledFont(for: UIFont.systemFont(ofSize: 36, weight: .regular))
         availableLabel.font = bodyMetrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .bold))
         timestampLabel.font = captionMetrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .semibold))
@@ -145,7 +145,7 @@ class LibraryHeaderView: UIView {
             $0.adjustsFontForContentSizeCategory = true
         }
         
-        subtitleLabel.textColor = .lightGray
+        subtitleLabel.textColor = .textDark
         availableLabel.textColor = .lightGray
         timestampLabel.textColor = .textDark
         artistLabel.textColor = .textDark
