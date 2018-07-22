@@ -27,7 +27,7 @@ class SummaryHeaderItemCell: UICollectionViewCell {
     }
     
     private func setup() {
-        containerView.backgroundColor = #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
+        containerView.backgroundColor = .white // #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
         containerView.layer.cornerRadius = 9
         containerView.layer.shadowColor = UIColor.black.cgColor
         containerView.layer.shadowOffset = CGSize(width: 0, height: 0)
