@@ -87,7 +87,8 @@ class SummaryHeaderView: UIView {
     
     private func setupLayout() {
         [stack, collectionView, separator].forEach { addSubview($0) }
-        [dateLabel,summaryLabel].forEach { stack.addArrangedSubview($0) }
+//        [dateLabel,summaryLabel].forEach { stack.addArrangedSubview($0) }
+        [dateLabel].forEach { stack.addArrangedSubview($0) }
         
         stack.snp.makeConstraints { (make) in
             make.top.equalTo(self).inset(12)
