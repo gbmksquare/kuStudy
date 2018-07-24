@@ -1,11 +1,11 @@
 PODS:
-  - AcknowList (1.6)
-  - Alamofire (4.7.2)
+  - AcknowList (1.6.1)
+  - Alamofire (4.7.3)
   - AlamofireNetworkActivityIndicator (2.2.1):
     - Alamofire (~> 4.7)
-  - AlamofireObjectMapper (5.0.0):
+  - AlamofireObjectMapper (5.1.0):
     - Alamofire (~> 4.1)
-    - ObjectMapper (~> 3.0)
+    - ObjectMapper (~> 3.3)
   - DeviceKit (1.7.0)
   - DZNEmptyDataSet (1.8.1)
   - FTLinearActivityIndicator (1.0.4)
@@ -47,10 +47,10 @@ SPEC REPOS:
     - SnapKit
 
 SPEC CHECKSUMS:
-  AcknowList: 2b27ccc75110be58be37424c4b08b07bdec628b4
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  AcknowList: c9091be8dd75c95662b56f75e382487a0cbb9a27
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlamofireNetworkActivityIndicator: aeac50e6ecb78ec71a5f1f29098bcf4ec2962910
-  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
+  AlamofireObjectMapper: 3395e698901d8b0e6f48b7d0c43bd47875325102
   DeviceKit: 6a5bdeb103c03757bb94aef1ccb01e08bc8ef4ee
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FTLinearActivityIndicator: 0c4ff2067cd67d88fd932ec214da90083ea7148e
