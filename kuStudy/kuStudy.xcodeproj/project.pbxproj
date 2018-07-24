@@ -135,6 +135,8 @@
 		16DFF8521F34476100B6A4FB /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DFF8511F34476100B6A4FB /* LibraryCell.swift */; };
 		16EE9F691F00F2EA006B75BB /* ThanksToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */; };
 		16EFE0EC1F0243EB00FD476B /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EFE0EB1F0243EB00FD476B /* Preference.swift */; };
+		16F5A11021073C0B0059875B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F5A10F21073C0B0059875B /* SettingsViewController.swift */; };
+		16F5A113210769D70059875B /* AppVersionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F5A112210769D70059875B /* AppVersionFooter.swift */; };
 		1A6ADFECC0BE4686683FEB7A /* Pods_kuStudy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD9CA6B659DC9080D5A97D52 /* Pods_kuStudy.framework */; };
 		1CA21C0B1A9AA61CE621D2AB /* Pods_kuStudyKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 936F5DC271654941D5D5F120 /* Pods_kuStudyKitTests.framework */; };
 		33D6169906F7C3A208337823 /* Pods_kuStudy_Snapshot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC510132D0CFC05A0DC1349 /* Pods_kuStudy_Snapshot.framework */; };
@@ -396,6 +398,8 @@
 		16DFF8511F34476100B6A4FB /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThanksToViewController.swift; path = "view controller/ThanksToViewController.swift"; sourceTree = "<group>"; };
 		16EFE0EB1F0243EB00FD476B /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Preference.swift; path = controller/Preference.swift; sourceTree = "<group>"; };
+		16F5A10F21073C0B0059875B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		16F5A112210769D70059875B /* AppVersionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppVersionFooter.swift; path = view/AppVersionFooter.swift; sourceTree = "<group>"; };
 		19E673EA13423A798E88583B /* Pods-kuStudyKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudyKitTests.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudyKitTests/Pods-kuStudyKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		1B8A305A9EC4933DE4DE0309 /* Pods-kuStudy WatchKit App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy WatchKit App.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy WatchKit App/Pods-kuStudy WatchKit App.release.xcconfig"; sourceTree = "<group>"; };
 		1DC6C81A4F513BB5AB64B44B /* Pods-kuStudy Snapshot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudy Snapshot.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudy Snapshot/Pods-kuStudy Snapshot.debug.xcconfig"; sourceTree = "<group>"; };
@@ -638,13 +642,8 @@
 		164C0E941C5609C4004C6663 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */,
-				161A7E811FDEB98300808780 /* SwitchCell.swift */,
-				16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */,
-				1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift */,
-				16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */,
-				168573A71F4FC81700399AA2 /* TipJarViewController.swift */,
-				162F12141D5F86B000A401D8 /* PhotographerCell.swift */,
+				16F5A10F21073C0B0059875B /* SettingsViewController.swift */,
+				16F5A112210769D70059875B /* AppVersionFooter.swift */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -854,6 +853,7 @@
 				167246281B1BE9F30083035F /* Summary */,
 				167246291B1BE9FA0083035F /* Library */,
 				164C0E941C5609C4004C6663 /* Settings */,
+				16F5A1112107677A0059875B /* Settings_legacy */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -1023,6 +1023,20 @@
 				1625B4611F44386700744C01 /* NotificationCoordinator.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		16F5A1112107677A0059875B /* Settings_legacy */ = {
+			isa = PBXGroup;
+			children = (
+				164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */,
+				161A7E811FDEB98300808780 /* SwitchCell.swift */,
+				16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */,
+				1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift */,
+				16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */,
+				168573A71F4FC81700399AA2 /* TipJarViewController.swift */,
+				162F12141D5F86B000A401D8 /* PhotographerCell.swift */,
+			);
+			name = Settings_legacy;
 			sourceTree = "<group>";
 		};
 		3352B19D19667EC6E2FBA752 /* Pods */ = {
@@ -1812,6 +1826,7 @@
 				1625B4621F44386700744C01 /* NotificationCoordinator.swift in Sources */,
 				16D1E8C61FA0CB2B006A5847 /* SectorCell.swift in Sources */,
 				1661C3DF1F07E9C0005C889F /* UIDevice.swift in Sources */,
+				16F5A113210769D70059875B /* AppVersionFooter.swift in Sources */,
 				1664D5541D55E1E2000BAF56 /* UIColor.swift in Sources */,
 				164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */,
 				16EE9F691F00F2EA006B75BB /* ThanksToViewController.swift in Sources */,
@@ -1829,6 +1844,7 @@
 				168C18CC1FA1F3F100F576D6 /* MiniInfoView.swift in Sources */,
 				1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift in Sources */,
 				168573A81F4FC81700399AA2 /* TipJarViewController.swift in Sources */,
+				16F5A11021073C0B0059875B /* SettingsViewController.swift in Sources */,
 				164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */,
 				161A7E841FDEC87B00808780 /* TimeInterval.swift in Sources */,
 				166742FA1FBD5B300098C0BB /* SummaryHeaderView.swift in Sources */,

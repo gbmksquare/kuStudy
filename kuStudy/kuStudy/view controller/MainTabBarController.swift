@@ -20,5 +20,9 @@ class MainTabBarController: UITabBarController {
             default: break
             }
         }
+        
+        let settings = UINavigationController(rootViewController: SettingsViewController())
+        settings.tabBarItem = UITabBarItem(title: Localizations.Main.Title.Preference, image: #imageLiteral(resourceName: "glyphicons-138-cogwheels"), tag: 3)
+        viewControllers?.append(settings)
     }
 }

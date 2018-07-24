@@ -58,6 +58,30 @@
 
 "Keyboard.Preference" = "설정";
 
+"Label.Settings.AboutHeader" = "관하여";
+
+"Label.Settings.AppStoreReview" = "앱스토어에 리뷰 남기기";
+
+"Label.Settings.AutoUpdate" = "자동 업데이트";
+
+"Label.Settings.FeedbackHeader" = "평가하기";
+
+"Label.Settings.GeneralHeader" = "일반";
+
+"Label.Settings.LibraryOrder" = "도서관 순서";
+
+"Label.Settings.MediaProvider" = "사진 제공";
+
+"Label.Settings.OpenSource" = "오픈소스";
+
+"Label.Settings.ReviewFooter" = "리뷰를 남기거나 피드백을 적어주세요! 모든 리뷰는 앱 개발자에게 큰 힘이 됩니다.";
+
+"Label.Settings.TipJar" = "개발자 응원하기";
+
+"Label.Settings.TodayOrder" = "오늘 위젯 순서";
+
+"Label.Settings.UpdateInterval" = "업데이트 주기";
+
 "Library.Button.Map" = "지도에서 보기";
 
 "Library.Button.OpenInAppleMaps" = "지도에서 열기";
@@ -132,4 +156,6 @@
 "TimeInterval.Hour" = "시간";
 
 "TimeInterval.Now" = "즉시";
+
+"Title.Settings" = "설정";
 

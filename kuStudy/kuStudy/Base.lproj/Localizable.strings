@@ -58,6 +58,30 @@
 
 "Keyboard.Preference" = "Preferences";
 
+"Label.Settings.AboutHeader" = "About";
+
+"Label.Settings.AppStoreReview" = "Write a review";
+
+"Label.Settings.AutoUpdate" = "Auto Update";
+
+"Label.Settings.FeedbackHeader" = "Review";
+
+"Label.Settings.GeneralHeader" = "General";
+
+"Label.Settings.LibraryOrder" = "Library Order";
+
+"Label.Settings.MediaProvider" = "Photo Credit";
+
+"Label.Settings.OpenSource" = "Open Source";
+
+"Label.Settings.ReviewFooter" = "Please leave a review or provide a feedback. It greatly encourages app developer!";
+
+"Label.Settings.TipJar" = "Tip Developer";
+
+"Label.Settings.TodayOrder" = "Today Widget Order";
+
+"Label.Settings.UpdateInterval" = "Update Interval";
+
 "Library.Button.Map" = "View in Map";
 
 "Library.Button.OpenInAppleMaps" = "Open in Apple Maps";
@@ -132,4 +156,6 @@
 "TimeInterval.Hour" = "Hours";
 
 "TimeInterval.Now" = "Now";
+
+"Title.Settings" = "Settings";
 
