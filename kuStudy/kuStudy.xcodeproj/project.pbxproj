@@ -93,6 +93,7 @@
 		167B4C8A1F872EB800BDE991 /* CloseTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C881F872EB800BDE991 /* CloseTimeTransform.swift */; };
 		167B4C8C1F872F0000BDE991 /* OpenTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C8B1F872F0000BDE991 /* OpenTimeTransform.swift */; };
 		167B4C8D1F872F0000BDE991 /* OpenTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C8B1F872F0000BDE991 /* OpenTimeTransform.swift */; };
+		167E2D652108C73600C0E79C /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E2D642108C73600C0E79C /* UIWindow.swift */; };
 		1683E73420C03F7B00721F2E /* SummaryHeaderItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683E73320C03F7B00721F2E /* SummaryHeaderItemCell.swift */; };
 		168573A81F4FC81700399AA2 /* TipJarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168573A71F4FC81700399AA2 /* TipJarViewController.swift */; };
 		1685E0511F91E45700F80699 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685E0501F91E45700F80699 /* MediaManager.swift */; };
@@ -363,6 +364,7 @@
 		167B4C851F872E7700BDE991 /* YesNoTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YesNoTransform.swift; path = model/YesNoTransform.swift; sourceTree = "<group>"; };
 		167B4C881F872EB800BDE991 /* CloseTimeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloseTimeTransform.swift; path = model/CloseTimeTransform.swift; sourceTree = "<group>"; };
 		167B4C8B1F872F0000BDE991 /* OpenTimeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenTimeTransform.swift; path = model/OpenTimeTransform.swift; sourceTree = "<group>"; };
+		167E2D642108C73600C0E79C /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIWindow.swift; path = extension/UIWindow.swift; sourceTree = "<group>"; };
 		1683E73320C03F7B00721F2E /* SummaryHeaderItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SummaryHeaderItemCell.swift; path = view/SummaryHeaderItemCell.swift; sourceTree = "<group>"; };
 		168573A71F4FC81700399AA2 /* TipJarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipJarViewController.swift; path = "view controller/TipJarViewController.swift"; sourceTree = "<group>"; };
 		1685E0501F91E45700F80699 /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaManager.swift; path = controller/MediaManager.swift; sourceTree = "<group>"; };
@@ -1004,6 +1006,7 @@
 			children = (
 				161A7E831FDEC87B00808780 /* TimeInterval.swift */,
 				1661C3DE1F07E9C0005C889F /* UIDevice.swift */,
+				167E2D642108C73600C0E79C /* UIWindow.swift */,
 				1664D5551D55E24B000BAF56 /* UIApplication.swift */,
 				1664D5511D55E1C6000BAF56 /* UINavigationController.swift */,
 				1664D5531D55E1E2000BAF56 /* UIColor.swift */,
@@ -1826,6 +1829,7 @@
 				160E1D2720DB7CB400E4AF7D /* Preference+CellType.swift in Sources */,
 				164190FF1F2F724D008682E5 /* Localizations.swift in Sources */,
 				1672461A1B1B13610083035F /* Definitions.swift in Sources */,
+				167E2D652108C73600C0E79C /* UIWindow.swift in Sources */,
 				1625B4621F44386700744C01 /* NotificationCoordinator.swift in Sources */,
 				16D1E8C61FA0CB2B006A5847 /* SectorCell.swift in Sources */,
 				1661C3DF1F07E9C0005C889F /* UIDevice.swift in Sources */,

@@ -31,6 +31,10 @@ public enum LibraryType: String, Codable {
         case .law: return "Library.Name.Law"
         }
     }
+    
+    public var url: URL? {
+        return URL(string: "https://librsv.korea.ac.kr/?lib=\(rawValue)")
+    }
 }
 
 // MARK: - Category

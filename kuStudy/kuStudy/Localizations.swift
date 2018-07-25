@@ -204,14 +204,14 @@ public struct Localizations {
                     /// Base translation: Auto Update
                     public static var AutoUpdate : String = NSLocalizedString("Settings.Table.Cell.Title.AutoUpdate", comment: "")
 
-                    /// Base translation: Maps
-                    public static var Maps : String = NSLocalizedString("Settings.Table.Cell.Title.Maps", comment: "")
+                    /// Base translation: Library Order
+                    public static var Order : String = NSLocalizedString("Settings.Table.Cell.Title.Order", comment: "")
 
                     /// Base translation: Open Source
                     public static var OpenSource : String = NSLocalizedString("Settings.Table.Cell.Title.OpenSource", comment: "")
 
-                    /// Base translation: Library Order
-                    public static var Order : String = NSLocalizedString("Settings.Table.Cell.Title.Order", comment: "")
+                    /// Base translation: Maps
+                    public static var Maps : String = NSLocalizedString("Settings.Table.Cell.Title.Maps", comment: "")
 
                     /// Base translation: Photo Credit
                     public static var ThanksTo : String = NSLocalizedString("Settings.Table.Cell.Title.ThanksTo", comment: "")
@@ -231,6 +231,13 @@ public struct Localizations {
         }
     }
 
+    public struct Action {
+
+        /// Base translation: Open in Safari
+        public static var OpenLibraryInSafari : String = NSLocalizedString("Action.OpenLibraryInSafari", comment: "")
+
+    }
+
     public struct Label {
 
 
@@ -239,19 +246,19 @@ public struct Localizations {
             /// Base translation: Review
             public static var FeedbackHeader : String = NSLocalizedString("Label.Settings.FeedbackHeader", comment: "")
 
-            /// Base translation: Update Interval
-            public static var UpdateInterval : String = NSLocalizedString("Label.Settings.UpdateInterval", comment: "")
+            /// Base translation: Write a review
+            public static var AppStoreReview : String = NSLocalizedString("Label.Settings.AppStoreReview", comment: "")
 
             /// Base translation: Library Order
             public static var LibraryOrder : String = NSLocalizedString("Label.Settings.LibraryOrder", comment: "")
 
-            /// Base translation: Write a review
-            public static var AppStoreReview : String = NSLocalizedString("Label.Settings.AppStoreReview", comment: "")
+            /// Base translation: Update Interval
+            public static var UpdateInterval : String = NSLocalizedString("Label.Settings.UpdateInterval", comment: "")
 
             /// Base translation: General
             public static var GeneralHeader : String = NSLocalizedString("Label.Settings.GeneralHeader", comment: "")
 
-            /// Base translation: Photo Credit
+            /// Base translation: Special Thanks
             public static var MediaProvider : String = NSLocalizedString("Label.Settings.MediaProvider", comment: "")
 
             /// Base translation: About
@@ -266,7 +273,7 @@ public struct Localizations {
             /// Base translation: Today Widget Order
             public static var TodayOrder : String = NSLocalizedString("Label.Settings.TodayOrder", comment: "")
 
-            /// Base translation: Please leave a review or provide a feedback. It greatly encourages app developer!
+            /// Base translation: Write a review or feedback on App Store. All feedback encourages app developer!
             public static var ReviewFooter : String = NSLocalizedString("Label.Settings.ReviewFooter", comment: "")
 
             /// Base translation: Auto Update
@@ -312,8 +319,8 @@ public struct Localizations {
         /// Base translation: Error
         public static var Error : String = NSLocalizedString("Common.Error", comment: "")
 
-        /// Base translation: Total
-        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
+        /// Base translation: Out of Order
+        public static var OutOfOrder : String = NSLocalizedString("Common.OutOfOrder", comment: "")
 
         /// Base translation: second
         public static var Second : String = NSLocalizedString("Common.Second", comment: "")
@@ -321,8 +328,8 @@ public struct Localizations {
         /// Base translation: Liberal Art Campus
         public static var LiberalArtCampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
 
-        /// Base translation: Out of Order
-        public static var OutOfOrder : String = NSLocalizedString("Common.OutOfOrder", comment: "")
+        /// Base translation: Total
+        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
 
         /// Base translation: Occupied
         public static var Used : String = NSLocalizedString("Common.Used", comment: "")
@@ -330,11 +337,11 @@ public struct Localizations {
         /// Base translation: Printer
         public static var Printer : String = NSLocalizedString("Common.Printer", comment: "")
 
-        /// Base translation: minutes
-        public static var Minutes : String = NSLocalizedString("Common.Minutes", comment: "")
-
         /// Base translation: Scanner
         public static var Scanner : String = NSLocalizedString("Common.Scanner", comment: "")
+
+        /// Base translation: minutes
+        public static var Minutes : String = NSLocalizedString("Common.Minutes", comment: "")
 
         /// Base translation: Ineligible
         public static var Ineligible : String = NSLocalizedString("Common.Ineligible", comment: "")
@@ -343,14 +350,14 @@ public struct Localizations {
 
     public struct Main {
 
-        /// Base translation: %@ are studying in liberal art campus, %@ are studying in science campus.
-        public static func StudyingCampus(_ value1 : String, _ value2 : String) -> String {
-            return String(format: NSLocalizedString("Main.StudyingCampus", comment: ""), value1, value2)
-        }
-
         /// Base translation: %@ are studying now.
         public static func Studying(_ value1 : String) -> String {
             return String(format: NSLocalizedString("Main.Studying", comment: ""), value1)
+        }
+
+        /// Base translation: %@ are studying in liberal art campus, %@ are studying in science campus.
+        public static func StudyingCampus(_ value1 : String, _ value2 : String) -> String {
+            return String(format: NSLocalizedString("Main.StudyingCampus", comment: ""), value1, value2)
         }
 
 
