@@ -96,9 +96,9 @@
 
 "Main.StudyingCampus" = "%@ are studying in liberal art campus,\n%@ are studying in science campus.";
 
-"Main.Title.Library" = "Library";
+"Title.Library" = "Library";
 
-"Main.Title.Preference" = "Preference";
+"Legacy.Title.Preference" = "Preference (d)";
 
 "Notification.Content.TapToShow" = "Tap to show current seat status.";
 

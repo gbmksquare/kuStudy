@@ -41,6 +41,11 @@ fastlane ios update_build_number
 fastlane ios localize
 ```
 Generate Localization file
+### ios localize_all
+```
+fastlane ios localize_all
+```
+Generate Localization file
 ### ios test
 ```
 fastlane ios test

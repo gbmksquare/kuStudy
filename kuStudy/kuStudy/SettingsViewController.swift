@@ -147,7 +147,7 @@ class SettingsViewController: UIViewController {
     
     // MARK: - Setup
     private func setup() {
-        title = Localizations.Main.Title.Preference
+        title = Localizations.Title.Settings
         navigationItem.largeTitleDisplayMode = .automatic
         navigationController?.navigationBar.prefersLargeTitles = true
         

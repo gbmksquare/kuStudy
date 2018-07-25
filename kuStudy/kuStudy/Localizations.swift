@@ -348,34 +348,28 @@ public struct Localizations {
 
     }
 
-    public struct Main {
+    public struct Legacy {
 
-        /// Base translation: %@ are studying now.
-        public static func Studying(_ value1 : String) -> String {
-            return String(format: NSLocalizedString("Main.Studying", comment: ""), value1)
+
+        public struct Title {
+
+            /// Base translation: Preference
+            public static var Preference : String = NSLocalizedString("Legacy.Title.Preference", comment: "")
+
         }
+    }
+
+    public struct Main {
 
         /// Base translation: %@ are studying in liberal art campus, %@ are studying in science campus.
         public static func StudyingCampus(_ value1 : String, _ value2 : String) -> String {
             return String(format: NSLocalizedString("Main.StudyingCampus", comment: ""), value1, value2)
         }
 
-
-        public struct Title {
-
-            /// Base translation: Library
-            public static var Library : String = NSLocalizedString("Main.Title.Library", comment: "")
-
-            /// Base translation: Preference
-            public static var Preference : String = NSLocalizedString("Main.Title.Preference", comment: "")
-
+        /// Base translation: %@ are studying now.
+        public static func Studying(_ value1 : String) -> String {
+            return String(format: NSLocalizedString("Main.Studying", comment: ""), value1)
         }
-    }
-
-    public struct Title {
-
-        /// Base translation: Settings
-        public static var Settings : String = NSLocalizedString("Title.Settings", comment: "")
 
     }
 
@@ -389,6 +383,16 @@ public struct Localizations {
 
         /// Base translation: Custom
         public static var Custom : String = NSLocalizedString("TimeInterval.Custom", comment: "")
+
+    }
+
+    public struct Title {
+
+        /// Base translation: Settings
+        public static var Settings : String = NSLocalizedString("Title.Settings", comment: "")
+
+        /// Base translation: Library
+        public static var Library : String = NSLocalizedString("Title.Library", comment: "")
 
     }
 

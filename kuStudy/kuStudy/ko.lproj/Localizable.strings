@@ -96,9 +96,9 @@
 
 "Main.StudyingCampus" = "%@ 명은 문과캠퍼스에서 공부 중이고,\n%@ 명은 이과캠퍼스에서 공부 중입니다.";
 
-"Main.Title.Library" = "도서관";
+"Title.Library" = "도서관";
 
-"Main.Title.Preference" = "설정";
+"Legacy.Title.Preference" = "설정 (d)";
 
 "Notification.Content.TapToShow" = "탭해서 좌석 현황을 보세요.";
 

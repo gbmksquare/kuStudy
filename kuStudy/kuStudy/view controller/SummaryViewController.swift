@@ -162,7 +162,7 @@ extension SummaryViewController {
     }
     
     private func setupContent() {
-        title = Localizations.Main.Title.Library
+        title = Localizations.Title.Library
     }
     
     private func setupNotification() {

@@ -15,14 +15,14 @@ class MainTabBarController: UITabBarController {
         tabBar.tintColor = UIColor.theme
         tabBar.items?.forEach {
             switch $0.tag {
-            case 1: $0.title = Localizations.Main.Title.Library
-            case 2: $0.title = Localizations.Main.Title.Preference
+            case 1: $0.title = Localizations.Title.Library
+            case 2: $0.title = Localizations.Legacy.Title.Preference
             default: break
             }
         }
         
         let settings = UINavigationController(rootViewController: SettingsViewController())
-        settings.tabBarItem = UITabBarItem(title: Localizations.Main.Title.Preference, image: #imageLiteral(resourceName: "glyphicons-138-cogwheels"), tag: 3)
+        settings.tabBarItem = UITabBarItem(title: Localizations.Title.Settings, image: #imageLiteral(resourceName: "glyphicons-138-cogwheels"), tag: 3)
         viewControllers?.append(settings)
     }
 }

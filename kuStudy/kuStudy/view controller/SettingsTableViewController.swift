@@ -18,7 +18,7 @@ class SettingsTableViewController: UITableViewController {
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Localizations.Main.Title.Preference
+        title = Localizations.Legacy.Title.Preference
         appIconImageView.layer.cornerRadius = 8
         versionLabel.text = "kuStudy " + UIApplication.shared.versionString
         clearsSelectionOnViewWillAppear = false
