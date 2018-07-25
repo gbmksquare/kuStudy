@@ -161,5 +161,6 @@ extension SummaryHeaderView: UICollectionViewDelegateFlowLayout, UICollectionVie
             cell.descriptionLabel.text = Localizations.Common.Studying
         default: break
         }
+        cell.updateAccessibleDescription()
     }
 }

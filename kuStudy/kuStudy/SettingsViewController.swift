@@ -24,7 +24,9 @@ class SettingsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        #if !DEBUG
         SKStoreReviewController.requestReview()
+        #endif
         
         // iOS Bug: http://stackoverflow.com/questions/19379510/uitableviewcell-doesnt-get-deselected-when-swiping-back-quickly
         if UIDevice.current.userInterfaceIdiom == .phone {
@@ -259,10 +261,5 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.textLabel?.text = menuRow.title
             return cell
         }
-        
-        let cell = UITableViewCell()
-        cell.tag = menuRow.tag
-        cell.textLabel?.text = menuRow.title
-        return cell
     }
 }

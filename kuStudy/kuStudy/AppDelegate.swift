@@ -117,7 +117,7 @@ extension AppDelegate {
             let data: [String: Any] = ["Device": device.model,
                                        "Model": device.modelIdentifier,
                                        "OS": device.systemName + " " + device.systemVersion,
-                                       "Version": UIApplication.versionString,
+                                       "Version": UIApplication.shared.versionString,
                                        "VoiceOver": UIAccessibilityIsVoiceOverRunning(),
                                        "BoldText": UIAccessibilityIsBoldTextEnabled(),
                                        "ReduceTransparency": UIAccessibilityIsReduceTransparencyEnabled(),

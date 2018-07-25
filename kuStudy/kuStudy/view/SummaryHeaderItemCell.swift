@@ -26,6 +26,11 @@ class SummaryHeaderItemCell: UICollectionViewCell {
         setup()
     }
     
+    func updateAccessibleDescription() {
+        contentView.accessibilityValue = "\(titleLabel.text ?? "") \(valueLabel.text ?? "") \(descriptionLabel.text ?? "")"
+    }
+    
+    // MARK: - Setup
     private func setup() {
         containerView.backgroundColor = .white // #colorLiteral(red: 0.9803921569, green: 0.9803921569, blue: 0.9803921569, alpha: 1)
         containerView.layer.cornerRadius = 9
@@ -70,5 +75,11 @@ class SummaryHeaderItemCell: UICollectionViewCell {
         valueLabel.textAlignment = .left
         valueLabel.font = metrics.scaledFont(for: UIFont.systemFont(ofSize: 28, weight: .regular))
         stackView.addArrangedSubview(valueLabel)
+        
+        contentView.isAccessibilityElement = true
+        titleLabel.isAccessibilityElement = false
+        descriptionLabel.isAccessibilityElement = false
+        valueLabel.isAccessibilityElement = false
+        contentView.accessibilityTraits = UIAccessibilityTraitStaticText
     }
 }
