@@ -9,7 +9,11 @@
 import UIKit
 
 extension UIApplication {
-    static var versionString: String {
+    var applicationName: String {
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as! String
+    }
+    
+    var versionString: String {
         let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
         #if DEBUG

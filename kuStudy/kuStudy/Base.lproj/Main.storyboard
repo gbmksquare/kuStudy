@@ -170,7 +170,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <view key="tableFooterView" contentMode="scaleToFill" misplaced="YES" id="zoC-KU-fku">
+                        <view key="tableFooterView" contentMode="scaleToFill" id="zoC-KU-fku">
                             <rect key="frame" x="0.0" y="581.33333333333337" width="414" height="84"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -181,14 +181,14 @@
                                         <constraint firstAttribute="width" secondItem="Gh8-L4-sMX" secondAttribute="height" multiplier="1:1" id="NwI-Nz-c0G"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" ambiguous="YES" text="BumMo Koo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWm-mN-eda">
-                                    <rect key="frame" x="8" y="57" width="398" height="15"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="BumMo Koo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWm-mN-eda">
+                                    <rect key="frame" x="8" y="57.666666666666664" width="398" height="14.333333333333336"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="kuStudy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enX-X7-aXx">
-                                    <rect key="frame" x="8" y="41" width="398" height="8"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kuStudy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enX-X7-aXx">
+                                    <rect key="frame" x="8" y="41" width="398" height="8.6666666666666643"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -210,7 +210,7 @@
                         <sections>
                             <tableViewSection headerTitle="Display" id="iq9-5j-Vn6">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" tag="103" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="EKr-Lj-VT4" customClass="SwitchCell" customModule="kuStudy" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" tag="103" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="EKr-Lj-VT4" customClass="legacy_SwitchCell" customModule="kuStudy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EKr-Lj-VT4" id="lym-fg-xiG">
@@ -437,7 +437,7 @@
         <!--Order-->
         <scene sceneID="aJc-Ux-5pe">
             <objects>
-                <tableViewController id="vcs-Cd-iQP" customClass="LibraryOrderTableViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="LibraryOrderTableViewController" id="vcs-Cd-iQP" customClass="LibraryOrderTableViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="coG-bf-mw5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -475,7 +475,7 @@
         <!--Today Extension-->
         <scene sceneID="5te-do-eTx">
             <objects>
-                <tableViewController id="sw5-2Q-HLp" customClass="TodayExtensionOrderTableViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TodayExtensionOrderTableViewController" id="sw5-2Q-HLp" customClass="TodayExtensionOrderTableViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ap8-ff-HAj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -586,7 +586,7 @@
         <!--Thanks To-->
         <scene sceneID="Vsu-HB-cuQ">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="dTL-Rd-Uvl" customClass="ThanksToViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThanksToViewController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="dTL-Rd-Uvl" customClass="ThanksToViewController" customModule="kuStudy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Opb-YM-z8d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

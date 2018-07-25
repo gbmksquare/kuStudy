@@ -20,7 +20,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         title = Localizations.Main.Title.Preference
         appIconImageView.layer.cornerRadius = 8
-        versionLabel.text = "kuStudy " + UIApplication.versionString
+        versionLabel.text = "kuStudy " + UIApplication.shared.versionString
         clearsSelectionOnViewWillAppear = false
         
         if #available(iOS 11.0, *) {
@@ -118,7 +118,7 @@ extension SettingsTableViewController {
                 ? Localizations.Settings.Table.Cell.Detail.AppleMap
                 : Localizations.Settings.Table.Cell.Detail.GoogleMap
         case 103:
-            let cell = cell as! SwitchCell
+            let cell = cell as! legacy_SwitchCell
             cell.titleLabel.text = Localizations.Settings.Table.Cell.Title.AutoUpdate
             cell.onOffSwitch.isOn = Preference.shared.shouldAutoUpdate
             title = ""

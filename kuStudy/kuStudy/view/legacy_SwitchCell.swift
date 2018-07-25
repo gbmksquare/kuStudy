@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SwitchCell: UITableViewCell {
+class legacy_SwitchCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var onOffSwitch: UISwitch!
 }

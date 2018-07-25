@@ -9,51 +9,11 @@
 import UIKit
 import StoreKit
 import AcknowList
+import kuStudyKit
 
-enum SettingsMenu: Int {
-    case autoUpdate = 103
-    case autoUpdateInterval = 104
-    case appLibraryOrder = 100
-    case widgetLibraryOrder = 101
-    case appStoreReview = 999
-    case mediaProvider = 901
-    case openSource = 900
-    case donate = 1004
-    
-    var tag: Int { return rawValue }
-    
-    var title: String {
-        switch self {
-        case .autoUpdate: return Localizations.Label.Settings.AutoUpdate
-        case .autoUpdateInterval: return Localizations.Label.Settings.UpdateInterval
-        case .appLibraryOrder: return Localizations.Label.Settings.LibraryOrder
-        case .widgetLibraryOrder: return Localizations.Label.Settings.TodayOrder
-        case .appStoreReview: return Localizations.Label.Settings.AppStoreReview
-        case .mediaProvider: return Localizations.Label.Settings.MediaProvider
-        case .openSource: return Localizations.Label.Settings.OpenSource
-        case .donate: return Localizations.Label.Settings.TipJar
-        }
-    }
-    
-    static let sectionTitles: [String?] = [Localizations.Label.Settings.GeneralHeader, Localizations.Label.Settings.FeedbackHeader, Localizations.Label.Settings.AboutHeader]
-    static let sectionFooters: [String?] = [nil, Localizations.Label.Settings.ReviewFooter, nil]
-    
-    #if DEBUG
-    static let layout: [[SettingsMenu]] = [
-        [.autoUpdate, .autoUpdateInterval, .appLibraryOrder, .widgetLibraryOrder],
-        [.appStoreReview],
-        [.mediaProvider, .openSource, .donate]
-    ]
-    #else
-    static let layout: [[SettingsMenu]] = [
-        [.autoUpdate, .autoUpdateInterval, .appLibraryOrder, .widgetLibraryOrder],
-        [.appStoreReview],
-        [.mediaProvider, .openSource]]
-    #endif
-}
-
-    class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController {
     private lazy var tableView = UITableView(frame: .zero, style: .grouped)
+    private lazy var footerView = AppVersionFooterView()
     
     // MARK: - View
     override func viewDidLoad() {
@@ -61,7 +21,79 @@ enum SettingsMenu: Int {
         setup()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // iOS Bug: http://stackoverflow.com/questions/19379510/uitableviewcell-doesnt-get-deselected-when-swiping-back-quickly
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                tableView.deselectRow(at: indexPath, animated: true)
+            }
+        }
+        
+        // Deselct cell if detail view does not match master view
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            if (splitViewController?.childViewControllers.last?.childViewControllers.first is LibraryViewController) == true {
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    tableView.deselectRow(at: indexPath, animated: true)
+                }
+            }
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        resizeTableFooterView()
+    }
+    
     // MARK: - Action
+    @objc private func handle(autoUpdate onOffSwitch: UISwitch) {
+        let shouldAutoUpdate = onOffSwitch.isOn
+        Preference.shared.shouldAutoUpdate = shouldAutoUpdate
+        if shouldAutoUpdate == true {
+            kuStudy.enableAutoUpdate()
+        } else {
+            kuStudy.disableAutoUpdate()
+        }
+    }
+    
+    private func presentUpdateInterval() {
+        let alert = UIAlertController(title: Localizations.Settings.Table.Cell.Title.UpdateInterval, message: nil, preferredStyle: .actionSheet)
+        var intervals: [Double] = [60, 180, 300, 600]
+        #if DEBUG
+        intervals.insert(1, at: 0)
+        #endif
+        intervals.forEach {
+            let interval = $0
+            let action = UIAlertAction(title: $0.readableTime, style: .default, handler: { [weak self] (_) in
+                Preference.shared.updateInterval = interval
+                kuStudy.update(updateInterval: interval)
+                self?.tableView.reloadData()
+            })
+            alert.addAction(action)
+        }
+        let cancel = UIAlertAction(title: Localizations.Alert.Action.Cancel, style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        present(alert, animated: true)
+    }
+    
+    private func presentAppLibraryOrder() {
+        let thanksTo = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LibraryOrderTableViewController")
+        let detailNavigation = UINavigationController(rootViewController: thanksTo)
+        navigationController?.showDetailViewController(detailNavigation, sender: nil)
+    }
+    
+    private func presentWidgetLibraryOrder() {
+        let thanksTo = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TodayExtensionOrderTableViewController")
+        let detailNavigation = UINavigationController(rootViewController: thanksTo)
+        navigationController?.showDetailViewController(detailNavigation, sender: nil)
+    }
+    
+    private func presentMediaProvider() {
+        let thanksTo = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ThanksToViewController")
+        let detailNavigation = UINavigationController(rootViewController: thanksTo)
+        navigationController?.showDetailViewController(detailNavigation, sender: nil)
+    }
+    
     private func presentOpenSource() {
         let path = Bundle.main.path(forResource: "Pods-kuStudy-acknowledgements", ofType: "plist")
         let acknowledgementViewController = AcknowListViewController(acknowledgementsPlistPath: path)
@@ -90,6 +122,18 @@ enum SettingsMenu: Int {
         }
     }
     
+    private func resizeTableFooterView() {
+        if let footer = tableView.tableFooterView {
+            let height = footer.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+            var frame = footer.frame
+            if frame.height != height {
+                frame.size.height = height
+                footer.frame = frame
+                tableView.tableFooterView = footer
+            }
+        }
+    }
+    
     // MARK: - Setup
     private func setup() {
         title = Localizations.Main.Title.Preference
@@ -98,7 +142,7 @@ enum SettingsMenu: Int {
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.tableFooterView = footerView
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
@@ -111,16 +155,25 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     // Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath),
-        let menu = SettingsMenu(rawValue: cell.tag) else { return }
+            let menu = SettingsMenu(rawValue: cell.tag) else { return }
         switch menu {
+        case .autoUpdate: break
+        case .autoUpdateInterval:
+            presentUpdateInterval()
+            tableView.deselectRow(at: indexPath, animated: true)
+        case .appLibraryOrder:
+            presentAppLibraryOrder()
+        case .widgetLibraryOrder:
+            presentWidgetLibraryOrder()
+        case .mediaProvider:
+            presentMediaProvider()
         case .appStoreReview:
             presentWriteReview()
-            tableView.deselectRow(at: indexPath, animated: true )
+            tableView.deselectRow(at: indexPath, animated: true)
         case .openSource: presentOpenSource()
         case .donate:
             presentTipJar()
-            tableView.deselectRow(at: indexPath, animated: true )
-        default: break
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
@@ -145,7 +198,49 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         let menuSection = SettingsMenu.layout[indexPath.section]
         let menuRow = menuSection[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        switch menuRow {
+        case .autoUpdate:
+            var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "switchCell")
+            if cell == nil {
+                cell = UITableViewCell(style: .value1, reuseIdentifier: "switchCell")
+            }
+            cell.tag = menuRow.tag
+            cell.textLabel?.text = menuRow.title
+            let onOffSwitch = UISwitch()
+            onOffSwitch.isOn = Preference.shared.shouldAutoUpdate
+            onOffSwitch.addTarget(self, action: #selector(handle(autoUpdate:)), for: .valueChanged)
+            cell.accessoryView = onOffSwitch
+            return cell
+        case .autoUpdateInterval:
+            var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "value1Cell")
+            if cell == nil {
+                cell = UITableViewCell(style: .value1, reuseIdentifier: "value1Cell")
+            }
+            cell.tag = menuRow.tag
+            cell.textLabel?.text = menuRow.title
+            let interval = TimeInterval(Preference.shared.updateInterval)
+            cell.detailTextLabel?.text = interval.readableTime
+            return cell
+        case .appStoreReview:
+            var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "normalCell")
+            if cell == nil {
+                cell = UITableViewCell(style: .default, reuseIdentifier: "normalCell")
+            }
+            cell.tag = menuRow.tag
+            cell.textLabel?.text = menuRow.title
+            return cell
+        case .appLibraryOrder, .widgetLibraryOrder, .mediaProvider, .openSource, .donate:
+            var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "disclosureCell")
+            if cell == nil {
+                cell = UITableViewCell(style: .default, reuseIdentifier: "disclosureCell")
+                cell.accessoryType = .disclosureIndicator
+            }
+            cell.tag = menuRow.tag
+            cell.textLabel?.text = menuRow.title
+            return cell
+        }
+        
+        let cell = UITableViewCell()
         cell.tag = menuRow.tag
         cell.textLabel?.text = menuRow.title
         return cell
