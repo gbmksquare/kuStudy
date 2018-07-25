@@ -23,6 +23,9 @@ class SettingsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        SKStoreReviewController.requestReview()
+        
         // iOS Bug: http://stackoverflow.com/questions/19379510/uitableviewcell-doesnt-get-deselected-when-swiping-back-quickly
         if UIDevice.current.userInterfaceIdiom == .phone {
             if let indexPath = tableView.indexPathForSelectedRow {
@@ -56,7 +59,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    private func presentUpdateInterval() {
+    private func presentUpdateInterval(_ completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: Localizations.Settings.Table.Cell.Title.UpdateInterval, message: nil, preferredStyle: .actionSheet)
         var intervals: [Double] = [60, 180, 300, 600]
         #if DEBUG
@@ -73,7 +76,9 @@ class SettingsViewController: UIViewController {
         }
         let cancel = UIAlertAction(title: Localizations.Alert.Action.Cancel, style: .cancel, handler: nil)
         alert.addAction(cancel)
-        present(alert, animated: true)
+        present(alert, animated: true) {
+            completion?()
+        }
     }
     
     private func presentAppLibraryOrder() {
@@ -102,14 +107,16 @@ class SettingsViewController: UIViewController {
         navigationController?.showDetailViewController(detailNavigationController, sender: true)
     }
     
-    private func presentTipJar() {
+    private func presentTipJar(_ completion: (() -> Void)? = nil) {
         let tipjar = TipJarViewController()
         let navigation = UINavigationController(rootViewController: tipjar)
         navigation.modalPresentationStyle = .formSheet
-        present(navigation, animated: true, completion: nil)
+        present(navigation, animated: true) {
+            completion?()
+        }
     }
     
-    private func presentWriteReview() {
+    private func presentWriteReview(_ completion: (() -> Void)? = nil) {
         let app = UIApplication.shared
         if let url = URL(string: "itms-apps://itunes.apple.com/us/app/kustudy/id925255895?mt=8&action=write-review"),
             app.canOpenURL(url) == true {
@@ -118,7 +125,9 @@ class SettingsViewController: UIViewController {
             let alert = UIAlertController(title: Localizations.Common.Error, message: Localizations.Alert.Message.AppStore.Failed, preferredStyle: .alert)
             let confirm = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default, handler: nil)
             alert.addAction(confirm)
-            present(alert, animated: true, completion: nil)
+            present(alert, animated: true) {
+                completion?()
+            }
         }
     }
     
@@ -153,14 +162,24 @@ class SettingsViewController: UIViewController {
 // MARK: - Table
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     // Delegate
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        guard let cell = tableView.cellForRow(at: indexPath),
+            let menu = SettingsMenu(rawValue: cell.tag) else { return true }
+        switch menu {
+        case .autoUpdate: return false
+        default: return true
+        }
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath),
             let menu = SettingsMenu(rawValue: cell.tag) else { return }
         switch menu {
         case .autoUpdate: break
         case .autoUpdateInterval:
-            presentUpdateInterval()
-            tableView.deselectRow(at: indexPath, animated: true)
+            presentUpdateInterval { [weak self] in
+                self?.tableView.deselectRow(at: indexPath, animated: true)
+            }
         case .appLibraryOrder:
             presentAppLibraryOrder()
         case .widgetLibraryOrder:
@@ -172,8 +191,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             tableView.deselectRow(at: indexPath, animated: true)
         case .openSource: presentOpenSource()
         case .donate:
-            presentTipJar()
-            tableView.deselectRow(at: indexPath, animated: true)
+            presentTipJar { [weak self] in
+                self?.tableView.deselectRow(at: indexPath, animated: true)
+            }
         }
     }
     
