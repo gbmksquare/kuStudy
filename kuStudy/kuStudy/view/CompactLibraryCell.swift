@@ -40,7 +40,7 @@ class CompactLibraryCell: UITableViewCell {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        if traitCollection.preferredContentSizeCategory > .accessibilityExtraLarge {
+        if traitCollection.preferredContentSizeCategory >= .accessibilityExtraLarge {
             informationStackView.axis = .vertical
         } else {
             informationStackView.axis = .horizontal

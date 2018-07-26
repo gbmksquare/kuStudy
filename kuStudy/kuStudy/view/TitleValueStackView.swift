@@ -37,12 +37,14 @@ class TitleValueStackView: UIStackView {
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.adjustsFontForContentSizeCategory = true
         titleLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 13, weight: .regular))
+        titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         addArrangedSubview(titleLabel)
         
         valueLabel.textColor = .black
         valueLabel.adjustsFontSizeToFitWidth = true
         valueLabel.adjustsFontForContentSizeCategory = true
         valueLabel.font = bodyMetrics.scaledFont(for: UIFont.systemFont(ofSize: 20, weight: .regular))
+        valueLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         addArrangedSubview(valueLabel)
     }
 }

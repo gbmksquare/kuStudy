@@ -30,6 +30,18 @@ class SummaryHeaderView: UIView {
         setup()
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        collectionView.snp.updateConstraints { (make) in
+            if traitCollection.preferredContentSizeCategory >= .accessibilityMedium {
+                make.height.equalTo(180)
+            } else {
+                make.height.equalTo(100)
+            }
+        }
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     // MARK: - Populate
     private func populate() {
         collectionView.reloadData()
@@ -127,7 +139,13 @@ extension SummaryHeaderView: UICollectionViewDelegateFlowLayout, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 130, height: collectionView.bounds.height)
+        if traitCollection.preferredContentSizeCategory >= .accessibilityExtraExtraLarge {
+            return CGSize(width: 300, height: collectionView.bounds.height)
+        } else if traitCollection.preferredContentSizeCategory >= .accessibilityMedium {
+            return CGSize(width: 220, height: collectionView.bounds.height)
+        } else {
+            return CGSize(width: 130, height: collectionView.bounds.height)
+        }
     }
     
     // Data source

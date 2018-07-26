@@ -67,12 +67,15 @@ class SummaryHeaderItemCell: UICollectionViewCell {
         
         descriptionLabel.textColor = .black
         descriptionLabel.textAlignment = .left
+        descriptionLabel.adjustsFontForContentSizeCategory = true
         descriptionLabel.font = metrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .medium))
         descriptionLabel.setContentHuggingPriority(.required, for: .vertical)
         stackView.addArrangedSubview(descriptionLabel)
         
         valueLabel.textColor = .black
         valueLabel.textAlignment = .left
+        valueLabel.lineBreakMode = .byCharWrapping
+        valueLabel.adjustsFontForContentSizeCategory = true
         valueLabel.font = metrics.scaledFont(for: UIFont.systemFont(ofSize: 28, weight: .regular))
         stackView.addArrangedSubview(valueLabel)
         
