@@ -59,7 +59,7 @@ class SummaryHeaderView: UIView {
         
         let headlineMetrics = UIFontMetrics(forTextStyle: .headline)
         dateLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .semibold))
-        dateLabel.textColor = .textDark
+        dateLabel.textColor = .darkText
         
         let summaryMetrics = UIFontMetrics(forTextStyle: .body)
         summaryLabel.font = summaryMetrics.scaledFont(for: UIFont.systemFont(ofSize: 16, weight: .regular))

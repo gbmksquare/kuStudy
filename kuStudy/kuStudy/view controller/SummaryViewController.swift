@@ -154,6 +154,7 @@ extension SummaryViewController {
         table.tableFooterView = UIView()
         table.showsVerticalScrollIndicator = false
         table.register(LibraryCell.self, forCellReuseIdentifier: "cell")
+        table.register(CompactLibraryCell.self, forCellReuseIdentifier: "compact")
         
         if #available(iOS 11.0, *) {
             table.dragInteractionEnabled = true
@@ -420,16 +421,17 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "libraryCell", for: indexPath) as! LibraryTableViewCell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LibraryCell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "compact", for: indexPath) as! CompactLibraryCell
         cell.accessoryType = .disclosureIndicator
         cell.libraryData = summary?.libraries[indexPath.row]
-//        if let libraryData = summary?.libraries[indexPath.row] {
-//            cell.populate(library: libraryData)
-//        }
-//        cell.updateInterface(for: traitCollection)
-        cell.layoutIfNeeded()
         return cell
+        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LibraryCell
+//        cell.accessoryType = .disclosureIndicator
+//        cell.libraryData = summary?.libraries[indexPath.row]
+//        cell.layoutIfNeeded()
+//        return cell
     }
     
     // MARK: Empty state

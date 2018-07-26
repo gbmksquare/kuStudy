@@ -45,6 +45,7 @@ class AppVersionFooterView: UIView {
         iconImageView.backgroundColor = .placeholder
         iconImageView.layer.cornerRadius = 8
         iconImageView.layer.masksToBounds = true
+        iconImageView.accessibilityIgnoresInvertColors = true
         stackView.addArrangedSubview(iconImageView)
         iconImageView.snp.makeConstraints { (make) in
             make.width.equalTo(29)

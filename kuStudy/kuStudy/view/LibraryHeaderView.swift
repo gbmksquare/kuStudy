@@ -145,10 +145,10 @@ class LibraryHeaderView: UIView {
             $0.adjustsFontForContentSizeCategory = true
         }
         
-        subtitleLabel.textColor = .textDark
+        subtitleLabel.textColor = .darkText
         availableLabel.textColor = .lightGray
-        timestampLabel.textColor = .textDark
-        artistLabel.textColor = .textDark
+        timestampLabel.textColor = .darkText
+        artistLabel.textColor = .darkText
         infoSeparator.backgroundColor = .separator
         buttonSeparator.backgroundColor = .separator
         

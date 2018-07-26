@@ -76,7 +76,7 @@ class LibraryFooterView: UIView {
     
     // MARK: - Setup
     private func setup() {
-        backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.937254902, blue: 0.9333333333, alpha: 1)
+        backgroundColor = .lightBackground
         
         map.mapType = .standard
         map.isZoomEnabled = true

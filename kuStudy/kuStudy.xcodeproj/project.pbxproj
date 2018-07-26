@@ -94,6 +94,8 @@
 		167B4C8C1F872F0000BDE991 /* OpenTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C8B1F872F0000BDE991 /* OpenTimeTransform.swift */; };
 		167B4C8D1F872F0000BDE991 /* OpenTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C8B1F872F0000BDE991 /* OpenTimeTransform.swift */; };
 		167E2D652108C73600C0E79C /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E2D642108C73600C0E79C /* UIWindow.swift */; };
+		167E2D67210978AE00C0E79C /* CompactLibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E2D66210978AE00C0E79C /* CompactLibraryCell.swift */; };
+		167E2D692109822200C0E79C /* TitleValueStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E2D682109822200C0E79C /* TitleValueStackView.swift */; };
 		1683E73420C03F7B00721F2E /* SummaryHeaderItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683E73320C03F7B00721F2E /* SummaryHeaderItemCell.swift */; };
 		168573A81F4FC81700399AA2 /* TipJarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168573A71F4FC81700399AA2 /* TipJarViewController.swift */; };
 		1685E0511F91E45700F80699 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685E0501F91E45700F80699 /* MediaManager.swift */; };
@@ -365,6 +367,8 @@
 		167B4C881F872EB800BDE991 /* CloseTimeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloseTimeTransform.swift; path = model/CloseTimeTransform.swift; sourceTree = "<group>"; };
 		167B4C8B1F872F0000BDE991 /* OpenTimeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenTimeTransform.swift; path = model/OpenTimeTransform.swift; sourceTree = "<group>"; };
 		167E2D642108C73600C0E79C /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIWindow.swift; path = extension/UIWindow.swift; sourceTree = "<group>"; };
+		167E2D66210978AE00C0E79C /* CompactLibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompactLibraryCell.swift; path = view/CompactLibraryCell.swift; sourceTree = "<group>"; };
+		167E2D682109822200C0E79C /* TitleValueStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TitleValueStackView.swift; path = view/TitleValueStackView.swift; sourceTree = "<group>"; };
 		1683E73320C03F7B00721F2E /* SummaryHeaderItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SummaryHeaderItemCell.swift; path = view/SummaryHeaderItemCell.swift; sourceTree = "<group>"; };
 		168573A71F4FC81700399AA2 /* TipJarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipJarViewController.swift; path = "view controller/TipJarViewController.swift"; sourceTree = "<group>"; };
 		1685E0501F91E45700F80699 /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaManager.swift; path = controller/MediaManager.swift; sourceTree = "<group>"; };
@@ -870,6 +874,7 @@
 				166742F91FBD5B300098C0BB /* SummaryHeaderView.swift */,
 				1683E73320C03F7B00721F2E /* SummaryHeaderItemCell.swift */,
 				166742FB1FBD666E0098C0BB /* LibraryCell.swift */,
+				167E2D66210978AE00C0E79C /* CompactLibraryCell.swift */,
 			);
 			name = Summary;
 			sourceTree = "<group>";
@@ -997,6 +1002,7 @@
 				164579EF1F9F7E3C00DD8F22 /* SeatsProgressView.swift */,
 				168C18CB1FA1F3F100F576D6 /* MiniInfoView.swift */,
 				16327D3C20DCBCA80047655D /* LinkButton.swift */,
+				167E2D682109822200C0E79C /* TitleValueStackView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1830,6 +1836,8 @@
 				164190FF1F2F724D008682E5 /* Localizations.swift in Sources */,
 				1672461A1B1B13610083035F /* Definitions.swift in Sources */,
 				167E2D652108C73600C0E79C /* UIWindow.swift in Sources */,
+				167E2D692109822200C0E79C /* TitleValueStackView.swift in Sources */,
+				167E2D67210978AE00C0E79C /* CompactLibraryCell.swift in Sources */,
 				1625B4621F44386700744C01 /* NotificationCoordinator.swift in Sources */,
 				16D1E8C61FA0CB2B006A5847 /* SectorCell.swift in Sources */,
 				1661C3DF1F07E9C0005C889F /* UIDevice.swift in Sources */,
