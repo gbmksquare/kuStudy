@@ -162,12 +162,12 @@ extension LibraryViewController {
     }
     
     private func setupTableView() {
-        table.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.937254902, blue: 0.9333333333, alpha: 1)
+//        table.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.937254902, blue: 0.9333333333, alpha: 1)
         table.register(SectorCell.self, forCellReuseIdentifier: "cell")
         table.rowHeight = UITableViewAutomaticDimension
         table.estimatedRowHeight = UITableViewAutomaticDimension
         footerContentView.library = library
-        table.tableFooterView = footerContentView
+//        table.tableFooterView = footerContentView
         table.showsVerticalScrollIndicator = false
     }
     

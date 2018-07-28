@@ -133,9 +133,9 @@ class LibraryHeaderView: UIView {
         let bodyMetrics = UIFontMetrics(forTextStyle: .body)
         let captionMetrics = UIFontMetrics(forTextStyle: .caption2)
         
-        titleLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 28, weight: .bold))
-        subtitleLabel.font = subheadlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 18, weight: .semibold))
-        availableSeatsLabel.font = bodyMetrics.scaledFont(for: UIFont.systemFont(ofSize: 36, weight: .regular))
+        titleLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 24, weight: .bold))
+        subtitleLabel.font = subheadlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 16, weight: .semibold))
+        availableSeatsLabel.font = bodyMetrics.scaledFont(for: UIFont.systemFont(ofSize: 28, weight: .regular))
         availableLabel.font = bodyMetrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .bold))
         timestampLabel.font = captionMetrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .semibold))
         artistLabel.font = captionMetrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .semibold))
@@ -163,7 +163,7 @@ class LibraryHeaderView: UIView {
     private func setupLayout() {
         [stack, infoSeparator].forEach { addSubview($0) }
         // !!!: Disabled buttons for now
-        [stack, infoSeparator, buttonStack, buttonSeparator].forEach { addSubview($0) }
+//        [stack, infoSeparator, buttonStack, buttonSeparator].forEach { addSubview($0) }
         [titleStack, dataStack, infoStack].forEach { stack.addArrangedSubview($0) }
         [titleLabel, subtitleLabel].forEach { titleStack.addArrangedSubview($0) }
         [availableStack, progressView].forEach { dataStack.addArrangedSubview($0) }
@@ -180,28 +180,28 @@ class LibraryHeaderView: UIView {
             make.top.equalTo(stack.snp.bottom).offset(12)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.bottom.equalTo(buttonStack.snp.top).offset(-8)
-//            make.bottom.equalToSuperview()
-            make.height.equalTo(0.3)
-        }
-        buttonStack.snp.makeConstraints { (make) in
-            make.leading.equalTo(readableContentGuide).inset(8)
-            make.trailing.equalTo(readableContentGuide).inset(8)
-            make.height.equalTo(44)
-        }
-        mapButton.snp.makeConstraints { (make) in
-            make.width.equalTo(remindButton)
-        }
-        actionButton.snp.makeConstraints { (make) in
-            make.width.equalTo(actionButton.snp.height)
-        }
-        buttonSeparator.snp.makeConstraints { (make) in
-            make.top.equalTo(buttonStack.snp.bottom).offset(8)
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+//            make.bottom.equalTo(buttonStack.snp.top).offset(-8)
             make.bottom.equalToSuperview()
             make.height.equalTo(0.3)
         }
+//        buttonStack.snp.makeConstraints { (make) in
+//            make.leading.equalTo(readableContentGuide).inset(8)
+//            make.trailing.equalTo(readableContentGuide).inset(8)
+//            make.height.equalTo(44)
+//        }
+//        mapButton.snp.makeConstraints { (make) in
+//            make.width.equalTo(remindButton)
+//        }
+//        actionButton.snp.makeConstraints { (make) in
+//            make.width.equalTo(actionButton.snp.height)
+//        }
+//        buttonSeparator.snp.makeConstraints { (make) in
+//            make.top.equalTo(buttonStack.snp.bottom).offset(8)
+//            make.leading.equalToSuperview()
+//            make.trailing.equalToSuperview()
+//            make.bottom.equalToSuperview()
+//            make.height.equalTo(0.3)
+//        }
     }
 }
 
