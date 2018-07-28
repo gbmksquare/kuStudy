@@ -79,9 +79,9 @@ class LibraryFooterView: UIView {
         backgroundColor = .lightBackground
         
         map.mapType = .standard
-        map.isZoomEnabled = true
+        map.isZoomEnabled = false
         map.isScrollEnabled = false
-        map.isPitchEnabled = true
+        map.isPitchEnabled = false
         map.isRotateEnabled = false
         map.showsScale = false
         map.showsCompass = false
@@ -98,19 +98,19 @@ class LibraryFooterView: UIView {
             make.top.equalToSuperview().inset(16)
             make.bottom.equalToSuperview().inset(16)
             make.leading.equalTo(readableContentGuide.snp.leading).inset(8)
-            make.width.equalTo(160)
+            make.width.equalTo(120)
             make.height.equalTo(120)
         }
         
         stack.axis = .vertical
         stack.alignment = .leading
         stack.distribution = .fillEqually
-        stack.spacing = UIStackView.spacingUseSystem
+        stack.spacing = 12
         addSubview(stack)
         stack.snp.makeConstraints { (make) in
             make.top.equalTo(map).inset(4)
-            make.leading.equalTo(map.snp.trailing).offset(12)
-            make.trailing.equalTo(readableContentGuide.snp.trailing).inset(8)
+            make.leading.equalTo(map.snp.trailing).offset(16)
+            make.trailing.equalTo(readableContentGuide.snp.trailing)
         }
         
         appleMapButton.setTitle(Localizations.Library.Button.OpenInAppleMaps, for: .normal)
