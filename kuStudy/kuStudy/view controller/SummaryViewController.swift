@@ -155,6 +155,7 @@ extension SummaryViewController {
         table.showsVerticalScrollIndicator = false
         table.register(LibraryCell.self, forCellReuseIdentifier: "cell")
         table.register(CompactLibraryCell.self, forCellReuseIdentifier: "compact")
+        table.register(VeryCompactLibraryCell.self, forCellReuseIdentifier: "veryCompact")
         
         if #available(iOS 11.0, *) {
             table.dragInteractionEnabled = true
@@ -422,7 +423,9 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LibraryCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "compact", for: indexPath) as! CompactLibraryCell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "veryCompact", for: indexPath) as! VeryCompactLibraryCell
         cell.accessoryType = .disclosureIndicator
         cell.libraryData = summary?.libraries[indexPath.row]
         return cell
