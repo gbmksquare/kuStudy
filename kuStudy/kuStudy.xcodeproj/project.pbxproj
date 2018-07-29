@@ -22,7 +22,6 @@
 		16136BEA1B1C3F0800B3F744 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16136BE91B1C3F0800B3F744 /* Images.xcassets */; };
 		16136BFC1B1C44BA00B3F744 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		16136C001B1C451100B3F744 /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BFF1B1C451100B3F744 /* LibraryCell.swift */; };
-		161A7E821FDEB98300808780 /* legacy_SwitchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A7E811FDEB98300808780 /* legacy_SwitchCell.swift */; };
 		161A7E841FDEC87B00808780 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161A7E831FDEC87B00808780 /* TimeInterval.swift */; };
 		161F7E3820DC8650002957D7 /* LibraryFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161F7E3720DC8650002957D7 /* LibraryFooterView.swift */; };
 		162363511F9F181700CD78F2 /* LibraryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162363501F9F181700CD78F2 /* LibraryHeaderView.swift */; };
@@ -46,7 +45,6 @@
 		164191001F2F7257008682E5 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164190FC1F2F6B80008682E5 /* Localizations.swift */; };
 		164579F01F9F7E3C00DD8F22 /* SeatsProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164579EF1F9F7E3C00DD8F22 /* SeatsProgressView.swift */; };
 		164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E921C5608E0004C6663 /* MainTabBarController.swift */; };
-		164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */; };
 		164DD35B1D9FB30F001236F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 164DD3591D9FB30F001236F8 /* LaunchScreen.storyboard */; };
 		16538EA91C4F16820097A4F4 /* kuStudyWatchKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 16538EA81C4F16820097A4F4 /* kuStudyWatchKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		16538EAD1C4F16820097A4F4 /* kuStudyWatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */; };
@@ -302,7 +300,6 @@
 		16136BE91B1C3F0800B3F744 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		16136BF51B1C406800B3F744 /* kuStudy WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		16136BFF1B1C451100B3F744 /* LibraryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
-		161A7E811FDEB98300808780 /* legacy_SwitchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = legacy_SwitchCell.swift; path = view/legacy_SwitchCell.swift; sourceTree = "<group>"; };
 		161A7E831FDEC87B00808780 /* TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeInterval.swift; path = extension/TimeInterval.swift; sourceTree = "<group>"; };
 		161F7E3720DC8650002957D7 /* LibraryFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryFooterView.swift; sourceTree = "<group>"; };
 		162363501F9F181700CD78F2 /* LibraryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryHeaderView.swift; path = view/LibraryHeaderView.swift; sourceTree = "<group>"; };
@@ -321,7 +318,6 @@
 		164190FC1F2F6B80008682E5 /* Localizations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
 		164579EF1F9F7E3C00DD8F22 /* SeatsProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SeatsProgressView.swift; path = view/SeatsProgressView.swift; sourceTree = "<group>"; };
 		164C0E921C5608E0004C6663 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainTabBarController.swift; path = "view controller/MainTabBarController.swift"; sourceTree = "<group>"; };
-		164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsTableViewController.swift; path = "view controller/SettingsTableViewController.swift"; sourceTree = "<group>"; };
 		164DD35A1D9FB30F001236F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kuStudyWatchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16538EA81C4F16820097A4F4 /* kuStudyWatchKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kuStudyWatchKit.h; sourceTree = "<group>"; };
@@ -660,6 +656,7 @@
 				16ABBB7721083F780014141D /* SettingsMenu.swift */,
 				16F5A112210769D70059875B /* AppVersionFooterView.swift */,
 				168F6837210D704D000A08FA /* Display Type */,
+				16F5A1112107677A0059875B /* Legacy */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -869,7 +866,6 @@
 				167246281B1BE9F30083035F /* Summary */,
 				167246291B1BE9FA0083035F /* Library */,
 				164C0E941C5609C4004C6663 /* Settings */,
-				16F5A1112107677A0059875B /* Settings_legacy */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -1054,18 +1050,16 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		16F5A1112107677A0059875B /* Settings_legacy */ = {
+		16F5A1112107677A0059875B /* Legacy */ = {
 			isa = PBXGroup;
 			children = (
-				164C0E951C5609D9004C6663 /* SettingsTableViewController.swift */,
-				161A7E811FDEB98300808780 /* legacy_SwitchCell.swift */,
 				16DA07931C8EBBC300C4174A /* LibraryOrderTableViewController.swift */,
 				1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift */,
 				16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */,
 				168573A71F4FC81700399AA2 /* TipJarViewController.swift */,
 				162F12141D5F86B000A401D8 /* PhotographerCell.swift */,
 			);
-			name = Settings_legacy;
+			name = Legacy;
 			sourceTree = "<group>";
 		};
 		3352B19D19667EC6E2FBA752 /* Pods */ = {
@@ -1867,7 +1861,6 @@
 				166742FC1FBD666E0098C0BB /* LibraryCell.swift in Sources */,
 				162F12151D5F86B000A401D8 /* PhotographerCell.swift in Sources */,
 				167245C51B19C0370083035F /* AppDelegate.swift in Sources */,
-				161A7E821FDEB98300808780 /* legacy_SwitchCell.swift in Sources */,
 				161F7E3820DC8650002957D7 /* LibraryFooterView.swift in Sources */,
 				1664D5521D55E1C6000BAF56 /* UINavigationController.swift in Sources */,
 				1683E73420C03F7B00721F2E /* SummaryHeaderItemCell.swift in Sources */,
@@ -1879,7 +1872,6 @@
 				1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderTableViewController.swift in Sources */,
 				168573A81F4FC81700399AA2 /* TipJarViewController.swift in Sources */,
 				16F5A11021073C0B0059875B /* SettingsViewController.swift in Sources */,
-				164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */,
 				161A7E841FDEC87B00808780 /* TimeInterval.swift in Sources */,
 				166742FA1FBD5B300098C0BB /* SummaryHeaderView.swift in Sources */,
 				168F6836210D6EAC000A08FA /* LibraryCellTypeViewController.swift in Sources */,

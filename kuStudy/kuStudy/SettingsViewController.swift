@@ -61,7 +61,7 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    private func presentUpdateInterval(_ completion: (() -> Void)? = nil) {
+    private func presentUpdateInterval(cell: UITableViewCell, completion: (() -> Void)? = nil) {
         let alert = UIAlertController(title: Localizations.Settings.Table.Cell.Title.UpdateInterval, message: nil, preferredStyle: .actionSheet)
         var intervals: [Double] = [60, 180, 300, 600]
         #if DEBUG
@@ -78,6 +78,9 @@ class SettingsViewController: UIViewController {
         }
         let cancel = UIAlertAction(title: Localizations.Alert.Action.Cancel, style: .cancel, handler: nil)
         alert.addAction(cancel)
+        alert.popoverPresentationController?.sourceView = tableView
+        alert.popoverPresentationController?.sourceRect = cell.frame
+        alert.popoverPresentationController?.permittedArrowDirections = .any
         present(alert, animated: true) {
             completion?()
         }
@@ -185,7 +188,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         switch menu {
         case .autoUpdate: break
         case .autoUpdateInterval:
-            presentUpdateInterval { [weak self] in
+            presentUpdateInterval(cell: cell) { [weak self] in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
             }
         case .appLibraryOrder:

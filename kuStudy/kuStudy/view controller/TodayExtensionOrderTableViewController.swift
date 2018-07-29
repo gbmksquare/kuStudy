@@ -18,6 +18,9 @@ class TodayExtensionOrderTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Localizations.Settings.Table.Cell.Title.TodayOrder
+        navigationItem.largeTitleDisplayMode = .automatic
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         orderedLibraryIds = Preference.shared.widgetLibraryOrder
         hiddenLibraryIds = Preference.shared.widgetLibraryHidden
         libraryTypes = LibraryType.allTypes()

@@ -20,6 +20,9 @@ class LibraryOrderTableViewController: UITableViewController, WCSessionDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Localizations.Settings.Table.Cell.Title.Order
+        navigationItem.largeTitleDisplayMode = .automatic
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         orderedLibraryIds = Preference.shared.libraryOrder
         libraryTypes = LibraryType.allTypes()
         tableView.delegate = self

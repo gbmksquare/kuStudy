@@ -168,6 +168,7 @@ extension LibraryViewController {
         table.estimatedRowHeight = UITableViewAutomaticDimension
         footerContentView.library = library
 //        table.tableFooterView = footerContentView
+        table.tableFooterView = UIView()
         table.showsVerticalScrollIndicator = false
     }
     
