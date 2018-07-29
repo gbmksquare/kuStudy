@@ -29,7 +29,7 @@ enum LibraryCellType: Int {
     
     var cellClass: AnyClass {
         switch self {
-        case .classic: return LibraryCell.self
+        case .classic: return ClassicLibraryCell.self
         case .compact: return CompactLibraryCell.self
         case .veryCompact: return VeryCompactLibraryCell.self
         }

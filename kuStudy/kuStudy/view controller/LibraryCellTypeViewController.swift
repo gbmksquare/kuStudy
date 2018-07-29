@@ -82,7 +82,7 @@ extension LibraryCellTypeViewController: UITableViewDelegate, UITableViewDataSou
             let type = LibraryCellType.allTypes[index]
             switch type {
             case .classic:
-                let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! LibraryCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! ClassicLibraryCell
                 cell.libraryData = sampleLibraryData
                 return cell
             case .compact:

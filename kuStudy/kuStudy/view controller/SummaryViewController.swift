@@ -425,7 +425,7 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
         let type = Preference.shared.libraryCellType
         switch type {
         case .classic:
-            let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! LibraryCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! ClassicLibraryCell
             cell.accessoryType = .disclosureIndicator
             cell.libraryData = summary?.libraries[indexPath.row]
             cell.layoutIfNeeded()

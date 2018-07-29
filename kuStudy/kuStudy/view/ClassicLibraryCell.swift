@@ -9,7 +9,7 @@
 import UIKit
 import kuStudyKit
 
-class LibraryCell: UITableViewCell {
+class ClassicLibraryCell: UITableViewCell {
     private lazy var indicator = UIView()
     
     private lazy var stack = UIStackView()
@@ -47,7 +47,6 @@ class LibraryCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        indicator.layer.cornerRadius = indicator.bounds.width / 2
         let height = min(UIFontMetrics(forTextStyle: .body).scaledValue(for: 70), 120)
         thumbnailView.layer.cornerRadius = height / 2
     }
@@ -121,6 +120,10 @@ class LibraryCell: UITableViewCell {
     }
     
     private func setupView() {
+        let selectionView = UIView()
+        selectionView.backgroundColor = .lightTint
+        selectedBackgroundView = selectionView
+        
         stack.axis = .vertical
         stack.alignment = .fill
         stack.distribution = .equalSpacing
@@ -136,13 +139,14 @@ class LibraryCell: UITableViewCell {
         availableStack.distribution = .fillProportionally
         availableStack.spacing = 0
         
+        indicator.accessibilityIgnoresInvertColors = true
+        indicator.layer.cornerRadius = 7
+        indicator.layer.masksToBounds = true
+        
         thumbnailView.backgroundColor = #colorLiteral(red: 0.8392109871, green: 0.8391088247, blue: 0.8563356996, alpha: 1)
         thumbnailView.contentMode = .scaleAspectFill
         thumbnailView.clipsToBounds = true
-        if #available(iOS 11.0, *) {
-            indicator.accessibilityIgnoresInvertColors = true
-            thumbnailView.accessibilityIgnoresInvertColors = true
-        }
+        thumbnailView.accessibilityIgnoresInvertColors = true
         
         let headlineMetrics = UIFontMetrics(forTextStyle: .headline)
         let titleMetrics = UIFontMetrics(forTextStyle: .title1)
@@ -170,8 +174,8 @@ class LibraryCell: UITableViewCell {
         [availableSeatsLabel, availableLabel].forEach { availableStack.addArrangedSubview($0) }
         
         indicator.snp.makeConstraints { (make) in
-            make.width.equalTo(13)
-            make.height.equalTo(13)
+            make.width.equalTo(14)
+            make.height.equalTo(14)
             make.centerY.equalTo(imageDataStack.snp.centerY)
             make.leading.equalTo(contentView.readableContentGuide.snp.leading).inset(8)
         }
