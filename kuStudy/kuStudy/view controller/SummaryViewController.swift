@@ -153,9 +153,9 @@ extension SummaryViewController {
     private func setupTableView() {
         table.tableFooterView = UIView()
         table.showsVerticalScrollIndicator = false
-        table.register(LibraryCell.self, forCellReuseIdentifier: "cell")
-        table.register(CompactLibraryCell.self, forCellReuseIdentifier: "compact")
-        table.register(VeryCompactLibraryCell.self, forCellReuseIdentifier: "veryCompact")
+        LibraryCellType.allTypes.forEach {
+            table.register($0.cellClass, forCellReuseIdentifier: $0.preferredReuseIdentifier)
+        }
         
         if #available(iOS 11.0, *) {
             table.dragInteractionEnabled = true
@@ -422,19 +422,25 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LibraryCell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "compact", for: indexPath) as! CompactLibraryCell
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "veryCompact", for: indexPath) as! VeryCompactLibraryCell
-        cell.accessoryType = .disclosureIndicator
-        cell.libraryData = summary?.libraries[indexPath.row]
-        return cell
-        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LibraryCell
-//        cell.accessoryType = .disclosureIndicator
-//        cell.libraryData = summary?.libraries[indexPath.row]
-//        cell.layoutIfNeeded()
-//        return cell
+        let type = Preference.shared.libraryCellType
+        switch type {
+        case .classic:
+            let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! LibraryCell
+            cell.accessoryType = .disclosureIndicator
+            cell.libraryData = summary?.libraries[indexPath.row]
+            cell.layoutIfNeeded()
+            return cell
+        case .compact:
+            let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! CompactLibraryCell
+            cell.accessoryType = .disclosureIndicator
+            cell.libraryData = summary?.libraries[indexPath.row]
+            return cell
+        case .veryCompact:
+            let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! VeryCompactLibraryCell
+            cell.accessoryType = .disclosureIndicator
+            cell.libraryData = summary?.libraries[indexPath.row]
+            return cell
+        }
     }
     
     // MARK: Empty state

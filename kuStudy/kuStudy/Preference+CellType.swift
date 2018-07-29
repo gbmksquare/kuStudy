@@ -8,16 +8,16 @@
 
 import Foundation
 
-extension Preference {
-    enum LibraryCellType: Int {
-        case basic, classic
-    }
-    
-    enum SectorCellType: Int {
-        case basic, classic
-    }
-    
-    enum WidgetCellType: Int {
-        case basic, classic
-    }
-}
+//extension Preference {
+//    enum LibraryCellType: Int {
+//        case basic, classic
+//    }
+//    
+//    enum SectorCellType: Int {
+//        case basic, classic
+//    }
+//    
+//    enum WidgetCellType: Int {
+//        case basic, classic
+//    }
+//}

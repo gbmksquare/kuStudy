@@ -129,5 +129,7 @@ class CompactLibraryCell: UITableViewCell {
         [totalStackView, occupiedStackView, availableStackView].forEach {
             informationStackView.addArrangedSubview($0)
         }
+        
+        reset()
     }
 }

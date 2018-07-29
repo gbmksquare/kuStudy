@@ -110,6 +110,8 @@
 		1688C4171C4F6B790044D1EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A887351B21D1FF00C49551 /* Localizable.strings */; };
 		168C18CC1FA1F3F100F576D6 /* MiniInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168C18CB1FA1F3F100F576D6 /* MiniInfoView.swift */; };
 		168F6834210CB41E000A08FA /* VeryCompactLibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F6833210CB41E000A08FA /* VeryCompactLibraryCell.swift */; };
+		168F6836210D6EAC000A08FA /* LibraryCellTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F6835210D6EAC000A08FA /* LibraryCellTypeViewController.swift */; };
+		168F6839210D706A000A08FA /* LibraryCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168F6838210D706A000A08FA /* LibraryCellType.swift */; };
 		16940EF01CF1D263005965A2 /* SummaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16940EEF1CF1D263005965A2 /* SummaryData.swift */; };
 		16940EF11CF1D263005965A2 /* SummaryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16940EEF1CF1D263005965A2 /* SummaryData.swift */; };
 		16940EF31CF1D564005965A2 /* Float.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16940EF21CF1D564005965A2 /* Float.swift */; };
@@ -379,6 +381,8 @@
 		168841181B1EB58700F3C818 /* ReadingRoomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingRoomCell.swift; sourceTree = "<group>"; };
 		168C18CB1FA1F3F100F576D6 /* MiniInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MiniInfoView.swift; path = view/MiniInfoView.swift; sourceTree = "<group>"; };
 		168F6833210CB41E000A08FA /* VeryCompactLibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VeryCompactLibraryCell.swift; path = view/VeryCompactLibraryCell.swift; sourceTree = "<group>"; };
+		168F6835210D6EAC000A08FA /* LibraryCellTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryCellTypeViewController.swift; path = "view controller/LibraryCellTypeViewController.swift"; sourceTree = "<group>"; };
+		168F6838210D706A000A08FA /* LibraryCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryCellType.swift; path = model/LibraryCellType.swift; sourceTree = "<group>"; };
 		16940EEF1CF1D263005965A2 /* SummaryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryData.swift; path = model/SummaryData.swift; sourceTree = "<group>"; };
 		16940EF21CF1D564005965A2 /* Float.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Float.swift; path = extension/Float.swift; sourceTree = "<group>"; };
 		16A5807E1C63298300E7EDC5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -550,7 +554,7 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		160E1D2320DB7C3B00E4AF7D /* Prefence  */ = {
+		160E1D2320DB7C3B00E4AF7D /* Preference */ = {
 			isa = PBXGroup;
 			children = (
 				16EFE0EB1F0243EB00FD476B /* Preference.swift */,
@@ -558,7 +562,7 @@
 				160E1D2120DB7C2900E4AF7D /* Preference+MapType .swift */,
 				160E1D2620DB7CB400E4AF7D /* Preference+CellType.swift */,
 			);
-			name = "Prefence ";
+			name = Preference;
 			sourceTree = "<group>";
 		};
 		16136BD41B1C3F0700B3F744 /* kuStudy WatchKit Extension */ = {
@@ -655,6 +659,7 @@
 				16F5A10F21073C0B0059875B /* SettingsViewController.swift */,
 				16ABBB7721083F780014141D /* SettingsMenu.swift */,
 				16F5A112210769D70059875B /* AppVersionFooterView.swift */,
+				168F6837210D704D000A08FA /* Display Type */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -932,6 +937,15 @@
 			name = Media;
 			sourceTree = "<group>";
 		};
+		168F6837210D704D000A08FA /* Display Type */ = {
+			isa = PBXGroup;
+			children = (
+				168F6835210D6EAC000A08FA /* LibraryCellTypeViewController.swift */,
+				168F6838210D706A000A08FA /* LibraryCellType.swift */,
+			);
+			name = "Display Type";
+			sourceTree = "<group>";
+		};
 		16B453681B22A9A400A3B008 /* kuStudy Today Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -1034,7 +1048,7 @@
 		16EFE0EA1F02439100FD476B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				160E1D2320DB7C3B00E4AF7D /* Prefence  */,
+				160E1D2320DB7C3B00E4AF7D /* Preference */,
 				1625B4611F44386700744C01 /* NotificationCoordinator.swift */,
 			);
 			name = Controller;
@@ -1838,6 +1852,7 @@
 				168F6834210CB41E000A08FA /* VeryCompactLibraryCell.swift in Sources */,
 				160E1D2720DB7CB400E4AF7D /* Preference+CellType.swift in Sources */,
 				164190FF1F2F724D008682E5 /* Localizations.swift in Sources */,
+				168F6839210D706A000A08FA /* LibraryCellType.swift in Sources */,
 				1672461A1B1B13610083035F /* Definitions.swift in Sources */,
 				167E2D652108C73600C0E79C /* UIWindow.swift in Sources */,
 				167E2D692109822200C0E79C /* TitleValueStackView.swift in Sources */,
@@ -1867,6 +1882,7 @@
 				164C0E961C5609D9004C6663 /* SettingsTableViewController.swift in Sources */,
 				161A7E841FDEC87B00808780 /* TimeInterval.swift in Sources */,
 				166742FA1FBD5B300098C0BB /* SummaryHeaderView.swift in Sources */,
+				168F6836210D6EAC000A08FA /* LibraryCellTypeViewController.swift in Sources */,
 				160E1D2220DB7C2900E4AF7D /* Preference+MapType .swift in Sources */,
 				164579F01F9F7E3C00DD8F22 /* SeatsProgressView.swift in Sources */,
 				16ABBB7821083F780014141D /* SettingsMenu.swift in Sources */,

@@ -161,3 +161,11 @@
 
 "Action.OpenLibraryInSafari" = "Safari에서 열기";
 
+"Label.Settings.LibraryCellType" = "도서관 표시 형식";
+
+"Label.LibraryCellType.Classic" = "클래직";
+
+"Label.LibraryCellType.Compact" = "작게";
+
+"Label.LibraryCellType.VeryCompact" = "매우 작게";
+

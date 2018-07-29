@@ -80,27 +80,27 @@ class Preference {
         }
     }
     
-    var sectorCellType: SectorCellType {
-        get {
-            let int = preference.integer(forKey: Preference.Key.sectorCellType.name)
-            return SectorCellType(rawValue: int) ?? SectorCellType.classic
-        }
-        set {
-            preference.setValue(newValue.rawValue, forKey: Preference.Key.sectorCellType.name)
-            preference.synchronize()
-        }
-    }
-    
-    var widgetCellType: WidgetCellType {
-        get {
-            let int = preference.integer(forKey: Preference.Key.widgetCellType.name)
-            return WidgetCellType(rawValue: int) ?? WidgetCellType.classic
-        }
-        set {
-            preference.setValue(newValue.rawValue, forKey: Preference.Key.widgetCellType.name)
-            preference.synchronize()
-        }
-    }
+//    var sectorCellType: SectorCellType {
+//        get {
+//            let int = preference.integer(forKey: Preference.Key.sectorCellType.name)
+//            return SectorCellType(rawValue: int) ?? SectorCellType.classic
+//        }
+//        set {
+//            preference.setValue(newValue.rawValue, forKey: Preference.Key.sectorCellType.name)
+//            preference.synchronize()
+//        }
+//    }
+//    
+//    var widgetCellType: WidgetCellType {
+//        get {
+//            let int = preference.integer(forKey: Preference.Key.widgetCellType.name)
+//            return WidgetCellType(rawValue: int) ?? WidgetCellType.classic
+//        }
+//        set {
+//            preference.setValue(newValue.rawValue, forKey: Preference.Key.widgetCellType.name)
+//            preference.synchronize()
+//        }
+//    }
     
     // MARK: - Initialization
     static let shared = Preference()
@@ -131,9 +131,9 @@ class Preference {
                                        Preference.Key.preferenceVersion.name: 5,
                                        Preference.Key.shouldAutoUpdate.name: true,
                                        Preference.Key.updateInterval.name: 60,
-                                       Preference.Key.libraryCellType.name: LibraryCellType.classic.rawValue,
-                                       Preference.Key.sectorCellType.name: SectorCellType.classic.rawValue,
-                                       Preference.Key.widgetCellType.name: WidgetCellType.classic.rawValue])
+                                       Preference.Key.libraryCellType.name: LibraryCellType.classic.rawValue])
+//        Preference.Key.sectorCellType.name: SectorCellType.classic.rawValue,
+//        Preference.Key.widgetCellType.name: WidgetCellType.classic.rawValue
         preference.synchronize()
     }
     

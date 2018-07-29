@@ -13,7 +13,12 @@ public class LibraryData: Mappable {
     internal var libraryId: String?
     public var sectors: [SectorData]?
     
-    required public  init?(map: Map) { }
+    required public init?(map: Map) { }
+    
+    public convenience init?(libraryId: String, JSONString: String) {
+        self.init(JSONString: JSONString)
+        self.libraryId = libraryId
+    }
     
     public func mapping(map: Map) {
         sectors <- map["data"]

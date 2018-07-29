@@ -13,6 +13,7 @@ enum SettingsMenu: Int {
     case autoUpdateInterval = 104
     case appLibraryOrder = 100
     case widgetLibraryOrder = 101
+    case libraryCellType = 201
     case appStoreReview = 999
     case mediaProvider = 901
     case openSource = 900
@@ -26,6 +27,7 @@ enum SettingsMenu: Int {
         case .autoUpdateInterval: return Localizations.Label.Settings.UpdateInterval
         case .appLibraryOrder: return Localizations.Label.Settings.LibraryOrder
         case .widgetLibraryOrder: return Localizations.Label.Settings.TodayOrder
+        case .libraryCellType: return Localizations.Label.Settings.LibraryCellType
         case .appStoreReview: return Localizations.Label.Settings.AppStoreReview
         case .mediaProvider: return Localizations.Label.Settings.MediaProvider
         case .openSource: return Localizations.Label.Settings.OpenSource
@@ -38,13 +40,13 @@ enum SettingsMenu: Int {
     
     #if DEBUG
     static let layout: [[SettingsMenu]] = [
-        [.autoUpdate, .autoUpdateInterval, .appLibraryOrder, .widgetLibraryOrder],
+        [.autoUpdate, .autoUpdateInterval, .appLibraryOrder, .widgetLibraryOrder, .libraryCellType],
         [.appStoreReview],
         [.mediaProvider, .openSource, .donate]
     ]
     #else
     static let layout: [[SettingsMenu]] = [
-        [.autoUpdate, .autoUpdateInterval, .appLibraryOrder, .widgetLibraryOrder],
+        [.autoUpdate, .autoUpdateInterval, .appLibraryOrder, .widgetLibraryOrder, .libraryCellType],
         [.appStoreReview],
         [.mediaProvider, .openSource]]
     #endif

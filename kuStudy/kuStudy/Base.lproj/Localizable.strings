@@ -161,3 +161,11 @@
 
 "Action.OpenLibraryInSafari" = "Open in Safari";
 
+"Label.Settings.LibraryCellType" = "Library Display Type";
+
+"Label.LibraryCellType.Classic" = "Classic";
+
+"Label.LibraryCellType.Compact" = "Compact";
+
+"Label.LibraryCellType.VeryCompact" = "Very Compact";
+

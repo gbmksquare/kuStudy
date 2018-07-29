@@ -243,8 +243,8 @@ public struct Localizations {
 
         public struct Settings {
 
-            /// Base translation: Review
-            public static var FeedbackHeader : String = NSLocalizedString("Label.Settings.FeedbackHeader", comment: "")
+            /// Base translation: General
+            public static var GeneralHeader : String = NSLocalizedString("Label.Settings.GeneralHeader", comment: "")
 
             /// Base translation: Write a review
             public static var AppStoreReview : String = NSLocalizedString("Label.Settings.AppStoreReview", comment: "")
@@ -255,8 +255,8 @@ public struct Localizations {
             /// Base translation: Update Interval
             public static var UpdateInterval : String = NSLocalizedString("Label.Settings.UpdateInterval", comment: "")
 
-            /// Base translation: General
-            public static var GeneralHeader : String = NSLocalizedString("Label.Settings.GeneralHeader", comment: "")
+            /// Base translation: Review
+            public static var FeedbackHeader : String = NSLocalizedString("Label.Settings.FeedbackHeader", comment: "")
 
             /// Base translation: Special Thanks
             public static var MediaProvider : String = NSLocalizedString("Label.Settings.MediaProvider", comment: "")
@@ -278,6 +278,22 @@ public struct Localizations {
 
             /// Base translation: Auto Update
             public static var AutoUpdate : String = NSLocalizedString("Label.Settings.AutoUpdate", comment: "")
+
+            /// Base translation: Library Display Type
+            public static var LibraryCellType : String = NSLocalizedString("Label.Settings.LibraryCellType", comment: "")
+
+        }
+
+        public struct LibraryCellType {
+
+            /// Base translation: Classic
+            public static var Classic : String = NSLocalizedString("Label.LibraryCellType.Classic", comment: "")
+
+            /// Base translation: Compact
+            public static var Compact : String = NSLocalizedString("Label.LibraryCellType.Compact", comment: "")
+
+            /// Base translation: Very Compact
+            public static var VeryCompact : String = NSLocalizedString("Label.LibraryCellType.VeryCompact", comment: "")
 
         }
     }
@@ -353,7 +369,7 @@ public struct Localizations {
 
         public struct Title {
 
-            /// Base translation: Preference
+            /// Base translation: Preference (d)
             public static var Preference : String = NSLocalizedString("Legacy.Title.Preference", comment: "")
 
         }

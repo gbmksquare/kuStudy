@@ -126,5 +126,7 @@ class VeryCompactLibraryCell: UITableViewCell {
         availableStackView.titleLabel.setContentHuggingPriority(.required, for: .horizontal)
         availableStackView.valueLabel.setContentHuggingPriority(.required, for: .horizontal)
         stackView.addArrangedSubview(availableStackView)
+        
+        reset()
     }
 }
