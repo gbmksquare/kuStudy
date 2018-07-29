@@ -189,14 +189,11 @@ public struct Localizations {
 
                 public struct Title {
 
-                    /// Base translation: Write a review
-                    public static var Rate : String = NSLocalizedString("Settings.Table.Cell.Title.Rate", comment: "")
-
-                    /// Base translation: Today Widget Order
-                    public static var TodayOrder : String = NSLocalizedString("Settings.Table.Cell.Title.TodayOrder", comment: "")
-
                     /// Base translation: Tip Developer
                     public static var TipJar : String = NSLocalizedString("Settings.Table.Cell.Title.TipJar", comment: "")
+
+                    /// Base translation: Write a review
+                    public static var Rate : String = NSLocalizedString("Settings.Table.Cell.Title.Rate", comment: "")
 
                     /// Base translation: Update Interval
                     public static var UpdateInterval : String = NSLocalizedString("Settings.Table.Cell.Title.UpdateInterval", comment: "")
@@ -204,14 +201,11 @@ public struct Localizations {
                     /// Base translation: Auto Update
                     public static var AutoUpdate : String = NSLocalizedString("Settings.Table.Cell.Title.AutoUpdate", comment: "")
 
-                    /// Base translation: Library Order
-                    public static var Order : String = NSLocalizedString("Settings.Table.Cell.Title.Order", comment: "")
+                    /// Base translation: Maps
+                    public static var Maps : String = NSLocalizedString("Settings.Table.Cell.Title.Maps", comment: "")
 
                     /// Base translation: Open Source
                     public static var OpenSource : String = NSLocalizedString("Settings.Table.Cell.Title.OpenSource", comment: "")
-
-                    /// Base translation: Maps
-                    public static var Maps : String = NSLocalizedString("Settings.Table.Cell.Title.Maps", comment: "")
 
                     /// Base translation: Photo Credit
                     public static var ThanksTo : String = NSLocalizedString("Settings.Table.Cell.Title.ThanksTo", comment: "")
@@ -249,7 +243,7 @@ public struct Localizations {
             /// Base translation: Write a review
             public static var AppStoreReview : String = NSLocalizedString("Label.Settings.AppStoreReview", comment: "")
 
-            /// Base translation: Library Order
+            /// Base translation: Display Order
             public static var LibraryOrder : String = NSLocalizedString("Label.Settings.LibraryOrder", comment: "")
 
             /// Base translation: Update Interval
@@ -270,7 +264,7 @@ public struct Localizations {
             /// Base translation: Open Source
             public static var OpenSource : String = NSLocalizedString("Label.Settings.OpenSource", comment: "")
 
-            /// Base translation: Today Widget Order
+            /// Base translation: Today Widget Display Order
             public static var TodayOrder : String = NSLocalizedString("Label.Settings.TodayOrder", comment: "")
 
             /// Base translation: Write a review or feedback on App Store. All feedback encourages app developer!
@@ -279,7 +273,7 @@ public struct Localizations {
             /// Base translation: Auto Update
             public static var AutoUpdate : String = NSLocalizedString("Label.Settings.AutoUpdate", comment: "")
 
-            /// Base translation: Library Display Type
+            /// Base translation: Library Display Style
             public static var LibraryCellType : String = NSLocalizedString("Label.Settings.LibraryCellType", comment: "")
 
         }

@@ -27,11 +27,6 @@ class LibraryViewController: UIViewController {
     private lazy var headerContentView = LibraryHeaderView()
     private lazy var footerContentView = LibraryFooterView()
     
-    override var hidesBottomBarWhenPushed: Bool {
-        get { return navigationController?.topViewController == self }
-        set { super.hidesBottomBarWhenPushed = newValue }
-    }
-    
     var library: LibraryType = LibraryType.centralSquare
     private var libraryData: LibraryData?
     

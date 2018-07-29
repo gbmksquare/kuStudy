@@ -19,7 +19,7 @@ class LibraryOrderTableViewController: UITableViewController, WCSessionDelegate 
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Localizations.Settings.Table.Cell.Title.Order
+        title = Localizations.Label.Settings.LibraryOrder
         navigationItem.largeTitleDisplayMode = .automatic
         navigationController?.navigationBar.prefersLargeTitles = true
         

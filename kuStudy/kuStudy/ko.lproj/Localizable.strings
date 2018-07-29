@@ -68,7 +68,7 @@
 
 "Label.Settings.GeneralHeader" = "일반";
 
-"Label.Settings.LibraryOrder" = "도서관 순서";
+"Label.Settings.LibraryOrder" = "표시 순서";
 
 "Label.Settings.MediaProvider" = "도움 주신 분";
 
@@ -78,7 +78,7 @@
 
 "Label.Settings.TipJar" = "개발자 응원하기";
 
-"Label.Settings.TodayOrder" = "오늘 위젯 순서";
+"Label.Settings.TodayOrder" = "위젯 표시 순서";
 
 "Label.Settings.UpdateInterval" = "업데이트 간격";
 
@@ -114,15 +114,11 @@
 
 "Settings.Table.Cell.Title.OpenSource" = "오픈소스";
 
-"Settings.Table.Cell.Title.Order" = "도서관 순서";
-
 "Settings.Table.Cell.Title.Rate" = "앱스토어에 리뷰 남기기";
 
 "Settings.Table.Cell.Title.ThanksTo" = "사진 제공";
 
 "Settings.Table.Cell.Title.TipJar" = "개발자 응원하기";
-
-"Settings.Table.Cell.Title.TodayOrder" = "오늘 위젯 순서";
 
 "Settings.Table.Cell.Title.UpdateInterval" = "업데이트 주기";
 
@@ -161,7 +157,7 @@
 
 "Action.OpenLibraryInSafari" = "Safari에서 열기";
 
-"Label.Settings.LibraryCellType" = "도서관 표시 형식";
+"Label.Settings.LibraryCellType" = "도서관 표시 스타일";
 
 "Label.LibraryCellType.Classic" = "클래직";
 

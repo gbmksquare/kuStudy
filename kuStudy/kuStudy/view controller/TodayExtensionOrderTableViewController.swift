@@ -17,7 +17,7 @@ class TodayExtensionOrderTableViewController: UITableViewController {
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Localizations.Settings.Table.Cell.Title.TodayOrder
+        title = Localizations.Label.Settings.TodayOrder
         navigationItem.largeTitleDisplayMode = .automatic
         navigationController?.navigationBar.prefersLargeTitles = true
         
