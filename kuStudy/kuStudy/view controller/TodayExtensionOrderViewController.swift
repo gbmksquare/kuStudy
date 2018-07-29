@@ -9,7 +9,9 @@
 import UIKit
 import kuStudyKit
 
-class TodayExtensionOrderTableViewController: UITableViewController {
+class TodayExtensionOrderViewController: UIViewController {
+    private lazy var tableView = UITableView(frame: .zero, style: .grouped)
+    
     private var libraryTypes: [LibraryType]!
     private var orderedLibraryIds: [String]!
     private var hiddenLibraryIds: [String]!
@@ -17,6 +19,11 @@ class TodayExtensionOrderTableViewController: UITableViewController {
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+    
+    // MARK: - Setup
+    private func setup() {
         title = Localizations.Label.Settings.TodayOrder
         navigationItem.largeTitleDisplayMode = .automatic
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -24,15 +31,22 @@ class TodayExtensionOrderTableViewController: UITableViewController {
         orderedLibraryIds = Preference.shared.widgetLibraryOrder
         hiddenLibraryIds = Preference.shared.widgetLibraryHidden
         libraryTypes = LibraryType.allTypes()
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isEditing = true
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
     }
 }
 
-// MARK: Data source
-extension TodayExtensionOrderTableViewController {
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+// MARK: - Table
+extension TodayExtensionOrderViewController: UITableViewDelegate, UITableViewDataSource {
+    // Data srouce
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0: return Localizations.Settings.Today.Table.Header.Show
         case 1: return Localizations.Settings.Today.Table.Header.Hide
@@ -40,7 +54,7 @@ extension TodayExtensionOrderTableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
         case 0: return Localizations.Settings.Today.Table.Footer.Instruction
         case 1: return Localizations.Settings.Today.Table.Footer.Hidden
@@ -48,11 +62,11 @@ extension TodayExtensionOrderTableViewController {
         }
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return orderedLibraryIds?.count ?? 0
         case 1: return hiddenLibraryIds?.count ?? 0
@@ -60,7 +74,7 @@ extension TodayExtensionOrderTableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let libraryId: String
         switch indexPath.section {
@@ -72,23 +86,21 @@ extension TodayExtensionOrderTableViewController {
         cell.textLabel?.text = libraryType.name
         return cell
     }
-}
-
-// MARK: Move
-extension TodayExtensionOrderTableViewController {
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    
+    // Delegate - Move
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return .none
     }
     
-    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let fromSection = sourceIndexPath.section
         let fromRow = sourceIndexPath.row
         let toSection = destinationIndexPath.section

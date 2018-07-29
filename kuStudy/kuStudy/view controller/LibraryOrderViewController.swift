@@ -10,7 +10,9 @@ import UIKit
 import kuStudyKit
 import WatchConnectivity
 
-class LibraryOrderTableViewController: UITableViewController, WCSessionDelegate {
+class LibraryOrderViewController: UIViewController, WCSessionDelegate {
+    private lazy var tableView = UITableView(frame: .zero, style: .grouped)
+    
     private var libraryTypes: [LibraryType]!
     private var orderedLibraryIds: [String]!
     
@@ -19,17 +21,7 @@ class LibraryOrderTableViewController: UITableViewController, WCSessionDelegate 
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Localizations.Label.Settings.LibraryOrder
-        navigationItem.largeTitleDisplayMode = .automatic
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        orderedLibraryIds = Preference.shared.libraryOrder
-        libraryTypes = LibraryType.allTypes()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.isEditing = true
-        
-        listenForUserDefaultsDidChange()
+        setup()
         
         if WCSession.isSupported() == true {
             session = WCSession.default
@@ -48,6 +40,27 @@ class LibraryOrderTableViewController: UITableViewController, WCSessionDelegate 
         tableView.reloadData()
     }
     
+    // MARK: - Setup
+    private func setup() {
+        title = Localizations.Label.Settings.LibraryOrder
+        navigationItem.largeTitleDisplayMode = .automatic
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        orderedLibraryIds = Preference.shared.libraryOrder
+        libraryTypes = LibraryType.allTypes()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.isEditing = true
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
+        listenForUserDefaultsDidChange()
+    }
+    
     // MARK: - Watch
     func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
         
@@ -62,40 +75,39 @@ class LibraryOrderTableViewController: UITableViewController, WCSessionDelegate 
     }
 }
 
-// MARK: Data source
-extension LibraryOrderTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
+// MARK: - Table
+extension LibraryOrderViewController: UITableViewDelegate, UITableViewDataSource {
+    // Data source
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return orderedLibraryIds.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let libraryId = orderedLibraryIds[indexPath.row]
         let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!
         cell.textLabel?.text = libraryType.name
         return cell
     }
-}
-
-// MARK: Move
-extension LibraryOrderTableViewController {
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    
+    // Delegate - Move
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
         return .none
     }
     
-    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let fromRow = sourceIndexPath.row
         let toRow = destinationIndexPath.row
         let moveLibraryId = orderedLibraryIds[fromRow]

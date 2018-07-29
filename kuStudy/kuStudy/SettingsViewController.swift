@@ -87,14 +87,14 @@ class SettingsViewController: UIViewController {
     }
     
     private func presentAppLibraryOrder() {
-        let thanksTo = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LibraryOrderTableViewController")
-        let detailNavigation = UINavigationController(rootViewController: thanksTo)
+        let viewController = LibraryOrderViewController()
+        let detailNavigation = UINavigationController(rootViewController: viewController)
         navigationController?.showDetailViewController(detailNavigation, sender: nil)
     }
     
     private func presentWidgetLibraryOrder() {
-        let thanksTo = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TodayExtensionOrderTableViewController")
-        let detailNavigation = UINavigationController(rootViewController: thanksTo)
+        let viewController = TodayExtensionOrderViewController()
+        let detailNavigation = UINavigationController(rootViewController: viewController)
         navigationController?.showDetailViewController(detailNavigation, sender: nil)
     }
     
@@ -105,8 +105,8 @@ class SettingsViewController: UIViewController {
     }
     
     private func presentMediaProvider() {
-        let thanksTo = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ThanksToViewController")
-        let detailNavigation = UINavigationController(rootViewController: thanksTo)
+        let mediaProviderViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ThanksToViewController")
+        let detailNavigation = UINavigationController(rootViewController: mediaProviderViewController)
         navigationController?.showDetailViewController(detailNavigation, sender: nil)
     }
     
