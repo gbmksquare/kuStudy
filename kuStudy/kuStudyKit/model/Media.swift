@@ -424,5 +424,60 @@ let mediaPreset = """
         "weather": 0,
         "description": ""
     },
+    {
+        "identifier": "6913820B-75A1-4B23-A7E8-50816CCE0332",
+        "resourceName": "alh_cs_1",
+        "libraryIdentifier": "2",
+        "artistIdentifier": "ALH3EE4D-3D68-452C-95B9-C18A9EDF5ED2",
+        "mediaType": 0,
+        "presentationType": 0,
+        "timeframe": 0,
+        "weather": 0,
+        "description": ""
+    },
+    {
+        "identifier": "CE27745D-EC68-4BCD-B0E8-340BD942B7DF",
+        "resourceName": "alh_cs_2",
+        "libraryIdentifier": "2",
+        "artistIdentifier": "ALH3EE4D-3D68-452C-95B9-C18A9EDF5ED2",
+        "mediaType": 0,
+        "presentationType": 1,
+        "timeframe": 0,
+        "weather": 0,
+        "description": ""
+    },
+    {
+        "identifier": "DF899BA1-3994-46C7-9AAD-083E76E489E6",
+        "resourceName": "alh_cs_3",
+        "libraryIdentifier": "2",
+        "artistIdentifier": "ALH3EE4D-3D68-452C-95B9-C18A9EDF5ED2",
+        "mediaType": 0,
+        "presentationType": 0,
+        "timeframe": 0,
+        "weather": 0,
+        "description": ""
+    },
+    {
+        "identifier": "68097CDE-7743-4A03-A27D-3C941E01C213",
+        "resourceName": "alh_cs_4",
+        "libraryIdentifier": "2",
+        "artistIdentifier": "ALH3EE4D-3D68-452C-95B9-C18A9EDF5ED2",
+        "mediaType": 0,
+        "presentationType": 0,
+        "timeframe": 0,
+        "weather": 0,
+        "description": ""
+    },
+    {
+        "identifier": "5AC6E743-EE63-463B-884D-CBD0A7C4C033",
+        "resourceName": "alh_cs_5",
+        "libraryIdentifier": "2",
+        "artistIdentifier": "ALH3EE4D-3D68-452C-95B9-C18A9EDF5ED2",
+        "mediaType": 0,
+        "presentationType": 0,
+        "timeframe": 0,
+        "weather": 0,
+        "description": ""
+    },
 ]
 """

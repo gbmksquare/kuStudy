@@ -97,5 +97,17 @@ internal let artistsPreset = """
             }
         ]
     },
+    {
+        "identifier": "ALH3EE4D-3D68-452C-95B9-C18A9EDF5ED2",
+        "name": "이동렬",
+        "association": "일상다반사",
+        "socialAccounts":
+        [
+            {
+                "socialService": 0,
+                "userId": "rnscrlee7291"
+            }
+        ]
+    },
 ]
 """
