@@ -52,6 +52,7 @@ class LibraryOrderViewController: UIViewController, WCSessionDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.isEditing = true
+        tableView.allowsSelectionDuringEditing = true
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
@@ -79,19 +80,56 @@ class LibraryOrderViewController: UIViewController, WCSessionDelegate {
 extension LibraryOrderViewController: UITableViewDelegate, UITableViewDataSource {
     // Data source
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderedLibraryIds.count
+        switch section {
+        case 0: return orderedLibraryIds.count
+        case 1: return 1
+        default: return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case 1: return Localizations.Label.Troubleshoot
+        default: return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        switch section {
+        case 1: return Localizations.Label.TroubleshootDescription
+        default: return nil
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let libraryId = orderedLibraryIds[indexPath.row]
-        let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!
-        cell.textLabel?.text = libraryType.name
+        switch indexPath.section {
+        case 0:
+            let libraryId = orderedLibraryIds[indexPath.row]
+            let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!
+            cell.textLabel?.text = libraryType.name
+        case 1:
+            cell.textLabel?.text = Localizations.Action.ResetOrder
+        default: break
+        }
         return cell
+    }
+    
+    // Delegate
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Preference.shared.resetLibraryOrder()
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        switch indexPath.section {
+        case 0: return true
+        default: return false
+        }
     }
     
     // Delegate - Move
@@ -104,7 +142,18 @@ extension LibraryOrderViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
+        switch indexPath.section {
+        case 0: return true
+        default: return false
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        if sourceIndexPath.section == proposedDestinationIndexPath.section {
+            return proposedDestinationIndexPath
+        } else {
+            return sourceIndexPath
+        }
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {

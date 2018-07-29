@@ -150,6 +150,16 @@ class Preference {
         preferenceVersion = 5
     }
     
+    // MARK: - Action
+    func resetLibraryOrder() {
+        Preference.shared.libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
+    }
+    
+    func resetWidgetLibraryOrder() {
+        Preference.shared.widgetLibraryOrder = LibraryType.allTypes().map({ $0.rawValue })
+        Preference.shared.widgetLibraryHidden = []
+    }
+    
     // MARK: - Notification
     @objc private func handle(preferenceChanged notification: Notification) {
         updateQuickActions()

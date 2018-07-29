@@ -165,3 +165,9 @@
 
 "Label.LibraryCellType.VeryCompact" = "매우 작게";
 
+"Label.Troubleshoot" = "문제가 있나요?";
+
+"Label.TroubleshootDescription" = "표시 순서 설정에 문제가 있다면 재설정을 해보세요.";
+
+"Action.ResetOrder" = "재설정";
+

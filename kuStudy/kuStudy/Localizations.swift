@@ -230,9 +230,18 @@ public struct Localizations {
         /// Base translation: Open in Safari
         public static var OpenLibraryInSafari : String = NSLocalizedString("Action.OpenLibraryInSafari", comment: "")
 
+        /// Base translation: 재설정
+        public static var ResetOrder : String = NSLocalizedString("Action.ResetOrder", comment: "")
+
     }
 
     public struct Label {
+
+        /// Base translation: If there is a problem with the orders, try resetting with this button.
+        public static var TroubleshootDescription : String = NSLocalizedString("Label.TroubleshootDescription", comment: "")
+
+        /// Base translation: Have a problem?
+        public static var Troubleshoot : String = NSLocalizedString("Label.Troubleshoot", comment: "")
 
 
         public struct Settings {
