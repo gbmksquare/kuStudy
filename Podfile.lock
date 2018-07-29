@@ -12,7 +12,6 @@ PODS:
   - LinearProgressView (2.0.1)
   - MXParallaxHeader (0.6.1)
   - ObjectMapper (3.3.0)
-  - Peek (5.1.0)
   - SimulatorStatusMagic (2.2)
   - SnapKit (4.0.0)
 
@@ -26,7 +25,6 @@ DEPENDENCIES:
   - FTLinearActivityIndicator
   - LinearProgressView
   - MXParallaxHeader
-  - Peek
   - SimulatorStatusMagic
   - SnapKit
 
@@ -42,7 +40,6 @@ SPEC REPOS:
     - LinearProgressView
     - MXParallaxHeader
     - ObjectMapper
-    - Peek
     - SimulatorStatusMagic
     - SnapKit
 
@@ -57,10 +54,9 @@ SPEC CHECKSUMS:
   LinearProgressView: 353d4d45dc599b83cc4b43f14e6c0336aa6f3834
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
-  Peek: 452c6789d786321f9865d67c61c930d3b9ef3bb6
   SimulatorStatusMagic: 0389a805fa8bd001e2977c4046730bdbd6642861
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 61bfe5faed3c06ce452665b5b450e9ffb488dad8
+PODFILE CHECKSUM: 96539a394851eab8855976fb4b6f391f2e0275e4
 
 COCOAPODS: 1.5.3

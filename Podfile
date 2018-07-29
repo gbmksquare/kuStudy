@@ -20,8 +20,6 @@ target 'kuStudy' do
   pod 'AcknowList'
   pod 'MXParallaxHeader'
 
-  pod 'Peek', :configuration => ['Debug']
-
   target 'kuStudyTests' do
     inherit! :search_paths
   end
