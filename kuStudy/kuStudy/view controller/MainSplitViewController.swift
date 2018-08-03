@@ -10,18 +10,25 @@ import UIKit
 import kuStudyKit
 
 class MainSplitViewController: UISplitViewController {
+    override var preferredStatusBarStyle : UIStatusBarStyle { return .lightContent }
+    
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+    }
+    
+    // MARK: - Setup
+    private func setup() {
+        delegate = self
         preferredDisplayMode = .allVisible
         preferredPrimaryColumnWidthFraction = 0.4
         minimumPrimaryColumnWidth = 320
         maximumPrimaryColumnWidth = view.bounds.width * 0.4
-        delegate = self
-    }
-    
-    override var preferredStatusBarStyle : UIStatusBarStyle {
-        return .lightContent
+        
+        let tab = MainTabBarController()
+        let library = LibraryViewController()
+        viewControllers = [tab, UINavigationController(rootViewController: library)]
     }
     
     // MARK: - Key command

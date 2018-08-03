@@ -10,7 +10,7 @@ end
 
 target 'kuStudy' do
   use_frameworks!
-  platform :ios, '10.0'
+  platform :ios, '11.0'
 
   pod 'DeviceKit'
   pod 'AlamofireNetworkActivityIndicator'
@@ -19,6 +19,7 @@ target 'kuStudy' do
   pod 'DZNEmptyDataSet'
   pod 'AcknowList'
   pod 'MXParallaxHeader'
+  pod 'TONavigationBar'
 
   target 'kuStudyTests' do
     inherit! :search_paths
@@ -32,7 +33,7 @@ end
 
 target 'kuStudy Today Extension' do
   use_frameworks!
-  platform :ios, '10.0'
+  platform :ios, '11.0'
 
   pod 'SnapKit'
 end
@@ -49,7 +50,7 @@ end
 
 target 'kuStudyKit' do
   use_frameworks!
-  platform :ios, '10.0'
+  platform :ios, '11.0'
 
   shared_pods
 

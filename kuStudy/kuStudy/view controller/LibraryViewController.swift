@@ -17,7 +17,7 @@ import DeviceKit
 
 class LibraryViewController: UIViewController {
     private lazy var gradient = CAGradientLayer()
-    @IBOutlet private weak var table: UITableView!
+    private lazy var tableView = UITableView()
     
     private var heroImageView: UIImageView!
     private var heroImageViewHeight: CGFloat?
@@ -78,7 +78,7 @@ class LibraryViewController: UIViewController {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         setImageHeaderHeight()
-        table.reloadData()
+        tableView.reloadData()
     }
 }
 
@@ -110,14 +110,14 @@ extension LibraryViewController {
     }
     
     private func setupImageHeader() {
-        table.tableHeaderView = headerContentView
+        tableView.tableHeaderView = headerContentView
         
         let imageView = UIImageView()
         imageView.backgroundColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
         imageView.contentMode = .scaleAspectFill
-        table.parallaxHeader.view = imageView
-        table.parallaxHeader.height = 200
-        table.parallaxHeader.mode = .fill
+        tableView.parallaxHeader.view = imageView
+        tableView.parallaxHeader.height = 200
+        tableView.parallaxHeader.mode = .fill
         heroImageView = imageView
         
 //        imageView.addSubview(refreshView)
@@ -141,7 +141,7 @@ extension LibraryViewController {
         } else {
             height = 160
         }
-        table.parallaxHeader.height = height
+        tableView.parallaxHeader.height = height
         heroImageViewHeight = height
     }
     
@@ -157,14 +157,20 @@ extension LibraryViewController {
     }
     
     private func setupTableView() {
-//        table.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.937254902, blue: 0.9333333333, alpha: 1)
-        table.register(SectorCell.self, forCellReuseIdentifier: "cell")
-        table.rowHeight = UITableViewAutomaticDimension
-        table.estimatedRowHeight = UITableViewAutomaticDimension
+//        tableView.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.937254902, blue: 0.9333333333, alpha: 1)
+        tableView.register(SectorCell.self, forCellReuseIdentifier: "cell")
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
         footerContentView.library = library
-//        table.tableFooterView = footerContentView
-        table.tableFooterView = UIView()
-        table.showsVerticalScrollIndicator = false
+//        tableView.tableFooterView = footerContentView
+        tableView.tableFooterView = UIView()
+        tableView.showsVerticalScrollIndicator = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
     }
     
     private func setupNotification() {
@@ -226,7 +232,7 @@ extension LibraryViewController {
     
     private func updateView() {
         headerContentView.libraryData = libraryData
-        table.reloadData()
+        tableView.reloadData()
     }
     
 //    private func triggerRefresh() {
@@ -360,25 +366,25 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
 // MARK: - UI
 extension LibraryViewController {
     private func resizeHeader() {
-        if let header = table.tableHeaderView {
+        if let header = tableView.tableHeaderView {
             let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
             var frame = header.frame
             if frame.height != height {
                 frame.size.height = height
                 header.frame = frame
-                table.tableHeaderView = header
+                tableView.tableHeaderView = header
             }
         }
     }
     
     private func resizeFooter() {
-        if let footer = table.tableFooterView {
+        if let footer = tableView.tableFooterView {
             let height = footer.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
             var frame = footer.frame
             if frame.height != height {
                 frame.size.height = height
                 footer.frame = frame
-                table.tableFooterView = footer
+                tableView.tableFooterView = footer
             }
         }
     }
@@ -389,7 +395,7 @@ extension LibraryViewController {
     }
     
     private func handleNavigationBar() {
-        let scrollView = table as UIScrollView
+        let scrollView = tableView as UIScrollView
         let offset = scrollView.contentOffset.y
         
         // Navigation bar
@@ -409,9 +415,9 @@ extension LibraryViewController {
     }
     
     private func handleScrollOffset() {
-        let scrollView = table as UIScrollView
+        let scrollView = tableView as UIScrollView
         let offset = scrollView.contentOffset.y
-        let headerHeight = table.parallaxHeader.height
+        let headerHeight = tableView.parallaxHeader.height
         
         if offset < 0 && offset > -44 {
             scrollView.setContentOffset(CGPoint(x: 0, y: -headerHeight), animated: true)

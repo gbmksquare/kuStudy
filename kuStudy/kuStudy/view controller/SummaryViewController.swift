@@ -14,14 +14,14 @@ import DZNEmptyDataSet
 import Crashlytics
 import WatchConnectivity
 import DeviceKit
+import TONavigationBar
 
 enum DataSourceState {
     case fetching, error
 }
 
 class SummaryViewController: UIViewController {
-    @IBOutlet private weak var table: UITableView!
-    @IBOutlet private weak var header: UIView!
+    private lazy var tableView = UITableView()
     
     private weak var heroImageView: UIImageView!
     private var heroImageViewHeight: CGFloat?
@@ -62,10 +62,13 @@ class SummaryViewController: UIViewController {
         
         handleNavigationBar()
         
+        navigationController?.to_navigationBar?.setBackgroundHidden(true, animated: true, for: self)
+        navigationController?.to_navigationBar?.setTargetScrollView(tableView, minimumOffset: 100)
+        
         if UIDevice.current.userInterfaceIdiom == .pad {
             if (splitViewController?.childViewControllers.last?.childViewControllers.first is LibraryViewController) == false {
-                if let indexPath = table.indexPathForSelectedRow {
-                    table.deselectRow(at: indexPath, animated: true)
+                if let indexPath = tableView.indexPathForSelectedRow {
+                    tableView.deselectRow(at: indexPath, animated: true)
                 }
             }
         }
@@ -89,7 +92,7 @@ class SummaryViewController: UIViewController {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         setImageHeaderHeight()
-        table.reloadData()
+        tableView.reloadData()
     }
 }
 
@@ -105,13 +108,13 @@ extension SummaryViewController {
     }
     
     private func setupImageHeader() {
-        table.tableHeaderView = summaryContentView
+        tableView.tableHeaderView = summaryContentView
         
         let imageView = UIImageView()
         imageView.backgroundColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
         imageView.contentMode = .scaleAspectFill
-        table.parallaxHeader.view = imageView
-        table.parallaxHeader.mode = .fill
+        tableView.parallaxHeader.view = imageView
+        tableView.parallaxHeader.mode = .fill
         heroImageView = imageView
         
 //        imageView.addSubview(refreshView)
@@ -135,7 +138,7 @@ extension SummaryViewController {
         } else {
             height = 160
         }
-        table.parallaxHeader.height = height
+        tableView.parallaxHeader.height = height
         heroImageViewHeight = height
     }
     
@@ -151,15 +154,18 @@ extension SummaryViewController {
     }
     
     private func setupTableView() {
-        table.tableFooterView = UIView()
-        table.showsVerticalScrollIndicator = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.tableFooterView = UIView()
+        tableView.showsVerticalScrollIndicator = false
         LibraryCellType.allTypes.forEach {
-            table.register($0.cellClass, forCellReuseIdentifier: $0.preferredReuseIdentifier)
+            tableView.register($0.cellClass, forCellReuseIdentifier: $0.preferredReuseIdentifier)
         }
-        
-        if #available(iOS 11.0, *) {
-            table.dragInteractionEnabled = true
-            table.dragDelegate = self
+        tableView.dragInteractionEnabled = true
+        tableView.dragDelegate = self
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
         }
     }
     
@@ -215,21 +221,35 @@ extension SummaryViewController {
 
 // MARK: - Navigation
 extension SummaryViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier else { return }
-        switch identifier {
-        case "librarySegue":
-            let destinationViewController = (segue.destination as! UINavigationController).childViewControllers.first as! LibraryViewController
-            if sender is String { // Handoff
-                let libraryId = sender as! String
-                destinationViewController.library = LibraryType(rawValue: libraryId) ?? LibraryType.centralSquare
-            } else {
-                guard let selectedRow = (table.indexPathForSelectedRow as IndexPath?)?.row else { return }
-                let libraryData = summary?.libraries[selectedRow]
-                destinationViewController.library = libraryData?.libraryType ?? LibraryType.centralSquare
-            }
-        default: break
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let identifier = segue.identifier else { return }
+//        switch identifier {
+//        case "librarySegue":
+//            let destinationViewController = (segue.destination as! UINavigationController).childViewControllers.first as! LibraryViewController
+//            if sender is String { // Handoff
+//                let libraryId = sender as! String
+//                destinationViewController.library = LibraryType(rawValue: libraryId) ?? LibraryType.centralSquare
+//            } else {
+//                guard let selectedRow = (tableView.indexPathForSelectedRow as IndexPath?)?.row else { return }
+//                let libraryData = summary?.libraries[selectedRow]
+//                destinationViewController.library = libraryData?.libraryType ?? LibraryType.centralSquare
+//            }
+//        default: break
+//        }
+//    }
+    
+    private func presentLibrary(sender: Any?) {
+        let destinationViewController = LibraryViewController()
+        if sender is String { // Handoff
+            let libraryId = sender as! String
+            destinationViewController.library = LibraryType(rawValue: libraryId) ?? LibraryType.centralSquare
+        } else {
+            guard let selectedRow = (tableView.indexPathForSelectedRow as IndexPath?)?.row else { return }
+            let libraryData = summary?.libraries[selectedRow]
+            destinationViewController.library = libraryData?.libraryType ?? LibraryType.centralSquare
         }
+        let navigation = UINavigationController(rootViewController: destinationViewController)
+        showDetailViewController(navigation, sender: self)
     }
 }
 
@@ -237,7 +257,7 @@ extension SummaryViewController {
 extension SummaryViewController {
     private func updateView() {
         summaryContentView.summary = summary
-        table.reloadData()
+        tableView.reloadData()
     }
     
 //    private func triggerRefresh() {
@@ -252,12 +272,12 @@ extension SummaryViewController {
 // MARK: - Peek & Pop
 extension SummaryViewController: UIViewControllerPreviewingDelegate {
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        let locationInTableView = table.convert(location, from: view)
-        guard let indexPath = table.indexPathForRow(at: locationInTableView) else { return nil }
-        let libraryViewController = self.storyboard?.instantiateViewController(withIdentifier: "libraryViewController") as! LibraryViewController
+        let locationInTableView = tableView.convert(location, from: view)
+        guard let indexPath = tableView.indexPathForRow(at: locationInTableView) else { return nil }
+        let libraryViewController = LibraryViewController()
         let libraryData = summary?.libraries[indexPath.row]
         libraryViewController.library = libraryData?.libraryType ?? LibraryType.centralSquare
-        previewingContext.sourceRect = view.convert(table.rectForRow(at: indexPath), from: table)
+        previewingContext.sourceRect = view.convert(tableView.rectForRow(at: indexPath), from: tableView)
         return libraryViewController
     }
     
@@ -284,7 +304,8 @@ extension SummaryViewController {
         case kuStudyHandoffSummary: break
         case kuStudyHandoffLibrary:
             let libraryId = activity.userInfo!["libraryId"]
-            performSegue(withIdentifier: "librarySegue", sender: libraryId)
+//            performSegue(withIdentifier: "librarySegue", sender: libraryId)
+            presentLibrary(sender: libraryId)
         default: break
         }
         super.restoreUserActivityState(activity)
@@ -312,20 +333,21 @@ extension SummaryViewController {
         let libraryIds = Preference.shared.libraryOrder
         let index = Int(sender.input!)! - 1
         let libraryId = libraryIds[index]
-        performSegue(withIdentifier: "librarySegue", sender: libraryId)
+//        performSegue(withIdentifier: "librarySegue", sender: libraryId)
+        presentLibrary(sender: libraryId)
     }
 }
 
 // MARK: - UI
 extension SummaryViewController {
     private func resizeHeader() {
-        if let header = table.tableHeaderView {
+        if let header = tableView.tableHeaderView {
             let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
             var frame = header.frame
             if frame.height != height {
                 frame.size.height = height
                 header.frame = frame
-                table.tableHeaderView = header
+                tableView.tableHeaderView = header
             }
         }
     }
@@ -351,7 +373,7 @@ extension SummaryViewController {
     }
     
     private func handleNavigationBar() {
-        let scrollView = table as UIScrollView
+        let scrollView = tableView as UIScrollView
         let offset = scrollView.contentOffset.y
         
         // Navigation bar
@@ -361,7 +383,7 @@ extension SummaryViewController {
             navigationController?.setNavigationBarHidden(true, animated: true)
         }
         
-        // Refresh
+//         Refresh
 //        guard let heroImageViewHeight = heroImageViewHeight else { return }
 //        if offset <= -(heroImageViewHeight * 1.5) {
 //            refreshView.startRefreshing()
@@ -371,9 +393,9 @@ extension SummaryViewController {
     }
     
     private func handleScrollOffset() {
-        let scrollView = table as UIScrollView
+        let scrollView = tableView as UIScrollView
         let offset = scrollView.contentOffset.y
-        let headerHeight = table.parallaxHeader.height
+        let headerHeight = tableView.parallaxHeader.height
         
         if offset < 0 && offset > -44 {
             scrollView.setContentOffset(CGPoint(x: 0, y: -headerHeight), animated: true)
@@ -387,7 +409,8 @@ extension SummaryViewController {
 extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     // Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "librarySegue", sender: self)
+//        performSegue(withIdentifier: "librarySegue", sender: self)
+        presentLibrary(sender: self)
         if UIDevice.current.userInterfaceIdiom == .phone {
             tableView.deselectRow(at: indexPath, animated: true)
         }
