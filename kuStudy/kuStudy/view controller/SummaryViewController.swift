@@ -21,26 +21,20 @@ enum DataSourceState {
 }
 
 class SummaryViewController: UIViewController {
-    private lazy var tableView = UITableView()
-    
+    private lazy var summaryContentView = SummaryHeaderView()
     private weak var heroImageView: UIImageView!
     private var heroImageViewHeight: CGFloat?
-//    private var refreshView = RefreshEffectView()
-//    private var canTriggerRefresh = true
-    
-    private lazy var summaryContentView = SummaryHeaderView()
-    
     private lazy var gradient = CAGradientLayer()
+    private lazy var tableView = UITableView()
     
+    private var orderedLibraryIds: [String]!
     private var summary: SummaryData?
     private var dataState: DataSourceState = .fetching
     private var error: Error?
     
-    private var orderedLibraryIds: [String]!
-    
     private var session: WCSession?
     
-    // MARK: View
+    // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -74,11 +68,6 @@ class SummaryViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        endHandoff()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         becomeFirstResponder()
@@ -91,45 +80,39 @@ class SummaryViewController: UIViewController {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        setImageHeaderHeight()
-        tableView.reloadData()
+        super.traitCollectionDidChange(previousTraitCollection)
+        updateImageHeaderHeight()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        endHandoff()
     }
 }
 
-// MARK: - Setup
+// MARK: - Action
 extension SummaryViewController {
-    private func setup() {
-        setupImageHeader()
-        setupGradient()
-        setupTableView()
-        setupContent()
-        setupNotification()
-        registerPeekAndPop()
+    private func updateView() {
+        summaryContentView.summary = summary
+        tableView.reloadData()
     }
     
-    private func setupImageHeader() {
-        tableView.tableHeaderView = summaryContentView
-        
-        let imageView = UIImageView()
-        imageView.backgroundColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
-        imageView.contentMode = .scaleAspectFill
-        tableView.parallaxHeader.view = imageView
-        tableView.parallaxHeader.mode = .fill
-        heroImageView = imageView
-        
-//        imageView.addSubview(refreshView)
-//        refreshView.snp.makeConstraints { (make) in
-//            make.edges.equalToSuperview()
-//        }
-        
-        setImageHeaderHeight()
-        
-        if #available(iOS 11.0, *) {
-            imageView.accessibilityIgnoresInvertColors = true
+    private func presentLibrary(sender: Any?) {
+        let destinationViewController = LibraryViewController()
+        if sender is String { // Handoff
+            let libraryId = sender as! String
+            destinationViewController.library = LibraryType(rawValue: libraryId) ?? LibraryType.centralSquare
+        } else {
+            guard let selectedRow = (tableView.indexPathForSelectedRow as IndexPath?)?.row else { return }
+            let libraryData = summary?.libraries[selectedRow]
+            destinationViewController.library = libraryData?.libraryType ?? LibraryType.centralSquare
         }
+        let navigation = UINavigationController(rootViewController: destinationViewController)
+        showDetailViewController(navigation, sender: self)
     }
     
-    private func setImageHeaderHeight() {
+    // MARK: View
+    private func updateImageHeaderHeight() {
         let height: CGFloat
         if traitCollection.verticalSizeClass == .compact {
             height = 120
@@ -142,52 +125,7 @@ extension SummaryViewController {
         heroImageViewHeight = height
     }
     
-    private func setupGradient() {
-        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + 8)
-        let color = UIColor.black
-        gradient.colors = [color.withAlphaComponent(0.6).cgColor,
-                           color.withAlphaComponent(0.3).cgColor,
-                           color.withAlphaComponent(0.1).cgColor,
-                           color.withAlphaComponent(0).cgColor]
-        gradient.frame = CGRect(origin: .zero, size: size)
-        heroImageView.layer.addSublayer(gradient)
-    }
-    
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.tableFooterView = UIView()
-        tableView.showsVerticalScrollIndicator = false
-        LibraryCellType.allTypes.forEach {
-            tableView.register($0.cellClass, forCellReuseIdentifier: $0.preferredReuseIdentifier)
-        }
-        tableView.dragInteractionEnabled = true
-        tableView.dragDelegate = self
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
-    }
-    
-    private func setupContent() {
-        title = Localizations.Title.Library
-    }
-    
-    private func setupNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleShouldUpdateImage(_:)), name: MediaManager.shouldUpdateImageNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsDidChange(_: )), name: UserDefaults.didChangeNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleDataUpdated(_:)), name: kuStudy.didUpdateDataNotification, object: nil)
-    }
-    
-    private func registerPeekAndPop() {
-        if traitCollection.forceTouchCapability == .available {
-            registerForPreviewing(with: self, sourceView: view)
-        }
-    }
-}
-
-// MARK: - Notification
-extension SummaryViewController {
+    // MARK: Notification
     @objc private func handleShouldUpdateImage(_ notification: Notification) {
         UIView.transition(with: heroImageView,
                           duration: 0.75,
@@ -211,62 +149,12 @@ extension SummaryViewController {
                 return
             }
         }
-//        refreshView.endRefreshing()
+        
         // Error
         summary = nil
         error = kuStudy.errors?.first
         dataState = .error
     }
-}
-
-// MARK: - Navigation
-extension SummaryViewController {
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let identifier = segue.identifier else { return }
-//        switch identifier {
-//        case "librarySegue":
-//            let destinationViewController = (segue.destination as! UINavigationController).childViewControllers.first as! LibraryViewController
-//            if sender is String { // Handoff
-//                let libraryId = sender as! String
-//                destinationViewController.library = LibraryType(rawValue: libraryId) ?? LibraryType.centralSquare
-//            } else {
-//                guard let selectedRow = (tableView.indexPathForSelectedRow as IndexPath?)?.row else { return }
-//                let libraryData = summary?.libraries[selectedRow]
-//                destinationViewController.library = libraryData?.libraryType ?? LibraryType.centralSquare
-//            }
-//        default: break
-//        }
-//    }
-    
-    private func presentLibrary(sender: Any?) {
-        let destinationViewController = LibraryViewController()
-        if sender is String { // Handoff
-            let libraryId = sender as! String
-            destinationViewController.library = LibraryType(rawValue: libraryId) ?? LibraryType.centralSquare
-        } else {
-            guard let selectedRow = (tableView.indexPathForSelectedRow as IndexPath?)?.row else { return }
-            let libraryData = summary?.libraries[selectedRow]
-            destinationViewController.library = libraryData?.libraryType ?? LibraryType.centralSquare
-        }
-        let navigation = UINavigationController(rootViewController: destinationViewController)
-        showDetailViewController(navigation, sender: self)
-    }
-}
-
-// MARK: - Action
-extension SummaryViewController {
-    private func updateView() {
-        summaryContentView.summary = summary
-        tableView.reloadData()
-    }
-    
-//    private func triggerRefresh() {
-//        guard canTriggerRefresh == true else {
-//            refreshView.endRefreshing()
-//            return
-//        }
-//        kuStudy.requestUpdateData()
-//    }
 }
 
 // MARK: - Peek & Pop
@@ -304,7 +192,6 @@ extension SummaryViewController {
         case kuStudyHandoffSummary: break
         case kuStudyHandoffLibrary:
             let libraryId = activity.userInfo!["libraryId"]
-//            performSegue(withIdentifier: "librarySegue", sender: libraryId)
             presentLibrary(sender: libraryId)
         default: break
         }
@@ -333,8 +220,85 @@ extension SummaryViewController {
         let libraryIds = Preference.shared.libraryOrder
         let index = Int(sender.input!)! - 1
         let libraryId = libraryIds[index]
-//        performSegue(withIdentifier: "librarySegue", sender: libraryId)
         presentLibrary(sender: libraryId)
+    }
+}
+
+// MARK: - Drag & Drop
+extension SummaryViewController: UITableViewDragDelegate {
+    func tableView(_ tableView: UITableView, dragSessionAllowsMoveOperation session: UIDragSession) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        guard let libraryData = summary?.libraries[indexPath.row] else { return [] }
+        let string = Localizations.Share.Library.Data(libraryData.libraryName, libraryData.total.readable, libraryData.available.readable, libraryData.occupied.readable)
+        guard let data = string.data(using: .utf8) else { return [] }
+        
+        let stringItem = UIDragItem(itemProvider: NSItemProvider(item: data as NSData, typeIdentifier: kUTTypePlainText as String))
+        return [stringItem]
+    }
+    
+    func tableView(_ tableView: UITableView, itemsForAddingTo session: UIDragSession, at indexPath: IndexPath, point: CGPoint) -> [UIDragItem] {
+        return self.tableView(tableView, itemsForBeginning: session, at: indexPath)
+    }
+}
+
+// MARK: - Setup
+extension SummaryViewController {
+    private func setup() {
+        title = Localizations.Title.Library
+        
+        // Peek & Pop
+        if traitCollection.forceTouchCapability == .available {
+            registerForPreviewing(with: self, sourceView: view)
+        }
+        
+        // Notification
+        NotificationCenter.default.addObserver(self, selector: #selector(handleShouldUpdateImage(_:)), name: MediaManager.shouldUpdateImageNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsDidChange(_: )), name: UserDefaults.didChangeNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleDataUpdated(_:)), name: kuStudy.didUpdateDataNotification, object: nil)
+        
+        // Table header
+        tableView.tableHeaderView = summaryContentView
+        
+        let imageView = UIImageView()
+        heroImageView = imageView
+        imageView.backgroundColor = .placeholder
+        imageView.contentMode = .scaleAspectFill
+        imageView.accessibilityIgnoresInvertColors = true
+        tableView.parallaxHeader.view = imageView
+        tableView.parallaxHeader.mode = .fill
+        updateImageHeaderHeight()
+        
+        // Table
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.emptyDataSetSource = self
+        tableView.emptyDataSetDelegate = self
+        tableView.dragDelegate = self
+        tableView.dragInteractionEnabled = true
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        tableView.showsVerticalScrollIndicator = false
+        tableView.tableFooterView = UIView()
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        LibraryCellType.allTypes.forEach {
+            tableView.register($0.cellClass, forCellReuseIdentifier: $0.preferredReuseIdentifier)
+        }
+        
+        // Gradient
+        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + 8)
+        let color = UIColor.black
+        gradient.colors = [color.withAlphaComponent(0.6).cgColor,
+                           color.withAlphaComponent(0.3).cgColor,
+                           color.withAlphaComponent(0.1).cgColor,
+                           color.withAlphaComponent(0).cgColor]
+        gradient.frame = CGRect(origin: .zero, size: size)
+        heroImageView.layer.addSublayer(gradient)
     }
 }
 
@@ -382,14 +346,6 @@ extension SummaryViewController {
         } else {
             navigationController?.setNavigationBarHidden(true, animated: true)
         }
-        
-//         Refresh
-//        guard let heroImageViewHeight = heroImageViewHeight else { return }
-//        if offset <= -(heroImageViewHeight * 1.5) {
-//            refreshView.startRefreshing()
-//            triggerRefresh()
-//            canTriggerRefresh = false
-//        }
     }
     
     private func handleScrollOffset() {
@@ -409,7 +365,6 @@ extension SummaryViewController {
 extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetDelegate, DZNEmptyDataSetSource {
     // Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "librarySegue", sender: self)
         presentLibrary(sender: self)
         if UIDevice.current.userInterfaceIdiom == .phone {
             tableView.deselectRow(at: indexPath, animated: true)
@@ -478,27 +433,6 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
 }
 
-// MARK: - Drag & Drop
-@available(iOS 11.0, *)
-extension SummaryViewController: UITableViewDragDelegate {
-    func tableView(_ tableView: UITableView, dragSessionAllowsMoveOperation session: UIDragSession) -> Bool {
-        return true
-    }
-    
-    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
-        guard let libraryData = summary?.libraries[indexPath.row] else { return [] }
-        let string = Localizations.Share.Library.Data(libraryData.libraryName, libraryData.total.readable, libraryData.available.readable, libraryData.occupied.readable)
-        guard let data = string.data(using: .utf8) else { return [] }
-        
-        let stringItem = UIDragItem(itemProvider: NSItemProvider(item: data as NSData, typeIdentifier: kUTTypePlainText as String))
-        return [stringItem]
-    }
-    
-    func tableView(_ tableView: UITableView, itemsForAddingTo session: UIDragSession, at indexPath: IndexPath, point: CGPoint) -> [UIDragItem] {
-        return self.tableView(tableView, itemsForBeginning: session, at: indexPath)
-    }
-}
-
 // MARK: - Scroll view
 extension SummaryViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -507,7 +441,6 @@ extension SummaryViewController {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         handleScrollOffset()
-//        canTriggerRefresh = true
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

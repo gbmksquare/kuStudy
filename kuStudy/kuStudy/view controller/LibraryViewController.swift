@@ -127,9 +127,7 @@ extension LibraryViewController {
         
         setImageHeaderHeight()
         
-        if #available(iOS 11.0, *) {
-            imageView.accessibilityIgnoresInvertColors = true
-        }
+        imageView.accessibilityIgnoresInvertColors = true
     }
     
     private func setImageHeaderHeight() {
