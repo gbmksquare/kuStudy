@@ -355,7 +355,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
-        let text = dataState == .fetching ? Localizations.Table.Label.Loading : (error?.localizedDescription ?? Localizations.Table.Label.Error)
+        let text = dataState == .fetching ? Localizations.Label.Loading : (error?.localizedDescription ?? Localizations.Label.Error)
         let attribute = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 17)]
         return NSAttributedString(string: text, attributes: attribute)
     }

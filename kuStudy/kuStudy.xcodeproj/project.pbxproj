@@ -15,7 +15,6 @@
 		16051F301F99E69500EC9285 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16051F2E1F99E69500EC9285 /* DataManager.swift */; };
 		160E1D2220DB7C2900E4AF7D /* Preference+MapType .swift in Sources */ = {isa = PBXBuildFile; fileRef = 160E1D2120DB7C2900E4AF7D /* Preference+MapType .swift */; };
 		160E1D2520DB7C5500E4AF7D /* Preference+Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160E1D2420DB7C5500E4AF7D /* Preference+Key.swift */; };
-		160E1D2720DB7CB400E4AF7D /* Preference+CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160E1D2620DB7CB400E4AF7D /* Preference+CellType.swift */; };
 		16136BD81B1C3F0700B3F744 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BD71B1C3F0700B3F744 /* InterfaceController.swift */; };
 		16136BDC1B1C3F0700B3F744 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16136BDB1B1C3F0700B3F744 /* Images.xcassets */; };
 		16136BE81B1C3F0800B3F744 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16136BE61B1C3F0700B3F744 /* Interface.storyboard */; };
@@ -289,7 +288,6 @@
 		16051F2E1F99E69500EC9285 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = controller/DataManager.swift; sourceTree = "<group>"; };
 		160E1D2120DB7C2900E4AF7D /* Preference+MapType .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preference+MapType .swift"; sourceTree = "<group>"; };
 		160E1D2420DB7C5500E4AF7D /* Preference+Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preference+Key.swift"; sourceTree = "<group>"; };
-		160E1D2620DB7CB400E4AF7D /* Preference+CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preference+CellType.swift"; sourceTree = "<group>"; };
 		16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "kuStudy WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16136BD61B1C3F0700B3F744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16136BD71B1C3F0700B3F744 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
@@ -556,7 +554,6 @@
 				16EFE0EB1F0243EB00FD476B /* Preference.swift */,
 				160E1D2420DB7C5500E4AF7D /* Preference+Key.swift */,
 				160E1D2120DB7C2900E4AF7D /* Preference+MapType .swift */,
-				160E1D2620DB7CB400E4AF7D /* Preference+CellType.swift */,
 			);
 			name = Preference;
 			sourceTree = "<group>";
@@ -1860,7 +1857,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				168F6834210CB41E000A08FA /* VeryCompactLibraryCell.swift in Sources */,
-				160E1D2720DB7CB400E4AF7D /* Preference+CellType.swift in Sources */,
 				164190FF1F2F724D008682E5 /* Localizations.swift in Sources */,
 				168F6839210D706A000A08FA /* LibraryCellType.swift in Sources */,
 				1672461A1B1B13610083035F /* Definitions.swift in Sources */,

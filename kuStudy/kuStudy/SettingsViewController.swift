@@ -104,6 +104,12 @@ class SettingsViewController: UIViewController {
         navigationController?.showDetailViewController(detailNavigation, sender: nil)
     }
     
+    private func presentSectorCellType() {
+//        let viewController = LibraryCellTypeViewController()
+//        let detailNavigation = UINavigationController(rootViewController: viewController)
+//        navigationController?.showDetailViewController(detailNavigation, sender: nil)
+    }
+    
     private func presentMediaProvider() {
         let mediaProviderViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ThanksToViewController")
         let detailNavigation = UINavigationController(rootViewController: mediaProviderViewController)
@@ -197,6 +203,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             presentWidgetLibraryOrder()
         case .libraryCellType:
             presentLibraryCellType()
+        case .sectorCellType:
+            presentSectorCellType()
         case .mediaProvider:
             presentMediaProvider()
         case .appStoreReview:
@@ -262,7 +270,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.tag = menuRow.tag
             cell.textLabel?.text = menuRow.title
             return cell
-        case .appLibraryOrder, .widgetLibraryOrder, .libraryCellType, .mediaProvider, .openSource, .donate:
+        case .appLibraryOrder, .widgetLibraryOrder, .libraryCellType, .sectorCellType, .mediaProvider, .openSource, .donate:
             var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "disclosureCell")
             if cell == nil {
                 cell = UITableViewCell(style: .default, reuseIdentifier: "disclosureCell")
