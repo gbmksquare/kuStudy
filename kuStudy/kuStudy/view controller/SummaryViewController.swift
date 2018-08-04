@@ -232,7 +232,7 @@ extension SummaryViewController: UITableViewDragDelegate {
     
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         guard let libraryData = summary?.libraries[indexPath.row] else { return [] }
-        let string = Localizations.Share.Library.Data(libraryData.libraryName, libraryData.total.readable, libraryData.available.readable, libraryData.occupied.readable)
+        let string = Localizations.Label.ShareMessage(libraryData.libraryName, libraryData.total.readable, libraryData.available.readable, libraryData.occupied.readable)
         guard let data = string.data(using: .utf8) else { return [] }
         
         let stringItem = UIDragItem(itemProvider: NSItemProvider(item: data as NSData, typeIdentifier: kUTTypePlainText as String))

@@ -92,35 +92,11 @@
 
 "Library.UpdatedAt" = "마지막 업데이트: %@";
 
-"Main.Studying" = "%@ 명이 공부 중입니다.";
-
-"Main.StudyingCampus" = "%@ 명은 문과캠퍼스에서 공부 중이고,\n%@ 명은 이과캠퍼스에서 공부 중입니다.";
-
 "Title.Library" = "도서관";
 
 "Legacy.Title.Preference" = "설정 (d)";
 
 "Notification.Content.TapToShow" = "탭해서 좌석 현황을 보세요.";
-
-"Settings.Table.Cell.Detail.AppleMap" = "애플 지도";
-
-"Settings.Table.Cell.Detail.GoogleMap" = "구글 지도";
-
-"Settings.Table.Cell.Title.AutoUpdate" = "자동 업데이트";
-
-"Settings.Table.Cell.Title.Maps" = "지도";
-
-"Settings.Table.Cell.Title.OpenSource" = "오픈소스";
-
-"Settings.Table.Cell.Title.Rate" = "앱스토어에 리뷰 남기기";
-
-"Settings.Table.Cell.Title.ThanksTo" = "사진 제공";
-
-"Settings.Table.Cell.Title.TipJar" = "개발자 응원하기";
-
-"Settings.Table.Cell.Title.UpdateInterval" = "업데이트 주기";
-
-"Settings.Table.Section.Footer.Review" = "리뷰를 남기거나 피드백을 적어주세요! 모든 리뷰는 앱 개발자에게 큰 힘이 됩니다.";
 
 "Label.OpenInstagram" = "Instagram 앱에서 열겠습니까?";
 
@@ -132,9 +108,9 @@
 
 "Label.Settings.WidgetShowHeader" = "보기";
 
-"Share.Library.Data" = "%@\n전체: %@\n잔여석: %@\n사용 중: %@\n";
-
 "Label.Error" = "이런! 오류가 발생했습니다.";
+
+"Label.ShareMessage" = "%@\n전체: %@\n잔여석: %@\n사용 중: %@\n";
 
 /* * SHARED STRINGS */
 "Label.Loading" = "로딩 중";
@@ -151,11 +127,11 @@
 
 "Label.Settings.CellType" = "표시 스타일";
 
-"Label.LibraryCellType.Classic" = "클래직";
+"Label.CellType.Classic" = "클래직";
 
-"Label.LibraryCellType.Compact" = "작게";
+"Label.CellType.Compact" = "작게";
 
-"Label.LibraryCellType.VeryCompact" = "매우 작게";
+"Label.CellType.VeryCompact" = "매우 작게";
 
 "Label.Troubleshoot" = "문제가 있나요?";
 

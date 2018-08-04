@@ -17,6 +17,92 @@ import Foundation
 public struct Localizations {
 
 
+    public struct Action {
+
+        /// Base translation: Open in Safari
+        public static var OpenLibraryInSafari : String = NSLocalizedString("Action.OpenLibraryInSafari", comment: "")
+
+        /// Base translation: Reset Orders
+        public static var ResetOrder : String = NSLocalizedString("Action.ResetOrder", comment: "")
+
+    }
+
+    public struct Common {
+
+        /// Base translation: minute
+        public static var Minute : String = NSLocalizedString("Common.Minute", comment: "")
+
+        /// Base translation: Available
+        public static var Available : String = NSLocalizedString("Common.Available", comment: "")
+
+        /// Base translation: Disabled
+        public static var Disabled : String = NSLocalizedString("Common.Disabled", comment: "")
+
+        /// Base translation: --
+        public static var NoData : String = NSLocalizedString("Common.NoData", comment: "")
+
+        /// Base translation: seconds
+        public static var Seconds : String = NSLocalizedString("Common.Seconds", comment: "")
+
+        /// Base translation: Studying Now
+        public static var Studying : String = NSLocalizedString("Common.Studying", comment: "")
+
+        /// Base translation: Science Campus
+        public static var ScienceCampus : String = NSLocalizedString("Common.ScienceCampus", comment: "")
+
+        /// Base translation: Error
+        public static var Error : String = NSLocalizedString("Common.Error", comment: "")
+
+        /// Base translation: Out of Order
+        public static var OutOfOrder : String = NSLocalizedString("Common.OutOfOrder", comment: "")
+
+        /// Base translation: second
+        public static var Second : String = NSLocalizedString("Common.Second", comment: "")
+
+        /// Base translation: Liberal Art Campus
+        public static var LiberalArtCampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
+
+        /// Base translation: Total
+        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
+
+        /// Base translation: Occupied
+        public static var Used : String = NSLocalizedString("Common.Used", comment: "")
+
+        /// Base translation: Printer
+        public static var Printer : String = NSLocalizedString("Common.Printer", comment: "")
+
+        /// Base translation: Scanner
+        public static var Scanner : String = NSLocalizedString("Common.Scanner", comment: "")
+
+        /// Base translation: minutes
+        public static var Minutes : String = NSLocalizedString("Common.Minutes", comment: "")
+
+        /// Base translation: Ineligible
+        public static var Ineligible : String = NSLocalizedString("Common.Ineligible", comment: "")
+
+    }
+
+    public struct Keyboard {
+
+        /// Base translation: Preferences
+        public static var Preference : String = NSLocalizedString("Keyboard.Preference", comment: "")
+
+        /// Base translation: Library
+        public static var Libraries : String = NSLocalizedString("Keyboard.Libraries", comment: "")
+
+    }
+
+    public struct Legacy {
+
+
+        public struct Title {
+
+            /// Base translation: Preference (d)
+            public static var Preference : String = NSLocalizedString("Legacy.Title.Preference", comment: "")
+
+        }
+    }
+
     public struct Alert {
 
 
@@ -69,13 +155,27 @@ public struct Localizations {
         }
     }
 
-    public struct Keyboard {
+    public struct Notification {
 
-        /// Base translation: Preferences
-        public static var Preference : String = NSLocalizedString("Keyboard.Preference", comment: "")
 
-        /// Base translation: Library
-        public static var Libraries : String = NSLocalizedString("Keyboard.Libraries", comment: "")
+        public struct Content {
+
+            /// Base translation: Tap to show current seat status.
+            public static var TapToShow : String = NSLocalizedString("Notification.Content.TapToShow", comment: "")
+
+        }
+    }
+
+    public struct TimeInterval {
+
+        /// Base translation: Now
+        public static var Now : String = NSLocalizedString("TimeInterval.Now", comment: "")
+
+        /// Base translation: Hours
+        public static var Hour : String = NSLocalizedString("TimeInterval.Hour", comment: "")
+
+        /// Base translation: Custom
+        public static var Custom : String = NSLocalizedString("TimeInterval.Custom", comment: "")
 
     }
 
@@ -104,71 +204,13 @@ public struct Localizations {
         }
     }
 
-    public struct Settings {
+    public struct Title {
 
+        /// Base translation: Settings
+        public static var Settings : String = NSLocalizedString("Title.Settings", comment: "")
 
-        public struct Table {
-
-
-            public struct Section {
-
-
-                public struct Footer {
-
-                    /// Base translation: Please leave a review or provide a feedback. It greatly encourages app developer!
-                    public static var Review : String = NSLocalizedString("Settings.Table.Section.Footer.Review", comment: "")
-
-                }
-            }
-
-            public struct Cell {
-
-
-                public struct Title {
-
-                    /// Base translation: Tip Developer
-                    public static var TipJar : String = NSLocalizedString("Settings.Table.Cell.Title.TipJar", comment: "")
-
-                    /// Base translation: Write a review
-                    public static var Rate : String = NSLocalizedString("Settings.Table.Cell.Title.Rate", comment: "")
-
-                    /// Base translation: Update Interval
-                    public static var UpdateInterval : String = NSLocalizedString("Settings.Table.Cell.Title.UpdateInterval", comment: "")
-
-                    /// Base translation: Auto Update
-                    public static var AutoUpdate : String = NSLocalizedString("Settings.Table.Cell.Title.AutoUpdate", comment: "")
-
-                    /// Base translation: Maps
-                    public static var Maps : String = NSLocalizedString("Settings.Table.Cell.Title.Maps", comment: "")
-
-                    /// Base translation: Open Source
-                    public static var OpenSource : String = NSLocalizedString("Settings.Table.Cell.Title.OpenSource", comment: "")
-
-                    /// Base translation: Photo Credit
-                    public static var ThanksTo : String = NSLocalizedString("Settings.Table.Cell.Title.ThanksTo", comment: "")
-
-                }
-
-                public struct Detail {
-
-                    /// Base translation: Google Maps
-                    public static var GoogleMap : String = NSLocalizedString("Settings.Table.Cell.Detail.GoogleMap", comment: "")
-
-                    /// Base translation: Apple Maps
-                    public static var AppleMap : String = NSLocalizedString("Settings.Table.Cell.Detail.AppleMap", comment: "")
-
-                }
-            }
-        }
-    }
-
-    public struct Action {
-
-        /// Base translation: Open in Safari
-        public static var OpenLibraryInSafari : String = NSLocalizedString("Action.OpenLibraryInSafari", comment: "")
-
-        /// Base translation: Reset Orders
-        public static var ResetOrder : String = NSLocalizedString("Action.ResetOrder", comment: "")
+        /// Base translation: Library
+        public static var Library : String = NSLocalizedString("Title.Library", comment: "")
 
     }
 
@@ -176,6 +218,11 @@ public struct Localizations {
 
         /// Base translation: Have a problem?
         public static var Troubleshoot : String = NSLocalizedString("Label.Troubleshoot", comment: "")
+
+        /// Base translation: %@ Total: %@ Available: %@ Used: %@ 
+        public static func ShareMessage(_ value1 : String, _ value2 : String, _ value3 : String, _ value4 : String) -> String {
+            return String(format: NSLocalizedString("Label.ShareMessage", comment: ""), value1, value2, value3, value4)
+        }
 
         /// Base translation: Oops! An error occurred.
         public static var Error : String = NSLocalizedString("Label.Error", comment: "")
@@ -189,19 +236,6 @@ public struct Localizations {
         /// Base translation: Loading...
         public static var Loading : String = NSLocalizedString("Label.Loading", comment: "")
 
-
-        public struct LibraryCellType {
-
-            /// Base translation: Compact
-            public static var Compact : String = NSLocalizedString("Label.LibraryCellType.Compact", comment: "")
-
-            /// Base translation: Classic
-            public static var Classic : String = NSLocalizedString("Label.LibraryCellType.Classic", comment: "")
-
-            /// Base translation: Very Compact
-            public static var VeryCompact : String = NSLocalizedString("Label.LibraryCellType.VeryCompact", comment: "")
-
-        }
 
         public struct Settings {
 
@@ -269,131 +303,17 @@ public struct Localizations {
             public static var UpdateHeader : String = NSLocalizedString("Label.Settings.UpdateHeader", comment: "")
 
         }
-    }
 
-    public struct Notification {
+        public struct CellType {
 
+            /// Base translation: Very Compact
+            public static var VeryCompact : String = NSLocalizedString("Label.CellType.VeryCompact", comment: "")
 
-        public struct Content {
+            /// Base translation: Classic
+            public static var Classic : String = NSLocalizedString("Label.CellType.Classic", comment: "")
 
-            /// Base translation: Tap to show current seat status.
-            public static var TapToShow : String = NSLocalizedString("Notification.Content.TapToShow", comment: "")
-
-        }
-    }
-
-    public struct Common {
-
-        /// Base translation: minute
-        public static var Minute : String = NSLocalizedString("Common.Minute", comment: "")
-
-        /// Base translation: Available
-        public static var Available : String = NSLocalizedString("Common.Available", comment: "")
-
-        /// Base translation: Disabled
-        public static var Disabled : String = NSLocalizedString("Common.Disabled", comment: "")
-
-        /// Base translation: --
-        public static var NoData : String = NSLocalizedString("Common.NoData", comment: "")
-
-        /// Base translation: seconds
-        public static var Seconds : String = NSLocalizedString("Common.Seconds", comment: "")
-
-        /// Base translation: Studying Now
-        public static var Studying : String = NSLocalizedString("Common.Studying", comment: "")
-
-        /// Base translation: Science Campus
-        public static var ScienceCampus : String = NSLocalizedString("Common.ScienceCampus", comment: "")
-
-        /// Base translation: Error
-        public static var Error : String = NSLocalizedString("Common.Error", comment: "")
-
-        /// Base translation: Out of Order
-        public static var OutOfOrder : String = NSLocalizedString("Common.OutOfOrder", comment: "")
-
-        /// Base translation: second
-        public static var Second : String = NSLocalizedString("Common.Second", comment: "")
-
-        /// Base translation: Liberal Art Campus
-        public static var LiberalArtCampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
-
-        /// Base translation: Total
-        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
-
-        /// Base translation: Occupied
-        public static var Used : String = NSLocalizedString("Common.Used", comment: "")
-
-        /// Base translation: Printer
-        public static var Printer : String = NSLocalizedString("Common.Printer", comment: "")
-
-        /// Base translation: Scanner
-        public static var Scanner : String = NSLocalizedString("Common.Scanner", comment: "")
-
-        /// Base translation: minutes
-        public static var Minutes : String = NSLocalizedString("Common.Minutes", comment: "")
-
-        /// Base translation: Ineligible
-        public static var Ineligible : String = NSLocalizedString("Common.Ineligible", comment: "")
-
-    }
-
-    public struct Legacy {
-
-
-        public struct Title {
-
-            /// Base translation: Preference (d)
-            public static var Preference : String = NSLocalizedString("Legacy.Title.Preference", comment: "")
-
-        }
-    }
-
-    public struct Main {
-
-        /// Base translation: %@ are studying in liberal art campus, %@ are studying in science campus.
-        public static func StudyingCampus(_ value1 : String, _ value2 : String) -> String {
-            return String(format: NSLocalizedString("Main.StudyingCampus", comment: ""), value1, value2)
-        }
-
-        /// Base translation: %@ are studying now.
-        public static func Studying(_ value1 : String) -> String {
-            return String(format: NSLocalizedString("Main.Studying", comment: ""), value1)
-        }
-
-    }
-
-    public struct TimeInterval {
-
-        /// Base translation: Now
-        public static var Now : String = NSLocalizedString("TimeInterval.Now", comment: "")
-
-        /// Base translation: Hours
-        public static var Hour : String = NSLocalizedString("TimeInterval.Hour", comment: "")
-
-        /// Base translation: Custom
-        public static var Custom : String = NSLocalizedString("TimeInterval.Custom", comment: "")
-
-    }
-
-    public struct Title {
-
-        /// Base translation: Settings
-        public static var Settings : String = NSLocalizedString("Title.Settings", comment: "")
-
-        /// Base translation: Library
-        public static var Library : String = NSLocalizedString("Title.Library", comment: "")
-
-    }
-
-    public struct Share {
-
-
-        public struct Library {
-
-            /// Base translation: %@ Total: %@ Available: %@ Used: %@ 
-            public static func Data(_ value1 : String, _ value2 : String, _ value3 : String, _ value4 : String) -> String {
-                return String(format: NSLocalizedString("Share.Library.Data", comment: ""), value1, value2, value3, value4)
-            }
+            /// Base translation: Compact
+            public static var Compact : String = NSLocalizedString("Label.CellType.Compact", comment: "")
 
         }
     }

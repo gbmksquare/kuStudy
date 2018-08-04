@@ -62,7 +62,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func presentUpdateInterval(cell: UITableViewCell, completion: (() -> Void)? = nil) {
-        let alert = UIAlertController(title: Localizations.Settings.Table.Cell.Title.UpdateInterval, message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: Localizations.Label.Settings.UpdateInterval, message: nil, preferredStyle: .actionSheet)
         var intervals: [Double] = [60, 180, 300, 600]
         #if DEBUG
         intervals.insert(1, at: 0)
@@ -105,9 +105,9 @@ class SettingsViewController: UIViewController {
     }
     
     private func presentSectorCellType() {
-//        let viewController = LibraryCellTypeViewController()
-//        let detailNavigation = UINavigationController(rootViewController: viewController)
-//        navigationController?.showDetailViewController(detailNavigation, sender: nil)
+        let viewController = SectorCellTypeViewController()
+        let detailNavigation = UINavigationController(rootViewController: viewController)
+        navigationController?.showDetailViewController(detailNavigation, sender: nil)
     }
     
     private func presentMediaProvider() {
@@ -120,7 +120,7 @@ class SettingsViewController: UIViewController {
         let path = Bundle.main.path(forResource: "Pods-kuStudy-acknowledgements", ofType: "plist")
         let acknowledgementViewController = AcknowListViewController(acknowledgementsPlistPath: path)
         let detailNavigationController = UINavigationController(rootViewController: acknowledgementViewController)
-        acknowledgementViewController.title = Localizations.Settings.Table.Cell.Title.OpenSource
+        acknowledgementViewController.title = Localizations.Label.Settings.OpenSource
         navigationController?.showDetailViewController(detailNavigationController, sender: true)
     }
     

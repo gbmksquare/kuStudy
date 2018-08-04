@@ -92,35 +92,11 @@
 
 "Library.UpdatedAt" = "Last updated: %@";
 
-"Main.Studying" = "%@ are studying now.";
-
-"Main.StudyingCampus" = "%@ are studying in liberal art campus,\n%@ are studying in science campus.";
-
 "Title.Library" = "Library";
 
 "Legacy.Title.Preference" = "Preference (d)";
 
 "Notification.Content.TapToShow" = "Tap to show current seat status.";
-
-"Settings.Table.Cell.Detail.AppleMap" = "Apple Maps";
-
-"Settings.Table.Cell.Detail.GoogleMap" = "Google Maps";
-
-"Settings.Table.Cell.Title.AutoUpdate" = "Auto Update";
-
-"Settings.Table.Cell.Title.Maps" = "Maps";
-
-"Settings.Table.Cell.Title.OpenSource" = "Open Source";
-
-"Settings.Table.Cell.Title.Rate" = "Write a review";
-
-"Settings.Table.Cell.Title.ThanksTo" = "Photo Credit";
-
-"Settings.Table.Cell.Title.TipJar" = "Tip Developer";
-
-"Settings.Table.Cell.Title.UpdateInterval" = "Update Interval";
-
-"Settings.Table.Section.Footer.Review" = "Please leave a review or provide a feedback. It greatly encourages app developer!";
 
 "Label.OpenInstagram" = "Open in Instagram?";
 
@@ -132,9 +108,9 @@
 
 "Label.Settings.WidgetShowHeader" = "Show";
 
-"Share.Library.Data" = "%@\nTotal: %@\nAvailable: %@\nUsed: %@\n";
-
 "Label.Error" = "Oops! An error occurred.";
+
+"Label.ShareMessage" = "%@\nTotal: %@\nAvailable: %@\nUsed: %@\n";
 
 /* * SHARED STRINGS */
 "Label.Loading" = "Loading...";
@@ -151,11 +127,11 @@
 
 "Label.Settings.CellType" = "Display Style";
 
-"Label.LibraryCellType.Classic" = "Classic";
+"Label.CellType.Classic" = "Classic";
 
-"Label.LibraryCellType.Compact" = "Compact";
+"Label.CellType.Compact" = "Compact";
 
-"Label.LibraryCellType.VeryCompact" = "Very Compact";
+"Label.CellType.VeryCompact" = "Very Compact";
 
 "Label.Troubleshoot" = "Have a problem?";
 

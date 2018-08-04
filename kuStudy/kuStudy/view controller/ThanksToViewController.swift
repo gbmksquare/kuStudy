@@ -18,7 +18,7 @@ class ThanksToViewController: UIViewController {
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Localizations.Settings.Table.Cell.Title.ThanksTo
+        title = Localizations.Label.Settings.MediaProvider
         navigationItem.largeTitleDisplayMode = .automatic
         navigationController?.navigationBar.prefersLargeTitles = true
         collectionView.delegate = self

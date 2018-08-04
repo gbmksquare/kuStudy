@@ -13,9 +13,9 @@ enum LibraryCellType: Int {
     
     var name: String {
         switch self {
-        case .classic: return Localizations.Label.LibraryCellType.Classic
-        case .compact: return Localizations.Label.LibraryCellType.Compact
-        case .veryCompact: return Localizations.Label.LibraryCellType.VeryCompact
+        case .classic: return Localizations.Label.CellType.Classic
+        case .compact: return Localizations.Label.CellType.Compact
+        case .veryCompact: return Localizations.Label.CellType.VeryCompact
         }
     }
     
