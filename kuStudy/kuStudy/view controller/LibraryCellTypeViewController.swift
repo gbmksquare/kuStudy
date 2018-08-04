@@ -71,10 +71,16 @@ extension LibraryCellTypeViewController: UITableViewDelegate, UITableViewDataSou
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             cell.textLabel?.text = type.name
             if type == Preference.shared.libraryCellType {
-                cell.accessoryType = .checkmark
-                cell.tintColor = .theme
+                let button = UIButton(type: .custom)
+                button.setImage(#imageLiteral(resourceName: "selection_checkmark"), for: .normal)
+                button.frame = CGRect(origin: .zero, size: #imageLiteral(resourceName: "selection_checkmark").size)
+                button.contentEdgeInsets = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
+                cell.accessoryView = button
+//                cell.accessoryType = .checkmark
+//                cell.tintColor = .theme
             } else {
-                cell.accessoryType = .none
+                cell.accessoryView = nil
+//                cell.accessoryType = .none
             }
             return cell
         } else {
