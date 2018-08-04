@@ -48,11 +48,6 @@ class SectorCell: UITableViewCell {
         reset()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        indicator.layer.cornerRadius = indicator.bounds.width / 2
-    }
-    
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if traitCollection.preferredContentSizeCategory >= .extraExtraExtraLarge {
@@ -109,6 +104,8 @@ class SectorCell: UITableViewCell {
     
     private func setupView() {
         indicator.accessibilityIgnoresInvertColors = true
+        indicator.layer.cornerRadius = 7
+        indicator.layer.masksToBounds = true
         
         stack.axis = .vertical
         stack.alignment = .fill
@@ -153,8 +150,8 @@ class SectorCell: UITableViewCell {
         [openInfoView, closeInfoView, disabledInfoView].forEach { infoStack.addArrangedSubview($0) }
         
         indicator.snp.makeConstraints { (make) in
-            make.width.equalTo(13)
-            make.height.equalTo(13)
+            make.width.equalTo(14)
+            make.height.equalTo(14)
             make.centerY.equalTo(dataStack.snp.centerY)
             make.leading.equalTo(contentView.readableContentGuide.snp.leading).inset(8)
         }

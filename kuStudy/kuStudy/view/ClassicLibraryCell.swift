@@ -143,7 +143,7 @@ class ClassicLibraryCell: UITableViewCell {
         indicator.layer.cornerRadius = 7
         indicator.layer.masksToBounds = true
         
-        thumbnailView.backgroundColor = #colorLiteral(red: 0.8392109871, green: 0.8391088247, blue: 0.8563356996, alpha: 1)
+        thumbnailView.backgroundColor = .placeholder
         thumbnailView.contentMode = .scaleAspectFill
         thumbnailView.clipsToBounds = true
         thumbnailView.accessibilityIgnoresInvertColors = true
