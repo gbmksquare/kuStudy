@@ -89,6 +89,8 @@ internal class DataManager {
     }
     
     private func requestAllData() {
+        libraryData = []
+        
         let group = DispatchGroup()
         self.group = group
         
