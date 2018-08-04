@@ -21,6 +21,8 @@ class TodayViewController: UIViewController {
         didSet { updateView() }
     }
     
+    var orderedLibraryIds: [String]?
+    
     // Preference
     private let numberOfCellPerLine: CGFloat = 2
     private let lineSpacing: CGFloat = 10
@@ -29,47 +31,45 @@ class TodayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        NotificationCenter.default.addObserver(self, selector: #selector(handleDataUpdated(_:)), name: kuStudy.didUpdateDataNotification, object: nil)
-        kuStudy.startFecthingData()
+        updateData()
     }
-}
-
-// MARK: - Setup
-extension TodayViewController {
+    
+    // MARK: - Setup
     private func setup() {
-        setupWidget()
-        setupView()
-        setupCollectionView()
-    }
-    
-    private func setupWidget() {
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-    }
-    
-    private func setupView() {
-        view.backgroundColor = .clear
         showStatus()
-    }
-    
-    private func setupCollectionView() {
-        collectionView.register(LibraryCell.self, forCellWithReuseIdentifier: "cell")
+        
+        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
+        orderedLibraryIds = defaults.array(forKey: "todayExtensionOrder") as? [String]
+        
+        view.backgroundColor = .clear
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
+        collectionView.register(LibraryCell.self, forCellWithReuseIdentifier: "cell")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleDataUpdated(_:)), name: kuStudy.didUpdateDataNotification, object: nil)
     }
 }
 
 // MARK: - Action
 extension TodayViewController {
+    private func updateView() {
+        collectionView.reloadData()
+    }
+    
+    private func updateData() {
+        kuStudy.startFecthingData()
+    }
+    
     // Data
     @objc private func handleDataUpdated(_ notification: Notification) {
-        if let summary = kuStudy.summaryData {
-            if summary.libraries.count > 0 {
-                self.summary = summary
-                hideStatus()
-                showInformation()
-                return
-            }
+        if let summary = kuStudy.summaryData, summary.libraries.count > 0 {
+            self.summary = summary
+            hideStatus()
+            showInformation()
+            return
         }
         // Error
         self.summary = nil
@@ -92,10 +92,6 @@ extension TodayViewController {
     }
     
     // View
-    private func updateView() {
-        collectionView.reloadData()
-    }
-    
     private func showStatus() {
         view.addSubview(statusView)
         statusView.snp.remakeConstraints { (make) in
@@ -112,7 +108,8 @@ extension TodayViewController {
     }
     
     private func showInformation() {
-        [summaryView, collectionView].forEach { view.addSubview($0) }
+//        [summaryView, collectionView].forEach { view.addSubview($0) }
+        [collectionView].forEach { view.addSubview($0) }
 //        summaryView.snp.makeConstraints { (make) in
 //            make.top.equalTo(view.snp.top)
 //            make.leading.equalTo(view.snp.leading)
@@ -167,7 +164,12 @@ extension TodayViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! LibraryCell
-        cell.data = summary?.libraries[indexPath.row]
+//        cell.data = summary?.libraries[indexPath.row]
+        if let libraryId = orderedLibraryIds?[indexPath.row], let data = summary?.libraries.first(where: { return $0.libraryType?.rawValue == libraryId }) {
+            cell.data = data
+        } else {
+            assertionFailure()
+        }
         return cell
     }
 }
