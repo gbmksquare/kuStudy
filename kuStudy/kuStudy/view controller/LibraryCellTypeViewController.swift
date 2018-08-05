@@ -82,6 +82,7 @@ extension LibraryCellTypeViewController: UITableViewDelegate, UITableViewDataSou
                 cell.accessoryView = nil
 //                cell.accessoryType = .none
             }
+            cell.selectionStyle = .none
             return cell
         } else {
             let index = indexPath.section
