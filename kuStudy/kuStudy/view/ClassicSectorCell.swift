@@ -9,7 +9,7 @@
 import UIKit
 import kuStudyKit
 
-class SectorCell: UITableViewCell {
+class ClassicSectorCell: UITableViewCell {
     private lazy var indicator = UIView()
     
     private lazy var stack = UIStackView()
@@ -167,7 +167,7 @@ class SectorCell: UITableViewCell {
     }
 }
 
-extension SectorCell {
+extension ClassicSectorCell {
     private func setDataStackHorizontal() {
         dataStack.axis = .horizontal
         dataStack.alignment = .lastBaseline

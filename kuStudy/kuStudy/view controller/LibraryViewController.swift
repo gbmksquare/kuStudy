@@ -156,7 +156,9 @@ extension LibraryViewController {
     
     private func setupTableView() {
 //        tableView.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.937254902, blue: 0.9333333333, alpha: 1)
-        tableView.register(SectorCell.self, forCellReuseIdentifier: "cell")
+        SectorCellType.allTypes.forEach {
+            tableView.register($0.cellClass, forCellReuseIdentifier: $0.preferredReuseIdentifier)
+        }
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         footerContentView.library = library
@@ -174,6 +176,7 @@ extension LibraryViewController {
     private func setupNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(handleShouldUpdateImage(_:)), name: MediaManager.shouldUpdateImageNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handleDataUpdated(_:)), name: kuStudy.didUpdateDataNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsDidChange(_: )), name: UserDefaults.didChangeNotification, object: nil)
     }
     
     private func setupContent() {
@@ -260,6 +263,10 @@ extension LibraryViewController {
         
     }
     
+    @objc private func handleUserDefaultsDidChange(_ notification: Notification) {
+        updateView()
+    }
+    
     private func askRemindTimeInterval() {
         let library = self.library
         let alert = UIAlertController(title: nil, message: Localizations.Alert.Message.Notification.SetTimeInterval, preferredStyle: .actionSheet)
@@ -332,20 +339,26 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let sector = libraryData?.sectors?[indexPath.row]
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "readingRoomCell", for: indexPath) as! ReadingRoomTableViewCell
-//        if let sector = sector {
-//            cell.populate(sector: sector)
-//        }
-//        cell.updateInterface(for: traitCollection)
-        
         let data = libraryData?.sectors?[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SectorCell
-        cell.sectorData = data
-        cell.selectionStyle = .none
-        cell.setNeedsLayout()
-        cell.layoutIfNeeded()
-        return cell
+        let type = Preference.shared.sectorCellType
+        switch type {
+        case .classic:
+            let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! ClassicSectorCell
+            cell.selectionStyle = .none
+            cell.sectorData = data
+            cell.layoutIfNeeded()
+            return cell
+        case .compact:
+            let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! CompactSectorCell
+            cell.selectionStyle = .none
+            cell.sectorData = data
+            return cell
+        case .veryCompact:
+            let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! VeryCompactSectorCell
+            cell.selectionStyle = .none
+            cell.sectorData = data
+            return cell
+        }
     }
     
     // Empty state

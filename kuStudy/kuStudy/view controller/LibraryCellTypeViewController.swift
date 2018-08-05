@@ -48,7 +48,6 @@ extension LibraryCellTypeViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         let index = indexPath.section
         let type = LibraryCellType.allTypes[index]
         Preference.shared.libraryCellType = type

@@ -48,10 +48,9 @@ extension SectorCellTypeViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
         let index = indexPath.section
-        let type = LibraryCellType.allTypes[index]
-        Preference.shared.libraryCellType = type
+        let type = SectorCellType.allTypes[index]
+        Preference.shared.sectorCellType = type
         tableView.reloadData()
     }
     
@@ -89,7 +88,15 @@ extension SectorCellTypeViewController: UITableViewDelegate, UITableViewDataSour
             let type = SectorCellType.allTypes[index]
             switch type {
             case .classic:
-                let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! SectorCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! ClassicSectorCell
+                cell.sectorData = sampleSectorData
+                return cell
+            case .compact:
+                let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! CompactSectorCell
+                cell.sectorData = sampleSectorData
+                return cell
+            case .veryCompact:
+                let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! VeryCompactSectorCell
                 cell.sectorData = sampleSectorData
                 return cell
             }

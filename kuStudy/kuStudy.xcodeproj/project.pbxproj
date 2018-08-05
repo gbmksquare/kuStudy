@@ -26,6 +26,8 @@
 		162363511F9F181700CD78F2 /* LibraryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162363501F9F181700CD78F2 /* LibraryHeaderView.swift */; };
 		16251CAD1B232D650035F2D9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1625B4621F44386700744C01 /* NotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1625B4611F44386700744C01 /* NotificationCoordinator.swift */; };
+		162C2DA221175F0B00ADF32F /* CompactSectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C2DA121175F0B00ADF32F /* CompactSectorCell.swift */; };
+		162C2DA421175F1800ADF32F /* VeryCompactSectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C2DA321175F1800ADF32F /* VeryCompactSectorCell.swift */; };
 		162F120D1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 162F120C1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist */; };
 		162F12151D5F86B000A401D8 /* PhotographerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F12141D5F86B000A401D8 /* PhotographerCell.swift */; };
 		1631A2CE1CEF4EA60078381F /* SectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2CD1CEF4EA60078381F /* SectorData.swift */; };
@@ -132,7 +134,7 @@
 		16BB42EF1B2C225900201DE2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BB42ED1B2C225900201DE2 /* Crashlytics.framework */; };
 		16BB431E1B2C277400201DE2 /* kuStudyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167245EC1B19C42B0083035F /* kuStudyKit.framework */; };
 		16C85E521FA2DEAF0003A38C /* RefreshEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C85E511FA2DEAF0003A38C /* RefreshEffectView.swift */; };
-		16D1E8C61FA0CB2B006A5847 /* SectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1E8C51FA0CB2B006A5847 /* SectorCell.swift */; };
+		16D1E8C61FA0CB2B006A5847 /* ClassicSectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1E8C51FA0CB2B006A5847 /* ClassicSectorCell.swift */; };
 		16D392B41D62C5310078223E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16D392B61D62C5310078223E /* InfoPlist.strings */; };
 		16DA07941C8EBBC300C4174A /* LibraryOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DA07931C8EBBC300C4174A /* LibraryOrderViewController.swift */; };
 		16DD052E1E46DBB4007AB912 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD052D1E46DBB4007AB912 /* UIColor.swift */; };
@@ -305,6 +307,8 @@
 		162363501F9F181700CD78F2 /* LibraryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryHeaderView.swift; path = view/LibraryHeaderView.swift; sourceTree = "<group>"; };
 		16251CAC1B232C8F0035F2D9 /* kuStudy Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy Today Extension.entitlements"; sourceTree = "<group>"; };
 		1625B4611F44386700744C01 /* NotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationCoordinator.swift; path = controller/NotificationCoordinator.swift; sourceTree = "<group>"; };
+		162C2DA121175F0B00ADF32F /* CompactSectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompactSectorCell.swift; path = view/CompactSectorCell.swift; sourceTree = "<group>"; };
+		162C2DA321175F1800ADF32F /* VeryCompactSectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VeryCompactSectorCell.swift; path = view/VeryCompactSectorCell.swift; sourceTree = "<group>"; };
 		162F120C1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-kuStudy-acknowledgements.plist"; path = "../../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy-acknowledgements.plist"; sourceTree = "<group>"; };
 		162F12141D5F86B000A401D8 /* PhotographerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotographerCell.swift; path = view/PhotographerCell.swift; sourceTree = "<group>"; };
 		1631A2CD1CEF4EA60078381F /* SectorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectorData.swift; path = model/SectorData.swift; sourceTree = "<group>"; };
@@ -399,7 +403,7 @@
 		16BB42EC1B2C225900201DE2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		16BB42ED1B2C225900201DE2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		16C85E511FA2DEAF0003A38C /* RefreshEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RefreshEffectView.swift; path = view/RefreshEffectView.swift; sourceTree = "<group>"; };
-		16D1E8C51FA0CB2B006A5847 /* SectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SectorCell.swift; path = view/SectorCell.swift; sourceTree = "<group>"; };
+		16D1E8C51FA0CB2B006A5847 /* ClassicSectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClassicSectorCell.swift; path = view/ClassicSectorCell.swift; sourceTree = "<group>"; };
 		16D392B51D62C5310078223E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16D392B71D62C5330078223E /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16DA07931C8EBBC300C4174A /* LibraryOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryOrderViewController.swift; path = "view controller/LibraryOrderViewController.swift"; sourceTree = "<group>"; };
@@ -647,6 +651,16 @@
 				1673304D1B1C928A00573FFC /* Detail */,
 			);
 			name = Application;
+			sourceTree = "<group>";
+		};
+		162C2DA021175ECB00ADF32F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				16D1E8C51FA0CB2B006A5847 /* ClassicSectorCell.swift */,
+				162C2DA121175F0B00ADF32F /* CompactSectorCell.swift */,
+				162C2DA321175F1800ADF32F /* VeryCompactSectorCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 		1631A2D91CF023FF0078381F /* Extension */ = {
@@ -916,7 +930,7 @@
 				167246261B1B4F2C0083035F /* LibraryViewController.swift */,
 				162363501F9F181700CD78F2 /* LibraryHeaderView.swift */,
 				161F7E3720DC8650002957D7 /* LibraryFooterView.swift */,
-				16D1E8C51FA0CB2B006A5847 /* SectorCell.swift */,
+				162C2DA021175ECB00ADF32F /* Cell */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -1876,9 +1890,10 @@
 				1672461A1B1B13610083035F /* Definitions.swift in Sources */,
 				167E2D652108C73600C0E79C /* UIWindow.swift in Sources */,
 				167E2D692109822200C0E79C /* TitleValueStackView.swift in Sources */,
+				162C2DA221175F0B00ADF32F /* CompactSectorCell.swift in Sources */,
 				167E2D67210978AE00C0E79C /* CompactLibraryCell.swift in Sources */,
 				1625B4621F44386700744C01 /* NotificationCoordinator.swift in Sources */,
-				16D1E8C61FA0CB2B006A5847 /* SectorCell.swift in Sources */,
+				16D1E8C61FA0CB2B006A5847 /* ClassicSectorCell.swift in Sources */,
 				1661C3DF1F07E9C0005C889F /* UIDevice.swift in Sources */,
 				16F5A113210769D70059875B /* AppVersionFooterView.swift in Sources */,
 				1664D5541D55E1E2000BAF56 /* UIColor.swift in Sources */,
@@ -1904,6 +1919,7 @@
 				168F6836210D6EAC000A08FA /* LibraryCellTypeViewController.swift in Sources */,
 				160E1D2220DB7C2900E4AF7D /* Preference+MapType .swift in Sources */,
 				164579F01F9F7E3C00DD8F22 /* SeatsProgressView.swift in Sources */,
+				162C2DA421175F1800ADF32F /* VeryCompactSectorCell.swift in Sources */,
 				16ABBB7821083F780014141D /* SettingsMenu.swift in Sources */,
 				167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */,
 				16EFE0EC1F0243EB00FD476B /* Preference.swift in Sources */,
