@@ -92,60 +92,28 @@
 
 "Library.UpdatedAt" = "Last updated: %@";
 
-"Main.Studying" = "%@ are studying now.";
-
-"Main.StudyingCampus" = "%@ are studying in liberal art campus,\n%@ are studying in science campus.";
-
 "Title.Library" = "Library";
 
 "Legacy.Title.Preference" = "Preference (d)";
 
 "Notification.Content.TapToShow" = "Tap to show current seat status.";
 
-"Settings.Recommend.Message" = "Check real time reading room status in Korea University with kuStudy! It supports Today widget and Apple Watch.";
+"Label.OpenInstagram" = "Open in Instagram?";
 
-"Settings.Table.Cell.Detail.AppleMap" = "Apple Maps";
+"Label.Settings.WidgetHideFooter" = "Items dragged here are hidden in Notificaiton Center.";
 
-"Settings.Table.Cell.Detail.GoogleMap" = "Google Maps";
+"Label.Settings.WidgetInstructionFooter" = "How to add Today widget:\n\n1. Swipe down from the top of the screen to open Notification Center.\n2.Switch to Today tab.\n3.Scroll to the bottom and tap Edit.\n4.Find Korea University Reading Room and tap + icon.\n5. Tap Done.";
 
-"Settings.Table.Cell.Title.AutoUpdate" = "Auto Update";
+"Label.Settings.WidgetHideHeader" = "Hide";
 
-"Settings.Table.Cell.Title.Maps" = "Maps";
+"Label.Settings.WidgetShowHeader" = "Show";
 
-"Settings.Table.Cell.Title.OpenSource" = "Open Source";
+"Label.Error" = "Oops! An error occurred.";
 
-"Settings.Table.Cell.Title.Rate" = "Write a review";
-
-"Settings.Table.Cell.Title.ThanksTo" = "Photo Credit";
-
-"Settings.Table.Cell.Title.TipJar" = "Tip Developer";
-
-"Settings.Table.Cell.Title.UpdateInterval" = "Update Interval";
-
-"Settings.Table.Section.Footer.Review" = "Please leave a review or provide a feedback. It greatly encourages app developer!";
-
-"Settings.Table.Section.Header.About" = "About";
-
-"Settings.Table.Section.Header.Feedback" = "Review";
-
-"Settings.Table.Section.Header.General" = "General";
-
-"Settings.ThanksTo.Instagram.Alert.Title" = "Open in Instagram?";
-
-"Settings.Today.Table.Footer.Hidden" = "Items dragged here are hidden in Notificaiton Center.";
-
-"Settings.Today.Table.Footer.Instruction" = "How to add Today widget:\n\n1. Swipe down from the top of the screen to open Notification Center.\n2.Switch to Today tab.\n3.Scroll to the bottom and tap Edit.\n4.Find Korea University Reading Room and tap + icon.\n5. Tap Done.";
-
-"Settings.Today.Table.Header.Hide" = "Hide";
-
-"Settings.Today.Table.Header.Show" = "Show";
-
-"Share.Library.Data" = "%@\nTotal: %@\nAvailable: %@\nUsed: %@\n";
-
-"Table.Label.Error" = "Oops! An error occurred.";
+"Label.ShareMessage" = "%@\nTotal: %@\nAvailable: %@\nUsed: %@\n";
 
 /* * SHARED STRINGS */
-"Table.Label.Loading" = "Loading...";
+"Label.Loading" = "Loading...";
 
 "TimeInterval.Custom" = "Custom";
 
@@ -157,17 +125,25 @@
 
 "Action.OpenLibraryInSafari" = "Open in Safari";
 
-"Label.Settings.LibraryCellType" = "Library Display Style";
+"Label.Settings.CellType" = "Display Style";
 
-"Label.LibraryCellType.Classic" = "Classic";
+"Label.CellType.Classic" = "Classic";
 
-"Label.LibraryCellType.Compact" = "Compact";
+"Label.CellType.Compact" = "Compact";
 
-"Label.LibraryCellType.VeryCompact" = "Very Compact";
+"Label.CellType.VeryCompact" = "Very Compact";
 
 "Label.Troubleshoot" = "Have a problem?";
 
 "Label.TroubleshootDescription" = "If there is a problem with the orders, try resetting with this button.";
 
 "Action.ResetOrder" = "Reset Orders";
+
+"Label.Settings.LibraryHeader" = "Library";
+
+"Label.Settings.WidgetHeader" = "Widget";
+
+"Label.Settings.SectorHeader" = "Sector";
+
+"Label.Settings.UpdateHeader" = "Update";
 

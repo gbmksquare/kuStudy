@@ -56,8 +56,8 @@ extension TodayExtensionOrderViewController: UITableViewDelegate, UITableViewDat
     // Data source
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 0: return Localizations.Settings.Today.Table.Header.Show
-        case 1: return Localizations.Settings.Today.Table.Header.Hide
+        case 0: return Localizations.Label.Settings.WidgetShowHeader
+        case 1: return Localizations.Label.Settings.WidgetHideHeader
         case 2: return Localizations.Label.Troubleshoot
         default: return nil
         }
@@ -65,8 +65,8 @@ extension TodayExtensionOrderViewController: UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch section {
-        case 0: return Localizations.Settings.Today.Table.Footer.Instruction
-        case 1: return Localizations.Settings.Today.Table.Footer.Hidden
+        case 0: return Localizations.Label.Settings.WidgetInstructionFooter
+        case 1: return Localizations.Label.Settings.WidgetHideFooter
         case 2: return Localizations.Label.TroubleshootDescription
         default: return ""
         }

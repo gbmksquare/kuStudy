@@ -20,7 +20,7 @@ class TipJarViewController: UIViewController {
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Localizations.Settings.Table.Cell.Title.TipJar
+        title = Localizations.Label.Settings.TipJar
         setup()
         getProducts()
     }

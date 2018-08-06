@@ -18,7 +18,7 @@ class ThanksToViewController: UIViewController {
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Localizations.Settings.Table.Cell.Title.ThanksTo
+        title = Localizations.Label.Settings.MediaProvider
         navigationItem.largeTitleDisplayMode = .automatic
         navigationController?.navigationBar.prefersLargeTitles = true
         collectionView.delegate = self
@@ -110,7 +110,7 @@ extension ThanksToViewController {
     }
     
     private func openInInstagram(_ url: URL) {
-        let alert = UIAlertController(title: Localizations.Settings.ThanksTo.Instagram.Alert.Title, message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: Localizations.Label.OpenInstagram, message: nil, preferredStyle: .alert)
         let open = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default) { (_) in
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }

@@ -77,10 +77,8 @@ class LibraryCell: UICollectionViewCell {
         
         // Font
         var availableLabelFont = UIFont.systemFont(ofSize: 30, weight: .light)
-        if #available(iOS 11, *) {
-            let metrics = UIFontMetrics(forTextStyle: .body)
-            availableLabelFont = metrics.scaledFont(for: availableLabelFont)
-        }
+        let metrics = UIFontMetrics(forTextStyle: .body)
+        availableLabelFont = metrics.scaledFont(for: availableLabelFont)
         libraryLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         availableLabel.font = availableLabelFont
         availableTitleLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
@@ -104,12 +102,8 @@ class LibraryCell: UICollectionViewCell {
         stack.alignment = .fill
         stack.distribution = .fillProportionally
         stack.setContentHuggingPriority(.required, for: .vertical)
-        if #available(iOS 11, *) {
-            stack.spacing = UIStackView.spacingUseSystem
-            stack.isBaselineRelativeArrangement = true
-        } else {
-            stack.spacing = 4
-        }
+        stack.spacing = UIStackView.spacingUseSystem
+        stack.isBaselineRelativeArrangement = true
         [libraryLabel, availableLabel, availableTitleLabel].forEach { stack.addArrangedSubview($0) }
         
         [indicator, stack].forEach { contentView.addSubview($0) }

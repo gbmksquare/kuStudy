@@ -14,6 +14,7 @@ PODS:
   - ObjectMapper (3.3.0)
   - SimulatorStatusMagic (2.2)
   - SnapKit (4.0.0)
+  - TONavigationBar (0.0.1)
 
 DEPENDENCIES:
   - AcknowList
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - MXParallaxHeader
   - SimulatorStatusMagic
   - SnapKit
+  - TONavigationBar
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -42,6 +44,7 @@ SPEC REPOS:
     - ObjectMapper
     - SimulatorStatusMagic
     - SnapKit
+    - TONavigationBar
 
 SPEC CHECKSUMS:
   AcknowList: c9091be8dd75c95662b56f75e382487a0cbb9a27
@@ -56,7 +59,8 @@ SPEC CHECKSUMS:
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   SimulatorStatusMagic: 0389a805fa8bd001e2977c4046730bdbd6642861
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  TONavigationBar: d0a8ab15f19f5a258dac6a6ec12cbe59aad1450c
 
-PODFILE CHECKSUM: 96539a394851eab8855976fb4b6f391f2e0275e4
+PODFILE CHECKSUM: b0490f372a85dd5636452f7fff9b24e8b1972587
 
 COCOAPODS: 1.5.3

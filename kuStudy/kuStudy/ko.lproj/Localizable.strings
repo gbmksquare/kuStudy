@@ -92,60 +92,28 @@
 
 "Library.UpdatedAt" = "마지막 업데이트: %@";
 
-"Main.Studying" = "%@ 명이 공부 중입니다.";
-
-"Main.StudyingCampus" = "%@ 명은 문과캠퍼스에서 공부 중이고,\n%@ 명은 이과캠퍼스에서 공부 중입니다.";
-
 "Title.Library" = "도서관";
 
 "Legacy.Title.Preference" = "설정 (d)";
 
 "Notification.Content.TapToShow" = "탭해서 좌석 현황을 보세요.";
 
-"Settings.Recommend.Message" = "kuStudy 앱으로 고려대학교 열람실 현황을 확인하세요! 오늘 위젯과 Apple Watch를 지원합니다.";
+"Label.OpenInstagram" = "Instagram 앱에서 열겠습니까?";
 
-"Settings.Table.Cell.Detail.AppleMap" = "애플 지도";
+"Label.Settings.WidgetHideFooter" = "이 곳에 옮겨진 항목은 알림 센터에서 보이지 않습니다.";
 
-"Settings.Table.Cell.Detail.GoogleMap" = "구글 지도";
+"Label.Settings.WidgetInstructionFooter" = "오늘 위젯 추가하기:\n\n1. 화면 상단에서 스와이프해 알림 센터를 여세요.\n2. 오늘 탭으로 변경하세요.\n3. 최하단으로 내려가 편집 버튼을 누르세요.\n4. 고려대학교 열람실을 찾아 왼쪽의 + 아이콘을 누르세요.\n5. 완료를 누르세요.";
 
-"Settings.Table.Cell.Title.AutoUpdate" = "자동 업데이트";
+"Label.Settings.WidgetHideHeader" = "숨기기";
 
-"Settings.Table.Cell.Title.Maps" = "지도";
+"Label.Settings.WidgetShowHeader" = "보기";
 
-"Settings.Table.Cell.Title.OpenSource" = "오픈소스";
+"Label.Error" = "이런! 오류가 발생했습니다.";
 
-"Settings.Table.Cell.Title.Rate" = "앱스토어에 리뷰 남기기";
-
-"Settings.Table.Cell.Title.ThanksTo" = "사진 제공";
-
-"Settings.Table.Cell.Title.TipJar" = "개발자 응원하기";
-
-"Settings.Table.Cell.Title.UpdateInterval" = "업데이트 주기";
-
-"Settings.Table.Section.Footer.Review" = "리뷰를 남기거나 피드백을 적어주세요! 모든 리뷰는 앱 개발자에게 큰 힘이 됩니다.";
-
-"Settings.Table.Section.Header.About" = "관하여";
-
-"Settings.Table.Section.Header.Feedback" = "평가하기";
-
-"Settings.Table.Section.Header.General" = "일반";
-
-"Settings.ThanksTo.Instagram.Alert.Title" = "Instagram 앱에서 열겠습니까?";
-
-"Settings.Today.Table.Footer.Hidden" = "이 곳에 옮겨진 항목은 알림 센터에서 보이지 않습니다.";
-
-"Settings.Today.Table.Footer.Instruction" = "오늘 위젯 추가하기:\n\n1. 화면 상단에서 스와이프해 알림 센터를 여세요.\n2. 오늘 탭으로 변경하세요.\n3. 최하단으로 내려가 편집 버튼을 누르세요.\n4. 고려대학교 열람실을 찾아 왼쪽의 + 아이콘을 누르세요.\n5. 완료를 누르세요.";
-
-"Settings.Today.Table.Header.Hide" = "숨기기";
-
-"Settings.Today.Table.Header.Show" = "보기";
-
-"Share.Library.Data" = "%@\n전체: %@\n잔여석: %@\n사용 중: %@\n";
-
-"Table.Label.Error" = "이런! 오류가 발생했습니다.";
+"Label.ShareMessage" = "%@\n전체: %@\n잔여석: %@\n사용 중: %@\n";
 
 /* * SHARED STRINGS */
-"Table.Label.Loading" = "로딩 중";
+"Label.Loading" = "로딩 중";
 
 "TimeInterval.Custom" = "사용자 지정";
 
@@ -157,17 +125,25 @@
 
 "Action.OpenLibraryInSafari" = "Safari에서 열기";
 
-"Label.Settings.LibraryCellType" = "도서관 표시 스타일";
+"Label.Settings.CellType" = "표시 스타일";
 
-"Label.LibraryCellType.Classic" = "클래직";
+"Label.CellType.Classic" = "클래직";
 
-"Label.LibraryCellType.Compact" = "작게";
+"Label.CellType.Compact" = "작게";
 
-"Label.LibraryCellType.VeryCompact" = "매우 작게";
+"Label.CellType.VeryCompact" = "매우 작게";
 
 "Label.Troubleshoot" = "문제가 있나요?";
 
 "Label.TroubleshootDescription" = "표시 순서 설정에 문제가 있다면 재설정을 해보세요.";
 
 "Action.ResetOrder" = "재설정";
+
+"Label.Settings.LibraryHeader" = "도서관";
+
+"Label.Settings.WidgetHeader" = "위젯";
+
+"Label.Settings.SectorHeader" = "열람실";
+
+"Label.Settings.UpdateHeader" = "업데이트";
 

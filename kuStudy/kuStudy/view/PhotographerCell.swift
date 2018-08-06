@@ -45,13 +45,6 @@ class PhotographerCell: UICollectionViewCell {
         layer.shadowOffset = CGSize(width: 1, height: 1)
         layer.shadowOpacity = 0.2
         
-        if #available(iOS 11.0, *) {
-            
-        } else {
-            photographerStackView.spacing = 4
-            photographerStackView.isBaselineRelativeArrangement = false
-        }
-        
         [nameLabel, associationLabel].forEach {
             $0?.layer.shadowColor = UIColor.black.cgColor
             $0?.layer.shadowRadius = 6
@@ -59,11 +52,9 @@ class PhotographerCell: UICollectionViewCell {
             $0?.layer.shadowOffset = CGSize(width: 1, height: 1)
         }
         
-        if #available(iOS 11.0, *) {
-            photoImageView.accessibilityIgnoresInvertColors = true
-            nameLabel.accessibilityIgnoresInvertColors = true
-            associationLabel.accessibilityIgnoresInvertColors = true
-        }
+        photoImageView.accessibilityIgnoresInvertColors = true
+        nameLabel.accessibilityIgnoresInvertColors = true
+        associationLabel.accessibilityIgnoresInvertColors = true
     }
     
     // MARK: Popuplate

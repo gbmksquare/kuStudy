@@ -12,17 +12,18 @@ class MainTabBarController: UITabBarController {
     // MARK: View
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.tintColor = UIColor.theme
-        tabBar.items?.forEach {
-            switch $0.tag {
-            case 1: $0.title = Localizations.Title.Library
-            case 2: $0.title = Localizations.Legacy.Title.Preference
-            default: break
-            }
-        }
+        setup()
+    }
+    
+    // MARK: - Setup
+    private func setup() {
+//        let library = UINavigationController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SummaryViewController"))
+        let library = UINavigationController(rootViewController: SummaryViewController())
+        library.tabBarItem = UITabBarItem(title: Localizations.Title.Library, image: #imageLiteral(resourceName: "187-pencil"), tag: 1)
         
         let settings = UINavigationController(rootViewController: SettingsViewController())
-        settings.tabBarItem = UITabBarItem(title: Localizations.Title.Settings, image: #imageLiteral(resourceName: "glyphicons-138-cogwheels"), tag: 3)
-        viewControllers?.append(settings)
+        settings.tabBarItem = UITabBarItem(title: Localizations.Title.Settings, image: #imageLiteral(resourceName: "glyphicons-138-cogwheels"), tag: 2)
+        
+        viewControllers = [library, settings]
     }
 }

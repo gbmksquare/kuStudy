@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,6 @@
 		16051F301F99E69500EC9285 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16051F2E1F99E69500EC9285 /* DataManager.swift */; };
 		160E1D2220DB7C2900E4AF7D /* Preference+MapType .swift in Sources */ = {isa = PBXBuildFile; fileRef = 160E1D2120DB7C2900E4AF7D /* Preference+MapType .swift */; };
 		160E1D2520DB7C5500E4AF7D /* Preference+Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160E1D2420DB7C5500E4AF7D /* Preference+Key.swift */; };
-		160E1D2720DB7CB400E4AF7D /* Preference+CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160E1D2620DB7CB400E4AF7D /* Preference+CellType.swift */; };
 		16136BD81B1C3F0700B3F744 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16136BD71B1C3F0700B3F744 /* InterfaceController.swift */; };
 		16136BDC1B1C3F0700B3F744 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16136BDB1B1C3F0700B3F744 /* Images.xcassets */; };
 		16136BE81B1C3F0800B3F744 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16136BE61B1C3F0700B3F744 /* Interface.storyboard */; };
@@ -27,6 +26,8 @@
 		162363511F9F181700CD78F2 /* LibraryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162363501F9F181700CD78F2 /* LibraryHeaderView.swift */; };
 		16251CAD1B232D650035F2D9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1625B4621F44386700744C01 /* NotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1625B4611F44386700744C01 /* NotificationCoordinator.swift */; };
+		162C2DA221175F0B00ADF32F /* CompactSectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C2DA121175F0B00ADF32F /* CompactSectorCell.swift */; };
+		162C2DA421175F1800ADF32F /* VeryCompactSectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162C2DA321175F1800ADF32F /* VeryCompactSectorCell.swift */; };
 		162F120D1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 162F120C1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist */; };
 		162F12151D5F86B000A401D8 /* PhotographerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162F12141D5F86B000A401D8 /* PhotographerCell.swift */; };
 		1631A2CE1CEF4EA60078381F /* SectorData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2CD1CEF4EA60078381F /* SectorData.swift */; };
@@ -69,6 +70,8 @@
 		16657B651F342F2800D43EF2 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16657B641F342F2800D43EF2 /* TodayViewController.swift */; };
 		166742FA1FBD5B300098C0BB /* SummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166742F91FBD5B300098C0BB /* SummaryHeaderView.swift */; };
 		166742FC1FBD666E0098C0BB /* ClassicLibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166742FB1FBD666E0098C0BB /* ClassicLibraryCell.swift */; };
+		16692ACA21154F3C009C666C /* SectorCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692AC921154F3C009C666C /* SectorCellType.swift */; };
+		16692ACC21154FEC009C666C /* SectorCellTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692ACB21154FEC009C666C /* SectorCellTypeViewController.swift */; };
 		166C4B1B1D5B1FBB00297651 /* LibraryPhotos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */; };
 		167245C51B19C0370083035F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167245C41B19C0370083035F /* AppDelegate.swift */; };
 		167245CA1B19C0370083035F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167245C81B19C0370083035F /* Main.storyboard */; };
@@ -131,7 +134,7 @@
 		16BB42EF1B2C225900201DE2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BB42ED1B2C225900201DE2 /* Crashlytics.framework */; };
 		16BB431E1B2C277400201DE2 /* kuStudyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167245EC1B19C42B0083035F /* kuStudyKit.framework */; };
 		16C85E521FA2DEAF0003A38C /* RefreshEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C85E511FA2DEAF0003A38C /* RefreshEffectView.swift */; };
-		16D1E8C61FA0CB2B006A5847 /* SectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1E8C51FA0CB2B006A5847 /* SectorCell.swift */; };
+		16D1E8C61FA0CB2B006A5847 /* ClassicSectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1E8C51FA0CB2B006A5847 /* ClassicSectorCell.swift */; };
 		16D392B41D62C5310078223E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16D392B61D62C5310078223E /* InfoPlist.strings */; };
 		16DA07941C8EBBC300C4174A /* LibraryOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DA07931C8EBBC300C4174A /* LibraryOrderViewController.swift */; };
 		16DD052E1E46DBB4007AB912 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD052D1E46DBB4007AB912 /* UIColor.swift */; };
@@ -289,7 +292,6 @@
 		16051F2E1F99E69500EC9285 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = controller/DataManager.swift; sourceTree = "<group>"; };
 		160E1D2120DB7C2900E4AF7D /* Preference+MapType .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preference+MapType .swift"; sourceTree = "<group>"; };
 		160E1D2420DB7C5500E4AF7D /* Preference+Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preference+Key.swift"; sourceTree = "<group>"; };
-		160E1D2620DB7CB400E4AF7D /* Preference+CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preference+CellType.swift"; sourceTree = "<group>"; };
 		16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "kuStudy WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16136BD61B1C3F0700B3F744 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16136BD71B1C3F0700B3F744 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
@@ -305,6 +307,8 @@
 		162363501F9F181700CD78F2 /* LibraryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LibraryHeaderView.swift; path = view/LibraryHeaderView.swift; sourceTree = "<group>"; };
 		16251CAC1B232C8F0035F2D9 /* kuStudy Today Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "kuStudy Today Extension.entitlements"; sourceTree = "<group>"; };
 		1625B4611F44386700744C01 /* NotificationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotificationCoordinator.swift; path = controller/NotificationCoordinator.swift; sourceTree = "<group>"; };
+		162C2DA121175F0B00ADF32F /* CompactSectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompactSectorCell.swift; path = view/CompactSectorCell.swift; sourceTree = "<group>"; };
+		162C2DA321175F1800ADF32F /* VeryCompactSectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = VeryCompactSectorCell.swift; path = view/VeryCompactSectorCell.swift; sourceTree = "<group>"; };
 		162F120C1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Pods-kuStudy-acknowledgements.plist"; path = "../../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy-acknowledgements.plist"; sourceTree = "<group>"; };
 		162F12141D5F86B000A401D8 /* PhotographerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotographerCell.swift; path = view/PhotographerCell.swift; sourceTree = "<group>"; };
 		1631A2CD1CEF4EA60078381F /* SectorData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SectorData.swift; path = model/SectorData.swift; sourceTree = "<group>"; };
@@ -341,6 +345,8 @@
 		16657B641F342F2800D43EF2 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		166742F91FBD5B300098C0BB /* SummaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SummaryHeaderView.swift; path = view/SummaryHeaderView.swift; sourceTree = "<group>"; };
 		166742FB1FBD666E0098C0BB /* ClassicLibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClassicLibraryCell.swift; path = view/ClassicLibraryCell.swift; sourceTree = "<group>"; };
+		16692AC921154F3C009C666C /* SectorCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorCellType.swift; sourceTree = "<group>"; };
+		16692ACB21154FEC009C666C /* SectorCellTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorCellTypeViewController.swift; sourceTree = "<group>"; };
 		167245BF1B19C0370083035F /* kuStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kuStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		167245C31B19C0370083035F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		167245C41B19C0370083035F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -397,7 +403,7 @@
 		16BB42EC1B2C225900201DE2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
 		16BB42ED1B2C225900201DE2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		16C85E511FA2DEAF0003A38C /* RefreshEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RefreshEffectView.swift; path = view/RefreshEffectView.swift; sourceTree = "<group>"; };
-		16D1E8C51FA0CB2B006A5847 /* SectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SectorCell.swift; path = view/SectorCell.swift; sourceTree = "<group>"; };
+		16D1E8C51FA0CB2B006A5847 /* ClassicSectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClassicSectorCell.swift; path = view/ClassicSectorCell.swift; sourceTree = "<group>"; };
 		16D392B51D62C5310078223E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16D392B71D62C5330078223E /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16DA07931C8EBBC300C4174A /* LibraryOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryOrderViewController.swift; path = "view controller/LibraryOrderViewController.swift"; sourceTree = "<group>"; };
@@ -556,7 +562,6 @@
 				16EFE0EB1F0243EB00FD476B /* Preference.swift */,
 				160E1D2420DB7C5500E4AF7D /* Preference+Key.swift */,
 				160E1D2120DB7C2900E4AF7D /* Preference+MapType .swift */,
-				160E1D2620DB7CB400E4AF7D /* Preference+CellType.swift */,
 			);
 			name = Preference;
 			sourceTree = "<group>";
@@ -648,6 +653,16 @@
 			name = Application;
 			sourceTree = "<group>";
 		};
+		162C2DA021175ECB00ADF32F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				16D1E8C51FA0CB2B006A5847 /* ClassicSectorCell.swift */,
+				162C2DA121175F0B00ADF32F /* CompactSectorCell.swift */,
+				162C2DA321175F1800ADF32F /* VeryCompactSectorCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		1631A2D91CF023FF0078381F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -675,7 +690,7 @@
 				16ABBB7721083F780014141D /* SettingsMenu.swift */,
 				16F5A112210769D70059875B /* AppVersionFooterView.swift */,
 				168F6837210D704D000A08FA /* Display Type */,
-				168573A71F4FC81700399AA2 /* TipJarViewController.swift */,
+				16692AC821154EDA009C666C /* Order */,
 				16F5A1112107677A0059875B /* Legacy */,
 			);
 			name = Settings;
@@ -743,6 +758,15 @@
 				1664D56A1D5AC7E0000BAF56 /* PercentagePresentable.swift */,
 			);
 			name = Protocol;
+			sourceTree = "<group>";
+		};
+		16692AC821154EDA009C666C /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				16DA07931C8EBBC300C4174A /* LibraryOrderViewController.swift */,
+				1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderViewController.swift */,
+			);
+			name = Order;
 			sourceTree = "<group>";
 		};
 		167245B61B19C0370083035F = {
@@ -906,7 +930,7 @@
 				167246261B1B4F2C0083035F /* LibraryViewController.swift */,
 				162363501F9F181700CD78F2 /* LibraryHeaderView.swift */,
 				161F7E3720DC8650002957D7 /* LibraryFooterView.swift */,
-				16D1E8C51FA0CB2B006A5847 /* SectorCell.swift */,
+				162C2DA021175ECB00ADF32F /* Cell */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -955,6 +979,8 @@
 			children = (
 				168F6835210D6EAC000A08FA /* LibraryCellTypeViewController.swift */,
 				168F6838210D706A000A08FA /* LibraryCellType.swift */,
+				16692ACB21154FEC009C666C /* SectorCellTypeViewController.swift */,
+				16692AC921154F3C009C666C /* SectorCellType.swift */,
 			);
 			name = "Display Type";
 			sourceTree = "<group>";
@@ -1070,10 +1096,9 @@
 		16F5A1112107677A0059875B /* Legacy */ = {
 			isa = PBXGroup;
 			children = (
-				16DA07931C8EBBC300C4174A /* LibraryOrderViewController.swift */,
-				1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderViewController.swift */,
 				16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */,
 				162F12141D5F86B000A401D8 /* PhotographerCell.swift */,
+				168573A71F4FC81700399AA2 /* TipJarViewController.swift */,
 			);
 			name = Legacy;
 			sourceTree = "<group>";
@@ -1410,7 +1435,7 @@
 				};
 			};
 			buildConfigurationList = 167245BA1B19C0370083035F /* Build configuration list for PBXProject "kuStudy" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -1645,6 +1670,7 @@
 				"${BUILT_PRODUCTS_DIR}/FTLinearActivityIndicator/FTLinearActivityIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/LinearProgressView/LinearProgressView.framework",
 				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
+				"${BUILT_PRODUCTS_DIR}/TONavigationBar/TONavigationBar.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper-iOS/AlamofireObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper-iOS/ObjectMapper.framework",
@@ -1659,6 +1685,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FTLinearActivityIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinearProgressView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TONavigationBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -1858,15 +1885,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				168F6834210CB41E000A08FA /* VeryCompactLibraryCell.swift in Sources */,
-				160E1D2720DB7CB400E4AF7D /* Preference+CellType.swift in Sources */,
 				164190FF1F2F724D008682E5 /* Localizations.swift in Sources */,
 				168F6839210D706A000A08FA /* LibraryCellType.swift in Sources */,
 				1672461A1B1B13610083035F /* Definitions.swift in Sources */,
 				167E2D652108C73600C0E79C /* UIWindow.swift in Sources */,
 				167E2D692109822200C0E79C /* TitleValueStackView.swift in Sources */,
+				162C2DA221175F0B00ADF32F /* CompactSectorCell.swift in Sources */,
 				167E2D67210978AE00C0E79C /* CompactLibraryCell.swift in Sources */,
 				1625B4621F44386700744C01 /* NotificationCoordinator.swift in Sources */,
-				16D1E8C61FA0CB2B006A5847 /* SectorCell.swift in Sources */,
+				16D1E8C61FA0CB2B006A5847 /* ClassicSectorCell.swift in Sources */,
 				1661C3DF1F07E9C0005C889F /* UIDevice.swift in Sources */,
 				16F5A113210769D70059875B /* AppVersionFooterView.swift in Sources */,
 				1664D5541D55E1E2000BAF56 /* UIColor.swift in Sources */,
@@ -1886,14 +1913,17 @@
 				1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderViewController.swift in Sources */,
 				168573A81F4FC81700399AA2 /* TipJarViewController.swift in Sources */,
 				16F5A11021073C0B0059875B /* SettingsViewController.swift in Sources */,
+				16692ACC21154FEC009C666C /* SectorCellTypeViewController.swift in Sources */,
 				161A7E841FDEC87B00808780 /* TimeInterval.swift in Sources */,
 				166742FA1FBD5B300098C0BB /* SummaryHeaderView.swift in Sources */,
 				168F6836210D6EAC000A08FA /* LibraryCellTypeViewController.swift in Sources */,
 				160E1D2220DB7C2900E4AF7D /* Preference+MapType .swift in Sources */,
 				164579F01F9F7E3C00DD8F22 /* SeatsProgressView.swift in Sources */,
+				162C2DA421175F1800ADF32F /* VeryCompactSectorCell.swift in Sources */,
 				16ABBB7821083F780014141D /* SettingsMenu.swift in Sources */,
 				167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */,
 				16EFE0EC1F0243EB00FD476B /* Preference.swift in Sources */,
+				16692ACA21154F3C009C666C /* SectorCellType.swift in Sources */,
 				1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */,
 				16327D3D20DCBCA80047655D /* LinkButton.swift in Sources */,
 				160E1D2520DB7C5500E4AF7D /* Preference+Key.swift in Sources */,
@@ -2132,7 +2162,11 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				INFOPLIST_FILE = "kuStudy Snapshot/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.kuStudy-Snapshot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -2147,7 +2181,11 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				INFOPLIST_FILE = "kuStudy Snapshot/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.kuStudy-Snapshot";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -2164,7 +2202,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 37;
+				CURRENT_PROJECT_VERSION = 40;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(inherited)",
@@ -2174,7 +2212,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "kuStudy WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -2195,13 +2237,17 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 37;
+				CURRENT_PROJECT_VERSION = 40;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "kuStudy WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
@@ -2218,7 +2264,7 @@
 			baseConfigurationReference = EF7B64F53A0904D6C6A7FCFE /* Pods-kuStudy WatchKit App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 37;
+				CURRENT_PROJECT_VERSION = 40;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -2241,7 +2287,7 @@
 			baseConfigurationReference = 1B8A305A9EC4933DE4DE0309 /* Pods-kuStudy WatchKit App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 37;
+				CURRENT_PROJECT_VERSION = 40;
 				IBSC_MODULE = kuStudy_WatchKit_Extension;
 				INFOPLIST_FILE = "kuStudy WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy.watchkitapp;
@@ -2263,15 +2309,19 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 37;
+				CURRENT_PROJECT_VERSION = 40;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 37;
+				DYLIB_CURRENT_VERSION = 40;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = kuStudyWatchKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuStudyWatchKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -2292,14 +2342,18 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 37;
+				CURRENT_PROJECT_VERSION = 40;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 37;
+				DYLIB_CURRENT_VERSION = 40;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = kuStudyWatchKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuStudyWatchKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -2414,7 +2468,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -2427,14 +2482,17 @@
 				CODE_SIGN_ENTITLEMENTS = kuStudy/kuStudy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 37;
+				CURRENT_PROJECT_VERSION = 40;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = kuStudy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2453,14 +2511,17 @@
 				CODE_SIGN_ENTITLEMENTS = kuStudy/kuStudy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 37;
+				CURRENT_PROJECT_VERSION = 40;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = kuStudy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
@@ -2484,7 +2545,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = kuStudyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -2502,7 +2567,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = kuStudyTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -2518,10 +2587,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 37;
+				CURRENT_PROJECT_VERSION = 40;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 37;
+				DYLIB_CURRENT_VERSION = 40;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_ON_DEMAND_RESOURCES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2534,7 +2603,12 @@
 				);
 				INFOPLIST_FILE = kuStudyKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+					"$(CONFIGURATION_BUILD_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuApps.kuStudyKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2554,10 +2628,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 37;
+				CURRENT_PROJECT_VERSION = 40;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 37;
+				DYLIB_CURRENT_VERSION = 40;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_ON_DEMAND_RESOURCES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2566,7 +2640,12 @@
 				);
 				INFOPLIST_FILE = kuStudyKit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks $(CONFIGURATION_BUILD_DIR)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+					"$(CONFIGURATION_BUILD_DIR)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuApps.kuStudyKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2590,7 +2669,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = kuStudyKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -2607,7 +2690,11 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = kuStudyKitTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -2622,7 +2709,7 @@
 				CODE_SIGN_ENTITLEMENTS = "kuStudy Today Extension/kuStudy Today Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 37;
+				CURRENT_PROJECT_VERSION = 40;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(inherited)",
@@ -2633,7 +2720,11 @@
 				);
 				INFOPLIST_FILE = "kuStudy Today Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.kuapps.kuStudy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -2649,14 +2740,18 @@
 				CODE_SIGN_ENTITLEMENTS = "kuStudy Today Extension/kuStudy Today Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 37;
+				CURRENT_PROJECT_VERSION = 40;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "kuStudy Today Extension/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.kuapps.kuStudy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

@@ -9,7 +9,7 @@
 import UIKit
 import kuStudyKit
 
-class SectorCell: UITableViewCell {
+class ClassicSectorCell: UITableViewCell {
     private lazy var indicator = UIView()
     
     private lazy var stack = UIStackView()
@@ -46,11 +46,6 @@ class SectorCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         reset()
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        indicator.layer.cornerRadius = indicator.bounds.width / 2
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -109,6 +104,8 @@ class SectorCell: UITableViewCell {
     
     private func setupView() {
         indicator.accessibilityIgnoresInvertColors = true
+        indicator.layer.cornerRadius = 7
+        indicator.layer.masksToBounds = true
         
         stack.axis = .vertical
         stack.alignment = .fill
@@ -153,8 +150,8 @@ class SectorCell: UITableViewCell {
         [openInfoView, closeInfoView, disabledInfoView].forEach { infoStack.addArrangedSubview($0) }
         
         indicator.snp.makeConstraints { (make) in
-            make.width.equalTo(13)
-            make.height.equalTo(13)
+            make.width.equalTo(14)
+            make.height.equalTo(14)
             make.centerY.equalTo(dataStack.snp.centerY)
             make.leading.equalTo(contentView.readableContentGuide.snp.leading).inset(8)
         }
@@ -170,7 +167,7 @@ class SectorCell: UITableViewCell {
     }
 }
 
-extension SectorCell {
+extension ClassicSectorCell {
     private func setDataStackHorizontal() {
         dataStack.axis = .horizontal
         dataStack.alignment = .lastBaseline

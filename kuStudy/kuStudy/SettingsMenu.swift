@@ -14,6 +14,7 @@ enum SettingsMenu: Int {
     case appLibraryOrder = 100
     case widgetLibraryOrder = 101
     case libraryCellType = 201
+    case sectorCellType = 202
     case appStoreReview = 999
     case mediaProvider = 901
     case openSource = 900
@@ -27,7 +28,8 @@ enum SettingsMenu: Int {
         case .autoUpdateInterval: return Localizations.Label.Settings.UpdateInterval
         case .appLibraryOrder: return Localizations.Label.Settings.LibraryOrder
         case .widgetLibraryOrder: return Localizations.Label.Settings.TodayOrder
-        case .libraryCellType: return Localizations.Label.Settings.LibraryCellType
+        case .libraryCellType: return Localizations.Label.Settings.CellType
+        case .sectorCellType: return Localizations.Label.Settings.CellType
         case .appStoreReview: return Localizations.Label.Settings.AppStoreReview
         case .mediaProvider: return Localizations.Label.Settings.MediaProvider
         case .openSource: return Localizations.Label.Settings.OpenSource
@@ -35,18 +37,34 @@ enum SettingsMenu: Int {
         }
     }
     
-    static let sectionTitles: [String?] = [Localizations.Label.Settings.GeneralHeader, Localizations.Label.Settings.FeedbackHeader, Localizations.Label.Settings.AboutHeader]
-    static let sectionFooters: [String?] = [nil, Localizations.Label.Settings.ReviewFooter, nil]
+    static let sectionTitles: [String?] = [Localizations.Label.Settings.UpdateHeader,
+                                           Localizations.Label.Settings.LibraryHeader,
+                                           Localizations.Label.Settings.SectorHeader,
+                                           Localizations.Label.Settings.WidgetHeader,
+                                           Localizations.Label.Settings.FeedbackHeader,
+                                           Localizations.Label.Settings.AboutHeader]
+    static let sectionFooters: [String?] = [nil,
+                                            nil,
+                                            nil,
+                                            nil,
+                                            Localizations.Label.Settings.ReviewFooter,
+                                            nil]
     
     #if DEBUG
     static let layout: [[SettingsMenu]] = [
-        [.autoUpdate, .autoUpdateInterval, .appLibraryOrder, .widgetLibraryOrder, .libraryCellType],
+        [.autoUpdate, .autoUpdateInterval],
+        [.appLibraryOrder, .libraryCellType],
+        [.sectorCellType],
+        [.widgetLibraryOrder],
         [.appStoreReview],
         [.mediaProvider, .openSource, .donate]
     ]
     #else
     static let layout: [[SettingsMenu]] = [
-        [.autoUpdate, .autoUpdateInterval, .appLibraryOrder, .widgetLibraryOrder, .libraryCellType],
+        [.autoUpdate, .autoUpdateInterval],
+        [.appLibraryOrder, .libraryCellType],
+        [.sectorCellType],
+        [.widgetLibraryOrder],
         [.appStoreReview],
         [.mediaProvider, .openSource]]
     #endif

@@ -22,6 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Application
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setupApplication()
+        
+        let splitViewController = MainSplitViewController()
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = splitViewController
+        window?.makeKeyAndVisible()
+        
         return true
     }
     
@@ -123,9 +129,10 @@ extension AppDelegate {
     
     private func setupAppearance() {
         UINavigationBar.appearance().barStyle = .black
-        UINavigationBar.appearance().barTintColor = UIColor.theme
-        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().barTintColor = .theme
+        UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().tintColor = .white
+        UITabBar.appearance().tintColor = .theme
     }
 }

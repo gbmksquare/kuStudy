@@ -62,7 +62,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func presentUpdateInterval(cell: UITableViewCell, completion: (() -> Void)? = nil) {
-        let alert = UIAlertController(title: Localizations.Settings.Table.Cell.Title.UpdateInterval, message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: Localizations.Label.Settings.UpdateInterval, message: nil, preferredStyle: .actionSheet)
         var intervals: [Double] = [60, 180, 300, 600]
         #if DEBUG
         intervals.insert(1, at: 0)
@@ -104,6 +104,12 @@ class SettingsViewController: UIViewController {
         navigationController?.showDetailViewController(detailNavigation, sender: nil)
     }
     
+    private func presentSectorCellType() {
+        let viewController = SectorCellTypeViewController()
+        let detailNavigation = UINavigationController(rootViewController: viewController)
+        navigationController?.showDetailViewController(detailNavigation, sender: nil)
+    }
+    
     private func presentMediaProvider() {
         let mediaProviderViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ThanksToViewController")
         let detailNavigation = UINavigationController(rootViewController: mediaProviderViewController)
@@ -114,7 +120,7 @@ class SettingsViewController: UIViewController {
         let path = Bundle.main.path(forResource: "Pods-kuStudy-acknowledgements", ofType: "plist")
         let acknowledgementViewController = AcknowListViewController(acknowledgementsPlistPath: path)
         let detailNavigationController = UINavigationController(rootViewController: acknowledgementViewController)
-        acknowledgementViewController.title = Localizations.Settings.Table.Cell.Title.OpenSource
+        acknowledgementViewController.title = Localizations.Label.Settings.OpenSource
         navigationController?.showDetailViewController(detailNavigationController, sender: true)
     }
     
@@ -197,6 +203,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             presentWidgetLibraryOrder()
         case .libraryCellType:
             presentLibraryCellType()
+        case .sectorCellType:
+            presentSectorCellType()
         case .mediaProvider:
             presentMediaProvider()
         case .appStoreReview:
@@ -262,7 +270,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.tag = menuRow.tag
             cell.textLabel?.text = menuRow.title
             return cell
-        case .appLibraryOrder, .widgetLibraryOrder, .libraryCellType, .mediaProvider, .openSource, .donate:
+        case .appLibraryOrder, .widgetLibraryOrder, .libraryCellType, .sectorCellType, .mediaProvider, .openSource, .donate:
             var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "disclosureCell")
             if cell == nil {
                 cell = UITableViewCell(style: .default, reuseIdentifier: "disclosureCell")
