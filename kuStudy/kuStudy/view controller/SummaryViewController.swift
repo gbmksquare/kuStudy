@@ -353,15 +353,15 @@ extension SummaryViewController {
     }
     
     private func handleScrollOffset() {
-        let scrollView = tableView as UIScrollView
-        let offset = scrollView.contentOffset.y
-        let headerHeight = tableView.parallaxHeader.height
-        
-        if offset < 0 && offset > -44 {
-            scrollView.setContentOffset(CGPoint(x: 0, y: -headerHeight), animated: true)
-        } else {
-            
-        }
+//        let scrollView = tableView as UIScrollView
+//        let offset = scrollView.contentOffset.y
+//        let headerHeight = tableView.parallaxHeader.height
+//        
+//        if offset < 0 && offset > -44 {
+//            scrollView.setContentOffset(CGPoint(x: 0, y: -headerHeight), animated: true)
+//        } else {
+//            
+//        }
     }
 }
 
