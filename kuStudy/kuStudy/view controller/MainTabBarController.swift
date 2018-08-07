@@ -19,10 +19,14 @@ class MainTabBarController: UITabBarController {
     private func setup() {
 //        let library = UINavigationController(rootViewController: UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SummaryViewController"))
         let library = UINavigationController(rootViewController: SummaryViewController())
-        library.tabBarItem = UITabBarItem(title: Localizations.Title.Library, image: #imageLiteral(resourceName: "187-pencil"), tag: 1)
+        let libraryItem = UITabBarItem(title: Localizations.Title.Library, image: #imageLiteral(resourceName: "187-pencil"), tag: 1)
+        libraryItem.accessibilityIdentifier = "Tab 0"
+        library.tabBarItem = libraryItem
         
         let settings = UINavigationController(rootViewController: SettingsViewController())
-        settings.tabBarItem = UITabBarItem(title: Localizations.Title.Settings, image: #imageLiteral(resourceName: "glyphicons-138-cogwheels"), tag: 2)
+        let settingsItem = UITabBarItem(title: Localizations.Title.Settings, image: #imageLiteral(resourceName: "glyphicons-138-cogwheels"), tag: 2)
+        settingsItem.accessibilityIdentifier = "Tab 1"
+        settings.tabBarItem = settingsItem
         
         viewControllers = [library, settings]
     }

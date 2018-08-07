@@ -356,11 +356,11 @@ extension SummaryViewController {
 //        let scrollView = tableView as UIScrollView
 //        let offset = scrollView.contentOffset.y
 //        let headerHeight = tableView.parallaxHeader.height
-//        
+//
 //        if offset < 0 && offset > -44 {
 //            scrollView.setContentOffset(CGPoint(x: 0, y: -headerHeight), animated: true)
 //        } else {
-//            
+//
 //        }
     }
 }
@@ -410,17 +410,20 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
             let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! ClassicLibraryCell
             cell.accessoryType = .disclosureIndicator
             cell.libraryData = summary?.libraries[indexPath.row]
+            cell.accessibilityIdentifier = "Cell \(indexPath.row)"
             cell.layoutIfNeeded()
             return cell
         case .compact:
             let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! CompactLibraryCell
             cell.accessoryType = .disclosureIndicator
             cell.libraryData = summary?.libraries[indexPath.row]
+            cell.accessibilityIdentifier = "Cell \(indexPath.row)"
             return cell
         case .veryCompact:
             let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! VeryCompactLibraryCell
             cell.accessoryType = .disclosureIndicator
             cell.libraryData = summary?.libraries[indexPath.row]
+            cell.accessibilityIdentifier = "Cell \(indexPath.row)"
             return cell
         }
     }
