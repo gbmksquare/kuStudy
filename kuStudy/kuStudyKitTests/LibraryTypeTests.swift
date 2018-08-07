@@ -43,7 +43,7 @@ class LibraryTypeTests: XCTestCase {
             XCTAssert(library.nameInAlternateLanguage != "", "Library name can't be empty.")
             XCTAssert(library.name != library.nameInAlternateLanguage, "Library name shouldn't be same in different languages.")
             XCTAssert(library.shortName != "", "Library name can't be empty.")
-            XCTAssert(library.shortName.count <= 2, "Librarry short name can't be too long.")
+            XCTAssert(library.shortName.count <= 4, "Library short name can't be too long.")
         }
     }
     
