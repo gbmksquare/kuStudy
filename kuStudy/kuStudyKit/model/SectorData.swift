@@ -10,7 +10,7 @@ import Foundation
 import ObjectMapper
 
 public class SectorData: Mappable {
-    public var identifier: String?
+    public var identifier: Int?
     public var name: String?
     public var total: Int?
     public var occupied: Int?

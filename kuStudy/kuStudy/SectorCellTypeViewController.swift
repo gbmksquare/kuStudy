@@ -104,7 +104,7 @@ extension SectorCellTypeViewController: UITableViewDelegate, UITableViewDataSour
     }
 }
 
-let sampleSectorJsonString = """
+private let sampleSectorJsonString = """
 {
 "code": 6,
 "name": "유선노트북열람실",

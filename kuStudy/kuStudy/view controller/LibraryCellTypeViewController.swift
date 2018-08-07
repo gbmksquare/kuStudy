@@ -104,7 +104,7 @@ extension LibraryCellTypeViewController: UITableViewDelegate, UITableViewDataSou
     }
 }
 
-let sampleLibraryJsonString = """
+private let sampleLibraryJsonString = """
 {
 "code": 1,
 "status": 200,
