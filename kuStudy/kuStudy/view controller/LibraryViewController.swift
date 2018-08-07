@@ -16,20 +16,15 @@ import StoreKit
 import DeviceKit
 
 class LibraryViewController: UIViewController {
-    private lazy var gradient = CAGradientLayer()
-    private lazy var tableView = UITableView()
-    
+    private lazy var headerContentView = LibraryHeaderView()
     private var heroImageView: UIImageView!
     private var heroImageViewHeight: CGFloat?
-//    private var refreshView = RefreshEffectView()
-//    private var canTriggerRefresh = true
-    
-    private lazy var headerContentView = LibraryHeaderView()
+    private lazy var gradient = CAGradientLayer()
+    private lazy var tableView = UITableView()
     private lazy var footerContentView = LibraryFooterView()
     
     var library: LibraryType = LibraryType.centralSquare
     private var libraryData: LibraryData?
-    
     private var dataState: DataSourceState = .fetching
     private var error: Error?
     
@@ -64,11 +59,6 @@ class LibraryViewController: UIViewController {
         #endif
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        endHandoff()
-    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         resizeHeader()
@@ -77,142 +67,13 @@ class LibraryViewController: UIViewController {
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        setImageHeaderHeight()
+        updateImageHeaderHeight()
         tableView.reloadData()
     }
-}
-
-// MARK: - Setup
-extension LibraryViewController {
-    private func setup() {
-        setupNavigation()
-        setupImageHeader()
-        setupView()
-        setupGradient()
-        setupTableView()
-        setupNotification()
-        setupContent()
-    }
     
-    private func setupNavigation() {
-        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-        navigationItem.leftItemsSupplementBackButton = true
-    }
-    
-    private func enableEdgeBackGesture() {
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
-    }
-    
-    private func setupView() {
-        headerContentView.remindButton.addTarget(self, action: #selector(tapped(remind:)), for: .touchUpInside)
-//        headerContentView.mapButton.addTarget(self, action: #selector(tapped(map:)), for: .touchUpInside)
-        headerContentView.actionButton.addTarget(self, action: #selector(tapped(action:)), for: .touchUpInside)
-    }
-    
-    private func setupImageHeader() {
-        tableView.tableHeaderView = headerContentView
-        
-        let imageView = UIImageView()
-        imageView.backgroundColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
-        imageView.contentMode = .scaleAspectFill
-        tableView.parallaxHeader.view = imageView
-        tableView.parallaxHeader.height = 200
-        tableView.parallaxHeader.mode = .fill
-        heroImageView = imageView
-        
-//        imageView.addSubview(refreshView)
-//        refreshView.snp.makeConstraints { (make) in
-//            make.edges.equalToSuperview()
-//        }
-        
-        setImageHeaderHeight()
-        
-        imageView.accessibilityIgnoresInvertColors = true
-    }
-    
-    private func setImageHeaderHeight() {
-        let height: CGFloat
-        if traitCollection.verticalSizeClass == .compact {
-            height = 120
-        } else if traitCollection.userInterfaceIdiom == .phone {
-            height = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) == true ? 180 : 160
-        } else {
-            height = 160
-        }
-        tableView.parallaxHeader.height = height
-        heroImageViewHeight = height
-    }
-    
-    private func setupGradient() {
-        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + 8)
-        let color = UIColor.black
-        gradient.colors = [color.withAlphaComponent(0.6).cgColor,
-                           color.withAlphaComponent(0.3).cgColor,
-                           color.withAlphaComponent(0.1).cgColor,
-                           color.withAlphaComponent(0).cgColor]
-        gradient.frame = CGRect(origin: .zero, size: size)
-        heroImageView.layer.addSublayer(gradient)
-    }
-    
-    private func setupTableView() {
-//        tableView.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.937254902, blue: 0.9333333333, alpha: 1)
-        SectorCellType.allTypes.forEach {
-            tableView.register($0.cellClass, forCellReuseIdentifier: $0.preferredReuseIdentifier)
-        }
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = UITableViewAutomaticDimension
-        footerContentView.library = library
-//        tableView.tableFooterView = footerContentView
-        tableView.tableFooterView = UIView()
-        tableView.showsVerticalScrollIndicator = false
-        tableView.delegate = self
-        tableView.dataSource = self
-        view.addSubview(tableView)
-        tableView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
-    }
-    
-    private func setupNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(handleShouldUpdateImage(_:)), name: MediaManager.shouldUpdateImageNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleDataUpdated(_:)), name: kuStudy.didUpdateDataNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsDidChange(_: )), name: UserDefaults.didChangeNotification, object: nil)
-    }
-    
-    private func setupContent() {
-        title = library.name
-        headerContentView.library = library
-        
-        // Image
-        heroImageView.image = MediaManager.shared.media(for: library)?.image
-    }
-}
-
-// MARK: - Notification
-extension LibraryViewController {
-    @objc private func handleShouldUpdateImage(_ notification: Notification) {
-        UIView.transition(with: heroImageView,
-                          duration: 0.75,
-                          options: .transitionCrossDissolve,
-                          animations: { [weak self] in
-                            guard let library = self?.library else { return }
-                            self?.heroImageView.image = MediaManager.shared.media(for: library)?.image
-            }, completion: nil)
-    }
-    
-    @objc private func handleDataUpdated(_ notification: Notification) {
-        if let summary = kuStudy.summaryData {
-            if summary.libraries.count > 0 {
-                libraryData = kuStudy.libraryData(for: library)
-                updateView()
-                return
-            }
-        }
-//        refreshView.endRefreshing()
-        // Error
-        dataState = .error
-        error = kuStudy.errors?.first
-        updateView()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        endHandoff()
     }
 }
 
@@ -235,14 +96,6 @@ extension LibraryViewController {
         headerContentView.libraryData = libraryData
         tableView.reloadData()
     }
-    
-//    private func triggerRefresh() {
-//        guard canTriggerRefresh == true else {
-//            refreshView.endRefreshing()
-//            return
-//        }
-//        kuStudy.requestUpdateData()
-//    }
     
     @objc private func tapped(remind button: UIButton? = nil) {
         UNUserNotificationCenter.current().getNotificationSettings { [weak self] (settings) in
@@ -274,10 +127,10 @@ extension LibraryViewController {
         alert.popoverPresentationController?.sourceRect = headerContentView.remindButton.bounds
         alert.popoverPresentationController?.permittedArrowDirections = .any
         #if DEBUG
-            let debugOption = UIAlertAction(title: RemindInterval.now.name, style: .default) { (_) in
-                NotificationCoordinator.shared.remind(library: library, fromNow: .now)
-            }
-            alert.addAction(debugOption)
+        let debugOption = UIAlertAction(title: RemindInterval.now.name, style: .default) { (_) in
+            NotificationCoordinator.shared.remind(library: library, fromNow: .now)
+        }
+        alert.addAction(debugOption)
         #endif
         let option1 = UIAlertAction(title: RemindInterval.hour2.name, style: .default) { (_) in
             NotificationCoordinator.shared.remind(library: library, fromNow: .hour2)
@@ -310,6 +163,101 @@ extension LibraryViewController {
         alert.addAction(openSettings)
         present(alert, animated: true, completion: nil)
     }
+    
+    private func enableEdgeBackGesture() {
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
+    }
+}
+
+// MARK: - UI
+extension LibraryViewController {
+    private func resizeHeader() {
+        if let header = tableView.tableHeaderView {
+            let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+            var frame = header.frame
+            if frame.height != height {
+                frame.size.height = height
+                header.frame = frame
+                tableView.tableHeaderView = header
+            }
+        }
+    }
+    
+    private func resizeFooter() {
+        if let footer = tableView.tableFooterView {
+            let height = footer.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+            var frame = footer.frame
+            if frame.height != height {
+                frame.size.height = height
+                footer.frame = frame
+                tableView.tableFooterView = footer
+            }
+        }
+    }
+    
+    private func resizeGradient() {
+        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + 8)
+        gradient.frame = CGRect(origin: .zero, size: size)
+    }
+    
+    private func handleNavigationBar() {
+        let scrollView = tableView as UIScrollView
+        let offset = scrollView.contentOffset.y
+        
+        // Navigation bar
+        if offset >= 0 {
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        } else {
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        }
+    }
+    
+    private func handleScrollOffset() {
+        let scrollView = tableView as UIScrollView
+        let offset = scrollView.contentOffset.y
+        let headerHeight = tableView.parallaxHeader.height
+        
+        if offset < 0 && offset > -44 {
+            scrollView.setContentOffset(CGPoint(x: 0, y: -headerHeight), animated: true)
+        } else {
+            
+        }
+    }
+}
+
+// MARK: - Notification
+extension LibraryViewController {
+    @objc private func handleShouldUpdateImage(_ notification: Notification) {
+        UIView.transition(with: heroImageView,
+                          duration: 0.75,
+                          options: .transitionCrossDissolve,
+                          animations: { [weak self] in
+                            guard let library = self?.library else { return }
+                            self?.heroImageView.image = MediaManager.shared.media(for: library)?.image
+            }, completion: nil)
+    }
+    
+    @objc private func handleDataUpdated(_ notification: Notification) {
+        if let summary = kuStudy.summaryData {
+            if summary.libraries.count > 0 {
+                libraryData = kuStudy.libraryData(for: library)
+                updateView()
+                return
+            }
+        }
+        //        refreshView.endRefreshing()
+        // Error
+        dataState = .error
+        error = kuStudy.errors?.first
+        updateView()
+    }
+}
+
+// MARK: - Gesture
+extension LibraryViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
 }
 
 // MARK: - Handoff
@@ -324,6 +272,85 @@ extension LibraryViewController {
     
     private func endHandoff() {
         userActivity?.invalidate()
+    }
+}
+
+// MARK: - Setup
+extension LibraryViewController {
+    private func setup() {
+        title = library.name
+        headerContentView.library = library
+        
+        // Notification
+        NotificationCenter.default.addObserver(self, selector: #selector(handleShouldUpdateImage(_:)), name: MediaManager.shouldUpdateImageNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleDataUpdated(_:)), name: kuStudy.didUpdateDataNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUserDefaultsDidChange(_: )), name: UserDefaults.didChangeNotification, object: nil)
+        
+        // Mavigation
+        navigationItem.leftItemsSupplementBackButton = true
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        
+        // Table header
+        tableView.tableHeaderView = headerContentView
+        
+        let imageView = UIImageView()
+        imageView.backgroundColor = #colorLiteral(red: 0.8666666667, green: 0.8666666667, blue: 0.8666666667, alpha: 1)
+        imageView.contentMode = .scaleAspectFill
+        imageView.accessibilityIgnoresInvertColors = true
+        tableView.parallaxHeader.view = imageView
+        tableView.parallaxHeader.height = 200
+        tableView.parallaxHeader.mode = .fill
+        heroImageView = imageView
+        updateImageHeaderHeight()
+        
+        // Table
+        SectorCellType.allTypes.forEach {
+            tableView.register($0.cellClass, forCellReuseIdentifier: $0.preferredReuseIdentifier)
+        }
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        footerContentView.library = library
+//        tableView.tableFooterView = footerContentView
+        tableView.tableFooterView = UIView()
+        tableView.showsVerticalScrollIndicator = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
+        // Header image
+        let heroImage = MediaManager.shared.media(for: library)?.image
+        assert(heroImage != nil, "Hero image should not be nil.")
+        heroImageView.image = heroImage
+        
+        // Graident
+        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + 8)
+        let color = UIColor.black
+        gradient.colors = [color.withAlphaComponent(0.6).cgColor,
+                           color.withAlphaComponent(0.3).cgColor,
+                           color.withAlphaComponent(0.1).cgColor,
+                           color.withAlphaComponent(0).cgColor]
+        gradient.frame = CGRect(origin: .zero, size: size)
+        heroImageView.layer.addSublayer(gradient)
+        
+        // Action buttons
+        headerContentView.remindButton.addTarget(self, action: #selector(tapped(remind:)), for: .touchUpInside)
+        headerContentView.actionButton.addTarget(self, action: #selector(tapped(action:)), for: .touchUpInside)
+    }
+    
+    private func updateImageHeaderHeight() {
+        let height: CGFloat
+        if traitCollection.verticalSizeClass == .compact {
+            height = 120
+        } else if traitCollection.userInterfaceIdiom == .phone {
+            height = Device().isOneOf([.iPhoneX, .simulator(.iPhoneX)]) == true ? 180 : 160
+        } else {
+            height = 160
+        }
+        tableView.parallaxHeader.height = height
+        heroImageViewHeight = height
     }
 }
 
@@ -374,70 +401,6 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     }
 }
 
-// MARK: - UI
-extension LibraryViewController {
-    private func resizeHeader() {
-        if let header = tableView.tableHeaderView {
-            let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
-            var frame = header.frame
-            if frame.height != height {
-                frame.size.height = height
-                header.frame = frame
-                tableView.tableHeaderView = header
-            }
-        }
-    }
-    
-    private func resizeFooter() {
-        if let footer = tableView.tableFooterView {
-            let height = footer.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
-            var frame = footer.frame
-            if frame.height != height {
-                frame.size.height = height
-                footer.frame = frame
-                tableView.tableFooterView = footer
-            }
-        }
-    }
-    
-    private func resizeGradient() {
-        let size = CGSize(width: view.bounds.width, height: UIApplication.shared.statusBarFrame.height + 8)
-        gradient.frame = CGRect(origin: .zero, size: size)
-    }
-    
-    private func handleNavigationBar() {
-        let scrollView = tableView as UIScrollView
-        let offset = scrollView.contentOffset.y
-        
-        // Navigation bar
-        if offset >= 0 {
-            navigationController?.setNavigationBarHidden(false, animated: true)
-        } else {
-            navigationController?.setNavigationBarHidden(true, animated: true)
-        }
-        
-        // Refresh
-//        guard let heroImageViewHeight = heroImageViewHeight else { return }
-//        if offset <= -(heroImageViewHeight * 1.5) {
-//            refreshView.startRefreshing()
-//            triggerRefresh()
-//            canTriggerRefresh = false
-//        }
-    }
-    
-    private func handleScrollOffset() {
-        let scrollView = tableView as UIScrollView
-        let offset = scrollView.contentOffset.y
-        let headerHeight = tableView.parallaxHeader.height
-        
-        if offset < 0 && offset > -44 {
-            scrollView.setContentOffset(CGPoint(x: 0, y: -headerHeight), animated: true)
-        } else {
-            
-        }
-    }
-}
-
 // MARK: - Scroll view
 extension LibraryViewController {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -446,17 +409,9 @@ extension LibraryViewController {
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         handleScrollOffset()
-//        canTriggerRefresh = true
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         handleScrollOffset()
-    }
-}
-
-// MARK: - Gesture
-extension LibraryViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
     }
 }

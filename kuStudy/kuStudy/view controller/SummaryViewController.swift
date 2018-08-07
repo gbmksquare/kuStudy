@@ -127,11 +127,13 @@ extension SummaryViewController {
     
     // MARK: Notification
     @objc private func handleShouldUpdateImage(_ notification: Notification) {
+        let heroImage = MediaManager.shared.mediaForMain()?.image
+        assert(heroImage != nil, "Hero image should not be nil.")
         UIView.transition(with: heroImageView,
                           duration: 0.75,
                           options: .transitionCrossDissolve,
                           animations: { [weak self] in
-                            self?.heroImageView.image = MediaManager.shared.mediaForMain()?.image
+                            self?.heroImageView.image = heroImage
             }, completion: nil)
     }
     
@@ -322,7 +324,9 @@ extension SummaryViewController {
     }
     
     private func updateHeaderImage() {
-        heroImageView.image = MediaManager.shared.mediaForMain()?.image
+        let heroImage = MediaManager.shared.mediaForMain()?.image
+        assert(heroImage != nil, "Hero image should not be nil.")
+        heroImageView.image = heroImage
     }
     
     private func reorderLibraryData() {
