@@ -48,85 +48,36 @@ class kuStudy_Snapshot: XCTestCase {
     func testSnapshot() {
         let app = XCUIApplication()
         let tables = app.tables
-        let tabBars = app.tabBars
-        let backButton = tabBars.buttons["Tab 0"]
+        let tabBar = app.tabBars.firstMatch
+        let backButton = tabBar.buttons["Tab 0"]
+        let deviceInterfaceIdiom = UIDevice.current.userInterfaceIdiom
         
         snapshot("0")
         
-        let cellIds = (0...4).map { "Cell \($0)" }
+        let cellIds = (0...4).map { "Summary Cell \($0)" }
         let names = ["1", "2", "3", "4", "5"]
         
         for (index, cellId) in cellIds.enumerated() {
             // iPad doesn't require this screenshot because it's the same as 0.png
-            if index == 0, UIDevice.current.userInterfaceIdiom == .pad { continue }
+            if index == 0, deviceInterfaceIdiom == .pad { continue }
                 
             let cell = tables.cells[cellId]
             if cell.isHittable {
                 cell.tap()
                 snapshot(names[index])
-                backButton.tap()
+                if deviceInterfaceIdiom == .phone {
+                 backButton.tap()
+                }
             } else {
                 // Drag to cell
-//                let topCoordinate = app.statusBars.firstMatch.coordinate(withNormalizedOffset: .zero)
-//                let cellCoordinate = cell.coordinate(withNormalizedOffset: .zero)
-//                cellCoordinate.press(forDuration: 0.05, thenDragTo: topCoordinate)
-//                
-//                cell.tap()
-//                snapshot(names[index])
-//                backButton.tap()
-            }
-        }
-        
-        // iPad doesn't require this screenshot because it's the same as 0_main
-//        if UIDevice.current.userInterfaceIdiom == .pad {
-//            tables.cells["Cell 0"].tap()
-//            snapshot("1_First")
-//            tabBars.buttons["Tab 0"].tap()
-//        }
-//
-//        tables.cells["Cell 1"].tap()
-//        snapshot("2_Second")
-//        backButton.tap()
-//
-//        tables.cells["Cell 2"].tap()
-//        snapshot("3_Third")
-//        backButton.tap()
-//
-//        tables.cells["Cell 3"].tap()
-//        snapshot("4_Fourth")
-//        tabBars.buttons["Tab 0"].tap()
-//
-//        tables.cells["Cell 4"].tap()
-//        snapshot("5_Fifth")
-//        tabBars.buttons["Tab 0"].tap()
-        
+                tables.firstMatch.scrollTo(element: cell)
 
-//        // iPad doesn't require this screenshot because it's the same as 0_main
-//        if UIDevice.current.userInterfaceIdiom != .pad {
-//            tables.cells.element(boundBy: 1).tap()
-//            snapshot("1_First")
-//            tapBackButton()
-//        }
-//
-//        tables.cells.element(boundBy: 2).tap()
-//        snapshot("2_Second")
-//        tapBackButton()
-//
-//        tables.cells.element(boundBy: 4).tap()
-//        snapshot("3_Third")
-    }
-    
-    // MARK: Helper
-    private func tapBackButton() {
-        if UIDevice.current.userInterfaceIdiom != .pad {
-//            let button = XCUIApplication().navigationBars["kuStudy.LibraryView"].buttons[" "]
-//            button.tap()
-            
-            // Swipe back gesture
-            let app = XCUIApplication()
-            let coord1 = app.coordinate(withNormalizedOffset: CGVector(dx: 0.01, dy: 0.15))
-            let coord2 = coord1.withOffset(CGVector(dx: 300, dy: 0))
-            coord1.press(forDuration: 0.05, thenDragTo: coord2)
+                cell.tap()
+                snapshot(names[index])
+                if deviceInterfaceIdiom == .phone {
+                    backButton.tap()
+                }
+            }
         }
     }
 }

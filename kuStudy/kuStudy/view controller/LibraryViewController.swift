@@ -373,20 +373,20 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
             let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! ClassicSectorCell
             cell.selectionStyle = .none
             cell.sectorData = data
-            cell.accessibilityIdentifier = "Cell \(indexPath.row)"
+            cell.accessibilityIdentifier = "Library Cell \(indexPath.row)"
             cell.layoutIfNeeded()
             return cell
         case .compact:
             let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! CompactSectorCell
             cell.selectionStyle = .none
             cell.sectorData = data
-            cell.accessibilityIdentifier = "Cell \(indexPath.row)"
+            cell.accessibilityIdentifier = "Library Cell \(indexPath.row)"
             return cell
         case .veryCompact:
             let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! VeryCompactSectorCell
             cell.selectionStyle = .none
             cell.sectorData = data
-            cell.accessibilityIdentifier = "Cell \(indexPath.row)"
+            cell.accessibilityIdentifier = "Library Cell \(indexPath.row)"
             return cell
         }
     }

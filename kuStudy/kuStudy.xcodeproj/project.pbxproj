@@ -142,6 +142,7 @@
 		16DA07941C8EBBC300C4174A /* LibraryOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DA07931C8EBBC300C4174A /* LibraryOrderViewController.swift */; };
 		16DD052E1E46DBB4007AB912 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DD052D1E46DBB4007AB912 /* UIColor.swift */; };
 		16DD05311E46E10B007AB912 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16DD05331E46E10B007AB912 /* InfoPlist.strings */; };
+		16DE4FA3211A6F3A00CFEAE8 /* XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DE4FA2211A6F3A00CFEAE8 /* XCUIElement.swift */; };
 		16DFF8501F34423300B6A4FB /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DFF84F1F34423300B6A4FB /* StatusView.swift */; };
 		16DFF8521F34476100B6A4FB /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DFF8511F34476100B6A4FB /* LibraryCell.swift */; };
 		16EE9F691F00F2EA006B75BB /* ThanksToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */; };
@@ -416,6 +417,7 @@
 		16DD052D1E46DBB4007AB912 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		16DD05321E46E10B007AB912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		16DD05341E46E10D007AB912 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		16DE4FA2211A6F3A00CFEAE8 /* XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElement.swift; sourceTree = "<group>"; };
 		16DFF84F1F34423300B6A4FB /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		16DFF8511F34476100B6A4FB /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
 		16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThanksToViewController.swift; path = "view controller/ThanksToViewController.swift"; sourceTree = "<group>"; };
@@ -545,6 +547,7 @@
 			children = (
 				160505ED1D6EDC1D0033B123 /* kuStudy_Snapshot.swift */,
 				160505F51D6EDC450033B123 /* SnapshotHelper.swift */,
+				16DE4FA4211A6F5C00CFEAE8 /* Extension */,
 				160505EF1D6EDC1D0033B123 /* Info.plist */,
 			);
 			path = "kuStudy Snapshot";
@@ -1091,6 +1094,14 @@
 				16DD052D1E46DBB4007AB912 /* UIColor.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		16DE4FA4211A6F5C00CFEAE8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				16DE4FA2211A6F3A00CFEAE8 /* XCUIElement.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		16EFE0EA1F02439100FD476B /* Controller */ = {
@@ -1842,6 +1853,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				160505EE1D6EDC1D0033B123 /* kuStudy_Snapshot.swift in Sources */,
+				16DE4FA3211A6F3A00CFEAE8 /* XCUIElement.swift in Sources */,
 				160505F71D6EDC8B0033B123 /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
