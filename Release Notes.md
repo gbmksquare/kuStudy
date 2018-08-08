@@ -1,5 +1,58 @@
 # Release Notes 
 
+## 3.3.0 (40)
+
+### New features
+
+* Summary header view renewed with better UI.
+* New Classic, Compact, and Very Compact library and sector cell types. Choose between layouts you prefer.
+* 5 new photos for Centeral Square
+
+### Improvements
+
+* Redesigned settings page.
+* Tab bar no longer hides when detail view is presented.
+* Selected cells now have a custom tint color.
+* Enhanced support for Dynamic Type accessibility.
+* Enhanced support for VoiceOver accessibility.
+* Enhanced support for Smart Invert accessibility.
+* Internal code improvements and performance enhancement.
+* Updated third party libraries.
+
+### Fixed bugs
+
+* Fixed a typo where "Cenntenial Digial Library" is misspelled in Korean.
+* Fixed Today Widget not respsecting order set in settings.
+* Fixed old data is not removed when fetching new data. App will now use significantly less memory.
+
+### Removed features
+
+* Removed "Recommend to a friend" from settings.
+* Removed "Feedback" from settings.
+* "Rate on App Store" is now "Write a Review".
+
+### Code improvements
+
+* Updated Xcode project compatibility.
+* Reduced the use of Storyboard.
+* Added an unfinished library footer view in code.
+* Implemented an unused "Open in Safari" code.
+
+* Lots of refactoring and reorganizing.
+* `fastlane localize` now doesn't update Framework localizations. Use `fastlane localize_all` to update all `.strings` resources.
+* Added `kuStudyKit` unit tests.
+* Refactored Snapshot UI testing code.
+* Updated Snapfile.
+
+
+
+## 3.2.2 (36)
+
+### Improvements
+
+* Improved readability of some UI elements.
+* Updated third party libraries.
+
 
 
 ## 3.2.1 (35)
@@ -16,6 +69,8 @@
 
 * Set background color on acknowledgement view.
 * Fixed acknowledgement view not going under tab bar.
+
+
 
 ## 3.2.0 (33)
 

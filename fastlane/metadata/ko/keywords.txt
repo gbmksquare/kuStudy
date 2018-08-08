@@ -1,1 +1,1 @@
-kuApps, kuStudy, Koryo, Korea University, Korea Univ, KU, 고려, 고대, 고려대, 고려대학교, 고려대학교 열람실, 열람실
+kuStudy,Koryo,Korea University,Korea Univ,KU,고려,고대,고려대,고려대학교,고려대학교 열람실,열람실,Korea,University,대학,대학교
