@@ -3,9 +3,9 @@ scheme "kuStudy Snapshot"
 
 output_directory "./fastlane/screenshots"
 clear_previous_screenshots true
-# erase_simulator true
+erase_simulator true
 localize_simulator true
-# clean true
+clean true
 reinstall_app true
 
 languages([
