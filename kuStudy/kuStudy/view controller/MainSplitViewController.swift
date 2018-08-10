@@ -22,9 +22,6 @@ class MainSplitViewController: UISplitViewController {
     private func setup() {
         delegate = self
         preferredDisplayMode = .allVisible
-        preferredPrimaryColumnWidthFraction = 0.4
-        minimumPrimaryColumnWidth = 320
-        maximumPrimaryColumnWidth = view.bounds.width * 0.4
         
         let tab = MainTabBarController()
         let library = LibraryViewController()
