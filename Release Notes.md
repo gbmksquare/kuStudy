@@ -1,5 +1,15 @@
 # Release Notes 
 
+## 3.3.1 (41)
+
+### Fixed bugs
+
+* Fixed today widget not working until app is launched at least one time.
+* Fixed today widget crashing if library is hidden.
+* Fixed today widget compact / expanded mode behavior.
+
+* Fixed split view width inconsistent across orientation and devices.
+
 ## 3.3.0 (40)
 
 ### New features

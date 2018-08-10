@@ -1,21 +1,9 @@
-New Features
-• Renewed summary view with cleaner layout.
-• Added new cell layouts. Select a layout you prefer - Classic, Compact, Very Compact.
-• Added 5 new photographs.
-
-Improvements
-• Redesigned settings page.
-• Tab bar no longer disappears when detail view is shown.
-• Enhanced support for Dynamic Type accessibility.
-• Enhanced support for VoiceOver accessibility.
-• Enhanced support for Smart Invert accessibility.
-• Lots of internal code improvements and performance enhancement.
-• Updated third party libraries.
-
 Bug Fixes
-• Fixed a typo.
-• Fixed Today Widget not following order set in settings.
-• Fixed old data is kept in memory after new data is fetched.
+• Fixed today widget not working until app is launched at least one time.
+• Fixed today widget crashing if library is hidden.
+• Fixed today widget Show More / Show Less behavior.
+• Fixed split view width inconsistent in different orientations.
+• Fixed split view width too small on Plus sized devices.
 
 
 Happy studying! :)
