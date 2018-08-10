@@ -36,7 +36,7 @@ class TodayViewController: UIViewController {
     
     // MARK: - Setup
     private func setup() {
-        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+//        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         showStatus()
         
         view.backgroundColor = .clear
@@ -112,6 +112,7 @@ extension TodayViewController {
     }
     
     private func showInformation() {
+        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
 //        [summaryView, collectionView].forEach { view.addSubview($0) }
         [collectionView].forEach { view.addSubview($0) }
 //        summaryView.snp.makeConstraints { (make) in
@@ -130,6 +131,7 @@ extension TodayViewController {
     }
     
     private func hideInformation() {
+        extensionContext?.widgetLargestAvailableDisplayMode = .compact
         summaryView.removeFromSuperview()
         collectionView.removeFromSuperview()
     }
@@ -163,7 +165,9 @@ extension TodayViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return summary?.libraries.count ?? 0
+        let count = summary?.libraries.count ?? 0
+        extensionContext?.widgetLargestAvailableDisplayMode = count <= Int(numberOfCellPerLine) ? .compact : .expanded
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
