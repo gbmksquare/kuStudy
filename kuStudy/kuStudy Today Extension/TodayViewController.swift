@@ -165,7 +165,7 @@ extension TodayViewController: UICollectionViewDelegateFlowLayout, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let count = summary?.libraries.count ?? 0
+        let count = orderedLibraryIds?.count ?? 0
         extensionContext?.widgetLargestAvailableDisplayMode = count <= Int(numberOfCellPerLine) ? .compact : .expanded
         return count
     }
@@ -189,7 +189,7 @@ extension TodayViewController: NCWidgetProviding {
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
-        if case .expanded = activeDisplayMode, let count = summary?.libraries.count {
+        if case .expanded = activeDisplayMode, let count = orderedLibraryIds?.count {
             let lines = ceil(CGFloat(count) / numberOfCellPerLine)
             let height = extensionContext!.widgetMaximumSize(for: .compact).height * lines + lineSpacing * (lines - 1)
             preferredContentSize = CGSize(width: maxSize.width, height: height)
