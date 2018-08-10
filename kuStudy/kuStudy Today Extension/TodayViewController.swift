@@ -39,15 +39,19 @@ class TodayViewController: UIViewController {
         extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         showStatus()
         
-        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
-        orderedLibraryIds = defaults.array(forKey: "todayExtensionOrder") as? [String]
-        
         view.backgroundColor = .clear
         
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         collectionView.register(LibraryCell.self, forCellWithReuseIdentifier: "cell")
+        
+        // Preference
+        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
+        defaults.register(defaults: ["todayExtensionOrder": LibraryType.allTypes().map({ $0.rawValue }),
+                                     "todayExtensionHidden": []])
+        defaults.synchronize()
+        orderedLibraryIds = defaults.array(forKey: "todayExtensionOrder") as? [String]
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleDataUpdated(_:)), name: kuStudy.didUpdateDataNotification, object: nil)
     }
