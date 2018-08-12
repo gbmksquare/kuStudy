@@ -99,6 +99,7 @@
 		167E2D692109822200C0E79C /* TitleValueStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167E2D682109822200C0E79C /* TitleValueStackView.swift */; };
 		1683E73420C03F7B00721F2E /* SummaryHeaderItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1683E73320C03F7B00721F2E /* SummaryHeaderItemCell.swift */; };
 		168573A81F4FC81700399AA2 /* TipJarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168573A71F4FC81700399AA2 /* TipJarViewController.swift */; };
+		1685B13821201095002510B9 /* DataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685B13721201095002510B9 /* DataManagerTests.swift */; };
 		1685E0511F91E45700F80699 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685E0501F91E45700F80699 /* MediaManager.swift */; };
 		1685E0521F91E45700F80699 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685E0501F91E45700F80699 /* MediaManager.swift */; };
 		1685E0541F91E47100F80699 /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685E0531F91E47100F80699 /* Artist.swift */; };
@@ -380,6 +381,7 @@
 		167E2D682109822200C0E79C /* TitleValueStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TitleValueStackView.swift; path = view/TitleValueStackView.swift; sourceTree = "<group>"; };
 		1683E73320C03F7B00721F2E /* SummaryHeaderItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SummaryHeaderItemCell.swift; path = view/SummaryHeaderItemCell.swift; sourceTree = "<group>"; };
 		168573A71F4FC81700399AA2 /* TipJarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TipJarViewController.swift; path = "view controller/TipJarViewController.swift"; sourceTree = "<group>"; };
+		1685B13721201095002510B9 /* DataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManagerTests.swift; sourceTree = "<group>"; };
 		1685E0501F91E45700F80699 /* MediaManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MediaManager.swift; path = controller/MediaManager.swift; sourceTree = "<group>"; };
 		1685E0531F91E47100F80699 /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Artist.swift; path = model/Artist.swift; sourceTree = "<group>"; };
 		1685E0561F91E8EB00F80699 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Media.swift; path = model/Media.swift; sourceTree = "<group>"; };
@@ -893,6 +895,7 @@
 				168654DE21197AEF0080F20D /* LibraryTypeTests.swift */,
 				168654E0211985DE0080F20D /* LibraryDataTests.swift */,
 				168654E2211985EB0080F20D /* SectorDataTests.swift */,
+				1685B13721201095002510B9 /* DataManagerTests.swift */,
 				167245FD1B19C42B0083035F /* Supporting Files */,
 			);
 			path = kuStudyKitTests;
@@ -1994,6 +1997,7 @@
 			files = (
 				167246001B19C42B0083035F /* kuStudyKitTests.swift in Sources */,
 				168654E3211985EB0080F20D /* SectorDataTests.swift in Sources */,
+				1685B13821201095002510B9 /* DataManagerTests.swift in Sources */,
 				168654E1211985DE0080F20D /* LibraryDataTests.swift in Sources */,
 				168654DF21197AEF0080F20D /* LibraryTypeTests.swift in Sources */,
 			);

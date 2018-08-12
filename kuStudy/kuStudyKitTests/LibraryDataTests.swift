@@ -55,6 +55,12 @@ class LibraryDataTests: XCTestCase {
         let all = LibraryType.allTypes().map({ $0.identifier })
         XCTAssert(all.contains(libraryId) == true, "Unrecognized library ID.")
     }
+    
+    func testLibraryDataParsingPerformance() {
+        measure {
+            let _ = LibraryData(libraryId: LibraryType.centralSquare.rawValue,JSONString: sampleLibraryJsonString)
+        }
+    }
 }
 
 private let sampleLibraryJsonString = """

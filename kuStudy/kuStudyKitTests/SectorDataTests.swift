@@ -47,6 +47,12 @@ class SectorDataTests: XCTestCase {
         XCTAssertNotNil(data.occupiedPercentage)
         XCTAssertNotNil(data.occupiedPercentageColor)
     }
+    
+    func testSectorDataParsingPerformance() {
+        measure {
+            let _ = SectorData(JSONString: sampleSectorJsonString)
+        }
+    }
 }
 
 private let sampleSectorJsonString = """
