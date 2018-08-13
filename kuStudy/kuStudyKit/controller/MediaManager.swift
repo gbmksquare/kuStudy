@@ -103,7 +103,7 @@ class MediaManager {
         return Int(arc4random_uniform(UInt32(max)))
     }
     
-    private func clearCacheIfNecessary() {
+    func clearCacheIfNecessary() {
         if let cachedAt = cachedAt {
             let interval = Date().timeIntervalSince(cachedAt)
             if interval >= cacheClearInterval {

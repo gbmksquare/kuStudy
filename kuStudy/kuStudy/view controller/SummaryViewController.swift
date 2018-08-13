@@ -325,7 +325,6 @@ extension SummaryViewController {
     
     private func updateHeaderImage() {
         let heroImage = MediaManager.shared.mediaForMain()?.image
-        assert(heroImage != nil, "Hero image should not be nil.")
         heroImageView.image = heroImage
     }
     

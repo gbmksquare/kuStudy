@@ -136,6 +136,7 @@
 		16C77763212159C400ED73B2 /* ArtistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C77762212159C400ED73B2 /* ArtistTests.swift */; };
 		16C777652121650F00ED73B2 /* MediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C777642121650F00ED73B2 /* MediaTests.swift */; };
 		16C7776721216CDA00ED73B2 /* LibraryPhotos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */; };
+		16C777692121713D00ED73B2 /* MediaManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C777682121713D00ED73B2 /* MediaManagerTests.swift */; };
 		16C85E521FA2DEAF0003A38C /* RefreshEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C85E511FA2DEAF0003A38C /* RefreshEffectView.swift */; };
 		16D1E8C61FA0CB2B006A5847 /* ClassicSectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1E8C51FA0CB2B006A5847 /* ClassicSectorCell.swift */; };
 		16D392B41D62C5310078223E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16D392B61D62C5310078223E /* InfoPlist.strings */; };
@@ -413,6 +414,7 @@
 		16C77760212152C600ED73B2 /* LibraryData+Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LibraryData+Media.swift"; path = "extension/LibraryData+Media.swift"; sourceTree = "<group>"; };
 		16C77762212159C400ED73B2 /* ArtistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTests.swift; sourceTree = "<group>"; };
 		16C777642121650F00ED73B2 /* MediaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTests.swift; sourceTree = "<group>"; };
+		16C777682121713D00ED73B2 /* MediaManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaManagerTests.swift; sourceTree = "<group>"; };
 		16C85E511FA2DEAF0003A38C /* RefreshEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RefreshEffectView.swift; path = view/RefreshEffectView.swift; sourceTree = "<group>"; };
 		16D1E8C51FA0CB2B006A5847 /* ClassicSectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClassicSectorCell.swift; path = view/ClassicSectorCell.swift; sourceTree = "<group>"; };
 		16D392B51D62C5310078223E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -832,6 +834,7 @@
 				167245DA1B19C0370083035F /* kuStudyTests.swift */,
 				16C777642121650F00ED73B2 /* MediaTests.swift */,
 				16C77762212159C400ED73B2 /* ArtistTests.swift */,
+				16C777682121713D00ED73B2 /* MediaManagerTests.swift */,
 				167245D81B19C0370083035F /* Supporting Files */,
 			);
 			path = kuStudyTests;
@@ -1965,6 +1968,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16C777692121713D00ED73B2 /* MediaManagerTests.swift in Sources */,
 				16C77763212159C400ED73B2 /* ArtistTests.swift in Sources */,
 				16C777652121650F00ED73B2 /* MediaTests.swift in Sources */,
 				167245DB1B19C0370083035F /* kuStudyTests.swift in Sources */,
