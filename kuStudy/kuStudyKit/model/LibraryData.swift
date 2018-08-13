@@ -69,12 +69,3 @@ extension LibraryData: PercentagePresentable {
         return Float(occupied) / Float(total)
     }
 }
-
-// MARK: - Image
-public extension LibraryData {
-    public var media: Media? {
-        guard let libraryId = self.libraryId else { return nil }
-        guard let libraryType = LibraryType(rawValue: libraryId) else { return nil }
-        return MediaManager.shared.media(for: libraryType)
-    }
-}

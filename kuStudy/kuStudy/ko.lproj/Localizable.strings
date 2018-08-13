@@ -147,3 +147,11 @@
 
 "Label.Settings.UpdateHeader" = "업데이트";
 
+"Media.Attribution.Illustration" = "일러스트: %@";
+
+"Media.Attribution.Photo" = "사진 촬영: %@";
+
+"Media.Attribution.Timelapse" = "타임랩스: %@";
+
+"Media.Attribution.Video" = "비디오 촬영: %@";
+

@@ -8,11 +8,25 @@
 
 import Foundation
 
-public struct SocialAccount: Codable {
-    public enum SocialService: Int, Codable {
+struct SocialAccount {
+    enum SocialService: Int {
         case instagram, facebook, website, linkedin
     }
     
-    public let socialService: SocialService
-    public let userId: String
+    let socialService: SocialService
+    let userId: String
+    
+    var applicationUrl: URL? {
+        switch socialService {
+        case .instagram: return URL(string: "instagram://user?username=\(userId)")
+        default: return nil
+        }
+    }
+    
+    var webUrl: URL? {
+        switch socialService {
+        case .instagram: return URL(string: "https://instagram.com/\(userId)")
+        default: return nil
+        }
+    }
 }

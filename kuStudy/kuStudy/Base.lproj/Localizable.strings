@@ -147,3 +147,11 @@
 
 "Label.Settings.UpdateHeader" = "Update";
 
+"Media.Attribution.Illustration" = "Illustration by %@";
+
+"Media.Attribution.Photo" = "Photo by %@";
+
+"Media.Attribution.Timelapse" = "Timelapse by %@";
+
+"Media.Attribution.Video" = "Video by %@";
+

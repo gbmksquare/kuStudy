@@ -7,12 +7,10 @@
 //
 
 import Foundation
+import kuStudyKit
 
-public class MediaManager {
+class MediaManager {
     public static let shared = MediaManager()
-    
-    internal let media: [Media]
-    public let artists: [Artist]
     
     private var cachedMedia = [String: String]()
     private var cachedAt: Date?
@@ -20,20 +18,7 @@ public class MediaManager {
     
     // MARK: - Initialization
     init() {
-        guard let mediaPresetData = mediaPreset.data(using: .utf8),
-            let media = try? JSONDecoder().decode(Array<Media>.self, from: mediaPresetData) else {
-                self.media = []
-                self.artists = []
-                return
-        }
-        guard let artistsPresetData = artistsPreset.data(using: .utf8),
-            let artists = try? JSONDecoder().decode(Array<Artist>.self, from: artistsPresetData) else {
-                self.media = []
-                self.artists = []
-                return
-        }
-        self.media = media
-        self.artists = artists
+        
     }
     
     // MARK: - Media
@@ -44,7 +29,7 @@ public class MediaManager {
                       presentationType: Media.PresentationType? = nil,
                       timeframe: Media.Timeframe? = nil,
                       weather: Media.Weather? = nil) -> [Media] {
-        return media
+        return MediaManager.media
             .filter({ $0.library == library })
             .filter({ return artist == nil ? true : $0.artist == artist })
             .filter({ return mediaType == nil ? true : $0.mediaType == mediaType })
@@ -59,7 +44,7 @@ public class MediaManager {
                       presentationType: Media.PresentationType? = nil,
                       timeframe: Media.Timeframe? = nil,
                       weather: Media.Weather? = nil) -> [Media] {
-        return media
+        return MediaManager.media
             .filter({ $0.artist == artist })
             .filter({ return library == nil ? true : $0.library == library })
             .filter({ return mediaType == nil ? true : $0.mediaType == mediaType })
@@ -75,7 +60,7 @@ public class MediaManager {
         if let identifier = cachedMedia["main"] {
             return media(with: identifier)
         } else {
-            let collection = self.media.filter({ $0.presentationType == Media.PresentationType.main })
+            let collection = MediaManager.media.filter({ $0.presentationType == Media.PresentationType.main })
             let media = collection[randomIndex(below: collection.count)]
             cachedMedia["main"] = media.identifier
             return media
@@ -110,7 +95,7 @@ public class MediaManager {
     }
     
     private func media(with identifier: String) -> Media? {
-        return media.filter({ $0.identifier == identifier }).first
+        return MediaManager.media.filter({ $0.identifier == identifier }).first
     }
     
     // MARK: - Helper
@@ -135,6 +120,6 @@ public class MediaManager {
 }
 
 // MARK: - Notification
-public extension MediaManager {
+extension MediaManager {
     public static let shouldUpdateImageNotification = Notification.Name(rawValue: "kuStudyKit.MediaManager.Notification.ShouldUpdateImage")
 }

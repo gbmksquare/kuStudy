@@ -17,16 +17,6 @@ import Foundation
 public struct Localizations {
 
 
-    public struct Action {
-
-        /// Base translation: Open in Safari
-        public static var OpenLibraryInSafari : String = NSLocalizedString("Action.OpenLibraryInSafari", comment: "")
-
-        /// Base translation: Reset Orders
-        public static var ResetOrder : String = NSLocalizedString("Action.ResetOrder", comment: "")
-
-    }
-
     public struct Common {
 
         /// Base translation: minute
@@ -82,6 +72,17 @@ public struct Localizations {
 
     }
 
+    public struct Legacy {
+
+
+        public struct Title {
+
+            /// Base translation: Preference (d)
+            public static var Preference : String = NSLocalizedString("Legacy.Title.Preference", comment: "")
+
+        }
+    }
+
     public struct Keyboard {
 
         /// Base translation: Preferences
@@ -92,15 +93,14 @@ public struct Localizations {
 
     }
 
-    public struct Legacy {
+    public struct Action {
 
+        /// Base translation: Open in Safari
+        public static var OpenLibraryInSafari : String = NSLocalizedString("Action.OpenLibraryInSafari", comment: "")
 
-        public struct Title {
+        /// Base translation: Reset Orders
+        public static var ResetOrder : String = NSLocalizedString("Action.ResetOrder", comment: "")
 
-            /// Base translation: Preference (d)
-            public static var Preference : String = NSLocalizedString("Legacy.Title.Preference", comment: "")
-
-        }
     }
 
     public struct Alert {
@@ -200,6 +200,34 @@ public struct Localizations {
 
             /// Base translation: Remind Me
             public static var Remind : String = NSLocalizedString("Library.Button.Remind", comment: "")
+
+        }
+    }
+
+    public struct Media {
+
+
+        public struct Attribution {
+
+            /// Base translation: Photo by %@
+            public static func Photo(_ value1 : String) -> String {
+                return String(format: NSLocalizedString("Media.Attribution.Photo", comment: ""), value1)
+            }
+
+            /// Base translation: Illustration by %@
+            public static func Illustration(_ value1 : String) -> String {
+                return String(format: NSLocalizedString("Media.Attribution.Illustration", comment: ""), value1)
+            }
+
+            /// Base translation: Timelapse by %@
+            public static func Timelapse(_ value1 : String) -> String {
+                return String(format: NSLocalizedString("Media.Attribution.Timelapse", comment: ""), value1)
+            }
+
+            /// Base translation: Video by %@
+            public static func Video(_ value1 : String) -> String {
+                return String(format: NSLocalizedString("Media.Attribution.Video", comment: ""), value1)
+            }
 
         }
     }

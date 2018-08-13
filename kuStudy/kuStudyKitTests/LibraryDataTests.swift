@@ -44,7 +44,6 @@ class LibraryDataTests: XCTestCase {
         XCTAssertNotNil(data.available)
         XCTAssertNotNil(data.occupiedPercentage)
         XCTAssertNotNil(data.availablePercentage)
-        XCTAssertNotNil(data.media)
     }
     
     func testLibraryDataIdentifier() {

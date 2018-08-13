@@ -13,7 +13,7 @@ import SafariServices
 class ThanksToViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
-    private let artists = MediaManager.shared.artists
+    private let artists = MediaManager.artists
     
     // MARK: - View
     override func viewDidLoad() {
@@ -95,9 +95,8 @@ extension ThanksToViewController {
     private func presentInstagram(artist: Artist) {
         for account in artist.socialAccounts {
             if account.socialService == .instagram {
-                let instagramId = account.userId
-                guard let instagramAppUrl = URL(string: "instagram://user?username=\(instagramId)"),
-                    let instagramUrl = URL(string: "https://instagram.com/\(instagramId)") else { continue }
+                guard let instagramAppUrl = account.applicationUrl,
+                    let instagramUrl = account.webUrl else { continue }
                 let application = UIApplication.shared
                 if application.canOpenURL(instagramAppUrl) {
                     openInInstagram(instagramAppUrl)
