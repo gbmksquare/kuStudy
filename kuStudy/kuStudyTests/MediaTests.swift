@@ -39,4 +39,13 @@ class MediaTests: XCTestCase {
             XCTAssert(verifiedArtists.contains(artist) == true)
         }
     }
+    
+    func testValidImage() {
+        let media = MediaManager.media
+//        let resourceNames = media.compactMap({ $0.resourceName })
+        for item in media {
+            XCTAssertNotNil(item.image)
+            XCTAssertNotNil(item.thumbnail)
+        }
+    }
 }

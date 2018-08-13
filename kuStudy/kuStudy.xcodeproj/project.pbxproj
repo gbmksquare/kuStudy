@@ -72,7 +72,6 @@
 		166742FC1FBD666E0098C0BB /* ClassicLibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166742FB1FBD666E0098C0BB /* ClassicLibraryCell.swift */; };
 		16692ACA21154F3C009C666C /* SectorCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692AC921154F3C009C666C /* SectorCellType.swift */; };
 		16692ACC21154FEC009C666C /* SectorCellTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692ACB21154FEC009C666C /* SectorCellTypeViewController.swift */; };
-		166C4B1B1D5B1FBB00297651 /* LibraryPhotos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */; };
 		167245C51B19C0370083035F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167245C41B19C0370083035F /* AppDelegate.swift */; };
 		167245CA1B19C0370083035F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167245C81B19C0370083035F /* Main.storyboard */; };
 		167245CC1B19C0370083035F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167245CB1B19C0370083035F /* Images.xcassets */; };
@@ -136,6 +135,7 @@
 		16C77761212152C600ED73B2 /* LibraryData+Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C77760212152C600ED73B2 /* LibraryData+Media.swift */; };
 		16C77763212159C400ED73B2 /* ArtistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C77762212159C400ED73B2 /* ArtistTests.swift */; };
 		16C777652121650F00ED73B2 /* MediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C777642121650F00ED73B2 /* MediaTests.swift */; };
+		16C7776721216CDA00ED73B2 /* LibraryPhotos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */; };
 		16C85E521FA2DEAF0003A38C /* RefreshEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C85E511FA2DEAF0003A38C /* RefreshEffectView.swift */; };
 		16D1E8C61FA0CB2B006A5847 /* ClassicSectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D1E8C51FA0CB2B006A5847 /* ClassicSectorCell.swift */; };
 		16D392B41D62C5310078223E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16D392B61D62C5310078223E /* InfoPlist.strings */; };
@@ -721,7 +721,6 @@
 		165F9C921B2199D400101EBE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */,
 				16A887351B21D1FF00C49551 /* Localizable.strings */,
 				165DE81B1F9F8F850016C748 /* Localizations.swift */,
 			);
@@ -860,6 +859,7 @@
 			isa = PBXGroup;
 			children = (
 				167245CB1B19C0370083035F /* Images.xcassets */,
+				1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */,
 				1664D5641D5AC241000BAF56 /* InfoPlist.strings */,
 				16A5807D1C63298000E7EDC5 /* Localizable.strings */,
 				164190F91F2F675C008682E5 /* Localizations.swift */,
@@ -1531,6 +1531,7 @@
 			files = (
 				167245CA1B19C0370083035F /* Main.storyboard in Resources */,
 				1664D5621D5AC241000BAF56 /* InfoPlist.strings in Resources */,
+				16C7776721216CDA00ED73B2 /* LibraryPhotos.xcassets in Resources */,
 				16A5807B1C63298000E7EDC5 /* Localizable.strings in Resources */,
 				162F120D1D5F176100A401D8 /* Pods-kuStudy-acknowledgements.plist in Resources */,
 				164DD35B1D9FB30F001236F8 /* LaunchScreen.storyboard in Resources */,
@@ -1550,7 +1551,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				16A887331B21D1FF00C49551 /* Localizable.strings in Resources */,
-				166C4B1B1D5B1FBB00297651 /* LibraryPhotos.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
