@@ -9,20 +9,32 @@
 import Foundation
 import kuStudyKit
 
-struct Media: Codable {
-    enum MediaType: Int, Codable {
+struct Media {
+    enum MediaType: Int {
         case photo, video, timelapse, livePhoto, illustration
     }
     
-    enum PresentationType: Int, Codable {
+    enum PresentationType: Int {
         case unspecified, main, library, detail
     }
     
-    enum Timeframe: Int, Codable {
-        case unspecified, twilight, sunrise, day, sunset, evening, night
+    enum Timeframe: Int {
+        case unspecified, sunrise, day, sunset, night
+        
+        static func suitableTimeframeForNow() -> Timeframe {
+            let calendar = Calendar.current
+            let hour = calendar.component(.hour, from: Date())
+            switch hour {
+            case 0..<5, 20...: return .night
+            case 5..<7: return .sunrise
+            case 7..<18: return .day
+            case 18..<20: return .sunset
+            default: return .unspecified
+            }
+        }
     }
     
-    enum Weather: Int, Codable {
+    enum Weather: Int {
         case unspecified, sunny, cloudy, windy, rainy, snow
     }
     
