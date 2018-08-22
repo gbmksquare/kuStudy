@@ -233,7 +233,7 @@ extension LibraryViewController {
                           options: .transitionCrossDissolve,
                           animations: { [weak self] in
                             guard let library = self?.library else { return }
-                            self?.heroImageView.image = MediaManager.shared.media(for: library)?.image
+                            self?.heroImageView.image = MediaManager.shared.preferredMedia(for: library).image
             }, completion: nil)
     }
     
@@ -321,7 +321,7 @@ extension LibraryViewController {
         }
         
         // Header image
-        let heroImage = MediaManager.shared.media(for: library)?.image
+        let heroImage = MediaManager.shared.preferredMedia(for: library).image
         assert(heroImage != nil, "Hero image should not be nil.")
         heroImageView.image = heroImage
         

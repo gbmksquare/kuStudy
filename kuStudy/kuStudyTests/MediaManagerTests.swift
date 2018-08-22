@@ -25,7 +25,7 @@ class MediaManagerTests: XCTestCase {
     func testMainMedia() {
         let manager = MediaManager.shared
         for _ in 1...10 {
-            let media = manager.mediaForMain()
+            let media = manager.preferredMediaForMain()
             let image = media?.image
             XCTAssertNotNil(media)
             XCTAssertNotNil(image)
@@ -44,14 +44,14 @@ class MediaManagerTests: XCTestCase {
     func testFindMediaByLibraryPerformance1() {
         let library = LibraryType.allTypes().first!
         measure {
-            let _ = MediaManager.shared.media(for: library)
+            let _ = MediaManager.shared.preferredMedia(for: library)
         }
     }
     
     func testFindMediaByLibraryPerformance2() {
         let library = LibraryType.allTypes().last!
         measure {
-            let _ = MediaManager.shared.media(for: library)
+            let _ = MediaManager.shared.preferredMedia(for: library)
         }
     }
     

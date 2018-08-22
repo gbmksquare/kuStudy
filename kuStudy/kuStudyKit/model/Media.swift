@@ -32,6 +32,15 @@ struct Media {
             default: return .unspecified
             }
         }
+        
+        static func fallbackTimeFrameForNow() -> Timeframe {
+            switch suitableTimeframeForNow() {
+            case .unspecified: return .unspecified
+            case .night: return .day
+            case .sunrise, .sunset: return .day
+            case .day: return .unspecified
+            }
+        }
     }
     
     enum Weather: Int {

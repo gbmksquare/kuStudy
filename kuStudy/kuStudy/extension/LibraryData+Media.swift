@@ -12,6 +12,6 @@ import kuStudyKit
 extension LibraryData {
     var media: Media? {
         guard let libraryType = libraryType else { return nil }
-        return MediaManager.shared.media(for: libraryType)
+        return MediaManager.shared.preferredMedia(for: libraryType)
     }
 }

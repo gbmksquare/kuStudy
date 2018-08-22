@@ -127,7 +127,7 @@ extension SummaryViewController {
     
     // MARK: Notification
     @objc private func handleShouldUpdateImage(_ notification: Notification) {
-        let heroImage = MediaManager.shared.mediaForMain()?.image
+        let heroImage = MediaManager.shared.preferredMediaForMain()?.image
         assert(heroImage != nil, "Hero image should not be nil.")
         UIView.transition(with: heroImageView,
                           duration: 0.75,
@@ -324,7 +324,7 @@ extension SummaryViewController {
     }
     
     private func updateHeaderImage() {
-        let heroImage = MediaManager.shared.mediaForMain()?.image
+        let heroImage = MediaManager.shared.preferredMediaForMain()?.image
         heroImageView.image = heroImage
     }
     
