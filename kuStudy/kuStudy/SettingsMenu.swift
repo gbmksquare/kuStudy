@@ -28,8 +28,8 @@ enum SettingsMenu: Int {
         case .autoUpdateInterval: return Localizations.Label.Settings.UpdateInterval
         case .appLibraryOrder: return Localizations.Label.Settings.LibraryOrder
         case .widgetLibraryOrder: return Localizations.Label.Settings.TodayOrder
-        case .libraryCellType: return Localizations.Label.Settings.CellType
-        case .sectorCellType: return Localizations.Label.Settings.CellType
+        case .libraryCellType: return Localizations.Label.Settings.LibraryCellType
+        case .sectorCellType: return Localizations.Label.Settings.SectorCellType
         case .appStoreReview: return Localizations.Label.Settings.AppStoreReview
         case .mediaProvider: return Localizations.Label.Settings.MediaProvider
         case .openSource: return Localizations.Label.Settings.OpenSource
@@ -38,13 +38,11 @@ enum SettingsMenu: Int {
     }
     
     static let sectionTitles: [String?] = [Localizations.Label.Settings.UpdateHeader,
-                                           Localizations.Label.Settings.LibraryHeader,
-                                           Localizations.Label.Settings.SectorHeader,
+                                           Localizations.Label.Settings.GeneralHeader,
                                            Localizations.Label.Settings.WidgetHeader,
                                            Localizations.Label.Settings.FeedbackHeader,
                                            Localizations.Label.Settings.AboutHeader]
     static let sectionFooters: [String?] = [nil,
-                                            nil,
                                             nil,
                                             nil,
                                             Localizations.Label.Settings.ReviewFooter,
@@ -53,8 +51,7 @@ enum SettingsMenu: Int {
     #if DEBUG
     static let layout: [[SettingsMenu]] = [
         [.autoUpdate, .autoUpdateInterval],
-        [.appLibraryOrder, .libraryCellType],
-        [.sectorCellType],
+        [.appLibraryOrder, .libraryCellType, .sectorCellType],
         [.widgetLibraryOrder],
         [.appStoreReview],
         [.mediaProvider, .openSource, .donate]
@@ -62,8 +59,7 @@ enum SettingsMenu: Int {
     #else
     static let layout: [[SettingsMenu]] = [
         [.autoUpdate, .autoUpdateInterval],
-        [.appLibraryOrder, .libraryCellType],
-        [.sectorCellType],
+        [.appLibraryOrder, .libraryCellType, .sectorCellType],
         [.widgetLibraryOrder],
         [.appStoreReview],
         [.mediaProvider, .openSource]]

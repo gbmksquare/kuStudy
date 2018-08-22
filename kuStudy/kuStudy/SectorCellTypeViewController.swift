@@ -24,7 +24,7 @@ class SectorCellTypeViewController: UIViewController {
     
     // MARK: - Setup
     private func setup() {
-        title = Localizations.Label.Settings.CellType
+        title = Localizations.Label.Settings.SectorCellType
         view.backgroundColor = .white
         
         tableView.delegate = self

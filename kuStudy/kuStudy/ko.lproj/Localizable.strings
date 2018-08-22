@@ -62,13 +62,13 @@
 
 "Label.Settings.AppStoreReview" = "리뷰 쓰기";
 
-"Label.Settings.AutoUpdate" = "자동 업데이트";
+"Label.Settings.AutoUpdate" = "자동 새로 고침";
 
 "Label.Settings.FeedbackHeader" = "리뷰";
 
 "Label.Settings.GeneralHeader" = "일반";
 
-"Label.Settings.LibraryOrder" = "표시 순서";
+"Label.Settings.LibraryOrder" = "도서관 표시 순서";
 
 "Label.Settings.MediaProvider" = "도움 주신 분";
 
@@ -80,7 +80,7 @@
 
 "Label.Settings.TodayOrder" = "위젯 표시 순서";
 
-"Label.Settings.UpdateInterval" = "업데이트 간격";
+"Label.Settings.UpdateInterval" = "새로 고침 간격";
 
 "Library.Button.Map" = "지도에서 보기";
 
@@ -90,7 +90,7 @@
 
 "Library.Button.Remind" = "알림";
 
-"Library.UpdatedAt" = "마지막 업데이트: %@";
+"Library.UpdatedAt" = "마지막 새로 고침: %@";
 
 "Title.Library" = "도서관";
 
@@ -125,7 +125,7 @@
 
 "Action.OpenLibraryInSafari" = "Safari에서 열기";
 
-"Label.Settings.CellType" = "표시 스타일";
+"Label.Settings.LibraryCellType" = "도서관 표시 스타일";
 
 "Label.CellType.Classic" = "클래직";
 
@@ -145,7 +145,7 @@
 
 "Label.Settings.SectorHeader" = "열람실";
 
-"Label.Settings.UpdateHeader" = "업데이트";
+"Label.Settings.UpdateHeader" = "새로 고침";
 
 "Media.Attribution.Illustration" = "일러스트: %@";
 
@@ -154,4 +154,6 @@
 "Media.Attribution.Timelapse" = "타임랩스: %@";
 
 "Media.Attribution.Video" = "비디오 촬영: %@";
+
+"Label.Settings.SectorCellType" = "열람시 표시 스타일";
 

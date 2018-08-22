@@ -285,23 +285,26 @@ public struct Localizations {
             /// Base translation: About
             public static var AboutHeader : String = NSLocalizedString("Label.Settings.AboutHeader", comment: "")
 
-            /// Base translation: Today Widget Display Order
-            public static var TodayOrder : String = NSLocalizedString("Label.Settings.TodayOrder", comment: "")
+            /// Base translation: Reading Room Display Style
+            public static var SectorCellType : String = NSLocalizedString("Label.Settings.SectorCellType", comment: "")
 
             /// Base translation: Open Source
             public static var OpenSource : String = NSLocalizedString("Label.Settings.OpenSource", comment: "")
 
-            /// Base translation: Widget
-            public static var WidgetHeader : String = NSLocalizedString("Label.Settings.WidgetHeader", comment: "")
+            /// Base translation: Library Display Style
+            public static var LibraryCellType : String = NSLocalizedString("Label.Settings.LibraryCellType", comment: "")
 
             /// Base translation: Show
             public static var WidgetShowHeader : String = NSLocalizedString("Label.Settings.WidgetShowHeader", comment: "")
 
-            /// Base translation: Display Style
-            public static var CellType : String = NSLocalizedString("Label.Settings.CellType", comment: "")
+            /// Base translation: Widget
+            public static var WidgetHeader : String = NSLocalizedString("Label.Settings.WidgetHeader", comment: "")
 
             /// Base translation: Library
             public static var LibraryHeader : String = NSLocalizedString("Label.Settings.LibraryHeader", comment: "")
+
+            /// Base translation: Today Widget Display Order
+            public static var TodayOrder : String = NSLocalizedString("Label.Settings.TodayOrder", comment: "")
 
             /// Base translation: General
             public static var GeneralHeader : String = NSLocalizedString("Label.Settings.GeneralHeader", comment: "")
@@ -309,7 +312,7 @@ public struct Localizations {
             /// Base translation: Tip Developer
             public static var TipJar : String = NSLocalizedString("Label.Settings.TipJar", comment: "")
 
-            /// Base translation: Display Order
+            /// Base translation: Library Display Order
             public static var LibraryOrder : String = NSLocalizedString("Label.Settings.LibraryOrder", comment: "")
 
             /// Base translation: Special Thanks

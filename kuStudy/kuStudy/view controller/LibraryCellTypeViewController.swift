@@ -24,7 +24,7 @@ class LibraryCellTypeViewController: UIViewController {
     
     // MARK: - Setup
     private func setup() {
-        title = Localizations.Label.Settings.CellType
+        title = Localizations.Label.Settings.LibraryCellType
         view.backgroundColor = .white
         
         tableView.delegate = self

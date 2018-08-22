@@ -68,7 +68,7 @@
 
 "Label.Settings.GeneralHeader" = "General";
 
-"Label.Settings.LibraryOrder" = "Display Order";
+"Label.Settings.LibraryOrder" = "Library Display Order";
 
 "Label.Settings.MediaProvider" = "Special Thanks";
 
@@ -125,7 +125,7 @@
 
 "Action.OpenLibraryInSafari" = "Open in Safari";
 
-"Label.Settings.CellType" = "Display Style";
+"Label.Settings.LibraryCellType" = "Library Display Style";
 
 "Label.CellType.Classic" = "Classic";
 
@@ -154,4 +154,6 @@
 "Media.Attribution.Timelapse" = "Timelapse by %@";
 
 "Media.Attribution.Video" = "Video by %@";
+
+"Label.Settings.SectorCellType" = "Reading Room Display Style";
 
