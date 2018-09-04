@@ -4,6 +4,10 @@
   Created by 구범모 on 2016. 2. 4..
   Copyright © 2016년 gbmKSquare. All rights reserved. */
 
+"Action.OpenLibraryInSafari" = "Open in Safari";
+
+"Action.ResetOrder" = "Reset Orders";
+
 "Alert.Action.Cancel" = "Cancel";
 
 "Alert.Action.Confirm" = "Confirm";
@@ -58,6 +62,21 @@
 
 "Keyboard.Preference" = "Preferences";
 
+"Label.CellType.Classic" = "Classic";
+
+"Label.CellType.Compact" = "Compact";
+
+"Label.CellType.Default" = "Default";
+
+"Label.CellType.VeryCompact" = "Very Compact";
+
+"Label.Error" = "Oops! An error occurred.";
+
+/* * SHARED STRINGS */
+"Label.Loading" = "Loading...";
+
+"Label.OpenInstagram" = "Open in Instagram?";
+
 "Label.Settings.AboutHeader" = "About";
 
 "Label.Settings.AppStoreReview" = "Write a review";
@@ -68,6 +87,10 @@
 
 "Label.Settings.GeneralHeader" = "General";
 
+"Label.Settings.LibraryCellType" = "Library Display Style";
+
+"Label.Settings.LibraryHeader" = "Library";
+
 "Label.Settings.LibraryOrder" = "Library Display Order";
 
 "Label.Settings.MediaProvider" = "Special Thanks";
@@ -76,11 +99,35 @@
 
 "Label.Settings.ReviewFooter" = "Write a review or feedback on App Store. All feedback encourages app developer!";
 
+"Label.Settings.SectorCellType" = "Reading Room Display Style";
+
+"Label.Settings.SectorHeader" = "Sector";
+
 "Label.Settings.TipJar" = "Tip Developer";
 
 "Label.Settings.TodayOrder" = "Today Widget Display Order";
 
+"Label.Settings.UpdateHeader" = "Update";
+
 "Label.Settings.UpdateInterval" = "Update Interval";
+
+"Label.Settings.WidgetHeader" = "Widget";
+
+"Label.Settings.WidgetHideFooter" = "Items dragged here are hidden in Notificaiton Center.";
+
+"Label.Settings.WidgetHideHeader" = "Hide";
+
+"Label.Settings.WidgetInstructionFooter" = "How to add Today widget:\n\n1. Swipe down from the top of the screen to open Notification Center.\n2.Switch to Today tab.\n3.Scroll to the bottom and tap Edit.\n4.Find Korea University Reading Room and tap + icon.\n5. Tap Done.";
+
+"Label.Settings.WidgetShowHeader" = "Show";
+
+"Label.ShareMessage" = "%@\nTotal: %@\nAvailable: %@\nUsed: %@\n";
+
+"Label.Troubleshoot" = "Have a problem?";
+
+"Label.TroubleshootDescription" = "If there is a problem with the orders, try resetting with this button.";
+
+"Legacy.Title.Preference" = "Preference (d)";
 
 "Library.Button.Map" = "View in Map";
 
@@ -92,61 +139,6 @@
 
 "Library.UpdatedAt" = "Last updated: %@";
 
-"Title.Library" = "Library";
-
-"Legacy.Title.Preference" = "Preference (d)";
-
-"Notification.Content.TapToShow" = "Tap to show current seat status.";
-
-"Label.OpenInstagram" = "Open in Instagram?";
-
-"Label.Settings.WidgetHideFooter" = "Items dragged here are hidden in Notificaiton Center.";
-
-"Label.Settings.WidgetInstructionFooter" = "How to add Today widget:\n\n1. Swipe down from the top of the screen to open Notification Center.\n2.Switch to Today tab.\n3.Scroll to the bottom and tap Edit.\n4.Find Korea University Reading Room and tap + icon.\n5. Tap Done.";
-
-"Label.Settings.WidgetHideHeader" = "Hide";
-
-"Label.Settings.WidgetShowHeader" = "Show";
-
-"Label.Error" = "Oops! An error occurred.";
-
-"Label.ShareMessage" = "%@\nTotal: %@\nAvailable: %@\nUsed: %@\n";
-
-/* * SHARED STRINGS */
-"Label.Loading" = "Loading...";
-
-"TimeInterval.Custom" = "Custom";
-
-"TimeInterval.Hour" = "Hours";
-
-"TimeInterval.Now" = "Now";
-
-"Title.Settings" = "Settings";
-
-"Action.OpenLibraryInSafari" = "Open in Safari";
-
-"Label.Settings.LibraryCellType" = "Library Display Style";
-
-"Label.CellType.Classic" = "Classic";
-
-"Label.CellType.Compact" = "Compact";
-
-"Label.CellType.VeryCompact" = "Very Compact";
-
-"Label.Troubleshoot" = "Have a problem?";
-
-"Label.TroubleshootDescription" = "If there is a problem with the orders, try resetting with this button.";
-
-"Action.ResetOrder" = "Reset Orders";
-
-"Label.Settings.LibraryHeader" = "Library";
-
-"Label.Settings.WidgetHeader" = "Widget";
-
-"Label.Settings.SectorHeader" = "Sector";
-
-"Label.Settings.UpdateHeader" = "Update";
-
 "Media.Attribution.Illustration" = "Illustration by %@";
 
 "Media.Attribution.Photo" = "Photo by %@";
@@ -155,5 +147,15 @@
 
 "Media.Attribution.Video" = "Video by %@";
 
-"Label.Settings.SectorCellType" = "Reading Room Display Style";
+"Notification.Content.TapToShow" = "Tap to show current seat status.";
+
+"TimeInterval.Custom" = "Custom";
+
+"TimeInterval.Hour" = "Hours";
+
+"TimeInterval.Now" = "Now";
+
+"Title.Library" = "Library";
+
+"Title.Settings" = "Settings";
 

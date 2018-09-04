@@ -87,6 +87,10 @@ extension LibraryCellTypeViewController: UITableViewDelegate, UITableViewDataSou
             let index = indexPath.section
             let type = LibraryCellType.allTypes[index]
             switch type {
+            case .image:
+                let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! ImageLibraryCell
+                cell.libraryData = sampleLibraryData
+                return cell
             case .classic:
                 let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! ClassicLibraryCell
                 cell.libraryData = sampleLibraryData

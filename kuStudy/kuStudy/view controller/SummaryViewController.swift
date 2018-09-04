@@ -405,6 +405,12 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let type = Preference.shared.libraryCellType
         switch type {
+        case .image:
+            let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! ImageLibraryCell
+            cell.accessoryType = .disclosureIndicator
+            cell.libraryData = summary?.libraries[indexPath.row]
+            cell.accessibilityIdentifier = "Summary Cell \(indexPath.row)"
+            return cell
         case .classic:
             let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! ClassicLibraryCell
             cell.accessoryType = .disclosureIndicator

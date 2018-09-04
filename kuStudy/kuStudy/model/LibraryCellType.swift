@@ -9,10 +9,11 @@
 import Foundation
 
 enum LibraryCellType: Int {
-    case classic, compact, veryCompact
+    case classic, compact, veryCompact, image
     
     var name: String {
         switch self {
+        case .image: return Localizations.Label.CellType.Default
         case .classic: return Localizations.Label.CellType.Classic
         case .compact: return Localizations.Label.CellType.Compact
         case .veryCompact: return Localizations.Label.CellType.VeryCompact
@@ -21,6 +22,7 @@ enum LibraryCellType: Int {
     
     var preferredReuseIdentifier: String {
         switch self {
+        case .image: return "LibraryCellType.image"
         case .classic: return "LibraryCellType.classic"
         case .compact: return "LibraryCellType.compact"
         case .veryCompact: return "LibraryCellType.veryCompact"
@@ -29,11 +31,12 @@ enum LibraryCellType: Int {
     
     var cellClass: AnyClass {
         switch self {
+        case .image: return ImageLibraryCell.self
         case .classic: return ClassicLibraryCell.self
         case .compact: return CompactLibraryCell.self
         case .veryCompact: return VeryCompactLibraryCell.self
         }
     }
     
-    static let allTypes: [LibraryCellType] = [.classic, .compact, .veryCompact]
+    static let allTypes: [LibraryCellType] = [.image, .compact, .veryCompact, .classic]
 }

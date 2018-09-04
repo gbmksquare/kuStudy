@@ -337,14 +337,17 @@ public struct Localizations {
 
         public struct CellType {
 
-            /// Base translation: Very Compact
-            public static var VeryCompact : String = NSLocalizedString("Label.CellType.VeryCompact", comment: "")
-
             /// Base translation: Classic
             public static var Classic : String = NSLocalizedString("Label.CellType.Classic", comment: "")
 
             /// Base translation: Compact
             public static var Compact : String = NSLocalizedString("Label.CellType.Compact", comment: "")
+
+            /// Base translation: Very Compact
+            public static var VeryCompact : String = NSLocalizedString("Label.CellType.VeryCompact", comment: "")
+
+            /// Base translation: Default
+            public static var Default : String = NSLocalizedString("Label.CellType.Default", comment: "")
 
         }
     }

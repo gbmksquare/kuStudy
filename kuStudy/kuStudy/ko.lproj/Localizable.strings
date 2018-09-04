@@ -4,6 +4,10 @@
   Created by 구범모 on 2016. 2. 4..
   Copyright © 2016년 gbmKSquare. All rights reserved. */
 
+"Action.OpenLibraryInSafari" = "Safari에서 열기";
+
+"Action.ResetOrder" = "재설정";
+
 "Alert.Action.Cancel" = "취소";
 
 "Alert.Action.Confirm" = "확인";
@@ -58,6 +62,21 @@
 
 "Keyboard.Preference" = "설정";
 
+"Label.CellType.Classic" = "클래직";
+
+"Label.CellType.Compact" = "작게";
+
+"Label.CellType.Default" = "기본";
+
+"Label.CellType.VeryCompact" = "매우 작게";
+
+"Label.Error" = "이런! 오류가 발생했습니다.";
+
+/* * SHARED STRINGS */
+"Label.Loading" = "로딩 중";
+
+"Label.OpenInstagram" = "Instagram 앱에서 열겠습니까?";
+
 "Label.Settings.AboutHeader" = "정보";
 
 "Label.Settings.AppStoreReview" = "리뷰 쓰기";
@@ -68,6 +87,10 @@
 
 "Label.Settings.GeneralHeader" = "일반";
 
+"Label.Settings.LibraryCellType" = "도서관 표시 스타일";
+
+"Label.Settings.LibraryHeader" = "도서관";
+
 "Label.Settings.LibraryOrder" = "도서관 표시 순서";
 
 "Label.Settings.MediaProvider" = "도움 주신 분";
@@ -76,11 +99,35 @@
 
 "Label.Settings.ReviewFooter" = "App Store에 리뷰나 피드백을 남겨주세요! 모든 리뷰는 앱 개발자에게 큰 힘이 됩니다.";
 
+"Label.Settings.SectorCellType" = "열람시 표시 스타일";
+
+"Label.Settings.SectorHeader" = "열람실";
+
 "Label.Settings.TipJar" = "개발자 응원하기";
 
 "Label.Settings.TodayOrder" = "위젯 표시 순서";
 
+"Label.Settings.UpdateHeader" = "새로 고침";
+
 "Label.Settings.UpdateInterval" = "새로 고침 간격";
+
+"Label.Settings.WidgetHeader" = "위젯";
+
+"Label.Settings.WidgetHideFooter" = "이 곳에 옮겨진 항목은 알림 센터에서 보이지 않습니다.";
+
+"Label.Settings.WidgetHideHeader" = "숨기기";
+
+"Label.Settings.WidgetInstructionFooter" = "오늘 위젯 추가하기:\n\n1. 화면 상단에서 스와이프해 알림 센터를 여세요.\n2. 오늘 탭으로 변경하세요.\n3. 최하단으로 내려가 편집 버튼을 누르세요.\n4. 고려대학교 열람실을 찾아 왼쪽의 + 아이콘을 누르세요.\n5. 완료를 누르세요.";
+
+"Label.Settings.WidgetShowHeader" = "보기";
+
+"Label.ShareMessage" = "%@\n전체: %@\n잔여석: %@\n사용 중: %@\n";
+
+"Label.Troubleshoot" = "문제가 있나요?";
+
+"Label.TroubleshootDescription" = "표시 순서 설정에 문제가 있다면 재설정을 해보세요.";
+
+"Legacy.Title.Preference" = "설정 (d)";
 
 "Library.Button.Map" = "지도에서 보기";
 
@@ -92,61 +139,6 @@
 
 "Library.UpdatedAt" = "마지막 새로 고침: %@";
 
-"Title.Library" = "도서관";
-
-"Legacy.Title.Preference" = "설정 (d)";
-
-"Notification.Content.TapToShow" = "탭해서 좌석 현황을 보세요.";
-
-"Label.OpenInstagram" = "Instagram 앱에서 열겠습니까?";
-
-"Label.Settings.WidgetHideFooter" = "이 곳에 옮겨진 항목은 알림 센터에서 보이지 않습니다.";
-
-"Label.Settings.WidgetInstructionFooter" = "오늘 위젯 추가하기:\n\n1. 화면 상단에서 스와이프해 알림 센터를 여세요.\n2. 오늘 탭으로 변경하세요.\n3. 최하단으로 내려가 편집 버튼을 누르세요.\n4. 고려대학교 열람실을 찾아 왼쪽의 + 아이콘을 누르세요.\n5. 완료를 누르세요.";
-
-"Label.Settings.WidgetHideHeader" = "숨기기";
-
-"Label.Settings.WidgetShowHeader" = "보기";
-
-"Label.Error" = "이런! 오류가 발생했습니다.";
-
-"Label.ShareMessage" = "%@\n전체: %@\n잔여석: %@\n사용 중: %@\n";
-
-/* * SHARED STRINGS */
-"Label.Loading" = "로딩 중";
-
-"TimeInterval.Custom" = "사용자 지정";
-
-"TimeInterval.Hour" = "시간";
-
-"TimeInterval.Now" = "즉시";
-
-"Title.Settings" = "설정";
-
-"Action.OpenLibraryInSafari" = "Safari에서 열기";
-
-"Label.Settings.LibraryCellType" = "도서관 표시 스타일";
-
-"Label.CellType.Classic" = "클래직";
-
-"Label.CellType.Compact" = "작게";
-
-"Label.CellType.VeryCompact" = "매우 작게";
-
-"Label.Troubleshoot" = "문제가 있나요?";
-
-"Label.TroubleshootDescription" = "표시 순서 설정에 문제가 있다면 재설정을 해보세요.";
-
-"Action.ResetOrder" = "재설정";
-
-"Label.Settings.LibraryHeader" = "도서관";
-
-"Label.Settings.WidgetHeader" = "위젯";
-
-"Label.Settings.SectorHeader" = "열람실";
-
-"Label.Settings.UpdateHeader" = "새로 고침";
-
 "Media.Attribution.Illustration" = "일러스트: %@";
 
 "Media.Attribution.Photo" = "사진 촬영: %@";
@@ -155,5 +147,15 @@
 
 "Media.Attribution.Video" = "비디오 촬영: %@";
 
-"Label.Settings.SectorCellType" = "열람시 표시 스타일";
+"Notification.Content.TapToShow" = "탭해서 좌석 현황을 보세요.";
+
+"TimeInterval.Custom" = "사용자 지정";
+
+"TimeInterval.Hour" = "시간";
+
+"TimeInterval.Now" = "즉시";
+
+"Title.Library" = "도서관";
+
+"Title.Settings" = "설정";
 

@@ -131,7 +131,7 @@ class Preference {
                                        Preference.Key.preferenceVersion.name: 5,
                                        Preference.Key.shouldAutoUpdate.name: true,
                                        Preference.Key.updateInterval.name: 60,
-                                       Preference.Key.libraryCellType.name: LibraryCellType.classic.rawValue,
+                                       Preference.Key.libraryCellType.name: LibraryCellType.image.rawValue,
                                        Preference.Key.sectorCellType.name: SectorCellType.classic.rawValue])
 //        Preference.Key.widgetCellType.name: WidgetCellType.classic.rawValue
         preference.synchronize()

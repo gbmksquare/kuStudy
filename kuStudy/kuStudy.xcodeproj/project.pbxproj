@@ -146,6 +146,7 @@
 		16DE4FA3211A6F3A00CFEAE8 /* XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DE4FA2211A6F3A00CFEAE8 /* XCUIElement.swift */; };
 		16DFF8501F34423300B6A4FB /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DFF84F1F34423300B6A4FB /* StatusView.swift */; };
 		16DFF8521F34476100B6A4FB /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DFF8511F34476100B6A4FB /* LibraryCell.swift */; };
+		16E7DE7C213E66880062553B /* ImageLibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E7DE7B213E66880062553B /* ImageLibraryCell.swift */; };
 		16EE9F691F00F2EA006B75BB /* ThanksToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */; };
 		16EFE0EC1F0243EB00FD476B /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EFE0EB1F0243EB00FD476B /* Preference.swift */; };
 		16F5A11021073C0B0059875B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16F5A10F21073C0B0059875B /* SettingsViewController.swift */; };
@@ -426,6 +427,7 @@
 		16DE4FA2211A6F3A00CFEAE8 /* XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElement.swift; sourceTree = "<group>"; };
 		16DFF84F1F34423300B6A4FB /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		16DFF8511F34476100B6A4FB /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
+		16E7DE7B213E66880062553B /* ImageLibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageLibraryCell.swift; path = view/ImageLibraryCell.swift; sourceTree = "<group>"; };
 		16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThanksToViewController.swift; path = "view controller/ThanksToViewController.swift"; sourceTree = "<group>"; };
 		16EFE0EB1F0243EB00FD476B /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Preference.swift; path = controller/Preference.swift; sourceTree = "<group>"; };
 		16F5A10F21073C0B0059875B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 		16112163210DDB3600AD4297 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				16E7DE7B213E66880062553B /* ImageLibraryCell.swift */,
 				166742FB1FBD666E0098C0BB /* ClassicLibraryCell.swift */,
 				167E2D66210978AE00C0E79C /* CompactLibraryCell.swift */,
 				168F6833210CB41E000A08FA /* VeryCompactLibraryCell.swift */,
@@ -1949,6 +1952,7 @@
 				16692ACC21154FEC009C666C /* SectorCellTypeViewController.swift in Sources */,
 				161A7E841FDEC87B00808780 /* TimeInterval.swift in Sources */,
 				166742FA1FBD5B300098C0BB /* SummaryHeaderView.swift in Sources */,
+				16E7DE7C213E66880062553B /* ImageLibraryCell.swift in Sources */,
 				168F6836210D6EAC000A08FA /* LibraryCellTypeViewController.swift in Sources */,
 				160E1D2220DB7C2900E4AF7D /* Preference+MapType .swift in Sources */,
 				164579F01F9F7E3C00DD8F22 /* SeatsProgressView.swift in Sources */,
