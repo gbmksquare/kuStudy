@@ -8,6 +8,7 @@
 
 import UIKit
 import kuStudyKit
+import SafariServices
 
 class LibraryHeaderView: UIView {
     private lazy var stack = UIStackView()
@@ -27,6 +28,7 @@ class LibraryHeaderView: UIView {
     private lazy var infoStack = UIStackView()
     private lazy var timestampLabel = UILabel()
     private lazy var artistLabel = UILabel()
+    private lazy var openInWebButton = UIButton()
     
     private lazy var infoSeparator = UIView()
     
@@ -60,6 +62,19 @@ class LibraryHeaderView: UIView {
             setDataStackHorizontal()
             setInfoStackHorizontal()
         }
+    }
+    
+    // MARK: - Action
+    @objc private func tapped(openInWeb button: UIButton) {
+        openInSafari()
+    }
+    
+    private func openInSafari() {
+        guard let library = library else { return }
+        guard let url = library.url else { return }
+        let safari = SFSafariViewController(url: url)
+        safari.preferredControlTintColor = UIColor.theme
+        UIApplication.shared.keyWindow?.topViewController()?.present(safari, animated: true, completion: nil)
     }
     
     // MARK: - Populate
@@ -151,6 +166,15 @@ class LibraryHeaderView: UIView {
         artistLabel.textColor = .darkText
         infoSeparator.backgroundColor = .separator
         buttonSeparator.backgroundColor = .separator
+
+        openInWebButton.setTitleColor(.theme, for: .normal)
+        openInWebButton.setTitle(Localizations.Action.OpenLibraryInSafari, for: .normal)
+        openInWebButton.titleLabel?.font = captionMetrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .semibold))
+        openInWebButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        openInWebButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        openInWebButton.setContentHuggingPriority(.required, for: .horizontal)
+        openInWebButton.setContentHuggingPriority(.required, for: .vertical)
+        openInWebButton.addTarget(self, action: #selector(tapped(openInWeb:)), for: .touchUpInside)
         
         [mapButton, remindButton, actionButton].forEach {
             $0.setTitleColor(UIColor.theme, for: .normal)
@@ -168,7 +192,8 @@ class LibraryHeaderView: UIView {
         [titleLabel, subtitleLabel].forEach { titleStack.addArrangedSubview($0) }
         [availableStack, progressView].forEach { dataStack.addArrangedSubview($0) }
         [availableSeatsLabel, availableLabel].forEach { availableStack.addArrangedSubview($0) }
-        [timestampLabel, artistLabel].forEach { infoStack.addArrangedSubview($0) }
+//        [timestampLabel, artistLabel].forEach { infoStack.addArrangedSubview($0) }
+        [timestampLabel, openInWebButton].forEach { infoStack.addArrangedSubview($0) }
         [mapButton, remindButton, actionButton].forEach { buttonStack.addArrangedSubview($0) }
         
         stack.snp.makeConstraints { (make) in

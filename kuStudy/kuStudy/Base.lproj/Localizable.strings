@@ -4,7 +4,7 @@
   Created by 구범모 on 2016. 2. 4..
   Copyright © 2016년 gbmKSquare. All rights reserved. */
 
-"Action.OpenLibraryInSafari" = "Open in Safari";
+"Action.OpenLibraryInSafari" = "Open in Web ↗︎";
 
 "Action.ResetOrder" = "Reset Orders";
 
