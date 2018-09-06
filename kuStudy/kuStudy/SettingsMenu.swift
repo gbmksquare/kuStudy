@@ -19,6 +19,7 @@ enum SettingsMenu: Int {
     case mediaProvider = 901
     case openSource = 900
     case donate = 1004
+    case openSettings = 902
     
     var tag: Int { return rawValue }
     
@@ -34,6 +35,7 @@ enum SettingsMenu: Int {
         case .mediaProvider: return Localizations.Label.Settings.MediaProvider
         case .openSource: return Localizations.Label.Settings.OpenSource
         case .donate: return Localizations.Label.Settings.TipJar
+        case .openSettings: return Localizations.Label.Settings.OpenSettings
         }
     }
     
@@ -54,7 +56,7 @@ enum SettingsMenu: Int {
         [.appLibraryOrder, .libraryCellType, .sectorCellType],
         [.widgetLibraryOrder],
         [.appStoreReview],
-        [.mediaProvider, .openSource, .donate]
+        [.mediaProvider, .openSource, .donate, .openSettings]
     ]
     #else
     static let layout: [[SettingsMenu]] = [
@@ -62,6 +64,6 @@ enum SettingsMenu: Int {
         [.appLibraryOrder, .libraryCellType, .sectorCellType],
         [.widgetLibraryOrder],
         [.appStoreReview],
-        [.mediaProvider, .openSource]]
+        [.mediaProvider, .openSource, .openSettings]]
     #endif
 }

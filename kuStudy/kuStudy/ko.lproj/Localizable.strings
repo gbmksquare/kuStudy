@@ -95,6 +95,8 @@
 
 "Label.Settings.MediaProvider" = "도움 주신 분";
 
+"Label.Settings.OpenSettings" = "설정 열기";
+
 "Label.Settings.OpenSource" = "오픈소스";
 
 "Label.Settings.ReviewFooter" = "App Store에 리뷰나 피드백을 남겨주세요! 모든 리뷰는 앱 개발자에게 큰 힘이 됩니다.";

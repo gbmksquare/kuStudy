@@ -215,6 +215,13 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             presentTipJar { [weak self] in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
             }
+        case .openSettings:
+            tableView.deselectRow(at: indexPath, animated: true)
+            guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
+            let app = UIApplication.shared
+            if app.canOpenURL(url) {
+                app.open(url, options: [:], completionHandler: nil)
+            }
         }
     }
     
@@ -275,6 +282,15 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             if cell == nil {
                 cell = UITableViewCell(style: .default, reuseIdentifier: "disclosureCell")
                 cell.accessoryType = .disclosureIndicator
+            }
+            cell.tag = menuRow.tag
+            cell.textLabel?.text = menuRow.title
+            return cell
+            
+        case .openSettings:
+            var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "normalCell")
+            if cell == nil {
+                cell = UITableViewCell(style: .default, reuseIdentifier: "normalCell")
             }
             cell.tag = menuRow.tag
             cell.textLabel?.text = menuRow.title

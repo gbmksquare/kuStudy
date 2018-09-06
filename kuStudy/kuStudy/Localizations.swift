@@ -95,7 +95,7 @@ public struct Localizations {
 
     public struct Action {
 
-        /// Base translation: Open in Safari
+        /// Base translation: Open in Web ↗︎
         public static var OpenLibraryInSafari : String = NSLocalizedString("Action.OpenLibraryInSafari", comment: "")
 
         /// Base translation: Reset Orders
@@ -329,6 +329,9 @@ public struct Localizations {
 
             /// Base translation: Sector
             public static var SectorHeader : String = NSLocalizedString("Label.Settings.SectorHeader", comment: "")
+
+            /// Base translation: Open Settings
+            public static var OpenSettings : String = NSLocalizedString("Label.Settings.OpenSettings", comment: "")
 
             /// Base translation: Update
             public static var UpdateHeader : String = NSLocalizedString("Label.Settings.UpdateHeader", comment: "")
