@@ -10,12 +10,11 @@ import Foundation
 import kuStudyKit
 
 class SummaryHeaderView: UIView {
+    private lazy var gradient = CAGradientLayer()
     private lazy var stack = UIStackView()
     private lazy var dateLabel = UILabel()
     private lazy var summaryLabel = UILabel()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    
-    private lazy var separator = UIView()
     
     var summary: SummaryData? { didSet { populate() }}
     
@@ -28,6 +27,11 @@ class SummaryHeaderView: UIView {
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         setup()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        gradient.frame = bounds
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -62,7 +66,10 @@ class SummaryHeaderView: UIView {
     }
     
     private func setupView() {
-        separator.backgroundColor = .separator
+        gradient.colors = [UIColor.white.cgColor, UIColor(displayP3Red: 242/255, green: 242/255, blue: 241/255, alpha: 1).cgColor]
+        gradient.locations = [0.2, 1.0]
+        gradient.frame = bounds
+        layer.addSublayer(gradient)
         
         stack.axis = .vertical
         stack.alignment = .fill
@@ -70,7 +77,7 @@ class SummaryHeaderView: UIView {
         stack.spacing = UIStackView.spacingUseSystem
         
         let headlineMetrics = UIFontMetrics(forTextStyle: .headline)
-        dateLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .semibold))
+        dateLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .bold))
         dateLabel.textColor = .darkText
         
         let summaryMetrics = UIFontMetrics(forTextStyle: .body)
@@ -98,7 +105,7 @@ class SummaryHeaderView: UIView {
     }
     
     private func setupLayout() {
-        [stack, collectionView, separator].forEach { addSubview($0) }
+        [stack, collectionView].forEach { addSubview($0) }
 //        [dateLabel,summaryLabel].forEach { stack.addArrangedSubview($0) }
         [dateLabel].forEach { stack.addArrangedSubview($0) }
         
@@ -111,14 +118,8 @@ class SummaryHeaderView: UIView {
             make.top.equalTo(stack.snp.bottom).offset(16)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
-            make.bottom.equalTo(separator.snp.top).offset(-16)
+            make.bottom.equalToSuperview().offset(-16)
             make.height.equalTo(100)
-        }
-        separator.snp.makeConstraints { (make) in
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.height.equalTo(0.3)
         }
     }
 }
