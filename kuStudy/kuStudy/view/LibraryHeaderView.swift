@@ -149,11 +149,11 @@ class LibraryHeaderView: UIView {
         let captionMetrics = UIFontMetrics(forTextStyle: .caption2)
         
         titleLabel.font = headlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 24, weight: .bold))
-        subtitleLabel.font = subheadlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 16, weight: .semibold))
+        subtitleLabel.font = subheadlineMetrics.scaledFont(for: UIFont.systemFont(ofSize: 16, weight: .bold))
         availableSeatsLabel.font = bodyMetrics.scaledFont(for: UIFont.systemFont(ofSize: 28, weight: .regular))
         availableLabel.font = bodyMetrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .bold))
-        timestampLabel.font = captionMetrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .semibold))
-        artistLabel.font = captionMetrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .semibold))
+        timestampLabel.font = captionMetrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .bold))
+        artistLabel.font = captionMetrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .bold))
         
         [titleLabel, subtitleLabel, availableLabel, availableSeatsLabel, timestampLabel, artistLabel].forEach {
             $0.adjustsFontSizeToFitWidth = true
