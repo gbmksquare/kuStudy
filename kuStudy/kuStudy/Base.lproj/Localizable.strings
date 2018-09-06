@@ -133,9 +133,9 @@
 
 "Library.Button.Map" = "View in Map";
 
-"Library.Button.OpenInAppleMaps" = "Open in Apple Maps";
+"Library.Button.OpenInAppleMaps" = "Open in Apple Maps ↗︎";
 
-"Library.Button.OpenInGoogleMaps" = "Open in Google Maps";
+"Library.Button.OpenInGoogleMaps" = "Open in Google Maps ↗︎";
 
 "Library.Button.Remind" = "Remind Me";
 

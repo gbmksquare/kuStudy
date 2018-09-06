@@ -14,9 +14,9 @@ import SafariServices
 class LibraryFooterView: UIView {
     private lazy var map = MKMapView()
     private lazy var stack = UIStackView()
-    private lazy var appleMapButton = LinkButton()
-    private lazy var googleMapButton = LinkButton()
-    private lazy var openInSafariButton = LinkButton()
+    private lazy var appleMapButton = UIButton()
+    private lazy var googleMapButton = UIButton()
+    private lazy var openInSafariButton = UIButton()
     
     var library: LibraryType? {
         didSet { populate() }
@@ -105,12 +105,24 @@ class LibraryFooterView: UIView {
         stack.axis = .vertical
         stack.alignment = .leading
         stack.distribution = .fillEqually
-        stack.spacing = 12
+        stack.spacing = 2
+        stack.setContentHuggingPriority(.required, for: .horizontal)
+        stack.setContentHuggingPriority(.required, for: .vertical)
         addSubview(stack)
         stack.snp.makeConstraints { (make) in
-            make.top.equalTo(map).inset(4)
+            make.top.equalTo(map).inset(2)
             make.leading.equalTo(map.snp.trailing).offset(16)
             make.trailing.equalTo(readableContentGuide.snp.trailing)
+        }
+        
+        let captionMetrics = UIFontMetrics(forTextStyle: .caption2)
+        [appleMapButton, googleMapButton, openInSafariButton].forEach {
+            $0.setTitleColor(.theme, for: .normal)
+            $0.titleLabel?.font = captionMetrics.scaledFont(for: UIFont.systemFont(ofSize: 12, weight: .semibold))
+            $0.titleLabel?.adjustsFontSizeToFitWidth = true
+            $0.titleLabel?.adjustsFontForContentSizeCategory = true
+            $0.setContentHuggingPriority(.required, for: .horizontal)
+            $0.setContentHuggingPriority(.required, for: .vertical)
         }
         
         appleMapButton.setTitle(Localizations.Library.Button.OpenInAppleMaps, for: .normal)

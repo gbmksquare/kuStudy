@@ -133,9 +133,9 @@
 
 "Library.Button.Map" = "지도에서 보기";
 
-"Library.Button.OpenInAppleMaps" = "지도에서 열기";
+"Library.Button.OpenInAppleMaps" = "지도에서 열기 ↗︎";
 
-"Library.Button.OpenInGoogleMaps" = "구글 지도에서 열기";
+"Library.Button.OpenInGoogleMaps" = "구글 지도에서 열기 ↗︎";
 
 "Library.Button.Remind" = "알림";
 

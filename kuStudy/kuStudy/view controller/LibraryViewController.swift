@@ -310,8 +310,8 @@ extension LibraryViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
         footerContentView.library = library
-//        tableView.tableFooterView = footerContentView
-        tableView.tableFooterView = UIView()
+        tableView.tableFooterView = footerContentView
+//        tableView.tableFooterView = UIView()
         tableView.showsVerticalScrollIndicator = false
         tableView.delegate = self
         tableView.dataSource = self
