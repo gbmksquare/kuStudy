@@ -1,9 +1,12 @@
-Bug Fixes
-• Fixed today widget not working until app is launched at least one time.
-• Fixed today widget crashing if library is hidden.
-• Fixed today widget Show More / Show Less behavior.
-• Fixed split view width inconsistent in different orientations.
-• Fixed split view width too small on Plus sized devices.
+New Features
+• Added option to view seats information on web.
+• Added D-day countdown to the end of the semester.
+• Added a new library display style.
+• Added map showing location of each library.
 
+Improvements
+• Reorganized settings menu.
+• UI improvements.
+• Updated third party libraries.
 
 Happy studying! :)

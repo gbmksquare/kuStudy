@@ -1,5 +1,28 @@
 # Release Notes 
 
+## 3.4.0 (42)
+
+### New features
+
+* You can now view library info on official website.
+* Added D-day count to end of the semester.
+* Added a new library cell style.
+* Added library map.
+
+### Improvements
+
+* Reorganized settings menu.
+* Media is shown based on current time.
+* UI improvements.
+* Updated third party libraries.
+
+### Code improvements
+
+* Added tests.
+* `MediaManager` moved to app bundle.
+* Refactored `MediaManager` presets to use structs instead of JSON.
+* Organized media tags.
+
 ## 3.3.1 (41)
 
 ### Fixed bugs
