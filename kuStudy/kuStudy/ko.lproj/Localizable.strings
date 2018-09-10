@@ -76,6 +76,8 @@
 
 "Label.Error" = "이런! 오류가 발생했습니다.";
 
+"Label.Hooray" = "야호!";
+
 /* * SHARED STRINGS */
 "Label.Loading" = "로딩 중";
 
@@ -134,6 +136,8 @@
 "Label.Troubleshoot" = "문제가 있나요?";
 
 "Label.TroubleshootDescription" = "표시 순서 설정에 문제가 있다면 재설정을 해보세요.";
+
+"Label.Vacation" = "방학";
 
 "Legacy.Title.Preference" = "설정 (d)";
 

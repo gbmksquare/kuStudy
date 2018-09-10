@@ -11,7 +11,7 @@ import Foundation
 public class SemesterCalendarManager {
     public static let shared = SemesterCalendarManager()
     
-    public let activeSemester: SemesterCalendar
+    public let activeSemester: SemesterCalendar?
     
     // MARK: - Initializationn
     init() {
@@ -24,7 +24,11 @@ public class SemesterCalendarManager {
         let calendar_18_02 = SemesterCalendar(semester: semester_18_02,
                                               midterm: midterm_18_02,
                                               finals: finals_18_02)
-        activeSemester = calendar_18_02
+        if calendar_18_02.semester.isActive == true {
+            activeSemester = calendar_18_02
+        } else {
+            activeSemester = nil
+        }
     }
 }
 

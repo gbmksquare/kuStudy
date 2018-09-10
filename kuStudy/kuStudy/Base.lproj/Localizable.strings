@@ -76,6 +76,8 @@
 
 "Label.Error" = "Oops! An error occurred.";
 
+"Label.Hooray" = "Hooray!";
+
 /* * SHARED STRINGS */
 "Label.Loading" = "Loading...";
 
@@ -134,6 +136,8 @@
 "Label.Troubleshoot" = "Have a problem?";
 
 "Label.TroubleshootDescription" = "If there is a problem with the orders, try resetting with this button.";
+
+"Label.Vacation" = "Vacation";
 
 "Legacy.Title.Preference" = "Preference (d)";
 

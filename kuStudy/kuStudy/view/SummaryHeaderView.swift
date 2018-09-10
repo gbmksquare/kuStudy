@@ -167,9 +167,15 @@ extension SummaryHeaderView: UICollectionViewDelegateFlowLayout, UICollectionVie
     private func populate(cell: SummaryHeaderItemCell, at indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            cell.titleLabel.text = Localizations.Label.EndOfSemester
-            cell.valueLabel.text = SemesterCalendarManager.shared.activeSemester.semester.end.daysFromToday.readable
-            cell.descriptionLabel.text = Localizations.Label.DaysLeft
+            if let activeSemester = SemesterCalendarManager.shared.activeSemester {
+                cell.titleLabel.text = Localizations.Label.EndOfSemester
+                cell.valueLabel.text = activeSemester.semester.end.daysFromToday.readable
+                cell.descriptionLabel.text = Localizations.Label.DaysLeft
+            } else {
+                cell.titleLabel.text = Localizations.Label.Vacation
+                cell.valueLabel.text = "😎"
+                cell.descriptionLabel.text = Localizations.Label.Hooray
+            }
         case 1:
             cell.titleLabel.text = Localizations.Common.Total
             cell.valueLabel.text = summary?.occupied?.readable ?? Localizations.Common.NoData
