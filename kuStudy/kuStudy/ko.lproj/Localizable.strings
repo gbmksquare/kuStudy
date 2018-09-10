@@ -70,6 +70,10 @@
 
 "Label.CellType.VeryCompact" = "매우 작게";
 
+"Label.DaysLeft" = "남은 일 수";
+
+"Label.EndOfSemester" = "종강";
+
 "Label.Error" = "이런! 오류가 발생했습니다.";
 
 /* * SHARED STRINGS */
@@ -124,6 +128,8 @@
 "Label.Settings.WidgetShowHeader" = "보기";
 
 "Label.ShareMessage" = "%@\n전체: %@\n잔여석: %@\n사용 중: %@\n";
+
+"Label.StartOfSemester" = "개강";
 
 "Label.Troubleshoot" = "문제가 있나요?";
 

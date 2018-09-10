@@ -116,6 +116,12 @@
 		16A5807B1C63298000E7EDC5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A5807D1C63298000E7EDC5 /* Localizable.strings */; };
 		16A887331B21D1FF00C49551 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A887351B21D1FF00C49551 /* Localizable.strings */; };
 		16A8873D1B21DD8A00C49551 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 16A8873F1B21DD8A00C49551 /* Localizable.strings */; };
+		16AA8EC3214641F000498F42 /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AA8EC2214641F000498F42 /* DateInterval.swift */; };
+		16AA8EC4214641F000498F42 /* DateInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AA8EC2214641F000498F42 /* DateInterval.swift */; };
+		16AA8EC82146422F00498F42 /* SemesterCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AA8EC72146422F00498F42 /* SemesterCalendar.swift */; };
+		16AA8EC92146422F00498F42 /* SemesterCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AA8EC72146422F00498F42 /* SemesterCalendar.swift */; };
+		16AA8ECB2146432800498F42 /* SemesterCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AA8ECA2146432800498F42 /* SemesterCalendarManager.swift */; };
+		16AA8ECC2146432800498F42 /* SemesterCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16AA8ECA2146432800498F42 /* SemesterCalendarManager.swift */; };
 		16ABBB7821083F780014141D /* SettingsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16ABBB7721083F780014141D /* SettingsMenu.swift */; };
 		16AD8F9B1C4E2BB9000D387F /* kuStudy WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16136BD31B1C3F0700B3F744 /* kuStudy WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		16AD8F9E1C4E2BB9000D387F /* kuStudy WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 16136BDF1B1C3F0700B3F744 /* kuStudy WatchKit App.app */; };
@@ -401,6 +407,9 @@
 		16A887381B21D22500C49551 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16A887401B21DD8F00C49551 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		16A887411B21DD9800C49551 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		16AA8EC2214641F000498F42 /* DateInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateInterval.swift; path = extension/DateInterval.swift; sourceTree = "<group>"; };
+		16AA8EC72146422F00498F42 /* SemesterCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SemesterCalendar.swift; path = model/SemesterCalendar.swift; sourceTree = "<group>"; };
+		16AA8ECA2146432800498F42 /* SemesterCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SemesterCalendarManager.swift; path = controller/SemesterCalendarManager.swift; sourceTree = "<group>"; };
 		16ABBB7721083F780014141D /* SettingsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenu.swift; sourceTree = "<group>"; };
 		16AEFE701F4FC5AC000EB5F0 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		16B453651B22A9A400A3B008 /* kuStudy Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "kuStudy Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -685,6 +694,7 @@
 				1631A2DA1CF025060078381F /* Int.swift */,
 				16940EF21CF1D564005965A2 /* Float.swift */,
 				165DE81E1F9F93C20016C748 /* Date.swift */,
+				16AA8EC2214641F000498F42 /* DateInterval.swift */,
 				1664D5661D5AC637000BAF56 /* UIColor.swift */,
 			);
 			name = Extension;
@@ -886,6 +896,7 @@
 			children = (
 				1672460F1B1AB1AD0083035F /* kuStudy.swift */,
 				1672460C1B19C43C0083035F /* Framework */,
+				16AA8EC62146421500498F42 /* Semester Calendar */,
 				1600D6311B204044008000B8 /* API */,
 				16051F2D1F99E60700EC9285 /* Model */,
 				1664D5691D5AC7C4000BAF56 /* Protocol */,
@@ -994,6 +1005,15 @@
 				16692AC921154F3C009C666C /* SectorCellType.swift */,
 			);
 			name = "Display Type";
+			sourceTree = "<group>";
+		};
+		16AA8EC62146421500498F42 /* Semester Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				16AA8ECA2146432800498F42 /* SemesterCalendarManager.swift */,
+				16AA8EC72146422F00498F42 /* SemesterCalendar.swift */,
+			);
+			name = "Semester Calendar";
 			sourceTree = "<group>";
 		};
 		16B453681B22A9A400A3B008 /* kuStudy Today Extension */ = {
@@ -1890,14 +1910,17 @@
 			files = (
 				167B4C8A1F872EB800BDE991 /* CloseTimeTransform.swift in Sources */,
 				1631A2D81CEF51480078381F /* LibraryType.swift in Sources */,
+				16AA8EC92146422F00498F42 /* SemesterCalendar.swift in Sources */,
 				16940EF11CF1D263005965A2 /* SummaryData.swift in Sources */,
 				16940EF51CF1D86E005965A2 /* Definitions.swift in Sources */,
+				16AA8ECC2146432800498F42 /* SemesterCalendarManager.swift in Sources */,
 				1631A2D21CEF4EEC0078381F /* LibraryData.swift in Sources */,
 				1631A2CF1CEF4EA60078381F /* SectorData.swift in Sources */,
 				16940EF41CF1D564005965A2 /* Float.swift in Sources */,
 				167B4C8D1F872F0000BDE991 /* OpenTimeTransform.swift in Sources */,
 				165DE81D1F9F8F860016C748 /* Localizations.swift in Sources */,
 				1664D5681D5AC637000BAF56 /* UIColor.swift in Sources */,
+				16AA8EC4214641F000498F42 /* DateInterval.swift in Sources */,
 				167B4C871F872E7700BDE991 /* YesNoTransform.swift in Sources */,
 				1631A2DC1CF025060078381F /* Int.swift in Sources */,
 				16051F301F99E69500EC9285 /* DataManager.swift in Sources */,
@@ -1981,14 +2004,17 @@
 			files = (
 				167B4C891F872EB800BDE991 /* CloseTimeTransform.swift in Sources */,
 				1664D5671D5AC637000BAF56 /* UIColor.swift in Sources */,
+				16AA8EC82146422F00498F42 /* SemesterCalendar.swift in Sources */,
 				1664D56B1D5AC7E0000BAF56 /* PercentagePresentable.swift in Sources */,
 				1631A2D71CEF51480078381F /* LibraryType.swift in Sources */,
+				16AA8ECB2146432800498F42 /* SemesterCalendarManager.swift in Sources */,
 				16940EF61CF1D86E005965A2 /* Definitions.swift in Sources */,
 				167246101B1AB1AD0083035F /* kuStudy.swift in Sources */,
 				167B4C8C1F872F0000BDE991 /* OpenTimeTransform.swift in Sources */,
 				16940EF01CF1D263005965A2 /* SummaryData.swift in Sources */,
 				165DE81C1F9F8F860016C748 /* Localizations.swift in Sources */,
 				167B4C861F872E7700BDE991 /* YesNoTransform.swift in Sources */,
+				16AA8EC3214641F000498F42 /* DateInterval.swift in Sources */,
 				1631A2D11CEF4EEC0078381F /* LibraryData.swift in Sources */,
 				1631A2CE1CEF4EA60078381F /* SectorData.swift in Sources */,
 				16051F2F1F99E69500EC9285 /* DataManager.swift in Sources */,

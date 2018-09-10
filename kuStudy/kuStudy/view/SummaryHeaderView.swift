@@ -155,7 +155,7 @@ extension SummaryHeaderView: UICollectionViewDelegateFlowLayout, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -167,14 +167,18 @@ extension SummaryHeaderView: UICollectionViewDelegateFlowLayout, UICollectionVie
     private func populate(cell: SummaryHeaderItemCell, at indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
+            cell.titleLabel.text = Localizations.Label.EndOfSemester
+            cell.valueLabel.text = SemesterCalendarManager.shared.activeSemester.semester.end.daysFromToday.readable
+            cell.descriptionLabel.text = Localizations.Label.DaysLeft
+        case 1:
             cell.titleLabel.text = Localizations.Common.Total
             cell.valueLabel.text = summary?.occupied?.readable ?? Localizations.Common.NoData
             cell.descriptionLabel.text = Localizations.Common.Studying
-        case 1:
+        case 2:
             cell.titleLabel.text = Localizations.Common.LiberalArtCampus
             cell.valueLabel.text = summary?.liberalArtCampusData.occupied?.readable ?? Localizations.Common.NoData
             cell.descriptionLabel.text = Localizations.Common.Studying
-        case 2:
+        case 3:
             cell.titleLabel.text = Localizations.Common.ScienceCampus
             cell.valueLabel.text = summary?.scienceCampusData.occupied?.readable ?? Localizations.Common.NoData
             cell.descriptionLabel.text = Localizations.Common.Studying

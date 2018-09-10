@@ -14,4 +14,19 @@ public extension Date {
         formatter.timeStyle = .short
         return formatter.string(from: self)
     }
+    
+    public init?(dateString: String) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd Z"
+        if let d = formatter.date(from: dateString) {
+            self.init(timeInterval: 0, since: d)
+        } else {
+            return nil
+        }
+    }
+    
+    public var daysFromToday: Int {
+        let today = Date()
+        return Calendar.current.dateComponents([.day], from: today, to: self).day!
+    }
 }

@@ -189,10 +189,10 @@ public struct Localizations {
 
         public struct Button {
 
-            /// Base translation: Open in Apple Maps
+            /// Base translation: Open in Apple Maps ↗︎
             public static var OpenInAppleMaps : String = NSLocalizedString("Library.Button.OpenInAppleMaps", comment: "")
 
-            /// Base translation: Open in Google Maps
+            /// Base translation: Open in Google Maps ↗︎
             public static var OpenInGoogleMaps : String = NSLocalizedString("Library.Button.OpenInGoogleMaps", comment: "")
 
             /// Base translation: View in Map
@@ -247,6 +247,9 @@ public struct Localizations {
         /// Base translation: Have a problem?
         public static var Troubleshoot : String = NSLocalizedString("Label.Troubleshoot", comment: "")
 
+        /// Base translation: Days Left
+        public static var DaysLeft : String = NSLocalizedString("Label.DaysLeft", comment: "")
+
         /// Base translation: %@ Total: %@ Available: %@ Used: %@ 
         public static func ShareMessage(_ value1 : String, _ value2 : String, _ value3 : String, _ value4 : String) -> String {
             return String(format: NSLocalizedString("Label.ShareMessage", comment: ""), value1, value2, value3, value4)
@@ -260,6 +263,12 @@ public struct Localizations {
 
         /// Base translation: Open in Instagram?
         public static var OpenInstagram : String = NSLocalizedString("Label.OpenInstagram", comment: "")
+
+        /// Base translation: Start of Semester
+        public static var StartOfSemester : String = NSLocalizedString("Label.StartOfSemester", comment: "")
+
+        /// Base translation: End of Semester
+        public static var EndOfSemester : String = NSLocalizedString("Label.EndOfSemester", comment: "")
 
         /// Base translation: Loading...
         public static var Loading : String = NSLocalizedString("Label.Loading", comment: "")

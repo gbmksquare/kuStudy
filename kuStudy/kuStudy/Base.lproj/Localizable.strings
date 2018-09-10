@@ -70,6 +70,10 @@
 
 "Label.CellType.VeryCompact" = "Very Compact";
 
+"Label.DaysLeft" = "Days Left";
+
+"Label.EndOfSemester" = "End of Semester";
+
 "Label.Error" = "Oops! An error occurred.";
 
 /* * SHARED STRINGS */
@@ -124,6 +128,8 @@
 "Label.Settings.WidgetShowHeader" = "Show";
 
 "Label.ShareMessage" = "%@\nTotal: %@\nAvailable: %@\nUsed: %@\n";
+
+"Label.StartOfSemester" = "Start of Semester";
 
 "Label.Troubleshoot" = "Have a problem?";
 
