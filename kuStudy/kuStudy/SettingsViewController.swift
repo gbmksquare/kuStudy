@@ -10,6 +10,7 @@ import UIKit
 import StoreKit
 import AcknowList
 import kuStudyKit
+import CTFeedback
 
 class SettingsViewController: UIViewController {
     private lazy var tableView = UITableView(frame: .zero, style: .grouped)
@@ -133,6 +134,16 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    private func presentBugReport() {
+        let feedback = CTFeedbackViewController(topics: CTFeedbackViewController.defaultTopics(),
+                                                localizedTopics: CTFeedbackViewController.defaultLocalizedTopics())
+        feedback?.toRecipients = ["ksquareatm+kuapps@gmail.com"]
+        feedback?.useHTML = true
+        let detailNavigationController = UINavigationController(rootViewController: feedback!)
+        detailNavigationController.modalPresentationStyle = .formSheet
+        present(detailNavigationController, animated: true, completion: nil)
+    }
+    
     private func presentWriteReview(_ completion: (() -> Void)? = nil) {
         let app = UIApplication.shared
         if let url = URL(string: "itms-apps://itunes.apple.com/us/app/kustudy/id925255895?mt=8&action=write-review"),
@@ -222,6 +233,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             if app.canOpenURL(url) {
                 app.open(url, options: [:], completionHandler: nil)
             }
+        case .bugReport:
+            presentBugReport()
         }
     }
     
@@ -277,7 +290,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.tag = menuRow.tag
             cell.textLabel?.text = menuRow.title
             return cell
-        case .appLibraryOrder, .widgetLibraryOrder, .libraryCellType, .sectorCellType, .mediaProvider, .openSource, .donate:
+        case .appLibraryOrder, .widgetLibraryOrder, .libraryCellType, .sectorCellType, .mediaProvider, .openSource, .donate, .bugReport:
             var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "disclosureCell")
             if cell == nil {
                 cell = UITableViewCell(style: .default, reuseIdentifier: "disclosureCell")
@@ -286,7 +299,6 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.tag = menuRow.tag
             cell.textLabel?.text = menuRow.title
             return cell
-            
         case .openSettings:
             var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "normalCell")
             if cell == nil {

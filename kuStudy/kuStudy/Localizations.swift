@@ -291,14 +291,17 @@ public struct Localizations {
             /// Base translation: Write a review
             public static var AppStoreReview : String = NSLocalizedString("Label.Settings.AppStoreReview", comment: "")
 
+            /// Base translation: Report a bug
+            public static var BugReport : String = NSLocalizedString("Label.Settings.BugReport", comment: "")
+
             /// Base translation: Items dragged here are hidden in Notificaiton Center.
             public static var WidgetHideFooter : String = NSLocalizedString("Label.Settings.WidgetHideFooter", comment: "")
 
-            /// Base translation: Hide
-            public static var WidgetHideHeader : String = NSLocalizedString("Label.Settings.WidgetHideHeader", comment: "")
-
             /// Base translation: About
             public static var AboutHeader : String = NSLocalizedString("Label.Settings.AboutHeader", comment: "")
+
+            /// Base translation: Hide
+            public static var WidgetHideHeader : String = NSLocalizedString("Label.Settings.WidgetHideHeader", comment: "")
 
             /// Base translation: Reading Room Display Style
             public static var SectorCellType : String = NSLocalizedString("Label.Settings.SectorCellType", comment: "")

@@ -89,6 +89,8 @@
 
 "Label.Settings.AutoUpdate" = "자동 새로 고침";
 
+"Label.Settings.BugReport" = "문제 리포트";
+
 "Label.Settings.FeedbackHeader" = "리뷰";
 
 "Label.Settings.GeneralHeader" = "일반";

@@ -6,6 +6,7 @@ PODS:
   - AlamofireObjectMapper (5.1.0):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.3)
+  - CTFeedback (1.1.1)
   - DeviceKit (1.7.0)
   - DZNEmptyDataSet (1.8.1)
   - FTLinearActivityIndicator (1.0.4)
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - Alamofire
   - AlamofireNetworkActivityIndicator
   - AlamofireObjectMapper
+  - CTFeedback
   - DeviceKit
   - DZNEmptyDataSet
   - FTLinearActivityIndicator
@@ -36,6 +38,7 @@ SPEC REPOS:
     - Alamofire
     - AlamofireNetworkActivityIndicator
     - AlamofireObjectMapper
+    - CTFeedback
     - DeviceKit
     - DZNEmptyDataSet
     - FTLinearActivityIndicator
@@ -51,6 +54,7 @@ SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlamofireNetworkActivityIndicator: aeac50e6ecb78ec71a5f1f29098bcf4ec2962910
   AlamofireObjectMapper: 3395e698901d8b0e6f48b7d0c43bd47875325102
+  CTFeedback: 6f128606e0d26d46075c3fa9fc33884372df8675
   DeviceKit: 6a5bdeb103c03757bb94aef1ccb01e08bc8ef4ee
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FTLinearActivityIndicator: 0c4ff2067cd67d88fd932ec214da90083ea7148e
@@ -61,6 +65,6 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   TONavigationBar: d0a8ab15f19f5a258dac6a6ec12cbe59aad1450c
 
-PODFILE CHECKSUM: b0490f372a85dd5636452f7fff9b24e8b1972587
+PODFILE CHECKSUM: 0d4a5513be5a836b21e6e33ef4ad791f2092b4ce
 
 COCOAPODS: 1.5.3

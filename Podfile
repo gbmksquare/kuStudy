@@ -20,6 +20,7 @@ target 'kuStudy' do
   pod 'AcknowList'
   pod 'MXParallaxHeader'
   pod 'TONavigationBar'
+  pod 'CTFeedback'
 
   target 'kuStudyTests' do
     inherit! :search_paths

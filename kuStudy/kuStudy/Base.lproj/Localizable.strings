@@ -89,6 +89,8 @@
 
 "Label.Settings.AutoUpdate" = "Auto Update";
 
+"Label.Settings.BugReport" = "Report a bug";
+
 "Label.Settings.FeedbackHeader" = "Review";
 
 "Label.Settings.GeneralHeader" = "General";

@@ -66,8 +66,6 @@
 			</dict>
 		</dict>
 	</dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>This app requires photo library access to attach images.</string>
 	<key>NSUserActivityTypes</key>
 	<array>
 		<string>com.gbmksquare.kuapps.kuStudy.summaryView</string>
@@ -88,5 +86,9 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>This app requires camera access to attach images.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app requires photo library access to attach images.</string>
 </dict>
 </plist>

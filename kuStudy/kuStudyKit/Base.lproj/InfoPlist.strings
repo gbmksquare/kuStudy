@@ -7,3 +7,5 @@
 */
 
 "CFBundleDisplayName" = "kuStudy";
+"NSCameraUsageDescription" = "Camera access is required if you want to attach photos directly from the camera.";
+"NSPhotoLibraryUsageDescription" = "Photo library access is required if you want to attach images from your photo library.";
