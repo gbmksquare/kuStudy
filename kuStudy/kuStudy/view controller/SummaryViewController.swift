@@ -60,7 +60,7 @@ class SummaryViewController: UIViewController {
         navigationController?.to_navigationBar?.setTargetScrollView(tableView, minimumOffset: 100)
         
         if UIDevice.current.userInterfaceIdiom == .pad {
-            if (splitViewController?.childViewControllers.last?.childViewControllers.first is LibraryViewController) == false {
+            if (splitViewController?.children.last?.children.first is LibraryViewController) == false {
                 if let indexPath = tableView.indexPathForSelectedRow {
                     tableView.deselectRow(at: indexPath, animated: true)
                 }
@@ -280,8 +280,8 @@ extension SummaryViewController {
         tableView.emptyDataSetDelegate = self
         tableView.dragDelegate = self
         tableView.dragInteractionEnabled = true
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.showsVerticalScrollIndicator = false
         tableView.tableFooterView = UIView()
         view.addSubview(tableView)
@@ -308,7 +308,7 @@ extension SummaryViewController {
 extension SummaryViewController {
     private func resizeHeader() {
         if let header = tableView.tableHeaderView {
-            let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+            let height = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
             var frame = header.frame
             if frame.height != height {
                 frame.size.height = height
@@ -440,7 +440,7 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let text = dataState == .fetching ? Localizations.Label.Loading : (error?.localizedDescription ?? Localizations.Label.Error)
-        let attribute = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 17)]
+        let attribute = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)]
         return NSAttributedString(string: text, attributes: attribute)
     }
 }

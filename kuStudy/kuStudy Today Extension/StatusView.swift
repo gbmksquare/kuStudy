@@ -33,7 +33,7 @@ class StatusView: UIView {
     private func setup() {
         backgroundColor = .clear
         
-        indicator.activityIndicatorViewStyle = .gray
+        indicator.style = .gray
         indicator.hidesWhenStopped = true
         
         label.text = Localizations.Table.Label.Error

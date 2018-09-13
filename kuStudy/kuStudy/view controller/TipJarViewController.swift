@@ -37,8 +37,8 @@ extension TipJarViewController {
             table.delegate = self
             table.dataSource = self
             table.emptyDataSetSource = self
-            table.rowHeight = UITableViewAutomaticDimension
-            table.estimatedRowHeight = UITableViewAutomaticDimension
+            table.rowHeight = UITableView.automaticDimension
+            table.estimatedRowHeight = UITableView.automaticDimension
             
             view.addSubview(table)
             table.snp.makeConstraints { (make) in
@@ -164,7 +164,7 @@ extension TipJarViewController: UITableViewDelegate, UITableViewDataSource, DZNE
     
     // Empty
     func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        let indicator = UIActivityIndicatorView(style: .whiteLarge)
         indicator.color = .lightGray
         indicator.startAnimating()
         return indicator

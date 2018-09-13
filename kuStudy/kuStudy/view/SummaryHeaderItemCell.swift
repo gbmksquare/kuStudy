@@ -83,6 +83,6 @@ class SummaryHeaderItemCell: UICollectionViewCell {
         titleLabel.isAccessibilityElement = false
         descriptionLabel.isAccessibilityElement = false
         valueLabel.isAccessibilityElement = false
-        contentView.accessibilityTraits = UIAccessibilityTraitStaticText
+        contentView.accessibilityTraits = UIAccessibilityTraits.staticText
     }
 }

@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     // MARK: - Application
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         setupApplication()
         
         let splitViewController = MainSplitViewController()
@@ -32,11 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // MARK: - Url
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
         guard let window = window else { return false }
         
         let splitViewController = window.rootViewController as! MainSplitViewController
-        let tabBarController = splitViewController.childViewControllers.first as! MainTabBarController
+        let tabBarController = splitViewController.children.first as! MainTabBarController
         tabBarController.selectedIndex = 0
         
         let navigationController = tabBarController.viewControllers![0] as! UINavigationController
@@ -55,10 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         guard let window = window else { return false }
         let splitViewController = window.rootViewController as! MainSplitViewController
-        let tabBarController = splitViewController.childViewControllers.first as! MainTabBarController
+        let tabBarController = splitViewController.children.first as! MainTabBarController
         tabBarController.selectedIndex = 0
         
         let navigationController = tabBarController.viewControllers![0] as! UINavigationController
@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let window = window else { return }
         
         let splitViewController = window.rootViewController as! MainSplitViewController
-        let tabBarController = splitViewController.childViewControllers.first as! MainTabBarController
+        let tabBarController = splitViewController.children.first as! MainTabBarController
         tabBarController.selectedIndex = 0
         
         let navigationController = tabBarController.viewControllers![0] as! UINavigationController
@@ -131,7 +131,7 @@ extension AppDelegate {
         UINavigationBar.appearance().barStyle = .black
         UINavigationBar.appearance().barTintColor = .theme
         UINavigationBar.appearance().tintColor = .white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         UINavigationBar.appearance().tintColor = .white
         UITabBar.appearance().tintColor = .theme
     }

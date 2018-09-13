@@ -13,14 +13,16 @@ target 'kuStudy' do
   platform :ios, '11.0'
 
   pod 'DeviceKit'
+
   pod 'AlamofireNetworkActivityIndicator'
   pod 'FTLinearActivityIndicator'
-  pod 'LinearProgressView'
-  pod 'DZNEmptyDataSet'
-  pod 'AcknowList'
-  pod 'MXParallaxHeader'
   pod 'TONavigationBar'
+  pod 'LinearProgressView'
+  pod 'MXParallaxHeader'
+  pod 'DZNEmptyDataSet'
+
   pod 'CTFeedback'
+  pod 'AcknowList'
 
   target 'kuStudyTests' do
     inherit! :search_paths
@@ -66,16 +68,4 @@ target 'kuStudyWatchKit' do
   platform :watchos, '3.0'
 
   shared_pods
-end
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-    	if config.name == 'Release'
-    		config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Owholemodule'
-    	else
-    		config.build_settings['SWIFT_OPTIMIZATION_LEVEL'] = '-Onone'
-    	end
-    end
-  end
 end

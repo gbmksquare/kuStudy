@@ -38,7 +38,7 @@ class SettingsViewController: UIViewController {
         
         // Deselct cell if detail view does not match master view
         if UIDevice.current.userInterfaceIdiom == .pad {
-            if (splitViewController?.childViewControllers.last?.childViewControllers.first is LibraryViewController) == true {
+            if (splitViewController?.children.last?.children.first is LibraryViewController) == true {
                 if let indexPath = tableView.indexPathForSelectedRow {
                     tableView.deselectRow(at: indexPath, animated: true)
                 }
@@ -148,7 +148,7 @@ class SettingsViewController: UIViewController {
         let app = UIApplication.shared
         if let url = URL(string: "itms-apps://itunes.apple.com/us/app/kustudy/id925255895?mt=8&action=write-review"),
             app.canOpenURL(url) == true {
-            app.open(url, options: [:], completionHandler: nil)
+            app.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         } else {
             let alert = UIAlertController(title: Localizations.Common.Error, message: Localizations.Alert.Message.AppStore.Failed, preferredStyle: .alert)
             let confirm = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default, handler: nil)
@@ -161,7 +161,7 @@ class SettingsViewController: UIViewController {
     
     private func resizeTableFooterView() {
         if let footer = tableView.tableFooterView {
-            let height = footer.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+            let height = footer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
             var frame = footer.frame
             if frame.height != height {
                 frame.size.height = height
@@ -228,10 +228,10 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case .openSettings:
             tableView.deselectRow(at: indexPath, animated: true)
-            guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
+            guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
             let app = UIApplication.shared
             if app.canOpenURL(url) {
-                app.open(url, options: [:], completionHandler: nil)
+                app.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             }
         case .bugReport:
             presentBugReport()
@@ -309,4 +309,9 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

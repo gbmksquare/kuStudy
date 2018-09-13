@@ -111,7 +111,7 @@ extension ThanksToViewController {
     private func openInInstagram(_ url: URL) {
         let alert = UIAlertController(title: Localizations.Label.OpenInstagram, message: nil, preferredStyle: .alert)
         let open = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default) { (_) in
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
         }
         let cancel = UIAlertAction(title: Localizations.Alert.Action.Cancel, style: .cancel, handler: nil)
         alert.addAction(cancel)
@@ -124,4 +124,9 @@ extension ThanksToViewController {
         safari.preferredControlTintColor = UIColor.theme
         present(safari, animated: true, completion: nil)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

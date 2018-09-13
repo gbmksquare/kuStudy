@@ -1370,7 +1370,7 @@
 				167245F21B19C42B0083035F /* Sources */,
 				167245F31B19C42B0083035F /* Frameworks */,
 				167245F41B19C42B0083035F /* Resources */,
-				D192765220020937CECADA2B /* [CP] Embed Pods Frameworks */,
+				B1EDAEC0A6B5DF62528F47A8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1419,7 +1419,7 @@
 					16136BD21B1C3F0700B3F744 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 3ZTVE7CS5L;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1431,18 +1431,16 @@
 					};
 					16136BDE1B1C3F0700B3F744 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 3ZTVE7CS5L;
 						LastSwiftMigration = 0800;
 					};
 					16538EA51C4F16820097A4F4 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 3ZTVE7CS5L;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 					};
 					167245BE1B19C0370083035F = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 3ZTVE7CS5L;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1457,23 +1455,23 @@
 					};
 					167245D31B19C0370083035F = {
 						CreatedOnToolsVersion = 6.3.2;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						TestTargetID = 167245BE1B19C0370083035F;
 					};
 					167245EB1B19C42B0083035F = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 3ZTVE7CS5L;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 					};
 					167245F51B19C42B0083035F = {
 						CreatedOnToolsVersion = 6.3.2;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						TestTargetID = 167245BE1B19C0370083035F;
 					};
 					16B453641B22A9A400A3B008 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 3ZTVE7CS5L;
-						LastSwiftMigration = 0900;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -1784,6 +1782,32 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B1EDAEC0A6B5DF62528F47A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudyKitTests/Pods-kuStudyKitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper-iOS/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper-iOS/ObjectMapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudyKitTests/Pods-kuStudyKitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B55DFE22EE0B7B7121AEEB44 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1800,28 +1824,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D192765220020937CECADA2B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudyKitTests/Pods-kuStudyKitTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper-iOS/AlamofireObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper-iOS/ObjectMapper.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudyKitTests/Pods-kuStudyKitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E24BC5CD9BED1D136AC3F4EF /* [CP] Embed Pods Frameworks */ = {
@@ -2285,7 +2287,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
@@ -2316,7 +2318,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				WATCHOS_DEPLOYMENT_TARGET = 3.0;
@@ -2328,7 +2330,10 @@
 			baseConfigurationReference = EF7B64F53A0904D6C6A7FCFE /* Pods-kuStudy WatchKit App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 43;
+				DEVELOPMENT_TEAM = 3ZTVE7CS5L;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -2337,6 +2342,7 @@
 				INFOPLIST_FILE = "kuStudy WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -2351,11 +2357,15 @@
 			baseConfigurationReference = 1B8A305A9EC4933DE4DE0309 /* Pods-kuStudy WatchKit App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 43;
+				DEVELOPMENT_TEAM = 3ZTVE7CS5L;
 				IBSC_MODULE = kuStudy_WatchKit_Extension;
 				INFOPLIST_FILE = "kuStudy WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -2373,9 +2383,11 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 43;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 43;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2388,9 +2400,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuStudyWatchKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2406,8 +2419,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 43;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 43;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2420,9 +2435,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuStudyWatchKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2546,7 +2562,9 @@
 				CODE_SIGN_ENTITLEMENTS = kuStudy/kuStudy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 43;
+				DEVELOPMENT_TEAM = 3ZTVE7CS5L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2560,8 +2578,9 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -2575,7 +2594,9 @@
 				CODE_SIGN_ENTITLEMENTS = kuStudy/kuStudy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 43;
+				DEVELOPMENT_TEAM = 3ZTVE7CS5L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -2588,8 +2609,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuapps.kuStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -2616,7 +2638,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kuStudy.app/kuStudy";
 			};
 			name = Debug;
@@ -2638,7 +2660,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kuStudy.app/kuStudy";
 			};
 			name = Release;
@@ -2649,10 +2671,12 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 43;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 43;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2675,9 +2699,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuApps.kuStudyKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2690,10 +2715,12 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 43;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 43;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2712,8 +2739,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.gbmksquare.kuApps.kuStudyKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -2740,7 +2768,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kuStudy.app/kuStudy";
 			};
 			name = Debug;
@@ -2761,7 +2789,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kuStudy.app/kuStudy";
 			};
 			name = Release;
@@ -2792,7 +2820,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.kuapps.kuStudy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -2819,7 +2847,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gbmksquare.kuapps.kuStudy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

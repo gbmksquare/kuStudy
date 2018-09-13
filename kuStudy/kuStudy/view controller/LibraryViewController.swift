@@ -100,7 +100,7 @@ extension LibraryViewController {
     @objc private func tapped(remind button: UIButton? = nil) {
         UNUserNotificationCenter.current().getNotificationSettings { [weak self] (settings) in
             switch settings.authorizationStatus {
-            case .authorized: self?.askRemindTimeInterval()
+            case .authorized, .provisional: self?.askRemindTimeInterval()
             case .denied: self?.handleNotificationAccessDenied()
             case .notDetermined:
                 NotificationCoordinator.shared.requestAuthorization { (granted, error) in
@@ -153,10 +153,10 @@ extension LibraryViewController {
             self?.tapped(remind: nil)
         }
         let openSettings = UIAlertAction(title: Localizations.Alert.Action.OpenSettings, style: .default) { (_) in
-            guard let url = URL(string: UIApplicationOpenSettingsURLString) else { return }
+            guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
             let app = UIApplication.shared
             if app.canOpenURL(url) {
-                app.open(url, options: [:], completionHandler: nil)
+                app.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
             }
         }
         alert.addAction(confirm)
@@ -173,7 +173,7 @@ extension LibraryViewController {
 extension LibraryViewController {
     private func resizeHeader() {
         if let header = tableView.tableHeaderView {
-            let height = header.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+            let height = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
             var frame = header.frame
             if frame.height != height {
                 frame.size.height = height
@@ -185,7 +185,7 @@ extension LibraryViewController {
     
     private func resizeFooter() {
         if let footer = tableView.tableFooterView {
-            let height = footer.systemLayoutSizeFitting(UILayoutFittingCompressedSize).height
+            let height = footer.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
             var frame = footer.frame
             if frame.height != height {
                 frame.size.height = height
@@ -307,8 +307,8 @@ extension LibraryViewController {
         SectorCellType.allTypes.forEach {
             tableView.register($0.cellClass, forCellReuseIdentifier: $0.preferredReuseIdentifier)
         }
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = UITableView.automaticDimension
         footerContentView.library = library
         tableView.tableFooterView = footerContentView
 //        tableView.tableFooterView = UIView()
@@ -399,7 +399,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource, DZN
     
     func title(forEmptyDataSet scrollView: UIScrollView!) -> NSAttributedString! {
         let text = dataState == .fetching ? Localizations.Label.Loading : (error?.localizedDescription ?? Localizations.Label.Error)
-        let attribute = [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 17)]
+        let attribute = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)]
         return NSAttributedString(string: text, attributes: attribute)
     }
 }
@@ -417,4 +417,9 @@ extension LibraryViewController {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         handleScrollOffset()
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

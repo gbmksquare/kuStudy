@@ -97,7 +97,7 @@ class InterfaceController: WKInterfaceController {
     
     private func reorderLibraryData() {
         let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
-        orderedLibraryIds = defaults.array(forKey: "libraryOrder") as! [String]
+        orderedLibraryIds = defaults.array(forKey: "libraryOrder") as? [String]
         
         var orderedLibraries = [LibraryData]()
         for libraryId in orderedLibraryIds {

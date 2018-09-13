@@ -61,7 +61,7 @@ class RefreshEffectView: UIView {
     
     private func setupView() {
         backgroundColor = .clear
-        indicator.activityIndicatorViewStyle = .whiteLarge
+        indicator.style = .whiteLarge
         indicator.alpha = 0
         indicator.startAnimating()
         

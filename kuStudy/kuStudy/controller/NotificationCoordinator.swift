@@ -80,7 +80,7 @@ class NotificationCoordinator: NSObject {
         content.title = library.name
         content.subtitle = library.nameInAlternateLanguage
         content.body = Localizations.Notification.Content.TapToShow
-        content.sound = UNNotificationSound.default()
+        content.sound = UNNotificationSound.default
         content.userInfo = ["libraryId": library.rawValue]
         return content
     }
@@ -98,7 +98,7 @@ extension NotificationCoordinator: UNUserNotificationCenterDelegate {
             return
         }
         let splitViewController = window.rootViewController as! MainSplitViewController
-        let tabBarController = splitViewController.childViewControllers.first as! MainTabBarController
+        let tabBarController = splitViewController.children.first as! MainTabBarController
         tabBarController.selectedIndex = 0
         
         let navigationController = tabBarController.viewControllers![0] as! UINavigationController

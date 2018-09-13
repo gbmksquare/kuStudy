@@ -41,12 +41,12 @@ class MainSplitViewController: UISplitViewController {
     
     // MARK: - Action
     @objc private func gotoLibrary(_ sender: UIKeyCommand) {
-        let tabBarController = childViewControllers.first as! MainTabBarController
+        let tabBarController = children.first as! MainTabBarController
         tabBarController.selectedIndex = 0
     }
     
     @objc private func gotoPreferences(_ sender: UIKeyCommand) {
-        let tabBarController = childViewControllers.first as! MainTabBarController
+        let tabBarController = children.first as! MainTabBarController
         tabBarController.selectedIndex = 1
     }
 }
@@ -54,13 +54,13 @@ class MainSplitViewController: UISplitViewController {
 // MARK: - Split view
 extension MainSplitViewController: UISplitViewControllerDelegate {
     func splitViewController(_ splitViewController: UISplitViewController, separateSecondaryFrom primaryViewController: UIViewController) -> UIViewController? {
-        guard let tab = splitViewController.childViewControllers.first as? MainTabBarController else { return nil }
-        guard let navigations = tab.childViewControllers as? [UINavigationController] else { return nil }
+        guard let tab = splitViewController.children.first as? MainTabBarController else { return nil }
+        guard let navigations = tab.children as? [UINavigationController] else { return nil }
         
-        if let navigation = navigations.first , navigation.childViewControllers.count > 1 {
+        if let navigation = navigations.first , navigation.children.count > 1 {
             return navigation.popViewController(animated: false)
         }
-        if let navigation = navigations.last , navigation.childViewControllers.count > 1 {
+        if let navigation = navigations.last , navigation.children.count > 1 {
             if let vc = navigation.popViewController(animated: false) {
                 let navigation = UINavigationController(rootViewController: vc)
                 return navigation
@@ -75,9 +75,9 @@ extension MainSplitViewController: UISplitViewControllerDelegate {
         guard let tab = primaryViewController as? MainTabBarController else { return false }
         guard let detailNavigation = secondaryViewController as? UINavigationController else { return false }
         
-        if detailNavigation.childViewControllers.first is LibraryViewController {
+        if detailNavigation.children.first is LibraryViewController {
             return false
-        } else if let vc = detailNavigation.childViewControllers.first {
+        } else if let vc = detailNavigation.children.first {
             guard let navigation = tab.selectedViewController as? UINavigationController else { return false }
             navigation.pushViewController(vc, animated: false)
             return true
@@ -86,11 +86,11 @@ extension MainSplitViewController: UISplitViewControllerDelegate {
     }
 
     func splitViewController(_ splitViewController: UISplitViewController, showDetail vc: UIViewController, sender: Any?) -> Bool {
-        guard let tab = splitViewController.childViewControllers.first as? MainTabBarController else { return false }
-        guard let navigations = tab.childViewControllers as? [UINavigationController] else { return false }
+        guard let tab = splitViewController.children.first as? MainTabBarController else { return false }
+        guard let navigations = tab.children as? [UINavigationController] else { return false }
         guard let detailNavigation = vc as? UINavigationController else { return false }
         
-        if let vc = detailNavigation.childViewControllers.first as? LibraryViewController {
+        if let vc = detailNavigation.children.first as? LibraryViewController {
             if splitViewController.isCollapsed == true {
                 navigations.first?.pushViewController(vc, animated: true)
             } else {
@@ -105,7 +105,7 @@ extension MainSplitViewController: UISplitViewControllerDelegate {
             }
         } else {
             if splitViewController.isCollapsed == true {
-                guard let vc = detailNavigation.childViewControllers.first else { return true }
+                guard let vc = detailNavigation.children.first else { return true }
                 DispatchQueue.main.async {
                     navigations.last?.pushViewController(vc, animated: true)
                 }

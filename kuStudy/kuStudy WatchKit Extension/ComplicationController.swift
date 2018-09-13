@@ -45,6 +45,9 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             handler(template)
         case .modularLarge, .utilitarianSmallFlat, .utilitarianLarge:
             handler(nil)
+        default:
+            // TODO: Add extra complications
+            handler(nil)
         }
     }
     
@@ -173,6 +176,9 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             template.imageProvider.tintColor = UIColor.theme
             finalTemplate = template
         case .modularLarge, .utilitarianSmallFlat, .utilitarianLarge:
+            finalTemplate = nil
+        default:
+            // TODO: Add extra complications
             finalTemplate = nil
         }
         if let template = finalTemplate {

@@ -178,7 +178,7 @@ extension Preference {
         var quickActionItems = [UIMutableApplicationShortcutItem]()
         for libraryId in orderedLibraryIds {
             let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!
-            let item = UIMutableApplicationShortcutItem(type: actionType, localizedTitle: libraryType.name, localizedSubtitle: nil, icon: icon, userInfo: ["libraryId": libraryId])
+            let item = UIMutableApplicationShortcutItem(type: actionType, localizedTitle: libraryType.name, localizedSubtitle: nil, icon: icon, userInfo: ["libraryId": libraryId as NSSecureCoding])
             quickActionItems.append(item)
         }
         
