@@ -1,5 +1,21 @@
 # Release Notes 
 
+## 3.5.0 (43)
+
+### New features
+
+* Updated for iPhone XS Max and iPhone XR resolutions.
+* Added bug report to settings.
+
+### Improvements
+
+* Updated third party libraries.
+
+### Code improvements
+
+* Updated for Xcode 10.
+* Updated to Swift 4.2.
+
 ## 3.4.0 (42)
 
 ### New features

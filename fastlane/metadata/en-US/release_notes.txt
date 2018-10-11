@@ -1,12 +1,8 @@
 New Features
-• Added option to view seats information on web.
-• Added D-day countdown to the end of the semester.
-• Added a new library display style.
-• Added map showing location of each library.
+• Now supports iPhone XS Max and iPhone XR resolutions.
+• Added option to report bug in settings.
 
 Improvements
-• Reorganized settings menu.
-• UI improvements.
 • Updated third party libraries.
 
 Happy studying! :)
