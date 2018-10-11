@@ -110,19 +110,19 @@ extension AppDelegate {
                                        "Model": device.modelIdentifier,
                                        "OS": device.systemName + " " + device.systemVersion,
                                        "Version": UIApplication.shared.versionString,
-                                       "VoiceOver": UIAccessibilityIsVoiceOverRunning(),
-                                       "BoldText": UIAccessibilityIsBoldTextEnabled(),
-                                       "ReduceTransparency": UIAccessibilityIsReduceTransparencyEnabled(),
-                                       "ReduceMotion": UIAccessibilityIsReduceMotionEnabled(),
-                                       "Grayscale": UIAccessibilityIsGrayscaleEnabled(),
-                                       "InvertColor": UIAccessibilityIsInvertColorsEnabled(),
-                                       "MonoAudio": UIAccessibilityIsMonoAudioEnabled(),
-                                       "ShakeToUndo": UIAccessibilityIsShakeToUndoEnabled(),
-                                       "SpeakScreen": UIAccessibilityIsSpeakScreenEnabled(),
-                                       "SpeakSelection": UIAccessibilityIsSpeakSelectionEnabled(),
-                                       "GuidedAccess": UIAccessibilityIsGuidedAccessEnabled(),
-                                       "SwitchControl": UIAccessibilityIsSwitchControlRunning(),
-                                       "AssistiveTouch": UIAccessibilityIsAssistiveTouchRunning()]
+                                       "VoiceOver": UIAccessibility.isVoiceOverRunning,
+                                       "BoldText": UIAccessibility.isBoldTextEnabled,
+                                       "ReduceTransparency": UIAccessibility.isReduceTransparencyEnabled,
+                                       "ReduceMotion": UIAccessibility.isReduceMotionEnabled,
+                                       "Grayscale": UIAccessibility.isGrayscaleEnabled,
+                                       "InvertColor": UIAccessibility.isInvertColorsEnabled,
+                                       "MonoAudio": UIAccessibility.isMonoAudioEnabled,
+                                       "ShakeToUndo": UIAccessibility.isShakeToUndoEnabled,
+                                       "SpeakScreen": UIAccessibility.isSpeakScreenEnabled,
+                                       "SpeakSelection": UIAccessibility.isSpeakSelectionEnabled,
+                                       "GuidedAccess": UIAccessibility.isGuidedAccessEnabled,
+                                       "SwitchControl": UIAccessibility.isSwitchControlRunning,
+                                       "AssistiveTouch": UIAccessibility.isAssistiveTouchRunning]
             Answers.logCustomEvent(withName: "Launch", customAttributes: data)
         #endif
     }
