@@ -69,3 +69,15 @@ target 'kuStudyWatchKit' do
 
   shared_pods
 end
+
+# Fix for Xcode 10 upload watchOS app problem
+# https://stackoverflow.com/questions/52304108/xcode-10-gm-invalid-binary-architecture-when-submitting-to-app-store-connect
+post_install do |installer_representation|
+    installer_representation.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            if config.build_settings['SDKROOT'] == 'watchos'  
+              config.build_settings['WATCHOS_DEPLOYMENT_TARGET'] = '3.0'  
+            end
+        end
+    end
+end
