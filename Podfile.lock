@@ -7,7 +7,7 @@ PODS:
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.3)
   - CTFeedback (1.1.1)
-  - DeviceKit (1.8.1)
+  - DeviceKit (1.9.0)
   - DZNEmptyDataSet (1.8.1)
   - FTLinearActivityIndicator (1.1.1)
   - LinearProgressView (2.0.1)
@@ -55,7 +55,7 @@ SPEC CHECKSUMS:
   AlamofireNetworkActivityIndicator: 18346ff6d770d9513d0ac6f2d99706f40f93dbaa
   AlamofireObjectMapper: 3395e698901d8b0e6f48b7d0c43bd47875325102
   CTFeedback: 6f128606e0d26d46075c3fa9fc33884372df8675
-  DeviceKit: eb29be542f5473b46b1c719011cf7de3ec5264ca
+  DeviceKit: a376cb3d0dda0c27c81dcc0d2b7b8600b6802065
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FTLinearActivityIndicator: 323ad4e4743a159483566730f93c73d0b8e6a641
   LinearProgressView: 353d4d45dc599b83cc4b43f14e6c0336aa6f3834
@@ -65,6 +65,6 @@ SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   TONavigationBar: d0a8ab15f19f5a258dac6a6ec12cbe59aad1450c
 
-PODFILE CHECKSUM: 913fc6a8569fcf411cf45c1b04e4cc357ec98f36
+PODFILE CHECKSUM: 7259ebf2cc9fbdd7d3fe2de939a93d3de0bac93e
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.1

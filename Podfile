@@ -13,6 +13,7 @@ target 'kuStudy' do
   platform :ios, '11.0'
 
   pod 'DeviceKit'
+  pod 'SnapKit'
 
   pod 'AlamofireNetworkActivityIndicator'
   pod 'FTLinearActivityIndicator'
