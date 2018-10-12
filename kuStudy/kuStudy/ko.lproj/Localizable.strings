@@ -107,6 +107,8 @@
 
 "Label.Settings.OpenSource" = "오픈소스";
 
+"Label.Settings.PrivacyPolicy" = "개인 정보 보호 정책";
+
 "Label.Settings.ReviewFooter" = "App Store에 리뷰나 피드백을 남겨주세요! 모든 리뷰는 앱 개발자에게 큰 힘이 됩니다.";
 
 "Label.Settings.SectorCellType" = "열람시 표시 스타일";

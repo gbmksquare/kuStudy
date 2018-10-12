@@ -11,6 +11,7 @@ import StoreKit
 import AcknowList
 import kuStudyKit
 import CTFeedback
+import SafariServices
 
 class SettingsViewController: UIViewController {
     private lazy var tableView = UITableView(frame: .zero, style: .grouped)
@@ -125,6 +126,13 @@ class SettingsViewController: UIViewController {
         navigationController?.showDetailViewController(detailNavigationController, sender: true)
     }
     
+    private func presentPrivacyPolicy() {
+        guard let url = URL(string: "https://gbmksquare.com/kuapps/kustudy/privacy_policy.html") else { return }
+        let safari = SFSafariViewController(url: url)
+        safari.preferredControlTintColor = UIColor.theme
+        navigationController?.showDetailViewController(safari, sender: true)
+    }
+    
     private func presentTipJar(_ completion: (() -> Void)? = nil) {
         let tipjar = TipJarViewController()
         let navigation = UINavigationController(rootViewController: tipjar)
@@ -221,7 +229,10 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         case .appStoreReview:
             presentWriteReview()
             tableView.deselectRow(at: indexPath, animated: true)
-        case .openSource: presentOpenSource()
+        case .openSource:
+            presentOpenSource()
+        case .privacyPolicy:
+            presentPrivacyPolicy()
         case .donate:
             presentTipJar { [weak self] in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
@@ -290,7 +301,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.tag = menuRow.tag
             cell.textLabel?.text = menuRow.title
             return cell
-        case .appLibraryOrder, .widgetLibraryOrder, .libraryCellType, .sectorCellType, .mediaProvider, .openSource, .donate, .bugReport:
+        case .appLibraryOrder, .widgetLibraryOrder, .libraryCellType, .sectorCellType, .mediaProvider, .openSource, .donate, .bugReport, .privacyPolicy:
             var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "disclosureCell")
             if cell == nil {
                 cell = UITableViewCell(style: .default, reuseIdentifier: "disclosureCell")

@@ -46,14 +46,14 @@ public struct Localizations {
         /// Base translation: Out of Order
         public static var OutOfOrder : String = NSLocalizedString("Common.OutOfOrder", comment: "")
 
-        /// Base translation: second
-        public static var Second : String = NSLocalizedString("Common.Second", comment: "")
+        /// Base translation: Total
+        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
 
         /// Base translation: Liberal Art Campus
         public static var LiberalArtCampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
 
-        /// Base translation: Total
-        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
+        /// Base translation: second
+        public static var Second : String = NSLocalizedString("Common.Second", comment: "")
 
         /// Base translation: Occupied
         public static var Used : String = NSLocalizedString("Common.Used", comment: "")
@@ -285,26 +285,29 @@ public struct Localizations {
             /// Base translation: Write a review or feedback on App Store. All feedback encourages app developer!
             public static var ReviewFooter : String = NSLocalizedString("Label.Settings.ReviewFooter", comment: "")
 
+            /// Base translation: Items dragged here are hidden in Notificaiton Center.
+            public static var WidgetHideFooter : String = NSLocalizedString("Label.Settings.WidgetHideFooter", comment: "")
+
             /// Base translation: Auto Update
             public static var AutoUpdate : String = NSLocalizedString("Label.Settings.AutoUpdate", comment: "")
-
-            /// Base translation: Write a review
-            public static var AppStoreReview : String = NSLocalizedString("Label.Settings.AppStoreReview", comment: "")
 
             /// Base translation: Report a bug
             public static var BugReport : String = NSLocalizedString("Label.Settings.BugReport", comment: "")
 
-            /// Base translation: Items dragged here are hidden in Notificaiton Center.
-            public static var WidgetHideFooter : String = NSLocalizedString("Label.Settings.WidgetHideFooter", comment: "")
-
-            /// Base translation: About
-            public static var AboutHeader : String = NSLocalizedString("Label.Settings.AboutHeader", comment: "")
+            /// Base translation: Write a review
+            public static var AppStoreReview : String = NSLocalizedString("Label.Settings.AppStoreReview", comment: "")
 
             /// Base translation: Hide
             public static var WidgetHideHeader : String = NSLocalizedString("Label.Settings.WidgetHideHeader", comment: "")
 
+            /// Base translation: About
+            public static var AboutHeader : String = NSLocalizedString("Label.Settings.AboutHeader", comment: "")
+
             /// Base translation: Reading Room Display Style
             public static var SectorCellType : String = NSLocalizedString("Label.Settings.SectorCellType", comment: "")
+
+            /// Base translation: Today Widget Display Order
+            public static var TodayOrder : String = NSLocalizedString("Label.Settings.TodayOrder", comment: "")
 
             /// Base translation: Open Source
             public static var OpenSource : String = NSLocalizedString("Label.Settings.OpenSource", comment: "")
@@ -312,17 +315,14 @@ public struct Localizations {
             /// Base translation: Library Display Style
             public static var LibraryCellType : String = NSLocalizedString("Label.Settings.LibraryCellType", comment: "")
 
-            /// Base translation: Show
-            public static var WidgetShowHeader : String = NSLocalizedString("Label.Settings.WidgetShowHeader", comment: "")
-
             /// Base translation: Widget
             public static var WidgetHeader : String = NSLocalizedString("Label.Settings.WidgetHeader", comment: "")
 
+            /// Base translation: Show
+            public static var WidgetShowHeader : String = NSLocalizedString("Label.Settings.WidgetShowHeader", comment: "")
+
             /// Base translation: Library
             public static var LibraryHeader : String = NSLocalizedString("Label.Settings.LibraryHeader", comment: "")
-
-            /// Base translation: Today Widget Display Order
-            public static var TodayOrder : String = NSLocalizedString("Label.Settings.TodayOrder", comment: "")
 
             /// Base translation: General
             public static var GeneralHeader : String = NSLocalizedString("Label.Settings.GeneralHeader", comment: "")
@@ -350,6 +350,9 @@ public struct Localizations {
 
             /// Base translation: Open Settings
             public static var OpenSettings : String = NSLocalizedString("Label.Settings.OpenSettings", comment: "")
+
+            /// Base translation: Privacy Policy
+            public static var PrivacyPolicy : String = NSLocalizedString("Label.Settings.PrivacyPolicy", comment: "")
 
             /// Base translation: Update
             public static var UpdateHeader : String = NSLocalizedString("Label.Settings.UpdateHeader", comment: "")
