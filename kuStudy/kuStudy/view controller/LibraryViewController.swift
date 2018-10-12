@@ -307,6 +307,7 @@ extension LibraryViewController {
         SectorCellType.allTypes.forEach {
             tableView.register($0.cellClass, forCellReuseIdentifier: $0.preferredReuseIdentifier)
         }
+        tableView.backgroundColor = .lightBackground
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
         footerContentView.library = library
