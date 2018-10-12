@@ -9,7 +9,7 @@
 import UIKit
 import kuStudyKit
 
-class CompactLibraryCell: UITableViewCell {
+class DetailedLibraryCell: UITableViewCell {
     private lazy var indicator = UIView()
     private lazy var stackView = UIStackView()
     private lazy var titleLabel = UILabel()

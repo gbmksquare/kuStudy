@@ -68,7 +68,11 @@
 
 "Label.CellType.Default" = "기본";
 
+"Label.CellType.Detailed" = "상세히";
+
 "Label.CellType.VeryCompact" = "매우 작게";
+
+"Label.CellType.VeryDetailed" = "매우 상세히";
 
 "Label.DaysLeft" = "남은 일 수";
 

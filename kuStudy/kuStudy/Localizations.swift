@@ -19,8 +19,8 @@ public struct Localizations {
 
     public struct Common {
 
-        /// Base translation: minute
-        public static var Minute : String = NSLocalizedString("Common.Minute", comment: "")
+        /// Base translation: second
+        public static var Second : String = NSLocalizedString("Common.Second", comment: "")
 
         /// Base translation: Available
         public static var Available : String = NSLocalizedString("Common.Available", comment: "")
@@ -49,11 +49,11 @@ public struct Localizations {
         /// Base translation: Total
         public static var Total : String = NSLocalizedString("Common.Total", comment: "")
 
+        /// Base translation: minute
+        public static var Minute : String = NSLocalizedString("Common.Minute", comment: "")
+
         /// Base translation: Liberal Art Campus
         public static var LiberalArtCampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
-
-        /// Base translation: second
-        public static var Second : String = NSLocalizedString("Common.Second", comment: "")
 
         /// Base translation: Occupied
         public static var Used : String = NSLocalizedString("Common.Used", comment: "")
@@ -72,50 +72,8 @@ public struct Localizations {
 
     }
 
-    public struct Legacy {
-
-
-        public struct Title {
-
-            /// Base translation: Preference (d)
-            public static var Preference : String = NSLocalizedString("Legacy.Title.Preference", comment: "")
-
-        }
-    }
-
-    public struct Keyboard {
-
-        /// Base translation: Preferences
-        public static var Preference : String = NSLocalizedString("Keyboard.Preference", comment: "")
-
-        /// Base translation: Library
-        public static var Libraries : String = NSLocalizedString("Keyboard.Libraries", comment: "")
-
-    }
-
-    public struct Action {
-
-        /// Base translation: Open in Web ↗︎
-        public static var OpenLibraryInSafari : String = NSLocalizedString("Action.OpenLibraryInSafari", comment: "")
-
-        /// Base translation: Reset Orders
-        public static var ResetOrder : String = NSLocalizedString("Action.ResetOrder", comment: "")
-
-    }
-
     public struct Alert {
 
-
-        public struct Title {
-
-
-            public struct Notification {
-
-                /// Base translation: Access Denied
-                public static var AccessDenied : String = NSLocalizedString("Alert.Title.Notification.AccessDenied", comment: "")
-
-            }
-        }
 
         public struct Message {
 
@@ -141,6 +99,17 @@ public struct Localizations {
             }
         }
 
+        public struct Title {
+
+
+            public struct Notification {
+
+                /// Base translation: Access Denied
+                public static var AccessDenied : String = NSLocalizedString("Alert.Title.Notification.AccessDenied", comment: "")
+
+            }
+        }
+
         public struct Action {
 
             /// Base translation: Confirm
@@ -155,6 +124,26 @@ public struct Localizations {
         }
     }
 
+    public struct Keyboard {
+
+        /// Base translation: Library
+        public static var Libraries : String = NSLocalizedString("Keyboard.Libraries", comment: "")
+
+        /// Base translation: Preferences
+        public static var Preference : String = NSLocalizedString("Keyboard.Preference", comment: "")
+
+    }
+
+    public struct Action {
+
+        /// Base translation: Open in Web ↗︎
+        public static var OpenLibraryInSafari : String = NSLocalizedString("Action.OpenLibraryInSafari", comment: "")
+
+        /// Base translation: Reset Orders
+        public static var ResetOrder : String = NSLocalizedString("Action.ResetOrder", comment: "")
+
+    }
+
     public struct Notification {
 
 
@@ -166,13 +155,24 @@ public struct Localizations {
         }
     }
 
-    public struct TimeInterval {
+    public struct Legacy {
 
-        /// Base translation: Now
-        public static var Now : String = NSLocalizedString("TimeInterval.Now", comment: "")
+
+        public struct Title {
+
+            /// Base translation: Preference (d)
+            public static var Preference : String = NSLocalizedString("Legacy.Title.Preference", comment: "")
+
+        }
+    }
+
+    public struct TimeInterval {
 
         /// Base translation: Hours
         public static var Hour : String = NSLocalizedString("TimeInterval.Hour", comment: "")
+
+        /// Base translation: Now
+        public static var Now : String = NSLocalizedString("TimeInterval.Now", comment: "")
 
         /// Base translation: Custom
         public static var Custom : String = NSLocalizedString("TimeInterval.Custom", comment: "")
@@ -204,6 +204,16 @@ public struct Localizations {
         }
     }
 
+    public struct Title {
+
+        /// Base translation: Library
+        public static var Library : String = NSLocalizedString("Title.Library", comment: "")
+
+        /// Base translation: Settings
+        public static var Settings : String = NSLocalizedString("Title.Settings", comment: "")
+
+    }
+
     public struct Media {
 
 
@@ -230,16 +240,6 @@ public struct Localizations {
             }
 
         }
-    }
-
-    public struct Title {
-
-        /// Base translation: Settings
-        public static var Settings : String = NSLocalizedString("Title.Settings", comment: "")
-
-        /// Base translation: Library
-        public static var Library : String = NSLocalizedString("Title.Library", comment: "")
-
     }
 
     public struct Label {
@@ -285,17 +285,14 @@ public struct Localizations {
             /// Base translation: Write a review or feedback on App Store. All feedback encourages app developer!
             public static var ReviewFooter : String = NSLocalizedString("Label.Settings.ReviewFooter", comment: "")
 
-            /// Base translation: Items dragged here are hidden in Notificaiton Center.
-            public static var WidgetHideFooter : String = NSLocalizedString("Label.Settings.WidgetHideFooter", comment: "")
-
-            /// Base translation: Auto Update
-            public static var AutoUpdate : String = NSLocalizedString("Label.Settings.AutoUpdate", comment: "")
+            /// Base translation: Write a review
+            public static var AppStoreReview : String = NSLocalizedString("Label.Settings.AppStoreReview", comment: "")
 
             /// Base translation: Report a bug
             public static var BugReport : String = NSLocalizedString("Label.Settings.BugReport", comment: "")
 
-            /// Base translation: Write a review
-            public static var AppStoreReview : String = NSLocalizedString("Label.Settings.AppStoreReview", comment: "")
+            /// Base translation: Auto Update
+            public static var AutoUpdate : String = NSLocalizedString("Label.Settings.AutoUpdate", comment: "")
 
             /// Base translation: Hide
             public static var WidgetHideHeader : String = NSLocalizedString("Label.Settings.WidgetHideHeader", comment: "")
@@ -303,17 +300,17 @@ public struct Localizations {
             /// Base translation: About
             public static var AboutHeader : String = NSLocalizedString("Label.Settings.AboutHeader", comment: "")
 
-            /// Base translation: Reading Room Display Style
-            public static var SectorCellType : String = NSLocalizedString("Label.Settings.SectorCellType", comment: "")
+            /// Base translation: Items dragged here are hidden in Notificaiton Center.
+            public static var WidgetHideFooter : String = NSLocalizedString("Label.Settings.WidgetHideFooter", comment: "")
 
             /// Base translation: Today Widget Display Order
             public static var TodayOrder : String = NSLocalizedString("Label.Settings.TodayOrder", comment: "")
 
-            /// Base translation: Open Source
-            public static var OpenSource : String = NSLocalizedString("Label.Settings.OpenSource", comment: "")
-
             /// Base translation: Library Display Style
             public static var LibraryCellType : String = NSLocalizedString("Label.Settings.LibraryCellType", comment: "")
+
+            /// Base translation: Open Source
+            public static var OpenSource : String = NSLocalizedString("Label.Settings.OpenSource", comment: "")
 
             /// Base translation: Widget
             public static var WidgetHeader : String = NSLocalizedString("Label.Settings.WidgetHeader", comment: "")
@@ -324,6 +321,9 @@ public struct Localizations {
             /// Base translation: Library
             public static var LibraryHeader : String = NSLocalizedString("Label.Settings.LibraryHeader", comment: "")
 
+            /// Base translation: Reading Room Display Style
+            public static var SectorCellType : String = NSLocalizedString("Label.Settings.SectorCellType", comment: "")
+
             /// Base translation: General
             public static var GeneralHeader : String = NSLocalizedString("Label.Settings.GeneralHeader", comment: "")
 
@@ -333,14 +333,14 @@ public struct Localizations {
             /// Base translation: Library Display Order
             public static var LibraryOrder : String = NSLocalizedString("Label.Settings.LibraryOrder", comment: "")
 
-            /// Base translation: Special Thanks
-            public static var MediaProvider : String = NSLocalizedString("Label.Settings.MediaProvider", comment: "")
+            /// Base translation: Review
+            public static var FeedbackHeader : String = NSLocalizedString("Label.Settings.FeedbackHeader", comment: "")
 
             /// Base translation: How to add Today widget:  1. Swipe down from the top of the screen to open Notification Center. 2.Switch to Today tab. 3.Scroll to the bottom and tap Edit. 4.Find Korea University Reading Room and tap + icon. 5. Tap Done.
             public static var WidgetInstructionFooter : String = NSLocalizedString("Label.Settings.WidgetInstructionFooter", comment: "")
 
-            /// Base translation: Review
-            public static var FeedbackHeader : String = NSLocalizedString("Label.Settings.FeedbackHeader", comment: "")
+            /// Base translation: Special Thanks
+            public static var MediaProvider : String = NSLocalizedString("Label.Settings.MediaProvider", comment: "")
 
             /// Base translation: Update Interval
             public static var UpdateInterval : String = NSLocalizedString("Label.Settings.UpdateInterval", comment: "")
@@ -361,17 +361,23 @@ public struct Localizations {
 
         public struct CellType {
 
-            /// Base translation: Classic
-            public static var Classic : String = NSLocalizedString("Label.CellType.Classic", comment: "")
-
             /// Base translation: Compact
             public static var Compact : String = NSLocalizedString("Label.CellType.Compact", comment: "")
+
+            /// Base translation: Detailed
+            public static var Detailed : String = NSLocalizedString("Label.CellType.Detailed", comment: "")
+
+            /// Base translation: Classic
+            public static var Classic : String = NSLocalizedString("Label.CellType.Classic", comment: "")
 
             /// Base translation: Very Compact
             public static var VeryCompact : String = NSLocalizedString("Label.CellType.VeryCompact", comment: "")
 
             /// Base translation: Default
             public static var Default : String = NSLocalizedString("Label.CellType.Default", comment: "")
+
+            /// Base translation: Very Detailed
+            public static var VeryDetailed : String = NSLocalizedString("Label.CellType.VeryDetailed", comment: "")
 
         }
     }

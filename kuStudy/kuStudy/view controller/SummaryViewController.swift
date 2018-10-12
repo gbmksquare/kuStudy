@@ -419,8 +419,8 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
             cell.accessibilityIdentifier = "Summary Cell \(indexPath.row)"
             cell.layoutIfNeeded()
             return cell
-        case .compact:
-            let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! CompactLibraryCell
+        case .detailed:
+            let cell = tableView.dequeueReusableCell(withIdentifier: type.preferredReuseIdentifier, for: indexPath) as! DetailedLibraryCell
             cell.accessoryType = .disclosureIndicator
             cell.libraryData = summary?.libraries[indexPath.row]
             cell.accessibilityIdentifier = "Summary Cell \(indexPath.row)"

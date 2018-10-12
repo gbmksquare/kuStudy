@@ -68,7 +68,11 @@
 
 "Label.CellType.Default" = "Default";
 
+"Label.CellType.Detailed" = "Detailed";
+
 "Label.CellType.VeryCompact" = "Very Compact";
+
+"Label.CellType.VeryDetailed" = "Very Detailed";
 
 "Label.DaysLeft" = "Days Left";
 

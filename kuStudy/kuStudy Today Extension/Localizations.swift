@@ -22,11 +22,11 @@ public struct Localizations {
 
         public struct Label {
 
-            /// Base translation: Tap to refresh
-            public static var TapToRefresh : String = NSLocalizedString("Table.Label.TapToRefresh", comment: "")
-
             /// Base translation: Failed to load information.
             public static var Error : String = NSLocalizedString("Table.Label.Error", comment: "")
+
+            /// Base translation: Tap to refresh
+            public static var TapToRefresh : String = NSLocalizedString("Table.Label.TapToRefresh", comment: "")
 
             /// Base translation: Loading...
             public static var Loading : String = NSLocalizedString("Table.Label.Loading", comment: "")
