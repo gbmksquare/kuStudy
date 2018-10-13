@@ -1,5 +1,25 @@
 # Release Notes 
 
+## 3.6.0 (44)
+
+### New features
+
+* Recreated Apple Watch from the ground up. New Apple Watch app has bigger cell and font size to make context easier to read.
+* Added Privacy Policy to settings.
+
+### Improvements
+
+* Changed cell type localizations.
+* Updated third party libraries.
+
+### Fixed bugs
+
+* Fixed table footer view background in library view.
+
+### Code improvements
+
+* Updated Fabric.
+
 ## 3.5.0 (43)
 
 ### New features
