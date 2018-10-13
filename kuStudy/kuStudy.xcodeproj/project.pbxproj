@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		158B2C0C8750C769025AA485 /* Pods_kuStudy_Today_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A278F63C3D1633DA1EDA6132 /* Pods_kuStudy_Today_Extension.framework */; };
 		16019E9D1D8E45DE008A76C7 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16019E9C1D8E45DE008A76C7 /* MainSplitViewController.swift */; };
+		160415512170ECED00239776 /* ReadingRoomRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160415502170ECED00239776 /* ReadingRoomRow.swift */; };
 		160505EE1D6EDC1D0033B123 /* kuStudy_Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160505ED1D6EDC1D0033B123 /* kuStudy_Snapshot.swift */; };
 		160505F71D6EDC8B0033B123 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160505F51D6EDC450033B123 /* SnapshotHelper.swift */; };
 		16051F2F1F99E69500EC9285 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16051F2E1F99E69500EC9285 /* DataManager.swift */; };
@@ -50,6 +51,9 @@
 		16538EAD1C4F16820097A4F4 /* kuStudyWatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */; };
 		16538EAE1C4F16830097A4F4 /* kuStudyWatchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		16538EB81C4F16E40097A4F4 /* kuStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672460F1B1AB1AD0083035F /* kuStudy.swift */; };
+		1654165B2170C570008DB029 /* MainInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654165A2170C570008DB029 /* MainInterfaceController.swift */; };
+		1654165D2170C959008DB029 /* LibraryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1654165C2170C959008DB029 /* LibraryRow.swift */; };
+		165416612170E01A008DB029 /* LibraryInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165416602170E01A008DB029 /* LibraryInterfaceController.swift */; };
 		1658B2FE1C90FB1C0031E588 /* TodayExtensionOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderViewController.swift */; };
 		165DE81C1F9F8F860016C748 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165DE81B1F9F8F850016C748 /* Localizations.swift */; };
 		165DE81D1F9F8F860016C748 /* Localizations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165DE81B1F9F8F850016C748 /* Localizations.swift */; };
@@ -296,6 +300,7 @@
 		149FE82FDD18DF856A9DE998 /* Pods-kuStudyKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudyKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudyKit/Pods-kuStudyKit.debug.xcconfig"; sourceTree = "<group>"; };
 		15927B011AC433CE2175A7B9 /* Pods-kuStudyWatchKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudyWatchKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudyWatchKit/Pods-kuStudyWatchKit.release.xcconfig"; sourceTree = "<group>"; };
 		16019E9C1D8E45DE008A76C7 /* MainSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainSplitViewController.swift; path = "view controller/MainSplitViewController.swift"; sourceTree = "<group>"; };
+		160415502170ECED00239776 /* ReadingRoomRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingRoomRow.swift; sourceTree = "<group>"; };
 		160505EB1D6EDC1D0033B123 /* kuStudy Snapshot.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kuStudy Snapshot.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		160505ED1D6EDC1D0033B123 /* kuStudy_Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kuStudy_Snapshot.swift; sourceTree = "<group>"; };
 		160505EF1D6EDC1D0033B123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -336,6 +341,9 @@
 		16538EA61C4F16820097A4F4 /* kuStudyWatchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = kuStudyWatchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		16538EA81C4F16820097A4F4 /* kuStudyWatchKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kuStudyWatchKit.h; sourceTree = "<group>"; };
 		16538EAA1C4F16820097A4F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1654165A2170C570008DB029 /* MainInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInterfaceController.swift; sourceTree = "<group>"; };
+		1654165C2170C959008DB029 /* LibraryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryRow.swift; sourceTree = "<group>"; };
+		165416602170E01A008DB029 /* LibraryInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryInterfaceController.swift; sourceTree = "<group>"; };
 		1658B2FD1C90FB1C0031E588 /* TodayExtensionOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodayExtensionOrderViewController.swift; path = "view controller/TodayExtensionOrderViewController.swift"; sourceTree = "<group>"; };
 		165DE81B1F9F8F850016C748 /* Localizations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizations.swift; sourceTree = "<group>"; };
 		165DE81E1F9F93C20016C748 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Date.swift; path = extension/Date.swift; sourceTree = "<group>"; };
@@ -731,6 +739,24 @@
 			path = kuStudyWatchKit;
 			sourceTree = "<group>";
 		};
+		1654165E2170DFF5008DB029 /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				16136BD71B1C3F0700B3F744 /* InterfaceController.swift */,
+				16136BFF1B1C451100B3F744 /* LibraryCell.swift */,
+			);
+			name = Legacy;
+			sourceTree = "<group>";
+		};
+		1654165F2170DFFD008DB029 /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				1673304E1B1C92BF00573FFC /* DetailInterfaceController.swift */,
+				168841181B1EB58700F3C818 /* ReadingRoomCell.swift */,
+			);
+			name = Legacy;
+			sourceTree = "<group>";
+		};
 		165F9C921B2199D400101EBE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -971,8 +997,9 @@
 		1673304C1B1C928300573FFC /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				16136BD71B1C3F0700B3F744 /* InterfaceController.swift */,
-				16136BFF1B1C451100B3F744 /* LibraryCell.swift */,
+				1654165A2170C570008DB029 /* MainInterfaceController.swift */,
+				1654165C2170C959008DB029 /* LibraryRow.swift */,
+				1654165E2170DFF5008DB029 /* Legacy */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -980,8 +1007,9 @@
 		1673304D1B1C928A00573FFC /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				1673304E1B1C92BF00573FFC /* DetailInterfaceController.swift */,
-				168841181B1EB58700F3C818 /* ReadingRoomCell.swift */,
+				165416602170E01A008DB029 /* LibraryInterfaceController.swift */,
+				160415502170ECED00239776 /* ReadingRoomRow.swift */,
+				1654165F2170DFFD008DB029 /* Legacy */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -1897,13 +1925,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1654165B2170C570008DB029 /* MainInterfaceController.swift in Sources */,
+				165416612170E01A008DB029 /* LibraryInterfaceController.swift in Sources */,
 				164191001F2F7257008682E5 /* Localizations.swift in Sources */,
 				1673304F1B1C92BF00573FFC /* DetailInterfaceController.swift in Sources */,
 				16DD052E1E46DBB4007AB912 /* UIColor.swift in Sources */,
+				1654165D2170C959008DB029 /* LibraryRow.swift in Sources */,
 				16136BD81B1C3F0700B3F744 /* InterfaceController.swift in Sources */,
 				16136C001B1C451100B3F744 /* LibraryCell.swift in Sources */,
 				16136BFC1B1C44BA00B3F744 /* Definitions.swift in Sources */,
 				16B9A25D1DADFA5D003BF871 /* ComplicationController.swift in Sources */,
+				160415512170ECED00239776 /* ReadingRoomRow.swift in Sources */,
 				168841191B1EB58700F3C818 /* ReadingRoomCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,3 +22,11 @@
 
 "Cell.Label.Used" = "Occupied";
 
+"Label.AppName" = "kuStudy";
+
+"Label.Loading" = "Loading...";
+
+"Label.Error" = "An error occured.\nPlease try again.";
+
+"Action.Refresh" = "Refresh";
+

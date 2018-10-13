@@ -17,19 +17,45 @@ import Foundation
 public struct Localizations {
 
 
+    public struct Complication {
+
+        /// Base translation: Total: 
+        public static var Total : String = NSLocalizedString("Complication.Total", comment: "")
+
+        /// Base translation: Available: 
+        public static var Available : String = NSLocalizedString("Complication.Available", comment: "")
+
+    }
+
     public struct Label {
 
         /// Base translation: Total
         public static var Total : String = NSLocalizedString("Label.Total", comment: "")
 
-        /// Base translation: Available
-        public static var Available : String = NSLocalizedString("Label.Available", comment: "")
+        /// Base translation: An error occured. Please try again.
+        public static var Error : String = NSLocalizedString("Label.Error", comment: "")
 
         /// Base translation: Occupied
         public static var Used : String = NSLocalizedString("Label.Used", comment: "")
 
+        /// Base translation: Available
+        public static var Available : String = NSLocalizedString("Label.Available", comment: "")
+
         /// Base translation:  Studying
         public static var StudyingDescription : String = NSLocalizedString("Label.StudyingDescription", comment: "")
+
+        /// Base translation: kuStudy
+        public static var AppName : String = NSLocalizedString("Label.AppName", comment: "")
+
+        /// Base translation: Loading...
+        public static var Loading : String = NSLocalizedString("Label.Loading", comment: "")
+
+    }
+
+    public struct Action {
+
+        /// Base translation: Refresh
+        public static var Refresh : String = NSLocalizedString("Action.Refresh", comment: "")
 
     }
 
@@ -48,15 +74,5 @@ public struct Localizations {
             public static var Available : String = NSLocalizedString("Cell.Label.Available", comment: "")
 
         }
-    }
-
-    public struct Complication {
-
-        /// Base translation: Total: 
-        public static var Total : String = NSLocalizedString("Complication.Total", comment: "")
-
-        /// Base translation: Available: 
-        public static var Available : String = NSLocalizedString("Complication.Available", comment: "")
-
     }
 }

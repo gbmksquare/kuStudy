@@ -1,9 +1,8 @@
-/* 
-  InfoPlist.strings
+/* InfoPlist.strings
   kuStudy
 
   Created by BumMo Koo on 2016. 8. 16..
-  Copyright © 2016년 gbmKSquare. All rights reserved.
-*/
+  Copyright © 2016년 gbmKSquare. All rights reserved. */
 
 "CFBundleDisplayName" = "열람실";
+

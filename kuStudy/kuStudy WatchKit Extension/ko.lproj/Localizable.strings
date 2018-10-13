@@ -22,3 +22,11 @@
 
 "Cell.Label.Used" = "사용 중";
 
+"Label.AppName" = "열람실";
+
+"Label.Loading" = "로딩 중...";
+
+"Label.Error" = "오류가 발생했습니다.\n다시 시도 해주세요.";
+
+"Action.Refresh" = "새로 고침";
+

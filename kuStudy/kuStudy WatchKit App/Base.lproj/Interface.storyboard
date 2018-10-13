@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
-    <device id="watch38" orientation="portrait">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14313.18" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2nL-Qt-mcy" pageOrientation="vertical">
+    <device id="watch44" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11508"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14238.10"/>
     </dependencies>
     <scenes>
         <!--kuStudy-->
@@ -110,6 +111,71 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="164" y="217"/>
+        </scene>
+        <!--Main Interface Controller-->
+        <scene sceneID="gRt-ti-PUJ">
+            <objects>
+                <controller id="2nL-Qt-mcy" customClass="MainInterfaceController" customModule="kuStudy_WatchKit_Extension">
+                    <items>
+                        <group width="1" height="1" alignment="left" hidden="YES" id="lji-OV-yfP">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Loading..." textAlignment="center" baselineAdjustment="alignCenters" numberOfLines="0" id="z54-vl-KhR"/>
+                            </items>
+                        </group>
+                        <table alignment="center" id="epp-Pv-MjJ">
+                            <items>
+                                <tableRow identifier="cell" id="NCb-DI-7XJ" customClass="LibraryRow" customModule="kuStudy_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" radius="13" spacing="8" id="QM6-Un-o1x">
+                                        <items>
+                                            <group width="6" height="1" alignment="left" verticalAlignment="center" radius="3" id="gzb-fb-x1q">
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </group>
+                                            <group width="0.97499999999999998" alignment="left" layout="vertical" id="blJ-Cz-vZm">
+                                                <items>
+                                                    <label alignment="left" text="Library" numberOfLines="0" id="Fg2-4P-Hol">
+                                                        <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                                    </label>
+                                                    <group width="1" alignment="left" layout="vertical" spacing="2" id="n3N-eK-bRm">
+                                                        <items>
+                                                            <label alignment="left" text="Available" id="L8x-UA-1EB">
+                                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                            </label>
+                                                            <label alignment="left" text="0" id="cZk-Vi-Gz9">
+                                                                <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <edgeInsets key="margins" left="13" right="13" top="13" bottom="13"/>
+                                        <variation key="device=watch38mm">
+                                            <edgeInsets key="margins" left="8" right="8" top="8" bottom="8"/>
+                                        </variation>
+                                        <variation key="device=watch42mm">
+                                            <edgeInsets key="margins" left="8" right="8" top="8" bottom="8"/>
+                                        </variation>
+                                    </group>
+                                    <connections>
+                                        <outlet property="availableLabel" destination="cZk-Vi-Gz9" id="tPM-Vm-eyq"/>
+                                        <outlet property="availableTitleLabel" destination="L8x-UA-1EB" id="Sjs-a2-hX0"/>
+                                        <outlet property="percentIndicator" destination="gzb-fb-x1q" id="Hsu-lT-Ote"/>
+                                        <outlet property="titleLabel" destination="Fg2-4P-Hol" id="kjk-eo-GEY"/>
+                                        <segue destination="6Cq-Ed-4Ub" kind="push" identifier="detail" id="ope-6C-uBK"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="loadingMessageGroup" destination="lji-OV-yfP" id="NN8-Zv-yrw"/>
+                        <outlet property="loadingMessageLabel" destination="z54-vl-KhR" id="9wH-cp-bAw"/>
+                        <outlet property="table" destination="epp-Pv-MjJ" id="Lds-V2-0nS"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="164" y="525"/>
         </scene>
         <!--Detail Interface Controller-->
         <scene sceneID="zlx-5G-dTu">
@@ -248,6 +314,70 @@
             </objects>
             <point key="canvasLocation" x="406" y="217"/>
         </scene>
+        <!--Library Interface Controller-->
+        <scene sceneID="gKA-ct-dgy">
+            <objects>
+                <controller id="6Cq-Ed-4Ub" customClass="LibraryInterfaceController" customModule="kuStudy_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="YPT-D1-lq2">
+                            <items>
+                                <tableRow identifier="cell" id="SFv-TL-Il0" customClass="ReadingRoomRow" customModule="kuStudy_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" radius="13" spacing="8" id="dpp-HY-KoJ">
+                                        <items>
+                                            <group width="6" height="1" alignment="left" verticalAlignment="center" radius="3" id="tfK-xa-EAR">
+                                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </group>
+                                            <group width="0.97499999999999998" alignment="left" layout="vertical" id="ajH-Xd-qvr">
+                                                <items>
+                                                    <label alignment="left" text="Sector" numberOfLines="0" id="Mj1-na-nfY">
+                                                        <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                                                    </label>
+                                                    <group width="1" alignment="left" layout="vertical" spacing="2" id="EvY-iM-0V5">
+                                                        <items>
+                                                            <label alignment="left" text="Available" id="D8l-DD-6AF">
+                                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                            </label>
+                                                            <label alignment="left" text="0" id="muO-iS-EC5">
+                                                                <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <edgeInsets key="margins" left="13" right="13" top="13" bottom="13"/>
+                                        <variation key="device=watch38mm">
+                                            <edgeInsets key="margins" left="8" right="8" top="8" bottom="8"/>
+                                        </variation>
+                                        <variation key="device=watch42mm">
+                                            <edgeInsets key="margins" left="8" right="8" top="8" bottom="8"/>
+                                        </variation>
+                                    </group>
+                                    <connections>
+                                        <outlet property="availableLabel" destination="muO-iS-EC5" id="G0e-h9-ZA9"/>
+                                        <outlet property="availableTitleLabel" destination="D8l-DD-6AF" id="aob-sq-h62"/>
+                                        <outlet property="percentIndicator" destination="tfK-xa-EAR" id="ZlU-vm-AZC"/>
+                                        <outlet property="titleLabel" destination="Mj1-na-nfY" id="9pr-Aw-cj8"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <group width="1" height="1" alignment="left" hidden="YES" id="bzp-17-uFD">
+                            <items>
+                                <label alignment="center" verticalAlignment="center" text="Loading..." textAlignment="center" baselineAdjustment="alignCenters" numberOfLines="0" id="eLR-f5-Dbu"/>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="loadingMessageGroup" destination="bzp-17-uFD" id="C1A-F6-UJZ"/>
+                        <outlet property="loadingMessageLabel" destination="eLR-f5-Dbu" id="MEg-nh-9jm"/>
+                        <outlet property="table" destination="YPT-D1-lq2" id="Wca-TG-QsR"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="406" y="524"/>
+        </scene>
     </scenes>
-    <color key="tintColor" red="0.78049671649932861" green="0.097925871610641479" blue="0.14808227121829987" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" red="0.7803921568627451" green="0.098039215686274508" blue="0.10980392156862745" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
