@@ -228,11 +228,8 @@ extension SummaryViewController {
 }
 
 // MARK: - Drag & Drop
-extension SummaryViewController: UITableViewDragDelegate {
-    func tableView(_ tableView: UITableView, dragSessionAllowsMoveOperation session: UIDragSession) -> Bool {
-        return true
-    }
-    
+extension SummaryViewController: UITableViewDragDelegate, UITableViewDropDelegate {
+    // Drag
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         guard let libraryData = summary?.libraries[indexPath.row] else { return [] }
         let string = Localizations.Label.ShareMessage(libraryData.libraryName, libraryData.total.readable, libraryData.available.readable, libraryData.occupied.readable)
@@ -242,8 +239,21 @@ extension SummaryViewController: UITableViewDragDelegate {
         return [stringItem]
     }
     
+    func tableView(_ tableView: UITableView, dragSessionAllowsMoveOperation session: UIDragSession) -> Bool {
+        return true
+    }
+    
     func tableView(_ tableView: UITableView, itemsForAddingTo session: UIDragSession, at indexPath: IndexPath, point: CGPoint) -> [UIDragItem] {
         return self.tableView(tableView, itemsForBeginning: session, at: indexPath)
+    }
+    
+    // Drop
+    func tableView(_ tableView: UITableView, canHandle session: UIDropSession) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+        
     }
 }
 
@@ -281,6 +291,7 @@ extension SummaryViewController {
         tableView.emptyDataSetDelegate = self
         tableView.dragDelegate = self
         tableView.dragInteractionEnabled = true
+        tableView.dropDelegate = self
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.showsVerticalScrollIndicator = false
