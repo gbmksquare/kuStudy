@@ -128,8 +128,11 @@ class SettingsViewController: UIViewController {
     
     private func presentPrivacyPolicy() {
         guard let url = URL(string: "https://gbmksquare.com/kuapps/kustudy/privacy_policy.html") else { return }
-        let safari = SFSafariViewController(url: url)
+        let configurationn = SFSafariViewController.Configuration()
+        configurationn.entersReaderIfAvailable = true
+        let safari = SFSafariViewController(url: url, configuration: configurationn)
         safari.preferredControlTintColor = UIColor.theme
+        safari.dismissButtonStyle = .close
         navigationController?.showDetailViewController(safari, sender: true)
     }
     

@@ -71,6 +71,7 @@ class LibraryFooterView: UIView {
         guard let url = library.url else { return }
         let safari = SFSafariViewController(url: url)
         safari.preferredControlTintColor = UIColor.theme
+        safari.dismissButtonStyle = .close
         UIApplication.shared.keyWindow?.topViewController()?.present(safari, animated: true, completion: nil)
     }
     

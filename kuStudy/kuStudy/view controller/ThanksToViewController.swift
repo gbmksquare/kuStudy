@@ -122,6 +122,7 @@ extension ThanksToViewController {
     private func openInSafariViewController(_ url: URL) {
         let safari = SFSafariViewController(url: url)
         safari.preferredControlTintColor = UIColor.theme
+        safari.dismissButtonStyle = .close
         present(safari, animated: true, completion: nil)
     }
 }
