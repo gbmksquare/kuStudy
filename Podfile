@@ -25,6 +25,8 @@ target 'kuStudy' do
   pod 'CTFeedback'
   pod 'AcknowList'
 
+  pod 'Firebase/Core'
+
   target 'kuStudyTests' do
     inherit! :search_paths
   end
