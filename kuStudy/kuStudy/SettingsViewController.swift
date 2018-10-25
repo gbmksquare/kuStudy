@@ -127,7 +127,7 @@ class SettingsViewController: UIViewController {
     }
     
     private func presentPrivacyPolicy() {
-        guard let url = URL(string: "https://gbmksquare.com/kuapps/kustudy/privacy_policy.html") else { return }
+        guard let url = URL(string: "https://gbmksquare.com/kuapps/kustudy/privacy_policy_v2.html") else { return }
         let configurationn = SFSafariViewController.Configuration()
         configurationn.entersReaderIfAvailable = true
         let safari = SFSafariViewController(url: url, configuration: configurationn)
