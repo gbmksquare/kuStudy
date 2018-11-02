@@ -4,21 +4,29 @@
 
 ### New features
 
-* Recreated Apple Watch from the ground up. New Apple Watch app has bigger cell and font size to make context easier to read.
+* Recreated Apple Watch from the ground up. New Apple Watch app has bigger cell and font size to make content easier to read.
 * Added Privacy Policy to settings.
+* Added support  for new iPad Pro 3rd generation.
 
 ### Improvements
 
+* Privacy Policy now opens in reader mode.
+* Changed `SafariViewController` dismiss button style.
 * Changed cell type localizations.
 * Updated third party libraries.
 
 ### Fixed bugs
 
+* Fixed drag and drop to  reorder library.
 * Fixed table footer view background in library view.
+* Fixed  a typo.
 
 ### Code improvements
 
+* Added Firebase.
+* Updated `UIColor` extension.
 * Updated Fabric.
+* Updated privacy policy and privacy policy URL.
 
 ## 3.5.0 (43)
 

@@ -1,8 +1,14 @@
 New Features
-• Now supports iPhone XS Max and iPhone XR resolutions.
-• Added option to report bug in settings.
+• Recreated Apple Watch from the ground up. New Apple Watch app has bigger and more legible text.
+• Added Privacy Policy to settings.
+• Added support for iPad Pro 3rd generation.
 
 Improvements
+• Updated some localizations.
 • Updated third party libraries.
+
+Bug Fixes
+• Fixed drag-and-drop to reorder library not working.
+• Fixed a typo.
 
 Happy studying! :)
