@@ -86,6 +86,7 @@ class MainInterfaceController: WKInterfaceController {
         if let summary = summary {
             loadingMessageGroup.setHidden(true)
             table.setHidden(false)
+            reorderLibraryData()
             table.setNumberOfRows(summary.libraries.count, withRowType: "cell")
             for (index, data) in summary.libraries.enumerated() {
                 let row = table.rowController(at: index) as! LibraryRow
