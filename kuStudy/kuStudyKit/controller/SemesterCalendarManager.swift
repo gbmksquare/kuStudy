@@ -12,23 +12,42 @@ public class SemesterCalendarManager {
     public static let shared = SemesterCalendarManager()
     
     public let activeSemester: SemesterCalendar?
+    public let semesters: [SemesterCalendar]
     
     // MARK: - Initializationn
-    init() {
+    private init() {
         let semester_18_02 = DateInterval(start: Date(dateString: "2018-09-02 +0900")!,
-                                          end: Date(dateString: "2018-12-21 +0900")!)
+                                          end: Date(dateString: "2018-12-22 +0900")!)
         let midterm_18_02 = DateInterval(start: Date(dateString: "2018-10-22 +0900")!,
-                                         end: Date(dateString: "2018-10-26 +0900")!)
+                                         end: Date(dateString: "2018-10-27 +0900")!)
         let finals_18_02 = DateInterval(start: Date(dateString: "2018-12-17 +0900")!,
-                                        end: Date(dateString: "2018-12-21 +0900")!)
+                                        end: Date(dateString: "2018-12-22 +0900")!)
         let calendar_18_02 = SemesterCalendar(semester: semester_18_02,
                                               midterm: midterm_18_02,
                                               finals: finals_18_02)
-        if calendar_18_02.semester.isActive == true {
-            activeSemester = calendar_18_02
-        } else {
-            activeSemester = nil
-        }
+        
+        let semester_19_01 = DateInterval(start: Date(dateString: "2018-03-04 +0900")!,
+                                          end: Date(dateString: "2018-06-22 +0900")!)
+        let midterm_19_01 = DateInterval(start: Date(dateString: "2018-04-22 +0900")!,
+                                         end: Date(dateString: "2018-04-27 +0900")!)
+        let finals_19_01 = DateInterval(start: Date(dateString: "2018-06-17 +0900")!,
+                                        end: Date(dateString: "2018-06-22 +0900")!)
+        let calendar_19_01 = SemesterCalendar(semester: semester_19_01,
+                                              midterm: midterm_19_01,
+                                              finals: finals_19_01)
+        
+        let semester_19_02 = DateInterval(start: Date(dateString: "2018-09-02 +0900")!,
+                                          end: Date(dateString: "2018-12-21 +0900")!)
+        let midterm_19_02 = DateInterval(start: Date(dateString: "2018-10-21 +0900")!,
+                                         end: Date(dateString: "2018-10-26 +0900")!)
+        let finals_19_02 = DateInterval(start: Date(dateString: "2018-12-16 +0900")!,
+                                        end: Date(dateString: "2018-12-21 +0900")!)
+        let calendar_19_02 = SemesterCalendar(semester: semester_19_02,
+                                              midterm: midterm_19_02,
+                                              finals: finals_19_02)
+        
+        semesters = [calendar_18_02, calendar_19_01, calendar_19_02]
+        activeSemester = semesters.filter({ $0.semester.isActive }).first
     }
 }
 

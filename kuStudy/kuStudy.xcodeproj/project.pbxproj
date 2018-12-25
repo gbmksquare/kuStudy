@@ -87,6 +87,7 @@
 		1672461A1B1B13610083035F /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672461E1B1B44850083035F /* SummaryViewController.swift */; };
 		167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246261B1B4F2C0083035F /* LibraryViewController.swift */; };
+		167316A121D1F76D0089FAA8 /* SemesterCalendarManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673169F21D1F7680089FAA8 /* SemesterCalendarManagerTests.swift */; };
 		1676C3D31B2418B8001B3AB6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1676C3D51B2418B8001B3AB6 /* MainInterface.storyboard */; };
 		167B4C861F872E7700BDE991 /* YesNoTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C851F872E7700BDE991 /* YesNoTransform.swift */; };
 		167B4C871F872E7700BDE991 /* YesNoTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C851F872E7700BDE991 /* YesNoTransform.swift */; };
@@ -380,6 +381,7 @@
 		1672461C1B1B138B0083035F /* kuStudy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = kuStudy.entitlements; sourceTree = "<group>"; };
 		1672461E1B1B44850083035F /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryViewController.swift; path = "view controller/SummaryViewController.swift"; sourceTree = "<group>"; };
 		167246261B1B4F2C0083035F /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = "view controller/LibraryViewController.swift"; sourceTree = "<group>"; };
+		1673169F21D1F7680089FAA8 /* SemesterCalendarManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterCalendarManagerTests.swift; sourceTree = "<group>"; };
 		1676C3D41B2418B8001B3AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		167B4C851F872E7700BDE991 /* YesNoTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YesNoTransform.swift; path = model/YesNoTransform.swift; sourceTree = "<group>"; };
 		167B4C881F872EB800BDE991 /* CloseTimeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloseTimeTransform.swift; path = model/CloseTimeTransform.swift; sourceTree = "<group>"; };
@@ -917,6 +919,7 @@
 				168654E0211985DE0080F20D /* LibraryDataTests.swift */,
 				168654E2211985EB0080F20D /* SectorDataTests.swift */,
 				1685B13721201095002510B9 /* DataManagerTests.swift */,
+				1673169F21D1F7680089FAA8 /* SemesterCalendarManagerTests.swift */,
 				167245FD1B19C42B0083035F /* Supporting Files */,
 			);
 			path = kuStudyKitTests;
@@ -2042,6 +2045,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				167246001B19C42B0083035F /* kuStudyKitTests.swift in Sources */,
+				167316A121D1F76D0089FAA8 /* SemesterCalendarManagerTests.swift in Sources */,
 				168654E3211985EB0080F20D /* SectorDataTests.swift in Sources */,
 				1685B13821201095002510B9 /* DataManagerTests.swift in Sources */,
 				168654E1211985DE0080F20D /* LibraryDataTests.swift in Sources */,
