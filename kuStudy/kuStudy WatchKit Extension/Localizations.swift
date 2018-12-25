@@ -41,11 +41,11 @@ public struct Localizations {
         /// Base translation: Available
         public static var Available : String = NSLocalizedString("Label.Available", comment: "")
 
-        /// Base translation:  Studying
-        public static var StudyingDescription : String = NSLocalizedString("Label.StudyingDescription", comment: "")
-
         /// Base translation: kuStudy
         public static var AppName : String = NSLocalizedString("Label.AppName", comment: "")
+
+        /// Base translation:  Studying
+        public static var StudyingDescription : String = NSLocalizedString("Label.StudyingDescription", comment: "")
 
         /// Base translation: Loading...
         public static var Loading : String = NSLocalizedString("Label.Loading", comment: "")

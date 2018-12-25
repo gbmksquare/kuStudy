@@ -100,74 +100,11 @@ class SettingsViewController: UIViewController {
         navigationController?.showDetailViewController(detailNavigation, sender: nil)
     }
     
-    private func presentLibraryCellType() {
-        let viewController = LibraryCellTypeViewController()
-        let detailNavigation = UINavigationController(rootViewController: viewController)
-        navigationController?.showDetailViewController(detailNavigation, sender: nil)
-    }
-    
-    private func presentSectorCellType() {
-        let viewController = SectorCellTypeViewController()
-        let detailNavigation = UINavigationController(rootViewController: viewController)
-        navigationController?.showDetailViewController(detailNavigation, sender: nil)
-    }
-    
-    private func presentMediaProvider() {
-        let mediaProviderViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ThanksToViewController")
-        let detailNavigation = UINavigationController(rootViewController: mediaProviderViewController)
-        navigationController?.showDetailViewController(detailNavigation, sender: nil)
-    }
-    
-    private func presentOpenSource() {
-        let path = Bundle.main.path(forResource: "Pods-kuStudy-acknowledgements", ofType: "plist")
-        let acknowledgementViewController = AcknowListViewController(acknowledgementsPlistPath: path)
-        let detailNavigationController = UINavigationController(rootViewController: acknowledgementViewController)
-        acknowledgementViewController.title = Localizations.Label.Settings.OpenSource
+    private func presentAdvancedSettings(_ completion: (() -> Void)? = nil) {
+        let viewController = AdvancedSettingsViewController()
+        let detailNavigationController = UINavigationController(rootViewController: viewController)
+        viewController.title = Localizations.Label.Settings.Advanced
         navigationController?.showDetailViewController(detailNavigationController, sender: true)
-    }
-    
-    private func presentPrivacyPolicy() {
-        guard let url = URL(string: "https://gbmksquare.com/kuapps/kustudy/privacy_policy_v2.html") else { return }
-        let configurationn = SFSafariViewController.Configuration()
-        configurationn.entersReaderIfAvailable = true
-        let safari = SFSafariViewController(url: url, configuration: configurationn)
-        safari.preferredControlTintColor = UIColor.theme
-        safari.dismissButtonStyle = .close
-        navigationController?.showDetailViewController(safari, sender: true)
-    }
-    
-    private func presentTipJar(_ completion: (() -> Void)? = nil) {
-        let tipjar = TipJarViewController()
-        let navigation = UINavigationController(rootViewController: tipjar)
-        navigation.modalPresentationStyle = .formSheet
-        present(navigation, animated: true) {
-            completion?()
-        }
-    }
-    
-    private func presentBugReport() {
-        let feedback = CTFeedbackViewController(topics: CTFeedbackViewController.defaultTopics(),
-                                                localizedTopics: CTFeedbackViewController.defaultLocalizedTopics())
-        feedback?.toRecipients = ["ksquareatm+kuapps@gmail.com"]
-        feedback?.useHTML = true
-        let detailNavigationController = UINavigationController(rootViewController: feedback!)
-        detailNavigationController.modalPresentationStyle = .formSheet
-        present(detailNavigationController, animated: true, completion: nil)
-    }
-    
-    private func presentWriteReview(_ completion: (() -> Void)? = nil) {
-        let app = UIApplication.shared
-        if let url = URL(string: "itms-apps://itunes.apple.com/us/app/kustudy/id925255895?mt=8&action=write-review"),
-            app.canOpenURL(url) == true {
-            app.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-        } else {
-            let alert = UIAlertController(title: Localizations.Common.Error, message: Localizations.Alert.Message.AppStore.Failed, preferredStyle: .alert)
-            let confirm = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default, handler: nil)
-            alert.addAction(confirm)
-            present(alert, animated: true) {
-                completion?()
-            }
-        }
     }
     
     private func resizeTableFooterView() {
@@ -223,32 +160,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             presentAppLibraryOrder()
         case .widgetLibraryOrder:
             presentWidgetLibraryOrder()
-        case .libraryCellType:
-            presentLibraryCellType()
-        case .sectorCellType:
-            presentSectorCellType()
-        case .mediaProvider:
-            presentMediaProvider()
-        case .appStoreReview:
-            presentWriteReview()
-            tableView.deselectRow(at: indexPath, animated: true)
-        case .openSource:
-            presentOpenSource()
-        case .privacyPolicy:
-            presentPrivacyPolicy()
-        case .donate:
-            presentTipJar { [weak self] in
-                self?.tableView.deselectRow(at: indexPath, animated: true)
-            }
-        case .openSettings:
-            tableView.deselectRow(at: indexPath, animated: true)
-            guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
-            let app = UIApplication.shared
-            if app.canOpenURL(url) {
-                app.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
-            }
-        case .bugReport:
-            presentBugReport()
+        case .advanced:
+            presentAdvancedSettings()
         }
     }
     
@@ -296,15 +209,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             let interval = TimeInterval(Preference.shared.updateInterval)
             cell.detailTextLabel?.text = interval.readableTime
             return cell
-        case .appStoreReview:
-            var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "normalCell")
-            if cell == nil {
-                cell = UITableViewCell(style: .default, reuseIdentifier: "normalCell")
-            }
-            cell.tag = menuRow.tag
-            cell.textLabel?.text = menuRow.title
-            return cell
-        case .appLibraryOrder, .widgetLibraryOrder, .libraryCellType, .sectorCellType, .mediaProvider, .openSource, .donate, .bugReport, .privacyPolicy:
+        case .appLibraryOrder, .widgetLibraryOrder:
             var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "disclosureCell")
             if cell == nil {
                 cell = UITableViewCell(style: .default, reuseIdentifier: "disclosureCell")
@@ -313,7 +218,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             cell.tag = menuRow.tag
             cell.textLabel?.text = menuRow.title
             return cell
-        case .openSettings:
+        case .advanced:
             var cell: UITableViewCell! = tableView.dequeueReusableCell(withIdentifier: "normalCell")
             if cell == nil {
                 cell = UITableViewCell(style: .default, reuseIdentifier: "normalCell")
@@ -323,9 +228,4 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

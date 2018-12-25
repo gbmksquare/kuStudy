@@ -87,7 +87,7 @@
 
 "Label.OpenInstagram" = "Instagram 앱에서 열겠습니까?";
 
-"Label.Settings.AboutHeader" = "정보";
+"Label.Settings.About" = "정보";
 
 "Label.Settings.AppStoreReview" = "리뷰 쓰기";
 
@@ -107,7 +107,7 @@
 
 "Label.Settings.MediaProvider" = "도움 주신 분";
 
-"Label.Settings.OpenSettings" = "설정 열기";
+"Label.Settings.OpenSettings" = "앱 권한 관리";
 
 "Label.Settings.OpenSource" = "오픈소스";
 
@@ -178,4 +178,26 @@
 "Title.Library" = "도서관";
 
 "Title.Settings" = "설정";
+
+"Label.Settings.Advanced" = "고급";
+
+"Label.Settings.AppIcon" = "앱 아이콘";
+
+"Label.Settings.Permissions" = "권한";
+
+"Label.Settings.Apperance" = "외관";
+
+"Label.Settings.Debug" = "개발자";
+
+"Label.Settings.Links" = "외부 링크";
+
+"Label.Settings.OpenLibrarySeats" = "고려대학교 열람실 현황";
+
+"Label.Settings.OpenLibrary" = "고려대학교 도서관";
+
+"Label.Settings.OpenAcademicCalendar" = "고려대학교 학사일정";
+
+"Label.Settings.Support" = "지원";
+
+"Label.Settings.Version" = "버전";
 

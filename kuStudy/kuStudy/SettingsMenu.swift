@@ -13,15 +13,7 @@ enum SettingsMenu: Int {
     case autoUpdateInterval = 104
     case appLibraryOrder = 100
     case widgetLibraryOrder = 101
-    case libraryCellType = 201
-    case sectorCellType = 202
-    case appStoreReview = 999
-    case mediaProvider = 901
-    case openSettings = 902
-    case bugReport = 903
-    case privacyPolicy = 904
-    case openSource = 900
-    case donate = 1004
+    case advanced = 300
     
     var tag: Int { return rawValue }
     
@@ -31,44 +23,23 @@ enum SettingsMenu: Int {
         case .autoUpdateInterval: return Localizations.Label.Settings.UpdateInterval
         case .appLibraryOrder: return Localizations.Label.Settings.LibraryOrder
         case .widgetLibraryOrder: return Localizations.Label.Settings.TodayOrder
-        case .libraryCellType: return Localizations.Label.Settings.LibraryCellType
-        case .sectorCellType: return Localizations.Label.Settings.SectorCellType
-        case .appStoreReview: return Localizations.Label.Settings.AppStoreReview
-        case .mediaProvider: return Localizations.Label.Settings.MediaProvider
-        case .openSource: return Localizations.Label.Settings.OpenSource
-        case .donate: return Localizations.Label.Settings.TipJar
-        case .openSettings: return Localizations.Label.Settings.OpenSettings
-        case .bugReport: return Localizations.Label.Settings.BugReport
-        case .privacyPolicy: return Localizations.Label.Settings.PrivacyPolicy
+        case .advanced: return Localizations.Label.Settings.Advanced
         }
     }
     
     static let sectionTitles: [String?] = [Localizations.Label.Settings.UpdateHeader,
                                            Localizations.Label.Settings.GeneralHeader,
                                            Localizations.Label.Settings.WidgetHeader,
-                                           Localizations.Label.Settings.FeedbackHeader,
-                                           Localizations.Label.Settings.AboutHeader]
+                                           Localizations.Label.Settings.Advanced]
     static let sectionFooters: [String?] = [nil,
                                             nil,
                                             nil,
-                                            Localizations.Label.Settings.ReviewFooter,
                                             nil]
     
-    #if DEBUG
     static let layout: [[SettingsMenu]] = [
         [.autoUpdate, .autoUpdateInterval],
-        [.appLibraryOrder, .libraryCellType, .sectorCellType],
+        [.appLibraryOrder],
         [.widgetLibraryOrder],
-        [.appStoreReview],
-        [.openSettings, .mediaProvider, .bugReport, .openSource, .privacyPolicy, .donate]
+        [.advanced]
     ]
-    #else
-    static let layout: [[SettingsMenu]] = [
-        [.autoUpdate, .autoUpdateInterval],
-        [.appLibraryOrder, .libraryCellType, .sectorCellType],
-        [.widgetLibraryOrder],
-        [.appStoreReview],
-        [.openSettings, .mediaProvider, .bugReport, .openSource, .privacyPolicy]
-    ]
-    #endif
 }

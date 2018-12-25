@@ -156,7 +156,7 @@ extension LibraryViewController {
             guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
             let app = UIApplication.shared
             if app.canOpenURL(url) {
-                app.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+                app.open(url, options: [:], completionHandler: nil)
             }
         }
         alert.addAction(confirm)
@@ -419,9 +419,4 @@ extension LibraryViewController {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         handleScrollOffset()
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

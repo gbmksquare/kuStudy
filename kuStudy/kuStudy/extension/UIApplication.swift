@@ -22,4 +22,9 @@ extension UIApplication {
             return "\(version) (\(build))"
         #endif
     }
+    
+    var isSplitViewOrSliderOver: Bool {
+        guard let w = delegate?.window, let window = w else { return false }
+        return window.frame.width == window.screen.bounds.width ? false : true
+    }
 }

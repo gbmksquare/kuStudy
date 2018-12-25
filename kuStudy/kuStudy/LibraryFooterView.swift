@@ -52,7 +52,7 @@ class LibraryFooterView: UIView {
         guard let library = library else { return }
         guard let url = URL(string: "http://maps.apple.com/?t=m&z=18&ll=\(library.coordinate.latitude),\(library.coordinate.longitude)") else { return }
         if UIApplication.shared.canOpenURL(url) == true {
-            UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
     
@@ -62,7 +62,7 @@ class LibraryFooterView: UIView {
         guard let library = library else { return }
         guard let url = URL(string: "https://www.google.com/maps/@\(library.coordinate.latitude),\(library.coordinate.longitude),18z") else { return }
         if UIApplication.shared.canOpenURL(url) == true {
-            UIApplication.shared.open(url, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
     
@@ -138,9 +138,4 @@ class LibraryFooterView: UIView {
         openInSafariButton.addTarget(self, action: #selector(openInSafari), for: .touchUpInside)
         stack.addArrangedSubview(openInSafariButton)
     }
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }

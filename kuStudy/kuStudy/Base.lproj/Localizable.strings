@@ -87,13 +87,13 @@
 
 "Label.OpenInstagram" = "Open in Instagram?";
 
-"Label.Settings.AboutHeader" = "About";
+"Label.Settings.About" = "About";
 
-"Label.Settings.AppStoreReview" = "Write a review";
+"Label.Settings.AppStoreReview" = "Write a Review";
 
 "Label.Settings.AutoUpdate" = "Auto Update";
 
-"Label.Settings.BugReport" = "Report a bug";
+"Label.Settings.BugReport" = "Report a Bug";
 
 "Label.Settings.FeedbackHeader" = "Review";
 
@@ -107,7 +107,7 @@
 
 "Label.Settings.MediaProvider" = "Special Thanks";
 
-"Label.Settings.OpenSettings" = "Open Settings";
+"Label.Settings.OpenSettings" = "Manage App Permissions";
 
 "Label.Settings.OpenSource" = "Open Source";
 
@@ -178,4 +178,26 @@
 "Title.Library" = "Library";
 
 "Title.Settings" = "Settings";
+
+"Label.Settings.Advanced" = "Advanced";
+
+"Label.Settings.AppIcon" = "App Icon";
+
+"Label.Settings.Permissions" = "Permissions";
+
+"Label.Settings.Apperance" = "Apperance";
+
+"Label.Settings.Debug" = "Debug";
+
+"Label.Settings.Links" = "Link";
+
+"Label.Settings.OpenLibrarySeats" = "KU Library Seats Status";
+
+"Label.Settings.OpenLibrary" = "KU Library";
+
+"Label.Settings.OpenAcademicCalendar" = "KU Academic Calendar";
+
+"Label.Settings.Support" = "Support";
+
+"Label.Settings.Version" = "Version";
 

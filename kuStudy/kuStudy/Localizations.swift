@@ -43,17 +43,17 @@ public struct Localizations {
         /// Base translation: Error
         public static var Error : String = NSLocalizedString("Common.Error", comment: "")
 
-        /// Base translation: minute
-        public static var Minute : String = NSLocalizedString("Common.Minute", comment: "")
-
         /// Base translation: Out of Order
         public static var OutOfOrder : String = NSLocalizedString("Common.OutOfOrder", comment: "")
+
+        /// Base translation: Total
+        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
 
         /// Base translation: Liberal Art Campus
         public static var LiberalArtCampus : String = NSLocalizedString("Common.LiberalArtCampus", comment: "")
 
-        /// Base translation: Total
-        public static var Total : String = NSLocalizedString("Common.Total", comment: "")
+        /// Base translation: minute
+        public static var Minute : String = NSLocalizedString("Common.Minute", comment: "")
 
         /// Base translation: Occupied
         public static var Used : String = NSLocalizedString("Common.Used", comment: "")
@@ -61,11 +61,11 @@ public struct Localizations {
         /// Base translation: Printer
         public static var Printer : String = NSLocalizedString("Common.Printer", comment: "")
 
-        /// Base translation: minutes
-        public static var Minutes : String = NSLocalizedString("Common.Minutes", comment: "")
-
         /// Base translation: Scanner
         public static var Scanner : String = NSLocalizedString("Common.Scanner", comment: "")
+
+        /// Base translation: minutes
+        public static var Minutes : String = NSLocalizedString("Common.Minutes", comment: "")
 
         /// Base translation: Ineligible
         public static var Ineligible : String = NSLocalizedString("Common.Ineligible", comment: "")
@@ -282,14 +282,41 @@ public struct Localizations {
 
         public struct Settings {
 
-            /// Base translation: Write a review or feedback on App Store. All feedback encourages app developer!
-            public static var ReviewFooter : String = NSLocalizedString("Label.Settings.ReviewFooter", comment: "")
+            /// Base translation: Widget
+            public static var WidgetHeader : String = NSLocalizedString("Label.Settings.WidgetHeader", comment: "")
 
-            /// Base translation: Write a review
-            public static var AppStoreReview : String = NSLocalizedString("Label.Settings.AppStoreReview", comment: "")
+            /// Base translation: Items dragged here are hidden in Notificaiton Center.
+            public static var WidgetHideFooter : String = NSLocalizedString("Label.Settings.WidgetHideFooter", comment: "")
+
+            /// Base translation: Apperance
+            public static var Apperance : String = NSLocalizedString("Label.Settings.Apperance", comment: "")
+
+            /// Base translation: Sector
+            public static var SectorHeader : String = NSLocalizedString("Label.Settings.SectorHeader", comment: "")
 
             /// Base translation: Auto Update
             public static var AutoUpdate : String = NSLocalizedString("Label.Settings.AutoUpdate", comment: "")
+
+            /// Base translation: Review
+            public static var FeedbackHeader : String = NSLocalizedString("Label.Settings.FeedbackHeader", comment: "")
+
+            /// Base translation: Library
+            public static var LibraryHeader : String = NSLocalizedString("Label.Settings.LibraryHeader", comment: "")
+
+            /// Base translation: Show
+            public static var WidgetShowHeader : String = NSLocalizedString("Label.Settings.WidgetShowHeader", comment: "")
+
+            /// Base translation: Version
+            public static var Version : String = NSLocalizedString("Label.Settings.Version", comment: "")
+
+            /// Base translation: Library Display Order
+            public static var LibraryOrder : String = NSLocalizedString("Label.Settings.LibraryOrder", comment: "")
+
+            /// Base translation: General
+            public static var GeneralHeader : String = NSLocalizedString("Label.Settings.GeneralHeader", comment: "")
+
+            /// Base translation: Today Widget Display Order
+            public static var TodayOrder : String = NSLocalizedString("Label.Settings.TodayOrder", comment: "")
 
             /// Base translation: Hide
             public static var WidgetHideHeader : String = NSLocalizedString("Label.Settings.WidgetHideHeader", comment: "")
@@ -297,78 +324,84 @@ public struct Localizations {
             /// Base translation: Report a bug
             public static var BugReport : String = NSLocalizedString("Label.Settings.BugReport", comment: "")
 
-            /// Base translation: About
-            public static var AboutHeader : String = NSLocalizedString("Label.Settings.AboutHeader", comment: "")
-
-            /// Base translation: Items dragged here are hidden in Notificaiton Center.
-            public static var WidgetHideFooter : String = NSLocalizedString("Label.Settings.WidgetHideFooter", comment: "")
-
-            /// Base translation: Widget
-            public static var WidgetHeader : String = NSLocalizedString("Label.Settings.WidgetHeader", comment: "")
-
-            /// Base translation: Open Source
-            public static var OpenSource : String = NSLocalizedString("Label.Settings.OpenSource", comment: "")
-
-            /// Base translation: Today Widget Display Order
-            public static var TodayOrder : String = NSLocalizedString("Label.Settings.TodayOrder", comment: "")
-
-            /// Base translation: Show
-            public static var WidgetShowHeader : String = NSLocalizedString("Label.Settings.WidgetShowHeader", comment: "")
-
-            /// Base translation: Library Display Style
-            public static var LibraryCellType : String = NSLocalizedString("Label.Settings.LibraryCellType", comment: "")
-
-            /// Base translation: Reading Room Display Style
-            public static var SectorCellType : String = NSLocalizedString("Label.Settings.SectorCellType", comment: "")
-
-            /// Base translation: Library
-            public static var LibraryHeader : String = NSLocalizedString("Label.Settings.LibraryHeader", comment: "")
-
-            /// Base translation: General
-            public static var GeneralHeader : String = NSLocalizedString("Label.Settings.GeneralHeader", comment: "")
-
-            /// Base translation: Tip Developer
-            public static var TipJar : String = NSLocalizedString("Label.Settings.TipJar", comment: "")
-
-            /// Base translation: Library Display Order
-            public static var LibraryOrder : String = NSLocalizedString("Label.Settings.LibraryOrder", comment: "")
-
-            /// Base translation: Special Thanks
-            public static var MediaProvider : String = NSLocalizedString("Label.Settings.MediaProvider", comment: "")
-
-            /// Base translation: How to add Today widget:  1. Swipe down from the top of the screen to open Notification Center. 2.Switch to Today tab. 3.Scroll to the bottom and tap Edit. 4.Find Korea University Reading Room and tap + icon. 5. Tap Done.
-            public static var WidgetInstructionFooter : String = NSLocalizedString("Label.Settings.WidgetInstructionFooter", comment: "")
-
-            /// Base translation: Review
-            public static var FeedbackHeader : String = NSLocalizedString("Label.Settings.FeedbackHeader", comment: "")
-
             /// Base translation: Update Interval
             public static var UpdateInterval : String = NSLocalizedString("Label.Settings.UpdateInterval", comment: "")
 
-            /// Base translation: Sector
-            public static var SectorHeader : String = NSLocalizedString("Label.Settings.SectorHeader", comment: "")
-
-            /// Base translation: Open Settings
-            public static var OpenSettings : String = NSLocalizedString("Label.Settings.OpenSettings", comment: "")
+            /// Base translation: Link
+            public static var Links : String = NSLocalizedString("Label.Settings.Links", comment: "")
 
             /// Base translation: Privacy Policy
             public static var PrivacyPolicy : String = NSLocalizedString("Label.Settings.PrivacyPolicy", comment: "")
 
+            /// Base translation: KU Library Seats Status ↗︎
+            public static var OpenLibrarySeats : String = NSLocalizedString("Label.Settings.OpenLibrarySeats", comment: "")
+
+            /// Base translation: Advanced
+            public static var Advanced : String = NSLocalizedString("Label.Settings.Advanced", comment: "")
+
+            /// Base translation: About
+            public static var About : String = NSLocalizedString("Label.Settings.About", comment: "")
+
+            /// Base translation: Open Settings
+            public static var OpenSettings : String = NSLocalizedString("Label.Settings.OpenSettings", comment: "")
+
+            /// Base translation: Support
+            public static var Support : String = NSLocalizedString("Label.Settings.Support", comment: "")
+
+            /// Base translation: Permissions
+            public static var Permissions : String = NSLocalizedString("Label.Settings.Permissions", comment: "")
+
+            /// Base translation: Write a review or feedback on App Store. All feedback encourages app developer!
+            public static var ReviewFooter : String = NSLocalizedString("Label.Settings.ReviewFooter", comment: "")
+
+            /// Base translation: Special Thanks
+            public static var MediaProvider : String = NSLocalizedString("Label.Settings.MediaProvider", comment: "")
+
+            /// Base translation: KU Academic Calendar ↗︎
+            public static var OpenAcademicCalendar : String = NSLocalizedString("Label.Settings.OpenAcademicCalendar", comment: "")
+
+            /// Base translation: How to add Today widget:  1. Swipe down from the top of the screen to open Notification Center. 2.Switch to Today tab. 3.Scroll to the bottom and tap Edit. 4.Find Korea University Reading Room and tap + icon. 5. Tap Done.
+            public static var WidgetInstructionFooter : String = NSLocalizedString("Label.Settings.WidgetInstructionFooter", comment: "")
+
+            /// Base translation: Debug
+            public static var Debug : String = NSLocalizedString("Label.Settings.Debug", comment: "")
+
+            /// Base translation: Open Source
+            public static var OpenSource : String = NSLocalizedString("Label.Settings.OpenSource", comment: "")
+
+            /// Base translation: Write a review
+            public static var AppStoreReview : String = NSLocalizedString("Label.Settings.AppStoreReview", comment: "")
+
+            /// Base translation: KU Library ↗︎
+            public static var OpenLibrary : String = NSLocalizedString("Label.Settings.OpenLibrary", comment: "")
+
+            /// Base translation: App Icon
+            public static var AppIcon : String = NSLocalizedString("Label.Settings.AppIcon", comment: "")
+
             /// Base translation: Update
             public static var UpdateHeader : String = NSLocalizedString("Label.Settings.UpdateHeader", comment: "")
+
+            /// Base translation: Reading Room Display Style
+            public static var SectorCellType : String = NSLocalizedString("Label.Settings.SectorCellType", comment: "")
+
+            /// Base translation: Tip Developer
+            public static var TipJar : String = NSLocalizedString("Label.Settings.TipJar", comment: "")
+
+            /// Base translation: Library Display Style
+            public static var LibraryCellType : String = NSLocalizedString("Label.Settings.LibraryCellType", comment: "")
 
         }
 
         public struct CellType {
-
-            /// Base translation: Compact
-            public static var Compact : String = NSLocalizedString("Label.CellType.Compact", comment: "")
 
             /// Base translation: Classic
             public static var Classic : String = NSLocalizedString("Label.CellType.Classic", comment: "")
 
             /// Base translation: Detailed
             public static var Detailed : String = NSLocalizedString("Label.CellType.Detailed", comment: "")
+
+            /// Base translation: Compact
+            public static var Compact : String = NSLocalizedString("Label.CellType.Compact", comment: "")
 
             /// Base translation: Very Compact
             public static var VeryCompact : String = NSLocalizedString("Label.CellType.VeryCompact", comment: "")

@@ -10,6 +10,7 @@
 		158B2C0C8750C769025AA485 /* Pods_kuStudy_Today_Extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A278F63C3D1633DA1EDA6132 /* Pods_kuStudy_Today_Extension.framework */; };
 		16019E9D1D8E45DE008A76C7 /* MainSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16019E9C1D8E45DE008A76C7 /* MainSplitViewController.swift */; };
 		160415512170ECED00239776 /* ReadingRoomRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160415502170ECED00239776 /* ReadingRoomRow.swift */; };
+		1604210121D23EB80083F1B2 /* kuAppsSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604210021D23EB80083F1B2 /* kuAppsSafariViewController.swift */; };
 		160505EE1D6EDC1D0033B123 /* kuStudy_Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160505ED1D6EDC1D0033B123 /* kuStudy_Snapshot.swift */; };
 		160505F71D6EDC8B0033B123 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160505F51D6EDC450033B123 /* SnapshotHelper.swift */; };
 		16051F2F1F99E69500EC9285 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16051F2E1F99E69500EC9285 /* DataManager.swift */; };
@@ -88,6 +89,8 @@
 		1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672461E1B1B44850083035F /* SummaryViewController.swift */; };
 		167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246261B1B4F2C0083035F /* LibraryViewController.swift */; };
 		167316A121D1F76D0089FAA8 /* SemesterCalendarManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673169F21D1F7680089FAA8 /* SemesterCalendarManagerTests.swift */; };
+		167316A321D216120089FAA8 /* AdvancedSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167316A221D216120089FAA8 /* AdvancedSettingsViewController.swift */; };
+		167316A521D221280089FAA8 /* AdvancedSettingsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167316A421D221280089FAA8 /* AdvancedSettingsMenu.swift */; };
 		1676C3D31B2418B8001B3AB6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1676C3D51B2418B8001B3AB6 /* MainInterface.storyboard */; };
 		167B4C861F872E7700BDE991 /* YesNoTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C851F872E7700BDE991 /* YesNoTransform.swift */; };
 		167B4C871F872E7700BDE991 /* YesNoTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C851F872E7700BDE991 /* YesNoTransform.swift */; };
@@ -299,6 +302,7 @@
 		15927B011AC433CE2175A7B9 /* Pods-kuStudyWatchKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kuStudyWatchKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-kuStudyWatchKit/Pods-kuStudyWatchKit.release.xcconfig"; sourceTree = "<group>"; };
 		16019E9C1D8E45DE008A76C7 /* MainSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainSplitViewController.swift; path = "view controller/MainSplitViewController.swift"; sourceTree = "<group>"; };
 		160415502170ECED00239776 /* ReadingRoomRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingRoomRow.swift; sourceTree = "<group>"; };
+		1604210021D23EB80083F1B2 /* kuAppsSafariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = kuAppsSafariViewController.swift; path = extension/kuAppsSafariViewController.swift; sourceTree = "<group>"; };
 		160505EB1D6EDC1D0033B123 /* kuStudy Snapshot.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "kuStudy Snapshot.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		160505ED1D6EDC1D0033B123 /* kuStudy_Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kuStudy_Snapshot.swift; sourceTree = "<group>"; };
 		160505EF1D6EDC1D0033B123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -382,6 +386,8 @@
 		1672461E1B1B44850083035F /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryViewController.swift; path = "view controller/SummaryViewController.swift"; sourceTree = "<group>"; };
 		167246261B1B4F2C0083035F /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = "view controller/LibraryViewController.swift"; sourceTree = "<group>"; };
 		1673169F21D1F7680089FAA8 /* SemesterCalendarManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterCalendarManagerTests.swift; sourceTree = "<group>"; };
+		167316A221D216120089FAA8 /* AdvancedSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvancedSettingsViewController.swift; path = "view controller/AdvancedSettingsViewController.swift"; sourceTree = "<group>"; };
+		167316A421D221280089FAA8 /* AdvancedSettingsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvancedSettingsMenu.swift; path = model/AdvancedSettingsMenu.swift; sourceTree = "<group>"; };
 		1676C3D41B2418B8001B3AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		167B4C851F872E7700BDE991 /* YesNoTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YesNoTransform.swift; path = model/YesNoTransform.swift; sourceTree = "<group>"; };
 		167B4C881F872EB800BDE991 /* CloseTimeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloseTimeTransform.swift; path = model/CloseTimeTransform.swift; sourceTree = "<group>"; };
@@ -717,7 +723,9 @@
 			isa = PBXGroup;
 			children = (
 				16F5A10F21073C0B0059875B /* SettingsViewController.swift */,
+				167316A221D216120089FAA8 /* AdvancedSettingsViewController.swift */,
 				16ABBB7721083F780014141D /* SettingsMenu.swift */,
+				167316A421D221280089FAA8 /* AdvancedSettingsMenu.swift */,
 				16F5A112210769D70059875B /* AppVersionFooterView.swift */,
 				168F6837210D704D000A08FA /* Display Type */,
 				16692AC821154EDA009C666C /* Order */,
@@ -1120,6 +1128,7 @@
 				1664D5551D55E24B000BAF56 /* UIApplication.swift */,
 				1664D5511D55E1C6000BAF56 /* UINavigationController.swift */,
 				1664D5531D55E1E2000BAF56 /* UIColor.swift */,
+				1604210021D23EB80083F1B2 /* kuAppsSafariViewController.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -1955,6 +1964,7 @@
 				168F6839210D706A000A08FA /* LibraryCellType.swift in Sources */,
 				1672461A1B1B13610083035F /* Definitions.swift in Sources */,
 				16C7775C2121529400ED73B2 /* MediaManager.swift in Sources */,
+				167316A521D221280089FAA8 /* AdvancedSettingsMenu.swift in Sources */,
 				167E2D652108C73600C0E79C /* UIWindow.swift in Sources */,
 				16C7775F2121529400ED73B2 /* SocialAccount.swift in Sources */,
 				16C7775D2121529400ED73B2 /* Media.swift in Sources */,
@@ -1967,6 +1977,7 @@
 				16F5A113210769D70059875B /* AppVersionFooterView.swift in Sources */,
 				1664D5541D55E1E2000BAF56 /* UIColor.swift in Sources */,
 				164C0E931C5608E0004C6663 /* MainTabBarController.swift in Sources */,
+				167316A321D216120089FAA8 /* AdvancedSettingsViewController.swift in Sources */,
 				16EE9F691F00F2EA006B75BB /* ThanksToViewController.swift in Sources */,
 				166742FC1FBD666E0098C0BB /* ClassicLibraryCell.swift in Sources */,
 				16C77761212152C600ED73B2 /* LibraryData+Media.swift in Sources */,
@@ -1976,6 +1987,7 @@
 				1664D5521D55E1C6000BAF56 /* UINavigationController.swift in Sources */,
 				1683E73420C03F7B00721F2E /* SummaryHeaderItemCell.swift in Sources */,
 				16019E9D1D8E45DE008A76C7 /* MainSplitViewController.swift in Sources */,
+				1604210121D23EB80083F1B2 /* kuAppsSafariViewController.swift in Sources */,
 				16C7775E2121529400ED73B2 /* Artist.swift in Sources */,
 				1664D5561D55E24B000BAF56 /* UIApplication.swift in Sources */,
 				16DA07941C8EBBC300C4174A /* LibraryOrderViewController.swift in Sources */,
