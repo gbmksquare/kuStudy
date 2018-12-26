@@ -14,6 +14,11 @@ class kuAppsSafariViewController: SFSafariViewController {
         super.init(url: url, configuration: configuration)
         preferredControlTintColor = UIColor.theme
         dismissButtonStyle = .close
+        
+        let components = Calendar.current.dateComponents([.month, .day], from: Date())
+        if components.month == 4 && components.day == 1 {
+            preferredControlTintColor = UIColor.themeAprilFools
+        }
     }
     
     class func open(url: URL, entersReaderMode: Bool = false, alwaysInApp: Bool = true) -> kuAppsSafariViewController? {

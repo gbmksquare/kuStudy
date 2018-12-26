@@ -142,5 +142,12 @@ extension AppDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         UINavigationBar.appearance().tintColor = .white
         UITabBar.appearance().tintColor = .theme
+        
+        let components = Calendar.current.dateComponents([.month, .day], from: Date())
+        if components.month == 4 && components.day == 1 {
+            UINavigationBar.appearance().barTintColor = .themeAprilFools
+            UITabBar.appearance().tintColor = .themeAprilFools
+        }
     }
 }
+
