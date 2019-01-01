@@ -156,6 +156,9 @@
 		16DE4FA3211A6F3A00CFEAE8 /* XCUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DE4FA2211A6F3A00CFEAE8 /* XCUIElement.swift */; };
 		16DFF8501F34423300B6A4FB /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DFF84F1F34423300B6A4FB /* StatusView.swift */; };
 		16DFF8521F34476100B6A4FB /* LibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DFF8511F34476100B6A4FB /* LibraryCell.swift */; };
+		16E3F04821DB903100B6BF67 /* AppIconViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3F04721DB903100B6BF67 /* AppIconViewController.swift */; };
+		16E3F04A21DBB79700B6BF67 /* AppIconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3F04921DBB79700B6BF67 /* AppIconCell.swift */; };
+		16E3F04C21DBBE7A00B6BF67 /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E3F04B21DBBE7A00B6BF67 /* AppIcon.swift */; };
 		16E7DE7C213E66880062553B /* ImageLibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E7DE7B213E66880062553B /* ImageLibraryCell.swift */; };
 		16EE9F691F00F2EA006B75BB /* ThanksToViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */; };
 		16EFE0EC1F0243EB00FD476B /* Preference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EFE0EB1F0243EB00FD476B /* Preference.swift */; };
@@ -444,6 +447,10 @@
 		16DE4FA2211A6F3A00CFEAE8 /* XCUIElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCUIElement.swift; sourceTree = "<group>"; };
 		16DFF84F1F34423300B6A4FB /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		16DFF8511F34476100B6A4FB /* LibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCell.swift; sourceTree = "<group>"; };
+		16E3F04421DB8DD900B6BF67 /* AlternateIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AlternateIcons.xcassets; sourceTree = "<group>"; };
+		16E3F04721DB903100B6BF67 /* AppIconViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppIconViewController.swift; path = "view controller/AppIconViewController.swift"; sourceTree = "<group>"; };
+		16E3F04921DBB79700B6BF67 /* AppIconCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppIconCell.swift; path = view/AppIconCell.swift; sourceTree = "<group>"; };
+		16E3F04B21DBBE7A00B6BF67 /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppIcon.swift; path = model/AppIcon.swift; sourceTree = "<group>"; };
 		16E7DE7B213E66880062553B /* ImageLibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageLibraryCell.swift; path = view/ImageLibraryCell.swift; sourceTree = "<group>"; };
 		16EE9F681F00F2EA006B75BB /* ThanksToViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ThanksToViewController.swift; path = "view controller/ThanksToViewController.swift"; sourceTree = "<group>"; };
 		16EFE0EB1F0243EB00FD476B /* Preference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Preference.swift; path = controller/Preference.swift; sourceTree = "<group>"; };
@@ -727,6 +734,7 @@
 				16ABBB7721083F780014141D /* SettingsMenu.swift */,
 				167316A421D221280089FAA8 /* AdvancedSettingsMenu.swift */,
 				16F5A112210769D70059875B /* AppVersionFooterView.swift */,
+				16E3F04621DB901800B6BF67 /* App Icon */,
 				168F6837210D704D000A08FA /* Display Type */,
 				16692AC821154EDA009C666C /* Order */,
 				16F5A1112107677A0059875B /* Legacy */,
@@ -886,6 +894,7 @@
 			isa = PBXGroup;
 			children = (
 				167245CB1B19C0370083035F /* Images.xcassets */,
+				16E3F04421DB8DD900B6BF67 /* AlternateIcons.xcassets */,
 				1660A4BA1C8FB69A003D5460 /* LibraryPhotos.xcassets */,
 				1664D5641D5AC241000BAF56 /* InfoPlist.strings */,
 				16A5807D1C63298000E7EDC5 /* Localizable.strings */,
@@ -1149,6 +1158,16 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		16E3F04621DB901800B6BF67 /* App Icon */ = {
+			isa = PBXGroup;
+			children = (
+				16E3F04721DB903100B6BF67 /* AppIconViewController.swift */,
+				16E3F04921DBB79700B6BF67 /* AppIconCell.swift */,
+				16E3F04B21DBBE7A00B6BF67 /* AppIcon.swift */,
+			);
+			name = "App Icon";
+			sourceTree = "<group>";
+		};
 		16EFE0EA1F02439100FD476B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1326,6 +1345,7 @@
 				16BB42EA1B2C221A00201DE2 /* Crashlytics Run Script */,
 				16AD8FA01C4E2BB9000D387F /* Embed Watch Content */,
 				7604BD7176B9825E3C47EE6A /* [CP] Embed Pods Frameworks */,
+				16E3F04521DB8E9100B6BF67 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1643,6 +1663,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 368b3fbe6cc8c500211cc2a4d998565f8db0fc45 0eb40729d4a93dfda5830f6c0f43ab99b62ab764b97601ca7dd9f36c9bb528a7";
+		};
+		16E3F04521DB8E9100B6BF67 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(PROJECT_DIR)/kuStudy/AlternateIcons.xcassets",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "embed-alternate-icons\n";
 		};
 		2C00523F45269238BE3852FA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1965,9 +2003,11 @@
 				1672461A1B1B13610083035F /* Definitions.swift in Sources */,
 				16C7775C2121529400ED73B2 /* MediaManager.swift in Sources */,
 				167316A521D221280089FAA8 /* AdvancedSettingsMenu.swift in Sources */,
+				16E3F04A21DBB79700B6BF67 /* AppIconCell.swift in Sources */,
 				167E2D652108C73600C0E79C /* UIWindow.swift in Sources */,
 				16C7775F2121529400ED73B2 /* SocialAccount.swift in Sources */,
 				16C7775D2121529400ED73B2 /* Media.swift in Sources */,
+				16E3F04C21DBBE7A00B6BF67 /* AppIcon.swift in Sources */,
 				167E2D692109822200C0E79C /* TitleValueStackView.swift in Sources */,
 				162C2DA221175F0B00ADF32F /* CompactSectorCell.swift in Sources */,
 				167E2D67210978AE00C0E79C /* DetailedLibraryCell.swift in Sources */,
@@ -2010,6 +2050,7 @@
 				16692ACA21154F3C009C666C /* SectorCellType.swift in Sources */,
 				1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */,
 				160E1D2520DB7C5500E4AF7D /* Preference+Key.swift in Sources */,
+				16E3F04821DB903100B6BF67 /* AppIconViewController.swift in Sources */,
 				162363511F9F181700CD78F2 /* LibraryHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

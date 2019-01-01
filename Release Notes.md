@@ -1,5 +1,27 @@
 # Release Notes 
 
+## 3.7.0 (45)
+
+### New Features
+
+* Added Advanced settings menu. Many menus are now under Advanced menu.
+* Added links to academic calendar, library, seats info in settings.
+* Added App Icon settings to change app icon.
+* Theme color change on April Fools.
+* Added 2019 academic calendar information.
+
+### Improvements
+
+### Fixed bugs
+
+* Fixed D-day counter off by 1 day.
+
+### Code improvements
+
+* 
+
+
+
 ## 3.6.0 (44)
 
 ### New features

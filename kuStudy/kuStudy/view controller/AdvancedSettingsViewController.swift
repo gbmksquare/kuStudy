@@ -58,7 +58,10 @@ extension AdvancedSettingsViewController: UITableViewDelegate, UITableViewDataSo
             let menu = AdvancedSettingsMenu(rawValue: cell.tag) else { return }
         
         switch menu {
-        case .appIcon: break
+        case .appIcon:
+            let viewController = AppIconViewController()
+            navigationController?.pushViewController(viewController, animated: true)
+            
         case .libraryCellType:
             let viewController = LibraryCellTypeViewController()
             navigationController?.pushViewController(viewController, animated: true)

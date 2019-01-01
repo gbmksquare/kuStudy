@@ -10,14 +10,21 @@
 * Swift 4.2
 * CocoaPods
 
-## Xcode Targets
 
-* kuStudy (Universal iOS 11)
-* kuStudyKit (Dynamic Framework)
-* kuStudyWatchKit (Dynamic Framework)
-* kuStudy Today Extension
-* kuStudy WatchKit Extension
-* kuStudy WatchKit App
+
+## Build
+
+This project uses CocoaPods to manage dependency and fastlane for localization.
+
+
+
+Run `pod install` and `pod update` for updating third party libraries, and `fastlane localize` to translate strings. For more, see Fastfile.
+
+
+
+Alternative icons are manager using `embed-alternate-icons` buidl phase. See https://github.com/alexaubry/alternate-icons for details.
+
+
 
 ## Credit
 
