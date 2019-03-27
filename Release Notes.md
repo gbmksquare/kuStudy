@@ -1,5 +1,20 @@
 # Release Notes 
 
+## 3.7.0 (45)
+
+### New features
+
+* Added April Fools theme.
+
+### Improvements 
+
+* Added 2019 academic calendar for d-day countdown.
+* Added missing Apple Watch app icons.
+
+### Fixed bugs
+
+* Fixed d-day counter off by 1 day.
+
 ## 3.6.0 (44)
 
 ### New features

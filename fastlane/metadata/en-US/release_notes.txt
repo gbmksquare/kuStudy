@@ -1,14 +1,5 @@
-New Features
-• Recreated Apple Watch from the ground up. New Apple Watch app has bigger and more legible text.
-• Added Privacy Policy to settings.
-• Added support for iPad Pro 3rd generation.
-
-Improvements
-• Updated some localizations.
-• Updated third party libraries.
-
 Bug Fixes
-• Fixed drag-and-drop to reorder library not working.
-• Fixed a typo.
+• Fixed current semester showing as vacation.
+• Fixed D-Day count off by 1 day.
 
 Happy studying! :)
