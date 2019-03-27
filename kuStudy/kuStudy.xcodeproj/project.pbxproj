@@ -90,7 +90,6 @@
 		1672461F1B1B44850083035F /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1672461E1B1B44850083035F /* SummaryViewController.swift */; };
 		167246271B1B4F2C0083035F /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246261B1B4F2C0083035F /* LibraryViewController.swift */; };
 		167316A121D1F76D0089FAA8 /* SemesterCalendarManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673169F21D1F7680089FAA8 /* SemesterCalendarManagerTests.swift */; };
-167316A121D1F76D0089FAA8 /* SemesterCalendarManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673169F21D1F7680089FAA8 /* SemesterCalendarManagerTests.swift */; };
 		1676C3D31B2418B8001B3AB6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1676C3D51B2418B8001B3AB6 /* MainInterface.storyboard */; };
 		167B4C861F872E7700BDE991 /* YesNoTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C851F872E7700BDE991 /* YesNoTransform.swift */; };
 		167B4C871F872E7700BDE991 /* YesNoTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C851F872E7700BDE991 /* YesNoTransform.swift */; };
@@ -388,7 +387,6 @@
 		1672461E1B1B44850083035F /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SummaryViewController.swift; path = "view controller/SummaryViewController.swift"; sourceTree = "<group>"; };
 		167246261B1B4F2C0083035F /* LibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LibraryViewController.swift; path = "view controller/LibraryViewController.swift"; sourceTree = "<group>"; };
 		1673169F21D1F7680089FAA8 /* SemesterCalendarManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterCalendarManagerTests.swift; sourceTree = "<group>"; };
-1673169F21D1F7680089FAA8 /* SemesterCalendarManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterCalendarManagerTests.swift; sourceTree = "<group>"; };
 		1676C3D41B2418B8001B3AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		167B4C851F872E7700BDE991 /* YesNoTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YesNoTransform.swift; path = model/YesNoTransform.swift; sourceTree = "<group>"; };
 		167B4C881F872EB800BDE991 /* CloseTimeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloseTimeTransform.swift; path = model/CloseTimeTransform.swift; sourceTree = "<group>"; };
@@ -755,7 +753,6 @@
 		1654165F2170DFFD008DB029 /* Legacy */ = {
 			isa = PBXGroup;
 			children = (
-				1673304E1B1C92BF00573FFC /* DetailInterfaceController.swift */,
 				168841181B1EB58700F3C818 /* ReadingRoomCell.swift */,
 			);
 			name = Legacy;
@@ -1404,7 +1401,6 @@
 				167245F21B19C42B0083035F /* Sources */,
 				167245F31B19C42B0083035F /* Frameworks */,
 				167245F41B19C42B0083035F /* Resources */,
-				ECDD797D28B43C31D2C67F3C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1722,21 +1718,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire-watchOS/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper-watchOS/AlamofireObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper-watchOS/ObjectMapper.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kuStudy WatchKit Extension/Pods-kuStudy WatchKit Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7604BD7176B9825E3C47EE6A /* [CP] Embed Pods Frameworks */ = {
@@ -1744,45 +1735,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AcknowList/AcknowList.framework",
-				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireNetworkActivityIndicator/AlamofireNetworkActivityIndicator.framework",
-				"${BUILT_PRODUCTS_DIR}/CTFeedback/CTFeedback.framework",
-				"${BUILT_PRODUCTS_DIR}/DZNEmptyDataSet/DZNEmptyDataSet.framework",
-				"${BUILT_PRODUCTS_DIR}/DeviceKit/DeviceKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FTLinearActivityIndicator/FTLinearActivityIndicator.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/LinearProgressView/LinearProgressView.framework",
-				"${BUILT_PRODUCTS_DIR}/MXParallaxHeader/MXParallaxHeader.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/TONavigationBar/TONavigationBar.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper-iOS/AlamofireObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper-iOS/ObjectMapper.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kuStudy/Pods-kuStudy-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AcknowList.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireNetworkActivityIndicator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CTFeedback.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DZNEmptyDataSet.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeviceKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FTLinearActivityIndicator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinearProgressView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MXParallaxHeader.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TONavigationBar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kuStudy/Pods-kuStudy-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy/Pods-kuStudy-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kuStudy/Pods-kuStudy-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		816112C3E069591C0A0D96DA /* [CP] Check Pods Manifest.lock */ = {
@@ -1844,17 +1806,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy Snapshot/Pods-kuStudy Snapshot-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SimulatorStatusMagic/SimulatorStatusMagic.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kuStudy Snapshot/Pods-kuStudy Snapshot-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimulatorStatusMagic.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-kuStudy Snapshot/Pods-kuStudy Snapshot-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudy Snapshot/Pods-kuStudy Snapshot-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-kuStudy Snapshot/Pods-kuStudy Snapshot-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E7F6638FDB160430157831FD /* [CP] Check Pods Manifest.lock */ = {
@@ -1873,32 +1834,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ECDD797D28B43C31D2C67F3C /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudyKitTests/Pods-kuStudyKitTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire-iOS/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper-iOS/AlamofireObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper-iOS/ObjectMapper.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-kuStudyKitTests/Pods-kuStudyKitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F909579BD7009611D2AEBA9C /* [CP] Check Pods Manifest.lock */ = {
@@ -1939,7 +1874,6 @@
 				1654165B2170C570008DB029 /* MainInterfaceController.swift in Sources */,
 				165416612170E01A008DB029 /* LibraryInterfaceController.swift in Sources */,
 				164191001F2F7257008682E5 /* Localizations.swift in Sources */,
-				1673304F1B1C92BF00573FFC /* DetailInterfaceController.swift in Sources */,
 				16DD052E1E46DBB4007AB912 /* UIColor.swift in Sources */,
 				1654165D2170C959008DB029 /* LibraryRow.swift in Sources */,
 				16136BD81B1C3F0700B3F744 /* InterfaceController.swift in Sources */,
