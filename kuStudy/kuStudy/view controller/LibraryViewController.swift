@@ -10,7 +10,6 @@ import UIKit
 import kuStudyKit
 import MXParallaxHeader
 import DZNEmptyDataSet
-import Crashlytics
 import UserNotifications
 import StoreKit
 import DeviceKit
@@ -34,8 +33,6 @@ class LibraryViewController: UIViewController {
         setup()
         libraryData = kuStudy.libraryData(for: library)
         updateView()
-        
-        Answers.logContentView(withName: library.name, contentType: "Library", contentId: library.identifier, customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
     }
     
     override func viewWillAppear(_ animated: Bool) {

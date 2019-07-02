@@ -10,8 +10,6 @@
 import UIKit
 import kuStudyKit
 import Firebase
-import Fabric
-import Crashlytics
 import AlamofireNetworkActivityIndicator
 import FTLinearActivityIndicator
 
@@ -99,7 +97,6 @@ extension AppDelegate {
         Preference.shared.setup()
         setupAppearance()
         setupFirebase()
-        setupFabric()
         NetworkActivityIndicatorManager.shared.isEnabled = true
         UIApplication.configureLinearNetworkActivityIndicatorIfNeeded()
     }
@@ -107,31 +104,6 @@ extension AppDelegate {
     private func setupFirebase() {
         #if !DEBUG
         FirebaseApp.configure()
-        #endif
-    }
-    
-    private func setupFabric() {
-        #if !DEBUG
-            Fabric.with([Crashlytics()])
-            let device = UIDevice.current
-            let data: [String: Any] = ["Device": device.model,
-                                       "Model": device.modelIdentifier,
-                                       "OS": device.systemName + " " + device.systemVersion,
-                                       "Version": UIApplication.shared.versionString,
-                                       "VoiceOver": UIAccessibility.isVoiceOverRunning,
-                                       "BoldText": UIAccessibility.isBoldTextEnabled,
-                                       "ReduceTransparency": UIAccessibility.isReduceTransparencyEnabled,
-                                       "ReduceMotion": UIAccessibility.isReduceMotionEnabled,
-                                       "Grayscale": UIAccessibility.isGrayscaleEnabled,
-                                       "InvertColor": UIAccessibility.isInvertColorsEnabled,
-                                       "MonoAudio": UIAccessibility.isMonoAudioEnabled,
-                                       "ShakeToUndo": UIAccessibility.isShakeToUndoEnabled,
-                                       "SpeakScreen": UIAccessibility.isSpeakScreenEnabled,
-                                       "SpeakSelection": UIAccessibility.isSpeakSelectionEnabled,
-                                       "GuidedAccess": UIAccessibility.isGuidedAccessEnabled,
-                                       "SwitchControl": UIAccessibility.isSwitchControlRunning,
-                                       "AssistiveTouch": UIAccessibility.isAssistiveTouchRunning]
-            Answers.logCustomEvent(withName: "Launch", customAttributes: data)
         #endif
     }
     

@@ -11,7 +11,6 @@ import MobileCoreServices
 import kuStudyKit
 import MXParallaxHeader
 import DZNEmptyDataSet
-import Crashlytics
 import WatchConnectivity
 import DeviceKit
 import TONavigationBar
@@ -39,8 +38,6 @@ class SummaryViewController: UIViewController {
         super.viewDidLoad()
         setup()
         kuStudy.startFecthingData(autoUpdate: Preference.shared.shouldAutoUpdate, updateInterval: Preference.shared.updateInterval)
-        
-        Answers.logContentView(withName: "Summary", contentType: "Summary", contentId: "0", customAttributes: ["Device": UIDevice.current.model, "Version": UIDevice.current.systemVersion])
         
         if WCSession.isSupported() == true {
             session = WCSession.default

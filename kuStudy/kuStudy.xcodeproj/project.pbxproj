@@ -135,8 +135,6 @@
 		16B453711B22A9A400A3B008 /* kuStudy Today Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16B453651B22A9A400A3B008 /* kuStudy Today Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		16B684A71C5734A300C8C2CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16B684A51C5734A300C8C2CE /* Assets.xcassets */; };
 		16B9A25D1DADFA5D003BF871 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9A25B1DADF9F8003BF871 /* ComplicationController.swift */; };
-		16BB42EE1B2C225900201DE2 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BB42EC1B2C225900201DE2 /* Fabric.framework */; };
-		16BB42EF1B2C225900201DE2 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16BB42ED1B2C225900201DE2 /* Crashlytics.framework */; };
 		16BB431E1B2C277400201DE2 /* kuStudyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167245EC1B19C42B0083035F /* kuStudyKit.framework */; };
 		16C7775C2121529400ED73B2 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685E0501F91E45700F80699 /* MediaManager.swift */; };
 		16C7775D2121529400ED73B2 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685E0561F91E8EB00F80699 /* Media.swift */; };
@@ -430,8 +428,6 @@
 		16B4536A1B22A9A400A3B008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16B684A61C5734A300C8C2CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Base; path = Base.lproj/Assets.xcassets; sourceTree = "<group>"; };
 		16B9A25B1DADF9F8003BF871 /* ComplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
-		16BB42EC1B2C225900201DE2 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
-		16BB42ED1B2C225900201DE2 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		16C77760212152C600ED73B2 /* LibraryData+Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LibraryData+Media.swift"; path = "extension/LibraryData+Media.swift"; sourceTree = "<group>"; };
 		16C77762212159C400ED73B2 /* ArtistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTests.swift; sourceTree = "<group>"; };
 		16C777642121650F00ED73B2 /* MediaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTests.swift; sourceTree = "<group>"; };
@@ -512,9 +508,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				167246031B19C42B0083035F /* kuStudyKit.framework in Frameworks */,
-				16BB42EF1B2C225900201DE2 /* Crashlytics.framework in Frameworks */,
 				16AEFE711F4FC5AC000EB5F0 /* StoreKit.framework in Frameworks */,
-				16BB42EE1B2C225900201DE2 /* Fabric.framework in Frameworks */,
 				1A6ADFECC0BE4686683FEB7A /* Pods_kuStudy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -854,7 +848,6 @@
 				1672461D1B1B44630083035F /* View Controller */,
 				16DB2DAC1C55D55D0096AFB9 /* Extension */,
 				167245E51B19C0850083035F /* Resource */,
-				16BB42EB1B2C224200201DE2 /* Vendor */,
 			);
 			path = kuStudy;
 			sourceTree = "<group>";
@@ -1096,15 +1089,6 @@
 			name = Complication;
 			sourceTree = "<group>";
 		};
-		16BB42EB1B2C224200201DE2 /* Vendor */ = {
-			isa = PBXGroup;
-			children = (
-				16BB42EC1B2C225900201DE2 /* Fabric.framework */,
-				16BB42ED1B2C225900201DE2 /* Crashlytics.framework */,
-			);
-			name = Vendor;
-			sourceTree = "<group>";
-		};
 		16C7775B2121526D00ED73B2 /* Media */ = {
 			isa = PBXGroup;
 			children = (
@@ -1342,7 +1326,6 @@
 				167245BD1B19C0370083035F /* Resources */,
 				167246081B19C42C0083035F /* Embed Frameworks */,
 				16136BF41B1C3F0800B3F744 /* Embed App Extensions */,
-				16BB42EA1B2C221A00201DE2 /* Crashlytics Run Script */,
 				16AD8FA01C4E2BB9000D387F /* Embed Watch Content */,
 				7604BD7176B9825E3C47EE6A /* [CP] Embed Pods Frameworks */,
 				16E3F04521DB8E9100B6BF67 /* ShellScript */,
@@ -1649,20 +1632,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		16BB42EA1B2C221A00201DE2 /* Crashlytics Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Crashlytics Run Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 368b3fbe6cc8c500211cc2a4d998565f8db0fc45 0eb40729d4a93dfda5830f6c0f43ab99b62ab764b97601ca7dd9f36c9bb528a7";
 		};
 		16E3F04521DB8E9100B6BF67 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
