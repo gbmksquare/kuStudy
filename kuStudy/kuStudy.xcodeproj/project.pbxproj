@@ -90,7 +90,9 @@
 		167316A121D1F76D0089FAA8 /* SemesterCalendarManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1673169F21D1F7680089FAA8 /* SemesterCalendarManagerTests.swift */; };
 		167316A321D216120089FAA8 /* AdvancedSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167316A221D216120089FAA8 /* AdvancedSettingsViewController.swift */; };
 		167316A521D221280089FAA8 /* AdvancedSettingsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167316A421D221280089FAA8 /* AdvancedSettingsMenu.swift */; };
-		1676C3D31B2418B8001B3AB6 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1676C3D51B2418B8001B3AB6 /* MainInterface.storyboard */; };
+		16760C6522CB8176004380A8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 16760C6422CB8176004380A8 /* Main.storyboard */; };
+		16760C6622CB84B0004380A8 /* kuStudy Today Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16B453651B22A9A400A3B008 /* kuStudy Today Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		16760C6C22CB85C4004380A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16760C6B22CB85C4004380A8 /* Assets.xcassets */; };
 		167B4C861F872E7700BDE991 /* YesNoTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C851F872E7700BDE991 /* YesNoTransform.swift */; };
 		167B4C871F872E7700BDE991 /* YesNoTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C851F872E7700BDE991 /* YesNoTransform.swift */; };
 		167B4C891F872EB800BDE991 /* CloseTimeTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167B4C881F872EB800BDE991 /* CloseTimeTransform.swift */; };
@@ -131,8 +133,6 @@
 		16AD8F9E1C4E2BB9000D387F /* kuStudy WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 16136BDF1B1C3F0700B3F744 /* kuStudy WatchKit App.app */; };
 		16AEFE711F4FC5AC000EB5F0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AEFE701F4FC5AC000EB5F0 /* StoreKit.framework */; };
 		16B453671B22A9A400A3B008 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 16B453661B22A9A400A3B008 /* NotificationCenter.framework */; };
-		16B453711B22A9A400A3B008 /* kuStudy Today Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 16B453651B22A9A400A3B008 /* kuStudy Today Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		16B684A71C5734A300C8C2CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16B684A51C5734A300C8C2CE /* Assets.xcassets */; };
 		16B9A25D1DADFA5D003BF871 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9A25B1DADF9F8003BF871 /* ComplicationController.swift */; };
 		16BB431E1B2C277400201DE2 /* kuStudyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 167245EC1B19C42B0083035F /* kuStudyKit.framework */; };
 		16C7775C2121529400ED73B2 /* MediaManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1685E0501F91E45700F80699 /* MediaManager.swift */; };
@@ -214,6 +214,13 @@
 			remoteGlobalIDString = 167245EB1B19C42B0083035F;
 			remoteInfo = kuStudyKit;
 		};
+		16760C6722CB84B0004380A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 167245B71B19C0370083035F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 16B453641B22A9A400A3B008;
+			remoteInfo = "kuStudy Today Extension";
+		};
 		16AD8F991C4E2BB9000D387F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 167245B71B19C0370083035F /* Project object */;
@@ -228,27 +235,9 @@
 			remoteGlobalIDString = 16136BDE1B1C3F0700B3F744;
 			remoteInfo = "kuStudy WatchKit App";
 		};
-		16B4536F1B22A9A400A3B008 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 167245B71B19C0370083035F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 16B453641B22A9A400A3B008;
-			remoteInfo = "kuStudy Today Extension";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		16136BF41B1C3F0800B3F744 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				16B453711B22A9A400A3B008 /* kuStudy Today Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		167246081B19C42C0083035F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -258,6 +247,17 @@
 				167246041B19C42B0083035F /* kuStudyKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16760C6922CB84B0004380A8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				16760C6622CB84B0004380A8 /* kuStudy Today Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		16AD8F9F1C4E2BB9000D387F /* Embed App Extensions */ = {
@@ -387,7 +387,8 @@
 		1673169F21D1F7680089FAA8 /* SemesterCalendarManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemesterCalendarManagerTests.swift; sourceTree = "<group>"; };
 		167316A221D216120089FAA8 /* AdvancedSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvancedSettingsViewController.swift; path = "view controller/AdvancedSettingsViewController.swift"; sourceTree = "<group>"; };
 		167316A421D221280089FAA8 /* AdvancedSettingsMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvancedSettingsMenu.swift; path = model/AdvancedSettingsMenu.swift; sourceTree = "<group>"; };
-		1676C3D41B2418B8001B3AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		16760C6422CB8176004380A8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		16760C6B22CB85C4004380A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		167B4C851F872E7700BDE991 /* YesNoTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YesNoTransform.swift; path = model/YesNoTransform.swift; sourceTree = "<group>"; };
 		167B4C881F872EB800BDE991 /* CloseTimeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CloseTimeTransform.swift; path = model/CloseTimeTransform.swift; sourceTree = "<group>"; };
 		167B4C8B1F872F0000BDE991 /* OpenTimeTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OpenTimeTransform.swift; path = model/OpenTimeTransform.swift; sourceTree = "<group>"; };
@@ -424,7 +425,6 @@
 		16B453651B22A9A400A3B008 /* kuStudy Today Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "kuStudy Today Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		16B453661B22A9A400A3B008 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		16B4536A1B22A9A400A3B008 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		16B684A61C5734A300C8C2CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Base; path = Base.lproj/Assets.xcassets; sourceTree = "<group>"; };
 		16B9A25B1DADF9F8003BF871 /* ComplicationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		16C77760212152C600ED73B2 /* LibraryData+Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LibraryData+Media.swift"; path = "extension/LibraryData+Media.swift"; sourceTree = "<group>"; };
 		16C77762212159C400ED73B2 /* ArtistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistTests.swift; sourceTree = "<group>"; };
@@ -1052,7 +1052,7 @@
 		16B453761B22AFE900A3B008 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
-				1676C3D51B2418B8001B3AB6 /* MainInterface.storyboard */,
+				16760C6422CB8176004380A8 /* Main.storyboard */,
 			);
 			name = "User Interface";
 			sourceTree = "<group>";
@@ -1073,7 +1073,7 @@
 				1664D55E1D5AC1DD000BAF56 /* InfoPlist.strings */,
 				1664D5711D5AD423000BAF56 /* Localizable.strings */,
 				164190FB1F2F6B6C008682E5 /* Localizations.swift */,
-				16B684A51C5734A300C8C2CE /* Assets.xcassets */,
+				16760C6B22CB85C4004380A8 /* Assets.xcassets */,
 			);
 			name = Resource;
 			sourceTree = "<group>";
@@ -1322,17 +1322,17 @@
 				167245BC1B19C0370083035F /* Frameworks */,
 				167245BD1B19C0370083035F /* Resources */,
 				167246081B19C42C0083035F /* Embed Frameworks */,
-				16136BF41B1C3F0800B3F744 /* Embed App Extensions */,
 				16AD8FA01C4E2BB9000D387F /* Embed Watch Content */,
 				7604BD7176B9825E3C47EE6A /* [CP] Embed Pods Frameworks */,
 				16E3F04521DB8E9100B6BF67 /* ShellScript */,
+				16760C6922CB84B0004380A8 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				167246021B19C42B0083035F /* PBXTargetDependency */,
-				16B453701B22A9A400A3B008 /* PBXTargetDependency */,
 				16AD8F9D1C4E2BB9000D387F /* PBXTargetDependency */,
+				16760C6822CB84B0004380A8 /* PBXTargetDependency */,
 			);
 			name = kuStudy;
 			productName = kuStudy;
@@ -1601,9 +1601,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1664D5731D5AD511000BAF56 /* Localizable.strings in Resources */,
+				16760C6522CB8176004380A8 /* Main.storyboard in Resources */,
+				16760C6C22CB85C4004380A8 /* Assets.xcassets in Resources */,
 				1664D55C1D5AC1DD000BAF56 /* InfoPlist.strings in Resources */,
-				16B684A71C5734A300C8C2CE /* Assets.xcassets in Resources */,
-				1676C3D31B2418B8001B3AB6 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2054,6 +2054,11 @@
 			target = 167245EB1B19C42B0083035F /* kuStudyKit */;
 			targetProxy = 167246011B19C42B0083035F /* PBXContainerItemProxy */;
 		};
+		16760C6822CB84B0004380A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 16B453641B22A9A400A3B008 /* kuStudy Today Extension */;
+			targetProxy = 16760C6722CB84B0004380A8 /* PBXContainerItemProxy */;
+		};
 		16AD8F9A1C4E2BB9000D387F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 16136BD21B1C3F0700B3F744 /* kuStudy WatchKit Extension */;
@@ -2063,11 +2068,6 @@
 			isa = PBXTargetDependency;
 			target = 16136BDE1B1C3F0700B3F744 /* kuStudy WatchKit App */;
 			targetProxy = 16AD8F9C1C4E2BB9000D387F /* PBXContainerItemProxy */;
-		};
-		16B453701B22A9A400A3B008 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 16B453641B22A9A400A3B008 /* kuStudy Today Extension */;
-			targetProxy = 16B4536F1B22A9A400A3B008 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2124,14 +2124,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		1676C3D51B2418B8001B3AB6 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1676C3D41B2418B8001B3AB6 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
 		16A5807D1C63298000E7EDC5 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2157,14 +2149,6 @@
 				16A887411B21DD9800C49551 /* ko */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		16B684A51C5734A300C8C2CE /* Assets.xcassets */ = {
-			isa = PBXVariantGroup;
-			children = (
-				16B684A61C5734A300C8C2CE /* Base */,
-			);
-			name = Assets.xcassets;
 			sourceTree = "<group>";
 		};
 		16D392B61D62C5310078223E /* InfoPlist.strings */ = {
@@ -2526,6 +2510,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 48616CC494882D887829956D /* Pods-kuStudy.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kuStudy/kuStudy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2558,6 +2543,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F306345CF653EA2FE34810F /* Pods-kuStudy.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kuStudy/kuStudy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2770,6 +2756,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 45;
+				DEVELOPMENT_TEAM = 3ZTVE7CS5L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(inherited)",
@@ -2801,6 +2788,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 45;
+				DEVELOPMENT_TEAM = 3ZTVE7CS5L;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PROJECT_DIR)",
 					"$(inherited)",
