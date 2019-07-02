@@ -9,7 +9,7 @@
 import Foundation
 
 public extension Int {
-    public var readable: String {
+    var readable: String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         let number = NSNumber(integerLiteral: self)

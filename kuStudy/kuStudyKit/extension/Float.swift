@@ -9,7 +9,7 @@
 import Foundation
 
 public extension Float {
-    public var percentageReadable: String {
+    var percentageReadable: String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent
         let number = NSNumber(floatLiteral: Double(self))

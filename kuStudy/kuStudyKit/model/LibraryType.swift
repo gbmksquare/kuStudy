@@ -39,27 +39,27 @@ public enum LibraryType: String, Codable {
 
 // MARK: - Category
 public extension LibraryType {
-    public static func allTypes() -> [LibraryType] {
+    static func allTypes() -> [LibraryType] {
         return [.centralLibrary, .centralSquare, .hanaSquare, .scienceLibrary, .cdl, .law]
     }
     
-    public static func liberalArtCampusTypes() -> [LibraryType] {
+    static func liberalArtCampusTypes() -> [LibraryType] {
         return [.centralLibrary, .centralSquare, .cdl, .law]
     }
     
-    public static func scienceCampusTypes() -> [LibraryType] {
+    static func scienceCampusTypes() -> [LibraryType] {
         return [.hanaSquare, .scienceLibrary]
     }
 }
 
 // MARK: - Name
 public extension LibraryType {
-    public var name: String {
+    var name: String {
         let framework = Bundle(for: kuStudy.self)
         return NSLocalizedString(localizedKey, bundle: framework, comment: "")
     }
     
-    public var nameInAlternateLanguage: String {
+    var nameInAlternateLanguage: String {
         let framework = Bundle(for: kuStudy.self)
         if name.rangeOfCharacter(from: CharacterSet.alphanumerics.inverted) != nil {
             // `name` is English
@@ -77,7 +77,7 @@ public extension LibraryType {
         return name
     }
     
-    public var shortName: String {
+    var shortName: String {
         let framework = Bundle(for: kuStudy.self)
         return NSLocalizedString(localizedKey + ".Short", bundle: framework, comment: "")
     }
@@ -85,7 +85,7 @@ public extension LibraryType {
 
 // MARK: - Map
 public extension LibraryType {
-    public var coordinate: CLLocationCoordinate2D {
+    var coordinate: CLLocationCoordinate2D {
         switch self {
         case .centralSquare: return CLLocationCoordinate2D(latitude: 37.58851, longitude: 127.0337)
         case .centralLibrary: return CLLocationCoordinate2D(latitude: 37.59075, longitude: 127.0341)
@@ -99,7 +99,7 @@ public extension LibraryType {
 
 // MARK: - API
 internal extension LibraryType {
-    internal var apiUrl: String {
+    var apiUrl: String {
         return "https://librsv.korea.ac.kr/libraries/lib-status/\(rawValue)"
     }
 }

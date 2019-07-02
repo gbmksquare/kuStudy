@@ -27,30 +27,30 @@ public class LibraryData: Mappable {
 
 // MARK: Computed data
 public extension LibraryData {
-    public var libraryType: LibraryType? {
+    var libraryType: LibraryType? {
         guard let libraryId = libraryId else { return nil }
         return LibraryType(rawValue: libraryId)
     }
     
-    public var libraryName: String {
+    var libraryName: String {
         return libraryType?.name ?? ""
     }
     
-    public var total: Int {
+    var total: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.total ?? 0)
         })
     }
     
-    public var occupied: Int {
+    var occupied: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.occupied ?? 0)
         })
     }
     
-    public var available: Int {
+    var available: Int {
         guard let sectors = sectors else { return 0 }
         return sectors.reduce(0, { (initial, sector) -> Int in
             return initial + (sector.available ?? 0)

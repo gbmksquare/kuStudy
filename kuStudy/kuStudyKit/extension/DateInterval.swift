@@ -9,12 +9,12 @@
 import Foundation
 
 public extension DateInterval {
-    public var isActive: Bool {
+    var isActive: Bool {
         let today = Date()
         return contains(today)
     }
     
-    public var lasts: Int {
+    var lasts: Int {
         return Int(duration / 60 / 60 / 24)
     }
 }

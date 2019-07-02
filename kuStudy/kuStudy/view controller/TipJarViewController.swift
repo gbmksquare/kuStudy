@@ -104,6 +104,8 @@ extension TipJarViewController: SKPaymentTransactionObserver {
             case .restored:
                 print("Restored")
                 SKPaymentQueue.default().finishTransaction(transaction)
+            @unknown default:
+                fatalError()
             }
         }
     }

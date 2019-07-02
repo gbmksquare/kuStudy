@@ -79,7 +79,7 @@ class LibraryViewController: UIViewController {
 
 // MARK: - Action
 extension LibraryViewController {
-    @available(*, deprecated: 1.0)
+    @available(*, deprecated)
     private func updateData() {
         kuStudy.requestLibraryData(libraryId: library.identifier,
                                    onSuccess: { [weak self] (libraryData) in
@@ -108,6 +108,8 @@ extension LibraryViewController {
                         self?.tapped(remind: button)
                     }
                 }
+            @unknown default:
+                fatalError()
             }
         }
     }

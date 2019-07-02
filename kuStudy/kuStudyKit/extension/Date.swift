@@ -9,13 +9,13 @@
 import Foundation
 
 public extension Date {
-    public var readable: String {
+    var readable: String {
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         return formatter.string(from: self)
     }
     
-    public init?(dateString: String) {
+    init?(dateString: String) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd Z"
         if let d = formatter.date(from: dateString) {
@@ -25,7 +25,7 @@ public extension Date {
         }
     }
     
-    public var daysFromToday: Int {
+    var daysFromToday: Int {
         let today = Date()
         return Calendar.current.dateComponents([.day], from: today, to: self).day!
     }

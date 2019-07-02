@@ -12,7 +12,7 @@ public class SummaryData {
     // TODO: Set to internal
     public var libraries = [LibraryData]()
     
-    @available(*, deprecated: 1.0)
+    @available(*, deprecated)
     public init() { }
     
     public init(libraryData: [LibraryData]) {

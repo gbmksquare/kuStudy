@@ -401,7 +401,7 @@ extension SummaryViewController: UITableViewDelegate, UITableViewDataSource, DZN
         
         // Send settings to watch
         do {
-            try session?.updateApplicationContext(["libraryOrder": orderedLibraryIds])
+            try session?.updateApplicationContext(["libraryOrder": orderedLibraryIds as Any])
         } catch { }
     }
     

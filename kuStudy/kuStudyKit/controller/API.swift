@@ -15,48 +15,48 @@ public typealias FailureHandler = (_ error: Error) -> Void
 private let apiUrl = "http://librsv.korea.ac.kr/DLMS_KOU_INTRO/api/seatStatusList.do"
 
 public extension kuStudy {
-    public class func startFecthingData(autoUpdate: Bool? = nil, updateInterval: TimeInterval? = nil) {
+    class func startFecthingData(autoUpdate: Bool? = nil, updateInterval: TimeInterval? = nil) {
         DataManager.shared.startFetching(autoUpdate: autoUpdate, updateInterval: updateInterval)
     }
     
-    public class func requestUpdateData() {
+    class func requestUpdateData() {
         DataManager.shared.requestUpdate()
     }
     
-    public class func stopFetchingData() {
+    class func stopFetchingData() {
         DataManager.shared.stopFetching()
     }
     
-    public class func enableAutoUpdate() {
+    class func enableAutoUpdate() {
         DataManager.shared.enableAutoUpdate()
     }
     
-    public class func disableAutoUpdate() {
+    class func disableAutoUpdate() {
         DataManager.shared.disableAutoUpdate()
     }
     
-    public class func update(updateInterval: TimeInterval) {
+    class func update(updateInterval: TimeInterval) {
         DataManager.shared.update(updateInterval: updateInterval)
     }
 }
 
 public extension kuStudy {
-    public static let didUpdateDataNotification = Notification.Name(rawValue: "kuStudyKit.DataManager.Notification.DidUpdate")
+    static let didUpdateDataNotification = Notification.Name(rawValue: "kuStudyKit.DataManager.Notification.DidUpdate")
     
-    public class var summaryData: SummaryData? { return DataManager.shared.summaryData }
-    public class var libraryData: [LibraryData]? { return DataManager.shared.libraryData }
-    public class var errors: [Error]? { return DataManager.shared.errors }
+    class var summaryData: SummaryData? { return DataManager.shared.summaryData }
+    class var libraryData: [LibraryData]? { return DataManager.shared.libraryData }
+    class var errors: [Error]? { return DataManager.shared.errors }
     
-    public class var lastUpdatedAt: Date? { return DataManager.shared.lastUpdatedAt }
+    class var lastUpdatedAt: Date? { return DataManager.shared.lastUpdatedAt }
     
-    public class func libraryData(for library: LibraryType) -> LibraryData? {
+    class func libraryData(for library: LibraryType) -> LibraryData? {
         return libraryData?.filter({ $0.libraryType == library }).first
     }
 }
 
 public extension kuStudy {
-    @available(*, deprecated: 1.0)
-    public class func requestSummaryData(onLibrarySuccess: ((_ libraryData: LibraryData) -> ())?, onFailure: FailureHandler?, onCompletion: ((_ summaryData: SummaryData) -> ())?) {
+    @available(*, deprecated)
+    class func requestSummaryData(onLibrarySuccess: ((_ libraryData: LibraryData) -> ())?, onFailure: FailureHandler?, onCompletion: ((_ summaryData: SummaryData) -> ())?) {
         let libraryTypes = LibraryType.allTypes()
         var completeCount = 0
         let summaryData = SummaryData()
@@ -81,8 +81,8 @@ public extension kuStudy {
         }
     }
     
-    @available(*, deprecated: 1.0)
-    public class func requestLibraryData(libraryId: String, onSuccess: @escaping (_ libraryData: LibraryData) -> (), onFailure: FailureHandler?) {
+    @available(*, deprecated)
+    class func requestLibraryData(libraryId: String, onSuccess: @escaping (_ libraryData: LibraryData) -> (), onFailure: FailureHandler?) {
         Alamofire.request("https://librsv.korea.ac.kr/libraries/lib-status/" + libraryId, method: .get)
             .responseObject { (response: DataResponse<LibraryData>) in
                 switch response.result {
