@@ -1499,10 +1499,9 @@
 			};
 			buildConfigurationList = 167245BA1B19C0370083035F /* Build configuration list for PBXProject "kuStudy" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 				ko,
