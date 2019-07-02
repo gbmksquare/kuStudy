@@ -74,7 +74,6 @@
 		166742FC1FBD666E0098C0BB /* ClassicLibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166742FB1FBD666E0098C0BB /* ClassicLibraryCell.swift */; };
 		16692ACA21154F3C009C666C /* SectorCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692AC921154F3C009C666C /* SectorCellType.swift */; };
 		16692ACC21154FEC009C666C /* SectorCellTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16692ACB21154FEC009C666C /* SectorCellTypeViewController.swift */; };
-		166FA7822182708D005E5E06 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 166FA7812182708D005E5E06 /* GoogleService-Info.plist */; };
 		167245C51B19C0370083035F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167245C41B19C0370083035F /* AppDelegate.swift */; };
 		167245CA1B19C0370083035F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 167245C81B19C0370083035F /* Main.storyboard */; };
 		167245CC1B19C0370083035F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 167245CB1B19C0370083035F /* Images.xcassets */; };
@@ -366,7 +365,6 @@
 		166742FB1FBD666E0098C0BB /* ClassicLibraryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClassicLibraryCell.swift; path = view/ClassicLibraryCell.swift; sourceTree = "<group>"; };
 		16692AC921154F3C009C666C /* SectorCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorCellType.swift; sourceTree = "<group>"; };
 		16692ACB21154FEC009C666C /* SectorCellTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorCellTypeViewController.swift; sourceTree = "<group>"; };
-		166FA7812182708D005E5E06 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		167245BF1B19C0370083035F /* kuStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kuStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		167245C31B19C0370083035F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		167245C41B19C0370083035F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -877,7 +875,6 @@
 			children = (
 				167245C41B19C0370083035F /* AppDelegate.swift */,
 				167245C31B19C0370083035F /* Info.plist */,
-				166FA7812182708D005E5E06 /* GoogleService-Info.plist */,
 				1672461C1B1B138B0083035F /* kuStudy.entitlements */,
 			);
 			name = Application;
@@ -1569,7 +1566,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				167245CA1B19C0370083035F /* Main.storyboard in Resources */,
-				166FA7822182708D005E5E06 /* GoogleService-Info.plist in Resources */,
 				1664D5621D5AC241000BAF56 /* InfoPlist.strings in Resources */,
 				16C7776721216CDA00ED73B2 /* LibraryPhotos.xcassets in Resources */,
 				16A5807B1C63298000E7EDC5 /* Localizable.strings in Resources */,

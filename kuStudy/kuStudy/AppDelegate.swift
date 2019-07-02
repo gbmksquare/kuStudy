@@ -9,7 +9,6 @@
 
 import UIKit
 import kuStudyKit
-import Firebase
 import AlamofireNetworkActivityIndicator
 import FTLinearActivityIndicator
 
@@ -96,15 +95,8 @@ extension AppDelegate {
     private func setupApplication() {
         Preference.shared.setup()
         setupAppearance()
-        setupFirebase()
         NetworkActivityIndicatorManager.shared.isEnabled = true
         UIApplication.configureLinearNetworkActivityIndicatorIfNeeded()
-    }
-    
-    private func setupFirebase() {
-        #if !DEBUG
-        FirebaseApp.configure()
-        #endif
     }
     
     private func setupAppearance() {
