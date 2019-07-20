@@ -93,7 +93,7 @@ extension AdvancedSettingsViewController: UITableViewDelegate, UITableViewDataSo
             }
             
         case .openAcademicCalendarLink:
-            let address = Locale.current.languageCode == "ko" ? "http://registrar.korea.ac.kr/registrar/college/schedule_new.do?cYear=2019&hakGi=1&srCategoryId1=509" : "http://registrar.korea.ac.kr/registrar_en/college/schedule_new.do?cYear=2019&hakGi=1&srCategoryId1=398"
+            let address = Locale.current.languageCode == "ko" ? "http://registrar.korea.ac.kr/registrar/college/schedule_new.do?cYear=2019&hakGi=2&srCategoryId1=509" : "http://registrar.korea.ac.kr/registrar_en/college/schedule_new.do?cYear=2019&hakGi=2&srCategoryId1=398"
             guard let url = URL(string: address) else { return }
             if let safari = kuAppsSafariViewController.open(url: url, entersReaderMode: false, alwaysInApp: false) {
                 present(safari, animated: true, completion: nil)

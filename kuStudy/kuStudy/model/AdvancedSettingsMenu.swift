@@ -54,16 +54,15 @@ enum AdvancedSettingsMenu: Int {
     static let layout: [(header: String?, footer: String?, menus:  [AdvancedSettingsMenu])] =
         [
             (Localizations.Label.Settings.Apperance, nil,
-             [.appIcon, .libraryCellType, .sectorCellType]),
-            (Localizations.Label.Settings.Permissions, nil,
-             [.openAppSettings]),
+             [.libraryCellType, .sectorCellType]),
+//            (Localizations.Label.Settings.Permissions, nil,
+//             [.openAppSettings]),
             (Localizations.Label.Settings.Links, nil,
              [.openLibrarySeatsLink, .openLibraryLink, .openAcademicCalendarLink]),
             (Localizations.Label.Settings.Support, Localizations.Label.Settings.ReviewFooter,
-             [.writeReview, .bugReport, .tipJar]),
+             [.writeReview, .bugReport]),
             (Localizations.Label.Settings.About, nil,
-             [.version, .thanksTo, .privacyPolicy, .openSource]),
-            (Localizations.Label.Settings.Debug, nil, [])
+             [.version, .thanksTo, .privacyPolicy, .openSource])
     ]
     #endif
 }
