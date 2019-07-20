@@ -1,5 +1,22 @@
 # Release Notes 
 
+## 3.8.0
+
+### New Features
+
+### Improvements
+
+* Updated third party libraries.
+* Removed Fabric and Crashlytics.
+* Removed Firebase.
+
+### Fixed bugs
+
+### Code improvements
+
+- Fixed various warnings.
+- Updated to new build system.
+
 ## 3.7.0 (45)
 
 ### New Features
@@ -17,8 +34,6 @@
 * Fixed D-day counter off by 1 day.
 
 ### Code improvements
-
-* 
 
 
 
