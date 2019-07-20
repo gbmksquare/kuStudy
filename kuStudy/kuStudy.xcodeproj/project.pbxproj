@@ -2510,7 +2510,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 48616CC494882D887829956D /* Pods-kuStudy.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kuStudy/kuStudy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2543,7 +2542,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6F306345CF653EA2FE34810F /* Pods-kuStudy.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = kuStudy/kuStudy.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

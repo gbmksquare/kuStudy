@@ -9,7 +9,7 @@ PODS:
   - CTFeedback (1.1.1)
   - DeviceKit (2.0.0)
   - DZNEmptyDataSet (1.8.1)
-  - FTLinearActivityIndicator (1.2)
+  - FTLinearActivityIndicator (1.2.1)
   - LinearProgressView (2.0.1)
   - MXParallaxHeader (0.6.1)
   - ObjectMapper (3.5.1)
@@ -57,7 +57,7 @@ SPEC CHECKSUMS:
   CTFeedback: 6f128606e0d26d46075c3fa9fc33884372df8675
   DeviceKit: 72d36709552d4b3582abd76a53949148acad9811
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
-  FTLinearActivityIndicator: 1bc0016c92a6aae20a0a3ed5d73ee46cdd007863
+  FTLinearActivityIndicator: a3ef57034bd05bc80c1a7c62c8797c0361fa7bee
   LinearProgressView: 353d4d45dc599b83cc4b43f14e6c0336aa6f3834
   MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
@@ -67,4 +67,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 7259ebf2cc9fbdd7d3fe2de939a93d3de0bac93e
 
-COCOAPODS: 1.7.3
+COCOAPODS: 1.7.5
