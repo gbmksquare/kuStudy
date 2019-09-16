@@ -26,22 +26,22 @@ public class SemesterCalendarManager {
                                               midterm: midterm_18_02,
                                               finals: finals_18_02)
         
-        let semester_19_01 = DateInterval(start: Date(dateString: "2018-03-04 +0900")!,
-                                          end: Date(dateString: "2018-06-22 +0900")!)
-        let midterm_19_01 = DateInterval(start: Date(dateString: "2018-04-22 +0900")!,
-                                         end: Date(dateString: "2018-04-27 +0900")!)
-        let finals_19_01 = DateInterval(start: Date(dateString: "2018-06-17 +0900")!,
-                                        end: Date(dateString: "2018-06-22 +0900")!)
+        let semester_19_01 = DateInterval(start: Date(dateString: "2019-03-04 +0900")!,
+                                          end: Date(dateString: "2019-06-22 +0900")!)
+        let midterm_19_01 = DateInterval(start: Date(dateString: "2019-04-22 +0900")!,
+                                         end: Date(dateString: "2019-04-27 +0900")!)
+        let finals_19_01 = DateInterval(start: Date(dateString: "2019-06-17 +0900")!,
+                                        end: Date(dateString: "2019-06-22 +0900")!)
         let calendar_19_01 = SemesterCalendar(semester: semester_19_01,
                                               midterm: midterm_19_01,
                                               finals: finals_19_01)
         
         let semester_19_02 = DateInterval(start: Date(dateString: "2018-09-02 +0900")!,
                                           end: Date(dateString: "2018-12-21 +0900")!)
-        let midterm_19_02 = DateInterval(start: Date(dateString: "2018-10-21 +0900")!,
-                                         end: Date(dateString: "2018-10-26 +0900")!)
-        let finals_19_02 = DateInterval(start: Date(dateString: "2018-12-16 +0900")!,
-                                        end: Date(dateString: "2018-12-21 +0900")!)
+        let midterm_19_02 = DateInterval(start: Date(dateString: "2019-10-21 +0900")!,
+                                         end: Date(dateString: "2019-10-26 +0900")!)
+        let finals_19_02 = DateInterval(start: Date(dateString: "2019-12-16 +0900")!,
+                                        end: Date(dateString: "2019-12-21 +0900")!)
         let calendar_19_02 = SemesterCalendar(semester: semester_19_02,
                                               midterm: midterm_19_02,
                                               finals: finals_19_02)

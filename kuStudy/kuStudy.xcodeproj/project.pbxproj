@@ -1422,7 +1422,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = gbmKSquare;
 				TargetAttributes = {
 					160505EA1D6EDC1D0033B123 = {
@@ -2332,7 +2332,7 @@
 			baseConfigurationReference = C3F71AD1B428E624607F5156 /* Pods-kuStudyWatchKit.debug.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: BUMMO KOO (MTTAM6ZCV2)";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -2368,7 +2368,7 @@
 			baseConfigurationReference = 15927B011AC433CE2175A7B9 /* Pods-kuStudyWatchKit.release.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: BUMMO KOO (3ZTVE7CS5L)";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -2623,7 +2623,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 45;
@@ -2667,7 +2667,7 @@
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 45;

@@ -1,20 +1,20 @@
 PODS:
   - AcknowList (1.9)
-  - Alamofire (4.8.2)
+  - Alamofire (4.9.0)
   - AlamofireNetworkActivityIndicator (2.4.0):
     - Alamofire (~> 4.8)
-  - AlamofireObjectMapper (5.2.0):
+  - AlamofireObjectMapper (5.2.1):
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
   - CTFeedback (1.1.1)
-  - DeviceKit (2.0.0)
+  - DeviceKit (2.1.0)
   - DZNEmptyDataSet (1.8.1)
   - FTLinearActivityIndicator (1.2.1)
   - LinearProgressView (2.0.1)
-  - MXParallaxHeader (0.6.1)
+  - MXParallaxHeader (1.0.0)
   - ObjectMapper (3.5.1)
   - SimulatorStatusMagic (2.4.1)
-  - SnapKit (5.0.0)
+  - SnapKit (5.0.1)
   - TONavigationBar (0.0.1)
 
 DEPENDENCIES:
@@ -33,7 +33,7 @@ DEPENDENCIES:
   - TONavigationBar
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - AcknowList
     - Alamofire
     - AlamofireNetworkActivityIndicator
@@ -51,20 +51,20 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AcknowList: 06fde3319971dfd517ea1b1c194d78eb8cd774a2
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Alamofire: afc3e7c6db61476cb45cdd23fed06bad03bbc321
   AlamofireNetworkActivityIndicator: 9acc3de3ca6645bf0efed462396b0df13dd3e7b8
-  AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
+  AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
   CTFeedback: 6f128606e0d26d46075c3fa9fc33884372df8675
-  DeviceKit: 72d36709552d4b3582abd76a53949148acad9811
+  DeviceKit: 2f6c28410d5a5fe2977be7f8cb9b313d28bdae69
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FTLinearActivityIndicator: a3ef57034bd05bc80c1a7c62c8797c0361fa7bee
   LinearProgressView: 353d4d45dc599b83cc4b43f14e6c0336aa6f3834
-  MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
+  MXParallaxHeader: a95e0af1f485b1b718a6939f583f0dbae6992c41
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   SimulatorStatusMagic: 28d4a9d1a500ac7cea0b2b5a43c1c6ddb40ba56c
-  SnapKit: fd22d10eb9aff484d79a8724eab922c1ddf89bcf
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   TONavigationBar: d0a8ab15f19f5a258dac6a6ec12cbe59aad1450c
 
 PODFILE CHECKSUM: 7259ebf2cc9fbdd7d3fe2de939a93d3de0bac93e
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.0.beta.2
