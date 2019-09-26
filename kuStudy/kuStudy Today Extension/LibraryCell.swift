@@ -10,6 +10,9 @@ import UIKit
 import kuStudyKit
 
 class LibraryCell: UITableViewCell {
+    // MARK: - Constants
+    static let indicatorWidth: CGFloat = 12
+    
     private lazy var indicator = UIView()
     private lazy var libraryLabel = UILabel()
     private lazy var availableLabel = UILabel()
@@ -75,8 +78,8 @@ class LibraryCell: UITableViewCell {
     // MARK: - Setup
     private func setup() {
         let metrics = UIFontMetrics(forTextStyle: .body)
-        let titleFont = metrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .medium))
-        let valueFont = metrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .regular))
+        let titleFont = metrics.scaledFont(for: UIFont.systemFont(ofSize: 13, weight: .regular))
+        let valueFont = metrics.scaledFont(for: UIFont.monospacedSystemFont(ofSize: 13, weight: .regular))
         let spacing = metrics.scaledValue(for: 8)
         
         backgroundColor = .clear
@@ -88,13 +91,14 @@ class LibraryCell: UITableViewCell {
         stack.distribution = .fill
         stack.spacing = spacing
         contentView.addSubview(stack)
-        stack.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.leadingMargin.equalToSuperview()
-            make.trailingMargin.equalToSuperview()
-            make.centerY.equalToSuperview()
-        }
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stack.topAnchor.constraint(equalTo: contentView.readableContentGuide.topAnchor),
+            stack.bottomAnchor.constraint(equalTo: contentView.readableContentGuide.bottomAnchor),
+            stack.leadingAnchor.constraint(equalTo: contentView.readableContentGuide.leadingAnchor),
+            stack.trailingAnchor.constraint(equalTo: contentView.readableContentGuide.trailingAnchor),
+            stack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
         
         // Label
         libraryLabel.font = titleFont
@@ -109,15 +113,15 @@ class LibraryCell: UITableViewCell {
         }
         
         // Indicator
-        let indicatorWidth: CGFloat = 10
         indicator.backgroundColor = .systemGray5
-        indicator.layer.borderColor = UIColor.quaternarySystemFill.cgColor
+        indicator.layer.borderColor = UIColor.separator.cgColor
         indicator.layer.borderWidth = 1
-        indicator.layer.cornerRadius = indicatorWidth / 2
-        indicator.snp.makeConstraints { (make) in
-            make.width.equalTo(indicatorWidth)
-            make.height.equalTo(indicator.snp.width)
-        }
+        indicator.layer.cornerRadius = LibraryCell.indicatorWidth / 2
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            indicator.widthAnchor.constraint(equalToConstant: LibraryCell.indicatorWidth),
+            indicator.heightAnchor.constraint(equalTo: indicator.widthAnchor)
+        ])
         
         [libraryLabel, availableLabel, indicator].forEach { stack.addArrangedSubview($0) }
     }
