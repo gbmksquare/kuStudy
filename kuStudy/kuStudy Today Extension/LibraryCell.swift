@@ -9,7 +9,7 @@
 import UIKit
 import kuStudyKit
 
-class LibraryCell: UICollectionViewCell {
+class LibraryCell: UITableViewCell {
     private lazy var indicator = UIView()
     private lazy var libraryLabel = UILabel()
     private lazy var availableLabel = UILabel()
@@ -25,10 +25,15 @@ class LibraryCell: UICollectionViewCell {
         setup()
     }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
         setup()
     }
+    
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        setup()
+//    }
     
     // MARK: - View
     override func prepareForReuse() {
@@ -36,14 +41,29 @@ class LibraryCell: UICollectionViewCell {
         reset()
     }
     
+    // MARK: - Populate
     func populate() {
-        guard let data = data, let library = data.libraryType else {
+        guard let data = data,
+            let library = data.libraryType else {
             reset()
             return
         }
-        libraryLabel.text = library.name
-        availableLabel.text = data.available.readable
         indicator.backgroundColor = data.availablePercentageColor
+        libraryLabel.text = library.name
+
+        let metrics = UIFontMetrics(forTextStyle: .body)
+        let captionFont = metrics.scaledFont(for: UIFont.systemFont(ofSize: 10, weight: .medium))
+        let availableString = NSMutableAttributedString()
+        availableString.append(NSAttributedString(string: "\(Localizations.Cell.Label.Available)  ",
+            attributes: [
+                .foregroundColor: UIColor.tertiaryLabel,
+                .font: captionFont
+        ]))
+        availableString.append(NSAttributedString(string: data.available.readable,
+            attributes: [
+                .foregroundColor: UIColor.label
+        ]))
+        availableLabel.attributedText = availableString
     }
     
     func reset() {
@@ -54,71 +74,51 @@ class LibraryCell: UICollectionViewCell {
     
     // MARK: - Setup
     private func setup() {
+        let metrics = UIFontMetrics(forTextStyle: .body)
+        let titleFont = metrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .medium))
+        let valueFont = metrics.scaledFont(for: UIFont.systemFont(ofSize: 14, weight: .regular))
+        let spacing = metrics.scaledValue(for: 8)
+        
         backgroundColor = .clear
         
-        // Shadow
-//        indicator.layer.borderColor = UIColor.green.cgColor
-//        indicator.layer.borderWidth = 1
-        indicator.layer.shadowColor = UIColor.black.cgColor
-        indicator.layer.shadowOpacity = 0.1
-        indicator.layer.shadowOffset = CGSize.zero
-        indicator.layer.shadowRadius = 3
-        indicator.layer.shouldRasterize = true
-        indicator.layer.rasterizationScale = UIScreen.main.scale
-        
-        // Color
-        let indicatorWidth: CGFloat = 12
-        indicator.backgroundColor = .lightGray
-        indicator.layer.cornerRadius = indicatorWidth / 2
-        
-        libraryLabel.textColor = .black
-        availableLabel.textColor = .black
-        availableTitleLabel.textColor = .darkGray
-        
-        // Font
-        var availableLabelFont = UIFont.systemFont(ofSize: 30, weight: .light)
-        let metrics = UIFontMetrics(forTextStyle: .body)
-        availableLabelFont = metrics.scaledFont(for: availableLabelFont)
-        libraryLabel.font = UIFont.preferredFont(forTextStyle: .headline)
-        availableLabel.font = availableLabelFont
-        availableTitleLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
-        
-        [libraryLabel, availableLabel, availableTitleLabel].forEach {
-            $0.adjustsFontSizeToFitWidth = true
-            $0.adjustsFontForContentSizeCategory = true
-            $0.setContentHuggingPriority(.required, for: .vertical)
+        // Stack
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.alignment = .center
+        stack.distribution = .fill
+        stack.spacing = spacing
+        contentView.addSubview(stack)
+        stack.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.leadingMargin.equalToSuperview()
+            make.trailingMargin.equalToSuperview()
+            make.centerY.equalToSuperview()
         }
         
+        // Label
+        libraryLabel.font = titleFont
         libraryLabel.numberOfLines = 0
         libraryLabel.lineBreakMode = .byWordWrapping
-        libraryLabel.setContentCompressionResistancePriority(.required, for: .vertical)
+        availableLabel.font = valueFont
+        availableLabel.setContentHuggingPriority(.required, for: .horizontal)
+        [libraryLabel, availableLabel].forEach {
+            $0.textColor = .label
+            $0.adjustsFontSizeToFitWidth = true
+            $0.adjustsFontForContentSizeCategory = true
+        }
         
-        // Content
-        availableTitleLabel.text = Localizations.Cell.Label.Available
-        
-        // Layout
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.alignment = .fill
-        stack.distribution = .fillProportionally
-        stack.setContentHuggingPriority(.required, for: .vertical)
-        stack.spacing = UIStackView.spacingUseSystem
-        stack.isBaselineRelativeArrangement = true
-        [libraryLabel, availableLabel, availableTitleLabel].forEach { stack.addArrangedSubview($0) }
-        
-        [indicator, stack].forEach { contentView.addSubview($0) }
+        // Indicator
+        let indicatorWidth: CGFloat = 10
+        indicator.backgroundColor = .systemGray5
+        indicator.layer.borderColor = UIColor.quaternarySystemFill.cgColor
+        indicator.layer.borderWidth = 1
+        indicator.layer.cornerRadius = indicatorWidth / 2
         indicator.snp.makeConstraints { (make) in
             make.width.equalTo(indicatorWidth)
-            make.height.equalTo(indicatorWidth)
-            make.leading.equalTo(contentView.snp.leading).offset(12)
-            make.trailing.equalTo(stack.snp.leading).offset(-12)
-            make.centerY.equalToSuperview()
+            make.height.equalTo(indicator.snp.width)
         }
-        stack.snp.makeConstraints { (make) in
-            make.top.greaterThanOrEqualToSuperview().priority(UILayoutPriority.defaultLow.rawValue)
-            make.bottom.greaterThanOrEqualToSuperview().priority(UILayoutPriority.defaultLow.rawValue)
-            make.centerY.equalToSuperview()
-            make.trailing.equalTo(contentView.snp.trailing).offset(-8)
-        }
+        
+        [libraryLabel, availableLabel, indicator].forEach { stack.addArrangedSubview($0) }
     }
 }

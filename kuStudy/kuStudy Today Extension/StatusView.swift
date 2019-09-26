@@ -33,17 +33,23 @@ class StatusView: UIView {
     private func setup() {
         backgroundColor = .clear
         
-        indicator.style = .gray
-        indicator.hidesWhenStopped = true
-        
-        label.text = Localizations.Table.Label.Error
-        label.font = UIFont.preferredFont(forTextStyle: .body)
-        
+        // Vibrancy
         addSubview(vibracyView)
-        [indicator, label].forEach { vibracyView.contentView.addSubview($0) }
         vibracyView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+        
+        // Indicator
+        indicator.style = .medium
+        indicator.hidesWhenStopped = true
+        
+        // Label
+        label.text = Localizations.Table.Label.Error
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        
+        
+        [indicator, label].forEach { vibracyView.contentView.addSubview($0) }
+        
         indicator.snp.makeConstraints { (make) in
             make.centerX.equalTo(vibracyView.snp.centerX)
             make.centerY.equalTo(vibracyView.snp.centerY)
