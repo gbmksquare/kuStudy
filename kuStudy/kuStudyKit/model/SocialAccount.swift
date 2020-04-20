@@ -8,6 +8,7 @@
 
 import Foundation
 
+@available(*, deprecated)
 struct SocialAccount {
     enum SocialService: Int {
         case instagram, facebook, website, linkedin

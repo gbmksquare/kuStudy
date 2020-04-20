@@ -7,122 +7,126 @@
 //
 
 import Foundation
-import Alamofire
-import AlamofireObjectMapper
+import os.log
 
-internal class DataManager {
-    internal static let shared = DataManager()
+public class DataManager {
+    public static let shared = DataManager()
     
-    private var group: DispatchGroup?
-    
-    // Fetched data
-    internal var summaryData: SummaryData?
-    internal var libraryData: [LibraryData]?
-    internal var errors: [Error]?
-    
-    // Update
-    private var timer: Timer?
-    private var shouldAutoUpdate = false
     private var updateInterval: TimeInterval = 60
-    internal var lastUpdatedAt: Date?
+    public private(set) var updatedAt = Date.distantPast
+    private(set) var data = Summary(libraries: []) {
+        didSet {
+            os_log(.debug, log: .api, "DataManager data updated")
+            NotificationCenter.default.post(name: Self.didUpdateNotification, object: self)
+        }
+    }
+    
+    // MARK: - Internal
+    private var apiGroup: DispatchGroup?
+    private var temporaryData: [Library]?
+    private var errors: [Error]?
+    
+    private var timer: Timer?
+    
+    // MARK: - Notification
+    public static let didUpdateNotification = Notification.Name("DataManager.didUpdateNotification")
     
     // MARK: - Initialization
     private init() {
-        libraryData = [LibraryData]()
+        os_log(.debug, log: .api, "DataManager initialized")
     }
     
-    // MARK: - Fetch (Internal)
-    internal func startFetching(autoUpdate: Bool? = nil, updateInterval: TimeInterval? = nil) {
-        if let updateInterval = updateInterval {
-            self.updateInterval = updateInterval
-        }
-        if let autoUpdate = autoUpdate {
-            self.shouldAutoUpdate = autoUpdate
-        }
-        if self.shouldAutoUpdate == true {
-            requestAllData()
-            timer = Timer.scheduledTimer(timeInterval: self.updateInterval,
-                                         target: self,
-                                         selector: #selector(handle(timer:)),
-                                         userInfo: nil,
-                                         repeats: true)
+    // MARK: - Data getter
+    public func summary() -> Summary {
+        return data
+    }
+    
+    public func libraryData(for identifier: String) -> Library? {
+        return data.libraries.first { $0.type.identifier == identifier }
+    }
+    
+    public func studyAreaData(for identifier: Int, libraryIdentifier: String) -> StudyArea? {
+        let library = libraryData(for: libraryIdentifier)
+        return library?.studyAreas.first { $0.identifier == identifier }
+    }
+    
+    // MARK: - Data
+    public func requestUpdate() {
+        os_log(.debug, log: .api, "DataManager request update")
+        let intervalSinceLastUpdate = Date().timeIntervalSince(updatedAt)
+        if intervalSinceLastUpdate < updateInterval {
+            os_log(.info, log: .api, "DataManager updated recently, doing nothing")
+            NotificationCenter.default.post(name: Self.didUpdateNotification, object: self)
         } else {
-            requestAllData()
+            updateData()
         }
     }
     
-    internal func requestUpdate() {
-        guard let lastUpdatedAt = lastUpdatedAt else {
-            requestAllData()
-            return
+    private func updateData() {
+        os_log(.debug, log: .api, "DataManager will update data")
+        let group = DispatchGroup()
+        apiGroup = group
+        temporaryData = []
+        errors = []
+        
+        let all = LibraryType.all
+        all.forEach {
+            updateData(for: $0)
         }
-        let interval = Date().timeIntervalSince(lastUpdatedAt)
-        if interval > 60 {
-            requestAllData()
+        
+        group.notify(queue: .main)
+        { [unowned self] in
+            self.organizeFetchedData()
         }
     }
     
-    internal func stopFetching() {
+    private func updateData(for libraryType: LibraryType) {
+        os_log(.debug, log: .api, "DataManager request data for %{PUBLIC}@", libraryType.identifier)
+        apiGroup?.enter()
+        kuStudyAPI.reqeustData(for: libraryType)
+        { [unowned self] (result) in
+            os_log(.debug, log: .api, "DataManager received response for %{PUBLIC}@", libraryType.identifier)
+            switch result {
+            case let .success(response):
+                self.temporaryData?.append(response)
+            case let .failure(error):
+                self.errors?.append(error)
+            }
+            self.apiGroup?.leave()
+        }
+    }
+    
+    private func organizeFetchedData() {
+        guard let temporaryData = temporaryData else {
+            fatalError()
+        }
+        os_log(.debug, log: .api, "DataManager organizing fetched data with count %{PUBLIC}@", "\(temporaryData.count)")
+        
+        data = Summary(libraries: temporaryData)
+        updatedAt = Date()
+        apiGroup = nil
+        self.temporaryData = nil
+        errors = nil
+    }
+    
+    // MARK: - Auto update
+    private func enableAutoUpdate() {
+        os_log(.debug, log: .api, "DataManager enable auto update")
+        timer = Timer.scheduledTimer(timeInterval: updateInterval,
+                                     target: self,
+                                     selector: #selector(handle(timer:)),
+                                     userInfo: nil,
+                                     repeats: true)
+    }
+    
+    private func disableAutoUpdate() {
+        os_log(.debug, log: .api, "DataManager disable auto update")
         timer?.invalidate()
         timer = nil
     }
     
-    internal func enableAutoUpdate() {
-        shouldAutoUpdate = true
-        startFetching()
-    }
-    
-    internal func disableAutoUpdate() {
-        shouldAutoUpdate = false
-        stopFetching()
-    }
-    
-    internal func update(updateInterval: TimeInterval) {
-        self.updateInterval = updateInterval
-        stopFetching()
-        startFetching()
-    }
-    
-    // MARK: - Fetch (Private)
-    @objc private func handle(timer: Timer) {
-        requestAllData()
-    }
-    
-    private func requestAllData() {
-        libraryData = []
-        
-        let group = DispatchGroup()
-        self.group = group
-        
-        let all = LibraryType.allTypes()
-        for library in all {
-            requestData(library: library)
-        }
-        
-        group.notify(queue: .main) { [weak self] in
-            let data = self?.libraryData ?? [LibraryData]()
-            let summary = SummaryData(libraryData: data)
-            self?.summaryData = summary
-            self?.lastUpdatedAt = Date()
-            
-            // Notify
-            NotificationCenter.default.post(name: kuStudy.didUpdateDataNotification, object: self)
-        }
-    }
-    
-    private func requestData(library: LibraryType) {
-        group?.enter()
-        Alamofire.request(library.apiUrl, method: .get)
-            .responseObject { [weak self] (response: DataResponse<LibraryData>) in
-                switch response.result {
-                case .success(let data):
-                    data.libraryId = library.identifier
-                    self?.libraryData?.append(data)
-                    self?.group?.leave()
-                case .failure(let error):
-                    self?.errors?.append(error)
-                    self?.group?.leave()
-                }
-        }
+    @objc
+    private func handle(timer: Timer) {
+        requestUpdate()
     }
 }

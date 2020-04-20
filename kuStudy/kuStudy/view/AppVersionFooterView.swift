@@ -42,7 +42,7 @@ class AppVersionFooterView: UIView {
         
         iconImageView.image = UIImage(named: "AppIcon60x60")
         iconImageView.contentMode = .scaleAspectFill
-        iconImageView.backgroundColor = .placeholder
+        iconImageView.backgroundColor = .systemFill
         iconImageView.layer.cornerRadius = 8
         iconImageView.layer.masksToBounds = true
         iconImageView.accessibilityIgnoresInvertColors = true

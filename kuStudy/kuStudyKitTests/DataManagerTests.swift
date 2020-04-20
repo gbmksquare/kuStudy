@@ -11,7 +11,7 @@ import XCTest
 @testable import kuStudyKit
 
 class DataManagerTests: XCTestCase {
-    private lazy var manager = DataManager.shared
+    private lazy var manager = Legacy_DataManager.shared
     
     // MARK: - Setup
     override func setUp() {

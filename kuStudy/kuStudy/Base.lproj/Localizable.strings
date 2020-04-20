@@ -4,200 +4,42 @@
   Created by 구범모 on 2016. 2. 4..
   Copyright © 2016년 gbmKSquare. All rights reserved. */
 
-"Action.OpenLibraryInSafari" = "Open in Web ↗︎";
-
-"Action.ResetOrder" = "Reset Orders";
-
-"Alert.Action.Cancel" = "Cancel";
-
-"Alert.Action.Confirm" = "Confirm";
-
-"Alert.Action.OpenSettings" = "Open Settings";
-
-"Alert.Message.AppStore.Failed" = "Failed to open App Store.";
-
-"Alert.Message.Notification.AccessDenied" = "Notification is turned off. Please enable notification from Settings app.";
-
-"Alert.Message.Notification.SetTimeInterval" = "Remind me after";
-
-"Alert.Message.PaymentError" = "You can't purchase items at this time.";
-
-"Alert.Title.Notification.AccessDenied" = "Access Denied";
-
-"Common.Available" = "Available";
-
-"Common.Disabled" = "Disabled";
-
-"Common.Error" = "Error";
-
-"Common.Ineligible" = "Ineligible";
-
-"Common.LiberalArtCampus" = "Liberal Art Campus";
-
-"Common.Minute" = "minute";
-
-"Common.Minutes" = "minutes";
-
-"Common.NoData" = "--";
-
-"Common.OutOfOrder" = "Out of Order";
-
-"Common.Printer" = "Printer";
-
-"Common.Scanner" = "Scanner";
-
-"Common.ScienceCampus" = "Science Campus";
-
-"Common.Second" = "second";
-
-"Common.Seconds" = "seconds";
-
-"Common.Studying" = "Studying Now";
-
-"Common.Total" = "Total";
-
-"Common.Used" = "Occupied";
-
-"Keyboard.Libraries" = "Library";
-
-"Keyboard.Preference" = "Preferences";
-
-"Label.CellType.Classic" = "Classic";
-
-"Label.CellType.Compact" = "Compact";
-
-"Label.CellType.Default" = "Default";
-
-"Label.CellType.Detailed" = "Detailed";
-
-"Label.CellType.VeryCompact" = "Very Compact";
-
-"Label.CellType.VeryDetailed" = "Very Detailed";
-
-"Label.DaysLeft" = "Days Left";
-
-"Label.EndOfSemester" = "End of Semester";
-
-"Label.Error" = "Oops! An error occurred.";
-
-"Label.Hooray" = "Hooray!";
-
-/* * SHARED STRINGS */
-"Label.Loading" = "Loading...";
-
-"Label.OpenInstagram" = "Open in Instagram?";
-
-"Label.Settings.About" = "About";
-
-"Label.Settings.AppStoreReview" = "Write a Review";
-
-"Label.Settings.AutoUpdate" = "Auto Update";
-
-"Label.Settings.BugReport" = "Report a Bug";
-
-"Label.Settings.FeedbackHeader" = "Review";
-
-"Label.Settings.GeneralHeader" = "General";
-
-"Label.Settings.LibraryCellType" = "Library Display Style";
-
-"Label.Settings.LibraryHeader" = "Library";
-
-"Label.Settings.LibraryOrder" = "Library Display Order";
-
-"Label.Settings.MediaProvider" = "Special Thanks";
-
-"Label.Settings.OpenSettings" = "Manage App Permissions";
-
-"Label.Settings.OpenSource" = "Open Source";
-
-"Label.Settings.PrivacyPolicy" = "Privacy Policy";
-
-"Label.Settings.ReviewFooter" = "Write a review or feedback on App Store. All feedback encourages app developer!";
-
-"Label.Settings.SectorCellType" = "Reading Room Display Style";
-
-"Label.Settings.SectorHeader" = "Sector";
-
-"Label.Settings.TipJar" = "Tip Developer";
-
-"Label.Settings.TodayOrder" = "Today Widget Display Order";
-
-"Label.Settings.UpdateHeader" = "Update";
-
-"Label.Settings.UpdateInterval" = "Update Interval";
-
-"Label.Settings.WidgetHeader" = "Widget";
-
-"Label.Settings.WidgetHideFooter" = "Items dragged here are hidden in Notificaiton Center.";
-
-"Label.Settings.WidgetHideHeader" = "Hide";
-
-"Label.Settings.WidgetInstructionFooter" = "How to add Today widget:\n\n1. Swipe down from the top of the screen to open Notification Center.\n2.Switch to Today tab.\n3.Scroll to the bottom and tap Edit.\n4.Find Korea University Reading Room and tap + icon.\n5. Tap Done.";
-
-"Label.Settings.WidgetShowHeader" = "Show";
-
-"Label.ShareMessage" = "%@\nTotal: %@\nAvailable: %@\nUsed: %@\n";
-
-"Label.StartOfSemester" = "Start of Semester";
-
-"Label.Troubleshoot" = "Have a problem?";
-
-"Label.TroubleshootDescription" = "If there is a problem with the orders, try resetting with this button.";
-
-"Label.Vacation" = "Vacation";
-
-"Legacy.Title.Preference" = "Preference (d)";
-
-"Library.Button.Map" = "View in Map";
-
-"Library.Button.OpenInAppleMaps" = "Open in Apple Maps ↗︎";
-
-"Library.Button.OpenInGoogleMaps" = "Open in Google Maps ↗︎";
-
-"Library.Button.Remind" = "Remind Me";
-
-"Library.UpdatedAt" = "Last updated: %@";
-
-"Media.Attribution.Illustration" = "Illustration by %@";
-
-"Media.Attribution.Photo" = "Photo by %@";
-
-"Media.Attribution.Timelapse" = "Timelapse by %@";
-
-"Media.Attribution.Video" = "Video by %@";
-
-"Notification.Content.TapToShow" = "Tap to show current seat status.";
-
-"TimeInterval.Custom" = "Custom";
-
-"TimeInterval.Hour" = "Hours";
-
-"TimeInterval.Now" = "Now";
-
-"Title.Library" = "Library";
-
-"Title.Settings" = "Settings";
-
-"Label.Settings.Advanced" = "Advanced";
-
-"Label.Settings.AppIcon" = "App Icon";
-
-"Label.Settings.Permissions" = "Permissions";
-
-"Label.Settings.Apperance" = "Apperance";
-
-"Label.Settings.Debug" = "Debug";
-
-"Label.Settings.Links" = "Link";
-
-"Label.Settings.OpenLibrarySeats" = "KU Library Seats Status";
-
-"Label.Settings.OpenLibrary" = "KU Library";
-
-"Label.Settings.OpenAcademicCalendar" = "KU Academic Calendar";
-
-"Label.Settings.Support" = "Support";
-
-"Label.Settings.Version" = "Version";
-
+"appIcon" = "App Icon";
+"order" = "Library Order";
+"tipJar" = "Tip Developer";
+"reviewApp" = "Write a Review";
+"reviewAppDescription" = "Leave a feedback or write a review on App Store to help improve this application.";
+"externalSettings" = "Manage App Permissions";
+
+"settings" = "Preferences";
+"general" = "General";
+"permission" = "Permissions";
+"link" = "Links";
+"support" = "Support";
+"about" = "About";
+"version" = "Version";
+"terms" = "Terms & Conditions";
+"privacyPolicy" = "Privacy Policy";
+"openSource" = "Open Source";
+"library" = "Library";
+
+"copy" = "Copy";
+"share" = "Share";
+
+"morning" = "Morning";
+"afternoon" = "Afternoon";
+
+
+"openAppleMaps" = "Open in Maps";
+"openGoogleMaps" = "Open in Google Maps";
+
+"viewWeb" = "View Website";
+"openWeb" = "Open in Safari";
+"openWebInApp" = "Open inside app";
+
+"summary.studying.prefix" = "People studying at";
+
+"confirm" = "Confirm";
+"error" = "Error";
+"openAppStoreFailure" = "Failed to open App Store.";
+"paymentFailure" = "Failed purchase.";

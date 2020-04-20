@@ -11,82 +11,25 @@ import UIKit
 import kuStudyKit
 import AlamofireNetworkActivityIndicator
 import FTLinearActivityIndicator
+import SnapKit
+import os.log
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
     
     // MARK: - Application
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        os_log(.debug, log: .default, "Application did launch")
         setupApplication()
-        
-        let splitViewController = MainSplitViewController()
-        window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = splitViewController
-        window?.makeKeyAndVisible()
-        
+        setupAppearance()
+        listenForPreferenceChange()
         return true
     }
     
-    // MARK: - Url
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
-        guard let window = window else { return false }
-        
-        let splitViewController = window.rootViewController as! MainSplitViewController
-        let tabBarController = splitViewController.children.first as! MainTabBarController
-        tabBarController.selectedIndex = 0
-        
-        let navigationController = tabBarController.viewControllers![0] as! UINavigationController
-        navigationController.popToRootViewController(animated: false)
-        let summaryViewController = navigationController.topViewController as! SummaryViewController
-        
-        let userActivity = NSUserActivity(activityType: kuStudyHandoffLibrary)
-        guard let libraryId = url.query?.split(separator: "=").last.map(String.init) else { return false }
-        userActivity.addUserInfoEntries(from: ["libraryId": libraryId])
-        summaryViewController.restoreUserActivityState(userActivity)
-        return true
-    }
-    
-    // MARK: - Handoff
-    func application(_ application: UIApplication, willContinueUserActivityWithType userActivityType: String) -> Bool {
-        return true
-    }
-    
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-        guard let window = window else { return false }
-        let splitViewController = window.rootViewController as! MainSplitViewController
-        let tabBarController = splitViewController.children.first as! MainTabBarController
-        tabBarController.selectedIndex = 0
-        
-        let navigationController = tabBarController.viewControllers![0] as! UINavigationController
-        navigationController.popToRootViewController(animated: false)
-        let summaryViewController = navigationController.topViewController as! SummaryViewController
-        summaryViewController.restoreUserActivityState(userActivity)
-        
-        return true
-    }
-    
-    // MARK: - Quick action
-    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-        guard let window = window else { return }
-        
-        let splitViewController = window.rootViewController as! MainSplitViewController
-        let tabBarController = splitViewController.children.first as! MainTabBarController
-        tabBarController.selectedIndex = 0
-        
-        let navigationController = tabBarController.viewControllers![0] as! UINavigationController
-        navigationController.popToRootViewController(animated: false)
-        let summaryViewController = navigationController.topViewController as! SummaryViewController
-        
-        switch shortcutItem.type {
-        case "com.gbmksquare.kuapps.kucourse.LibraryAction":
-            let userActivity = NSUserActivity(activityType: kuStudyHandoffLibrary)
-            let libraryId = shortcutItem.userInfo!["libraryId"] as! String
-            userActivity.addUserInfoEntries(from: ["libraryId": libraryId])
-            summaryViewController.restoreUserActivityState(userActivity)
-        default: break
-        }
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+        os_log(.debug, log: .default, "Configuration for session")
+        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 }
 
@@ -94,24 +37,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate {
     private func setupApplication() {
         Preference.shared.setup()
-        setupAppearance()
+        updateQuickActions()
         NetworkActivityIndicatorManager.shared.isEnabled = true
         UIApplication.configureLinearNetworkActivityIndicatorIfNeeded()
     }
     
     private func setupAppearance() {
-        UINavigationBar.appearance().barStyle = .black
-        UINavigationBar.appearance().barTintColor = .theme
-        UINavigationBar.appearance().tintColor = .white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        UINavigationBar.appearance().tintColor = .white
-        UITabBar.appearance().tintColor = .theme
+        UINavigationBar.appearance().tintColor = .appPrimary
+        UITabBar.appearance().tintColor = .appPrimary
         
         let components = Calendar.current.dateComponents([.month, .day], from: Date())
         if components.month == 4 && components.day == 1 {
-            UINavigationBar.appearance().barTintColor = .themeAprilFools
-            UITabBar.appearance().tintColor = .themeAprilFools
+            UINavigationBar.appearance().tintColor = .appAprilFoolsPrimary
+            UITabBar.appearance().tintColor = .appAprilFoolsPrimary
         }
     }
 }
 
+// MARK: - Quick action
+extension AppDelegate {
+    private func listenForPreferenceChange() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handle(preferenceChanged:)),
+                                               name: UserDefaults.didChangeNotification,
+                                               object: nil)
+    }
+    
+    // MARK: - Notification
+    @objc
+    private func handle(preferenceChanged notification: Notification) {
+        updateQuickActions()
+    }
+    
+    func updateQuickActions() {
+        let orderedLibraryIds = Preference.shared.libraryOrder
+        let libraryTypes = LibraryType.all
+        
+        let actionType = "com.gbmksquare.kuapps.kuStudy.LibraryView"
+        let icon = UIApplicationShortcutIcon(systemImageName: "mappin.and.ellipse")
+        let libraryType = libraryTypes.first { $0.identifier == orderedLibraryIds.first! }!
+        let item = UIMutableApplicationShortcutItem(type: actionType,
+                                                    localizedTitle: libraryType.name,
+                                                    localizedSubtitle: nil,
+                                                    icon: icon,
+                                                    userInfo: [NSUserActivity.Key.libraryIdentifier.name: libraryType.identifier as NSSecureCoding])
+        UIApplication.shared.shortcutItems = [item]
+    }
+}

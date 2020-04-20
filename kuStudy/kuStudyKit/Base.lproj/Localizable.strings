@@ -4,40 +4,58 @@
   Created by 구범모 on 2015. 6. 5..
   Copyright (c) 2015년 gbmKSquare. All rights reserved. */
 
-/* MARK: Libraries */
-"Library.Name.CentralLibrary" = "Central Library";
+"studyArea" = "Study Area";
 
-"Library.Name.CentralSquare" = "Central Square";
+"library.cl" = "Central Library";
 
-"Library.Name.HanaSquare" = "Hana Square";
+"library.cs" = "Central Square";
 
-"Library.Name.ScienceLibrary" = "Science Library";
+"library.hana" = "Hana Square";
 
-"Library.Name.Cdl" = "Centennial Digital Library";
+"library.science" = "Science Library";
 
-"Library.Name.Sejong" = "Sejong Campus";
+"library.cdl" = "Centennial Digital Library";
 
-"Library.Name.Law" = "Haesong Law Library";
+"library.law" = "Haesong Law Library";
 
-"Library.Name.CentralLibrary.Short" = "CL";
+"total" = "Total";
 
-"Library.Name.CentralSquare.Short" = "CS";
+"accessible" = "Accessible";
 
-"Library.Name.HanaSquare.Short" = "HS";
+"laptop" = "Laptop Capable";
 
-"Library.Name.ScienceLibrary.Short" = "SL";
+"repairing" = "In Repair";
 
-"Library.Name.Cdl.Short" = "CDL";
+"inallotable" = "Inallotable";
 
-"Library.Name.Sejong.Short" = "SJ";
+"disabled" = "Disabled";
 
-"Library.Name.Law.Short" = "LAW";
+"useable" = "Useable";
 
-"Media.Attribution.Photo" = "Photo by %@";
+"available" = "Available";
 
-"Media.Attribution.Timelapse" = "Timelapse by %@";
+"occupied" = "Occupied";
 
-"Media.Attribution.Illustration" = "Illustration by %@";
+"campus.all" = "All Campus";
 
-"Media.Attribution.Video" = "Video by %@";
+"campus.liberalArts" = "Liberal Art Campus";
 
+"campus.science" = "Science Campus";
+
+"academicCalendar" = "Academic Calendar";
+
+"studying" = "Studying";
+
+"event.semester" = "Semester";
+
+"event.vacation" = "Vacation";
+
+"event.midterm" = "Midterm";
+
+"event.finals" = "Finals";
+
+"yes" = "Yes";
+"no" = "No";
+"noEvent" = "No Event";
+
+"ku" = "Korea University";

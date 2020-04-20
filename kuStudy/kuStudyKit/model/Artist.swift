@@ -8,6 +8,7 @@
 
 import Foundation
 
+@available(*, deprecated)
 struct Artist: Equatable {
     let identifier: String
     let name: String

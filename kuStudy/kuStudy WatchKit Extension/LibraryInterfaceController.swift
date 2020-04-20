@@ -15,8 +15,7 @@ class LibraryInterfaceController: WKInterfaceController {
     @IBOutlet var loadingMessageLabel: WKInterfaceLabel!
     @IBOutlet var table: WKInterfaceTable!
     
-    private var libraryType: LibraryType?
-    private var libraryData: LibraryData?
+    private var data: Library!
     
     // MARK: - Watch
     override func awake(withContext context: Any?) {
@@ -38,42 +37,40 @@ class LibraryInterfaceController: WKInterfaceController {
     
     // MARK: - Setup
     private func setup(context: Any?) {
-        libraryType = context as? LibraryType
-        if let libraryType = libraryType {
-            libraryData = kuStudy.libraryData(for: libraryType)
-        }
-        setTitle(libraryType?.name ?? Localizations.Label.AppName)
+        data = context as? Library
+        setTitle(data.name)
         loadingMessageGroup.setHidden(true)
-        loadingMessageLabel.setText(Localizations.Label.Loading)
+        loadingMessageLabel.setText("loading".localized())
         table.setHidden(false)
-        addMenuItem(withImageNamed: "glyphicons-82-refresh", title: Localizations.Action.Refresh, action: #selector(handleRefreshMenu))
+        addMenuItem(withImageNamed: "glyphicons-82-refresh", title:
+            "refresh".localized(), action: #selector(handleRefreshMenu))
     }
     
     // MARK: - Action
     private func listenForDataUpdate() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handle(dataUpdate:)),
-                                               name: kuStudy.didUpdateDataNotification,
+                                               name: DataManager.didUpdateNotification,
                                                object: nil)
     }
     
     private func updateData() {
-        kuStudy.requestUpdateData()
+        DataManager.shared.requestUpdate()
     }
     
     private func updateView() {
-        if let libraryData = libraryData, let sectors = libraryData.sectors {
+        if data.studyAreas.count > 0 {
             loadingMessageGroup.setHidden(true)
             table.setHidden(false)
-            table.setNumberOfRows(sectors.count, withRowType: "cell")
-            for (index, data) in sectors.enumerated() {
+            table.setNumberOfRows(data.studyAreas.count, withRowType: "cell")
+            for (index, data) in data.studyAreas.enumerated() {
                 let row = table.rowController(at: index) as! ReadingRoomRow
                 row.populate(sector: data)
             }
         } else {
             loadingMessageGroup.setHidden(false)
             table.setHidden(true)
-            loadingMessageLabel.setText(Localizations.Label.Error)
+            loadingMessageLabel.setText("error".localized())
         }
     }
     
@@ -87,8 +84,10 @@ class LibraryInterfaceController: WKInterfaceController {
     
     // MARK: - Handoff
     private func startHandoff() {
-        guard let libraryId = libraryData?.libraryType?.identifier else { return }
-        updateUserActivity(kuStudyHandoffLibrary, userInfo: [kuStudyHandoffLibraryIdKey: libraryId], webpageURL: nil)
+        let libraryId = data.type.identifier
+        let activity = NSUserActivity(activityType: NSUserActivity.ActivityType.library.rawValue)
+        activity.userInfo = [NSUserActivity.ActivityType.library.rawValue: libraryId]
+        update(activity)
     }
     
     private func stopHandoff() {

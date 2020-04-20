@@ -9,12 +9,6 @@
 import Foundation
 
 public extension Date {
-    var readable: String {
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        return formatter.string(from: self)
-    }
-    
     init?(dateString: String) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd Z"

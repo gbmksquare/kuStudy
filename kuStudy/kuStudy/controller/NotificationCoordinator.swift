@@ -10,6 +10,7 @@ import Foundation
 import UserNotifications
 import kuStudyKit
 
+@available(*, deprecated)
 enum RemindInterval {
     case now
     case hour2
@@ -38,6 +39,7 @@ enum RemindInterval {
     }
 }
 
+@available(*, deprecated)
 class NotificationCoordinator: NSObject {
     static let shared = NotificationCoordinator()
     
@@ -93,21 +95,28 @@ extension NotificationCoordinator: UNUserNotificationCenterDelegate {
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        guard let window = UIApplication.shared.keyWindow else {
+        let activeWindow = UIApplication.shared.connectedScenes
+            .filter { $0.activationState == .foregroundActive }
+            .compactMap { $0 as? UIWindowScene }
+            .first?.windows
+            .filter { $0.isKeyWindow}
+            .first
+        
+        guard let _ = activeWindow else {
             completionHandler()
             return
         }
-        let splitViewController = window.rootViewController as! MainSplitViewController
-        let tabBarController = splitViewController.children.first as! MainTabBarController
-        tabBarController.selectedIndex = 0
-        
-        let navigationController = tabBarController.viewControllers![0] as! UINavigationController
-        navigationController.popToRootViewController(animated: false)
-        let summaryViewController = navigationController.topViewController as! SummaryViewController
-        let userActivity = NSUserActivity(activityType: kuStudyHandoffLibrary)
-        let libraryId = response.notification.request.content.userInfo["libraryId"] as! String
-        userActivity.addUserInfoEntries(from: ["libraryId": libraryId])
-        summaryViewController.restoreUserActivityState(userActivity)
+//        let splitViewController = window.rootViewController as! Legacy_MainSplitViewController
+//        let tabBarController = splitViewController.children.first as! MainTabBarController
+//        tabBarController.selectedIndex = 0
+//        
+//        let navigationController = tabBarController.viewControllers![0] as! UINavigationController
+//        navigationController.popToRootViewController(animated: false)
+//        let summaryViewController = navigationController.topViewController as! SummaryViewController
+//        let userActivity = NSUserActivity(activityType: NSUserActivity.ActivityType.library.rawValue)
+//        let libraryId = response.notification.request.content.userInfo["libraryId"] as! String
+//        userActivity.addUserInfoEntries(from: ["libraryId": libraryId])
+//        summaryViewController.restoreUserActivityState(userActivity)
         
         completionHandler()
     }

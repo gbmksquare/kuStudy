@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import SnapKit
 import StoreKit
-import DZNEmptyDataSet
 
 class TipJarViewController: UIViewController {
-    private lazy var table = UITableView(frame: .zero, style: .grouped)
+    private lazy var table = UITableView(frame: .zero, style: .insetGrouped)
     
     // Store
     private var products: [SKProduct]?
@@ -20,7 +18,7 @@ class TipJarViewController: UIViewController {
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Localizations.Label.Settings.TipJar
+        title = "tipJar".localized()
         setup()
         getProducts()
     }
@@ -36,7 +34,6 @@ extension TipJarViewController {
         func setupTableView() {
             table.delegate = self
             table.dataSource = self
-            table.emptyDataSetSource = self
             table.rowHeight = UITableView.automaticDimension
             table.estimatedRowHeight = UITableView.automaticDimension
             
@@ -120,15 +117,19 @@ extension TipJarViewController: SKPaymentTransactionObserver {
 }
 
 // MARK: - Table
-extension TipJarViewController: UITableViewDelegate, UITableViewDataSource, DZNEmptyDataSetSource {
+extension TipJarViewController: UITableViewDelegate, UITableViewDataSource {
     // Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let product = products?[indexPath.row], SKPaymentQueue.canMakePayments() == true {
             let payment = SKPayment(product: product)
             SKPaymentQueue.default().add(payment)
         } else {
-            let alert = UIAlertController(title: Localizations.Common.Error, message: Localizations.Alert.Message.PaymentError, preferredStyle: .alert)
-            let confirm = UIAlertAction(title: Localizations.Alert.Action.Confirm, style: .default, handler: nil)
+            let alert = UIAlertController(title: "error".localized(),
+                                          message: "paymentFailure".localized(),
+                                          preferredStyle: .alert)
+            let confirm = UIAlertAction(title: "confirm".localized(),
+                                        style: .default,
+                                        handler: nil)
             alert.addAction(confirm)
             present(alert, animated: true, completion: nil)
         }
@@ -162,13 +163,5 @@ extension TipJarViewController: UITableViewDelegate, UITableViewDataSource, DZNE
             cell.detailTextLabel?.text = product.localizedDescription
         }
         return cell
-    }
-    
-    // Empty
-    func customView(forEmptyDataSet scrollView: UIScrollView!) -> UIView! {
-        let indicator = UIActivityIndicatorView(style: .whiteLarge)
-        indicator.color = .lightGray
-        indicator.startAnimating()
-        return indicator
     }
 }

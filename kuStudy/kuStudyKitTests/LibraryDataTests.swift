@@ -11,7 +11,7 @@ import XCTest
 @testable import kuStudyKit
 
 class LibraryDataTests: XCTestCase {
-    private lazy var sampleLibraryData = LibraryData(libraryId: LibraryType.centralSquare.rawValue,JSONString: sampleLibraryJsonString)
+    private lazy var sampleLibraryData = Legacy_LibraryData(libraryId: LibraryType.centralSquare.rawValue,JSONString: sampleLibraryJsonString)
     
     // MARK: - Setup
     override func setUp() {
@@ -57,7 +57,7 @@ class LibraryDataTests: XCTestCase {
     
     func testLibraryDataParsingPerformance() {
         measure {
-            let _ = LibraryData(libraryId: LibraryType.centralSquare.rawValue,JSONString: sampleLibraryJsonString)
+            let _ = Legacy_LibraryData(libraryId: LibraryType.centralSquare.rawValue,JSONString: sampleLibraryJsonString)
         }
     }
 }

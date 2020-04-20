@@ -8,73 +8,11 @@
 
 "Action.ResetOrder" = "재설정";
 
-"Alert.Action.Cancel" = "취소";
-
-"Alert.Action.Confirm" = "확인";
-
-"Alert.Action.OpenSettings" = "설정 열기";
-
-"Alert.Message.AppStore.Failed" = "앱스토어를 열 수 없습니다.";
-
 "Alert.Message.Notification.AccessDenied" = "알림 권한이 없습니다. 설정 앱에서 알림을 켜주세요.";
 
 "Alert.Message.Notification.SetTimeInterval" = "다음 시간 후 나에게 알리기";
 
 "Alert.Message.PaymentError" = "구매를 시작할 수 없습니다.";
-
-"Alert.Title.Notification.AccessDenied" = "권한 없음";
-
-"Common.Available" = "잔여석";
-
-"Common.Disabled" = "장애인석";
-
-"Common.Error" = "오류";
-
-"Common.Ineligible" = "사용불가";
-
-"Common.LiberalArtCampus" = "문과캠퍼스";
-
-"Common.Minute" = "분";
-
-"Common.Minutes" = "분";
-
-"Common.NoData" = "--";
-
-"Common.OutOfOrder" = "수리 중";
-
-"Common.Printer" = "프린터";
-
-"Common.Scanner" = "스캐너";
-
-"Common.ScienceCampus" = "자연계캠퍼스";
-
-"Common.Second" = "초";
-
-"Common.Seconds" = "초";
-
-"Common.Studying" = "공부 중";
-
-"Common.Total" = "전체";
-
-"Common.Used" = "사용 중";
-
-"Keyboard.Libraries" = "도서관";
-
-"Keyboard.Preference" = "설정";
-
-"Label.CellType.Classic" = "클래직";
-
-"Label.CellType.Compact" = "작게";
-
-"Label.CellType.Default" = "기본";
-
-"Label.CellType.Detailed" = "상세히";
-
-"Label.CellType.VeryCompact" = "매우 작게";
-
-"Label.CellType.VeryDetailed" = "매우 상세히";
-
-"Label.DaysLeft" = "남은 일 수";
 
 "Label.EndOfSemester" = "종강";
 
@@ -82,62 +20,11 @@
 
 "Label.Hooray" = "야호!";
 
-/* * SHARED STRINGS */
-"Label.Loading" = "로딩 중";
-
-"Label.OpenInstagram" = "Instagram 앱에서 열겠습니까?";
-
-"Label.Settings.About" = "정보";
-
-"Label.Settings.AppStoreReview" = "리뷰 쓰기";
-
-"Label.Settings.AutoUpdate" = "자동 새로 고침";
-
-"Label.Settings.BugReport" = "문제 리포트";
-
-"Label.Settings.FeedbackHeader" = "리뷰";
-
-"Label.Settings.GeneralHeader" = "일반";
-
-"Label.Settings.LibraryCellType" = "도서관 표시 스타일";
-
-"Label.Settings.LibraryHeader" = "도서관";
-
-"Label.Settings.LibraryOrder" = "도서관 표시 순서";
-
-"Label.Settings.MediaProvider" = "도움 주신 분";
-
 "Label.Settings.OpenSettings" = "앱 권한 관리";
-
-"Label.Settings.OpenSource" = "오픈소스";
-
-"Label.Settings.PrivacyPolicy" = "개인 정보 보호 정책";
 
 "Label.Settings.ReviewFooter" = "App Store에 리뷰나 피드백을 남겨주세요! 모든 리뷰는 앱 개발자에게 큰 힘이 됩니다.";
 
-"Label.Settings.SectorCellType" = "열람실 표시 스타일";
-
-"Label.Settings.SectorHeader" = "열람실";
-
 "Label.Settings.TipJar" = "개발자 응원하기";
-
-"Label.Settings.TodayOrder" = "위젯 표시 순서";
-
-"Label.Settings.UpdateHeader" = "새로 고침";
-
-"Label.Settings.UpdateInterval" = "새로 고침 간격";
-
-"Label.Settings.WidgetHeader" = "위젯";
-
-"Label.Settings.WidgetHideFooter" = "이 곳에 옮겨진 항목은 알림 센터에서 보이지 않습니다.";
-
-"Label.Settings.WidgetHideHeader" = "숨기기";
-
-"Label.Settings.WidgetInstructionFooter" = "오늘 위젯 추가하기:\n\n1. 화면 상단에서 스와이프해 알림 센터를 여세요.\n2. 오늘 탭으로 변경하세요.\n3. 최하단으로 내려가 편집 버튼을 누르세요.\n4. 고려대학교 열람실을 찾아 왼쪽의 + 아이콘을 누르세요.\n5. 완료를 누르세요.";
-
-"Label.Settings.WidgetShowHeader" = "보기";
-
-"Label.ShareMessage" = "%@\n전체: %@\n잔여석: %@\n사용 중: %@\n";
 
 "Label.StartOfSemester" = "개강";
 
@@ -145,49 +32,13 @@
 
 "Label.TroubleshootDescription" = "표시 순서 설정에 문제가 있다면 재설정을 해보세요.";
 
-"Label.Vacation" = "방학";
-
 "Legacy.Title.Preference" = "설정 (d)";
 
-"Library.Button.Map" = "지도에서 보기";
-
 "Library.Button.OpenInAppleMaps" = "지도에서 열기 ↗︎";
-
-"Library.Button.OpenInGoogleMaps" = "구글 지도에서 열기 ↗︎";
 
 "Library.Button.Remind" = "알림";
 
 "Library.UpdatedAt" = "마지막 새로 고침: %@";
-
-"Media.Attribution.Illustration" = "일러스트: %@";
-
-"Media.Attribution.Photo" = "사진 촬영: %@";
-
-"Media.Attribution.Timelapse" = "타임랩스: %@";
-
-"Media.Attribution.Video" = "비디오 촬영: %@";
-
-"Notification.Content.TapToShow" = "탭해서 좌석 현황을 보세요.";
-
-"TimeInterval.Custom" = "사용자 지정";
-
-"TimeInterval.Hour" = "시간";
-
-"TimeInterval.Now" = "즉시";
-
-"Title.Library" = "도서관";
-
-"Title.Settings" = "설정";
-
-"Label.Settings.Advanced" = "고급";
-
-"Label.Settings.AppIcon" = "앱 아이콘";
-
-"Label.Settings.Permissions" = "권한";
-
-"Label.Settings.Apperance" = "외관";
-
-"Label.Settings.Debug" = "개발자";
 
 "Label.Settings.Links" = "외부 링크";
 
@@ -196,8 +47,4 @@
 "Label.Settings.OpenLibrary" = "고려대학교 도서관";
 
 "Label.Settings.OpenAcademicCalendar" = "고려대학교 학사일정";
-
-"Label.Settings.Support" = "지원";
-
-"Label.Settings.Version" = "버전";
 

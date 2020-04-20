@@ -11,7 +11,12 @@ import XCTest
 @testable import kuStudyKit
 
 class SectorDataTests: XCTestCase {
-    private lazy var sampleSectorData = SectorData(JSONString: sampleSectorJsonString)
+    private lazy var sampleSectorData: SectorData? = {
+        guard let data = sampleSectorJsonString.data(using: .utf8) else {
+            return nil
+        }
+        return try? JSONDecoder().decode(SectorData.self, from: data)
+    }()
     
     // MARK: - Setup
     override func setUp() {
@@ -48,11 +53,11 @@ class SectorDataTests: XCTestCase {
         XCTAssertNotNil(data.occupiedPercentageColor)
     }
     
-    func testSectorDataParsingPerformance() {
-        measure {
-            let _ = SectorData(JSONString: sampleSectorJsonString)
-        }
-    }
+//    func testSectorDataParsingPerformance() {
+//        measure {
+//            let _ = SectorData(JSONString: sampleSectorJsonString)
+//        }
+//    }
 }
 
 private let sampleSectorJsonString = """

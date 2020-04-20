@@ -15,10 +15,10 @@ class LibraryRow: NSObject {
     @IBOutlet var availableLabel: WKInterfaceLabel!
     @IBOutlet var availableTitleLabel: WKInterfaceLabel!
     
-    func populate(library data: LibraryData) {
-        percentIndicator.setBackgroundColor(data.availablePercentageColor)
-        titleLabel.setText(data.libraryName)
-        availableLabel.setText(data.available.readable)
-        availableTitleLabel.setText(Localizations.Label.Available)
+    func populate(library data: Library) {
+        percentIndicator.setBackgroundColor(data.availablePercentage.color)
+        titleLabel.setText(data.name)
+        availableLabel.setText(data.availableSeats.readable)
+        availableTitleLabel.setText("available".localizedFromKit())
     }
 }

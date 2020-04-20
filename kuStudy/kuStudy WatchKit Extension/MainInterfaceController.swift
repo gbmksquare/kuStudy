@@ -17,7 +17,18 @@ class MainInterfaceController: WKInterfaceController {
     
     private var session: WCSession?
     
-    private var summary: SummaryData?
+    private var data = Summary() {
+        didSet {
+            organizeData()
+        }
+    }
+    
+    private var orderedData = [Library]() {
+        didSet {
+            updateView()
+        }
+    }
+    
     private var orderedLibraryIds: [String]!
     
     // MARK: - Watch
@@ -47,18 +58,18 @@ class MainInterfaceController: WKInterfaceController {
     
     // MARK: - Setup
     private func setup() {
-        setTitle(Localizations.Label.AppName)
+        setTitle("studyArea".localizedFromKit())
         loadingMessageGroup.setHidden(false)
-        loadingMessageLabel.setText(Localizations.Label.Loading)
+        loadingMessageLabel.setText("loading".localized())
         table.setHidden(true)
-        addMenuItem(withImageNamed: "glyphicons-82-refresh", title: Localizations.Action.Refresh, action: #selector(handleRefreshMenu))
+        addMenuItem(withImageNamed: "glyphicons-82-refresh", title: "refresh".localized(), action: #selector(handleRefreshMenu))
     }
     
     // MARK: - Segue
     override func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> Any? {
         switch segueIdentifier {
         case "detail":
-            return summary?.libraries[rowIndex].libraryType ?? nil
+            return orderedData[rowIndex]
         default: return nil
         }
     }
@@ -66,7 +77,7 @@ class MainInterfaceController: WKInterfaceController {
     // MARK: - Action
     private func registerPreferences() {
         let defaults = UserDefaults.standard
-        let libraryOrder = LibraryType.allTypes().map({ $0.rawValue })
+        let libraryOrder = LibraryType.all.map({ $0.rawValue })
         defaults.register(defaults: ["libraryOrder": libraryOrder])
         defaults.synchronize()
     }
@@ -74,29 +85,8 @@ class MainInterfaceController: WKInterfaceController {
     private func listenForDataUpdate() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(handle(dataUpdate:)),
-                                               name: kuStudy.didUpdateDataNotification,
+                                               name: DataManager.didUpdateNotification,
                                                object: nil)
-    }
-    
-    private func updateData() {
-        kuStudy.requestUpdateData()
-    }
-    
-    private func updateView() {
-        if let summary = summary {
-            loadingMessageGroup.setHidden(true)
-            table.setHidden(false)
-            reorderLibraryData()
-            table.setNumberOfRows(summary.libraries.count, withRowType: "cell")
-            for (index, data) in summary.libraries.enumerated() {
-                let row = table.rowController(at: index) as! LibraryRow
-                row.populate(library: data)
-            }
-        } else {
-            loadingMessageGroup.setHidden(false)
-            table.setHidden(true)
-            loadingMessageLabel.setText(Localizations.Label.Error)
-        }
     }
     
     @objc private func handleRefreshMenu() {
@@ -104,27 +94,43 @@ class MainInterfaceController: WKInterfaceController {
     }
     
     @objc private func handle(dataUpdate notification: Notification) {
-        summary = kuStudy.summaryData
-        updateView()
+        data = DataManager.shared.summary()
     }
     
-    private func reorderLibraryData() {
+    // MARK: - Action
+    private func updateData() {
+        DataManager.shared.requestUpdate()
+    }
+    
+    private func updateView() {
+        if orderedData.count > 0 {
+            loadingMessageGroup.setHidden(true)
+            table.setHidden(false)
+            table.setNumberOfRows(orderedData.count, withRowType: "cell")
+            orderedData.enumerated().forEach { (index, data) in
+                let row = table.rowController(at: index) as! LibraryRow
+                row.populate(library: data)
+            }
+        } else {
+            loadingMessageGroup.setHidden(false)
+            table.setHidden(true)
+            loadingMessageLabel.setText("error".localized())
+        }
+    }
+    
+    private func organizeData() {
         let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
         orderedLibraryIds = defaults.array(forKey: "libraryOrder") as? [String]
-        
-        var orderedLibraries = [LibraryData]()
-        for libraryId in orderedLibraryIds {
-            guard let libraryData = summary?.libraries.filter({ $0.libraryType!.identifier == libraryId }).first else { continue }
-            orderedLibraries.append(libraryData)
+        orderedData = orderedLibraryIds.compactMap { identifier in
+            data.libraries.first { identifier == $0.type.identifier }
         }
-        summary?.libraries = orderedLibraries
     }
     
     // MARK: - Handoff
     private func startHandoff() {
-        updateUserActivity(kuStudyHandoffSummary,
-                           userInfo: [kuStudyHandoffSummaryKey: kuStudyHandoffSummaryKey],
-                           webpageURL: nil)
+        let activity = NSUserActivity(activityType: NSUserActivity.ActivityType.summary.rawValue)
+        activity.userInfo = [NSUserActivity.ActivityType.summary.rawValue: NSUserActivity.ActivityType.summary.rawValue]
+        update(activity)
     }
     
     private func stopHandoff() {

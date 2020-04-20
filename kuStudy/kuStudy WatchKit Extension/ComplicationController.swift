@@ -23,25 +23,25 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             let template = CLKComplicationTemplateCircularSmallSimpleImage()
             let image = #imageLiteral(resourceName: "Complication/Circular")
             template.imageProvider = CLKImageProvider(onePieceImage: image)
-            template.imageProvider.tintColor = UIColor.theme
+            template.imageProvider.tintColor = UIColor.appPrimary
             handler(template)
         case .utilitarianSmall:
             let template = CLKComplicationTemplateUtilitarianSmallSquare()
             let image = #imageLiteral(resourceName: "Complication/Utilitarian")
             template.imageProvider = CLKImageProvider(onePieceImage: image)
-            template.imageProvider.tintColor = UIColor.theme
+            template.imageProvider.tintColor = UIColor.appPrimary
             handler(template)
         case .modularSmall:
             let template = CLKComplicationTemplateModularSmallSimpleImage()
             let image = #imageLiteral(resourceName: "Complication/Modular")
             template.imageProvider = CLKImageProvider(onePieceImage: image)
-            template.imageProvider.tintColor = UIColor.theme
+            template.imageProvider.tintColor = UIColor.appPrimary
             handler(template)
         case .extraLarge:
             let template = CLKComplicationTemplateExtraLargeSimpleImage()
             let image = #imageLiteral(resourceName: "Complication/Extra Large")
             template.imageProvider = CLKImageProvider(onePieceImage: image)
-            template.imageProvider.tintColor = UIColor.theme
+            template.imageProvider.tintColor = UIColor.appPrimary
             handler(template)
         case .modularLarge, .utilitarianSmallFlat, .utilitarianLarge:
             handler(nil)
@@ -155,25 +155,25 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
             let template = CLKComplicationTemplateCircularSmallSimpleImage()
             let image = #imageLiteral(resourceName: "Complication/Circular")
             template.imageProvider = CLKImageProvider(onePieceImage: image)
-            template.imageProvider.tintColor = UIColor.theme
+            template.imageProvider.tintColor = UIColor.appPrimary
             finalTemplate = template
         case .utilitarianSmall:
             let template = CLKComplicationTemplateUtilitarianSmallSquare()
             let image = #imageLiteral(resourceName: "Complication/Utilitarian")
             template.imageProvider = CLKImageProvider(onePieceImage: image)
-            template.imageProvider.tintColor = UIColor.theme
+            template.imageProvider.tintColor = UIColor.appPrimary
             finalTemplate = template
         case .modularSmall:
             let template = CLKComplicationTemplateModularSmallSimpleImage()
             let image = #imageLiteral(resourceName: "Complication/Modular")
             template.imageProvider = CLKImageProvider(onePieceImage: image)
-            template.imageProvider.tintColor = UIColor.theme
+            template.imageProvider.tintColor = UIColor.appPrimary
             finalTemplate = template
         case .extraLarge:
             let template = CLKComplicationTemplateExtraLargeSimpleImage()
             let image = #imageLiteral(resourceName: "Complication/Extra Large")
             template.imageProvider = CLKImageProvider(onePieceImage: image)
-            template.imageProvider.tintColor = UIColor.theme
+            template.imageProvider.tintColor = UIColor.appPrimary
             finalTemplate = template
         case .modularLarge, .utilitarianSmallFlat, .utilitarianLarge:
             finalTemplate = nil

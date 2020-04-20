@@ -15,14 +15,12 @@ var sharedContainerUrl: URL? {
     return FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: kuStudySharedContainer)
 }
 
-// MARK: WatchKit
-let kuStudyWatchKitRequestKey = "request"
-let kuStudyWatchKitRequestSummary = "summary"
-let kuStudyWatchKitRequestLibrary = "library"
-let kuStudyWatchKitRequestLibraryKey = "libraryId"
 
-// MARK: Handoff
-let kuStudyHandoffSummary = "com.gbmksquare.kuapps.kuStudy.summaryView"
-let kuStudyHandoffSummaryKey = "kuStudyHandoffSummaryKey"
-let kuStudyHandoffLibrary = "com.gbmksquare.kuapps.kuStudy.libraryView"
-let kuStudyHandoffLibraryIdKey = "kuStudyHandoffLibraryIdKey"
+import UIKit
+
+
+enum AppPreference {
+    static let cornerRadius: CGFloat = 13
+}
+
+

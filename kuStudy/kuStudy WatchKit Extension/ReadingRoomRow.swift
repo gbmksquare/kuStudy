@@ -15,10 +15,10 @@ class ReadingRoomRow: NSObject {
     @IBOutlet var availableLabel: WKInterfaceLabel!
     @IBOutlet var availableTitleLabel: WKInterfaceLabel!
     
-    func populate(sector data: SectorData) {
-        percentIndicator.setBackgroundColor(data.availablePercentageColor)
-        titleLabel.setText(data.name ?? "--")
-        availableLabel.setText(data.available?.readable ?? "--")
-        availableTitleLabel.setText(Localizations.Label.Available)
+    func populate(sector data: StudyArea) {
+        percentIndicator.setBackgroundColor(data.availablePercentage.color)
+        titleLabel.setText(data.name)
+        availableLabel.setText(data.availableSeats.readable)
+        availableTitleLabel.setText("available".localizedFromKit())
     }
 }

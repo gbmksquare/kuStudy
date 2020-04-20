@@ -11,7 +11,7 @@ import kuStudyKit
 import WatchConnectivity
 
 class LibraryOrderViewController: UIViewController, WCSessionDelegate {
-    private lazy var tableView = UITableView(frame: .zero, style: .grouped)
+    private lazy var tableView = UITableView(frame: .zero, style: .insetGrouped)
     
     private var libraryTypes: [LibraryType]!
     private var orderedLibraryIds: [String]!
@@ -42,12 +42,12 @@ class LibraryOrderViewController: UIViewController, WCSessionDelegate {
     
     // MARK: - Setup
     private func setup() {
-        title = Localizations.Label.Settings.LibraryOrder
+        title = "order".localized()
         navigationItem.largeTitleDisplayMode = .automatic
         navigationController?.navigationBar.prefersLargeTitles = true
         
         orderedLibraryIds = Preference.shared.libraryOrder
-        libraryTypes = LibraryType.allTypes()
+        libraryTypes = LibraryType.all
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -80,56 +80,28 @@ class LibraryOrderViewController: UIViewController, WCSessionDelegate {
 extension LibraryOrderViewController: UITableViewDelegate, UITableViewDataSource {
     // Data source
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0: return orderedLibraryIds.count
-        case 1: return 1
-        default: return 0
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section {
-        case 1: return Localizations.Label.Troubleshoot
-        default: return nil
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        switch section {
-        case 1: return Localizations.Label.TroubleshootDescription
-        default: return nil
-        }
+        return orderedLibraryIds.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        switch indexPath.section {
-        case 0:
-            let libraryId = orderedLibraryIds[indexPath.row]
-            let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!
-            cell.textLabel?.text = libraryType.name
-        case 1:
-            cell.textLabel?.text = Localizations.Action.ResetOrder
-        default: break
-        }
+        let libraryId = orderedLibraryIds[indexPath.row]
+        let libraryType = libraryTypes.filter({ $0.rawValue == libraryId }).first!
+        cell.textLabel?.text = libraryType.name
         return cell
     }
     
     // Delegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        Preference.shared.resetLibraryOrder()
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        switch indexPath.section {
-        case 0: return true
-        default: return false
-        }
+        return true
     }
     
     // Delegate - Move
@@ -142,10 +114,7 @@ extension LibraryOrderViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        switch indexPath.section {
-        case 0: return true
-        default: return false
-        }
+        return true
     }
     
     func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {

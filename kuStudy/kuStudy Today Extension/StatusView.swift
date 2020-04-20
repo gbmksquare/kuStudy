@@ -10,12 +10,37 @@ import UIKit
 import SnapKit
 
 class StatusView: UIView {
+    // MARK: - State
+    enum State {
+        case loading
+        case success
+        case error(Error?)
+    }
+    
+    var state: State = .loading {
+        didSet {
+            updateView()
+        }
+    }
+    
+    // MARK: - View
     private lazy var vibracyView: UIVisualEffectView = {
-        let effect = UIVibrancyEffect.widgetSecondary()
+        let effect = UIVibrancyEffect.widgetEffect(forVibrancyStyle: .secondaryLabel)
         return UIVisualEffectView(effect: effect)
     }()
-    private lazy var indicator = UIActivityIndicatorView()
-    private lazy var label = UILabel()
+    
+    private lazy var activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .medium)
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
+    private lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "error.general".localized()
+        label.font = UIFont.preferredFont(forTextStyle: .body)
+        return label
+    }()
     
     // MARK: - Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -26,49 +51,57 @@ class StatusView: UIView {
     override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         setup()
-        setLoadingState()
+        updateViewForLoading()
     }
     
     // MARK: - Setup
     private func setup() {
         backgroundColor = .clear
-        
-        // Vibrancy
+    }
+    
+    private func setupLayout() {
         addSubview(vibracyView)
         vibracyView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
         
-        // Indicator
-        indicator.style = .medium
-        indicator.hidesWhenStopped = true
-        
-        // Label
-        label.text = Localizations.Table.Label.Error
-        label.font = UIFont.preferredFont(forTextStyle: .body)
-        
-        
-        [indicator, label].forEach { vibracyView.contentView.addSubview($0) }
-        
-        indicator.snp.makeConstraints { (make) in
-            make.centerX.equalTo(vibracyView.snp.centerX)
-            make.centerY.equalTo(vibracyView.snp.centerY)
+        vibracyView.contentView.addSubview(activityIndicator)
+        vibracyView.contentView.addSubview(descriptionLabel)
+        activityIndicator.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
         }
-        label.snp.makeConstraints { (make) in
-            make.centerX.equalTo(vibracyView.snp.centerX)
-            make.centerY.equalTo(vibracyView.snp.centerY)
+        descriptionLabel.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
         }
     }
     
     // MARK: - Action
-    func setLoadingState() {
-        indicator.startAnimating()
-        label.isHidden = true
+    private func updateView() {
+        switch state {
+        case .loading:
+            updateViewForLoading()
+        case .success:
+            updateViewForSuccess()
+        case let .error(error):
+            updateViewForError(error?.localizedDescription)
+        }
     }
     
-    func setErrorState(message: String? = nil) {
-        indicator.stopAnimating()
-        label.isHidden = false
-        label.text = message ?? Localizations.Table.Label.Error
+    private func updateViewForLoading() {
+        isHidden = false
+        activityIndicator.startAnimating()
+        descriptionLabel.isHidden = true
+    }
+    
+    private func updateViewForSuccess() {
+        isHidden = true
+        activityIndicator.stopAnimating()
+        descriptionLabel.isHidden = true
+    }
+    
+    private func updateViewForError(_ message: String?) {
+        isHidden = false
+        activityIndicator.stopAnimating()
+        descriptionLabel.isHidden = false
     }
 }

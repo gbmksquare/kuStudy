@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2nL-Qt-mcy" pageOrientation="vertical">
-    <device id="watch44" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2nL-Qt-mcy" pageOrientation="vertical">
+    <device id="watch44"/>
     <dependencies>
-        <deployment identifier="watchOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="16012"/>
     </dependencies>
     <scenes>
         <!--Main Interface Controller-->
@@ -34,12 +31,12 @@
                                                     </label>
                                                     <group width="1" alignment="left" layout="vertical" spacing="2" id="n3N-eK-bRm">
                                                         <items>
+                                                            <label alignment="left" text="0" id="cZk-Vi-Gz9">
+                                                                <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                                            </label>
                                                             <label alignment="left" text="Available" id="L8x-UA-1EB">
                                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                                                            </label>
-                                                            <label alignment="left" text="0" id="cZk-Vi-Gz9">
-                                                                <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
                                                             </label>
                                                         </items>
                                                     </group>
@@ -94,12 +91,12 @@
                                                     </label>
                                                     <group width="1" alignment="left" layout="vertical" spacing="2" id="EvY-iM-0V5">
                                                         <items>
+                                                            <label alignment="left" text="0" id="muO-iS-EC5">
+                                                                <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                                            </label>
                                                             <label alignment="left" text="Available" id="D8l-DD-6AF">
                                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
-                                                            </label>
-                                                            <label alignment="left" text="0" id="muO-iS-EC5">
-                                                                <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
                                                             </label>
                                                         </items>
                                                     </group>

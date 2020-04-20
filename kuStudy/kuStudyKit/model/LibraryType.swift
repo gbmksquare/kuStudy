@@ -9,7 +9,7 @@
 import Foundation
 import CoreLocation
 
-public enum LibraryType: String, Codable {
+public enum LibraryType: String, Codable, CaseIterable {
     case centralLibrary = "1"
     case centralSquare = "2"
     case cdl = "3"
@@ -21,67 +21,40 @@ public enum LibraryType: String, Codable {
         return rawValue
     }
     
-    private var localizedKey: String {
+    private var localizationKey: String {
         switch self {
-        case .centralSquare: return "Library.Name.CentralSquare"
-        case .centralLibrary: return "Library.Name.CentralLibrary"
-        case .hanaSquare: return "Library.Name.HanaSquare"
-        case .scienceLibrary: return "Library.Name.ScienceLibrary"
-        case .cdl: return "Library.Name.Cdl"
-        case .law: return "Library.Name.Law"
+        case .centralSquare: return "library.cs"
+        case .centralLibrary: return "library.cl"
+        case .hanaSquare: return "library.hana"
+        case .scienceLibrary: return "library.science"
+        case .cdl: return "library.cdl"
+        case .law: return "library.law"
         }
-    }
-    
-    public var url: URL? {
-        return URL(string: "https://librsv.korea.ac.kr/?lib=\(rawValue)")
     }
 }
 
 // MARK: - Category
 public extension LibraryType {
-    static func allTypes() -> [LibraryType] {
+    static var all: [LibraryType] {
         return [.centralLibrary, .centralSquare, .hanaSquare, .scienceLibrary, .cdl, .law]
     }
     
-    static func liberalArtCampusTypes() -> [LibraryType] {
+    static var liberalArtCampus: [LibraryType] {
         return [.centralLibrary, .centralSquare, .cdl, .law]
     }
     
-    static func scienceCampusTypes() -> [LibraryType] {
+    static var scienceCampus: [LibraryType] {
         return [.hanaSquare, .scienceLibrary]
     }
 }
 
-// MARK: - Name
+// MARK: - Web
 public extension LibraryType {
-    var name: String {
-        let framework = Bundle(for: kuStudy.self)
-        return NSLocalizedString(localizedKey, bundle: framework, comment: "")
-    }
-    
-    var nameInAlternateLanguage: String {
-        let framework = Bundle(for: kuStudy.self)
-        if name.rangeOfCharacter(from: CharacterSet.alphanumerics.inverted) != nil {
-            // `name` is English
-            if let path = framework.path(forResource: "ko", ofType: "lproj"),
-                let krBundle = Bundle(path: path) {
-                return krBundle.localizedString(forKey: localizedKey, value: nil, table: nil)
-            }
-        } else {
-            // `name` is not English
-            if let path = framework.path(forResource: "Base", ofType: "lproj"),
-                let baseBundle = Bundle(path: path) {
-                return baseBundle.localizedString(forKey: localizedKey, value: nil, table: nil)
-            }
-        }
-        return name
-    }
-    
-    var shortName: String {
-        let framework = Bundle(for: kuStudy.self)
-        return NSLocalizedString(localizedKey + ".Short", bundle: framework, comment: "")
+    var url: URL {
+        return URL(string: "https://librsv.korea.ac.kr/?lib=\(rawValue)")!
     }
 }
+
 
 // MARK: - Map
 public extension LibraryType {
@@ -97,9 +70,28 @@ public extension LibraryType {
     }
 }
 
-// MARK: - API
-internal extension LibraryType {
-    var apiUrl: String {
-        return "https://librsv.korea.ac.kr/libraries/lib-status/\(rawValue)"
+// MARK: - Name
+public extension LibraryType {
+    var name: String {
+        let framework = Bundle(for: DataManager.self)
+        return NSLocalizedString(localizationKey, bundle: framework, comment: "")
+    }
+    
+    var nameInAlternateLanguage: String {
+        let framework = Bundle(for: DataManager.self)
+        if name.rangeOfCharacter(from: CharacterSet.alphanumerics.inverted) != nil {
+            // `name` is English
+            if let path = framework.path(forResource: "ko", ofType: "lproj"),
+                let krBundle = Bundle(path: path) {
+                return krBundle.localizedString(forKey: localizationKey, value: nil, table: nil)
+            }
+        } else {
+            // `name` is not English
+            if let path = framework.path(forResource: "Base", ofType: "lproj"),
+                let baseBundle = Bundle(path: path) {
+                return baseBundle.localizedString(forKey: localizationKey, value: nil, table: nil)
+            }
+        }
+        return name
     }
 }

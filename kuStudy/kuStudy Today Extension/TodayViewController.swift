@@ -12,210 +12,159 @@ import kuStudyKit
 import SnapKit
 
 class TodayViewController: UIViewController {
-    // MARK: - Constants
-    static let leadingAlignmentInset: CGFloat = 20
-    static let trailingAlignmentInset: CGFloat = -60
+    // MARK: - View
+    private lazy var collectionView: UICollectionView = {
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.backgroundColor = .clear
+        collectionView.isScrollEnabled = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(TitleSubtitleValueProgressCell.self,
+                                forCellWithReuseIdentifier: TitleSubtitleValueProgressCell.reuseIdentifier)
+        return collectionView
+    }()
     
-    private lazy var tableView = UITableView(frame: .zero)
-    private lazy var summaryView = UIView()
     private lazy var statusView = StatusView()
     
     // Data
-    private var summary: SummaryData? {
-        didSet { updateView() }
+    private var data = Summary() {
+        didSet {
+            organizeData()
+        }
     }
     
-    var orderedLibraryIds: [String]?
-    
-    // Preference
-    private let numberOfCellPerLine: CGFloat = 1
-    private let lineSpacing: CGFloat = 4
+    private var orderedData = [Library]() {
+        didSet {
+            updateView()
+        }
+    }
     
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        updateData()
+        setupLayout()
     }
     
     // MARK: - Setup
     private func setup() {
-        //        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-        showStatus()
+        Preference.shared.setup()
+        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        
         view.backgroundColor = .clear
-        setupTable()
         
-        // Preference
-        let defaults = UserDefaults(suiteName: kuStudySharedContainer) ?? UserDefaults.standard
-        defaults.register(defaults: ["todayExtensionOrder": LibraryType.allTypes().map({ $0.rawValue }),
-                                     "todayExtensionHidden": []])
-        defaults.synchronize()
-        orderedLibraryIds = defaults.array(forKey: "todayExtensionOrder") as? [String]
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(handleDataUpdated(_:)), name: kuStudy.didUpdateDataNotification, object: nil)
+        // MARK: - Notification
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handle(dataUpdated:)),
+                                               name: DataManager.didUpdateNotification,
+                                               object: DataManager.shared)
     }
     
-    private func setupTable() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(LibraryCell.self, forCellReuseIdentifier: "cell")
-        tableView.backgroundColor = .clear
-        tableView.cellLayoutMarginsFollowReadableWidth = true
-//        tableView.separatorInset = UIEdgeInsets(top: 0,
-//                                                left: TodayViewController.leadingAlignmentInset,
-//                                                bottom: 0,
-//                                                right: TodayViewController.trailingAlignmentInset)
+    private func setupLayout() {
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
         
-        // Layout
-        view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-        ])
+        view.addSubview(statusView)
+        statusView.snp.makeConstraints { (make) in
+            make.edges.equalTo(view.layoutMarginsGuide.snp.edges)
+        }
     }
-}
-
-// MARK: - Action
-extension TodayViewController {
+    
+    // MARK: - Action
     private func updateView() {
-        tableView.reloadData()
+        collectionView.reloadData()
+        
+        if data.libraries.count > 0 {
+            statusView.state = .success
+        } else {
+            statusView.state = .error(nil)
+        }
     }
     
     private func updateData() {
-        kuStudy.startFecthingData()
+        DataManager.shared.requestUpdate()
     }
     
-    // Data
-    @objc private func handleDataUpdated(_ notification: Notification) {
-        if let summary = kuStudy.summaryData, summary.libraries.count > 0 {
-            self.summary = summary
-            hideStatus()
-            showInformation()
-            return
+    private func organizeData() {
+        let orderedLibraryIDs = Preference.shared.libraryOrder
+        orderedData = orderedLibraryIDs.compactMap { identifier in
+            data.libraries.first { identifier == $0.type.identifier }
         }
-        // Error
-        self.summary = nil
-        showStatus()
-        statusView.setErrorState()
-        hideInformation()
     }
     
-    // View
-    private func showStatus() {
-        view.addSubview(statusView)
-        statusView.snp.remakeConstraints { (make) in
-            make.leading.equalTo(view.snp.leading)
-            make.trailing.equalTo(view.snp.trailing)
-            make.top.equalTo(view.snp.top)
-            make.bottom.equalTo(view.snp.bottom)
-        }
-        statusView.setLoadingState()
+    private func openMainApp(for library: LibraryType) {
+        let url = URL(string: "kustudy://?libraryId=\(library.identifier)")!
+        extensionContext?.open(url, completionHandler: nil)
     }
     
-    private func hideStatus() {
-        statusView.removeFromSuperview()
-    }
-    
-    private func showInformation() {
-        extensionContext?.widgetLargestAvailableDisplayMode = .expanded
-        //        [summaryView, collectionView].forEach { view.addSubview($0) }
-        //        [collectionView].forEach { view.addSubview($0) }
-//        [tableView].forEach { view.addSubview($0) }
-        //        summaryView.snp.makeConstraints { (make) in
-        //            make.top.equalTo(view.snp.top)
-        //            make.leading.equalTo(view.snp.leading)
-        //            make.trailing.equalTo(view.snp.trailing)
-        //            make.bottom.equalTo(collectionView.snp.top)
-        //        }
-//        tableView.snp.makeConstraints { (make) in
-//            make.leading.equalTo(view.snp.leading)
-//            make.trailing.equalTo(view.snp.trailing)
-//            make.bottom.equalTo(view.snp.bottom)
-//
-//            make.top.equalTo(view.snp.top)
-//        }
-        tableView.isHidden = false
-    }
-    
-    private func hideInformation() {
-        extensionContext?.widgetLargestAvailableDisplayMode = .compact
-        summaryView.removeFromSuperview()
-//        tableView.removeFromSuperview()
-        tableView.isHidden = true
-    }
-    
-    // MARK: - Main application
-    func openMainApp(libraryId: String? = nil) {
-        let url: URL
-        if let libraryId = libraryId {
-            url = URL(string: "kustudy://?libraryId=\(libraryId)")!
-        } else {
-            url = URL(string: "kustudy://")!
-        }
-        extensionContext?.open(url, completionHandler: { (completed) in
-            
-        })
+    // MARK: - Notification action
+    @objc
+    private func handle(dataUpdated notification: Notification) {
+        data = DataManager.shared.summary()
     }
 }
 
 // MARK: - Widget
 extension TodayViewController: NCWidgetProviding {
     func widgetPerformUpdate(completionHandler: @escaping (NCUpdateResult) -> Void) {
-        completionHandler(.noData)
+        updateData()
+        completionHandler(.newData)
     }
     
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
-        if case .expanded = activeDisplayMode, let count = orderedLibraryIds?.count {
-            let lines = ceil(CGFloat(count) / numberOfCellPerLine)
-            //extensionContext!.widgetMaximumSize(for: .compact).height
-            let height = 44 * lines + lineSpacing * (lines - 1)
-            preferredContentSize = CGSize(width: maxSize.width, height: height)
+        if case .expanded = activeDisplayMode {
+            preferredContentSize = collectionView.contentSize != .zero ? collectionView.contentSize : CGSize(width: maxSize.width, height: 215)
         } else {
-            preferredContentSize = extensionContext!.widgetMaximumSize(for: .compact)
+            preferredContentSize = extensionContext?.widgetMaximumSize(for: .compact) ?? maxSize
         }
     }
 }
 
-// MARK: - Table
-extension TodayViewController: UITableViewDelegate, UITableViewDataSource {
+// MARK: - Collection view
+extension TodayViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     // Delegate
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let libraryId = summary?.libraries[indexPath.row].libraryType?.identifier else { return }
-        openMainApp(libraryId: libraryId)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let library = orderedData[indexPath.item]
+        openMainApp(for: library.type)
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return  44
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let margins = view.layoutMargins
+        return UIEdgeInsets(top: margins.top,
+                            left: margins.left,
+                            bottom: margins.bottom,
+                            right: margins.right)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let margins = view.layoutMargins
+        let width = (collectionView.bounds.width - margins.left - margins.right - 8 * 2) / 3
+        let height = (extensionContext?.widgetMaximumSize(for: .compact).height ?? 110) - margins.top - margins.bottom
+        return CGSize(width: width, height: height)
     }
     
     // Data source
-    func numberOfSections(in tableView: UITableView) -> Int {
-        if tableView.isHidden == true {
-            return 0
-        } else {
-            return 1
-        }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView.isHidden == true {
-            return 0
-        }
-        let count = orderedLibraryIds?.count ?? 0
-        extensionContext?.widgetLargestAvailableDisplayMode = count <= Int(numberOfCellPerLine) ? .compact : .expanded
-        return count
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return orderedData.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! LibraryCell
-        if let libraryId = orderedLibraryIds?[indexPath.row], let data = summary?.libraries.first(where: { return $0.libraryType?.rawValue == libraryId }) {
-            cell.data = data
-        } else {
-//            assertionFailure()
-        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TitleSubtitleValueProgressCell.reuseIdentifier, for: indexPath) as! TitleSubtitleValueProgressCell
+        let library = orderedData[indexPath.item]
+        cell.populate(title:  "available".localizedFromKit().localizedUppercase,
+                      subtitle: library.name,
+                      value: library.availableSeats.readable,
+                      progress: library.occupiedPercentage)
         return cell
     }
 }

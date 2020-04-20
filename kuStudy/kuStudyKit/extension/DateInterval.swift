@@ -9,6 +9,11 @@
 import Foundation
 
 public extension DateInterval {
+    init(start: String, end: String) {
+        self = DateInterval(start: Date(dateString: start + " +0900")!,
+                            end: Date(dateString: end + " +0900")!)
+    }
+    
     var isActive: Bool {
         let today = Date()
         return contains(today)

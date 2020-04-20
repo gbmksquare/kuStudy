@@ -4,40 +4,53 @@
   Created by 구범모 on 2015. 6. 5..
   Copyright (c) 2015년 gbmKSquare. All rights reserved. */
 
-/* MARK: Libraries */
-"Library.Name.CentralLibrary" = "중앙도서관";
+"studyArea" = "열람실";
 
-"Library.Name.CentralSquare" = "중앙광장";
+"library.cl" = "중앙도서관";
 
-"Library.Name.HanaSquare" = "하나스퀘어";
+"library.cs" = "중앙광장";
 
-"Library.Name.ScienceLibrary" = "과학도서관";
+"library.hana" = "하나스퀘어";
 
-"Library.Name.Cdl" = "백주년기념관";
+"library.science" = "과학도서관";
 
-"Library.Name.Sejong" = "세종캠퍼스";
+"library.cdl" = "백주년기념관";
 
-"Library.Name.Law" = "해송법학도서관";
+"library.law" = "해송법학도서관";
 
-"Library.Name.CentralLibrary.Short" = "중도";
+"total" = "전체";
 
-"Library.Name.CentralSquare.Short" = "중광";
+"accessible" = "장애인석";
 
-"Library.Name.HanaSquare.Short" = "하스";
+"laptop" = "노트북 사용 가능";
 
-"Library.Name.ScienceLibrary.Short" = "과도";
+"repairing" = "수리 중";
 
-"Library.Name.Cdl.Short" = "백기";
+"inallotable" = "배정 불가";
 
-"Library.Name.Sejong.Short" = "세종";
+"disabled" = "사용 불가";
 
-"Library.Name.Law.Short" = "법도";
+"useable" = "사용 가능";
 
-"Media.Attribution.Photo" = "사진 촬영: %@";
+"available" = "비어있음";
 
-"Media.Attribution.Timelapse" = "타임랩스: %@";
+"occupied" = "사용 중";
 
-"Media.Attribution.Illustration" = "일러스트: %@";
+"campus.all" = "전체 캠퍼스";
 
-"Media.Attribution.Video" = "비디오 촬영: %@";
+"campus.liberalArts" = "문과 캠퍼스";
+
+"campus.science" = "이과 캠퍼스";
+
+"academicCalendar" = "학사일정";
+
+"studying" = "공부 중";
+
+"event.semester" = "학기";
+
+"event.vacation" = "방학";
+
+"event.midterm" = "중간고사";
+
+"event.finals" = "기말고사";
 

@@ -9,7 +9,7 @@
 import UIKit
 
 class AppIconViewController: UIViewController {
-    private lazy var tableView = UITableView(frame: .zero, style: .grouped)
+    private lazy var tableView = UITableView(frame: .zero, style: .insetGrouped)
     private let icons: [(groupName: String, icons: [AppIcon])] = [
         ("Default", [
             AppIcon(imageName: "AppIcon", name: "Default", description: "Default App Icon"),
@@ -37,7 +37,7 @@ class AppIconViewController: UIViewController {
     
     // MARK: - Setup
     private func setup() {
-        title = Localizations.Label.Settings.AppIcon
+        title = "appIcon".localized()
         navigationItem.largeTitleDisplayMode = .automatic
         navigationController?.navigationBar.prefersLargeTitles = true
         

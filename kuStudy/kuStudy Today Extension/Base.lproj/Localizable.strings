@@ -4,25 +4,5 @@
   Created by BumMo Koo on 2016. 8. 10..
   Copyright © 2016년 gbmKSquare. All rights reserved. */
 
-"Table.Label.Loading" = "Loading...";
-
-"Table.Label.Error" = "Failed to load information.";
-
-"Table.Label.TapToRefresh" = "Tap to refresh";
-
-"Main.Label.NoData" = "--";
-
-"Main.Label.Studying" = "%@ studying";
-
-"Cell.Label.Total" = "Total";
-
-"Cell.Label.Used" = "Occupied";
-
-"Cell.Label.Available" = "Available";
-
-"Cell.Label.NoData" = "--";
-
-"Main.Label.ScienceCampus" = "Science Campus:";
-
-"Main.Label.LiberalArtCampus" = "Liberal Art Campus:";
+"error.general" = "Failed to load";
 

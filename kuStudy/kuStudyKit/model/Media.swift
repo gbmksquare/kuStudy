@@ -9,6 +9,7 @@
 import Foundation
 import kuStudyKit
 
+@available(*, deprecated)
 struct Media {
     enum MediaType: Int {
         case photo, video, timelapse, livePhoto, illustration
@@ -96,6 +97,7 @@ extension Media {
     }
 }
 
+@available(*, deprecated)
 extension MediaManager {
     static let media: [Media] = [
         Media(identifier: "A63644BF-73D1-4453-B7F6-B9DFCCC4A20F",

@@ -8,38 +8,43 @@
 
 import Foundation
 
-enum SettingsMenu: Int {
-    case autoUpdate = 103
-    case autoUpdateInterval = 104
-    case appLibraryOrder = 100
-    case widgetLibraryOrder = 101
-    case advanced = 300
+enum SettingsOptions: Int {
+    case appLibraryOrder
+    case widgetLibraryOrder
+    case advanced
     
+    // MARK: - Value
     var tag: Int { return rawValue }
     
     var title: String {
         switch self {
-        case .autoUpdate: return Localizations.Label.Settings.AutoUpdate
-        case .autoUpdateInterval: return Localizations.Label.Settings.UpdateInterval
         case .appLibraryOrder: return Localizations.Label.Settings.LibraryOrder
         case .widgetLibraryOrder: return Localizations.Label.Settings.TodayOrder
         case .advanced: return Localizations.Label.Settings.Advanced
         }
     }
     
-    static let sectionTitles: [String?] = [Localizations.Label.Settings.UpdateHeader,
-                                           Localizations.Label.Settings.GeneralHeader,
-                                           Localizations.Label.Settings.WidgetHeader,
-                                           Localizations.Label.Settings.Advanced]
-    static let sectionFooters: [String?] = [nil,
-                                            nil,
-                                            nil,
-                                            nil]
-    
-    static let layout: [[SettingsMenu]] = [
-        [.autoUpdate, .autoUpdateInterval],
-        [.appLibraryOrder],
-        [.widgetLibraryOrder],
-        [.advanced]
+    // MARK: - Layout
+    static let layout: [SettingsSection] = [
+        SettingsSection(header: Localizations.Label.Settings.GeneralHeader,
+                footer: nil,
+                rows: [
+                    SettingsRow(menu: .appLibraryOrder)
+        ]),
+        SettingsSection(header: Localizations.Label.Settings.WidgetHeader,
+                footer: nil,
+                rows: [
+                    SettingsRow(menu: .widgetLibraryOrder)
+        ]),
     ]
+}
+
+struct SettingsSection {
+    let header: String?
+    let footer: String?
+    let rows: [SettingsRow]
+}
+
+struct SettingsRow {
+    let menu: SettingsOptions
 }

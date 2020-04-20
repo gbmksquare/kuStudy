@@ -10,14 +10,18 @@ import UIKit
 import SafariServices
 
 class kuAppsSafariViewController: SFSafariViewController {
+    convenience init(url: URL) {
+        self.init(url: url, configuration: .init())
+    }
+    
     override init(url: URL, configuration: SFSafariViewController.Configuration) {
         super.init(url: url, configuration: configuration)
-        preferredControlTintColor = UIColor.theme
+        preferredControlTintColor = .appPrimary
         dismissButtonStyle = .close
         
         let components = Calendar.current.dateComponents([.month, .day], from: Date())
         if components.month == 4 && components.day == 1 {
-            preferredControlTintColor = UIColor.themeAprilFools
+            preferredControlTintColor = .appAprilFoolsPrimary
         }
     }
     
