@@ -20,8 +20,11 @@ class MainSplitViewController: UISplitViewController {
         preferredDisplayMode = .allVisible
         delegate = self
         
+        let detail = UIViewController()
+        detail.view.backgroundColor = .systemGroupedBackground
+        
         let main = UINavigationController(rootViewController: MainViewController())
-        viewControllers = [main]
+        viewControllers = [main, detail]
     }
     
     // MARK: - State restoration
@@ -44,5 +47,13 @@ extension MainSplitViewController: UISplitViewControllerDelegate {
             return true
         }
         return false
+    }
+    
+    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
+        if secondaryViewController is UINavigationController {
+            return false
+        } else {
+            return true
+        }
     }
 }

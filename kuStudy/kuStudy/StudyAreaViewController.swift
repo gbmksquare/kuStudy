@@ -65,10 +65,20 @@ class StudyAreaViewController: UIViewController, Handoffable {
         startHandoff(with: NSUserActivity.studyArea(data, libraryType: libraryType))
     }
     
-    //    override func viewDidLayoutSubviews() {
-    //        super.viewDidLayoutSubviews()
-    //        (collectionView.collectionViewLayout as! UICollectionViewFlowLayout).invalidateLayout()
-    //    }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

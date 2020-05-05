@@ -82,7 +82,10 @@ class ImageTitleActionCell: RoundCornerCell {
         
         containerView.addSubview(mainStackView)
         mainStackView.snp.makeConstraints { (make) in
-            make.edges.lessThanOrEqualToSuperview()
+            make.top.greaterThanOrEqualToSuperview()
+            make.bottom.lessThanOrEqualToSuperview()
+            make.leading.greaterThanOrEqualToSuperview()
+            make.trailing.lessThanOrEqualToSuperview()
             make.center.equalToSuperview()
         }
         

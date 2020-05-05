@@ -96,7 +96,9 @@ extension StudyArea: Summarizable {
  
    "fixedSeat": 0,
    "dayOff": null,
+    "dayOff": "코로나19 어린이날",
  
+    "vaName": "코로나19열람실",
    "vaName": "과학도서관 1층 공사", // Vacation?
    "vaStartTime": "0000",
    "vaEndTime": "0000",
