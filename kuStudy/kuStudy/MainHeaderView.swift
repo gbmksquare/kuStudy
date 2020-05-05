@@ -158,7 +158,7 @@ extension MainHeaderView: UICollectionViewDelegateFlowLayout, UICollectionViewDa
         case 1:
             width = 120
         case 2:
-            width = 150
+            width = 240
         case 3, 4:
             width = 150
         default:

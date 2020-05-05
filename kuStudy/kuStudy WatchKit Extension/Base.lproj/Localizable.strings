@@ -5,5 +5,8 @@
   Copyright (c) 2015년 gbmKSquare. All rights reserved. */
 
 "refresh" = "Refresh";
-"loading" = "loading";
+
+"loading" = "Loading...";
+
 "error" = "Please try again later.";
+

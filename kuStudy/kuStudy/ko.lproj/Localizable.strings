@@ -4,47 +4,64 @@
   Created by 구범모 on 2016. 2. 4..
   Copyright © 2016년 gbmKSquare. All rights reserved. */
 
-"Action.OpenLibraryInSafari" = "웹에서 열기 ↗︎";
+"appIcon" = "앱 아이콘";
 
-"Action.ResetOrder" = "재설정";
+"order" = "도서관 순서";
 
-"Alert.Message.Notification.AccessDenied" = "알림 권한이 없습니다. 설정 앱에서 알림을 켜주세요.";
+"tipJar" = "개발자 팁 주기";
 
-"Alert.Message.Notification.SetTimeInterval" = "다음 시간 후 나에게 알리기";
+"reviewApp" = "리뷰 쓰기";
 
-"Alert.Message.PaymentError" = "구매를 시작할 수 없습니다.";
+"reviewAppDescription" = "리뷰나 피드백을 남겨주세요. 앱 향상에 도움이 됩니다.";
 
-"Label.EndOfSemester" = "종강";
+"externalSettings" = "앱 권한 관리";
 
-"Label.Error" = "이런! 오류가 발생했습니다.";
+"settings" = "설정";
 
-"Label.Hooray" = "야호!";
+"general" = "일반";
 
-"Label.Settings.OpenSettings" = "앱 권한 관리";
+"permission" = "권한";
 
-"Label.Settings.ReviewFooter" = "App Store에 리뷰나 피드백을 남겨주세요! 모든 리뷰는 앱 개발자에게 큰 힘이 됩니다.";
+"link" = "외부 링크";
 
-"Label.Settings.TipJar" = "개발자 응원하기";
+"support" = "지원";
 
-"Label.StartOfSemester" = "개강";
+"about" = "관하여";
 
-"Label.Troubleshoot" = "문제가 있나요?";
+"version" = "버전";
 
-"Label.TroubleshootDescription" = "표시 순서 설정에 문제가 있다면 재설정을 해보세요.";
+"terms" = "사용 약관";
 
-"Legacy.Title.Preference" = "설정 (d)";
+"privacyPolicy" = "개인 정보 처리 방침";
 
-"Library.Button.OpenInAppleMaps" = "지도에서 열기 ↗︎";
+"openSource" = "오픈소스";
 
-"Library.Button.Remind" = "알림";
+"library" = "도서관";
 
-"Library.UpdatedAt" = "마지막 새로 고침: %@";
+"copy" = "복사";
 
-"Label.Settings.Links" = "외부 링크";
+"share" = "공유";
 
-"Label.Settings.OpenLibrarySeats" = "고려대학교 열람실 현황";
+"morning" = "오전";
 
-"Label.Settings.OpenLibrary" = "고려대학교 도서관";
+"afternoon" = "오후";
 
-"Label.Settings.OpenAcademicCalendar" = "고려대학교 학사일정";
+"openAppleMaps" = "지도에서 열기";
 
+"openGoogleMaps" = "구글 지도에서 열기";
+
+"viewWeb" = "웹에서 보기";
+
+"openWeb" = "Safari에서 열기";
+
+"openWebInApp" = "앱 내에서 열기";
+
+"confirm" = "확인";
+
+"error" = "오류";
+
+"openAppStoreFailure" = "App Store을 열 수 없습니다.";
+
+"paymentFailure" = "구매에 실패했습니다.";
+
+"restore" = "복원";

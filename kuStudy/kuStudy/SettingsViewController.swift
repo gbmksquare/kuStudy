@@ -175,7 +175,6 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
         case .tipJar:
             let tipjar = TipJarViewController()
             let navigation = UINavigationController(rootViewController: tipjar)
-            navigation.modalPresentationStyle = .formSheet
             present(navigation, animated: true) { [weak self] in
                 self?.tableView.deselectRow(at: indexPath, animated: true)
             }

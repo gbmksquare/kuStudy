@@ -24,6 +24,7 @@ class TitleDualSubtitleValueCell: RoundCornerCell {
         label.textColor = .secondaryLabel
         label.font = UIFont.systemFont(ofSize: 10, weight: .bold).scaled(for: .callout)
         label.setContentHuggingPriority(.required, for: .vertical)
+        label.setContentCompressionResistancePriority(.required, for: .vertical)
         return label
     }()
     
@@ -32,7 +33,7 @@ class TitleDualSubtitleValueCell: RoundCornerCell {
         stackView.axis = .horizontal
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
-        stackView.spacing = 4.scaled(for: .body)
+        stackView.spacing = 8.scaled(for: .body)
         return stackView
     }()
     
@@ -48,7 +49,9 @@ class TitleDualSubtitleValueCell: RoundCornerCell {
     private lazy var subtitle1Label: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = UIFont.systemFont(ofSize: 12, weight: .semibold).scaled(for: .headline)
+        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: 11, weight: .semibold).scaled(for: .headline)
+        label.setContentHuggingPriority(.required, for: .vertical)
         return label
     }()
     
@@ -64,6 +67,8 @@ class TitleDualSubtitleValueCell: RoundCornerCell {
         progress.trackTintColor = .systemGray4
         progress.progress = 0
         progress.lineWidth = 4
+        progress.accessibilityIgnoresInvertColors = true
+        progress.setContentHuggingPriority(.required, for: .vertical)
         return progress
     }()
     
@@ -79,7 +84,8 @@ class TitleDualSubtitleValueCell: RoundCornerCell {
     private lazy var subtitle2Label: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = UIFont.systemFont(ofSize: 12, weight: .semibold).scaled(for: .headline)
+        label.numberOfLines = 2
+        label.font = UIFont.systemFont(ofSize: 11, weight: .semibold).scaled(for: .headline)
         label.setContentHuggingPriority(.required, for: .vertical)
         return label
     }()
@@ -96,6 +102,7 @@ class TitleDualSubtitleValueCell: RoundCornerCell {
         progress.trackTintColor = .systemGray4
         progress.progress = 0
         progress.lineWidth = 4
+        progress.accessibilityIgnoresInvertColors = true
         progress.setContentHuggingPriority(.required, for: .vertical)
         return progress
     }()

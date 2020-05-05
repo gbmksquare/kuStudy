@@ -6,15 +6,15 @@
 
 "studyArea" = "Study Area";
 
-"library.cl" = "Central Library";
+"library.cl" = "Main Library";
 
-"library.cs" = "Central Square";
+"library.cs" = "Central Plaza";
 
 "library.hana" = "Hana Square";
 
-"library.science" = "Science Library";
+"library.science" = "Science & Engineering Library";
 
-"library.cdl" = "Centennial Digital Library";
+"library.cdl" = "Centennial Memory Hall";
 
 "library.law" = "Haesong Law Library";
 
@@ -38,15 +38,19 @@
 
 "campus.all" = "All Campus";
 
-"campus.liberalArts" = "Liberal Art Campus";
+"campus.liberalArts" = "Humanities and Social Science Campus";
 
-"campus.science" = "Science Campus";
+"campus.science" = "Science & Engineering Campus";
 
 "academicCalendar" = "Academic Calendar";
 
 "studying" = "Studying";
 
 "event.semester" = "Semester";
+
+"event.semesterStart" = "Start of Semester";
+
+"event.semesterEnd" = "End of Semester";
 
 "event.vacation" = "Vacation";
 
@@ -55,7 +59,10 @@
 "event.finals" = "Finals";
 
 "yes" = "Yes";
+
 "no" = "No";
+
 "noEvent" = "No Event";
 
 "ku" = "Korea University";
+

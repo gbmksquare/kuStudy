@@ -15,6 +15,10 @@ extension OSLog {
         return log(category: "default")
     }
     
+    static var store: OSLog {
+        return log(category: "store")
+    }
+    
     static var api: OSLog {
         return log(category: "api")
     }

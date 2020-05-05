@@ -32,7 +32,7 @@ class TitleImageValueCell: RoundCornerCell {
         let label = UILabel()
         label.textColor = .label
         label.textAlignment = .center
-        label.numberOfLines = 1
+        label.numberOfLines = 2
         label.font = UIFont.systemFont(ofSize: 10, weight: .semibold).scaled(for: .body)
         label.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
         return label

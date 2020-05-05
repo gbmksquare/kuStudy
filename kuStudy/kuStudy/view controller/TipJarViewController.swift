@@ -8,17 +8,38 @@
 
 import UIKit
 import StoreKit
+import os.log
 
 class TipJarViewController: UIViewController {
-    private lazy var table = UITableView(frame: .zero, style: .insetGrouped)
+    private lazy var tableView = UITableView(frame: .zero, style: .insetGrouped)
     
-    // Store
+    private lazy var closeButton: UIBarButtonItem = {
+        return UIBarButtonItem(barButtonSystemItem: .close,
+                               target: self,
+                               action: #selector(tap(close:)))
+    }()
+    
+    private lazy var restoreButton: UIBarButtonItem = {
+        return UIBarButtonItem(title: "restore".localized(),
+                               style: .plain,
+                               target: self,
+                               action: #selector(tap(restore:)))
+    }()
+    
+    // MARK: - Data
     private var products: [SKProduct]?
+    private var productRequest: SKProductsRequest?
     
-    // MARK: - View
+    private let identifiers: Set<String> = [
+        "com.gbmksquare.kuapps.kuStudy.TipTier2",
+        "com.gbmksquare.kuapps.kuStudy.TipTier3",
+        "com.gbmksquare.kuapps.kuStudy.TipTier5",
+        "com.gbmksquare.kuapps.kuStudy.TipTier9"
+    ]
+    
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "tipJar".localized()
         setup()
         getProducts()
     }
@@ -31,55 +52,64 @@ class TipJarViewController: UIViewController {
 // MARK: - Setup
 extension TipJarViewController {
     private func setup() {
-        func setupTableView() {
-            table.delegate = self
-            table.dataSource = self
-            table.rowHeight = UITableView.automaticDimension
-            table.estimatedRowHeight = UITableView.automaticDimension
-            
-            view.addSubview(table)
-            table.snp.makeConstraints { (make) in
-                make.edges.equalToSuperview()
-            }
-        }
-        
-        func setupNavigation() {
-            navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(close(_:)))
-        }
-        
         func setupPayment() {
             SKPaymentQueue.default().add(self)
         }
-        
-        setupTableView()
-        setupNavigation()
         setupPayment()
+        
+        title = "tipJar".localized()
+        navigationItem.largeTitleDisplayMode = .automatic
+        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationItem.leftBarButtonItems = [restoreButton]
+        navigationItem.rightBarButtonItems = [closeButton]
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        view.addSubview(tableView)
+        tableView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
     }
     
-    func getProducts() {
-        let identifiers: Set<String> = ["com.gbmksquare.kuapps.kuStudy.TipTier1",
-                                        "com.gbmksquare.kuapps.kuStudy.TipTier2",
-                                        "com.gbmksquare.kuapps.kuStudy.TipTier3"]
-        
-        let product = SKProductsRequest(productIdentifiers: identifiers)
-        product.delegate = self
-        product.start()
+    // MARK: - User interaction
+    @objc
+    private func tap(close sender: UIBarButtonItem) {
+        dismiss(animated: true)
     }
-}
-
-// MARK: - Action
-extension TipJarViewController {
-    @objc func close(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+    
+    @objc
+    private func tap(restore sender: UIBarButtonItem) {
+        SKPaymentQueue.default().restoreCompletedTransactions()
+    }
+    
+    // MARK: - Action
+    private func updateView() {
+        tableView.reloadData()
+    }
+    
+    private func getProducts() {
+        let request = SKProductsRequest(productIdentifiers: identifiers)
+        productRequest = request
+        request.delegate = self
+        request.start()
     }
 }
 
 // MARK: - Store
 extension TipJarViewController: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        let products = response.products
-        self.products = products
-        table.reloadData()
+        products = response.products
+        DispatchQueue.main.async {
+            self.updateView()
+        }
+    }
+    
+    func requestDidFinish(_ request: SKRequest) {
+        os_log(.info, log: .store, "Store request finished")
+    }
+    
+    func request(_ request: SKRequest, didFailWithError error: Error) {
+        os_log(.error, log: .store, "Store request failed - %{PUBLIC}", error.localizedDescription)
     }
 }
 
@@ -89,17 +119,17 @@ extension TipJarViewController: SKPaymentTransactionObserver {
         for transaction in transactions {
             switch transaction.transactionState {
             case .deferred:
-                print("Deferred")
+                os_log(.debug, log: .store, "Deferred - %{PRIVATE}@", transaction.payment.productIdentifier)
             case .purchasing:
-                print("Purchasing")
+                os_log(.debug, log: .store, "Purchasing - %{PRIVATE}@", transaction.payment.productIdentifier)
             case .purchased:
-                print("Purchased - \(transaction.payment.productIdentifier)")
+                os_log(.debug, log: .store, "Purchased - %{PRIVATE}@", transaction.payment.productIdentifier)
                 SKPaymentQueue.default().finishTransaction(transaction)
             case .failed:
-                print("Failed")
+                os_log(.error, log: .store, "Failed - %{PRIVATE}@", transaction.payment.productIdentifier)
                 SKPaymentQueue.default().finishTransaction(transaction)
             case .restored:
-                print("Restored")
+                os_log(.debug, log: .store, "Restored - %{PRIVATE}@", transaction.payment.productIdentifier)
                 SKPaymentQueue.default().finishTransaction(transaction)
             @unknown default:
                 fatalError()
@@ -107,12 +137,12 @@ extension TipJarViewController: SKPaymentTransactionObserver {
         }
     }
     
-    func paymentQueue(_ queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction]) {
-        print("Transaction removed")
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        os_log(.debug, log: .store, "Restore finished")
     }
     
-    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        print("Restore finished")
+    func paymentQueue(_ queue: SKPaymentQueue, removedTransactions transactions: [SKPaymentTransaction]) {
+        os_log(.debug, log: .store, "Transaction removed")
     }
 }
 
@@ -133,8 +163,7 @@ extension TipJarViewController: UITableViewDelegate, UITableViewDataSource {
             alert.addAction(confirm)
             present(alert, animated: true, completion: nil)
         }
-        
-        table.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     // Data source

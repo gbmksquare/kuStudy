@@ -5,41 +5,63 @@
   Copyright © 2016년 gbmKSquare. All rights reserved. */
 
 "appIcon" = "App Icon";
+
 "order" = "Library Order";
+
 "tipJar" = "Tip Developer";
+
 "reviewApp" = "Write a Review";
+
 "reviewAppDescription" = "Leave a feedback or write a review on App Store to help improve this application.";
+
 "externalSettings" = "Manage App Permissions";
 
 "settings" = "Preferences";
+
 "general" = "General";
+
 "permission" = "Permissions";
-"link" = "Links";
+
+"link" = "External Links";
+
 "support" = "Support";
+
 "about" = "About";
+
 "version" = "Version";
+
 "terms" = "Terms & Conditions";
+
 "privacyPolicy" = "Privacy Policy";
+
 "openSource" = "Open Source";
+
 "library" = "Library";
 
 "copy" = "Copy";
+
 "share" = "Share";
 
 "morning" = "Morning";
+
 "afternoon" = "Afternoon";
 
-
 "openAppleMaps" = "Open in Maps";
+
 "openGoogleMaps" = "Open in Google Maps";
 
 "viewWeb" = "View Website";
+
 "openWeb" = "Open in Safari";
+
 "openWebInApp" = "Open inside app";
 
-"summary.studying.prefix" = "People studying at";
-
 "confirm" = "Confirm";
+
 "error" = "Error";
+
 "openAppStoreFailure" = "Failed to open App Store.";
+
 "paymentFailure" = "Failed purchase.";
+
+"restore" = "Restore";

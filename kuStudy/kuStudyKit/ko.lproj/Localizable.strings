@@ -48,9 +48,21 @@
 
 "event.semester" = "학기";
 
+"event.semesterStart" = "개강";
+
+"event.semesterEnd" = "종강";
+
 "event.vacation" = "방학";
 
 "event.midterm" = "중간고사";
 
 "event.finals" = "기말고사";
+
+"yes" = "사용가능";
+
+"no" = "사용불가";
+
+"noEvent" = "이벤트 없음";
+
+"ku" = "고려대학교";
 
