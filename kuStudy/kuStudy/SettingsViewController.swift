@@ -188,7 +188,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
             presentWebpage(url: URL.privacyPolicyURL)
             
         case .openSource:
-            let path = Bundle.main.path(forResource: "Pods-kuStudy-acknowledgements", ofType: "plist")
+            let path = Bundle.main.path(forResource: "kuStudy-acknowledgements", ofType: "plist")
             let viewController = AcknowListViewController(acknowledgementsPlistPath: path)
             navigationController?.pushViewController(viewController, animated: true)
         }
