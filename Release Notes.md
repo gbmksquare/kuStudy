@@ -1,5 +1,37 @@
 # Release Notes 
 
+## 4.0.0
+
+### New Features
+
+* Redesigned user interface.
+* Redesigned today widget.
+* You can now tip developer from settings.
+* Check detail status of each study area.
+* Share seat status from anywhere.
+* Simplified settigns options.
+* Support dark mode.
+* Support iPadOS multi window.
+* Support iPadOS cursor.
+
+### Improvements
+
+* App size reduced from 60MB to 4MB. (107MB full download, 89MB full download, 45.5MB on actual device) to 8MB (7.25MB full install, 4.62MB full download, less than 2MB on actual device)
+
+### Fixed bugs
+
+### Removed features
+
+* Deployment target is now iOS 13.1 instead of 11.0.
+
+### Code improvements
+
+* Updated to Xcode 11.
+* Updated to Swift 5.
+* Updated third party libraries.
+* Migrated to Swift Pacakge Manager.
+* Assets removed.
+
 ## 3.8.0
 
 ### New Features

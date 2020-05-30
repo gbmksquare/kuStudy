@@ -7,13 +7,13 @@
 //
 
 import XCTest
-import SimulatorStatusMagic
 
 class kuStudy_Snapshot: XCTestCase {
+    private let app = XCUIApplication()
+    
     //  MARK: - Setup
     override class func setUp() {
         super.setUp()
-        SDStatusBarManager.sharedInstance().enableOverrides()
     }
         
     override func setUp() {
@@ -29,7 +29,6 @@ class kuStudy_Snapshot: XCTestCase {
         }
         
         // Launch
-        let app = XCUIApplication()
         setupSnapshot(app)
         app.launchArguments = ["Snapshot"]
         app.launch()
@@ -41,42 +40,32 @@ class kuStudy_Snapshot: XCTestCase {
     
     override class func tearDown() {
         super.tearDown()
-        SDStatusBarManager.sharedInstance().disableOverrides()
     }
     
     // MARK: - Snapshot
     func testSnapshot() {
-        let app = XCUIApplication()
-        let tables = app.tables
-        let tabBar = app.tabBars.firstMatch
-        let backButton = tabBar.buttons["Tab 0"]
         let deviceInterfaceIdiom = UIDevice.current.userInterfaceIdiom
+        let collectionView = app.collectionViews.firstMatch
+        let cells = collectionView.cells
         
-        snapshot("0")
+        if deviceInterfaceIdiom == .phone {
+            snapshot("0")
+        }
         
-        let cellIds = (0...4).map { "Summary Cell \($0)" }
-        let names = ["1", "2", "3", "4", "5"]
-        
-        for (index, cellId) in cellIds.enumerated() {
-            // iPad doesn't require this screenshot because it's the same as 0.png
-            if index == 0, deviceInterfaceIdiom == .pad { continue }
-                
-            let cell = tables.cells[cellId]
-            if cell.isHittable {
-                cell.tap()
-                snapshot(names[index])
-                if deviceInterfaceIdiom == .phone {
-                 backButton.tap()
-                }
-            } else {
-                // Drag to cell
-                tables.firstMatch.scrollTo(element: cell)
-
-                cell.tap()
-                snapshot(names[index])
-                if deviceInterfaceIdiom == .phone {
-                    backButton.tap()
-                }
+        (1...3).forEach { index in
+            let cell = cells.element(boundBy: index)
+            cell.tap()
+            snapshot("\(index)")
+            
+            if index == 3 {
+                cells.firstMatch.tap()
+                snapshot("\(index)_detail")
+                return
+            }
+            
+            if deviceInterfaceIdiom == .phone {
+                let backButton = app.navigationBars.buttons.firstMatch
+                backButton.tap()
             }
         }
     }

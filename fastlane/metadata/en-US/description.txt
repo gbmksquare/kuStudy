@@ -26,5 +26,7 @@ Accessibility:
 • Use Dynamic Type to adjust font that is pleasing to your eyes.
 • Smart Invert shows images as meant to be in inverted mode.
 
+This app doesn't use any third party analytics to collect your data.
 
-Happy studying and enjoy the campus! :)
+
+Study hard! :)

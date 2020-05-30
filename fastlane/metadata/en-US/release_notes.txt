@@ -1,14 +1,14 @@
 New Features
-• Recreated Apple Watch from the ground up. New Apple Watch app has bigger and more legible text.
-• Added Privacy Policy to settings.
-• Added support for iPad Pro 3rd generation.
+• Completely new user interface with detailed information.
+• Redesigned today widget.
+• Adds support for dark mode.
+• Adds support for multi-window on iPadOS.
+• Adds support for trackpad and mouse on iPadOS.
+• Share seats status via long press or right click.
+• You can now tip developers from settings menu.
 
 Improvements
-• Updated some localizations.
-• Updated third party libraries.
+• App size has drastically reduced from 60MB to 4MB.
+• Settings options are simplified.
 
-Bug Fixes
-• Fixed drag-and-drop to reorder library not working.
-• Fixed a typo.
-
-Happy studying! :)
+Study hard! :)

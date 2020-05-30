@@ -10,7 +10,6 @@
 		160415512170ECED00239776 /* ReadingRoomRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160415502170ECED00239776 /* ReadingRoomRow.swift */; };
 		1604210121D23EB80083F1B2 /* kuAppsSafariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1604210021D23EB80083F1B2 /* kuAppsSafariViewController.swift */; };
 		160505EE1D6EDC1D0033B123 /* kuStudy_Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160505ED1D6EDC1D0033B123 /* kuStudy_Snapshot.swift */; };
-		160505F71D6EDC8B0033B123 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160505F51D6EDC450033B123 /* SnapshotHelper.swift */; };
 		16051F2F1F99E69500EC9285 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16051F2E1F99E69500EC9285 /* DataManager.swift */; };
 		16051F301F99E69500EC9285 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16051F2E1F99E69500EC9285 /* DataManager.swift */; };
 		160FFA56243AD95500AB20D1 /* StudyAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160FFA55243AD95500AB20D1 /* StudyAreaViewController.swift */; };
@@ -30,6 +29,7 @@
 		16136BFC1B1C44BA00B3F744 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		16251CAD1B232D650035F2D9 /* Definitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167246191B1B13610083035F /* Definitions.swift */; };
 		1625B4621F44386700744C01 /* NotificationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1625B4611F44386700744C01 /* NotificationCoordinator.swift */; };
+		16275685248273300020A00A /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160505F51D6EDC450033B123 /* SnapshotHelper.swift */; };
 		1631A2D71CEF51480078381F /* LibraryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2D61CEF51480078381F /* LibraryType.swift */; };
 		1631A2D81CEF51480078381F /* LibraryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1631A2D61CEF51480078381F /* LibraryType.swift */; };
 		1640139024301FB800D455E4 /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1640138F24301FB800D455E4 /* ReuseIdentifiable.swift */; };
@@ -1545,7 +1545,7 @@
 			files = (
 				160505EE1D6EDC1D0033B123 /* kuStudy_Snapshot.swift in Sources */,
 				16DE4FA3211A6F3A00CFEAE8 /* XCUIElement.swift in Sources */,
-				160505F71D6EDC8B0033B123 /* SnapshotHelper.swift in Sources */,
+				16275685248273300020A00A /* SnapshotHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1865,7 +1865,6 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 3ZTVE7CS5L;
 				INFOPLIST_FILE = "kuStudy Snapshot/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1884,7 +1883,6 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				DEVELOPMENT_TEAM = 3ZTVE7CS5L;
 				INFOPLIST_FILE = "kuStudy Snapshot/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
