@@ -246,7 +246,7 @@ extension MainHeaderView {
             }
         case 1, 2:
             let content = """
-\("summary.studying.prefix".localized()) \("ku".localizedFromKit())
+\("studying".localizedFromKit()) \("ku".localizedFromKit())
 \("total".localizedFromKit()): \(data.occupiedSeats.readable)
 \("campus.liberalArts".localizedFromKit()): \(data.occupiedSeats(for: LibraryType.liberalArtCampus).readable)
 \("campus.science".localizedFromKit()): \(data.occupiedSeats(for: LibraryType.scienceCampus).readable)

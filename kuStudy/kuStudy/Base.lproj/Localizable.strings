@@ -20,7 +20,7 @@
 
 "general" = "General";
 
-"permission" = "Permissions";
+"permission " = "Permissions";
 
 "link" = "External Links";
 
@@ -62,6 +62,11 @@
 
 "openAppStoreFailure" = "Failed to open App Store.";
 
-"paymentFailure" = "Failed purchase.";
+"paymentFailure" = "Payment failed.";
 
 "restore" = "Restore";
+
+"success" = "Success!";
+
+"paymentSuccess" = "Payment success. Thank you!";
+
