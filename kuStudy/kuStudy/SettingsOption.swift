@@ -42,7 +42,7 @@ enum SettingsOption: Int {
         SettingsSection(header: "general".localized(),
                         footer: nil,
                         rows: [
-                            .appIcon,
+//                            .appIcon,
                             .appLibraryOrder
         ]),
         SettingsSection(header: "permission".localized(),
