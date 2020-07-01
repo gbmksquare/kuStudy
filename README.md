@@ -1,33 +1,42 @@
-# kuStudy - Korea University Reading Room App
-
------
-
-<img src="./MockUp.jpg" width="800">
-
-## Installation
-
-* Xcode 10 and above
-* Swift 4.2
-* CocoaPods
+# kuStudy - Korea University Study Area App
 
 
 
-## Build
+__Download on App Store__
 
-This project uses CocoaPods to manage dependency and fastlane for localization.
-
-
-
-Run `pod install` and `pod update` for updating third party libraries, and `fastlane localize` to translate strings. For more, see Fastfile.
+https://apps.apple.com/app/id925255895
 
 
+
+__Specification__
+
+Built with Xcode 11, Swift 5, dependency managed by Swift Package Manager.
+
+
+
+__Notice__
 
 Alternative icons are manager using `embed-alternate-icons` buidl phase. See https://github.com/alexaubry/alternate-icons for details.
 
 
 
-## Credit
+__Credit__
 
-__BumMo Koo__: Develop / Design / Internaionalization
+Developed & Designed by __BumMo Koo__
 
-Photography credits are in app settings.
+
+
+__Contribution__
+
+If you are interested in contributing to this app, contact me at ksquareatm@gmail.com.
+
+
+
+## LICENSE
+
+__Apache License__
+
+See LICENSE file.
+
+_Name and symbol of Korea University are trademarks of Korea University. Refer to [Korea University website](http://www.korea.ac.kr/mbshome/mbs/university/subview.do?id=university_010410010000)_.
+
