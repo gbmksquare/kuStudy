@@ -1,6 +1,6 @@
 # kuStudy - Korea University Study Area App
 
-
+![Header Image](./Images/hero.jpg)
 
 __Download on App Store__
 
